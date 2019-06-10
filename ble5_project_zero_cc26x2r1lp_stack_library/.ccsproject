@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<ccsVersion value="8.3.0"/>
+	<deviceVariant value="Cortex M.CC2642R1F"/>
+	<deviceFamily value="TMS470"/>
+	<deviceEndianness value="little"/>
+	<codegenToolVersion value="18.1.5.LTS"/>
+	<isElfFormat value="true"/>
+	<createSlaveProjects value=""/>
+	<templateProperties value="id=ble5_project_zero_cc26x2r1lp_stack_library.projectspec.ble5_project_zero_cc26x2r1lp_stack_library,products=com.ti.rtsc.XDCtools:3.50.07.20_core,target=ti.targets.arm.elf.M4F,platform=ti.platforms.simplelink:CC2642R1F,buildProfile=release,isHybrid=true,configuroOptions=--compileOptions ${COMPILER_FLAGS}"/>
+	<origin value="C:\TI\simplelink_cc26x2_sdk_2_20_00_36\examples\rtos\CC26X2R1_LAUNCHXL\ble5stack\project_zero\tirtos\ccs\ble5_project_zero_cc26x2r1lp_stack_library.projectspec"/>
+	<filesToOpen value=""/>
+</projectOptions>
