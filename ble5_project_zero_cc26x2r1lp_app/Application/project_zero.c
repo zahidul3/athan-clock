@@ -288,13 +288,13 @@ int32_t secCalibrationCnt = 0;
 TsDateTime currentDateTime =
         {
          10, //sec
-         7, //min
-         2, //hour
-         6, //day
-         6, //month
-         19,//year
-         1, //dayOfWeek 0-6, where 0 = Sunday
-         0 //zone
+         26, //min
+         23, //hour
+         9,  //day
+         6,  //month
+         19, //year
+         1,  //dayOfWeek 0-6, where 0 = Sunday
+         0   //zone
         };
 
 #pragma DATA_ALIGN(currentAthanTimesDay, 8)
