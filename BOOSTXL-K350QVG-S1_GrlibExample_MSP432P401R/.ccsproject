@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<ccsVersion value="8.3.0"/>
+	<deviceVariant value="MSP432P401R"/>
+	<deviceFamily value="MSP432"/>
+	<deviceEndianness value="little"/>
+	<codegenToolVersion value="18.1.5.LTS"/>
+	<isElfFormat value="true"/>
+	<linkerCommandFile value="msp432p401r.cmd"/>
+	<rts value="libc.a"/>
+	<createSlaveProjects value=""/>
+	<templateProperties value="id=BOOSTXL-K350QVG-S1_GrlibExample_MSP432P401R.projectspec.BOOSTXL-K350QVG-S1_GrlibExample_MSP432P401R"/>
+	<origin value="C:/workspace_v8_msp/BOOSTXL-K350QVG-S1_GrlibExample_MSP432P401R"/>
+	<filesToOpen value="main.c"/>
+</projectOptions>
