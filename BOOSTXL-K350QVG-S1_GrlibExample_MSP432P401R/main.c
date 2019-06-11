@@ -34,7 +34,11 @@
 #include "driverlib.h"
 
 /* Standard Includes */
+#include <stdlib.h>
+#include <stdio.h>
 #include <stdint.h>
+#include <string.h>
+#include <stdbool.h>
 
 /* GrLib Includes */
 #include "grlib.h"
@@ -204,19 +208,6 @@ void initI2C(void)
     MAP_I2C_enableInterrupt(EUSCI_B0_BASE, EUSCI_B_I2C_START_INTERRUPT);
     MAP_Interrupt_enableSleepOnIsrExit();
 }
-/* EUSCI A0 UART ISR - Echoes data back to PC host */
-void EUSCIA0_IRQHandler(void)
-{
-    uint32_t status = MAP_UART_getEnabledInterruptStatus(EUSCI_A0_BASE);
-
-    MAP_UART_clearInterruptFlag(EUSCI_A0_BASE, status);
-
-    if(status & EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
-    {
-        MAP_UART_transmitData(EUSCI_A0_BASE, MAP_UART_receiveData(EUSCI_A0_BASE));
-    }
-
-}
 
 static uint32_t index = 0;
 
@@ -272,7 +263,8 @@ void EUSCIA2_IRQHandler(void)
 
         if(index >= sizeof(TsCurrentTime) && UartLcdState == UART_RECEIVING_CURRENT_TIME)
         {
-            MAP_UART_transmitData(EUSCI_A0_BASE, 'M');
+            printDebug("Received current time\n\r");
+
             CurrentHour = rxBuffer[1];
             CurrentMinute = rxBuffer[2];
             //setCurrentTime12Hr(currentDateTime);
@@ -286,7 +278,7 @@ void EUSCIA2_IRQHandler(void)
         {
             memcpy(&currentAthanTimesDay.athanTimes[0].athanType, rxBuffer, sizeof(currentAthanTimesDay));
             g_ranDemo = true;
-            MAP_UART_transmitData(EUSCI_A0_BASE, 'F');
+            printDebug("Received athan time\n\r");
             drawMainMenu();
             UartLcdState = UART_FINISH_ATHAN_TIME;
             index = 0;
@@ -311,12 +303,13 @@ void initUART0Debug(void)
     MAP_UART_enableModule(EUSCI_A0_BASE);
 
     /* Enabling interrupts */
-    MAP_UART_enableInterrupt(EUSCI_A0_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT);
+    MAP_UART_enableInterrupt(EUSCI_A0_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT|EUSCI_A_UART_TRANSMIT_INTERRUPT);
     MAP_Interrupt_enableInterrupt(INT_EUSCIA0);
     MAP_Interrupt_enableSleepOnIsrExit();
     MAP_Interrupt_enableMaster();
     //![Simple UART Example]
 }
+
 void initUART(void)
 {
     /* Selecting P3.2/PM_UCA2RXD/PM_UCA2SOMI and P3.3/PM_UCA2TXD/PM_UCA2SIMO in UART mode */
@@ -339,6 +332,52 @@ void initUART(void)
     //MAP_Interrupt_enableSleepOnIsrExit();
     //MAP_Interrupt_enableMaster();
     //![Simple UART Example]
+}
+
+char * DebugString;
+uint8_t DebugStringLen;
+uint8_t DebugStringIndex;
+bool printDebugInProgress = false;
+
+/* EUSCI A0 UART ISR - Echoes data back to PC host */
+void EUSCIA0_IRQHandler(void)
+{
+    uint32_t status = MAP_UART_getEnabledInterruptStatus(EUSCI_A0_BASE);
+
+    MAP_UART_clearInterruptFlag(EUSCI_A0_BASE, status);
+
+    if(status & EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
+    {
+        MAP_UART_transmitData(EUSCI_A0_BASE, MAP_UART_receiveData(EUSCI_A0_BASE));
+    }
+    else if(status & EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG)
+    {
+        if(DebugStringLen)
+        {
+            MAP_UART_transmitData(EUSCI_A0_BASE, DebugString[DebugStringIndex++]);
+            DebugStringLen--;
+        }
+        else
+        {
+            printDebugInProgress = false;
+            free(DebugString);
+        }
+    }
+
+}
+
+void printDebug(char * debugString)
+{
+    if(printDebugInProgress == false)
+    {
+        DebugStringIndex = 0;
+        printDebugInProgress = true;
+        DebugStringLen = strlen(debugString);
+        DebugString = malloc(DebugStringLen);
+        memcpy(DebugString, debugString, DebugStringLen);
+        MAP_UART_transmitData(EUSCI_A0_BASE, DebugString[DebugStringIndex++]);
+        DebugStringLen--;
+    }
 }
 
 void main(void)
@@ -370,6 +409,9 @@ void main(void)
 
     initUART();
     initUART0Debug();
+
+    printDebug("Hello World!\n\r");
+
     // Loop to detect touch
     while(1)
     {
@@ -478,7 +520,7 @@ void drawMainMenu(void)
 {
     char buffer[NAMAZ_TIME_SIZE];
 
-    MAP_UART_transmitData(EUSCI_A0_BASE, 'R');
+    printDebug("Drawing Main Menu\n\r");
 
     Graphics_setForegroundColor(&g_sContext, GRAPHICS_COLOR_BLUE);
     Graphics_setBackgroundColor(&g_sContext, GRAPHICS_COLOR_BLACK);
