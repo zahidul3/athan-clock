@@ -81,6 +81,7 @@ extern PIN_Handle spiPinHandle;
 #define PA_DAC_SYNC_PIN PIN_ID(14)  //CC26X2R1_LAUNCHXL_PIN_BTN2
 #define LCD_RESET_PIN   PIN_ID(16)  //CC26X2R1_LAUNCHXL_DIO16_TDO
 #define LCD_SDC_PIN     PIN_ID(21)  //CC26X2R1_LAUNCHXL_DIO21
+#define LCD_INT_PIN     PIN_ID(23)  //UART INTERRUPT PIN
 
 /*********************************************************************
  * MACROS

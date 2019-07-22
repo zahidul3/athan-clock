@@ -74,7 +74,6 @@
 #define LCD_RESET_PORT     GPIO_PORT_P3
 #define LCD_PWM_PORT       GPIO_PORT_P2
 
-
 // Pins from MSP430 connected to LCD
 #define LCD_SDI_PIN                      GPIO_PIN6
 #define LCD_SDI_PIN_FUNCTION             GPIO_PRIMARY_MODULE_FUNCTION
@@ -88,10 +87,10 @@
 // Pins from MSP430 mode selection
 
 // Definition of USCI base address to be used for SPI communication
-#define LCD_EUSCI_MODULE              EUSCI_B0_BASE
+#define LCD_EUSCI_MODULE                EUSCI_B0_BASE
 
 // Definition of TIMER_A base address to be used for backlight control
-#define LCD_TIMER_BASE_BKLT       TIMER_B0_BASE
+#define LCD_TIMER_BASE_BKLT             TIMER_B0_BASE
 
 //*****************************************************************************
 //

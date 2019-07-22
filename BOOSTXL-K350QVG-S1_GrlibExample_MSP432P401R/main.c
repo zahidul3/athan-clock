@@ -74,6 +74,18 @@ void runPrimitivesDemo(void);
 void runImagesDemo(void);
 void drawRestarDemo(void);
 
+#define CC_INT_PORT         GPIO_PORT_P6
+#define CC_INT_PIN          GPIO_PIN0
+
+#define HEARTBEAT_PORT      GPIO_PORT_P1
+#define HEARTBEAT_PIN       GPIO_PIN0
+
+#define HEARTBEAT_PORT      GPIO_PORT_P1
+#define HEARTBEAT_PIN       GPIO_PIN0
+
+#define BUTTON1_PORT        GPIO_PORT_P1
+#define BUTTON1_PIN         GPIO_PIN1
+
 /* Application Defines */
 #define SLAVE_ADDRESS_1     0x40
 #define NUM_OF_RX_BYTES     4
@@ -264,6 +276,7 @@ void EUSCIA2_IRQHandler(void)
         if(index >= sizeof(TsCurrentTime) && UartLcdState == UART_RECEIVING_CURRENT_TIME)
         {
             printDebug("Received current time\n\r");
+            GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
 
             CurrentHour = rxBuffer[1];
             CurrentMinute = rxBuffer[2];
@@ -303,7 +316,7 @@ void initUART0Debug(void)
     MAP_UART_enableModule(EUSCI_A0_BASE);
 
     /* Enabling interrupts */
-    MAP_UART_enableInterrupt(EUSCI_A0_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT|EUSCI_A_UART_TRANSMIT_INTERRUPT);
+    MAP_UART_enableInterrupt(EUSCI_A0_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT | EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG);
     MAP_Interrupt_enableInterrupt(INT_EUSCIA0);
     MAP_Interrupt_enableSleepOnIsrExit();
     MAP_Interrupt_enableMaster();
@@ -380,16 +393,62 @@ void printDebug(char * debugString)
     }
 }
 
+void buttonIntHandler(void)
+{
+    GPIO_clearInterruptFlag(BUTTON1_PORT, BUTTON1_PIN);
+    //GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
+
+    printDebug("Button Pressed!\n\r");
+    GPIO_toggleOutputOnPin(CC_INT_PORT, CC_INT_PIN);
+
+    MAP_UART_transmitData(EUSCI_A2_BASE, 'I');
+}
+
+uint32_t sysTickCount = 0;
+/*
+ * SysTick interrupt handler. This handler toggles RGB LED on/off.
+ */
+void SysTick_Handler(void)
+{
+    sysTickCount++;
+    GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
+
+}
+
 void main(void)
  {
 //  int16_t ulIdx;
     WDT_A_hold(__WDT_A_BASE__);
+    MAP_Interrupt_disableMaster();
 
     /* Initialize the demo. */
     boardInit();
     clockInit();
     initializeDemoButtons();
 
+    //
+    // Configure the pins that connect to the LCD as GPIO outputs.
+    //
+    GPIO_setAsOutputPin(CC_INT_PORT, CC_INT_PIN);
+    GPIO_setOutputLowOnPin(CC_INT_PORT, CC_INT_PIN);
+
+    GPIO_setAsOutputPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
+    GPIO_setOutputLowOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
+
+    GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
+
+    //setup S1 Left Button GPIO
+    GPIO_setAsInputPinWithPullUpResistor(BUTTON1_PORT, BUTTON1_PIN);
+    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P1, GPIO_PIN1);
+    GPIO_interruptEdgeSelect(BUTTON1_PORT, BUTTON1_PIN, GPIO_HIGH_TO_LOW_TRANSITION);
+    GPIO_registerInterrupt(BUTTON1_PORT, buttonIntHandler);
+    GPIO_enableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
+
+    MAP_SysTick_setPeriod(48000000);
+    MAP_SysTick_enableModule();
+    MAP_SysTick_enableInterrupt();
+
+    MAP_Interrupt_enableMaster();
 
     /* Globally enable interrupts. */
     __enable_interrupt();
@@ -408,7 +467,7 @@ void main(void)
     //drawTimeMenu();
 
     initUART();
-    initUART0Debug();
+    initUART0Debug(); //9600baud 8N1
 
     printDebug("Hello World!\n\r");
 
@@ -499,9 +558,6 @@ void initializeDemoButtons(void)
     noButton.textYPos = 90;
     noButton.text = "NO";
     noButton.font = &g_sFontCm18;
-
-
-
 }
 
 void drawTimeMenu(void)
@@ -766,9 +822,14 @@ void clockInit(void)
     PCM_setPowerState( PCM_AM_DCDC_VCORE1 );
     CS_setDCOCenteredFrequency( CS_DCO_FREQUENCY_48 );
     CS_setDCOFrequency(48000000);
-    CS_initClockSignal(CS_MCLK, CS_DCOCLK_SELECT, 1);
+    CS_initClockSignal(CS_MCLK, CS_DCOCLK_SELECT, 375);
     CS_initClockSignal(CS_SMCLK, CS_DCOCLK_SELECT, 1);
     CS_initClockSignal(CS_HSMCLK, CS_DCOCLK_SELECT, 1);
+    /* Setting MCLK to REFO at 128Khz for LF mode */
+    //MAP_CS_setReferenceOscillatorFrequency(CS_REFO_128KHZ);
+    //MAP_CS_initClockSignal(CS_MCLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+    //MAP_PCM_setPowerState(PCM_AM_LF_VCORE0);
+    /* Configure and enable SysTick */
 
     return;
 }

@@ -60,6 +60,9 @@
 #include <ti/sysbios/knl/Queue.h>
 #include <ti/drivers/utils/List.h>
 
+#include <ti/drivers/Power.h>
+#include <ti/drivers/power/PowerCC26XX.h>
+
 #include <ti/drivers/I2C.h>
 
 //#include <xdc/runtime/Log.h> // Comment this in to use xdc.runtime.Log
@@ -313,6 +316,7 @@ uint8 currentHourStandard = 0;
 uint8 currentMinStandard = 0;
 
 UART_Handle uart1Handle = NULL;
+char uart1ReadBuf[16] = {0};
 /*********************************************************************
  * LOCAL VARIABLES
  */
@@ -377,15 +381,15 @@ static List_List setPhyCommStatList;
 static List_List paramUpdateList;
 
 /* Pin driver handles */
-//PIN_Handle buttonPinHandle;
+PIN_Handle intPinHandle;
 PIN_Handle ledPinHandle;
 
 /* Global memory storage for a PIN_Config table */
 static PIN_State ledPinState;
+static PIN_State intPinState;
 
 PIN_Handle spiPinHandle;
 static PIN_State spiPinState;
-
 
 PIN_Config spiPinTable[] = {
     PA_DAC_SYNC_PIN | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
@@ -398,10 +402,17 @@ PIN_Config spiPinTable[] = {
  *   - LEDs Board_PIN_LED0 & Board_PIN_LED1 are off.
  */
 PIN_Config ledPinTable[] = {
-    PZ_RLED_PIN | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL |
-    PIN_DRVSTR_MAX,
-    Board_PIN_GLED | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL |
-    PIN_DRVSTR_MAX,
+    PZ_RLED_PIN | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+    Board_PIN_GLED | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
+    PIN_TERMINATE
+};
+
+/*
+ * Initial LED pin configuration table
+ *   - LEDs Board_PIN_LED0 & Board_PIN_LED1 are off.
+ */
+PIN_Config intPinTable[] = {
+    LCD_INT_PIN | PIN_INPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     PIN_TERMINATE
 };
 
@@ -502,6 +513,8 @@ static void ProjectZero_handleUpdateLinkEvent(gapLinkUpdateEvent_t *pEvt);
 static void ProjectZero_paramUpdClockHandler(UArg arg);
 static void ProjectZero_processConnEvt(Gap_ConnEventRpt_t *pReport);
 static void ProjectZero_connEvtCB(Gap_ConnEventRpt_t *pReport);
+
+static void intCallbackFxn(PIN_Handle handle, PIN_Id pinId);
 
 /* Utility functions */
 static status_t ProjectZero_enqueueMsg(uint8_t event,
@@ -696,6 +709,12 @@ void IncDateTime(uint8 updateStats)
     }
     DATE_TIME.Second++;
 
+    //Heartbeat GREEN LED @ 1Hz
+    if(PIN_getOutputValue(PZ_GLED_PIN))
+        PIN_setOutputValue(ledPinHandle, PZ_GLED_PIN, 0);
+    else
+        PIN_setOutputValue(ledPinHandle, PZ_GLED_PIN, 1);
+
     //update athan time with delay
     if(gUpdateAthanTime && uart1Handle && DATE_TIME.Second==7)
     {
@@ -727,7 +746,7 @@ void IncDateTime(uint8 updateStats)
             DATE_TIME.Year++;
           }
         }
-        initAthanTimes();
+
         //sendAthanToLCD(); //update athan on daily basis
       }
 //      uint8 tz;
@@ -752,7 +771,7 @@ void IncDateTime(uint8 updateStats)
 //          }
 //        }
 //      }
-
+      sendAthanTimes();
     }
 
     if(isAthanTime(DATE_TIME)) //check every min
@@ -790,7 +809,7 @@ static void AthanClock_clockHandler(UArg arg)
  }
 }
 
-void initAthanTimes(void)
+void sendAthanTimes(void)
 {
     switch(currentDateTime.Month)
     {
@@ -831,8 +850,6 @@ void initAthanTimes(void)
             memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesDec[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
             break;
     }
-
-    //sendUART1data();
     gUpdateAthanTime = true;
 }
 
@@ -912,6 +929,18 @@ typedef enum UARTLCDstate{
 
 UARTLCDSTATE UartLcdState = UART_IDLE;
 
+
+static void LCDUART_readCallBack(UART_Handle handle, void *ptr, size_t size)
+{
+    ICall_CSState key;
+    key = ICall_enterCriticalSection();
+
+    Log_info2("Read %d bytes from LCD: %s", size, (char*)ptr);
+    ICall_leaveCriticalSection(key);
+
+    Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);
+}
+
 static void LCDUART_writeCallBack(UART_Handle handle, void *ptr, size_t size)
 {
     ICall_CSState key;
@@ -955,6 +984,7 @@ void initUART1(void)
     uartParamsLCD.readEcho = UART_ECHO_OFF;
 
     uartParamsLCD.writeCallback = LCDUART_writeCallBack;
+    uartParamsLCD.readCallback = LCDUART_readCallBack;
 
     uart1Handle = UART_open(Board_UART1, &uartParamsLCD);
 
@@ -963,6 +993,39 @@ void initUART1(void)
     else
         Log_error0("UART 1 NOT Initialized");
 
+    UART_read(uart1Handle, uart1ReadBuf, 1);
+}
+
+/*********************************************************************
+ * @fn     intCallbackFxn
+ *
+ * @brief  Callback from PIN driver on interrupt
+ *
+ *         Sets in motion the debouncing.
+ *
+ * @param  handle    The PIN_Handle instance this is about
+ * @param  pinId     The pin that generated the interrupt
+ */
+static void intCallbackFxn(PIN_Handle handle, PIN_Id pinId)
+{
+    Log_info0("In Button interrupt");
+
+    Power_setConstraint(PowerCC26XX_SB_DISALLOW);
+
+    UART_read(uart1Handle, uart1ReadBuf, 1);
+    // Disable interrupt on that pin for now. Re-enabled after debounce.
+    //PIN_setConfig(handle, PIN_BM_IRQ, pinId | PIN_IRQ_DIS);
+
+//    // Start debounce timer
+//    switch(pinId)
+//    {
+//    case Board_PIN_BUTTON0:
+//        Util_startClock((Clock_Struct *)button0DebounceClockHandle);
+//        break;
+//    case Board_PIN_BUTTON1:
+//        Util_startClock((Clock_Struct *)button1DebounceClockHandle);
+//        break;
+//    }
 }
 /*********************************************************************
  * @fn      ProjectZero_init
@@ -992,6 +1055,21 @@ static void ProjectZero_init(void)
 
     //initI2C();
 
+    intPinHandle = PIN_open(&intPinState, intPinTable);
+    if(!intPinHandle)
+    {
+        Log_error0("Error initializing intPinHandle pins");
+        //Task_exit();
+    }
+
+    PIN_setConfig(intPinHandle, PIN_BM_IRQ, LCD_INT_PIN | PIN_IRQ_POSEDGE);
+
+    // Setup callback for button pins
+    if(PIN_registerIntCb(intPinHandle, &intCallbackFxn) != 0)
+    {
+        Log_error0("Error registering int callback function");
+        //Task_exit();
+    }
     // ******************************************************************
     // Hardware initialization
     // ******************************************************************
@@ -1136,7 +1214,7 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
     ProjectZero_init();
     initUART1();
 
-    initAthanTimes();
+    sendAthanTimes();
     if(isAthanTime(DATE_TIME)) //check every min
         SetPlaybackAzanEvent();
     sendCurrentTimeToLCD();
@@ -1636,7 +1714,7 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
         // Remove the connection from the list and disable RSSI if needed
         ProjectZero_removeConn(pPkt->connectionHandle);
 
-        initAthanTimes();
+        sendAthanTimes();
         // Cancel the OAD if one is going on
         // A disconnect forces the peer to re-identify
         //OAD_cancel();
@@ -2542,13 +2620,13 @@ void ProjectZero_DataService_ValueChangeHandler(
             //currentDateTime.Minute = received_string[2];
             //currentDateTime.Second = received_string[3];
             memcpy(&currentDateTime.Second, &received_string[1], pCharData->dataLen - 1);
-            initAthanTimes();
+            sendAthanTimes();
         }
         else if(received_string[0] == 'U') //85
         {
             //Log_info0("Transferring i2c data...");
             //sendI2Cdata(received_string[1]);
-            sendUART1data();
+            sendAthanTimes();
         }
         else if(received_string[0] == 'V') //86
         {
