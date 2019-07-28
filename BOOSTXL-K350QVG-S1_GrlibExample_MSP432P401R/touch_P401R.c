@@ -41,7 +41,7 @@ static touch_calibration touch_calibrationData;
 static bool validateCalibration(void);
 extern Graphics_Context g_sContext;
 
-static void touch_delay(){
+void touch_delay(){
     uint32_t i = 0;
     uint32_t time = 480000;
 
@@ -77,6 +77,8 @@ void touch_initInterface(void)
                                         TOUCH_X_PLUS_INPUT,
                                         false);
 
+    return;
+
     /* Configure SW1 for input. */
     MAP_GPIO_setAsInputPinWithPullUpResistor(TOUCH_SW1_PORT, TOUCH_SW1_PIN);
 
@@ -97,16 +99,16 @@ void touch_initInterface(void)
     }
 
     /* Calibrate the touch screen. */
-    //do
-    //{
-    //    touch_calibrate();
-    //}while(validateCalibration() == false);
+    do
+    {
+        touch_calibrate();
+    }while(validateCalibration() == false);
 }
 
 /*
  * Returns true when a touch is detected.
  */
-static bool touch_detectedTouch(void)
+bool touch_detectedTouch(void)
 {
     uint32_t aDCtemp =0;
     uint8_t i;
@@ -155,7 +157,7 @@ static bool touch_detectedTouch(void)
     }
 }
 
-static uint16_t touch_sampleX(void)
+uint16_t touch_sampleX(void)
 {
     uint32_t average = 0;
     uint8_t i;
@@ -197,7 +199,7 @@ static uint16_t touch_sampleX(void)
 /*
  * Sample the Y analog axis.
  */
-static uint16_t touch_sampleY(void)
+uint16_t touch_sampleY(void)
 {
     uint32_t average = 0;
     uint8_t i;
@@ -362,7 +364,7 @@ void touch_calibrate(void)
     touch_calibrateCircle(
         &calData.xMax,
         &calData.yMin,
-        (LCD_HORIZONTAL_MAX - 1) - TOUCH_CALIBRATION_RADIUS,
+        (LCD_VERTICAL_MAX - 1) - TOUCH_CALIBRATION_RADIUS,
         TOUCH_CALIBRATION_RADIUS);
 
     /* Bottom left corner. */
@@ -370,14 +372,14 @@ void touch_calibrate(void)
         &calData.xMin,
         &calData.yMax,
         TOUCH_CALIBRATION_RADIUS,
-        (LCD_VERTICAL_MAX - 1) - TOUCH_CALIBRATION_RADIUS);
+        (LCD_HORIZONTAL_MAX - 1) - TOUCH_CALIBRATION_RADIUS);
 
     /* Bottom right corner. */
     touch_calibrateCircle(
         &calData.xMax,
         &calData.yMax,
-        (LCD_HORIZONTAL_MAX - 1) - TOUCH_CALIBRATION_RADIUS,
-        (LCD_VERTICAL_MAX - 1) - TOUCH_CALIBRATION_RADIUS);
+        (LCD_VERTICAL_MAX - 1) - TOUCH_CALIBRATION_RADIUS,
+        (LCD_HORIZONTAL_MAX - 1) - TOUCH_CALIBRATION_RADIUS);
 
     /* Compensate for the radius offset to caluculate final X calibration values. */
     calData.xMin = (calData.xMin >> 1) - TOUCH_CALIBRATION_RADIUS;
@@ -397,8 +399,8 @@ void touch_calibrate(void)
 
 static bool validateCalibration(void){
     uint16_t i =0;
-    if((touch_calibrationData.xMin < 2800) && (touch_calibrationData.xMin > 2400) &&
-        (touch_calibrationData.yMin < 4200) && (touch_calibrationData.yMin > 3200))
+    if((touch_calibrationData.yMin < 2800) && (touch_calibrationData.yMin > 2400) &&
+        (touch_calibrationData.xMin < 4200) && (touch_calibrationData.xMin > 3200))
     {
         return true;
     }

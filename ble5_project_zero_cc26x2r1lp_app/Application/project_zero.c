@@ -291,12 +291,12 @@ int32_t secCalibrationCnt = 0;
 TsDateTime currentDateTime =
         {
          10, //sec
-         26, //min
-         23, //hour
-         9,  //day
-         6,  //month
+         41, //min
+         0, //hour
+         25,  //day
+         7,  //month
          19, //year
-         1,  //dayOfWeek 0-6, where 0 = Sunday
+         4,  //dayOfWeek 0-6, where 0 = Sunday
          0   //zone
         };
 
@@ -308,6 +308,9 @@ TsAthanTimesDay currentAthanTimesDay =     {FAJR, 5, 7,       \
                                             MAGHRIB, 7, 19,   \
                                             ISHA, 8, 49,      \
                                            };
+
+#pragma DATA_ALIGN(currentAthanAlarm, 8)
+TsAthanAlarm currentAthanAlarm = {false, false, true, true, true, true};
 
 AMPM currentAMPM = PM;
 AMPM athanAMPM = AM;
@@ -678,7 +681,8 @@ bool isAthanTime(TsDateTime dateTime)
             break;
         }
 
-        if((currentHourStandard == athanHour) && (currentMinStandard == athanMin) && (currentAMPM == athanAMPM))
+        if((currentHourStandard == athanHour) && (currentMinStandard == athanMin) && (currentAMPM == athanAMPM) && \
+                currentAthanAlarm.athanAlarm[x] == true)
         {
             Log_info0("Athan time happened!!!");
             return true;

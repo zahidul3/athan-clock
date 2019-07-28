@@ -200,27 +200,6 @@ void EUSCIB0_IRQHandler(void)
     }
 }
 
-void initI2C(void)
-{
-
-    /* Select Port 1 for I2C - Set Pin 6, 7 to input Primary Module Function,
-     *   (UCB0SIMO/UCB0SDA, UCB0SOMI/UCB0SCL).
-     */
-    MAP_GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P1, GPIO_PIN6 + GPIO_PIN7, GPIO_PRIMARY_MODULE_FUNCTION);
-
-    /* eUSCI I2C Slave Configuration */
-    MAP_I2C_initSlave(EUSCI_B0_BASE, SLAVE_ADDRESS_1, EUSCI_B_I2C_OWN_ADDRESS_OFFSET0, EUSCI_B_I2C_OWN_ADDRESS_ENABLE);
-
-    //MAP_I2C_setMode(EUSCI_B0_BASE, EUSCI_B_I2C_RECEIVE_MODE);
-
-    /* Enable the module and enable interrupts */
-    MAP_I2C_enableModule(EUSCI_B0_BASE);
-    MAP_Interrupt_enableInterrupt(INT_EUSCIB0);
-
-    MAP_I2C_enableInterrupt(EUSCI_B0_BASE, EUSCI_B_I2C_START_INTERRUPT);
-    MAP_Interrupt_enableSleepOnIsrExit();
-}
-
 static uint32_t index = 0;
 
 typedef enum UARTLCDstate{
@@ -352,7 +331,7 @@ uint8_t DebugStringLen;
 uint8_t DebugStringIndex;
 bool printDebugInProgress = false;
 
-/* EUSCI A0 UART ISR - Echoes data back to PC host */
+/* EUSCI A0 UART ISR - DEBUG UART */
 void EUSCIA0_IRQHandler(void)
 {
     uint32_t status = MAP_UART_getEnabledInterruptStatus(EUSCI_A0_BASE);
@@ -367,7 +346,8 @@ void EUSCIA0_IRQHandler(void)
     {
         if(DebugStringLen)
         {
-            MAP_UART_transmitData(EUSCI_A0_BASE, DebugString[DebugStringIndex++]);
+            DebugStringIndex++;
+            MAP_UART_transmitData(EUSCI_A0_BASE, DebugString[DebugStringIndex]);
             DebugStringLen--;
         }
         else
@@ -388,7 +368,7 @@ void printDebug(char * debugString)
         DebugStringLen = strlen(debugString);
         DebugString = malloc(DebugStringLen);
         memcpy(DebugString, debugString, DebugStringLen);
-        MAP_UART_transmitData(EUSCI_A0_BASE, DebugString[DebugStringIndex++]);
+        MAP_UART_transmitData(EUSCI_A0_BASE, DebugString[DebugStringIndex]);
         DebugStringLen--;
     }
 }
@@ -396,7 +376,6 @@ void printDebug(char * debugString)
 void buttonIntHandler(void)
 {
     GPIO_clearInterruptFlag(BUTTON1_PORT, BUTTON1_PIN);
-    //GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
 
     printDebug("Button Pressed!\n\r");
     GPIO_toggleOutputOnPin(CC_INT_PORT, CC_INT_PIN);
@@ -406,14 +385,14 @@ void buttonIntHandler(void)
 
 uint32_t sysTickCount = 0;
 /*
- * SysTick interrupt handler. This handler toggles RGB LED on/off.
+ * SysTick interrupt handler. This handler toggles HEARTBEAT LED on/off.
  */
 void SysTick_Handler(void)
 {
     sysTickCount++;
     GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
-
 }
+uint16_t xSum, ySum;
 
 void main(void)
  {
@@ -444,7 +423,7 @@ void main(void)
     GPIO_registerInterrupt(BUTTON1_PORT, buttonIntHandler);
     GPIO_enableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
 
-    MAP_SysTick_setPeriod(48000000);
+    MAP_SysTick_setPeriod(12000000);
     MAP_SysTick_enableModule();
     MAP_SysTick_enableInterrupt();
 
@@ -462,42 +441,57 @@ void main(void)
 
     touch_initInterface();
 
-    //initI2C();
     drawMainMenu();
-    //drawTimeMenu();
 
     initUART();
     initUART0Debug(); //9600baud 8N1
 
     printDebug("Hello World!\n\r");
 
+    while(1)
+    {
+        MAP_PCM_gotoLPM0();
+    }
+
     // Loop to detect touch
     while(1)
     {
-        touch_updateCurrentTouch(&g_sTouchContext);
-
-        if(g_ranDemo == true)
+        /* Wait for a tocuh to be detected and wait ~4ms. */
+        while(!touch_detectedTouch())
         {
-            g_ranDemo = false;
-            drawMainMenu();
+            ;
         }
+        touch_delay();
 
-        if( g_sTouchContext.touch)
-        {
-            if(Graphics_isImageButtonSelected(&primitiveButton, g_sTouchContext.x,  g_sTouchContext.y)){
-                Graphics_drawSelectedImageButton(&g_sContext,&primitiveButton);
-                runPrimitivesDemo();
-            }else if (Graphics_isImageButtonSelected(&imageButton, g_sTouchContext.x,  g_sTouchContext.y)){
-                Graphics_drawSelectedImageButton(&g_sContext,&imageButton);
-                runImagesDemo();
-            }
+        /* Sample the X and Y measurements of the touch screen. */
+        xSum = touch_sampleX();
+        ySum = touch_sampleY();
 
-            if(g_ranDemo == true)
-            {
-                g_ranDemo = false;
-                drawMainMenu();
-            }
-        }
+        printDebug("Touched!\n\r");
+        //touch_updateCurrentTouch(&g_sTouchContext);
+
+//        if(g_ranDemo == true)
+//        {
+//            g_ranDemo = false;
+//            drawMainMenu();
+//        }
+
+//        if( g_sTouchContext.touch)
+//        {
+//            if(Graphics_isImageButtonSelected(&primitiveButton, g_sTouchContext.x,  g_sTouchContext.y)){
+//                Graphics_drawSelectedImageButton(&g_sContext,&primitiveButton);
+//                runPrimitivesDemo();
+//            }else if (Graphics_isImageButtonSelected(&imageButton, g_sTouchContext.x,  g_sTouchContext.y)){
+//                Graphics_drawSelectedImageButton(&g_sContext,&imageButton);
+//                runImagesDemo();
+//            }
+//
+//            if(g_ranDemo == true)
+//            {
+//                g_ranDemo = false;
+//                drawMainMenu();
+//            }
+//        }
     }
 
 }
@@ -822,7 +816,7 @@ void clockInit(void)
     PCM_setPowerState( PCM_AM_DCDC_VCORE1 );
     CS_setDCOCenteredFrequency( CS_DCO_FREQUENCY_48 );
     CS_setDCOFrequency(48000000);
-    CS_initClockSignal(CS_MCLK, CS_DCOCLK_SELECT, 375);
+    CS_initClockSignal(CS_MCLK, CS_DCOCLK_SELECT, 1);
     CS_initClockSignal(CS_SMCLK, CS_DCOCLK_SELECT, 1);
     CS_initClockSignal(CS_HSMCLK, CS_DCOCLK_SELECT, 1);
     /* Setting MCLK to REFO at 128Khz for LF mode */
