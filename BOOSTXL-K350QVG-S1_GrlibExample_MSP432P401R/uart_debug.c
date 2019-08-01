@@ -1,0 +1,113 @@
+/*
+ * uart_debug.c
+ *
+ *  Created on: Jul 31, 2019
+ *      Author: Jahid's Desktop
+ */
+
+/* DriverLib Includes */
+#include "driverlib.h"
+
+/* Standard Includes */
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <stdbool.h>
+
+#include "CircularBuffer.h"
+
+#include "uart_debug.h"
+
+char * DebugString;
+uint8_t DebugStringLen;
+uint8_t DebugStringIndex;
+bool printDebugInProgress = false;
+
+static TsCircularBuffer tx0Buffer;
+
+//![Simple UART Config]
+/* UART Configuration Parameter. These are the configuration parameters to
+ * make the eUSCI A UART module to operate with a 115200 baud rate. These
+ * values were calculated using the online calculator that TI provides
+ * at:
+ *http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSP430BaudRateConverter/index.html
+ */
+const eUSCI_UART_Config uartConfigDebug =
+{
+        EUSCI_A_UART_CLOCKSOURCE_SMCLK,          // SMCLK Clock Source
+        3,                                     // BRDIV = 78
+        4,                                       // UCxBRF = 2
+        0,                                       // UCxBRS = 0
+        EUSCI_A_UART_NO_PARITY,                  // No Parity
+        EUSCI_A_UART_LSB_FIRST,                  // LSB First
+        EUSCI_A_UART_ONE_STOP_BIT,               // One stop bit
+        EUSCI_A_UART_MODE,                       // UART mode
+        EUSCI_A_UART_OVERSAMPLING_BAUDRATE_GENERATION  // Oversampling
+};
+
+
+/* EUSCI A0 UART ISR - DEBUG UART */
+void EUSCIA0_IRQHandler(void)
+{
+    uint32_t status = MAP_UART_getEnabledInterruptStatus(EUSCI_A0_BASE);
+
+    MAP_UART_clearInterruptFlag(EUSCI_A0_BASE, status);
+
+    if(status & EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
+    {
+        MAP_UART_transmitData(EUSCI_A0_BASE, MAP_UART_receiveData(EUSCI_A0_BASE));
+    }
+    else if(status & EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG)
+    {
+        uint16_t nextChar = GetCharCircBuf(&tx0Buffer);
+        if(nextChar != 0)
+        {
+            //DebugStringIndex++;
+            MAP_UART_transmitData(EUSCI_A0_BASE, (nextChar & 0xff));
+            //DebugStringLen--;
+        }
+    }
+}
+
+void printDebug(char * debugString)
+{
+    //if(printDebugInProgress == false)
+    {
+        int index;
+        DebugStringIndex = 0;
+        //printDebugInProgress = true;
+        DebugStringLen = strlen(debugString);
+        DebugString = debugString;
+        //memcpy(DebugString, debugString, DebugStringLen);
+        for(index=0; index<DebugStringLen; index++)
+        {
+            PutCharCircBuf(&tx0Buffer, *DebugString);
+            DebugString++;
+        }
+
+        MAP_UART_transmitData(EUSCI_A0_BASE, (GetCharCircBuf(&tx0Buffer) & 0xff));
+        //DebugStringLen--;
+    }
+}
+
+
+void initUART0Debug(void)
+{
+    /* Selecting P1.2 and P1.3 in UART mode */
+    MAP_GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P1,
+            GPIO_PIN2 | GPIO_PIN3, GPIO_PRIMARY_MODULE_FUNCTION);
+
+    //![Simple UART Example]
+    /* Configuring UART Module */
+    MAP_UART_initModule(EUSCI_A0_BASE, &uartConfigDebug);
+
+    /* Enable UART module */
+    MAP_UART_enableModule(EUSCI_A0_BASE);
+
+    /* Enabling interrupts */
+    MAP_UART_enableInterrupt(EUSCI_A0_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT | EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG);
+    MAP_Interrupt_enableInterrupt(INT_EUSCIA0);
+
+    InitCircBuf(&tx0Buffer, 400);
+}

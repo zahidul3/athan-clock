@@ -50,6 +50,7 @@
 #include "images/images.h"
 #include "touch_P401R.h"
 
+#include "uart_debug.h"
 
 
 //Touch screen context
@@ -154,26 +155,18 @@ TsAthanTimesDay currentAthanTimesDay = {0};
 
 uint8_t rxBuffer[20] = {0};
 
-//![Simple UART Config]
-/* UART Configuration Parameter. These are the configuration parameters to
- * make the eUSCI A UART module to operate with a 9600 baud rate. These
- * values were calculated using the online calculator that TI provides
- * at:
- *http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSP430BaudRateConverter/index.html
- */
 const eUSCI_UART_Config uartConfig =
 {
-        EUSCI_A_UART_CLOCKSOURCE_SMCLK,          // SMCLK Clock Source
-        78,                                     // BRDIV = 78
-        2,                                       // UCxBRF = 2
-        0,                                       // UCxBRS = 0
+        EUSCI_A_UART_CLOCKSOURCE_ACLK,          // SMCLK Clock Source
+        13,                                     // BRDIV = 78
+        0,                                       // UCxBRF = 2
+        3,                                       // UCxBRS = 0
         EUSCI_A_UART_NO_PARITY,                  // No Parity
         EUSCI_A_UART_LSB_FIRST,                  // LSB First
         EUSCI_A_UART_ONE_STOP_BIT,               // One stop bit
         EUSCI_A_UART_MODE,                       // UART mode
-        EUSCI_A_UART_OVERSAMPLING_BAUDRATE_GENERATION  // Oversampling
+        EUSCI_A_UART_LOW_FREQUENCY_BAUDRATE_GENERATION  // Oversampling
 };
-//![Simple UART Config]
 
 
 /******************************************************************************
@@ -230,6 +223,8 @@ void setCurrentTime12Hr(TsDateTime dateTime)
     CurrentMinute = dateTime.Minute;
 }
 
+char buffer[10];
+
 /* EUSCI A0 UART ISR - Echoes data back to PC host */
 void EUSCIA2_IRQHandler(void)
 {
@@ -254,11 +249,20 @@ void EUSCIA2_IRQHandler(void)
 
         if(index >= sizeof(TsCurrentTime) && UartLcdState == UART_RECEIVING_CURRENT_TIME)
         {
-            printDebug("Received current time\n\r");
-            GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
-
             CurrentHour = rxBuffer[1];
             CurrentMinute = rxBuffer[2];
+
+            memset(buffer, 0, 10);
+            ltoa(CurrentHour,buffer);
+            uint8_t strLen = strlen(buffer);
+            buffer[strLen] = ':';
+            ltoa(CurrentMinute,(buffer+strLen+1));
+            printDebug("Received current time: ");
+            printDebug(buffer);
+            printDebug("\n\r");
+            //GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
+
+
             //setCurrentTime12Hr(currentDateTime);
             drawMainMenu();
             UartLcdState = UART_FINISH_CURRENT_TIME;
@@ -278,38 +282,11 @@ void EUSCIA2_IRQHandler(void)
     }
 }
 
-void initUART0Debug(void)
-{
-    /* Selecting P1.2 and P1.3 in UART mode */
-    MAP_GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P1,
-            GPIO_PIN2 | GPIO_PIN3, GPIO_PRIMARY_MODULE_FUNCTION);
-
-    /* Setting DCO to 12MHz */
-    CS_setDCOCenteredFrequency(CS_DCO_FREQUENCY_12);
-
-    //![Simple UART Example]
-    /* Configuring UART Module */
-    MAP_UART_initModule(EUSCI_A0_BASE, &uartConfig);
-
-    /* Enable UART module */
-    MAP_UART_enableModule(EUSCI_A0_BASE);
-
-    /* Enabling interrupts */
-    MAP_UART_enableInterrupt(EUSCI_A0_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT | EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG);
-    MAP_Interrupt_enableInterrupt(INT_EUSCIA0);
-    MAP_Interrupt_enableSleepOnIsrExit();
-    MAP_Interrupt_enableMaster();
-    //![Simple UART Example]
-}
-
 void initUART(void)
 {
     /* Selecting P3.2/PM_UCA2RXD/PM_UCA2SOMI and P3.3/PM_UCA2TXD/PM_UCA2SIMO in UART mode */
     MAP_GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P3,
             GPIO_PIN2 | GPIO_PIN3, GPIO_PRIMARY_MODULE_FUNCTION);
-
-    /* Setting DCO to 12MHz */
-    CS_setDCOCenteredFrequency(CS_DCO_FREQUENCY_12);
 
     //![Simple UART Example]
     /* Configuring UART Module */
@@ -321,57 +298,9 @@ void initUART(void)
     /* Enabling interrupts */
     MAP_UART_enableInterrupt(EUSCI_A2_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT);
     MAP_Interrupt_enableInterrupt(INT_EUSCIA2);
-    //MAP_Interrupt_enableSleepOnIsrExit();
-    //MAP_Interrupt_enableMaster();
-    //![Simple UART Example]
 }
 
-char * DebugString;
-uint8_t DebugStringLen;
-uint8_t DebugStringIndex;
-bool printDebugInProgress = false;
 
-/* EUSCI A0 UART ISR - DEBUG UART */
-void EUSCIA0_IRQHandler(void)
-{
-    uint32_t status = MAP_UART_getEnabledInterruptStatus(EUSCI_A0_BASE);
-
-    MAP_UART_clearInterruptFlag(EUSCI_A0_BASE, status);
-
-    if(status & EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
-    {
-        MAP_UART_transmitData(EUSCI_A0_BASE, MAP_UART_receiveData(EUSCI_A0_BASE));
-    }
-    else if(status & EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG)
-    {
-        if(DebugStringLen)
-        {
-            DebugStringIndex++;
-            MAP_UART_transmitData(EUSCI_A0_BASE, DebugString[DebugStringIndex]);
-            DebugStringLen--;
-        }
-        else
-        {
-            printDebugInProgress = false;
-            free(DebugString);
-        }
-    }
-
-}
-
-void printDebug(char * debugString)
-{
-    if(printDebugInProgress == false)
-    {
-        DebugStringIndex = 0;
-        printDebugInProgress = true;
-        DebugStringLen = strlen(debugString);
-        DebugString = malloc(DebugStringLen);
-        memcpy(DebugString, debugString, DebugStringLen);
-        MAP_UART_transmitData(EUSCI_A0_BASE, DebugString[DebugStringIndex]);
-        DebugStringLen--;
-    }
-}
 
 void buttonIntHandler(void)
 {
@@ -392,6 +321,7 @@ void SysTick_Handler(void)
     sysTickCount++;
     GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
 }
+
 uint16_t xSum, ySum;
 
 void main(void)
@@ -425,12 +355,16 @@ void main(void)
 
     MAP_SysTick_setPeriod(12000000);
     MAP_SysTick_enableModule();
-    MAP_SysTick_enableInterrupt();
 
+    initUART();         //9600baud 8N1
+    initUART0Debug();   //921600baud 8N1
+
+    //MAP_Interrupt_enableSleepOnIsrExit();
     MAP_Interrupt_enableMaster();
 
     /* Globally enable interrupts. */
     __enable_interrupt();
+    MAP_SysTick_enableInterrupt();
 
     // LCD setup using Graphics Library API calls
     Kitronix320x240x16_SSD2119Init();
@@ -443,15 +377,12 @@ void main(void)
 
     drawMainMenu();
 
-    initUART();
-    initUART0Debug(); //9600baud 8N1
-
     printDebug("Hello World!\n\r");
 
-    while(1)
-    {
-        MAP_PCM_gotoLPM0();
-    }
+    //while(1)
+    //{
+    //    MAP_PCM_gotoLPM0();
+    //}
 
     // Loop to detect touch
     while(1)
@@ -808,6 +739,9 @@ void boardInit()
     FPU_enableModule();
 }
 
+static volatile uint32_t aclk, mclk, smclk, hsmclk, bclk;
+
+
 void clockInit(void)
 {
     /* 2 flash wait states, VCORE = 1, running off DC-DC, 48 MHz */
@@ -816,14 +750,23 @@ void clockInit(void)
     PCM_setPowerState( PCM_AM_DCDC_VCORE1 );
     CS_setDCOCenteredFrequency( CS_DCO_FREQUENCY_48 );
     CS_setDCOFrequency(48000000);
+
+    //CS_initClockSignal(CS_ACLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_0);
     CS_initClockSignal(CS_MCLK, CS_DCOCLK_SELECT, 1);
     CS_initClockSignal(CS_SMCLK, CS_DCOCLK_SELECT, 1);
     CS_initClockSignal(CS_HSMCLK, CS_DCOCLK_SELECT, 1);
     /* Setting MCLK to REFO at 128Khz for LF mode */
-    //MAP_CS_setReferenceOscillatorFrequency(CS_REFO_128KHZ);
-    //MAP_CS_initClockSignal(CS_MCLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+
+    MAP_CS_setReferenceOscillatorFrequency(CS_REFO_128KHZ);
+    MAP_CS_initClockSignal(CS_ACLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
     //MAP_PCM_setPowerState(PCM_AM_LF_VCORE0);
     /* Configure and enable SysTick */
+
+    aclk = CS_getACLK();
+    mclk = CS_getMCLK();
+    smclk = CS_getSMCLK();
+    hsmclk = CS_getHSMCLK();
+    bclk = CS_getBCLK();
 
     return;
 }

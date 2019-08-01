@@ -973,6 +973,7 @@ static void LCDUART_writeCallBack(UART_Handle handle, void *ptr, size_t size)
     ICall_leaveCriticalSection(key);
 }
 
+//LCD UART
 void initUART1(void)
 {
     UART_Params uartParamsLCD;
