@@ -80,7 +80,8 @@ icall_userCfg_t user0Cfg = BLE_USER_CFG;
 /*******************************************************************************
  * MACROS
  */
-
+/* Delay */
+#define delay_ms(i) ( CPUdelay(12000*(i)) )
 /*******************************************************************************
  * CONSTANTS
  */
@@ -129,6 +130,8 @@ int main()
   RegisterAssertCback(AssertHandler);
 
   Board_initGeneral();
+
+  delay_ms(5000);
 
 #if !defined( POWER_SAVING )
   /* Set constraints for Standby, powerdown and idle mode */

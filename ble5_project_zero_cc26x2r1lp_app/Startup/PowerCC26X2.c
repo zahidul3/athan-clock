@@ -254,9 +254,9 @@ int_fast16_t Power_init()
      * provided to aid in automatically identifying PG1.0 devices
      * in circulation and will be removed later in the year.
      */
-    if (!((HWREG(FCFG1_BASE + FCFG1_O_TFW_FT) % 10000) >= 683)) {
+    //if (!((HWREG(FCFG1_BASE + FCFG1_O_TFW_FT) % 10000) >= 683)) {
         //while (1); //ZH remove trap
-    }
+    //}
 
     /* if this function has already been called, just return */
     if (PowerCC26X2_module.initialized) {

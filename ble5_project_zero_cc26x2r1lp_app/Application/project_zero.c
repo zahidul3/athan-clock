@@ -68,6 +68,7 @@
 //#include <xdc/runtime/Log.h> // Comment this in to use xdc.runtime.Log
 #include <ti/common/cc26xx/uartlog/UartLog.h>  // Comment out if using xdc Log
 #include <ti/drivers/UART.h>
+#include <ti/drivers/uart/UARTCC26XX.h>
 
 #include <ti/display/AnsiColor.h>
 
@@ -290,13 +291,13 @@ int32_t secCalibrationCnt = 0;
 #pragma DATA_ALIGN(currentDateTime, 8)
 TsDateTime currentDateTime =
         {
-         10, //sec
-         30, //min
-         3, //hour
-         2,  //day
+         13, //sec
+         43, //min
+         4, //hour
+         17,  //day
          8,  //month
          19, //year
-         4,  //dayOfWeek 0-6, where 0 = Sunday
+         6,  //dayOfWeek 0-6, where 0 = Sunday
          0   //zone
         };
 
@@ -310,7 +311,7 @@ TsAthanTimesDay currentAthanTimesDay =     {FAJR, 5, 7,       \
                                            };
 
 #pragma DATA_ALIGN(currentAthanAlarm, 8)
-TsAthanAlarm currentAthanAlarm = {false, false, true, true, true, true};
+TsAthanAlarm currentAthanAlarm = {true, false, true, true, true, true};
 
 AMPM currentAMPM = PM;
 AMPM athanAMPM = AM;
@@ -621,6 +622,16 @@ void ProjectZero_createTask(void)
     taskParams.priority = PZ_TASK_PRIORITY;
 
     Task_construct(&pzTask, ProjectZero_taskFxn, &taskParams, NULL);
+}
+
+void setAthanAlarm(uint8_t alarmBits)
+{
+    int index = 0;
+    for(index = 0; index < NUMBER_OF_ATHAN; index++)
+    {
+        currentAthanAlarm.athanAlarm[index] = alarmBits & 0x01;
+        alarmBits = alarmBits >> 1;
+    }
 }
 
 bool isAthanTime(TsDateTime dateTime)
@@ -937,14 +948,15 @@ UARTLCDSTATE UartLcdState = UART_IDLE;
 static void LCDUART_readCallBack(UART_Handle handle, void *ptr, size_t size)
 {
     ICall_CSState key;
-    int rxCount = 0;
+    uint8_t athanAlarm = *(uint8_t*)ptr;
+
     key = ICall_enterCriticalSection();
 
-    UART_control(handle, UART_CMD_GETRXCOUNT, &rxCount);
-    Log_info3("Read %d bytes from LCD: %s rxCount: %d", size, (char*)ptr, rxCount);
-    ICall_leaveCriticalSection(key);
-
+    Log_info2("Read %d bytes from LCD: 0x%02x", size, athanAlarm);
+    setAthanAlarm(athanAlarm);
     Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);
+
+    ICall_leaveCriticalSection(key);
 }
 
 static void LCDUART_writeCallBack(UART_Handle handle, void *ptr, size_t size)
@@ -999,6 +1011,9 @@ void initUART1(void)
         Log_info0("UART 1 Initialized");
     else
         Log_error0("UART 1 NOT Initialized");
+
+    //Enable Partial Reads on all subsequent UART_read()
+    UART_control(uart1Handle, UARTCC26XX_RETURN_PARTIAL_ENABLE,  NULL);
 
     UART_read(uart1Handle, uart1ReadBuf, 1);
 }

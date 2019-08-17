@@ -183,7 +183,11 @@ UARTLCDSTATE UartLcdState = UART_LCD_IDLE;
 uint8_t CurrentHour;
 uint8_t CurrentMinute;
 
-int32_t athanDescColor[6] = {GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN};
+uint16_t athanThreshold[6]= {4000, 5200, 6700, 8200, 9700, 17000};
+const char* const arr[] = { "Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha", 0 }; // all const
+uint8_t alarmState = 0b00111101;
+
+int32_t athanDescColor[6] = {GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GRAY, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN};
 
 void setCurrentTime12Hr(TsDateTime dateTime)
 {
@@ -285,6 +289,7 @@ void initUART(void)
 void SendUARTCmd(char ch)
 {
     GPIO_setOutputHighOnPin(CC_INT_PORT, CC_INT_PIN);
+    polling_delay_ms(3);
     MAP_UART_transmitData(EUSCI_A2_BASE, ch);
 }
 
@@ -308,8 +313,6 @@ void SysTick_Handler(void)
 }
 
 uint16_t xSum, ySum;
-uint16_t athanThreshold[6]= {4000, 5200, 6700, 8200, 9700, 17000};
-const char* const arr[] = { "Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha", 0 }; // all const
 
 void polling_delay_ms(uint16_t millis)
 {
@@ -421,11 +424,16 @@ void main(void)
                     if(athanDescColor[ulIdx] == GRAPHICS_COLOR_GREEN)
                     {
                         athanDescColor[ulIdx] = GRAPHICS_COLOR_GRAY;
+                        alarmState = (alarmState & ~(1<<ulIdx)); //clear bit
+                        SendUARTCmd(alarmState);
                     }
                     else
                     {
                         athanDescColor[ulIdx] = GRAPHICS_COLOR_GREEN;
+                        alarmState = (alarmState | (1<<ulIdx)); //set bit
+                        SendUARTCmd(alarmState);
                     }
+
                     drawMainMenu();
                     break;
                 }
