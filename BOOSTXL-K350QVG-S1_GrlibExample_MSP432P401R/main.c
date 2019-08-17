@@ -168,31 +168,6 @@ const eUSCI_UART_Config uartConfig =
         EUSCI_A_UART_LOW_FREQUENCY_BAUDRATE_GENERATION  // Oversampling
 };
 
-
-/******************************************************************************
- * The USCI_B0 data ISR RX vector is used to move received data from the I2C
- * master to the MSP432 memory.
- ******************************************************************************/
-void EUSCIB0_IRQHandler(void)
-{
-    uint_fast16_t status;
-    uint_fast8_t data;
-
-    status = MAP_I2C_getEnabledInterruptStatus(EUSCI_B0_BASE);
-    MAP_I2C_clearInterruptFlag(EUSCI_B0_BASE, status);
-
-    /* RXIFG for Slave Address 1*/
-    if (status & EUSCI_B_I2C_START_INTERRUPT)
-    {
-        MAP_I2C_enableInterrupt(EUSCI_B0_BASE, EUSCI_B_I2C_RECEIVE_INTERRUPT0);
-    }
-    else if (status & EUSCI_B_I2C_RECEIVE_INTERRUPT0)
-    {
-        data = MAP_I2C_slaveGetData(EUSCI_B0_BASE);
-        Graphics_drawString(&g_sContext, "I2C Received", NAMAZ_TIME_SIZE, NAMAZ_TIME_START_POS_X, NAMAZ_START_POS+NAMAZ_SPACING*6, TRANSPARENT_TEXT);
-    }
-}
-
 static uint32_t index = 0;
 
 typedef enum UARTLCDstate{
@@ -207,6 +182,8 @@ UARTLCDSTATE UartLcdState = UART_LCD_IDLE;
 
 uint8_t CurrentHour;
 uint8_t CurrentMinute;
+
+int32_t athanDescColor[6] = {GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN};
 
 void setCurrentTime12Hr(TsDateTime dateTime)
 {
@@ -223,7 +200,8 @@ void setCurrentTime12Hr(TsDateTime dateTime)
     CurrentMinute = dateTime.Minute;
 }
 
-char buffer[10];
+char buffer[DEBUG_BUFFER_SIZE];
+char bufferTouch[DEBUG_BUFFER_SIZE];
 
 /* EUSCI A0 UART ISR - Echoes data back to PC host */
 void EUSCIA2_IRQHandler(void)
@@ -237,9 +215,7 @@ void EUSCIA2_IRQHandler(void)
         if(UartLcdState <= UART_FINISH_ATHAN_TIME)
             index = 0;
 
-
         rxBuffer[index] = MAP_UART_receiveData(EUSCI_A2_BASE);
-        //MAP_UART_transmitData(EUSCI_A0_BASE, rxBuffer[index]);
         if(rxBuffer[index] == CURRENT_TIME && UartLcdState <= UART_FINISH_ATHAN_TIME && index == 0)
             UartLcdState = UART_RECEIVING_CURRENT_TIME;
         else if(rxBuffer[index] == FAJR && index == 0)
@@ -252,16 +228,14 @@ void EUSCIA2_IRQHandler(void)
             CurrentHour = rxBuffer[1];
             CurrentMinute = rxBuffer[2];
 
-            memset(buffer, 0, 10);
+            memset(buffer, 0, DEBUG_BUFFER_SIZE);
             ltoa(CurrentHour,buffer);
             uint8_t strLen = strlen(buffer);
             buffer[strLen] = ':';
             ltoa(CurrentMinute,(buffer+strLen+1));
-            printDebug("Received current time: ");
-            printDebug(buffer);
-            printDebug("\n\r");
-            //GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
-
+            printDebugString("Received current time: ");
+            printDebugString(buffer);
+            printDebugString("\n\r");
 
             //setCurrentTime12Hr(currentDateTime);
             drawMainMenu();
@@ -274,11 +248,17 @@ void EUSCIA2_IRQHandler(void)
         {
             memcpy(&currentAthanTimesDay.athanTimes[0].athanType, rxBuffer, sizeof(currentAthanTimesDay));
             g_ranDemo = true;
-            printDebug("Received athan time\n\r");
+            printDebugString("Received athan time\n\r");
             drawMainMenu();
             UartLcdState = UART_FINISH_ATHAN_TIME;
             index = 0;
         }
+    }
+
+    if(status & EUSCI_A_UART_TRANSMIT_INTERRUPT)
+    {
+        printDebugString("TX\n\r");
+        GPIO_setOutputLowOnPin(CC_INT_PORT, CC_INT_PIN);
     }
 }
 
@@ -296,20 +276,25 @@ void initUART(void)
     MAP_UART_enableModule(EUSCI_A2_BASE);
 
     /* Enabling interrupts */
-    MAP_UART_enableInterrupt(EUSCI_A2_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT);
+    MAP_UART_enableInterrupt(EUSCI_A2_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT | EUSCI_A_UART_TRANSMIT_INTERRUPT);
     MAP_Interrupt_enableInterrupt(INT_EUSCIA2);
+    GPIO_setOutputLowOnPin(CC_INT_PORT, CC_INT_PIN);
 }
 
 
+void SendUARTCmd(char ch)
+{
+    GPIO_setOutputHighOnPin(CC_INT_PORT, CC_INT_PIN);
+    MAP_UART_transmitData(EUSCI_A2_BASE, ch);
+}
 
 void buttonIntHandler(void)
 {
     GPIO_clearInterruptFlag(BUTTON1_PORT, BUTTON1_PIN);
 
-    printDebug("Button Pressed!\n\r");
-    GPIO_toggleOutputOnPin(CC_INT_PORT, CC_INT_PIN);
+    printDebugString("Button Pressed!\n\r");
 
-    MAP_UART_transmitData(EUSCI_A2_BASE, 'I');
+    SendUARTCmd('I');
 }
 
 uint32_t sysTickCount = 0;
@@ -323,10 +308,26 @@ void SysTick_Handler(void)
 }
 
 uint16_t xSum, ySum;
+uint16_t athanThreshold[6]= {4000, 5200, 6700, 8200, 9700, 17000};
+const char* const arr[] = { "Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha", 0 }; // all const
+
+void polling_delay_ms(uint16_t millis)
+{
+    uint32_t i,j = 0;
+    uint32_t time = 120000;
+
+    //for(j = 0; j < millis; j++)
+    {
+        for(i = 0; i < (time*millis); i++)
+        {
+            ;
+        }
+    }
+}
 
 void main(void)
- {
-//  int16_t ulIdx;
+{
+    int16_t ulIdx;
     WDT_A_hold(__WDT_A_BASE__);
     MAP_Interrupt_disableMaster();
 
@@ -335,6 +336,7 @@ void main(void)
     clockInit();
     initializeDemoButtons();
 
+    polling_delay_ms(64);
     //
     // Configure the pins that connect to the LCD as GPIO outputs.
     //
@@ -360,10 +362,9 @@ void main(void)
     initUART0Debug();   //921600baud 8N1
 
     //MAP_Interrupt_enableSleepOnIsrExit();
-    MAP_Interrupt_enableMaster();
 
     /* Globally enable interrupts. */
-    __enable_interrupt();
+    MAP_Interrupt_enableMaster();
     MAP_SysTick_enableInterrupt();
 
     // LCD setup using Graphics Library API calls
@@ -377,17 +378,18 @@ void main(void)
 
     drawMainMenu();
 
-    printDebug("Hello World!\n\r");
-
-    //while(1)
-    //{
-    //    MAP_PCM_gotoLPM0();
-    //}
+    printDebugString("Hello World!\n\r");
+/*
+    while(1)
+    {
+        MAP_PCM_gotoLPM0();
+    }
+*/
 
     // Loop to detect touch
     while(1)
     {
-        /* Wait for a tocuh to be detected and wait ~4ms. */
+        /* Wait for a touch to be detected and wait ~4ms. */
         while(!touch_detectedTouch())
         {
             ;
@@ -398,7 +400,45 @@ void main(void)
         xSum = touch_sampleX();
         ySum = touch_sampleY();
 
-        printDebug("Touched!\n\r");
+        if(xSum > 1024)
+        {
+            memset(bufferTouch, 0, DEBUG_BUFFER_SIZE);
+            ltoa(xSum, bufferTouch);
+            uint8_t strLen = strlen(bufferTouch);
+            bufferTouch[strLen] = '\n';
+            bufferTouch[strLen+1] = '\r';
+            bufferTouch[strLen+2] = 0;
+            //ltoa(ySum,(bufferTouch+strLen+1));
+            //printDebugString("Touched: ");
+            printDebugString(bufferTouch);
+
+            for(ulIdx=0; ulIdx<6; ulIdx++)
+            {
+                if(xSum <= athanThreshold[ulIdx])
+                {
+                    printDebugInt(ulIdx);
+                    printDebugString(arr[ulIdx]);
+                    if(athanDescColor[ulIdx] == GRAPHICS_COLOR_GREEN)
+                    {
+                        athanDescColor[ulIdx] = GRAPHICS_COLOR_GRAY;
+                    }
+                    else
+                    {
+                        athanDescColor[ulIdx] = GRAPHICS_COLOR_GREEN;
+                    }
+                    drawMainMenu();
+                    break;
+                }
+            }
+        }
+
+        while(touch_detectedTouch())
+        {
+            ;
+        }
+        //printDebugString("\n\r");
+
+        //SendUARTCmd('A');
         //touch_updateCurrentTouch(&g_sTouchContext);
 
 //        if(g_ranDemo == true)
@@ -501,7 +541,7 @@ void drawMainMenu(void)
 {
     char buffer[NAMAZ_TIME_SIZE];
 
-    printDebug("Drawing Main Menu\n\r");
+    printDebugString("Drawing Main Menu\n\r");
 
     Graphics_setForegroundColor(&g_sContext, GRAPHICS_COLOR_BLUE);
     Graphics_setBackgroundColor(&g_sContext, GRAPHICS_COLOR_BLACK);
@@ -514,12 +554,17 @@ void drawMainMenu(void)
 //        0,
 //        Graphics_getDisplayHeight(&g_sContext) - TI_platform_bar_red4BPP_UNCOMP.ySize);
 
-    Graphics_setForegroundColor(&g_sContext, GRAPHICS_COLOR_GREEN);
+    Graphics_setForegroundColor(&g_sContext, athanDescColor[0]);
     Graphics_drawString(&g_sContext, "Fajr", sizeof("Fajr"), 3, NAMAZ_START_POS+NAMAZ_SPACING*0, TRANSPARENT_TEXT);
+    Graphics_setForegroundColor(&g_sContext, athanDescColor[1]);
     Graphics_drawString(&g_sContext, "Sunrise", sizeof("Sunrise"), 3, NAMAZ_START_POS+NAMAZ_SPACING*1, TRANSPARENT_TEXT);
+    Graphics_setForegroundColor(&g_sContext, athanDescColor[2]);
     Graphics_drawString(&g_sContext, "Dhuhr", sizeof("Dhuhr"), 3, NAMAZ_START_POS+NAMAZ_SPACING*2, TRANSPARENT_TEXT);
+    Graphics_setForegroundColor(&g_sContext, athanDescColor[3]);
     Graphics_drawString(&g_sContext, "Asr", sizeof("Asr"), 3, NAMAZ_START_POS+NAMAZ_SPACING*3, TRANSPARENT_TEXT);
+    Graphics_setForegroundColor(&g_sContext, athanDescColor[4]);
     Graphics_drawString(&g_sContext, "Maghrib", sizeof("Maghrib"), 3, NAMAZ_START_POS+NAMAZ_SPACING*4, TRANSPARENT_TEXT);
+    Graphics_setForegroundColor(&g_sContext, athanDescColor[5]);
     Graphics_drawString(&g_sContext, "Isha", sizeof("Isha"), 3, NAMAZ_START_POS+NAMAZ_SPACING*5, TRANSPARENT_TEXT);
 
     Graphics_setForegroundColor(&g_sContext, GRAPHICS_COLOR_BLUE);
@@ -752,9 +797,9 @@ void clockInit(void)
     CS_setDCOFrequency(48000000);
 
     //CS_initClockSignal(CS_ACLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_0);
-    CS_initClockSignal(CS_MCLK, CS_DCOCLK_SELECT, 1);
-    CS_initClockSignal(CS_SMCLK, CS_DCOCLK_SELECT, 1);
-    CS_initClockSignal(CS_HSMCLK, CS_DCOCLK_SELECT, 1);
+    CS_initClockSignal(CS_MCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+    CS_initClockSignal(CS_SMCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+    CS_initClockSignal(CS_HSMCLK, CS_DCOCLK_SELECT, CS_CLOCK_DIVIDER_1);
     /* Setting MCLK to REFO at 128Khz for LF mode */
 
     MAP_CS_setReferenceOscillatorFrequency(CS_REFO_128KHZ);

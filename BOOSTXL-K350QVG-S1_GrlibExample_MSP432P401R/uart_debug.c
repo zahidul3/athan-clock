@@ -56,6 +56,7 @@ void EUSCIA0_IRQHandler(void)
 
     if(status & EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
     {
+        //echo back chars to PC terminal
         MAP_UART_transmitData(EUSCI_A0_BASE, MAP_UART_receiveData(EUSCI_A0_BASE));
     }
     else if(status & EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG)
@@ -70,7 +71,41 @@ void EUSCIA0_IRQHandler(void)
     }
 }
 
-void printDebug(char * debugString)
+char bufferDebug[DEBUG_BUFFER_SIZE];
+
+//print a number to the debug terminal
+void printDebugInt(uint32_t debugInt)
+{
+    memset(bufferDebug, 0, DEBUG_BUFFER_SIZE);
+    ltoa(debugInt, bufferDebug);
+    uint8_t strLen = strlen(bufferDebug);
+    bufferDebug[strLen] = '.';
+    bufferDebug[strLen+1] = '\n';
+    bufferDebug[strLen+2] = '\r';
+    bufferDebug[strLen+3] = 0;
+    //if(printDebugInProgress == false)
+    {
+        int index;
+        DebugStringIndex = 0;
+        //printDebugInProgress = true;
+        DebugStringLen = strlen(bufferDebug);
+        DebugString = bufferDebug;
+        //memcpy(DebugString, debugString, DebugStringLen);
+        for(index=0; index<DebugStringLen; index++)
+        {
+            PutCharCircBuf(&tx0Buffer, *DebugString);
+            DebugString++;
+        }
+
+        //start transmission if not busy
+        while(UCA0STATW & BIT0);
+        MAP_UART_transmitData(EUSCI_A0_BASE, (GetCharCircBuf(&tx0Buffer) & 0xff));
+        //DebugStringLen--;
+    }
+}
+
+//print a string to the debug terminal
+void printDebugString(char * debugString)
 {
     //if(printDebugInProgress == false)
     {
@@ -86,6 +121,8 @@ void printDebug(char * debugString)
             DebugString++;
         }
 
+        //start transmission if not busy
+        while(UCA0STATW & BIT0);
         MAP_UART_transmitData(EUSCI_A0_BASE, (GetCharCircBuf(&tx0Buffer) & 0xff));
         //DebugStringLen--;
     }
@@ -109,5 +146,5 @@ void initUART0Debug(void)
     MAP_UART_enableInterrupt(EUSCI_A0_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT | EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG);
     MAP_Interrupt_enableInterrupt(INT_EUSCIA0);
 
-    InitCircBuf(&tx0Buffer, 400);
+    InitCircBuf(&tx0Buffer, 800);
 }

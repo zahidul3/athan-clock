@@ -291,10 +291,10 @@ int32_t secCalibrationCnt = 0;
 TsDateTime currentDateTime =
         {
          10, //sec
-         41, //min
-         0, //hour
-         25,  //day
-         7,  //month
+         30, //min
+         3, //hour
+         2,  //day
+         8,  //month
          19, //year
          4,  //dayOfWeek 0-6, where 0 = Sunday
          0   //zone
@@ -786,8 +786,8 @@ void IncDateTime(uint8 updateStats)
 
 void printCurrentTime(void)
 {
-    Log_info5("currentDateTime: %s %02d %02d:%02d:%02d", (void *)&constDaysMonthsConfig.months[currentDateTime.Month-1], currentDateTime.Day,\
-              currentHourStandard, currentMinStandard, currentDateTime.Second);
+    Log_info6("currentDateTime: %s %02d %02d:%02d:%02d %s", (void *)&constDaysMonthsConfig.months[currentDateTime.Month-1], currentDateTime.Day,\
+              currentHourStandard, currentMinStandard, currentDateTime.Second, (currentAMPM ? "PM" : "AM"));
 }
 /*********************************************************************
  * @fn      SimplePeripheral_clockHandler
@@ -937,9 +937,11 @@ UARTLCDSTATE UartLcdState = UART_IDLE;
 static void LCDUART_readCallBack(UART_Handle handle, void *ptr, size_t size)
 {
     ICall_CSState key;
+    int rxCount = 0;
     key = ICall_enterCriticalSection();
 
-    Log_info2("Read %d bytes from LCD: %s", size, (char*)ptr);
+    UART_control(handle, UART_CMD_GETRXCOUNT, &rxCount);
+    Log_info3("Read %d bytes from LCD: %s rxCount: %d", size, (char*)ptr, rxCount);
     ICall_leaveCriticalSection(key);
 
     Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);
