@@ -170,6 +170,15 @@ const eUSCI_UART_Config uartConfig =
 
 static uint32_t index = 0;
 
+typedef struct
+{
+  uint8_t   command;
+  uint8_t   data;
+} __attribute__((__packed__)) TxData;
+
+TxData txData = {0};
+uint8_t TxDataLen = 0;
+
 typedef enum UARTLCDstate{
     UART_LCD_IDLE,
     UART_FINISH_CURRENT_TIME,
@@ -185,7 +194,7 @@ uint8_t CurrentMinute;
 
 uint16_t athanThreshold[6]= {4000, 5200, 6700, 8200, 9700, 17000};
 const char* const arr[] = { "Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha", 0 }; // all const
-uint8_t alarmState = 0b00111101;
+uint8_t alarmState = 0b00111101; //inverted bit field of alarm state
 
 int32_t athanDescColor[6] = {GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GRAY, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN};
 
@@ -206,6 +215,7 @@ void setCurrentTime12Hr(TsDateTime dateTime)
 
 char buffer[DEBUG_BUFFER_SIZE];
 char bufferTouch[DEBUG_BUFFER_SIZE];
+bool TxDone = false;
 
 /* EUSCI A0 UART ISR - Echoes data back to PC host */
 void EUSCIA2_IRQHandler(void)
@@ -261,8 +271,22 @@ void EUSCIA2_IRQHandler(void)
 
     if(status & EUSCI_A_UART_TRANSMIT_INTERRUPT)
     {
-        printDebugString("TX\n\r");
-        GPIO_setOutputLowOnPin(CC_INT_PORT, CC_INT_PIN);
+        if(TxDone != true)
+        {
+            //printDebugString("TX Cmd Sent\n\r");
+            TxDataLen--;
+            uint8_t dataByte = GetUARTData();
+            //printDebugInt(dataByte);
+            MAP_UART_transmitData(EUSCI_A2_BASE, dataByte);
+            TxDone = true;
+        }
+        else
+        {
+            //printDebugString("TX Data Sent\n\r");
+            //polling_delay_ms(7); //wait for CC to wake and stabilize UART
+            GPIO_setOutputLowOnPin(CC_INT_PORT, CC_INT_PIN);
+            GPIO_enableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
+        }
     }
 }
 
@@ -285,21 +309,34 @@ void initUART(void)
     GPIO_setOutputLowOnPin(CC_INT_PORT, CC_INT_PIN);
 }
 
-
-void SendUARTCmd(char ch)
+uint8_t GetUARTData()
 {
+    if(TxDataLen == sizeof(txData))
+        return txData.command;
+    else
+        return txData.data;
+}
+
+void SendUARTCmd(uint8_t* data, uint8_t len)
+{
+    TxDone = false;
     GPIO_setOutputHighOnPin(CC_INT_PORT, CC_INT_PIN);
-    polling_delay_ms(3);
-    MAP_UART_transmitData(EUSCI_A2_BASE, ch);
+    polling_delay_ms(7); //wait for CC to wake and stabilize UART
+    TxDataLen = len;
+    uint8_t dataByte = GetUARTData();
+    //printDebugInt(dataByte);
+    MAP_UART_transmitData(EUSCI_A2_BASE, dataByte);
 }
 
 void buttonIntHandler(void)
 {
+    GPIO_disableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
+    printDebugString("Button Pressed!\n\r");
     GPIO_clearInterruptFlag(BUTTON1_PORT, BUTTON1_PIN);
 
-    printDebugString("Button Pressed!\n\r");
-
-    SendUARTCmd('I');
+    txData.command = 0x00;
+    txData.data = 0x01;
+    SendUARTCmd(&txData, sizeof(txData));
 }
 
 uint32_t sysTickCount = 0;
@@ -327,6 +364,14 @@ void polling_delay_ms(uint16_t millis)
         }
     }
 }
+
+enum UART_CMD
+{
+    BUTTON_CMD,
+    ALARM_CMD,
+    TIME_HOUR_CMD,
+    TIME_MIN_CMD
+};
 
 void main(void)
 {
@@ -407,6 +452,9 @@ void main(void)
         {
             memset(bufferTouch, 0, DEBUG_BUFFER_SIZE);
             ltoa(xSum, bufferTouch);
+            uint8_t strLenX = strlen(bufferTouch);
+            bufferTouch[strLenX] = ',';
+            ltoa(ySum,(&bufferTouch[strLenX+1]));
             uint8_t strLen = strlen(bufferTouch);
             bufferTouch[strLen] = '\n';
             bufferTouch[strLen+1] = '\r';
@@ -415,27 +463,48 @@ void main(void)
             //printDebugString("Touched: ");
             printDebugString(bufferTouch);
 
-            for(ulIdx=0; ulIdx<6; ulIdx++)
+            if(ySum < 4600)
             {
-                if(xSum <= athanThreshold[ulIdx])
+                printDebugString("Touched Min!");
+                txData.command = TIME_MIN_CMD;
+                txData.data = 0x00;
+                SendUARTCmd(&txData, sizeof(txData));
+            }
+            else if(ySum < 7600)
+            {
+                printDebugString("Touched Hour!");
+                txData.command = TIME_HOUR_CMD;
+                txData.data = 0x00;
+                SendUARTCmd(&txData, sizeof(txData));
+            }
+            else
+            {
+                for(ulIdx=0; ulIdx<6; ulIdx++)
                 {
-                    printDebugInt(ulIdx);
-                    printDebugString(arr[ulIdx]);
-                    if(athanDescColor[ulIdx] == GRAPHICS_COLOR_GREEN)
+                    if(xSum <= athanThreshold[ulIdx])
                     {
-                        athanDescColor[ulIdx] = GRAPHICS_COLOR_GRAY;
-                        alarmState = (alarmState & ~(1<<ulIdx)); //clear bit
-                        SendUARTCmd(alarmState);
-                    }
-                    else
-                    {
-                        athanDescColor[ulIdx] = GRAPHICS_COLOR_GREEN;
-                        alarmState = (alarmState | (1<<ulIdx)); //set bit
-                        SendUARTCmd(alarmState);
-                    }
+                        printDebugInt(ulIdx);
+                        printDebugString(arr[ulIdx]);
+                        if(athanDescColor[ulIdx] == GRAPHICS_COLOR_GREEN)
+                        {
+                            athanDescColor[ulIdx] = GRAPHICS_COLOR_GRAY;
+                            alarmState = (alarmState & ~(1<<ulIdx)); //clear bit
+                            txData.command = ALARM_CMD;
+                            txData.data = alarmState;
+                            SendUARTCmd(&txData, sizeof(txData));
+                        }
+                        else
+                        {
+                            athanDescColor[ulIdx] = GRAPHICS_COLOR_GREEN;
+                            alarmState = (alarmState | (1<<ulIdx)); //set bit
+                            txData.command = ALARM_CMD;
+                            txData.data = alarmState;
+                            SendUARTCmd(&txData, sizeof(txData));
+                        }
 
-                    drawMainMenu();
-                    break;
+                        drawMainMenu();
+                        break;
+                    }
                 }
             }
         }

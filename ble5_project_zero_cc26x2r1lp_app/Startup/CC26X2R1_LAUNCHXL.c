@@ -967,7 +967,7 @@ const UARTCC26XX_HWAttrsV2 uartCC26XXHWAttrs[CC26X2R1_LAUNCHXL_UARTCOUNT] = {
         .ringBufPtr     = uartCC26XXRingBuffer[CC26X2R1_LAUNCHXL_UART1],
         .ringBufSize    = sizeof(uartCC26XXRingBuffer[CC26X2R1_LAUNCHXL_UART1]),
         .txIntFifoThr   = UARTCC26XX_FIFO_THRESHOLD_1_8,
-        .rxIntFifoThr   = UARTCC26XX_FIFO_THRESHOLD_4_8,
+        .rxIntFifoThr   = UARTCC26XX_FIFO_THRESHOLD_1_8,
         .errorFxn       = NULL
     }
 };

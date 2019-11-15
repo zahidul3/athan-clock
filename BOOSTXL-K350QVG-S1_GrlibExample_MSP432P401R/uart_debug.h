@@ -11,6 +11,8 @@
 #define DEBUG_BUFFER_SIZE 32
 
 void printDebug(char * debugString);
+void printDebugChar(const char ch);
+void printDebugInt(uint32_t debugInt);
 void initUART0Debug(void);
 
 #endif /* UART_DEBUG_H_ */

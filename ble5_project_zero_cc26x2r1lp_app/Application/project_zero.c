@@ -129,10 +129,12 @@
 #define PZ_ICALL_EVT                         ICALL_MSG_EVENT_ID  // Event_Id_31
 #define PZ_APP_MSG_EVT                       Event_Id_30
 #define PZ_UART1_EVT                         Event_Id_29
+#define PZ_UART1_CURR_TIME_EVT               Event_Id_28
 
 // Bitwise OR of all RTOS events to pend on
-#define PZ_ALL_EVENTS                        (PZ_ICALL_EVT | \
-                                              PZ_UART1_EVT | \
+#define PZ_ALL_EVENTS                        (PZ_ICALL_EVT              | \
+                                              PZ_UART1_EVT              | \
+                                              PZ_UART1_CURR_TIME_EVT    | \
                                               PZ_APP_MSG_EVT)
                                               //PZ_OAD_QUEUE_EVT | \
                                               //PZ_OAD_COMPLETE_EVT
@@ -287,6 +289,14 @@ uint8_t appTaskStack[PZ_TASK_STACK_SIZE];
 
 #define SEC_CALIBRATION_THRESHOLD 16384 //20000
 int32_t secCalibrationCnt = 0;
+
+enum UART_CMD
+{
+    BUTTON_CMD,
+    ALARM_CMD,
+    TIME_HOUR_CMD,
+    TIME_MIN_CMD
+};
 
 #pragma DATA_ALIGN(currentDateTime, 8)
 TsDateTime currentDateTime =
@@ -713,6 +723,22 @@ uint8 DaysInMonth(uint8 month, uint8 year)
   else return dates[month];
 }
 
+void ModifyDateTime(uint8 param)
+{
+    if(param == TIME_HOUR_CMD)
+    {
+        DATE_TIME.Hour++;
+        DATE_TIME.Minute--;
+    }
+    //else if(param == TIME_MIN_CMD)
+    //    DATE_TIME.Minute++;
+
+    IncDateTime(1);
+    //sendCurrentTimeToLCD();
+    //sendUART1CurrentTime();
+}
+
+//1Hz
 void IncDateTime(uint8 updateStats)
 {
     //add extra seconds to calibrate for delay
@@ -737,7 +763,7 @@ void IncDateTime(uint8 updateStats)
         gUpdateAthanTime = false;
     }
 
-  if(DATE_TIME.Second>=60)
+  if(DATE_TIME.Second>=60 || updateStats)
   {
     DATE_TIME.Second = 0;
     DATE_TIME.Minute++;
@@ -791,7 +817,7 @@ void IncDateTime(uint8 updateStats)
 
     if(isAthanTime(DATE_TIME)) //check every min
         SetPlaybackAzanEvent();
-    sendCurrentTimeToLCD();
+    sendUART1CurrentTime();
   }
 }
 
@@ -868,63 +894,15 @@ void sendAthanTimes(void)
     gUpdateAthanTime = true;
 }
 
-//uint8_t         txBuffer[1];
-//uint8_t         rxBuffer[2];
-//I2C_Handle      i2c;
-//I2C_Params      i2cParams;
-//I2C_Transaction i2cTransaction;
+void sendUART1CurrentTime(void)
+{
+    Event_post(syncEvent, PZ_UART1_CURR_TIME_EVT);
+}
 
 void sendUART1data(void)
 {
-    //txBuffer[0] = data;
     Event_post(syncEvent, PZ_UART1_EVT);
 }
-
-//void callbackFxn(I2C_Handle handle, I2C_Transaction *msg, bool transfer)
-//{
-//    // Check for a semaphore handle
-//    //if (msg->arg != NULL) {
-//        // Perform a semaphore post
-//    //    sem_post((sem_t *) (msg->arg));
-//    //}
-//    if (transfer)
-//    {
-//        Log_info0("I2C Transferred success!");
-//    }
-//    else
-//    {
-//        Log_error0("ERROR: I2C Transferred fail!");
-//    }
-//}
-
-//void initI2C(void)
-//{
-//    I2C_init();
-//
-//    /* Create I2C for usage */
-//    I2C_Params_init(&i2cParams);
-//    i2cParams.bitRate = I2C_400kHz;
-//    i2cParams.transferMode = I2C_MODE_CALLBACK;
-//    i2cParams.transferCallbackFxn = callbackFxn;
-//
-//    i2c = I2C_open(Board_I2C0, &i2cParams);
-//    if (i2c == NULL) {
-//        Log_info0("Error Initializing I2C");
-//        while (1);
-//    }
-//    else {
-//        Log_info0("I2C Initialized!");
-//    }
-//
-//    /* Point to the T ambient register and read its 2 bytes */
-//    txBuffer[0] = 0x01;
-//    i2cTransaction.slaveAddress = Board_TMP_ADDR;
-//    i2cTransaction.writeBuf = txBuffer;
-//    i2cTransaction.writeCount = 1;
-//    i2cTransaction.readBuf = rxBuffer;
-//    i2cTransaction.readCount = 0;
-//
-//}
 
 // -----------------------------------------------------------------------------
 //! \brief      This callback is invoked on Write completion
@@ -944,17 +922,34 @@ typedef enum UARTLCDstate{
 
 UARTLCDSTATE UartLcdState = UART_IDLE;
 
+uint8_t ReadByte = 0;
+uint8_t athanCMD = 0;
+uint8_t athanAlarm = 0;
 
 static void LCDUART_readCallBack(UART_Handle handle, void *ptr, size_t size)
 {
     ICall_CSState key;
-    uint8_t athanAlarm = *(uint8_t*)ptr;
+    athanCMD = *((uint8_t*)ptr);
+
+    if(size > 1)
+        athanAlarm = *(((uint8_t*)ptr)+1);
 
     key = ICall_enterCriticalSection();
 
-    Log_info2("Read %d bytes from LCD: 0x%02x", size, athanAlarm);
-    setAthanAlarm(athanAlarm);
+    Log_info3("Read %d bytes from LCD: 0x%02x 0x%02x", size, athanCMD, athanAlarm);
+
+    if(athanCMD == ALARM_CMD)
+    {
+        setAthanAlarm(athanAlarm);
+    }
+    else if((athanCMD == TIME_HOUR_CMD) || (athanCMD == TIME_MIN_CMD))
+    {
+        ModifyDateTime(athanCMD);
+    }
+
     Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);
+
+    PIN_setConfig(intPinHandle, PIN_BM_IRQ, LCD_INT_PIN | PIN_IRQ_POSEDGE);
 
     ICall_leaveCriticalSection(key);
 }
@@ -1013,9 +1008,9 @@ void initUART1(void)
         Log_error0("UART 1 NOT Initialized");
 
     //Enable Partial Reads on all subsequent UART_read()
-    UART_control(uart1Handle, UARTCC26XX_RETURN_PARTIAL_ENABLE,  NULL);
+    UART_control(uart1Handle, UARTCC26XX_RETURN_PARTIAL_DISABLE,  NULL);
 
-    UART_read(uart1Handle, uart1ReadBuf, 1);
+    //UART_read(uart1Handle, uart1ReadBuf, 1);
 }
 
 /*********************************************************************
@@ -1030,24 +1025,13 @@ void initUART1(void)
  */
 static void intCallbackFxn(PIN_Handle handle, PIN_Id pinId)
 {
-    Log_info0("In Button interrupt");
-
-    Power_setConstraint(PowerCC26XX_SB_DISALLOW);
-
-    UART_read(uart1Handle, uart1ReadBuf, 1);
     // Disable interrupt on that pin for now. Re-enabled after debounce.
-    //PIN_setConfig(handle, PIN_BM_IRQ, pinId | PIN_IRQ_DIS);
-
-//    // Start debounce timer
-//    switch(pinId)
-//    {
-//    case Board_PIN_BUTTON0:
-//        Util_startClock((Clock_Struct *)button0DebounceClockHandle);
-//        break;
-//    case Board_PIN_BUTTON1:
-//        Util_startClock((Clock_Struct *)button1DebounceClockHandle);
-//        break;
-//    }
+    PIN_setConfig(handle, PIN_BM_IRQ, pinId | PIN_IRQ_DIS);
+    Power_setConstraint(PowerCC26XX_SB_DISALLOW);
+    ReadByte = 0;
+    Log_info0("In Button interrupt");
+    UART_control(uart1Handle, UARTCC26XX_CMD_RX_FIFO_FLUSH,  NULL);
+    UART_read(uart1Handle, uart1ReadBuf, 2);
 }
 /*********************************************************************
  * @fn      ProjectZero_init
@@ -1259,20 +1243,16 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
             ICall_HciExtEvt *pMsg = NULL;
 
             // If RTOS queue is not empty, process app message.
-            if (events & PZ_UART1_EVT)
+            if(events & PZ_UART1_EVT)
             {
                 sendAthanToLCD();
-//                if (i2c != NULL) {
-//                    if (I2C_transfer(i2c, &i2cTransaction))
-//                    {
-//                        Log_info0("I2C Transferred!");
-//                    }
-//                    else
-//                    {
-//                        Log_error0("ERROR: I2C Transferred!");
-//                    }
-//                }
             }
+
+            if (events & PZ_UART1_CURR_TIME_EVT)
+            {
+                sendCurrentTimeToLCD();
+            }
+
             // Fetch any available messages that might have been sent from the stack
             if(ICall_fetchServiceMsg(&src, &dest,
                                      (void **)&pMsg) == ICALL_ERRNO_SUCCESS)
@@ -2642,6 +2622,7 @@ void ProjectZero_DataService_ValueChangeHandler(
             //currentDateTime.Minute = received_string[2];
             //currentDateTime.Second = received_string[3];
             memcpy(&currentDateTime.Second, &received_string[1], pCharData->dataLen - 1);
+            //sendCurrentTimeToLCD();
             sendAthanTimes();
         }
         else if(received_string[0] == 'U') //85
