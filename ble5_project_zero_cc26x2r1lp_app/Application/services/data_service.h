@@ -84,6 +84,30 @@ extern "C"
 #define DS_STREAM_LEN                20
 #define DS_STREAM_LEN_MIN            0
 
+// String Characteristic defines
+#define DS_TIME_SEC_ID              2
+#define DS_TIME_SEC_UUID            0x1133
+
+// String Characteristic defines
+#define DS_TIME_MIN_ID              3
+#define DS_TIME_MIN_UUID            0x1134
+
+// String Characteristic defines
+#define DS_TIME_HOUR_ID             4
+#define DS_TIME_HOUR_UUID           0x1135
+
+// String Characteristic defines
+#define DS_TIME_DAY_ID              5
+#define DS_TIME_DAY_UUID            0x1136
+
+// String Characteristic defines
+#define DS_TIME_MON_ID              6
+#define DS_TIME_MON_UUID            0x1137
+
+// String Characteristic defines
+#define DS_TIME_YEAR_ID             7
+#define DS_TIME_YEAR_UUID           0x1138
+
 /*********************************************************************
  * TYPEDEFS
  */

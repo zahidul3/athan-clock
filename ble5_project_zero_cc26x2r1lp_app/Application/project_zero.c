@@ -84,7 +84,7 @@
 #include <devinfoservice.h>
 #include <profiles/project_zero/button_service.h>
 #include <profiles/project_zero/led_service.h>
-#include <profiles/project_zero/data_service.h>
+#include "services/data_service.h"
 #include <profiles/oad/cc26xx/oad.h>
 
 /* Includes needed for reverting to factory and erasing external flash */
@@ -97,7 +97,7 @@
 #include <Board.h>
 #include <util.h>
 #include "athanCalendar.h"
-
+#include "Common.h"
 #include <project_zero.h>
 
 
@@ -302,12 +302,12 @@ enum UART_CMD
 TsDateTime currentDateTime =
         {
          13, //sec
-         43, //min
-         4, //hour
-         17,  //day
-         8,  //month
+         14, //min
+         23, //hour
+         20,  //day
+         11,  //month
          19, //year
-         6,  //dayOfWeek 0-6, where 0 = Sunday
+         3,  //dayOfWeek 0-6, where 0 = Sunday
          0   //zone
         };
 
@@ -447,11 +447,11 @@ static bool oadWaitReboot = false;
 
 // Flag to be stored in NV that tracks whether service changed
 // indications needs to be sent out
-static uint32_t sendSvcChngdOnNextBoot = FALSE;
+static uint32_t sendSvcChngdOnNextBoot = TRUE;
 
 bool gUpdateAthanTime = FALSE;
 uint8_t athanTimesIndex = 0;
-
+uint8_t EnableSleepAfterSec = 0;
 /*********************************************************************
  * LOCAL FUNCTIONS
  */
@@ -609,7 +609,6 @@ static oadTargetCBs_t ProjectZero_oadCBs =
 static void project_zero_spin(void)
 {
   volatile uint8_t x = 0;;
-
   while(1)
   {
     x++;
@@ -750,6 +749,11 @@ void IncDateTime(uint8 updateStats)
     }
     DATE_TIME.Second++;
 
+    if(EnableSleepAfterSec && (EnableSleepAfterSec == DATE_TIME.Second))
+    {
+        Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);
+        EnableSleepAfterSec = 0;
+    }
     //Heartbeat GREEN LED @ 1Hz
     if(PIN_getOutputValue(PZ_GLED_PIN))
         PIN_setOutputValue(ledPinHandle, PZ_GLED_PIN, 0);
@@ -788,7 +792,7 @@ void IncDateTime(uint8 updateStats)
           }
         }
 
-        //sendAthanToLCD(); //update athan on daily basis
+        sendCurrentDateToLCD(); //update date on daily basis
       }
 //      uint8 tz;
 //
@@ -917,7 +921,8 @@ typedef enum UARTLCDstate{
     UART_LCD_IDLE,
     UART_SENDING_ATHAN_TIME,
     UART_FINISH_ATHAN_TIME,
-    UART_SENDING_CURRENT_TIME
+    UART_SENDING_CURRENT_TIME,
+    UART_SENDING_CURRENT_DATE
 } UARTLCDSTATE;
 
 UARTLCDSTATE UartLcdState = UART_IDLE;
@@ -963,7 +968,7 @@ static void LCDUART_writeCallBack(UART_Handle handle, void *ptr, size_t size)
     {
         UartLcdState = UART_IDLE;
     }
-    else
+    else if(UartLcdState == UART_SENDING_ATHAN_TIME)
     {
         if(size == sizeof(TsAthanTime)) //3 bytes
             athanTimesIndex++;
@@ -978,6 +983,7 @@ static void LCDUART_writeCallBack(UART_Handle handle, void *ptr, size_t size)
             UartLcdState = UART_FINISH_ATHAN_TIME;
         }
     }
+    EnableSleepAfterSec = DATE_TIME.Second + 2; // Enable sleep after 2 seconds
     Log_info1("Wrote %d bytes to LCD", size);
     ICall_leaveCriticalSection(key);
 }
@@ -1049,6 +1055,10 @@ static void ProjectZero_init(void)
     // Register the current thread as an ICall dispatcher application
     // so that the application can send and receive messages.
     ICall_registerApp(&selfEntity, &syncEvent);
+
+    // Hard code the BD Address till CC2650 board gets its own IEEE address
+    uint8 bdAddress[B_ADDR_LEN] = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x07 };
+    HCI_EXT_SetBDADDRCmd(bdAddress);
 
     // Initialize queue for application messages.
     // Note: Used to transfer control to application thread from e.g. interrupts.
@@ -1224,6 +1234,7 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
     if(isAthanTime(DATE_TIME)) //check every min
         SetPlaybackAzanEvent();
     sendCurrentTimeToLCD();
+    sendCurrentDateToLCD();
 
     // Application main loop
     for(;; )
@@ -1716,7 +1727,8 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
         // Remove the connection from the list and disable RSSI if needed
         ProjectZero_removeConn(pPkt->connectionHandle);
 
-        sendAthanTimes();
+        //sendAthanTimes();
+        sendCurrentDateToLCD();
         // Cancel the OAD if one is going on
         // A disconnect forces the peer to re-identify
         //OAD_cancel();
@@ -2541,17 +2553,35 @@ void ProjectZero_ButtonService_CfgChangeHandler(
     }
 }
 
+void sendCurrentDateToLCD(void)
+{
+    if(uart1Handle)
+    {
+        TsCurrentDate dateNow;
+        uint32_t key = HwiP_disable();
+        Power_setConstraint(PowerCC26XX_SB_DISALLOW);
+        Log_info0("Writing current date");
+        UartLcdState = UART_SENDING_CURRENT_DATE;
+        dateNow.athanType = CURRENT_DATE;
+        memcpy(&dateNow.dateTime.Second, &currentDateTime.Second, sizeof(TsDateTime));
+        UART_write(uart1Handle, &dateNow.athanType, sizeof(TsCurrentDate));
+        HwiP_restore(key);
+    }
+}
+
 void sendCurrentTimeToLCD(void)
 {
     if(uart1Handle)
     {
         TsCurrentTime timeNow;
         uint32_t key = HwiP_disable();
+        Power_setConstraint(PowerCC26XX_SB_DISALLOW);
         Log_info0("Writing current time");
         UartLcdState = UART_SENDING_CURRENT_TIME;
         timeNow.athanType = CURRENT_TIME;
         timeNow.Hour = currentHourStandard;
         timeNow.Minute = currentMinStandard;
+        timeNow.currentAMPM = currentAMPM;
         UART_write(uart1Handle, &timeNow.athanType, sizeof(TsCurrentTime));
         HwiP_restore(key);
     }
@@ -2562,6 +2592,7 @@ void sendAthanToLCD(void)
     if(uart1Handle)
     {
         uint32_t key = HwiP_disable();
+        Power_setConstraint(PowerCC26XX_SB_DISALLOW);
         Log_info1("Writing athan type %d", athanTimesIndex);
         UartLcdState = UART_SENDING_ATHAN_TIME;
         UART_write(uart1Handle, &currentAthanTimesDay.athanTimes[athanTimesIndex].athanType, sizeof(TsAthanTime));
@@ -2659,7 +2690,30 @@ void ProjectZero_DataService_ValueChangeHandler(
         // -------------------------
         // Do something useful with pCharData->data here
         break;
-
+    case DS_TIME_SEC_ID:
+        Log_info1("Value Change msg: DS_TIME_SEC_ID: %02x", pCharData->data[0]);
+        DATE_TIME.Second = pCharData->data[0];
+        break;
+    case DS_TIME_MIN_ID:
+        Log_info1("Value Change msg: DS_TIME_MIN_ID: %02x", pCharData->data[0]);
+        DATE_TIME.Minute = pCharData->data[0];
+        break;
+    case DS_TIME_HOUR_ID:
+        Log_info1("Value Change msg: DS_TIME_HOUR_ID: %02x", pCharData->data[0]);
+        DATE_TIME.Hour = pCharData->data[0];
+        break;
+    case DS_TIME_DAY_ID:
+        Log_info1("Value Change msg: DS_TIME_DAY_ID: %02x", pCharData->data[0]);
+        DATE_TIME.Day = pCharData->data[0];
+        break;
+    case DS_TIME_MON_ID:
+        Log_info1("Value Change msg: DS_TIME_MON_ID: %02x", pCharData->data[0]);
+        DATE_TIME.Month = pCharData->data[0];
+        break;
+    case DS_TIME_YEAR_ID:
+        Log_info1("Value Change msg: DS_TIME_YEAR_ID: %02x", pCharData->data[0]);
+        DATE_TIME.Year = pCharData->data[0];
+        break;
     default:
         return;
     }

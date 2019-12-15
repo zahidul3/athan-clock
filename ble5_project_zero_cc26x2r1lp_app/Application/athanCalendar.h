@@ -8,6 +8,8 @@
 #ifndef APPLICATION_ATHANCALENDAR_H_
 #define APPLICATION_ATHANCALENDAR_H_
 
+#include "Common.h"
+
 #define JANUARY   1
 #define FEBRUARY  2
 #define MARCH     3
@@ -32,23 +34,6 @@
 #define NO_DAYLIGHT_SAVINGS 0x00
 #define US_DAYLIGHT_SAVINGS 0x01
 #define EU_DAYLIGHT_SAVINGS 0x02
-
-typedef enum ampm{
-    AM,
-    PM
-} AMPM;
-
-//-----------------------------------------------------------------------------
-typedef struct
-{
-  char str[4];  // keep even
-} TsStr3;
-
-typedef struct
-{
-  TsStr3   days[7];
-  TsStr3   months[12];
-} TsDaysMonthsConfig;
 
 typedef struct
 {

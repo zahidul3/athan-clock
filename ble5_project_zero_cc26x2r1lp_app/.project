@@ -28,6 +28,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>Common.h</name>
+			<type>1</type>
+			<locationURI>WORKSPACE_LOC/BOOSTXL-K350QVG-S1_GrlibExample_MSP432P401R/Common.h</locationURI>
+		</link>
+		<link>
 			<name>Drivers</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>

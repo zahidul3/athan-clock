@@ -57,7 +57,7 @@
 /* This Header file contains all BLE API and icall structure definition */
 #include "icall_ble_api.h"
 
-#include "data_service.h"
+#include "services/data_service.h"
 
 /*********************************************************************
  * MACROS
@@ -93,6 +93,36 @@ CONST uint8_t ds_StreamUUID[ATT_UUID_SIZE] =
     DS_STREAM_UUID_BASE128(DS_STREAM_UUID)
 };
 
+// TimeSec UUID
+CONST uint8_t ds_TimeSecUUID[ATT_UUID_SIZE] =
+{
+    DS_STRING_UUID_BASE128(DS_TIME_SEC_UUID)
+};
+// TimeMin UUID
+CONST uint8_t ds_TimeMinUUID[ATT_UUID_SIZE] =
+{
+    DS_STRING_UUID_BASE128(DS_TIME_MIN_UUID)
+};
+// TimeHour UUID
+CONST uint8_t ds_TimeHourUUID[ATT_UUID_SIZE] =
+{
+    DS_STRING_UUID_BASE128(DS_TIME_HOUR_UUID)
+};
+// TimeDay UUID
+CONST uint8_t ds_TimeDayUUID[ATT_UUID_SIZE] =
+{
+    DS_STRING_UUID_BASE128(DS_TIME_DAY_UUID)
+};
+// TimeMon UUID
+CONST uint8_t ds_TimeMonUUID[ATT_UUID_SIZE] =
+{
+    DS_STRING_UUID_BASE128(DS_TIME_MON_UUID)
+};
+// TimeYear UUID
+CONST uint8_t ds_TimeYearUUID[ATT_UUID_SIZE] =
+{
+    DS_STRING_UUID_BASE128(DS_TIME_YEAR_UUID)
+};
 /*********************************************************************
  * LOCAL VARIABLES
  */
@@ -116,11 +146,42 @@ static uint8_t ds_StringVal[DS_STRING_LEN] = {0};
 // Length of data in characteristic "String" Value variable, initialized to minimal size.
 static uint16_t ds_StringValLen = DS_STRING_LEN_MIN;
 
+// Simple Profile Characteristic 5 User Description
+static uint8 ds_StringDesc[12] = "String Char";
+
+// Simple Profile Characteristic 5 User Description
+static uint8 ds_StreamDesc[12] = "Stream Char";
+
+// Time User Description
+static uint8 ds_TimeSecDesc[4] = "Sec";
+// Time User Description
+static uint8 ds_TimeMinDesc[4] = "Min";
+// Time User Description
+static uint8 ds_TimeHourDesc[5] = "Hour";
+
+// Time User Description
+static uint8 ds_TimeDayDesc[4] = "Day";
+// Time User Description
+static uint8 ds_TimeMonDesc[4] = "Mon";
+// Time User Description
+static uint8 ds_TimeYearDesc[5] = "Year";
+
 // Characteristic "Stream" Properties (for declaration)
 static uint8_t ds_StreamProps = GATT_PROP_NOTIFY | GATT_PROP_WRITE_NO_RSP;
 
+// Characteristic "Stream" Properties (for declaration)
+static uint8_t ds_TimeProps = GATT_PROP_READ | GATT_PROP_WRITE;
+
 // Characteristic "Stream" Value variable
 static uint8_t ds_StreamVal[DS_STREAM_LEN] = {0};
+
+static uint8_t ds_TimeSec = 0;
+static uint8_t ds_TimeMin = 0;
+static uint8_t ds_TimeHour = 0;
+
+static uint8_t ds_TimeDay = 0;
+static uint8_t ds_TimeMon = 0;
+static uint8_t ds_TimeYear = 0;
 
 // Length of data in characteristic "Stream" Value variable, initialized to minimal size.
 static uint16_t ds_StreamValLen = DS_STREAM_LEN_MIN;
@@ -155,6 +216,13 @@ static gattAttribute_t Data_ServiceAttrTbl[] =
         0,
         ds_StringVal
     },
+    // String Characteristic Desc
+    {
+        { ATT_BT_UUID_SIZE, charUserDescUUID },
+        GATT_PERMIT_READ,
+        0,
+        ds_StringDesc
+    },
     // Stream Characteristic Declaration
     {
         { ATT_BT_UUID_SIZE, characterUUID },
@@ -175,6 +243,139 @@ static gattAttribute_t Data_ServiceAttrTbl[] =
         GATT_PERMIT_READ | GATT_PERMIT_WRITE,
         0,
         (uint8_t *)&ds_StreamConfig
+    },
+    // String Characteristic Desc
+    {
+        { ATT_BT_UUID_SIZE, charUserDescUUID },
+        GATT_PERMIT_READ,
+        0,
+        ds_StreamDesc
+    },
+    // Time Sec Characteristic Declaration
+    {
+        { ATT_BT_UUID_SIZE, characterUUID },
+        GATT_PERMIT_READ,
+        0,
+        &ds_TimeProps
+    },
+    // Time Sec Characteristic Value
+    {
+        { ATT_UUID_SIZE, ds_TimeSecUUID },
+        GATT_PERMIT_READ | GATT_PERMIT_WRITE,
+        0,
+        &ds_TimeSec
+    },
+    // String Characteristic Desc
+    {
+        { ATT_BT_UUID_SIZE, charUserDescUUID },
+        GATT_PERMIT_READ,
+        0,
+        ds_TimeSecDesc
+    },
+    // Time Min Characteristic Declaration
+    {
+        { ATT_BT_UUID_SIZE, characterUUID },
+        GATT_PERMIT_READ,
+        0,
+        &ds_TimeProps
+    },
+    // Time Min Characteristic Value
+    {
+        { ATT_UUID_SIZE, ds_TimeMinUUID },
+        GATT_PERMIT_READ | GATT_PERMIT_WRITE,
+        0,
+        &ds_TimeMin
+    },
+    // String Characteristic Desc
+    {
+        { ATT_BT_UUID_SIZE, charUserDescUUID },
+        GATT_PERMIT_READ,
+        0,
+        ds_TimeMinDesc
+    },
+    // Time Hour Characteristic Declaration
+    {
+        { ATT_BT_UUID_SIZE, characterUUID },
+        GATT_PERMIT_READ,
+        0,
+        &ds_TimeProps
+    },
+    // Time Hour Characteristic Value
+    {
+        { ATT_UUID_SIZE, ds_TimeHourUUID },
+        GATT_PERMIT_READ | GATT_PERMIT_WRITE,
+        0,
+        &ds_TimeHour
+    },
+    // String Characteristic Desc
+    {
+        { ATT_BT_UUID_SIZE, charUserDescUUID },
+        GATT_PERMIT_READ,
+        0,
+        ds_TimeHourDesc
+    },
+    // Time Day Characteristic Declaration
+    {
+        { ATT_BT_UUID_SIZE, characterUUID },
+        GATT_PERMIT_READ,
+        0,
+        &ds_TimeProps
+    },
+    // Time Hour Characteristic Value
+    {
+        { ATT_UUID_SIZE, ds_TimeDayUUID },
+        GATT_PERMIT_READ | GATT_PERMIT_WRITE,
+        0,
+        &ds_TimeDay
+    },
+    // String Characteristic Desc
+    {
+        { ATT_BT_UUID_SIZE, charUserDescUUID },
+        GATT_PERMIT_READ,
+        0,
+        ds_TimeDayDesc
+    },
+    // Time Hour Characteristic Declaration
+    {
+        { ATT_BT_UUID_SIZE, characterUUID },
+        GATT_PERMIT_READ,
+        0,
+        &ds_TimeProps
+    },
+    // Time Mon Characteristic Value
+    {
+        { ATT_UUID_SIZE, ds_TimeMonUUID },
+        GATT_PERMIT_READ | GATT_PERMIT_WRITE,
+        0,
+        &ds_TimeMon
+    },
+    // String Characteristic Desc
+    {
+        { ATT_BT_UUID_SIZE, charUserDescUUID },
+        GATT_PERMIT_READ,
+        0,
+        ds_TimeMonDesc
+    },
+    // Time Year Characteristic Declaration
+    {
+        { ATT_BT_UUID_SIZE, characterUUID },
+        GATT_PERMIT_READ,
+        0,
+        &ds_TimeProps
+    },
+    // Time Year Characteristic Value
+    {
+        { ATT_UUID_SIZE, ds_TimeYearUUID },
+        GATT_PERMIT_READ | GATT_PERMIT_WRITE,
+        0,
+        &ds_TimeYear
+    },
+    // String Characteristic Desc
+    {
+        { ATT_BT_UUID_SIZE, charUserDescUUID },
+        GATT_PERMIT_READ,
+        0,
+        ds_TimeYearDesc
     },
 };
 
@@ -400,22 +601,49 @@ bStatus_t DataService_GetParameter(uint8_t param, uint16_t *len, void *value)
 static uint8_t Data_Service_findCharParamId(gattAttribute_t *pAttr)
 {
     // Is this a Client Characteristic Configuration Descriptor?
-    if(ATT_BT_UUID_SIZE == pAttr->type.len && GATT_CLIENT_CHAR_CFG_UUID ==
-       *(uint16_t *)pAttr->type.uuid)
+    if(ATT_BT_UUID_SIZE == pAttr->type.len && GATT_CLIENT_CHAR_CFG_UUID == *(uint16_t *)pAttr->type.uuid)
     {
         return(Data_Service_findCharParamId(pAttr - 1)); // Assume the value attribute precedes CCCD and recurse
     }
     // Is this attribute in "String"?
-    else if(ATT_UUID_SIZE == pAttr->type.len &&
-            !memcmp(pAttr->type.uuid, ds_StringUUID, pAttr->type.len))
+    else if(ATT_UUID_SIZE == pAttr->type.len && !memcmp(pAttr->type.uuid, ds_StringUUID, pAttr->type.len))
     {
         return(DS_STRING_ID);
     }
     // Is this attribute in "Stream"?
-    else if(ATT_UUID_SIZE == pAttr->type.len &&
-            !memcmp(pAttr->type.uuid, ds_StreamUUID, pAttr->type.len))
+    else if(ATT_UUID_SIZE == pAttr->type.len && !memcmp(pAttr->type.uuid, ds_StreamUUID, pAttr->type.len))
     {
         return(DS_STREAM_ID);
+    }
+    // Is this attribute in "String"?
+    else if(ATT_UUID_SIZE == pAttr->type.len && !memcmp(pAttr->type.uuid, ds_TimeSecUUID, pAttr->type.len))
+    {
+        return(DS_TIME_SEC_ID);
+    }
+    // Is this attribute in "String"?
+    else if(ATT_UUID_SIZE == pAttr->type.len && !memcmp(pAttr->type.uuid, ds_TimeMinUUID, pAttr->type.len))
+    {
+        return(DS_TIME_MIN_ID);
+    }
+    // Is this attribute in "String"?
+    else if(ATT_UUID_SIZE == pAttr->type.len && !memcmp(pAttr->type.uuid, ds_TimeHourUUID, pAttr->type.len))
+    {
+        return(DS_TIME_HOUR_ID);
+    }
+    // Is this attribute in "String"?
+    else if(ATT_UUID_SIZE == pAttr->type.len && !memcmp(pAttr->type.uuid, ds_TimeDayUUID, pAttr->type.len))
+    {
+        return(DS_TIME_DAY_ID);
+    }
+    // Is this attribute in "String"?
+    else if(ATT_UUID_SIZE == pAttr->type.len && !memcmp(pAttr->type.uuid, ds_TimeMonUUID, pAttr->type.len))
+    {
+        return(DS_TIME_MON_ID);
+    }
+    // Is this attribute in "String"?
+    else if(ATT_UUID_SIZE == pAttr->type.len && !memcmp(pAttr->type.uuid, ds_TimeYearUUID, pAttr->type.len))
+    {
+        return(DS_TIME_YEAR_ID);
     }
     else
     {
@@ -475,6 +703,22 @@ static bStatus_t Data_Service_ReadAttrCB(uint16_t connHandle,
         /* Other considerations for Stream can be inserted here */
         break;
 
+    case DS_TIME_SEC_ID:
+    case DS_TIME_MIN_ID:
+    case DS_TIME_HOUR_ID:
+    case DS_TIME_DAY_ID:
+    case DS_TIME_MON_ID:
+    case DS_TIME_YEAR_ID:
+        valueLen = sizeof(uint8_t);
+
+        Log_info4("ReadAttrCB : %s connHandle: %d offset: %d method: 0x%02x",
+                  (uintptr_t)"String",
+                  connHandle,
+                  offset,
+                  method);
+        /* Other considerations for String can be inserted here */
+        break;
+
     default:
         Log_error0("Attribute was not found.");
         return(ATT_ERR_ATTR_NOT_FOUND);
@@ -522,8 +766,7 @@ static bStatus_t Data_Service_WriteAttrCB(uint16_t connHandle,
     uint16_t *pValueLenVar;
 
     // See if request is regarding a Client Characterisic Configuration
-    if(ATT_BT_UUID_SIZE == pAttr->type.len && GATT_CLIENT_CHAR_CFG_UUID ==
-       *(uint16_t *)pAttr->type.uuid)
+    if((ATT_BT_UUID_SIZE == pAttr->type.len) && (GATT_CLIENT_CHAR_CFG_UUID == *(uint16_t *)pAttr->type.uuid))
     {
         Log_info3("WriteAttrCB (CCCD): param: %d connHandle: %d %s",
                   Data_Service_findCharParamId(pAttr),
@@ -540,9 +783,7 @@ static bStatus_t Data_Service_WriteAttrCB(uint16_t connHandle,
             GATT_CLIENT_CFG_INDICATE);
         if(SUCCESS == status && pAppCBs && pAppCBs->pfnCfgChangeCb)
         {
-            pAppCBs->pfnCfgChangeCb(connHandle,
-                                    Data_Service_findCharParamId(
-                                        pAttr), len, pValue);
+            pAppCBs->pfnCfgChangeCb(connHandle, Data_Service_findCharParamId(pAttr), len, pValue);
         }
 
         return(status);
@@ -552,6 +793,12 @@ static bStatus_t Data_Service_WriteAttrCB(uint16_t connHandle,
     paramID = Data_Service_findCharParamId(pAttr);
     switch(paramID)
     {
+    case DS_TIME_SEC_ID:
+    case DS_TIME_MIN_ID:
+    case DS_TIME_HOUR_ID:
+    case DS_TIME_DAY_ID:
+    case DS_TIME_MON_ID:
+    case DS_TIME_YEAR_ID:
     case DS_STRING_ID:
         writeLenMin = DS_STRING_LEN_MIN;
         writeLenMax = DS_STRING_LEN;

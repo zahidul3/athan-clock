@@ -131,6 +131,7 @@ int main()
 
   Board_initGeneral();
 
+  //Delay for power to stabilize
   delay_ms(5000);
 
 #if !defined( POWER_SAVING )

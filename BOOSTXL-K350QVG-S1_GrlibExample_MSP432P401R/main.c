@@ -50,8 +50,11 @@
 #include "images/images.h"
 #include "touch_P401R.h"
 
+/* App Includes */
 #include "uart_debug.h"
-
+#include "uart_cc.h"
+#include "IoDef.h"
+#include "Common.h"
 
 //Touch screen context
 touch_context g_sTouchContext;
@@ -75,18 +78,6 @@ void runPrimitivesDemo(void);
 void runImagesDemo(void);
 void drawRestarDemo(void);
 
-#define CC_INT_PORT         GPIO_PORT_P6
-#define CC_INT_PIN          GPIO_PIN0
-
-#define HEARTBEAT_PORT      GPIO_PORT_P1
-#define HEARTBEAT_PIN       GPIO_PIN0
-
-#define HEARTBEAT_PORT      GPIO_PORT_P1
-#define HEARTBEAT_PIN       GPIO_PIN0
-
-#define BUTTON1_PORT        GPIO_PORT_P1
-#define BUTTON1_PIN         GPIO_PIN1
-
 /* Application Defines */
 #define SLAVE_ADDRESS_1     0x40
 #define NUM_OF_RX_BYTES     4
@@ -96,48 +87,6 @@ void drawRestarDemo(void);
 
 #define NAMAZ_TIME_START_POS_X     140
 #define NAMAZ_TIME_SIZE 5
-
-typedef struct
-{
-    uint8_t   Second;
-    uint8_t   Minute;
-    uint8_t   Hour;
-    uint8_t   Day;
-    uint8_t   Month;
-    uint8_t   Year;
-    uint8_t   DayOfWeek;  // 0-6, where 0 = Sunday
-    int8_t   TimeZone;   //
-} TsDateTime;
-
-typedef enum {
-  FAJR = 0,
-  SUNRISE,
-  ZUHR,
-  ASR,
-  MAGHRIB,
-  ISHA,
-  NUMBER_OF_ATHAN,
-  CURRENT_TIME = 0xFF
-} athan_type;
-
-typedef struct
-{
-    athan_type athanType;
-    uint8_t   Hour;
-    uint8_t   Minute;
-} TsAthanTime;
-
-typedef struct
-{
-    athan_type athanType;
-    uint8_t   Hour;
-    uint8_t   Minute;
-} TsCurrentTime;
-
-typedef struct
-{
-    TsAthanTime athanTimes[NUMBER_OF_ATHAN];
-} TsAthanTimesDay;
 
 TsDateTime currentDateTime =
         {
@@ -155,20 +104,7 @@ TsAthanTimesDay currentAthanTimesDay = {0};
 
 uint8_t rxBuffer[20] = {0};
 
-const eUSCI_UART_Config uartConfig =
-{
-        EUSCI_A_UART_CLOCKSOURCE_ACLK,          // SMCLK Clock Source
-        13,                                     // BRDIV = 78
-        0,                                       // UCxBRF = 2
-        3,                                       // UCxBRS = 0
-        EUSCI_A_UART_NO_PARITY,                  // No Parity
-        EUSCI_A_UART_LSB_FIRST,                  // LSB First
-        EUSCI_A_UART_ONE_STOP_BIT,               // One stop bit
-        EUSCI_A_UART_MODE,                       // UART mode
-        EUSCI_A_UART_LOW_FREQUENCY_BAUDRATE_GENERATION  // Oversampling
-};
-
-static uint32_t index = 0;
+uint8_t index = 0;
 
 typedef struct
 {
@@ -182,15 +118,18 @@ uint8_t TxDataLen = 0;
 typedef enum UARTLCDstate{
     UART_LCD_IDLE,
     UART_FINISH_CURRENT_TIME,
+    UART_FINISH_CURRENT_DATE,
     UART_FINISH_ATHAN_TIME,
     UART_RECEIVING_ATHAN_TIME,
-    UART_RECEIVING_CURRENT_TIME
+    UART_RECEIVING_CURRENT_TIME,
+    UART_RECEIVING_CURRENT_DATE
 } UARTLCDSTATE;
 
 UARTLCDSTATE UartLcdState = UART_LCD_IDLE;
 
 uint8_t CurrentHour;
 uint8_t CurrentMinute;
+AMPM CurrentAMPM = PM;
 
 uint16_t athanThreshold[6]= {4000, 5200, 6700, 8200, 9700, 17000};
 const char* const arr[] = { "Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha", 0 }; // all const
@@ -217,7 +156,7 @@ char buffer[DEBUG_BUFFER_SIZE];
 char bufferTouch[DEBUG_BUFFER_SIZE];
 bool TxDone = false;
 
-/* EUSCI A0 UART ISR - Echoes data back to PC host */
+/* EUSCI A0 UART ISR - Receives one byte at a time */
 void EUSCIA2_IRQHandler(void)
 {
     uint32_t status = MAP_UART_getEnabledInterruptStatus(EUSCI_A2_BASE);
@@ -226,21 +165,25 @@ void EUSCIA2_IRQHandler(void)
 
     if(status & EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
     {
-        if(UartLcdState <= UART_FINISH_ATHAN_TIME)
+        if((UartLcdState <= UART_FINISH_ATHAN_TIME) && index > 9)
             index = 0;
 
         rxBuffer[index] = MAP_UART_receiveData(EUSCI_A2_BASE);
-        if(rxBuffer[index] == CURRENT_TIME && UartLcdState <= UART_FINISH_ATHAN_TIME && index == 0)
+
+        if((rxBuffer[index] == CURRENT_TIME) && (UartLcdState <= UART_FINISH_ATHAN_TIME) && (index == 0))
             UartLcdState = UART_RECEIVING_CURRENT_TIME;
-        else if(rxBuffer[index] == FAJR && index == 0)
+        else if((rxBuffer[index] == CURRENT_DATE) && (UartLcdState <= UART_FINISH_ATHAN_TIME) && (index == 0))
+            UartLcdState = UART_RECEIVING_CURRENT_DATE;
+        else if((rxBuffer[index] == FAJR) && (index == 0))
             UartLcdState = UART_RECEIVING_ATHAN_TIME;
 
         index++;
 
-        if(index >= sizeof(TsCurrentTime) && UartLcdState == UART_RECEIVING_CURRENT_TIME)
+        if((index >= sizeof(TsCurrentTime)) && (UartLcdState == UART_RECEIVING_CURRENT_TIME))
         {
             CurrentHour = rxBuffer[1];
             CurrentMinute = rxBuffer[2];
+            CurrentAMPM = rxBuffer[3];
 
             memset(buffer, 0, DEBUG_BUFFER_SIZE);
             ltoa(CurrentHour,buffer);
@@ -258,7 +201,25 @@ void EUSCIA2_IRQHandler(void)
             //memcpy(&currentAthanTimesDay.athanTimes[0].athanType, rxBuffer, sizeof(currentAthanTimesDay));
         }
 
-        if(index >= sizeof(currentAthanTimesDay) && UartLcdState == UART_RECEIVING_ATHAN_TIME) //18
+        if((index >= sizeof(TsCurrentDate)) && (UartLcdState == UART_RECEIVING_CURRENT_DATE))
+        {
+            memcpy(&currentDateTime.Second, &rxBuffer[1], sizeof(TsDateTime));
+            memset(buffer, 0, DEBUG_BUFFER_SIZE);
+            ltoa(currentDateTime.Month,buffer);
+            uint8_t strLen = strlen(buffer);
+            buffer[strLen] = '/';
+            ltoa(currentDateTime.Day,(buffer+strLen+1));
+            printDebugString("Received current date: ");
+            printDebugString(buffer);
+            printDebugString("\n\r");
+
+            //setCurrentTime12Hr(currentDateTime);
+            drawDateTimeMenu();
+            UartLcdState = UART_FINISH_CURRENT_DATE;
+            index = 0;
+        }
+
+        if((index >= sizeof(currentAthanTimesDay)) && (UartLcdState == UART_RECEIVING_ATHAN_TIME)) //18
         {
             memcpy(&currentAthanTimesDay.athanTimes[0].athanType, rxBuffer, sizeof(currentAthanTimesDay));
             g_ranDemo = true;
@@ -290,25 +251,6 @@ void EUSCIA2_IRQHandler(void)
     }
 }
 
-void initUART(void)
-{
-    /* Selecting P3.2/PM_UCA2RXD/PM_UCA2SOMI and P3.3/PM_UCA2TXD/PM_UCA2SIMO in UART mode */
-    MAP_GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P3,
-            GPIO_PIN2 | GPIO_PIN3, GPIO_PRIMARY_MODULE_FUNCTION);
-
-    //![Simple UART Example]
-    /* Configuring UART Module */
-    MAP_UART_initModule(EUSCI_A2_BASE, &uartConfig);
-
-    /* Enable UART module */
-    MAP_UART_enableModule(EUSCI_A2_BASE);
-
-    /* Enabling interrupts */
-    MAP_UART_enableInterrupt(EUSCI_A2_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT | EUSCI_A_UART_TRANSMIT_INTERRUPT);
-    MAP_Interrupt_enableInterrupt(INT_EUSCIA2);
-    GPIO_setOutputLowOnPin(CC_INT_PORT, CC_INT_PIN);
-}
-
 uint8_t GetUARTData()
 {
     if(TxDataLen == sizeof(txData))
@@ -317,6 +259,8 @@ uint8_t GetUARTData()
         return txData.data;
 }
 
+
+//Sends data to CC device
 void SendUARTCmd(uint8_t* data, uint8_t len)
 {
     TxDone = false;
@@ -351,6 +295,7 @@ void SysTick_Handler(void)
 
 uint16_t xSum, ySum;
 
+//Crude polling method
 void polling_delay_ms(uint16_t millis)
 {
     uint32_t i,j = 0;
@@ -406,7 +351,7 @@ void main(void)
     MAP_SysTick_setPeriod(12000000);
     MAP_SysTick_enableModule();
 
-    initUART();         //9600baud 8N1
+    initUART_CC();      //9600baud 8N1
     initUART0Debug();   //921600baud 8N1
 
     //MAP_Interrupt_enableSleepOnIsrExit();
@@ -476,6 +421,11 @@ void main(void)
                 txData.command = TIME_HOUR_CMD;
                 txData.data = 0x00;
                 SendUARTCmd(&txData, sizeof(txData));
+            }
+            else if(ySum < 14000)
+            {
+                printDebugString("Touched TIME!");
+                drawDateTimeMenu();
             }
             else
             {
@@ -614,9 +564,26 @@ void drawTimeMenu(void)
     Graphics_drawString(&g_sContext, buffer, NAMAZ_TIME_SIZE, NAMAZ_TIME_START_POS_X, NAMAZ_START_POS+NAMAZ_SPACING*6, TRANSPARENT_TEXT);
 }
 
-void drawMainMenu(void)
+void drawDateTimeMenu(void)
 {
     char buffer[NAMAZ_TIME_SIZE];
+
+    printDebugString("Drawing Date Time Menu\n\r");
+
+    Graphics_setForegroundColor(&g_sContext, GRAPHICS_COLOR_BLUE);
+    Graphics_setBackgroundColor(&g_sContext, GRAPHICS_COLOR_BLACK);
+    Graphics_clearDisplay(&g_sContext);
+    Graphics_drawString(&g_sContext, "Date Times", sizeof("Date Times"), 3, 3, TRANSPARENT_TEXT);
+
+    //Graphics_drawString(&g_sContext, (void *)&constDaysMonthsConfig.months[currentDateTime.Month-1], 3, 3, NAMAZ_START_POS+NAMAZ_SPACING*0, TRANSPARENT_TEXT);
+    sprintf(buffer,"%02d-%02d-%02d", currentDateTime.Month, currentDateTime.Day, currentDateTime.Year);
+    Graphics_setForegroundColor(&g_sContext, GRAPHICS_COLOR_RED);
+    Graphics_drawString(&g_sContext, buffer, 8, 3, NAMAZ_START_POS+NAMAZ_SPACING*0, TRANSPARENT_TEXT);
+}
+
+void drawMainMenu(void)
+{
+    char buffer[NAMAZ_TIME_SIZE*2];
 
     printDebugString("Drawing Main Menu\n\r");
 
@@ -661,8 +628,8 @@ void drawMainMenu(void)
     sprintf(buffer,"%02d:%02d", currentAthanTimesDay.athanTimes[5].Hour, currentAthanTimesDay.athanTimes[5].Minute);
     Graphics_drawString(&g_sContext, buffer, NAMAZ_TIME_SIZE, NAMAZ_TIME_START_POS_X, NAMAZ_START_POS+NAMAZ_SPACING*5, TRANSPARENT_TEXT);
 
-    sprintf(buffer,"%02d:%02d", CurrentHour, CurrentMinute);
-    Graphics_drawString(&g_sContext, buffer, NAMAZ_TIME_SIZE, NAMAZ_TIME_START_POS_X, NAMAZ_START_POS+NAMAZ_SPACING*6, TRANSPARENT_TEXT);
+    sprintf(buffer,"%02d:%02d%s", CurrentHour, CurrentMinute, (CurrentAMPM ? "PM" : "AM"));
+    Graphics_drawString(&g_sContext, buffer, NAMAZ_TIME_SIZE+2, NAMAZ_TIME_START_POS_X-(50), NAMAZ_START_POS+NAMAZ_SPACING*6, TRANSPARENT_TEXT);
     // Draw Primitives image button
     //Graphics_drawImageButton(&g_sContext, &primitiveButton);
 
