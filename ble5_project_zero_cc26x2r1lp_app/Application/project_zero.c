@@ -130,11 +130,13 @@
 #define PZ_APP_MSG_EVT                       Event_Id_30
 #define PZ_UART1_EVT                         Event_Id_29
 #define PZ_UART1_CURR_TIME_EVT               Event_Id_28
+#define PZ_SAVE_TIME_FLASH_EVT               Event_Id_27
 
 // Bitwise OR of all RTOS events to pend on
 #define PZ_ALL_EVENTS                        (PZ_ICALL_EVT              | \
                                               PZ_UART1_EVT              | \
                                               PZ_UART1_CURR_TIME_EVT    | \
+                                              PZ_SAVE_TIME_FLASH_EVT    | \
                                               PZ_APP_MSG_EVT)
                                               //PZ_OAD_QUEUE_EVT | \
                                               //PZ_OAD_COMPLETE_EVT
@@ -302,10 +304,10 @@ enum UART_CMD
 TsDateTime currentDateTime =
         {
          13, //sec
-         14, //min
-         23, //hour
-         20,  //day
-         11,  //month
+         20, //min
+         12, //hour
+         25,  //day
+         12,  //month
          19, //year
          3,  //dayOfWeek 0-6, where 0 = Sunday
          0   //zone
@@ -822,6 +824,7 @@ void IncDateTime(uint8 updateStats)
     if(isAthanTime(DATE_TIME)) //check every min
         SetPlaybackAzanEvent();
     sendUART1CurrentTime();
+    Event_post(syncEvent, PZ_SAVE_TIME_FLASH_EVT);
   }
 }
 
@@ -1230,6 +1233,7 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
     ProjectZero_init();
     initUART1();
 
+    readCurrentTimeFromFlash();
     sendAthanTimes();
     if(isAthanTime(DATE_TIME)) //check every min
         SetPlaybackAzanEvent();
@@ -1262,6 +1266,11 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
             if (events & PZ_UART1_CURR_TIME_EVT)
             {
                 sendCurrentTimeToLCD();
+            }
+
+            if (events & PZ_SAVE_TIME_FLASH_EVT)
+            {
+                saveCurrentTimeToFlash();
             }
 
             // Fetch any available messages that might have been sent from the stack
@@ -1333,6 +1342,25 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
             }
 
         }
+    }
+}
+
+
+void readCurrentTimeFromFlash(void)
+{
+    uint8_t status = osal_snv_read(BLE_NVID_CUST_END, sizeof(currentDateTime), (uint8 *)&currentDateTime);
+    if(status != SUCCESS)
+    {
+        Log_error0("ERROR: readCurrentTimeFromFlash");
+    }
+}
+
+void saveCurrentTimeToFlash(void)
+{
+    uint8_t status = osal_snv_write(BLE_NVID_CUST_END, sizeof(currentDateTime), (uint8 *)&currentDateTime);
+    if(status != SUCCESS)
+    {
+        Log_error1("saveCurrentTimeToFlash FAIL: %d", status);
     }
 }
 
