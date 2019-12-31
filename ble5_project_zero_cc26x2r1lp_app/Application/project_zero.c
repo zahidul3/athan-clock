@@ -131,12 +131,14 @@
 #define PZ_UART1_EVT                         Event_Id_29
 #define PZ_UART1_CURR_TIME_EVT               Event_Id_28
 #define PZ_SAVE_TIME_FLASH_EVT               Event_Id_27
+#define PZ_UART1_CURR_DATETIME_EVT           Event_Id_26
 
 // Bitwise OR of all RTOS events to pend on
 #define PZ_ALL_EVENTS                        (PZ_ICALL_EVT              | \
                                               PZ_UART1_EVT              | \
                                               PZ_UART1_CURR_TIME_EVT    | \
                                               PZ_SAVE_TIME_FLASH_EVT    | \
+                                              PZ_UART1_CURR_DATETIME_EVT| \
                                               PZ_APP_MSG_EVT)
                                               //PZ_OAD_QUEUE_EVT | \
                                               //PZ_OAD_COMPLETE_EVT
@@ -291,14 +293,6 @@ uint8_t appTaskStack[PZ_TASK_STACK_SIZE];
 
 #define SEC_CALIBRATION_THRESHOLD 16384 //20000
 int32_t secCalibrationCnt = 0;
-
-enum UART_CMD
-{
-    BUTTON_CMD,
-    ALARM_CMD,
-    TIME_HOUR_CMD,
-    TIME_MIN_CMD
-};
 
 #pragma DATA_ALIGN(currentDateTime, 8)
 TsDateTime currentDateTime =
@@ -736,7 +730,7 @@ void ModifyDateTime(uint8 param)
 
     IncDateTime(1);
     //sendCurrentTimeToLCD();
-    //sendUART1CurrentTime();
+    //SendUART1CurrentTime();
 }
 
 //1Hz
@@ -823,7 +817,7 @@ void IncDateTime(uint8 updateStats)
 
     if(isAthanTime(DATE_TIME)) //check every min
         SetPlaybackAzanEvent();
-    sendUART1CurrentTime();
+    SendUART1CurrentTime();
     Event_post(syncEvent, PZ_SAVE_TIME_FLASH_EVT);
   }
 }
@@ -901,9 +895,14 @@ void sendAthanTimes(void)
     gUpdateAthanTime = true;
 }
 
-void sendUART1CurrentTime(void)
+void SendUART1CurrentTime(void)
 {
     Event_post(syncEvent, PZ_UART1_CURR_TIME_EVT);
+}
+
+void SendUART1CurrentDateTime(void)
+{
+    Event_post(syncEvent, PZ_UART1_CURR_DATETIME_EVT);
 }
 
 void sendUART1data(void)
@@ -953,6 +952,11 @@ static void LCDUART_readCallBack(UART_Handle handle, void *ptr, size_t size)
     else if((athanCMD == TIME_HOUR_CMD) || (athanCMD == TIME_MIN_CMD))
     {
         ModifyDateTime(athanCMD);
+    }
+    else if(athanCMD == RESET_CMD)
+    {
+        SendUART1CurrentDateTime();
+        gUpdateAthanTime = true;
     }
 
     Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);
@@ -1266,6 +1270,11 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
             if (events & PZ_UART1_CURR_TIME_EVT)
             {
                 sendCurrentTimeToLCD();
+            }
+
+            if (events & PZ_UART1_CURR_DATETIME_EVT)
+            {
+                sendCurrentDateToLCD();
             }
 
             if (events & PZ_SAVE_TIME_FLASH_EVT)

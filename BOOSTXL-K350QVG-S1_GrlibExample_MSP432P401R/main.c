@@ -30,6 +30,10 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * --/COPYRIGHT--*/
 
+
+/*********************************************************************
+ * INCLUDES
+ */
 /* DriverLib Includes */
 #include "driverlib.h"
 
@@ -78,16 +82,48 @@ void runPrimitivesDemo(void);
 void runImagesDemo(void);
 void drawRestarDemo(void);
 
-/* Application Defines */
-#define SLAVE_ADDRESS_1     0x40
-#define NUM_OF_RX_BYTES     4
+/*********************************************************************
+ * MACROS
+ */
 
+/*********************************************************************
+ * CONSTANTS
+ */
+/* Application Defines */
 #define NAMAZ_START_POS     40
 #define NAMAZ_SPACING       40
 
 #define NAMAZ_TIME_START_POS_X     140
 #define NAMAZ_TIME_SIZE 5
 
+/*********************************************************************
+ * TYPEDEFS
+ */
+typedef enum LCD_SCREEN
+{
+    MAIN_SCREEN,
+    DATE_SCREEN
+}LCD_SCREEN;
+
+typedef struct
+{
+  UART_CMD  command;
+  uint8_t   data;
+} __attribute__((__packed__)) TxData;
+
+typedef enum UARTLCDSTATE{
+    UART_LCD_IDLE,
+    UART_FINISH_CURRENT_TIME,
+    UART_FINISH_CURRENT_DATE,
+    UART_FINISH_ATHAN_TIME,
+    UART_RECEIVING_ATHAN_TIME,
+    UART_RECEIVING_CURRENT_TIME,
+    UART_RECEIVING_CURRENT_DATE
+} UARTLCDSTATE;
+
+/*********************************************************************
+ * GLOBAL VARIABLES
+ */
 TsDateTime currentDateTime =
         {
          0, //sec
@@ -106,27 +142,16 @@ uint8_t rxBuffer[20] = {0};
 
 uint8_t index = 0;
 
-typedef struct
-{
-  uint8_t   command;
-  uint8_t   data;
-} __attribute__((__packed__)) TxData;
+LCD_SCREEN LcdScreen = MAIN_SCREEN;
 
 TxData txData = {0};
 uint8_t TxDataLen = 0;
 
-typedef enum UARTLCDstate{
-    UART_LCD_IDLE,
-    UART_FINISH_CURRENT_TIME,
-    UART_FINISH_CURRENT_DATE,
-    UART_FINISH_ATHAN_TIME,
-    UART_RECEIVING_ATHAN_TIME,
-    UART_RECEIVING_CURRENT_TIME,
-    UART_RECEIVING_CURRENT_DATE
-} UARTLCDSTATE;
-
 UARTLCDSTATE UartLcdState = UART_LCD_IDLE;
 
+/*********************************************************************
+ * LOCAL VARIABLES
+ */
 uint8_t CurrentHour;
 uint8_t CurrentMinute;
 AMPM CurrentAMPM = PM;
@@ -136,6 +161,13 @@ const char* const arr[] = { "Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha"
 uint8_t alarmState = 0b00111101; //inverted bit field of alarm state
 
 int32_t athanDescColor[6] = {GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GRAY, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN};
+
+char buffer[DEBUG_BUFFER_SIZE];
+char bufferTouch[DEBUG_BUFFER_SIZE];
+bool TxDone = false;
+
+static uint32_t sysTickCount = 0;
+static uint16_t xSum, ySum;
 
 void setCurrentTime12Hr(TsDateTime dateTime)
 {
@@ -151,10 +183,6 @@ void setCurrentTime12Hr(TsDateTime dateTime)
     CurrentHour = dateTime.Hour;
     CurrentMinute = dateTime.Minute;
 }
-
-char buffer[DEBUG_BUFFER_SIZE];
-char bufferTouch[DEBUG_BUFFER_SIZE];
-bool TxDone = false;
 
 /* EUSCI A0 UART ISR - Receives one byte at a time */
 void EUSCIA2_IRQHandler(void)
@@ -194,7 +222,6 @@ void EUSCIA2_IRQHandler(void)
             printDebugString(buffer);
             printDebugString("\n\r");
 
-            //setCurrentTime12Hr(currentDateTime);
             drawMainMenu();
             UartLcdState = UART_FINISH_CURRENT_TIME;
             index = 0;
@@ -213,7 +240,7 @@ void EUSCIA2_IRQHandler(void)
             printDebugString(buffer);
             printDebugString("\n\r");
 
-            //setCurrentTime12Hr(currentDateTime);
+            setCurrentTime12Hr(currentDateTime);
             drawDateTimeMenu();
             UartLcdState = UART_FINISH_CURRENT_DATE;
             index = 0;
@@ -234,16 +261,13 @@ void EUSCIA2_IRQHandler(void)
     {
         if(TxDone != true)
         {
-            //printDebugString("TX Cmd Sent\n\r");
             TxDataLen--;
             uint8_t dataByte = GetUARTData();
-            //printDebugInt(dataByte);
             MAP_UART_transmitData(EUSCI_A2_BASE, dataByte);
             TxDone = true;
         }
         else
         {
-            //printDebugString("TX Data Sent\n\r");
             //polling_delay_ms(7); //wait for CC to wake and stabilize UART
             GPIO_setOutputLowOnPin(CC_INT_PORT, CC_INT_PIN);
             GPIO_enableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
@@ -258,7 +282,6 @@ uint8_t GetUARTData()
     else
         return txData.data;
 }
-
 
 //Sends data to CC device
 void SendUARTCmd(uint8_t* data, uint8_t len)
@@ -283,7 +306,6 @@ void buttonIntHandler(void)
     SendUARTCmd(&txData, sizeof(txData));
 }
 
-uint32_t sysTickCount = 0;
 /*
  * SysTick interrupt handler. This handler toggles HEARTBEAT LED on/off.
  */
@@ -292,8 +314,6 @@ void SysTick_Handler(void)
     sysTickCount++;
     GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
 }
-
-uint16_t xSum, ySum;
 
 //Crude polling method
 void polling_delay_ms(uint16_t millis)
@@ -310,13 +330,13 @@ void polling_delay_ms(uint16_t millis)
     }
 }
 
-enum UART_CMD
+void SendResetCmd(void)
 {
-    BUTTON_CMD,
-    ALARM_CMD,
-    TIME_HOUR_CMD,
-    TIME_MIN_CMD
-};
+    printDebugString("Sending reset cmd\n\r");
+    txData.command = RESET_CMD;
+    txData.data = 0;
+    SendUARTCmd(&txData, sizeof(txData));
+}
 
 void main(void)
 {
@@ -369,6 +389,7 @@ void main(void)
 
     touch_initInterface();
 
+    SendResetCmd();
     drawMainMenu();
 
     printDebugString("Hello World!\n\r");
@@ -392,6 +413,9 @@ void main(void)
         /* Sample the X and Y measurements of the touch screen. */
         xSum = touch_sampleX();
         ySum = touch_sampleY();
+
+        if(LcdScreen == DATE_SCREEN)
+            drawMainMenu();
 
         if(xSum > 1024)
         {
@@ -422,7 +446,7 @@ void main(void)
                 txData.data = 0x00;
                 SendUARTCmd(&txData, sizeof(txData));
             }
-            else if(ySum < 14000)
+            else if((ySum < 14000) && (xSum > 12000))
             {
                 printDebugString("Touched TIME!");
                 drawDateTimeMenu();
@@ -552,6 +576,7 @@ void initializeDemoButtons(void)
     noButton.font = &g_sFontCm18;
 }
 
+//Draws TIME at bottom of screen
 void drawTimeMenu(void)
 {
     char buffer[NAMAZ_TIME_SIZE];
@@ -568,6 +593,7 @@ void drawDateTimeMenu(void)
 {
     char buffer[NAMAZ_TIME_SIZE];
 
+    LcdScreen = DATE_SCREEN;
     printDebugString("Drawing Date Time Menu\n\r");
 
     Graphics_setForegroundColor(&g_sContext, GRAPHICS_COLOR_BLUE);
@@ -585,6 +611,7 @@ void drawMainMenu(void)
 {
     char buffer[NAMAZ_TIME_SIZE*2];
 
+    LcdScreen = MAIN_SCREEN;
     printDebugString("Drawing Main Menu\n\r");
 
     Graphics_setForegroundColor(&g_sContext, GRAPHICS_COLOR_BLUE);

@@ -311,7 +311,6 @@ int_fast8_t writetoSDCard(void)
     {
         Log_error0("sdHandle is 0");
         return;
-        //Task_exit();
     }
     /* Calculate number of sectors taken up by the array by rounding up */
     sectors = (sizeof(sampleBufferOne) + sectorSize - 1) / sectorSize;
@@ -322,7 +321,6 @@ int_fast8_t writetoSDCard(void)
     {
         Log_error0("sdStartWriteSector is 0");
         return;
-        //Task_exit();
     }
 
     if(bufActiveWrite == 1)

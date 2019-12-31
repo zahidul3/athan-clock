@@ -80,4 +80,12 @@ typedef struct
     TsAthanTime athanTimes[NUMBER_OF_ATHAN];
 } TsAthanTimesDay;
 
+typedef enum UART_CMD
+{
+    RESET_CMD,
+    ALARM_CMD,
+    TIME_HOUR_CMD,
+    TIME_MIN_CMD
+} UART_CMD;
+
 #endif /* COMMON_H_ */
