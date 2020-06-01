@@ -7,7 +7,7 @@
 
 /* TODO:
  * Fix Daylight Savings
- * Send reset command
+ *
  */
 
 /* (X,Y) coordinates of LCD Alarm Clock

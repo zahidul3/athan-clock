@@ -304,7 +304,7 @@ TsDateTime currentDateTime =
          12,  //month
          19, //year
          3,  //dayOfWeek 0-6, where 0 = Sunday
-         0   //zone
+         0b01011000   //zone
         };
 
 #pragma DATA_ALIGN(currentAthanTimesDay, 8)
@@ -446,6 +446,7 @@ static bool oadWaitReboot = false;
 static uint32_t sendSvcChngdOnNextBoot = TRUE;
 
 bool gUpdateAthanTime = FALSE;
+uint8_t gSecondDelay = 0;
 uint8_t athanTimesIndex = 0;
 uint8_t EnableSleepAfterSec = 0;
 /*********************************************************************
@@ -733,6 +734,45 @@ void ModifyDateTime(uint8 param)
     //SendUART1CurrentTime();
 }
 
+/*
+timeZone   Bits: assz zzzz
+
+a:  0 = winter time (no offset)
+    1 = summer time (+1 offset)
+
+z:  2s compliment 5 bit time zone offset
+
+s:  Adjust Scheme. As above
+    00 = Use config adjustment data
+    01 = No adjustment
+    10 = USA dates
+    11 = not defined
+*/
+
+#define DAYLIGHT_SAVINGS_ON       0x80
+#define ZONE_SCHEME               0x03
+
+// ----------------------------------------------------------------------------
+static int8 GetTimeZone(TsDateTime * time)
+{
+  int8 zone;
+
+  zone = time->TimeZone & 0x1F;
+  if(zone & 0x10) zone |= 0xE0;  // sign extended  -12 to +12
+#ifndef MS1
+  zone = 0;
+#endif
+  return zone;
+}
+// ----------------------------------------------------------------------------
+static void SetTimeZone(TsDateTime * time, int8 dzone)
+{
+  int8 zone;
+
+  zone = dzone & 0x1F;
+  time->TimeZone = (time->TimeZone & 0xE0) | zone;
+}
+
 //1Hz
 void IncDateTime(uint8 updateStats)
 {
@@ -757,7 +797,7 @@ void IncDateTime(uint8 updateStats)
         PIN_setOutputValue(ledPinHandle, PZ_GLED_PIN, 1);
 
     //update athan time with delay
-    if(gUpdateAthanTime && uart1Handle && DATE_TIME.Second==7)
+    if(gUpdateAthanTime && uart1Handle && (DATE_TIME.Second==gSecondDelay))
     {
         sendUART1data();
         gUpdateAthanTime = false;
@@ -790,28 +830,30 @@ void IncDateTime(uint8 updateStats)
 
         sendCurrentDateToLCD(); //update date on daily basis
       }
-//      uint8 tz;
-//
-//      tz = (DATE_TIME.TimeZone >> 5) & ZONE_SCHEME;
-//      if(tz==1); // USA no daylight savings
-//      if(tz==2) // USA normal daylight savings
-//      {
-//        if((DATE_TIME.Hour==2) && (DATE_TIME.DayOfWeek==0))                                // sunday 2am
-//        {
-//          if((DATE_TIME.Month==3) && ((DATE_TIME.Day>=8) && (DATE_TIME.Day<=15))  && ((DATE_TIME.TimeZone & DAYLIGHT_SAVINGS_ON)==0))                // 2nd sunday in march and not adjusted
-//          {
-//            DATE_TIME.Hour=3;                               // advance 1 hour
-//            SetTimeZone(&DATE_TIME, GetTimeZone(&DATE_TIME) + 1);
-//            DATE_TIME.TimeZone |= DAYLIGHT_SAVINGS_ON;      // set DAYLIGHT_SAVINGS_ON
-//          }
-//          else if((DATE_TIME.Month==11) && ((DATE_TIME.Day>=1) && (DATE_TIME.Day<=7))  && (DATE_TIME.TimeZone & DAYLIGHT_SAVINGS_ON)) // 1st sunday in november and adjusted
-//         {
-//            DATE_TIME.Hour=1;                               // back 1 hour
-//            SetTimeZone(&DATE_TIME, GetTimeZone(&DATE_TIME) - 1);
-//            DATE_TIME.TimeZone &= ~DAYLIGHT_SAVINGS_ON;     // clear DAYLIGHT_SAVINGS_ON
-//          }
-//        }
-//      }
+
+      uint8 tz;
+
+      tz = (DATE_TIME.TimeZone >> 5) & ZONE_SCHEME;
+      if(tz==1); // USA no daylight savings
+      if(tz==2) // USA normal daylight savings
+      {
+        if((DATE_TIME.Hour==2) && (DATE_TIME.DayOfWeek==0))                                // sunday 2am
+        {
+          if((DATE_TIME.Month==3) && ((DATE_TIME.Day>=8) && (DATE_TIME.Day<=15))  && ((DATE_TIME.TimeZone & DAYLIGHT_SAVINGS_ON)==0))                // 2nd sunday in march and not adjusted
+          {
+            DATE_TIME.Hour=3;                               // advance 1 hour
+            SetTimeZone(&DATE_TIME, GetTimeZone(&DATE_TIME) + 1);
+            DATE_TIME.TimeZone |= DAYLIGHT_SAVINGS_ON;      // set DAYLIGHT_SAVINGS_ON
+          }
+          else if((DATE_TIME.Month==11) && ((DATE_TIME.Day>=1) && (DATE_TIME.Day<=7))  && (DATE_TIME.TimeZone & DAYLIGHT_SAVINGS_ON)) // 1st sunday in november and adjusted
+          {
+            DATE_TIME.Hour=1;                               // back 1 hour
+            SetTimeZone(&DATE_TIME, GetTimeZone(&DATE_TIME) - 1);
+            DATE_TIME.TimeZone &= ~DAYLIGHT_SAVINGS_ON;     // clear DAYLIGHT_SAVINGS_ON
+          }
+        }
+      }
+
       sendAthanTimes();
     }
 
@@ -893,6 +935,7 @@ void sendAthanTimes(void)
             break;
     }
     gUpdateAthanTime = true;
+    gSecondDelay = (currentDateTime.Second + 7) % 60;
 }
 
 void SendUART1CurrentTime(void)
@@ -956,7 +999,7 @@ static void LCDUART_readCallBack(UART_Handle handle, void *ptr, size_t size)
     else if(athanCMD == RESET_CMD)
     {
         SendUART1CurrentDateTime();
-        gUpdateAthanTime = true;
+        sendAthanTimes();
     }
 
     Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);

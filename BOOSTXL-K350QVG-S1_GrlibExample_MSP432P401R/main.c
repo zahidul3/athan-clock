@@ -90,11 +90,11 @@ void drawRestarDemo(void);
  * CONSTANTS
  */
 /* Application Defines */
-#define NAMAZ_START_POS     40
-#define NAMAZ_SPACING       40
+#define NAMAZ_START_POS             40
+#define NAMAZ_SPACING               40
 
-#define NAMAZ_TIME_START_POS_X     140
-#define NAMAZ_TIME_SIZE 5
+#define NAMAZ_TIME_START_POS_X      140
+#define NAMAZ_TIME_SIZE             5
 
 /*********************************************************************
  * TYPEDEFS
