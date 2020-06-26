@@ -1,0 +1,892 @@
+.. _sec-application-overview:
+
+Application Overview
+====================
+
+|TIMAC| example applications are designed to enable faster end-product
+development by providing implementation of various common-protocol
+stack-specific tasks, and other essential features such as nonvolatile memory
+storage, saving information over power cycles, in addition to protocol
+functionality. This chapter explains the example application implementation to
+help developers quickly modify the |TIMAC| out-of-box example applications for
+customized development. The following sections detail the example applications
+of the |TIMAC| projects.
+
+-   Pre-RTOS initialization
+
+-   Application architecture: the Application task which is the lowest priority
+    task in the system. The code for this task resides in the ``Application``
+    IDE folder.
+
+-   Indirect Call Framework (:term:`ICALL`): an interface module which abstracts
+    communication between the Stack and other tasks.
+
+.. _sec-inc-architecture-standard-project-task-hierarchy:
+
+Application Architecture
+------------------------
+
+:numref:`fig-example-application-block-diagram` shows the block diagram of the
+Sensor and Collector example applications. Refer to the `TI 15.4-Stack Linux
+User's Guide`_ for details on the Linux example applications on an external host
+:term:`MCU`.
+
+.. _fig-example-application-block-diagram:
+.. figure:: resources/fig-example-application-block-diagram.png
+    :align: center
+
+    Example Application Block Diagram
+
+
+High-level descriptions of various blocks in :numref:`fig-example-application-block-diagram` follow:
+
+**Example Application:** The platform-independent implementation of the example
+use case. The |TIMAC| out-of-box demonstrates two use cases – Collector and
+Sensor. Developers can modify the code in this module in out-of-box example
+applications for custom application requirements, to quickly develop end
+products. This is platform-independent code, used as in the Linux example
+application and also the SimpleLink MCU platform example applications.
+
+**Logical Link Controller:** Implements various essential IEEE 802.15.4 specific
+or Wi-SUN (for frequency-hopping configuration) specific tasks, such as network
+formation, network joining, and rejoining. This block intends to offload various
+protocol-specific implementations from the developers, and enable faster custom
+application development. This is platform-independent code used in the Linux
+example application and SimpleLink MCU platform example applications.
+
+**TI-RTOS Start-up Code:** Initializes the application (see
+:ref:`sec-start-up-in-main` for more details).
+
+**Utility Functions:** Provides various platform utilities which the application
+can use for example LCD, timers, keys, and so on.
+
+**Application-Specific Functions:** Implements platform-specific functions such
+as data storage over power cycles (non-volatile memory), and provides user
+interface functions such as handling button presses or displaying essential
+information on the LCD, and so on.
+
+**TI 15.4-Stack API Module (API MAC Module):** This module provides an interface
+to the management and data services of the 802.15.4 stack through the Indirect
+Call Framework (:term:`ICALL`) module. The ICALL module is described in
+:ref:`sec-indirect-call-framework`.
+
+.. _sec-start-up-in-main:
+
+Start-Up in main()
+------------------
+
+The ``main()`` function inside of ``main.c`` is the application starting point
+at runtime. This point is where the board is brought up with interrupts disabled
+and board-related components are initialized. Tasks in this function are
+configured by initializing the necessary parameters, setting its priority, and
+initializing the stack size for the application. In the final step, interrupts
+are enabled and the ``SYS/BIOS`` kernel scheduler is started by calling
+``BIOS_start()``, which does not return. See the |TRM| for information on
+the start-up sequence before ``main()`` is reached.
+
+    .. code-block:: c
+
+        void main()
+        {
+            Task_Params taskParams;
+
+        #ifndef USE_DEFAULT_USER_CFG
+            user0Cfg.pAssertFP = macHalAssertHandler;
+        #endif
+
+            /* enable iCache prefetching */
+            VIMSConfigure(VIMS_BASE, TRUE, TRUE);
+
+            /* Enable cache */
+            VIMSModeSet( VIMS_BASE, VIMS_MODE_ENABLED); CPU_WriteBufferDisable();
+
+            /* Initialization for board related stuff such as LEDs following TI- RTOS convention */
+            PIN_init(BoardGpioInitTable);
+
+            /* Configure task. */
+            Task_Params_init(&taskParams);
+            taskParams.stack = myTaskStack;
+            taskParams.stackSize = APP_TASK_STACK_SIZE;
+            taskParams.priority = 1;
+            Task_construct(&myTask, taskFxn, &taskParams, NULL);
+
+        #ifdef DEBUG_SW_TRACE
+            IOCPortConfigureSet(IOID_8, IOC_PORT_RFC_TRC, IOC_STD_OUTPUT
+            | IOC_CURRENT_4MA | IOC_SLEW_ENABLE);
+        #endif /* DEBUG_SW_TRACE */
+
+            BIOS_start(); /* enable interrupts and start SYS/BIOS */
+            return 0;
+
+        }
+
+.. _sec-indirect-call-framework:
+
+Indirect Call Framework
+-----------------------
+
+ICall is a module that provides a mechanism for the Application to
+interface with |TIMAC| services (such as |TIMAC| APIs), as well as certain
+primitive services (such as thread synchronization) provided by the real-time
+operating system (RTOS). ICall allows both the Application and
+protocol stack tasks to efficiently operate, communicate, and share resources in
+a unified RTOS environment.
+
+The central component of the ICall architecture is the dispatcher, which
+facilitates the application program interface between the Application and the
+|TIMAC| task. Although most of the ICall interactions are abstracted within the
+|TIMAC| APIs, it is important for the application developer to understand the
+underlying architecture so that proper |TIMAC| protocol stack operation is
+achieved in the multi-threaded RTOS environment. The source code of the ICall
+module is provided in the ICall IDE folder in the Application project.
+
+.. _fig-icall-block-diagram:
+.. figure:: resources/fig-icall-block-diagram.png
+    :align: center
+    :scale: 60%
+
+    ICall Application – Protocol Stack Abstraction
+
+.. _sec-icall-ti154stack-service:
+
+ICall Protocol Stack Service
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As depicted in :numref:`fig-icall-block-diagram` the ICall core use-case
+involves messaging between a server entity (the |TIMAC| task) and a client
+entity (the Application task). The reasoning for this architecture is twofold:
+to enable independent updating of the application and |TIMAC|, and also to
+maintain API consistency as the software is ported from legacy platforms (for
+example OSAL for the CC253x) to TI-RTOS. The ICall |TIMAC| Service serves as the
+Application interface to all |TIMAC| APIs. Internally, when a |TIMAC| protocol
+stack API is called by the Application, the ICall module routes (dispatches) the
+command to the |TIMAC|, and where appropriate, routes messages from the |TIMAC|
+to the Application.
+
+Because the ICall module is part of the Application project, the Application
+task can access the ICall with direct function calls. User modifications to the
+ICall source are not encouraged. Also, because the |TIMAC| executes at the
+highest priority, the Application task blocks until the response is received.
+Certain protocol stack APIs may respond immediately; however, the Application
+thread blocks because the API is being dispatched to the |TIMAC| through the
+ICall. Other |TIMAC| APIs (such as event updates) may also respond
+asynchronously to the Application through the ICall, with the response sent to
+the task event handler of the Application.
+
+.. _sec-icall-primitive-servie:
+
+ICall Primitive Service
+^^^^^^^^^^^^^^^^^^^^^^^
+
+ICall includes a primitive service that abstracts various operating system
+related functions. Due to shared resources, and to maintain interprocess
+communication, the Application must use the following ICall primitive service
+functions.
+
+-   Messaging and Thread Synchronization
+-   Heap Allocation and Management
+
+.. _sec-messaging-and-thread-synchronization:
+
+Messaging and Thread Synchronization
+""""""""""""""""""""""""""""""""""""
+
+The messaging and thread synchronization functions provided by the ICall let
+users design an application to protocol stack interface in the multi-threaded
+RTOS environment. Within the ICall, messaging between two tasks is achieved by
+sending a message block from one thread to the other using a message queue. The
+sender allocates memory, writes the content of the message into the memory
+block, and then sends (enqueues) the memory block to the recipient. Notification
+of message delivery is accomplished using a signaling semaphore. The receiver
+wakes up on the semaphore, copies the message memory block (or blocks),
+processes the message, and returns (frees) the memory block to the heap.
+
+The Stack uses the ICall for notifying and sending messages to the
+Application. These service messages (such as state change notifications)
+received by the Application task are delivered by the ICall and
+processed in the task context of the Application.
+
+.. _sec-heap-allocation-and-management:
+
+Heap Allocation and Management
+""""""""""""""""""""""""""""""
+
+The ICall provides the Application with global heap APIs for dynamic memory
+allocation. The size of the ICall heap is configured with the ``HEAPMGR_SIZE``
+preprocessor define in the Application project. ICall uses this heap for all
+protocol stack messaging as well as to obtain memory for other ICall services.
+TI recommends that the Application uses these ICall APIs for dynamic memory
+allocation within the Application. Setting ``HEAPMGR_SIZE=0`` uses all available
+:term:`RAM` as heap.
+
+.. _sec-icall-init-and-registration:
+
+ICALL Initialization and Registration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To instantiate and initialize the ICall service, the following functions
+must be called by the application in ``main()`` before starting the ``SYS/BIOS``
+kernel scheduler.
+
+    .. code-block:: c
+
+        /* Initialize ICall module */
+        ICall_init();
+
+        /* Start tasks of external images - Priority 5 */
+        ICall_createRemoteTasks();
+
+Calling ``ICall_init()`` initializes the ICall primitive service (for example,
+heap manager) and framework. Calling ``ICall_createRemoteTasks()`` creates, but
+does not start, the |TIMAC| protocol stack task.
+
+Before using ICall protocol services, both the server and client must enroll and
+register with the ICall. The server enrolls a service which is enumerated at
+build time. Service function handler registration uses a globally defined unique
+identifier for each service. For example, |TIMAC| uses
+``ICALL_SERVICE_CLASS_TIMAC`` for receiving |TIMAC| protocol stack messages
+through the ICall.
+
+The following is a call to enroll the |TIMAC| protocol stack service (server)
+with the ICall in ``MacStack.c``
+
+    .. code-block:: c
+
+        // ICall enrollment
+
+        /* Enroll the service that this stack represents */
+        ICall_enrollService(ICALL_SERVICE_CLASS_TIMAC, NULL, &entity, &sem);
+
+The registration mechanism is used by the client to send and receive messages
+through the ICall dispatcher. For a client (for example, Application task) to
+use the |TIMAC| APIs, the client must first register its task with the ICall.
+This registration is done for the application in ``ApiMac_init()``, which is
+called by the applications initialization functions. The following is the call
+to the ICall in ``ApiMac_init()`` in ``api_mac.c``.
+
+    .. code-block:: c
+
+        /* Register the current thread as an ICall dispatcher application
+        * so that the application can send and receive messages.
+        */
+        ICall_registerApp(&ApiMac_appEntity, &sem);
+
+``api_mac.c`` supplies the ``ApiMac_appEntity`` and ``sem`` inputs which, upon
+return of ``ICall_registerApp()``, are initialized for the client (for example,
+Application) task. These objects are subsequently used by the ICall to
+facilitate messaging between the Application and server tasks. The ``sem``
+argument represents the semaphore used for signaling, whereas the
+``ApiMac_appEntity`` represents the task destination message queue. Each task
+registering with the ICall has unique ``sem`` and ``ApiMac_appEntity``
+identifiers.
+
+    .. note::
+        |TIMAC| APIs defined in ``api_mac.c``, and other ICall primitive services, are not available for use before ICall registration.
+
+.. _sec-icall-thread-synchronization:
+
+ICALL Thread Synchronization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ICall module switches between Application and Stack threads through
+the use of preemption and semaphore synchronization services provided by the
+RTOS. The two ICall functions to retrieve and enqueue messages are not
+blocking functions. They check whether there is a received message in the queue
+and if there is no message, the functions return immediately with the
+``ICALL_ERRNO_NOMSG`` return value. To allow a client or a server thread to
+block until it receives a message, ICall provides the following function
+which blocks until the semaphore associated with the caller RTOS thread is
+posted.
+
+    .. code-block:: c
+
+        //static inline ICall_Errno ICall_wait(uint_fast32_t milliseconds)
+        ICall_Errno errno = ICall_wait(ICALL_TIMEOUT_FOREVER);
+
+In the preceding function, milliseconds is the timeout period in ms, after which
+if the function has not already returned, the function returns with
+``ICALL_ERRNO_TIMEOUT``. If ``ICALL_TIMEOUT_FOREVER`` is passed as ms,
+the ``ICall_wait()`` shall block forever, or until the semaphore is posted.
+Allowing an application or a server thread to block is important to yield the
+processor resource to other lower priority threads, or to conserve energy by
+shutting down power and clock domains whenever possible. The semaphore
+associated with an RTOS thread is signaled by either of the following
+conditions.
+
+-   A new message is queued to the Application RTOS thread queue.
+-   ``ICall_signal()`` is called for the semaphore.
+
+``ICall_signal()`` is provided so that an application or a server can add
+its own event to unblock the ``ICall_wait()`` and synchronize the thread.
+``ICall_signal()`` accepts a semaphore handle as its sole argument as follows.
+
+    .. code-block:: c
+
+        //static inline ICall_Errno ICall_signal(ICall_Semaphore msgsem)
+        ICall_signal(sem);
+
+The semaphore handle associated with the thread is obtained through either the
+``ICall_enrollService()`` call or ``ICall_registerApp()`` call.
+
+    .. note::
+        It is not possible to call an ICALL function from a stack callback. This action causes the
+        ICall to abort (with ``ICall_abort()``) and breaks the system.
+
+.. _sec-memory-management-system-stack:
+
+System Stack
+^^^^^^^^^^^^
+
+Besides the :term:`RTOS` and ICall heaps previously mentioned, there are other
+sections of memory to consider. As described in :ref:`sec-tirtos-overview`, each
+task has its own runtime stack for context switching. Furthermore, another
+runtime stack is used by the :term:`RTOS` for main(), HWIs, and SWIs. This
+system stack is allocated in the Application linker file, to be placed at the
+end of the RAM of the Application.
+
+For CCS, the :term:`RTOS` system stack is defined by the Program.stack parameter
+in the app.cfg :term:`RTOS` configuration file.
+
+.. code-block:: js
+
+    /* main() and Hwi, Swi stack size */
+    Program.stack = 1280;
+
+Then the :term:`RTOS` system stack is placed by the linker in the RAM space of
+the Application:::
+
+    /* Create global constant that points to top of stack */
+    /* CCS: Change stack size under Project Properties */
+    STACK_TOP = stack + STACK_SIZE;
+
+.. _sec-example-icall-usage:
+
+Example ICALL Usage
+^^^^^^^^^^^^^^^^^^^
+
+:numref:`fig-icall-messaging-example` shows an example command being sent from
+the application to the |TIMAC| through the ICall, with a corresponding return
+value passed back to the application. ``ICall_init()`` initializes the ICall
+module instance itself and ``ICall_createRemoteTasks()`` creates a task per
+external image, with an entry function at a known address. After initializing
+the ICall, the Application task registers with the ICall using
+``ICall_registerApp``. After the ``SYS/BIOS`` scheduler starts and the
+Application task runs, the application sends a protocol command defined in
+``api_mac.c`` such as ``ApiMac_mlmeSetReqArray()``. The protocol command is not
+executed in the application thread. Instead the command is encapsulated in an
+ICall message, and routed to the |TIMAC| task through the ICall. In other words,
+this command is sent to the ICall dispatcher where it is dispatched and executed
+on the server side (|TIMAC|). The Application thread meanwhile blocks (waits
+for) the corresponding command status message (status). When the |TIMAC|
+protocol stack finishes executing the command, the command status message
+response is sent through the ICall back to the application thread.
+
+.. _fig-icall-messaging-example:
+.. figure:: resources/fig-icall-messaging-example.png
+    :align: center
+
+    ICall Messaging Example
+
+.. _sec-general-application-architecture:
+
+General Application Architecture
+--------------------------------
+
+This section describes how an Application task is structured in more detail.
+Having an understand of the out of box application architecture will allow
+develop custom applications quickly and easily with most software reuse from out
+of box example applications.
+
+.. _sec-application-init-function:
+
+Application Initialization Function
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:ref:`sec-rtos-overview-tasks` describes how a task is constructed. After the
+task is constructed and the ``SYS/BIOS`` kernel scheduler is started, the
+function that was passed during task construction is run when the task is ready.
+Power-management functions are initialized here and the ICall module is
+initialized through ``ICall_init()``. The primary IEEE address (programmed by
+TI) is obtained from the :term:`CCFG` area of the flash memory and NV drivers
+are initialized. The application task (Sensor application in
+:numref:`fig-sensor-task-flow-chart`) is initialized and started.
+
+    .. code-block:: c
+
+        Void taskFxn(UArg a0, UArg a1)
+        {
+
+            /* Disallow shutting down JTAG, VIMS, SYSBUS during idle state since TIMAC requires
+            SYSBUS during idle. */
+            Power_setConstraint(PowerCC26XX_IDLE_PD_DISALLOW);
+
+            /* Initialize ICall module */
+            ICall_init();
+
+        #ifdef FEATURE_MAC_SECURITY
+
+            /* Copy the extended address from the CCFG area Assumption: the memory in
+            CCFG_IEEE_MAC_0 and CCFG_IEEE_MAC_1 is contiguous and LSB first. */
+            memcpy(ApiMac_extAddr, (uint8_t *)&(__ccfg.CCFG_IEEE_MAC_0), (APIMAC_SADDR_EXT_LEN));
+
+            /* Check to see if the CCFG IEEE is valid */
+            if(memcmp(ApiMac_extAddr, dummyExtAddr, APIMAC_SADDR_EXT_LEN) == 0)
+            {
+                /* No, it isn't valid. Get the Primary IEEE Address */
+                memcpy(ApiMac_extAddr, (uint8_t *)(FCFG1_BASE + EXTADDR_OFFSET), (APIMAC_SADDR_EXT_LEN));
+            }
+
+        #endif
+
+        #ifdef NV_RESTORE
+            /* Setup the NV driver */
+            NVOCTP_loadApiPtrs(&Main_user1Cfg.nvFps);
+
+            if(Main_user1Cfg.nvFps.initNV)
+            {
+                Main_user1Cfg.nvFps.initNV( NULL);
+            }
+        #endif
+
+            /* Start tasks of external images */
+            ICall_createRemoteTasks();
+
+            /* Initialize the application */
+            Sensor_init();
+
+            /* Kick off application - Forever loop */
+            while(1)
+            {
+                Sensor_process();
+            }
+
+        }
+
+For example, in the sensor example application file ``main.c`` function
+``taskfxn()``, the initialization function
+
+``Sensor_init()`` sets several software configuration settings as well as
+parameters. Some examples are:
+
+-   Initializing structures for sensor data
+-   Initializing |TIMAC|
+-   Setting up the security and logical link controller
+-   Registering MAC callbacks
+
+.. _sec-event-processing-task-function:
+
+Event Processing in the Task Function
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the initialization function in the previous code snippet, the task function
+enters an infinite loop so to continuously process as an independent task and
+does not run to completion, seen in :numref:`fig-sensor-task-flow-chart`.
+
+.. _fig-sensor-task-flow-chart:
+.. figure:: resources/fig-sensor-task-flow-chart.jpeg
+    :align: center
+
+    Sensor Example Application Task Flow Chart
+
+:numref:`fig-sensor-task-flow-chart` shows various reasons for posting to the
+semaphore, causing the task to become active.
+
+.. _sec-events-signaled-through-internal-event-variable:
+
+Events Signaled Through the Internal Event Variable
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The Application task uses an event variable bit mask to identify what action
+caused the process to wake up, and takes appropriate action. Each bit of the
+event variable corresponds to a defined event such as:
+
+    .. code-block:: c
+
+        /*! Event ID - Start the device in the network */
+        #define SENSOR_START_EVT 0x0001
+
+        /*! Event ID - Reading Timeout Event */
+        #define SENSOR_READING_TIMEOUT_EVT 0x0002
+
+Whichever function sets this bit in the event variable must also ensure to post
+to the semaphore, to wake up the application for processing. An example of this
+is the clock handler which handles clock timeouts.
+
+    .. code-block:: c
+
+        /* Is it time to send the next sensor data message? */
+        if(Sensor_events &SENSOR_READING_TIMEOUT_EVT)
+        {
+            /* Setup for the next message */
+            Ssf_setReadingClock(configSettings.reportingInterval);
+
+            /* Read sensors */
+            readSensors();
+
+            /* Process Sensor Reading Message Event */
+            processSensorMsgEvt();
+
+            /* Clear the event */
+            Sensor_events &= ~SENSOR_READING_TIMEOUT_EVT;
+
+        }
+
+When adding an event, it must be unique for the given task and be a power of 2
+(so that only 1 bit is set). Because the event variable is initialized as
+``uint16_t``, this setup allows for a maximum of 16 internal events.
+
+.. _sec-callbacks:
+
+Callbacks
+^^^^^^^^^
+
+The application code also likely includes various callbacks from the protocol
+stack layer and RTOS modules. To ensure thread safety, processing should be
+minimized in the actual callback, and the bulk of the processing should be done
+in the application context. The following code snippet directs the callbacks
+through ``ApiMac_processIncoming()`` to the correct MAC API using the
+ICall after all the application events are processed.
+
+    .. code-block:: c
+
+        void Sensor_process(void)
+
+        {
+
+            ..
+
+            ..
+
+            /* Start the collector device in the network */
+            if(Sensor_events & SENSOR_START_EVT)
+            {
+
+            }
+
+            /* Is it time to send the next sensor data message? */
+            if(Sensor_events &SENSOR_READING_TIMEOUT_EVT)
+            {
+
+            }
+
+            /* Process LLC Events */
+            Jdllc_process();
+
+            /* Allow the Specific functions to process */
+            Ssf_processEvents();
+
+            /* Don't process ApiMac messages until all of the sensor events are processed. */
+            if(Sensor_events == 0)
+            {
+                /* Wait for response message or events */
+                ApiMac_processIncoming();
+            }
+
+        }
+
+The previous code snippet directs the callbacks to the correct MAC API using
+ICall. Two functions are defined per callback, one at the application
+level, the other in the MAC API. For example, consider the handling of a scan
+confirm in the following code snippet.
+
+    .. code-block:: c
+
+        case MAC_MLME_SCAN_CNF:
+            if(pMacCallbacks->pScanCnfCb)
+            {
+                processScanCnf(&(pMsg->scanCnf));
+            }
+            else
+            {
+                /* If there's no callback, make sure the scanResults are freed */
+                if(scanResults != NULL)
+                {
+                    ICall_free(scanResults);
+                    scanResults = NULL;
+                }
+
+            }
+        break;
+
+The MAC API callback is overwritten by the following application callback.
+``pMacCbs->pScanCnfCb = scanCnfCb;`` At the application level.
+
+    .. code-block:: c
+
+        /*!
+        * @brief Process Scan Confirm callback.
+        *
+        * @param pData - pointer to Scan Confirm
+        */
+        static void scanCnfCb(ApiMac_mlmeScanCnf_t *pData)
+        {
+            if(pData->status == ApiMac_status_success)
+            {
+                if(pData->scanType == ApiMac_scantype_active)
+                {
+                    /* set event to send Association Request */
+                    Jdllc_events |= JDLLC_ASSOCIATE_REQ_EVT;
+                }
+                else if(pData->scanType == ApiMac_scantype_passive)
+                {
+                    /* send sync request for beacon enabled device */
+                    switchState(Jdllc_deviceStates_syncReq);
+                }
+                else if(pData->scanType == ApiMac_scantype_orphan)
+                {
+                    /* coordinator realignment received, set event to process it */
+                    Jdllc_events |= JDLLC_COORD_REALIGN;
+                }
+            }
+            /* ….. */
+            if(macCallbacksCopy.pScanCnfCb != NULL)
+            {
+                macCallbacksCopy.pScanCnfCb(pData);
+            }
+        }
+
+The following code is at the MAC API level.
+
+    .. code-block:: c
+
+        /*!
+        * @brief Process the incoming Scan Confirm callback.
+        *
+        * @param pCnf - pointer MAC Scan Confirm info
+        */
+        static void processScanCnf(macMlmeScanCnf_t *pCnf)
+        {
+            /* Confirmation structure */
+            ApiMac_mlmeScanCnf_t cnf;
+
+            /* Initialize the structure */
+            memset(&cnf, 0, sizeof(ApiMac_mlmeScanCnf_t));
+
+            /* copy the message to the confirmation structure */
+            cnf.status = (ApiMac_status_t)pCnf->hdr.status;
+            cnf.scanType = (ApiMac_scantype_t)pCnf->scanType;
+            cnf.channelPage = pCnf->channelPage;
+            cnf.phyId = pCnf->phyID;
+            memcpy(cnf.unscannedChannels, pCnf->unscannedChannels, APIMAC_154G_CHANNEL_BITMAP_SIZ);
+            cnf.resultListSize = pCnf->resultListSize;
+            if(cnf.resultListSize)
+            {
+                if(cnf.scanType == ApiMac_scantype_energyDetect)
+                {
+                    cnf.result.pEnergyDetect = (uint8_t *)ICall_malloc(cnf.resultListSize * sizeof(uint8_t));
+                    if(cnf.result.pEnergyDetect)
+                    {
+                        memcpy(cnf.result.pEnergyDetect, pCnf->result.pEnergyDetect, cnf.resultListSize);
+                    }
+                    else
+                    {
+                        cnf.status = ApiMac_status_noResources;
+                        cnf.resultListSize = 0;
+                    }
+                }
+                else
+                {
+                    cnf.result.pPanDescriptor = (ApiMac_panDesc_t *)ICall_malloc(cnf.resultListSize * sizeof(ApiMac_panDesc_t));
+                    if(cnf.result.pPanDescriptor)
+                    {
+                        uint8_t x;
+                        ApiMac_panDesc_t *pDstPanDesc = cnf.result.pPanDescriptor;
+                        macPanDesc_t *pSrcPanDesc = pCnf->result.pPanDescriptor;
+                        for(x = 0; x < cnf.resultListSize; x++, pDstPanDesc++, pSrcPanDesc++)
+                        {
+                            copyMacPanDescToApiMacPanDesc(pDstPanDesc, pSrcPanDesc);
+                        }
+                    }
+                    else
+                    {
+                        cnf.status = ApiMac_status_noResources;
+                        cnf.resultListSize = 0;
+                    }
+                }
+            }
+            /* We processed the scan confirm, so free the results */
+            if(scanResults != NULL)
+            {
+                ICall_free(scanResults);
+                scanResults = NULL;
+            }
+            /*
+            * Initiate the callback, no need to check pMacCallbacks or the function
+            * pointer for non-null, the calling function will check the function
+            * pointer
+            */
+
+            pMacCallbacks->pScanCnfCb(&cnf);
+            if(cnf.resultListSize)
+            {
+                if(cnf.scanType == ApiMac_scantype_energyDetect)
+                {
+                    ICall_free(cnf.result.pEnergyDetect);
+                }
+                else
+                {
+                    ICall_free(cnf.result.pPanDescriptor);
+                }
+            }
+        }
+
+.. _sec-nv:
+
+Non-Volatile Memory
+-------------------
+
+The NV area of flash is used for storing persistent data for the application. TI
+15,4-Stack provides two implementations of NV. One uses one page of internal
+flash, while the other uses two. By default example applications use one page
+NV. For more information on one page NV please refer to ``nvocop.c`` which
+describes the implementation details. Also nvoctp.c describes the implementation
+details of the two page NV. The last page in flash is the CCA page, depending on
+whether one page or two page NV is used one or two pages before the last page
+(CCFG) are defined as the NV area. The example projects use the NV driver with
+the API defined in ``nvintf.h``.
+
+The NV driver is set up in main.c::
+
+    #ifdef NV_RESTORE
+        /* Setup the NV driver */
+        NVOCTP_loadApiPtrs(&Main_user1Cfg.nvFps);
+
+        if(Main_user1Cfg.nvFps.initNV)
+        {
+            Main_user1Cfg.nvFps.initNV( NULL);
+        }
+    #endif
+
+Then the applications use the function pointers in Main\_user1Cfg to call the NV
+functions defined in nvintf.h::
+
+    //! Structure of NV API function pointers
+    typedef struct nvintf_nvfuncts_t
+    {
+        //! Initialization function
+        NVINTF_initNV initNV;
+        //! Compact NV function
+        NVINTF_compactNV compactNV;
+        //! Create item function
+        NVINTF_createItem createItem;
+        //! Delete NV item function
+        NVINTF_deleteItem deleteItem;
+        //! Read item function
+        NVINTF_readItem readItem;
+        //! Write item function
+        NVINTF_writeItem writeItem;
+        //! Write existing item function
+        NVINTF_writeItemEx writeItemEx;
+        //! Get item length function
+        NVINTF_getItemLen getItemLen;
+    } NVINTF_nvFuncts_t;
+
+The following is an example of a write from csf.c::
+
+    static void updateDeviceListItem(Llc_deviceListItem_t *pItem)
+    {
+        if((pNV != NULL) && (pItem != NULL))
+        {
+            int idx;
+            idx = findDeviceListIndex(&pItem->devInfo.extAddress);
+            if(idx != DEVICE_INDEX_NOT_FOUND)
+            {
+                NVINTF_itemID_t id;
+
+                /* Setup NV ID for the device list record */
+                id.systemID = NVINTF_SYSID_APP;
+                id.itemID = CSF_NV_DEVICELIST_ID;
+                id.subID = (uint16_t)idx;
+
+                /* write the device list record */
+                pNV->writeItem(id, sizeof(Llc_deviceListItem_t), pItem);
+            }
+        }
+    }
+
+The following is an example of a read from csf.c::
+
+    bool Csf_getNetworkInformation(Llc_netInfo_t *pInfo)
+    {
+        if((pNV != NULL) && (pNV->readItem != NULL) && (pInfo != NULL))
+        {
+            NVINTF_itemID_t id;
+
+            /* Setup NV ID */
+            id.systemID = NVINTF_SYSID_APP;
+            id.itemID = CSF_NV_NETWORK_INFO_ID;
+            id.subID = 0;
+            /* Read Network Information from NV */
+            if(pNV->readItem(id, 0, sizeof(Llc_netInfo_t), pInfo) == NVINTF_SUCCESS)
+            {
+                return(true);
+            }
+        }
+        return(false);
+    }
+
+The NV system is a collection of NV items. Each item is unique and have the
+following pieces to it (defined in nvintf.h).::
+
+    /**
+    *  NV Item Identification structure
+    */
+
+    typedef struct nvintf_itemid_t
+    {
+        //! NV System ID - identifies system (ZStack, BLE, App, OAD...)
+        uint8_t systemID;
+        //! NV Item ID
+        uint16_t itemID;
+        //! NV Item sub ID
+        uint16_t subID;
+    } NVINTF_itemID_t;
+
+.. _tirtos-drivers:
+
+TI-RTOS Drivers
+---------------
+
+The TI-RTOS provides a suite of |DEVICE| peripheral drivers that can be added to
+an application. The drivers provide a mechanism for the application to interface
+with the |DEVICE| onboard peripherals and communicate with external devices.
+These drivers make use of DriverLib to abstract register access.
+
+There is significant documentation relating to each TI-RTOS driver located in
+the SDK. Refer to the SDK release notes for the specific location. This
+section only provides an overview of how drivers fit into the software
+ecosystem. For a description of available features and driver APIs, refer to the
+TI-RTOS API Reference.
+
+.. _adding-a-driver:
+
+Adding a Driver
+^^^^^^^^^^^^^^^
+
+Some of the drivers are added to the project as source files in their
+respective folder under the Drivers folder in the project workspace.
+
+The driver source files can be found in their respective folder at
+``$DRIVER_LOC\ti\drivers``.
+
+The ``$DRIVER_LOC`` argument variable refers to the
+installation location and can be viewed in the *Project Options ->
+Resource -> Linked Resources*, Path Variables tab of CCS.
+
+To add a driver to a project, include the C and include file of the
+respective driver in the application file (or files) where the
+driver APIs are referenced.
+
+For example, to add the PIN driver for reading or controlling an
+output I/O pin, add the following::
+
+    #include <ti/drivers/pin/PINCC26XX.h>
+
+Also add the following TI-RTOS driver files to the project under the
+Drivers\\PIN folder:
+
+-  PINCC26XX.c
+
+-  PINCC26XX.h
+
+-  PIN.h

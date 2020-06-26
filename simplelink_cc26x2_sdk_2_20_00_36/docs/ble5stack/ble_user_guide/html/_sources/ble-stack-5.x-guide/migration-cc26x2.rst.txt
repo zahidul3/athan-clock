@@ -1,0 +1,40 @@
+..  README
+    Newest guides at the top. Previous one-time guides go into Previous Migration
+    Guides section. The nice thing here is that you just need to move the guide.
+    Also, these guide are intended to be static one-time snapshots. No effort
+    will be made to re-purpose each porting guide for the next release.
+
+
+Updating from previous SDKs
+===========================
+The documentation below references the CC26x2 SDK but applies to the CC13x2 SDK
+as well.
+
+Porting Guides
+--------------
+Porting guide is used to port incremental changes from the previous SDK.
+
+.. toctree::
+    :titlesonly:
+
+    ble5stack1.02.00-to-ble5stack1.02.01.rst
+
+* `BLE5-Stack 1.01.01 to BLE5-Stack 1.02.00 <http://dev.ti.com/tirex/content/simplelink_cc26x2_sdk_2_10_00_44/docs/ble5stack/ble_user_guide/html/ble-stack-5.x-guide/ble5stack1.01.01-to-ble5stack1.02.00.html>`_
+* `BLE5-Stack 1.00.00 to BLE5-Stack 1.00.01 <http://software-dl.ti.com/simplelink/esd/simplelink_cc2640r2_sdk/1.40.00.45/exports/docs/ble5stack/ble_user_guide/html/ble-stack-5.x-guide/ble5stack1.00.00-to-ble5stack1.00.01.html>`_
+* `BLE-Stack 3.01.00 to BLE-Stack 3.01.01 <http://software-dl.ti.com/simplelink/esd/simplelink_cc2640r2_sdk/1.50.00.58/exports/docs/blestack/ble_user_guide/html/ble-stack-3.x-guide/blestack3.01.00-to-blestack3.01.01.html>`_
+* `BLE-Stack 3.00.01 to BLE5-Stack 1.00.00 <http://software-dl.ti.com/simplelink/esd/simplelink_cc2640r2_sdk/1.40.00.45/exports/docs/ble5stack/ble_user_guide/html/ble-stack-5.x-guide/blestack3.00.01-to-ble5stack1.00.00.html>`_
+* `BLE-Stack 3.00.01 to BLE-Stack 3.01.00 <http://software-dl.ti.com/simplelink/esd/simplelink_cc2640r2_sdk/1.50.00.58/exports/docs/blestack/ble_user_guide/html/ble-stack-3.x-guide/blestack3.00.01-to-blestack3.01.00.html>`_
+* `BLE-Stack 3.00.00 to BLE-Stack 3.00.01 <http://software-dl.ti.com/simplelink/esd/simplelink_cc2640r2_sdk/1.50.00.58/exports/docs/blestack/ble_user_guide/html/ble-stack-3.x-guide/blestack3.00.00-to-blestack3.00.01.html>`_
+
+
+
+Migration Guides
+----------------
+Migration guide is used to migrate major changes from one device to another device.
+
+.. toctree::
+    :titlesonly:
+
+    cc2640r2-to-cc26x2.rst
+* `CC2640 to CC2640R2F <http://software-dl.ti.com/simplelink/esd/simplelink_cc2640r2_sdk/1.50.00.58/exports/docs/blestack/ble_user_guide/html/ble-stack-3.x-guide/cc2640-to-cc2640r2.html>`_
+* `CC254x to CC2640 <http://software-dl.ti.com/simplelink/esd/simplelink_cc2640r2_sdk/1.50.00.58/exports/docs/blestack/ble_user_guide/html/ble-stack-3.x-guide/cc254x-to-cc2640.html>`_

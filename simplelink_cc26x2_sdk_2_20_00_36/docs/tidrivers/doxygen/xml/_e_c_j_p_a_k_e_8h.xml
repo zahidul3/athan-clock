@@ -1,0 +1,1524 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="_e_c_j_p_a_k_e_8h" kind="file" language="C++">
+    <compoundname>ECJPAKE.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes refid="_crypto_key_8h" local="no">ti/drivers/cryptoutils/cryptokey/CryptoKey.h</includes>
+    <includes refid="_e_c_c_params_8h" local="no">ti/drivers/cryptoutils/ecc/ECCParams.h</includes>
+    <includedby refid="_e_c_j_p_a_k_e_c_c26_x2_8h" local="no">ECJPAKECC26X2.h</includedby>
+    <incdepgraph>
+      <node id="277">
+        <label>stdbool.h</label>
+      </node>
+      <node id="276">
+        <label>ECJPAKE.h</label>
+        <link refid="_e_c_j_p_a_k_e_8h"/>
+        <childnode refid="277" relation="include">
+        </childnode>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="279" relation="include">
+        </childnode>
+        <childnode refid="280" relation="include">
+        </childnode>
+        <childnode refid="281" relation="include">
+        </childnode>
+      </node>
+      <node id="279">
+        <label>stdint.h</label>
+      </node>
+      <node id="280">
+        <label>ti/drivers/cryptoutils/cryptokey/CryptoKey.h</label>
+        <link refid="_crypto_key_8h"/>
+        <childnode refid="279" relation="include">
+        </childnode>
+        <childnode refid="277" relation="include">
+        </childnode>
+      </node>
+      <node id="281">
+        <label>ti/drivers/cryptoutils/ecc/ECCParams.h</label>
+        <link refid="_e_c_c_params_8h"/>
+        <childnode refid="279" relation="include">
+        </childnode>
+        <childnode refid="277" relation="include">
+        </childnode>
+        <childnode refid="280" relation="include">
+        </childnode>
+      </node>
+      <node id="278">
+        <label>stddef.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="283">
+        <label>ECJPAKECC26X2.h</label>
+        <link refid="_e_c_j_p_a_k_e_c_c26_x2_8h"/>
+      </node>
+      <node id="282">
+        <label>ECJPAKE.h</label>
+        <link refid="_e_c_j_p_a_k_e_8h"/>
+        <childnode refid="283" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_e_c_j_p_a_k_e___config__" prot="public">ECJPAKE_Config_</innerclass>
+    <innerclass refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys__" prot="public">ECJPAKE_OperationRoundOneGenerateKeys_</innerclass>
+    <innerclass refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p__" prot="public">ECJPAKE_OperationGenerateZKP_</innerclass>
+    <innerclass refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p__" prot="public">ECJPAKE_OperationVerifyZKP_</innerclass>
+    <innerclass refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys__" prot="public">ECJPAKE_OperationRoundTwoGenerateKeys_</innerclass>
+    <innerclass refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret__" prot="public">ECJPAKE_OperationComputeSharedSecret_</innerclass>
+    <innerclass refid="union_e_c_j_p_a_k_e___operation__" prot="public">ECJPAKE_Operation_</innerclass>
+    <innerclass refid="struct_e_c_j_p_a_k_e___params__" prot="public">ECJPAKE_Params_</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___c_o_n_t_r_o_l_1gaff8e8e005698d7bb4c90b165e2cdc565" prot="public" static="no">
+        <name>ECJPAKE_CMD_RESERVED</name>
+        <initializer>(32)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Common ECJPAKE_control command code reservation offset. ECJPAKE driver implementations should offset command codes with ECJPAKE_CMD_RESERVED growing positively</para><para>Example implementation specific command codes: <programlisting><codeline><highlight class="normal">#define<sp/>ECJPAKEXYZ_CMD_COMMAND0<sp/><sp/><sp/><sp/><sp/>ECJPAKE_CMD_RESERVED<sp/>+<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>ECJPAKEXYZ_CMD_COMMAND1<sp/><sp/><sp/><sp/><sp/>ECJPAKE_CMD_RESERVED<sp/>+<sp/>1</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="560" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="560" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___c_o_n_t_r_o_l_1ga312c0c75c7b47e0d5e8493ca4cb98683" prot="public" static="no">
+        <name>ECJPAKE_STATUS_RESERVED</name>
+        <initializer>(-32)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Common ECJPAKE_control status code reservation offset. ECJPAKE driver implementations should offset status codes with ECJPAKE_STATUS_RESERVED growing negatively.</para><para>Example implementation specific status codes: <programlisting><codeline><highlight class="normal">#define<sp/>ECJPAKEXYZ_STATUS_ERROR0<sp/><sp/><sp/><sp/>ECJPAKE_STATUS_RESERVED<sp/>-<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>ECJPAKEXYZ_STATUS_ERROR1<sp/><sp/><sp/><sp/>ECJPAKE_STATUS_RESERVED<sp/>-<sp/>1</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>ECJPAKEXYZ_STATUS_ERROR2<sp/><sp/><sp/><sp/>ECJPAKE_STATUS_RESERVED<sp/>-<sp/>2</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="574" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="574" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga1e2fe3a0d3efd4d6505552b732402a35" prot="public" static="no">
+        <name>ECJPAKE_STATUS_SUCCESS</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+<para>Successful status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECJPAKE_STATUS_SUCCESS if the function was executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="589" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="589" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga3173a5ec592e345c4dc58e9fbbde2825" prot="public" static="no">
+        <name>ECJPAKE_STATUS_ERROR</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+<para>Generic error status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECJPAKE_STATUS_ERROR if the function was not executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="597" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="597" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga39b8195c58c304826d87061caa54bf19" prot="public" static="no">
+        <name>ECJPAKE_STATUS_UNDEFINEDCMD</name>
+        <initializer>(-2)</initializer>
+        <briefdescription>
+<para>An error status code returned by <ref refid="_e_c_j_p_a_k_e_8h_1a77ae22f3de6940a93eb2da9a519e10f3" kindref="member">ECJPAKE_control()</ref> for undefined command codes. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_e_c_j_p_a_k_e_8h_1a77ae22f3de6940a93eb2da9a519e10f3" kindref="member">ECJPAKE_control()</ref> returns ECJPAKE_STATUS_UNDEFINEDCMD if the control code is not recognized by the driver implementation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="606" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="606" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga668d9bd2a4926c046f40ee6698892362" prot="public" static="no">
+        <name>ECJPAKE_STATUS_RESOURCE_UNAVAILABLE</name>
+        <initializer>(-3)</initializer>
+        <briefdescription>
+<para>An error status code returned if the hardware or software resource is currently unavailable. </para>        </briefdescription>
+        <detaileddescription>
+<para>ECJPAKE driver implementations may have hardware or software limitations on how many clients can simultaneously perform operations. This status code is returned if the mutual exclusion mechanism signals that an operation cannot currently be performed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="616" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="616" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1gadc3a17b99ca7816137c60f780b51ef63" prot="public" static="no">
+        <name>ECJPAKE_STATUS_INVALID_PUBLIC_KEY</name>
+        <initializer>(-4)</initializer>
+        <briefdescription>
+<para>The public key of the other party is not valid. </para>        </briefdescription>
+        <detaileddescription>
+<para>The public key received from the other party is not valid. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="623" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="623" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga11dcd54552f0512755ba72f17ae5da46" prot="public" static="no">
+        <name>ECJPAKE_STATUS_PUBLIC_KEY_NOT_ON_CURVE</name>
+        <initializer>(-5)</initializer>
+        <briefdescription>
+<para>The public key of the other party does not lie upon the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>The public key received from the other party does not lie upon the agreed upon curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="631" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="631" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga79517ed3fbf41907b1d9e495f7bfef5c" prot="public" static="no">
+        <name>ECJPAKE_STATUS_PUBLIC_KEY_LARGER_THAN_PRIME</name>
+        <initializer>(-6)</initializer>
+        <briefdescription>
+<para>A coordinate of the public key of the other party is too large. </para>        </briefdescription>
+        <detaileddescription>
+<para>A coordinate of the public key received from the other party is larger than the prime of the curve. This implies that the point was not correctly generated on that curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="640" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="640" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga74586f857af1aaffbe358721b81f1b0f" prot="public" static="no">
+        <name>ECJPAKE_STATUS_POINT_AT_INFINITY</name>
+        <initializer>(-7)</initializer>
+        <briefdescription>
+<para>The result of the operation is the point at infinity. </para>        </briefdescription>
+        <detaileddescription>
+<para>The operation yielded the point at infinity on this curve. This point is not permitted for further use in ECC operations. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="648" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="648" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga4ca6b37156ce3f0bd1c26b5ecd4d4a23" prot="public" static="no">
+        <name>ECJPAKE_STATUS_INVALID_PRIVATE_KEY</name>
+        <initializer>(-8)</initializer>
+        <briefdescription>
+<para>The private key passed into the the call is invalid. </para>        </briefdescription>
+        <detaileddescription>
+<para>Private keys must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="656" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="656" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga45e8ebd0af128c2b81c249022baa6667" prot="public" static="no">
+        <name>ECJPAKE_STATUS_INVALID_PRIVATE_V</name>
+        <initializer>(-9)</initializer>
+        <briefdescription>
+<para>The private v passed into the the call is invalid. </para>        </briefdescription>
+        <detaileddescription>
+<para>Private v must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="664" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="664" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0" prot="public" static="no">
+        <name>ECJPAKE_ReturnBehavior_</name>
+        <enumvalue id="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0a5a4164de2fa7a74f8e9a8f21a6f40069" prot="public">
+          <name>ECJPAKE_RETURN_BEHAVIOR_CALLBACK</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The function call will return immediately while the ECJPAKE operation goes on in the background. The registered callback function is called after the operation completes. The context the callback function is called (task, HWI, SWI) is implementation-dependent. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0a124c6b724f8fc636176973cbc470d63f" prot="public">
+          <name>ECJPAKE_RETURN_BEHAVIOR_BLOCKING</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The function call will block while ECJPAKE operation goes on in the background. ECJPAKE operation results are available after the function returns. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0a5ec172da7685ba35f8337c7f5dc5d5a6" prot="public">
+          <name>ECJPAKE_RETURN_BEHAVIOR_POLLING</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The function call will continuously poll a flag while ECJPAKE operation goes on in the background. ECJPAKE operation results are available after the function returns. </para>          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The way in which ECJPAKE function calls return after performing an encryption + authentication or decryption + verification operation. </para>        </briefdescription>
+        <detaileddescription>
+<para>Not all ECJPAKE operations exhibit the specified return behavor. Functions that do not require significant computation and cannot offload that computation to a background thread behave like regular functions. Which functions exhibit the specfied return behavior is implementation dependent. Specifically, a software-backed implementation run on the same CPU as the application will emulate the return behavior while not actually offloading the computation to the background thread.</para><para>ECJPAKE functions exhibiting the specified return behavior have restrictions on the context from which they may be called.</para><para><table rows="4" cols="4"><row>
+<entry thead="yes"><para></para></entry><entry thead="yes"><para>Task </para></entry><entry thead="yes"><para>Hwi </para></entry><entry thead="yes"><para>Swi  </para></entry></row>
+<row>
+<entry thead="no"><para>ECJPAKE_RETURN_BEHAVIOR_CALLBACK </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+<row>
+<entry thead="no"><para>ECJPAKE_RETURN_BEHAVIOR_BLOCKING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para></para></entry><entry thead="no"><para></para></entry></row>
+<row>
+<entry thead="no"><para>ECJPAKE_RETURN_BEHAVIOR_POLLING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+</table>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="709" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="709" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="enum" id="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14a" prot="public" static="no">
+        <name>ECJPAKE_OperationType_</name>
+        <enumvalue id="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aa127cd39a054561f63b428ddfafed821a" prot="public">
+          <name>ECJPAKE_OPERATION_TYPE_ROUND_ONE_GENERATE_KEYS</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aad08ce6c1fa4c35487af7a3f5faeea4b3" prot="public">
+          <name>ECJPAKE_OPERATION_TYPE_GENERATE_ZKP</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aaae45452ee70a3aa970183c9f5c8ca6ff" prot="public">
+          <name>ECJPAKE_OPERATION_TYPE_VERIFY_ZKP</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aacccd1127e96dd121dc8dbe4a600b2903" prot="public">
+          <name>ECJPAKE_OPERATION_TYPE_ROUND_TWO_GENERATE_KEYS</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aaa121074a25507188f1d89a816cfaf7ed" prot="public">
+          <name>ECJPAKE_OPERATION_TYPE_COMPUTE_SHARED_SECRET</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enum for the operation types supported by the driver. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="970" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="970" bodyend="976"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_j_p_a_k_e___config__" kindref="compound">ECJPAKE_Config_</ref> *</type>
+        <definition>typedef struct ECJPAKE_Config_* ECJPAKE_Handle</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_Handle</name>
+        <briefdescription>
+<para>A handle that is returned from an <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref> call. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="686" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="686" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1a853ecb18a639ba6fe15a96dcc155b9d2" prot="public" static="no">
+        <type>enum <ref refid="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0" kindref="member">ECJPAKE_ReturnBehavior_</ref></type>
+        <definition>typedef enum ECJPAKE_ReturnBehavior_  ECJPAKE_ReturnBehavior</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_ReturnBehavior</name>
+        <briefdescription>
+<para>The way in which ECJPAKE function calls return after performing an encryption + authentication or decryption + verification operation. </para>        </briefdescription>
+        <detaileddescription>
+<para>Not all ECJPAKE operations exhibit the specified return behavor. Functions that do not require significant computation and cannot offload that computation to a background thread behave like regular functions. Which functions exhibit the specfied return behavior is implementation dependent. Specifically, a software-backed implementation run on the same CPU as the application will emulate the return behavior while not actually offloading the computation to the background thread.</para><para>ECJPAKE functions exhibiting the specified return behavior have restrictions on the context from which they may be called.</para><para><table rows="4" cols="4"><row>
+<entry thead="yes"><para></para></entry><entry thead="yes"><para>Task </para></entry><entry thead="yes"><para>Hwi </para></entry><entry thead="yes"><para>Swi  </para></entry></row>
+<row>
+<entry thead="no"><para>ECJPAKE_RETURN_BEHAVIOR_CALLBACK </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+<row>
+<entry thead="no"><para>ECJPAKE_RETURN_BEHAVIOR_BLOCKING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para></para></entry><entry thead="no"><para></para></entry></row>
+<row>
+<entry thead="no"><para>ECJPAKE_RETURN_BEHAVIOR_POLLING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+</table>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="724" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1a291801afc03d2d27d3eeaa0079c44bf3" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_j_p_a_k_e___config__" kindref="compound">ECJPAKE_Config_</ref></type>
+        <definition>typedef struct ECJPAKE_Config_  ECJPAKE_Config</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_Config</name>
+        <briefdescription>
+<para>ECJPAKE Global configuration. </para>        </briefdescription>
+        <detaileddescription>
+<para>The ECJPAKE_Config structure contains a set of pointers used to characterize the ECJPAKE driver implementation.</para><para>This structure needs to be defined before calling <ref refid="_e_c_j_p_a_k_e_8h_1a700d51c05aed0c04a37615136583c96b" kindref="member">ECJPAKE_init()</ref> and it must not be changed thereafter.</para><para><simplesect kind="see"><para><ref refid="_e_c_j_p_a_k_e_8h_1a700d51c05aed0c04a37615136583c96b" kindref="member">ECJPAKE_init()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="743" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1ae8f5941774aaf0770b146aeada009c67" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys__" kindref="compound">ECJPAKE_OperationRoundOneGenerateKeys_</ref></type>
+        <definition>typedef struct ECJPAKE_OperationRoundOneGenerateKeys_  ECJPAKE_OperationRoundOneGenerateKeys</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_OperationRoundOneGenerateKeys</name>
+        <briefdescription>
+<para>Struct containing the parameters required to generate the first round of keys. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="802" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1afd0c60e01fd74d5b74dc0657ac5248c9" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p__" kindref="compound">ECJPAKE_OperationGenerateZKP_</ref></type>
+        <definition>typedef struct ECJPAKE_OperationGenerateZKP_  ECJPAKE_OperationGenerateZKP</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_OperationGenerateZKP</name>
+        <briefdescription>
+<para>Struct containing the parameters required to generate a ZKP. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="827" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1a750ccde568c4ea68b21ab1305858a31a" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p__" kindref="compound">ECJPAKE_OperationVerifyZKP_</ref></type>
+        <definition>typedef struct ECJPAKE_OperationVerifyZKP_  ECJPAKE_OperationVerifyZKP</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_OperationVerifyZKP</name>
+        <briefdescription>
+<para>Struct containing the parameters required to verify a ZKP. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="855" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1a93aa50de49045a47f6808b03697896e9" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys__" kindref="compound">ECJPAKE_OperationRoundTwoGenerateKeys_</ref></type>
+        <definition>typedef struct ECJPAKE_OperationRoundTwoGenerateKeys_  ECJPAKE_OperationRoundTwoGenerateKeys</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_OperationRoundTwoGenerateKeys</name>
+        <briefdescription>
+<para>Struct containing the parameters required to generate the second round keys. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="925" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1a7dfa19c3caae9d91f838178dff6daf34" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret__" kindref="compound">ECJPAKE_OperationComputeSharedSecret_</ref></type>
+        <definition>typedef struct ECJPAKE_OperationComputeSharedSecret_  ECJPAKE_OperationComputeSharedSecret</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_OperationComputeSharedSecret</name>
+        <briefdescription>
+<para>Struct containing the parameters required to compute the shared secret. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="953" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1af3d60665e9534d1c1df2cca1393feecc" prot="public" static="no">
+        <type>union <ref refid="union_e_c_j_p_a_k_e___operation__" kindref="compound">ECJPAKE_Operation_</ref></type>
+        <definition>typedef union ECJPAKE_Operation_  ECJPAKE_Operation</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_Operation</name>
+        <briefdescription>
+<para>Union containing pointers to all supported operation structs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="965" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1a1192459ad7e6919d94bbf95f499a8558" prot="public" static="no">
+        <type>enum <ref refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14a" kindref="member">ECJPAKE_OperationType_</ref></type>
+        <definition>typedef enum ECJPAKE_OperationType_  ECJPAKE_OperationType</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_OperationType</name>
+        <briefdescription>
+<para>Enum for the operation types supported by the driver. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="976" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1a743785709e9ca990077a97befed10232" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* ECJPAKE_CallbackFxn) (ECJPAKE_Handle handle, int_fast16_t returnStatus, ECJPAKE_Operation operation, ECJPAKE_OperationType operationType)</definition>
+        <argsstring>)(ECJPAKE_Handle handle, int_fast16_t returnStatus, ECJPAKE_Operation operation, ECJPAKE_OperationType operationType)</argsstring>
+        <name>ECJPAKE_CallbackFxn</name>
+        <briefdescription>
+<para>The definition of a callback function used by the ECJPAKE driver when used in <ref refid="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0a5a4164de2fa7a74f8e9a8f21a6f40069" kindref="member">ECJPAKE_RETURN_BEHAVIOR_CALLBACK</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle of the client that started the ECJPAKE operation.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>returnStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The result of the ECJPAKE operation. May contain an error code if the result is the point at infinity for example.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A union of pointers to operation structs. Only one type of pointer is valid per call to the callback function. Which type is currently valid is determined by /c operationType. The union allows easier access to the struct&apos;s fields without the need to typecase the result.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operationType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This parameter determined which operation the callback refers to and which type to access through /c operation. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="996" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="996" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_j_p_a_k_e_8h_1ad3a29a6adbbad0b2d742dd15f3c533e3" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_j_p_a_k_e___params__" kindref="compound">ECJPAKE_Params_</ref></type>
+        <definition>typedef struct ECJPAKE_Params_  ECJPAKE_Params</definition>
+        <argsstring></argsstring>
+        <name>ECJPAKE_Params</name>
+        <briefdescription>
+<para>ECJPAKE Parameters. </para>        </briefdescription>
+        <detaileddescription>
+<para>ECJPAKE Parameters are used to with the <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref> call. Default values for these parameters are set using <ref refid="_e_c_j_p_a_k_e_8h_1accb0f74e2250c5cdb6bbd2d71d790323" kindref="member">ECJPAKE_Params_init()</ref>.</para><para><simplesect kind="see"><para><ref refid="_e_c_j_p_a_k_e_8h_1accb0f74e2250c5cdb6bbd2d71d790323" kindref="member">ECJPAKE_Params_init()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1018" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1a700d51c05aed0c04a37615136583c96b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECJPAKE_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>ECJPAKE_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>This function initializes the ECJPAKE module. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>The ECJPAKE_config structure must exist and be persistent before this function can be called. This function must also be called before any other ECJPAKE driver APIs. This function call does not modify any peripheral registers. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1028" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1ad4905b7bbdda7a6d84d68a33825d71fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECJPAKE_OperationRoundOneGenerateKeys_init</definition>
+        <argsstring>(ECJPAKE_OperationRoundOneGenerateKeys *operation)</argsstring>
+        <name>ECJPAKE_OperationRoundOneGenerateKeys_init</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ae8f5941774aaf0770b146aeada009c67" kindref="member">ECJPAKE_OperationRoundOneGenerateKeys</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize an ECJPAKE_OperationRoundOneGenerateKeys struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to ECJPAKE_OperationRoundOneGenerateKeys structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are all zeros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1038" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1a309530be8bedab920f30a9e31e01f052" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECJPAKE_OperationGenerateZKP_init</definition>
+        <argsstring>(ECJPAKE_OperationGenerateZKP *operation)</argsstring>
+        <name>ECJPAKE_OperationGenerateZKP_init</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1afd0c60e01fd74d5b74dc0657ac5248c9" kindref="member">ECJPAKE_OperationGenerateZKP</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize an ECJPAKE_OperationGenerateZKP struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to ECJPAKE_OperationGenerateZKP structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are all zeros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1048" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1adecdfdaae05bd0dc70f3b2766014c0e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECJPAKE_OperationVerifyZKP_init</definition>
+        <argsstring>(ECJPAKE_OperationVerifyZKP *operation)</argsstring>
+        <name>ECJPAKE_OperationVerifyZKP_init</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1a750ccde568c4ea68b21ab1305858a31a" kindref="member">ECJPAKE_OperationVerifyZKP</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize an ECJPAKE_OperationVerifyZKP struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to ECJPAKE_OperationVerifyZKP structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are all zeros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1058" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1a779e5c3610e226d58917c1fdf6294f4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECJPAKE_OperationRoundTwoGenerateKeys_init</definition>
+        <argsstring>(ECJPAKE_OperationRoundTwoGenerateKeys *operation)</argsstring>
+        <name>ECJPAKE_OperationRoundTwoGenerateKeys_init</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1a93aa50de49045a47f6808b03697896e9" kindref="member">ECJPAKE_OperationRoundTwoGenerateKeys</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize an ECJPAKE_OperationRoundTwoGenerateKeys struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to ECJPAKE_OperationRoundTwoGenerateKeys structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are all zeros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1068" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1a0c65ce541534493bd352248f7bc7314f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECJPAKE_OperationComputeSharedSecret_init</definition>
+        <argsstring>(ECJPAKE_OperationComputeSharedSecret *operation)</argsstring>
+        <name>ECJPAKE_OperationComputeSharedSecret_init</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1a7dfa19c3caae9d91f838178dff6daf34" kindref="member">ECJPAKE_OperationComputeSharedSecret</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize an ECJPAKE_OperationComputeSharedSecret struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to ECJPAKE_OperationComputeSharedSecret structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are all zeros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1079" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1a3fd8ad0728bebfd64e14537b2dbfedf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECJPAKE_close</definition>
+        <argsstring>(ECJPAKE_Handle handle)</argsstring>
+        <name>ECJPAKE_close</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" kindref="member">ECJPAKE_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function to close an ECJPAKE peripheral specified by the ECJPAKE handle. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para><ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref> has to be called first.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECJPAKE handle returned from <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1090" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1a77ae22f3de6940a93eb2da9a519e10f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECJPAKE_control</definition>
+        <argsstring>(ECJPAKE_Handle handle, uint32_t cmd, void *args)</argsstring>
+        <name>ECJPAKE_control</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" kindref="member">ECJPAKE_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cmd</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Function performs implementation specific features on a given ECJPAKE_Handle. </para>        </briefdescription>
+        <detaileddescription>
+<para>Commands for ECJPAKE_control can originate from <ref refid="_e_c_j_p_a_k_e_8h" kindref="compound">ECJPAKE.h</ref> or from implementation specific ECJPAKE*.h (<emphasis><ref refid="_e_c_j_p_a_k_e_c_c26_x2_8h" kindref="compound">ECJPAKECC26X2.h</ref></emphasis>, <emphasis>ECJPAKESP432.h</emphasis>, etc.. ) files. While commands from <ref refid="_e_c_j_p_a_k_e_8h" kindref="compound">ECJPAKE.h</ref> are API portable across driver implementations, not all implementations may support all these commands. Conversely, commands from driver implementation specific ECJPAKE*.h files add unique driver capabilities but are not API portable across all ECJPAKE driver implementations.</para><para>Commands supported by <ref refid="_e_c_j_p_a_k_e_8h" kindref="compound">ECJPAKE.h</ref> follow an ECJPAKE_CMD_&lt;cmd&gt; naming convention.<linebreak/>
+ Commands supported by ECJPAKE*.h follow an ECJPAKE*_CMD_&lt;cmd&gt; naming convention.<linebreak/>
+ Each control command defines <bold>arg</bold> differently. The types of <bold>arg</bold> are documented with each command.</para><para>See <ref refid="group___e_c_j_p_a_k_e___c_m_d" kindref="compound">ECJPAKE_control command codes</ref> for command codes.</para><para>See <ref refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s" kindref="compound">ECJPAKE_control return status codes</ref> for status codes.</para><para><simplesect kind="pre"><para><ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref> has to be called first.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECJPAKE handle returned from <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cmd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="_e_c_j_p_a_k_e_8h" kindref="compound">ECJPAKE.h</ref> or ECJPAKE*.h commands.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional R/W (read/write) command argument accompanied with cmd</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Implementation specific return codes. Negative values indicate unsuccessful operations.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1129" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" kindref="member">ECJPAKE_Handle</ref></type>
+        <definition>ECJPAKE_Handle ECJPAKE_open</definition>
+        <argsstring>(uint_least8_t index, ECJPAKE_Params *params)</argsstring>
+        <name>ECJPAKE_open</name>
+        <param>
+          <type>uint_least8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ad3a29a6adbbad0b2d742dd15f3c533e3" kindref="member">ECJPAKE_Params</ref> *</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>This function opens a given ECJPAKE peripheral. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>ECJPAKE controller has been initialized using <ref refid="_e_c_j_p_a_k_e_8h_1a700d51c05aed0c04a37615136583c96b" kindref="member">ECJPAKE_init()</ref></para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Logical peripheral number for the ECJPAKE indexed into the ECJPAKE_config table</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an parameter block, if NULL it will use default values.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An ECJPAKE_Handle on success or a NULL on an error or if it has been opened already.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_e_c_j_p_a_k_e_8h_1a700d51c05aed0c04a37615136583c96b" kindref="member">ECJPAKE_init()</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="_e_c_j_p_a_k_e_8h_1a3fd8ad0728bebfd64e14537b2dbfedf1" kindref="member">ECJPAKE_close()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1148" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1accb0f74e2250c5cdb6bbd2d71d790323" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECJPAKE_Params_init</definition>
+        <argsstring>(ECJPAKE_Params *params)</argsstring>
+        <name>ECJPAKE_Params_init</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ad3a29a6adbbad0b2d742dd15f3c533e3" kindref="member">ECJPAKE_Params</ref> *</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize the ECJPAKE_Params struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An pointer to ECJPAKE_Params structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are: returnBehavior = ECJPAKE_RETURN_BEHAVIOR_BLOCKING callbackFxn = NULL timeout = SemaphoreP_WAIT_FOREVER custom = NULL </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1162" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1a12cd2e0e5f6828d904fbb76bd6c5c2d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECJPAKE_roundOneGenerateKeys</definition>
+        <argsstring>(ECJPAKE_Handle handle, ECJPAKE_OperationRoundOneGenerateKeys *operation)</argsstring>
+        <name>ECJPAKE_roundOneGenerateKeys</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" kindref="member">ECJPAKE_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ae8f5941774aaf0770b146aeada009c67" kindref="member">ECJPAKE_OperationRoundOneGenerateKeys</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Generates all public and private keying material for the first round of the EC-JPAKE scheme. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function generates all public and private keying material required for the first round of the EC-JPAKE scheme.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECJPAKE handle returned from <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a struct containing the requisite parameters to execute the function.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>Call <ref refid="_e_c_j_p_a_k_e_8h_1ad4905b7bbdda7a6d84d68a33825d71fc" kindref="member">ECJPAKE_OperationRoundOneGenerateKeys_init()</ref> on /c operation.</para></simplesect>
+<simplesect kind="post"><para>Generate the two sets of hashes and ZKPs for the two public/private key pairs. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1181" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1a422529b4456d9e53682985002fd87376" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECJPAKE_generateZKP</definition>
+        <argsstring>(ECJPAKE_Handle handle, ECJPAKE_OperationGenerateZKP *operation)</argsstring>
+        <name>ECJPAKE_generateZKP</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" kindref="member">ECJPAKE_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1afd0c60e01fd74d5b74dc0657ac5248c9" kindref="member">ECJPAKE_OperationGenerateZKP</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Generates the <computeroutput>r</computeroutput> component of a Schnorr Zero-Knowledge Proof (ZKP) signature. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function generates the <computeroutput>r</computeroutput> component of a ZKP using the hash and private keys. The hash must be computed prior. This function does not compute the hash for the application. There is no strictly defined bit-level implementation guideline for generating the hash in the EC-JPAKE scheme. Hence, interoperability could not be guaranteed between different EC-JPAKE implementations. Usually, the hash will be a concatenation of the public V, public key, generator point, and user ID. There may be other components such as length fields mixed in.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECJPAKE handle returned from <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a struct containing the requisite parameters to execute the function.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>If in round one, <ref refid="_e_c_j_p_a_k_e_8h_1a12cd2e0e5f6828d904fbb76bd6c5c2d9" kindref="member">ECJPAKE_roundOneGenerateKeys()</ref> must be called prior. Else, <ref refid="_e_c_j_p_a_k_e_8h_1a6b0de26fef61a785906120acb0277074" kindref="member">ECJPAKE_roundTwoGenerateKeys()</ref> must be called prior. The hash must also have been computed prior to calling this function. Call <ref refid="_e_c_j_p_a_k_e_8h_1a309530be8bedab920f30a9e31e01f052" kindref="member">ECJPAKE_OperationGenerateZKP_init()</ref> on /c operation.</para></simplesect>
+<simplesect kind="post"><para>Send all ZKP signatures (<computeroutput>r</computeroutput>, public V, user ID) together with the public keys to the other party. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1209" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1af47d98b1e451cca11b450f425f94ddb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECJPAKE_verifyZKP</definition>
+        <argsstring>(ECJPAKE_Handle handle, ECJPAKE_OperationVerifyZKP *operation)</argsstring>
+        <name>ECJPAKE_verifyZKP</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" kindref="member">ECJPAKE_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1a750ccde568c4ea68b21ab1305858a31a" kindref="member">ECJPAKE_OperationVerifyZKP</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Verifies a Schnorr Zero-Knowledge Proof (ZKP) signature. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function computes if a received Schnorr ZKP correctly verifies a received public key.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECJPAKE handle returned from <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a struct containing the requisite parameters to execute the function.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>Receive the relevant ZKP signature parameters. Compute the hash. If in the second round, compute the generator first by calling <ref refid="_e_c_j_p_a_k_e_8h_1a6b0de26fef61a785906120acb0277074" kindref="member">ECJPAKE_roundTwoGenerateKeys()</ref>. Call <ref refid="_e_c_j_p_a_k_e_8h_1adecdfdaae05bd0dc70f3b2766014c0e4" kindref="member">ECJPAKE_OperationVerifyZKP_init()</ref> on /c operation. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1227" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1a6b0de26fef61a785906120acb0277074" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECJPAKE_roundTwoGenerateKeys</definition>
+        <argsstring>(ECJPAKE_Handle handle, ECJPAKE_OperationRoundTwoGenerateKeys *operation)</argsstring>
+        <name>ECJPAKE_roundTwoGenerateKeys</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" kindref="member">ECJPAKE_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1a93aa50de49045a47f6808b03697896e9" kindref="member">ECJPAKE_OperationRoundTwoGenerateKeys</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Generates all public and private keying material for the first round of the EC-JPAKE scheme. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function generates all public and private keying material required for the first round of the EC-JPAKE scheme.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECJPAKE handle returned from <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a struct containing the requisite parameters to execute the function.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>Call <ref refid="_e_c_j_p_a_k_e_8h_1a779e5c3610e226d58917c1fdf6294f4c" kindref="member">ECJPAKE_OperationRoundTwoGenerateKeys_init()</ref> on /c operation.</para></simplesect>
+<simplesect kind="post"><para>Generate the hash and ZKP signature for the second round public/private key. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1246" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_j_p_a_k_e_8h_1a6d46725aff59ef45fffff16ec1f5ae5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECJPAKE_computeSharedSecret</definition>
+        <argsstring>(ECJPAKE_Handle handle, ECJPAKE_OperationComputeSharedSecret *operation)</argsstring>
+        <name>ECJPAKE_computeSharedSecret</name>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" kindref="member">ECJPAKE_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_j_p_a_k_e_8h_1a7dfa19c3caae9d91f838178dff6daf34" kindref="member">ECJPAKE_OperationComputeSharedSecret</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Computes the shared secret. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function computes the shared secret between both parties. The shared secret is a point on the elliptic curve and is used to further derive the symmetric session key via a key derivation function.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECJPAKE handle returned from <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a struct containing the requisite parameters to execute the function.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>Call <ref refid="_e_c_j_p_a_k_e_8h_1a0c65ce541534493bd352248f7bc7314f" kindref="member">ECJPAKE_OperationComputeSharedSecret_init()</ref> on /c operation.</para></simplesect>
+<simplesect kind="post"><para>The shared secret must be processed by a key derivation function to compute the symmetric session key. It is recommended that the two parties prove to each other that they are in posession of the symmetric session key. While this should be implied by the successful verification of the three ZKPs in the scheme, it is nonetheless good practice. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="1268" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>TI Driver for Elliptic Curve Password Authenticated Key Exchange by Juggling. </para>    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">Overview</heading>
+</para><para>Elliptic Curve Password Authenticated Key Exchange by Juggling (EC-JPAKE) is a key agreement scheme that establishes a secure channel over an insecure network. It only requires sharing a password offline and does not require public key infrastructure or trusted third parties such as certificate authorities.</para><para>At the end of the EC-JPAKE scheme, both parties derive a shared secret from which a session key is derived.</para><para>The scheme is symmetric. Both parties perform the exact same operations to end up with the shared secret.</para><para><heading level="1">Steps involved</heading>
+</para><para>Since the scheme is symmetric, the steps involved will be illustrated using Alice and Bob as relevant parties.</para><para><orderedlist>
+<listitem><para>Alice and Bob decide on some pre-shared secret, the password, and negotiate this through some offline means such as during commissioning.</para></listitem><listitem><para>Alice generates private keys x1, x2, v1, and v2 uniformly at random from [1, n - 1], where n is the order of the curve.</para></listitem><listitem><para>Alice generates public keys X1 = x1 * G, X2 = x2 * G, V1 = v1 * G, and V2 = v2 * G.</para></listitem><listitem><para>Alice generates Zero-Knowledge Proofs (ZKPs) for (X1, x1) and (X2, x2). The required hash is computed by concatenating G, V, the public key the ZKP authenticates, and the UserID of the authenticator and hashing the new bitstring. The exact order and formatting of all parameters and any extra information such as length words must be agreed upon by both parties to yield the same result.</para></listitem><listitem><para>Alice sends X1, X2, V1, V2, r1, r2, and her UserID to Bob.</para></listitem><listitem><para>Bob generates private keys x3, x4, v3, and v4 uniformly at random from [1, n - 1], where n is the order of the curve.</para></listitem><listitem><para>Bob generates public keys X3 = x3 * G, X4 = x4 * G, V3 = v3 * G, and V4 = v4 * G.</para></listitem><listitem><para>Bob generates Zero-Knowledge Proofs (ZKPs) for (X3, x3) and (X4, x4).</para></listitem><listitem><para>Bob sends X3, X4, V3, V4, r3, r4, and his UserID to Bob.</para></listitem><listitem><para>Alice and Bob verify the other parties ZKPs and break off the scheme if they do not check out.</para></listitem><listitem><para>Alice computes the new generator point G2 = (X1 + X3 + X4).</para></listitem><listitem><para>Alice computes the combined private key x5 = x2 * s, where s is the pre-shared secret.</para></listitem><listitem><para>Alice computes the combined public key X5 = x5 * G2.</para></listitem><listitem><para>Alice computes a ZKP for (X5, x5) using G2 as the generator point of the ZKP.</para></listitem><listitem><para>Alice sends X5, V5, r5, and her UserID to Bob.</para></listitem><listitem><para>Bob computes the new generator point G3 = (X3 + X1 + X2).</para></listitem><listitem><para>Bob computes the combined private key x6 = x4 * s, where s is the pre-shared secret.</para></listitem><listitem><para>Bob computes the combined public key X6 = x6 * G3.</para></listitem><listitem><para>Bob computes a ZKP for (X6, x6) using G3 as the generator point of the ZKP.</para></listitem><listitem><para>Bob sends X6, V6, r6, and his UserID to Alice.</para></listitem><listitem><para>Alice and Bob verify the other parties ZKPs and break off the scheme if they do not check out. This involves computing the other parties generator point.</para></listitem><listitem><para>Alice computes shared secret K = (X6 - (X4 * x5)) * x2.</para></listitem><listitem><para>Bob computes shared secret K = (X5 - (X2 * x6)) * x4.</para></listitem><listitem><para>Alice and Bob each run K through a mutually agreed upon key derivation function to compute the symmetric session key.</para></listitem></orderedlist>
+</para><para><heading level="1">Usage</heading>
+</para><para><heading level="2">Before starting an ECJPAKE operation</heading>
+</para><para>Before starting an ECJPAKE operation, the application must do the following:<orderedlist>
+<listitem><para>Call <ref refid="_e_c_j_p_a_k_e_8h_1a700d51c05aed0c04a37615136583c96b" kindref="member">ECJPAKE_init()</ref> to initialize the driver</para></listitem><listitem><para>Call <ref refid="_e_c_j_p_a_k_e_8h_1accb0f74e2250c5cdb6bbd2d71d790323" kindref="member">ECJPAKE_Params_init()</ref> to initialize the ECJPAKE_Params to default values.</para></listitem><listitem><para>Modify the ECJPAKE_Params as desired</para></listitem><listitem><para>Call <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref> to open an instance of the driver</para></listitem></orderedlist>
+</para><para><heading level="2">Round one</heading>
+</para><para><orderedlist>
+<listitem><para>Initialize the following private key CryptoKeys. Seed them with keying material uniformly drawn from [1, n - 1]<itemizedlist>
+<listitem><para>myPrivateKey1</para></listitem><listitem><para>myPrivateKey2</para></listitem><listitem><para>myPrivateV1</para></listitem><listitem><para>myPrivateV2</para></listitem></itemizedlist>
+</para></listitem><listitem><para>Initialize the following blank public key CryptoKeys:<itemizedlist>
+<listitem><para>myPublicKey1</para></listitem><listitem><para>myPublicKey2</para></listitem><listitem><para>myPublicV1</para></listitem><listitem><para>myPublicV2</para></listitem><listitem><para>theirPublicKey1</para></listitem><listitem><para>theirPublicKey2</para></listitem><listitem><para>theirPublicV1</para></listitem><listitem><para>theirPublicV2</para></listitem></itemizedlist>
+</para></listitem><listitem><para>Call <ref refid="_e_c_j_p_a_k_e_8h_1a12cd2e0e5f6828d904fbb76bd6c5c2d9" kindref="member">ECJPAKE_roundOneGenerateKeys()</ref> to generate all round one keys as needed.</para></listitem><listitem><para>Generate the hashes for the ZKPs using previously agreed upon formatting. Use the default generator point of the curve in the first round.</para></listitem><listitem><para>Generate your two ZKPs by calling <ref refid="_e_c_j_p_a_k_e_8h_1a422529b4456d9e53682985002fd87376" kindref="member">ECJPAKE_generateZKP()</ref> once per ZKP.</para></listitem><listitem><para>Exchange public keys, UserIDs, and ZKP signatures. Write the received keying material into the relevant buffers or load them into key stores as specified by the CryptoKeys initialised earlier.</para></listitem><listitem><para>Verify the other party&apos;s ZKPs after computing their ZKP hash by calling <ref refid="_e_c_j_p_a_k_e_8h_1af47d98b1e451cca11b450f425f94ddb0" kindref="member">ECJPAKE_verifyZKP()</ref> once per ZKP.</para></listitem><listitem><para>You can now let all V keys, myPrivateKey1, and all ZKP signatures go out of scope and re-use their memory.</para></listitem></orderedlist>
+</para><para><heading level="2">Round two</heading>
+</para><para><orderedlist>
+<listitem><para>Initialize the following private key CryptoKeys. Seed myPrivateV with keying material uniformly drawn from [1, n - 1]. Initialise the preSharedSecret with the common keying material previously shared between you and the other party.<itemizedlist>
+<listitem><para>preSharedSecret</para></listitem><listitem><para>myCombinedPrivateKey</para></listitem></itemizedlist>
+</para></listitem><listitem><para>Initialize the following blank public key CryptoKeys:<itemizedlist>
+<listitem><para>theirNewGenerator</para></listitem><listitem><para>myNewGenerator</para></listitem><listitem><para>myCombinedPublicKey</para></listitem><listitem><para>myPublicV</para></listitem></itemizedlist>
+</para></listitem><listitem><para>Call <ref refid="_e_c_j_p_a_k_e_8h_1a6b0de26fef61a785906120acb0277074" kindref="member">ECJPAKE_roundTwoGenerateKeys()</ref> to generate the remaining round two keys.</para></listitem><listitem><para>Generate the hash for your ZKP use myNewGenerator as your generator point.</para></listitem><listitem><para>Exchange public keys, UserIDs, and ZKP signatures. Write the received keying material into the relevant buffers or load them into key stores as specified by the CryptoKeys initialised earlier.</para></listitem><listitem><para>Verify the other party&apos;s ZKP after computing their ZKP hash b calling <ref refid="_e_c_j_p_a_k_e_8h_1af47d98b1e451cca11b450f425f94ddb0" kindref="member">ECJPAKE_verifyZKP()</ref>. Use theirNewGenerator as the generator point for this ZKP.</para></listitem><listitem><para>You can now let all keys and keying material but myCombinedPrivateKey, theirCombinedPublicKey, theirPublicKey2, and myPrivateKey2 go out of scope.</para></listitem></orderedlist>
+</para><para><heading level="2">Computing the shared secret</heading>
+</para><para><orderedlist>
+<listitem><para>Initialize the following blank public key CryptoKey:<itemizedlist>
+<listitem><para>sharedSecret</para></listitem></itemizedlist>
+</para></listitem><listitem><para>Call <ref refid="_e_c_j_p_a_k_e_8h_1a6d46725aff59ef45fffff16ec1f5ae5b" kindref="member">ECJPAKE_computeSharedSecret()</ref>.</para></listitem><listitem><para>Run sharedSecret through a key derivation function to compute the shared symmetric session key.</para></listitem></orderedlist>
+</para><para><heading level="2">General usage</heading>
+</para><para>The API expects elliptic curves as defined in <ref refid="_e_c_c_params_8h" kindref="compound">ti/drivers/cryptoutils/ecc/ECCParams.h</ref>. Several commonly used curves are provided. Check the device-specific ECJPAKE documentation for curve type (short Weierstrass, Montgomery, Edwards) support for your device. ECJPAKE support for a curve type on a device does not imply curve-type support for other ECC schemes.</para><para>Public keys and shared secrets are points on an elliptic curve. These points can be expressed in several ways. The most common one is in affine coordinates as an X,Y pair. This API uses points expressed in affine coordinates. The point is stored as a concatenated array of X followed by Y in a location described by its CryptoKey.</para><para>This API accepts and returns the keying material of public keys according to the following table:</para><para><table rows="4" cols="3"><row>
+<entry thead="yes"><para>Curve Type </para></entry><entry thead="yes"><para>Keying Material Array </para></entry><entry thead="yes"><para>Array Length  </para></entry></row>
+<row>
+<entry thead="no"><para>Short Weierstrass </para></entry><entry thead="no"><para>[X, Y] </para></entry><entry thead="no"><para>2 * Curve Param Length </para></entry></row>
+<row>
+<entry thead="no"><para>Montgomery </para></entry><entry thead="no"><para>[X, Y] </para></entry><entry thead="no"><para>2 * Curve Param Length </para></entry></row>
+<row>
+<entry thead="no"><para>Edwards </para></entry><entry thead="no"><para>[X, Y] </para></entry><entry thead="no"><para>2 * Curve Param Length </para></entry></row>
+</table>
+<heading level="2">ECJPAKE Driver Configuration</heading>
+</para><para>In order to use the ECJPAKE APIs, the application is required to provide device-specific ECJPAKE configuration in the Board.c file. The ECJPAKE driver interface defines a configuration data structure:</para><para><programlisting><codeline><highlight class="normal">typedef<sp/>struct<sp/>ECJPAKE_Config_<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*object;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/><sp/><sp/><sp/>*hwAttrs;</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>ECJPAKE_Config;</highlight></codeline>
+</programlisting></para><para>The application must declare an array of ECJPAKE_Config elements, named ECJPAKE_config[]. Each element of ECJPAKE_config[] must be populated with pointers to a device specific ECJPAKE driver implementation&apos;s driver object, hardware attributes. Each element in ECJPAKE_config[] corresponds to an ECJPAKE instance, and none of the elements should have NULL pointers. There is no correlation between the index and the peripheral designation (such as ECJPAKE0 or ECJPAKE1). For example, it is possible to use ECJPAKE_config[0] for ECJPAKE1. Multiple drivers and driver instances may all access the same underlying hardware. This is transparent to the application. Mutual exclusion is performed automatically by the drivers as necessary.</para><para>Because the ECJPAKE configuration is highly device dependent, you will need to check the doxygen for the device specific ECJPAKE implementation. There you will find a description of the ECJPAKE hardware attributes. Please also refer to the Board.c file of any of your examples to see the ECJPAKE configuration.</para><para><heading level="2">ECJPAKE Parameters</heading>
+</para><para>The <ref refid="_e_c_j_p_a_k_e_8h_1ad3a29a6adbbad0b2d742dd15f3c533e3" kindref="member">ECJPAKE_Params</ref> structure is passed to the <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref> call. If NULL is passed for the parameters, <ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open()</ref> uses default parameters. An <ref refid="_e_c_j_p_a_k_e_8h_1ad3a29a6adbbad0b2d742dd15f3c533e3" kindref="member">ECJPAKE_Params</ref> structure is initialized with default values by passing it to <ref refid="_e_c_j_p_a_k_e_8h_1accb0f74e2250c5cdb6bbd2d71d790323" kindref="member">ECJPAKE_Params_init()</ref>. Some of the ECJPAKE parameters are described below. To see brief descriptions of all the parameters, see <ref refid="_e_c_j_p_a_k_e_8h_1ad3a29a6adbbad0b2d742dd15f3c533e3" kindref="member">ECJPAKE_Params</ref>.</para><para><heading level="1">Examples</heading>
+</para><para><heading level="2">Basic ECJPAKE exchange</heading>
+</para><para><programlisting><codeline><highlight class="normal">//<sp/>My<sp/>fixed<sp/>keying<sp/>material</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPrivateKeyMaterial1[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPrivateKeyMaterial2[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPrivateVMaterial1[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPrivateVMaterial2[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPrivateVMaterial3[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myHash1[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myHash2[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myHash3[32];</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>My<sp/>derived<sp/>keying<sp/>material</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myR1[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myR2[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myR3[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPublicKeyMaterial1[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPublicKeyMaterial2[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPublicVMaterial1[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPublicVMaterial2[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPublicVMaterial3[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myCombinedPublicKeyMaterial1[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myCombinedPrivateKeyMaterial1[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myGenerator[64];</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Their<sp/>fixed<sp/>keying<sp/>material</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirHash1[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirHash2[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirHash3[32];</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Their<sp/>derived<sp/>keying<sp/>material</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirR1[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirR2[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirR3[32];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirPublicKeyMaterial1[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirPublicKeyMaterial2[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirPublicVMaterial1[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirPublicVMaterial2[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirPublicVMaterial3[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirCombinedPublicKeyMaterial1[64];</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirGenerator[64];</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>Shared<sp/>secrets</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>preSharedSecretKeyingMaterial[32]<sp/>=<sp/>&quot;This<sp/>is<sp/>our<sp/>password&quot;;</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>sharedSecretKeyingMaterial1[64];</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>CryptoKeys</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>nistP256GeneratorCryptoKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Pre-Shared<sp/>Secret<sp/>Key</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>preSharedSecretCryptoKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Final<sp/>shared<sp/>secret<sp/>keys</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>sharedSecretCryptoKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>My&apos;s<sp/>keys</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPrivateCryptoKey1;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPrivateCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPrivateCryptoV1;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPrivateCryptoV2;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPrivateCryptoV3;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myCombinedPrivateKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPublicCryptoKey1;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPublicCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPublicCryptoV1;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPublicCryptoV2;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPublicCryptoV3;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myCombinedPublicKey;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myGeneratorKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Their&apos;s<sp/>Keys</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>theirPublicCryptoKey1;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>theirPublicCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>theirPublicCryptoV1;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>theirPublicCryptoV2;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>theirPublicCryptoV3;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>theirCombinedPublicKey;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>theirGeneratorKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>NISTP256<sp/>generator</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;nistP256GeneratorCryptoKey,<sp/>ECCParams_NISTP256.generatorX,<sp/>sizeof(ECCParams_NISTP256.length<sp/>*<sp/>2));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Pre-shared<sp/>secret</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;preSharedSecretCryptoKey,<sp/>preSharedSecretKeyingMaterial,<sp/>sizeof(preSharedSecretKeyingMaterial));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Final<sp/>shared<sp/>secret<sp/>key</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;sharedSecretCryptoKey,<sp/>sharedSecretKeyingMaterial1,<sp/>sizeof(sharedSecretKeyingMaterial1));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;sharedSecretCryptoKey2,<sp/>sharedSecretKeyingMaterial2,<sp/>sizeof(sharedSecretKeyingMaterial2));</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>My<sp/>keys</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;myPrivateCryptoKey1,<sp/>myPrivateKeyMaterial1,<sp/>sizeof(myPrivateKeyMaterial1));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;myPrivateCryptoKey2,<sp/>myPrivateKeyMaterial2,<sp/>sizeof(myPrivateKeyMaterial2));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;myPrivateCryptoV1,<sp/>myPrivateVMaterial1,<sp/>sizeof(myPrivateVMaterial1));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;myPrivateCryptoV2,<sp/>myPrivateVMaterial2,<sp/>sizeof(myPrivateVMaterial2));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;myPrivateCryptoV3,<sp/>myPrivateVMaterial3,<sp/>sizeof(myPrivateVMaterial3));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;myPublicCryptoKey1,<sp/>myPublicKeyMaterial1,<sp/>sizeof(myPublicKeyMaterial1));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;myPublicCryptoKey2,<sp/>myPublicKeyMaterial2,<sp/>sizeof(myPublicKeyMaterial2));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;myPublicCryptoV1,<sp/>myPublicVMaterial1,<sp/>sizeof(myPublicVMaterial1));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;myPublicCryptoV2,<sp/>myPublicVMaterial2,<sp/>sizeof(myPublicVMaterial2));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;myPublicCryptoV3,<sp/>myPublicVMaterial3,<sp/>sizeof(myPublicVMaterial3));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;myCombinedPrivateKey,<sp/>myCombinedPrivateKeyMaterial1,<sp/>sizeof(myCombinedPrivateKeyMaterial1));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;myCombinedPublicKey,<sp/>myCombinedPublicKeyMaterial1,<sp/>sizeof(myCombinedPublicKeyMaterial1));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;myGeneratorKey,<sp/>myGenerator,<sp/>sizeof(myGenerator));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Their<sp/>keys</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;theirPublicCryptoKey1,<sp/>theirPublicKeyMaterial1,<sp/>sizeof(theirPublicKeyMaterial1));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;theirPublicCryptoKey2,<sp/>theirPublicKeyMaterial2,<sp/>sizeof(theirPublicKeyMaterial2));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;theirPublicCryptoV1,<sp/>theirPublicVMaterial1,<sp/>sizeof(theirPublicVMaterial1));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;theirPublicCryptoV2,<sp/>theirPublicVMaterial2,<sp/>sizeof(theirPublicVMaterial2));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;theirPublicCryptoV3,<sp/>theirPublicVMaterial3,<sp/>sizeof(theirPublicVMaterial3));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;theirCombinedPublicKey,<sp/>theirCombinedPublicKeyMaterial1,<sp/>sizeof(theirCombinedPublicKeyMaterial1));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;theirGeneratorKey,<sp/>theirGenerator,<sp/>sizeof(theirGenerator));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initial<sp/>driver<sp/>setup</highlight></codeline>
+<codeline><highlight class="normal">ECJPAKE_Params<sp/>params;</highlight></codeline>
+<codeline><highlight class="normal">ECJPAKE_Params_init(&amp;params);</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECJPAKE_Handle<sp/>handle<sp/>=<sp/>ECJPAKE_open(0,<sp/>&amp;params);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationRoundOneGenerateKeys<sp/><sp/><sp/>operationRoundOneGenerateKeys;</highlight></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationRoundTwoGenerateKeys<sp/><sp/><sp/>operationRoundTwoGenerateKeys;</highlight></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationGenerateZKP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>operationGenerateZKP;</highlight></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationVerifyZKP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>operationVerifyZKP;</highlight></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationComputeSharedSecret<sp/><sp/><sp/><sp/>operationComputeSharedSecret;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>my<sp/>round<sp/>one<sp/>keys</highlight></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationRoundOneGenerateKeys_init(&amp;operationRoundOneGenerateKeys);</highlight></codeline>
+<codeline><highlight class="normal">operationRoundOneGenerateKeys.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundOneGenerateKeys.myPrivateKey1<sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoKey1;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundOneGenerateKeys.myPrivateKey2<sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundOneGenerateKeys.myPublicKey1<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPublicCryptoKey1;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundOneGenerateKeys.myPublicKey2<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPublicCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundOneGenerateKeys.myPrivateV1<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoV1;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundOneGenerateKeys.myPrivateV2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoV2;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundOneGenerateKeys.myPublicV1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPublicCryptoV1;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundOneGenerateKeys.myPublicV2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPublicCryptoV2;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int_fast16_t<sp/>result<sp/>=<sp/>ECJPAKE_roundOneGenerateKeys(handle,<sp/>&amp;operationRoundOneGenerateKeys);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result<sp/>!=<sp/>ECJPAKE_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while(1);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>hashes<sp/>here</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>generate<sp/>my<sp/>round<sp/>one<sp/>ZKPs</highlight></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationGenerateZKP_init(&amp;operationGenerateZKP);</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.myPrivateKey<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoKey1;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.myPrivateV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoV1;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.hash<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>myHash1;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.r<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>myR1;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">result<sp/>=<sp/>ECJPAKE_generateZKP(handle,<sp/>&amp;operationGenerateZKP);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result<sp/>!=<sp/>ECJPAKE_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while(1);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationGenerateZKP_init(&amp;operationGenerateZKP);</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.myPrivateKey<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.myPrivateV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoV2;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.hash<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>myHash2;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.r<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>myR2;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">result<sp/>=<sp/>ECJPAKE_generateZKP(handle,<sp/>&amp;operationGenerateZKP);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result<sp/>!=<sp/>ECJPAKE_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while(1);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Do<sp/>ZKP<sp/>and<sp/>key<sp/>transmission<sp/>here</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Verify<sp/>their<sp/>round<sp/>one<sp/>ZKPs</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>their<sp/>hashes<sp/>here</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationVerifyZKP_init(&amp;operationVerifyZKP);</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.theirGenerator<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;nistP256GeneratorCryptoKey;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.theirPublicKey<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirPublicCryptoKey1;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.theirPublicV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirPublicCryptoV1;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.hash<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>theirHash1;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.r<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>theirR1;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">result<sp/>=<sp/>ECJPAKE_verifyZKP(handle,<sp/>&amp;operationVerifyZKP);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result<sp/>!=<sp/>ECJPAKE_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while(1);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationVerifyZKP_init(&amp;operationVerifyZKP);</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.theirGenerator<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;nistP256GeneratorCryptoKey;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.theirPublicKey<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirPublicCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.theirPublicV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirPublicCryptoV2;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.hash<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>theirHash2;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.r<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>theirR2;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">result<sp/>=<sp/>ECJPAKE_verifyZKP(handle,&amp;operationVerifyZKP);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result<sp/>!=<sp/>ECJPAKE_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while(1);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Round<sp/>two<sp/>starts<sp/>now</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>my<sp/>round<sp/>two<sp/>keys</highlight></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationRoundTwoGenerateKeys_init(&amp;operationRoundTwoGenerateKeys);</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.myPrivateKey2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.myPublicKey1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPublicCryptoKey1;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.myPublicKey2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPublicCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.theirPublicKey1<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirPublicCryptoKey1;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.theirPublicKey2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirPublicCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.preSharedSecret<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;preSharedSecretCryptoKey;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.theirNewGenerator<sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirGeneratorKey;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.myNewGenerator<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myGeneratorKey;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.myCombinedPrivateKey<sp/><sp/>=<sp/>&amp;myCombinedPrivateKey;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.myCombinedPublicKey<sp/><sp/><sp/>=<sp/>&amp;myCombinedPublicKey;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.myPrivateV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoV3;</highlight></codeline>
+<codeline><highlight class="normal">operationRoundTwoGenerateKeys.myPublicV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPublicCryptoV3;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">result<sp/>=<sp/>ECJPAKE_roundTwoGenerateKeys(handle,<sp/>&amp;operationRoundTwoGenerateKeys);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>my<sp/>round<sp/><sp/>two<sp/>ZKP</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>the<sp/>round<sp/>two<sp/>hash<sp/>here</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationGenerateZKP_init(&amp;operationGenerateZKP);</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.myPrivateKey<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myCombinedPrivateKey;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.myPrivateV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoV3;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.hash<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>myHash3;</highlight></codeline>
+<codeline><highlight class="normal">operationGenerateZKP.r<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>myR3;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">result<sp/>=<sp/>ECJPAKE_generateZKP(handle,<sp/>&amp;operationGenerateZKP);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result<sp/>!=<sp/>ECJPAKE_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while(1);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Exchange<sp/>keys<sp/>and<sp/>ZKPs<sp/>again</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Verify<sp/>their<sp/>second<sp/>round<sp/>ZKP</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>their<sp/>round<sp/>two<sp/>hash<sp/>here</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationVerifyZKP_init(&amp;operationVerifyZKP);</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.theirGenerator<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirGeneratorKey;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.theirPublicKey<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirCombinedPublicKey;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.theirPublicV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirPublicCryptoV3;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.hash<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>theirHash3;</highlight></codeline>
+<codeline><highlight class="normal">operationVerifyZKP.r<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>theirR3;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">result<sp/>=<sp/>ECJPAKE_verifyZKP(handle,<sp/>&amp;operationVerifyZKP);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result<sp/>!=<sp/>ECJPAKE_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while(1);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>shared<sp/>secret</highlight></codeline>
+<codeline><highlight class="normal">ECJPAKE_OperationComputeSharedSecret_init(&amp;operationComputeSharedSecret);</highlight></codeline>
+<codeline><highlight class="normal">operationComputeSharedSecret.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationComputeSharedSecret.myCombinedPrivateKey<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myCombinedPrivateKey;</highlight></codeline>
+<codeline><highlight class="normal">operationComputeSharedSecret.theirCombinedPublicKey<sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirCombinedPublicKey;</highlight></codeline>
+<codeline><highlight class="normal">operationComputeSharedSecret.theirPublicKey2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirPublicCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">operationComputeSharedSecret.myPrivateKey2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateCryptoKey2;</highlight></codeline>
+<codeline><highlight class="normal">operationComputeSharedSecret.sharedSecret<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;sharedSecretCryptoKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">result<sp/>=<sp/><sp/>ECJPAKE_computeSharedSecret(handle,<sp/>&amp;operationComputeSharedSecret);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result<sp/>!=<sp/>ECJPAKE_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while(1);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Run<sp/>sharedSecretCryptoKey<sp/>through<sp/>a<sp/>key<sp/>derivation<sp/>function<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>confirm<sp/>to<sp/>the<sp/>other<sp/>party<sp/>that<sp/>we<sp/>have<sp/>derived<sp/>the<sp/>same<sp/>key</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2017-2018,<sp/>Texas<sp/>Instruments<sp/>Incorporated</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>Texas<sp/>Instruments<sp/>Incorporated<sp/>nor<sp/>the<sp/>names<sp/>of</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>its<sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>from<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>OWNER<sp/>OR</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>CONTRIBUTORS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*/</highlight></codeline>
+<codeline lineno="529"><highlight class="preprocessor">#ifndef<sp/>ti_drivers_ECJPAKE__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="530"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ti_drivers_ECJPAKE__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="531"><highlight class="normal"></highlight></codeline>
+<codeline lineno="532"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="533"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="534"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="535"><highlight class="normal"></highlight></codeline>
+<codeline lineno="536"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="537"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="538"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="539"><highlight class="normal"></highlight></codeline>
+<codeline lineno="540"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_crypto_key_8h" kindref="compound">ti/drivers/cryptoutils/cryptokey/CryptoKey.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="541"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_e_c_c_params_8h" kindref="compound">ti/drivers/cryptoutils/ecc/ECCParams.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="542"><highlight class="normal"></highlight></codeline>
+<codeline lineno="560" refid="group___e_c_j_p_a_k_e___c_o_n_t_r_o_l_1gaff8e8e005698d7bb4c90b165e2cdc565" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_CMD_RESERVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(32)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="561"><highlight class="normal"></highlight></codeline>
+<codeline lineno="574" refid="group___e_c_j_p_a_k_e___c_o_n_t_r_o_l_1ga312c0c75c7b47e0d5e8493ca4cb98683" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_RESERVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(-32)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="575"><highlight class="normal"></highlight></codeline>
+<codeline lineno="589" refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga1e2fe3a0d3efd4d6505552b732402a35" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_SUCCESS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="590"><highlight class="normal"></highlight></codeline>
+<codeline lineno="597" refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga3173a5ec592e345c4dc58e9fbbde2825" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_ERROR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(-1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="598"><highlight class="normal"></highlight></codeline>
+<codeline lineno="606" refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga39b8195c58c304826d87061caa54bf19" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_UNDEFINEDCMD<sp/><sp/><sp/><sp/>(-2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="607"><highlight class="normal"></highlight></codeline>
+<codeline lineno="616" refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga668d9bd2a4926c046f40ee6698892362" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_RESOURCE_UNAVAILABLE<sp/>(-3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="617"><highlight class="normal"></highlight></codeline>
+<codeline lineno="623" refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1gadc3a17b99ca7816137c60f780b51ef63" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_INVALID_PUBLIC_KEY<sp/>(-4)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="624"><highlight class="normal"></highlight></codeline>
+<codeline lineno="631" refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga11dcd54552f0512755ba72f17ae5da46" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_PUBLIC_KEY_NOT_ON_CURVE<sp/>(-5)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="632"><highlight class="normal"></highlight></codeline>
+<codeline lineno="640" refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga79517ed3fbf41907b1d9e495f7bfef5c" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_PUBLIC_KEY_LARGER_THAN_PRIME<sp/>(-6)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="641"><highlight class="normal"></highlight></codeline>
+<codeline lineno="648" refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga74586f857af1aaffbe358721b81f1b0f" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_POINT_AT_INFINITY<sp/>(-7)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="649"><highlight class="normal"></highlight></codeline>
+<codeline lineno="656" refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga4ca6b37156ce3f0bd1c26b5ecd4d4a23" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_INVALID_PRIVATE_KEY<sp/>(-8)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="657"><highlight class="normal"></highlight></codeline>
+<codeline lineno="664" refid="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga45e8ebd0af128c2b81c249022baa6667" refkind="member"><highlight class="preprocessor">#define<sp/>ECJPAKE_STATUS_INVALID_PRIVATE_V<sp/>(-9)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="665"><highlight class="normal"></highlight></codeline>
+<codeline lineno="666"><highlight class="normal"></highlight></codeline>
+<codeline lineno="677"><highlight class="comment">/*<sp/>Add<sp/>ECJPAKE_CMD_&lt;commands&gt;<sp/>here<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="678"><highlight class="normal"></highlight></codeline>
+<codeline lineno="686" refid="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_j_p_a_k_e___config__" kindref="compound">ECJPAKE_Config_</ref><sp/><sp/><sp/><sp/>*<ref refid="_e_c_j_p_a_k_e_8h_1ad8528e94f67e21330b2a2e90c778cf38" kindref="member">ECJPAKE_Handle</ref>;</highlight></codeline>
+<codeline lineno="687"><highlight class="normal"></highlight></codeline>
+<codeline lineno="709" refid="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0" kindref="member">ECJPAKE_ReturnBehavior_</ref><sp/>{</highlight></codeline>
+<codeline lineno="710" refid="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0a5a4164de2fa7a74f8e9a8f21a6f40069" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0a5a4164de2fa7a74f8e9a8f21a6f40069" kindref="member">ECJPAKE_RETURN_BEHAVIOR_CALLBACK</ref><sp/>=<sp/>1,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="716" refid="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0a124c6b724f8fc636176973cbc470d63f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0a124c6b724f8fc636176973cbc470d63f" kindref="member">ECJPAKE_RETURN_BEHAVIOR_BLOCKING</ref><sp/>=<sp/>2,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="720" refid="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0a5ec172da7685ba35f8337c7f5dc5d5a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1ae9108f24fa204b0911666970c1891db0a5ec172da7685ba35f8337c7f5dc5d5a6" kindref="member">ECJPAKE_RETURN_BEHAVIOR_POLLING</ref><sp/><sp/>=<sp/>4,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="724"><highlight class="normal">}<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a853ecb18a639ba6fe15a96dcc155b9d2" kindref="member">ECJPAKE_ReturnBehavior</ref>;</highlight></codeline>
+<codeline lineno="725"><highlight class="normal"></highlight></codeline>
+<codeline lineno="737" refid="struct_e_c_j_p_a_k_e___config__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_j_p_a_k_e___config__" kindref="compound">ECJPAKE_Config_</ref><sp/>{</highlight></codeline>
+<codeline lineno="739" refid="struct_e_c_j_p_a_k_e___config___1acbf448ac7ffb87e88f297f2dd27092db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___config___1acbf448ac7ffb87e88f297f2dd27092db" kindref="member">object</ref>;</highlight></codeline>
+<codeline lineno="740"><highlight class="normal"></highlight></codeline>
+<codeline lineno="742" refid="struct_e_c_j_p_a_k_e___config___1a5a953703feadb4d358287292296b019a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="struct_e_c_j_p_a_k_e___config___1a5a953703feadb4d358287292296b019a" kindref="member">hwAttrs</ref>;</highlight></codeline>
+<codeline lineno="743"><highlight class="normal">}<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a291801afc03d2d27d3eeaa0079c44bf3" kindref="member">ECJPAKE_Config</ref>;</highlight></codeline>
+<codeline lineno="744"><highlight class="normal"></highlight></codeline>
+<codeline lineno="748" refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys__" kindref="compound">ECJPAKE_OperationRoundOneGenerateKeys_</ref><sp/>{</highlight></codeline>
+<codeline lineno="749" refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1af7a02d4869c5774cda2ee608b3f5222f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_e_c_c_params___curve_params__" kindref="compound">ECCParams_CurveParams</ref><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1af7a02d4869c5774cda2ee608b3f5222f" kindref="member">curve</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="752" refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a2e339a755f990503218012466dbcfcd2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a2e339a755f990503218012466dbcfcd2" kindref="member">myPrivateKey1</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="756" refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a0c4edc8f485aa76a5248798a99209cb5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a0c4edc8f485aa76a5248798a99209cb5" kindref="member">myPrivateKey2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="760" refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1afce88ceabdd3afedd2936e4c6f74d8c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1afce88ceabdd3afedd2936e4c6f74d8c6" kindref="member">myPublicKey1</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="765" refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a26cfa3548bde00aa131406042480bfbd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a26cfa3548bde00aa131406042480bfbd" kindref="member">myPublicKey2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="770" refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a1d5c8ec4e7755bbfda4f6727282c45af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a1d5c8ec4e7755bbfda4f6727282c45af" kindref="member">myPrivateV1</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="777" refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a5063a1513ddcb07d7425b293795a27af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a5063a1513ddcb07d7425b293795a27af" kindref="member">myPrivateV2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="784" refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1aca5b243da74d87d8cc1472a229cfcaa7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1aca5b243da74d87d8cc1472a229cfcaa7" kindref="member">myPublicV1</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="793" refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a420c539032f4471b8d0d8e7251dac750" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys___1a420c539032f4471b8d0d8e7251dac750" kindref="member">myPublicV2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="802"><highlight class="normal">}<sp/><ref refid="_e_c_j_p_a_k_e_8h_1ae8f5941774aaf0770b146aeada009c67" kindref="member">ECJPAKE_OperationRoundOneGenerateKeys</ref>;</highlight></codeline>
+<codeline lineno="803"><highlight class="normal"></highlight></codeline>
+<codeline lineno="807" refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p__" kindref="compound">ECJPAKE_OperationGenerateZKP_</ref><sp/>{</highlight></codeline>
+<codeline lineno="808" refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p___1afb13d13693a1ff109ec469c025aeb05f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_e_c_c_params___curve_params__" kindref="compound">ECCParams_CurveParams</ref><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p___1afb13d13693a1ff109ec469c025aeb05f" kindref="member">curve</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="811" refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p___1ac3f594d981fac2696e50308e375dc072" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p___1ac3f594d981fac2696e50308e375dc072" kindref="member">myPrivateKey</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="815" refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p___1a585dffc7ace3e800fe54b87520b5285d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p___1a585dffc7ace3e800fe54b87520b5285d" kindref="member">myPrivateV</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="820" refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p___1a97d2b4b9e3449e1200a52df1ae16c1c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p___1a97d2b4b9e3449e1200a52df1ae16c1c1" kindref="member">hash</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="824" refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p___1a5f3cabdf3afb3e47da2c2703f0fe77d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p___1a5f3cabdf3afb3e47da2c2703f0fe77d8" kindref="member">r</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="827"><highlight class="normal">}<sp/><ref refid="_e_c_j_p_a_k_e_8h_1afd0c60e01fd74d5b74dc0657ac5248c9" kindref="member">ECJPAKE_OperationGenerateZKP</ref>;</highlight></codeline>
+<codeline lineno="828"><highlight class="normal"></highlight></codeline>
+<codeline lineno="832" refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p__" kindref="compound">ECJPAKE_OperationVerifyZKP_</ref><sp/>{</highlight></codeline>
+<codeline lineno="833" refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1ad082e27269dfc5fdda19f9bdf0cac973" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_e_c_c_params___curve_params__" kindref="compound">ECCParams_CurveParams</ref><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1ad082e27269dfc5fdda19f9bdf0cac973" kindref="member">curve</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="836" refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1a403bd9c22aae9a17792a7c8e4bb2b754" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1a403bd9c22aae9a17792a7c8e4bb2b754" kindref="member">theirGenerator</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="842" refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1a2ded762a0251893e76daa25635ef04f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1a2ded762a0251893e76daa25635ef04f3" kindref="member">theirPublicKey</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="846" refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1a6ea2813060cf5c673beb2a41276ed840" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1a6ea2813060cf5c673beb2a41276ed840" kindref="member">theirPublicV</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="849" refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1a857646e93533d7b83ad1308fa7858af5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1a857646e93533d7b83ad1308fa7858af5" kindref="member">hash</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="852" refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1a7b27cf534663ac852e1cfbbae50b119f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p___1a7b27cf534663ac852e1cfbbae50b119f" kindref="member">r</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="855"><highlight class="normal">}<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a750ccde568c4ea68b21ab1305858a31a" kindref="member">ECJPAKE_OperationVerifyZKP</ref>;</highlight></codeline>
+<codeline lineno="856"><highlight class="normal"></highlight></codeline>
+<codeline lineno="860" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys__" kindref="compound">ECJPAKE_OperationRoundTwoGenerateKeys_</ref><sp/>{</highlight></codeline>
+<codeline lineno="861" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1ae27dec8466590a3f7bd2ea79d2a2a749" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_e_c_c_params___curve_params__" kindref="compound">ECCParams_CurveParams</ref><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1ae27dec8466590a3f7bd2ea79d2a2a749" kindref="member">curve</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="864" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a488e095e875a152db0c9419dff248ed8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a488e095e875a152db0c9419dff248ed8" kindref="member">myPrivateKey2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="868" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a2b8f6d66d327e0b3bee023f8bf5801a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a2b8f6d66d327e0b3bee023f8bf5801a3" kindref="member">myPublicKey1</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="871" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a9766202f605c9a261c1976e145f5a78d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a9766202f605c9a261c1976e145f5a78d" kindref="member">myPublicKey2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="874" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1aab06df2bc2c76a5459278753d48d59cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1aab06df2bc2c76a5459278753d48d59cc" kindref="member">theirPublicKey1</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="877" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1af6a388b1b810c0e629ddd92a42b2e530" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1af6a388b1b810c0e629ddd92a42b2e530" kindref="member">theirPublicKey2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="880" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1ab3f736da595e1872a6accecbeed02a90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1ab3f736da595e1872a6accecbeed02a90" kindref="member">preSharedSecret</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="889" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1af2725e3ba392f6979384b065d251d9f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1af2725e3ba392f6979384b065d251d9f2" kindref="member">theirNewGenerator</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="895" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a452584f06ea0926fa30dcedfa3574bce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a452584f06ea0926fa30dcedfa3574bce" kindref="member">myNewGenerator</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="901" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a3c47cec685f750b9a8627503af91aa11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a3c47cec685f750b9a8627503af91aa11" kindref="member">myCombinedPrivateKey</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="906" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a44ba09ef8943b69258534553e93d5623" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a44ba09ef8943b69258534553e93d5623" kindref="member">myCombinedPublicKey</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="909" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a41c8e306d313db41fb2eb46a68b3d83a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a41c8e306d313db41fb2eb46a68b3d83a" kindref="member">myPrivateV</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="916" refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a60d6b370d59fb166b9afd9ee03600662" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys___1a60d6b370d59fb166b9afd9ee03600662" kindref="member">myPublicV</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="925"><highlight class="normal">}<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a93aa50de49045a47f6808b03697896e9" kindref="member">ECJPAKE_OperationRoundTwoGenerateKeys</ref>;</highlight></codeline>
+<codeline lineno="926"><highlight class="normal"></highlight></codeline>
+<codeline lineno="930" refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret__" kindref="compound">ECJPAKE_OperationComputeSharedSecret_</ref><sp/>{</highlight></codeline>
+<codeline lineno="931" refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1a87bc679f7e607d1a49988fab46579545" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_e_c_c_params___curve_params__" kindref="compound">ECCParams_CurveParams</ref><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1a87bc679f7e607d1a49988fab46579545" kindref="member">curve</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="934" refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1af2021fae1e64ee547b3499abb981cbee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1af2021fae1e64ee547b3499abb981cbee" kindref="member">myCombinedPrivateKey</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="938" refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1a6113f22552eb48c90943636e635a0bb0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1a6113f22552eb48c90943636e635a0bb0" kindref="member">theirCombinedPublicKey</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="941" refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1a9f81cc78f1d52b237c0914aab69a72ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1a9f81cc78f1d52b237c0914aab69a72ed" kindref="member">theirPublicKey2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="946" refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1abcc406f6a5359af77d3f677aa3db3ac0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1abcc406f6a5359af77d3f677aa3db3ac0" kindref="member">myPrivateKey2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="950" refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1aa9704f9e3c4998c9aac8c3f42e1873fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret___1aa9704f9e3c4998c9aac8c3f42e1873fd" kindref="member">sharedSecret</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="953"><highlight class="normal">}<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a7dfa19c3caae9d91f838178dff6daf34" kindref="member">ECJPAKE_OperationComputeSharedSecret</ref>;</highlight></codeline>
+<codeline lineno="954"><highlight class="normal"></highlight></codeline>
+<codeline lineno="955"><highlight class="normal"></highlight></codeline>
+<codeline lineno="959" refid="union_e_c_j_p_a_k_e___operation__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">union<sp/></highlight><highlight class="normal"><ref refid="union_e_c_j_p_a_k_e___operation__" kindref="compound">ECJPAKE_Operation_</ref><sp/>{</highlight></codeline>
+<codeline lineno="960" refid="union_e_c_j_p_a_k_e___operation___1a72557bd15267e760660d7b9b87f709fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys__" kindref="compound">ECJPAKE_OperationRoundOneGenerateKeys</ref><sp/><sp/><sp/>*<ref refid="union_e_c_j_p_a_k_e___operation___1a72557bd15267e760660d7b9b87f709fa" kindref="member">generateRoundOneKeys</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="961" refid="union_e_c_j_p_a_k_e___operation___1a0ea147a384e7d2bf1fcdcc1c7e491904" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p__" kindref="compound">ECJPAKE_OperationGenerateZKP</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="union_e_c_j_p_a_k_e___operation___1a0ea147a384e7d2bf1fcdcc1c7e491904" kindref="member">generateZKP</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="962" refid="union_e_c_j_p_a_k_e___operation___1af2352ea8a430f07810b3be2df52c2a1b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p__" kindref="compound">ECJPAKE_OperationVerifyZKP</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="union_e_c_j_p_a_k_e___operation___1af2352ea8a430f07810b3be2df52c2a1b" kindref="member">verifyZKP</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="963" refid="union_e_c_j_p_a_k_e___operation___1a8135f4bb2151d844402c1970252f51ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys__" kindref="compound">ECJPAKE_OperationRoundTwoGenerateKeys</ref><sp/><sp/><sp/>*<ref refid="union_e_c_j_p_a_k_e___operation___1a8135f4bb2151d844402c1970252f51ef" kindref="member">generateRoundTwoKeys</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="964" refid="union_e_c_j_p_a_k_e___operation___1a6860a01e48104035d47bf8819cfe2a26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret__" kindref="compound">ECJPAKE_OperationComputeSharedSecret</ref><sp/><sp/><sp/><sp/>*<ref refid="union_e_c_j_p_a_k_e___operation___1a6860a01e48104035d47bf8819cfe2a26" kindref="member">computeSharedSecret</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="965"><highlight class="normal">}<sp/><ref refid="_e_c_j_p_a_k_e_8h_1af3d60665e9534d1c1df2cca1393feecc" kindref="member">ECJPAKE_Operation</ref>;</highlight></codeline>
+<codeline lineno="966"><highlight class="normal"></highlight></codeline>
+<codeline lineno="970" refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14a" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14a" kindref="member">ECJPAKE_OperationType_</ref><sp/>{</highlight></codeline>
+<codeline lineno="971" refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aa127cd39a054561f63b428ddfafed821a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aa127cd39a054561f63b428ddfafed821a" kindref="member">ECJPAKE_OPERATION_TYPE_ROUND_ONE_GENERATE_KEYS</ref><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="972" refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aad08ce6c1fa4c35487af7a3f5faeea4b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aad08ce6c1fa4c35487af7a3f5faeea4b3" kindref="member">ECJPAKE_OPERATION_TYPE_GENERATE_ZKP</ref><sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="973" refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aaae45452ee70a3aa970183c9f5c8ca6ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aaae45452ee70a3aa970183c9f5c8ca6ff" kindref="member">ECJPAKE_OPERATION_TYPE_VERIFY_ZKP</ref><sp/>=<sp/>3,</highlight></codeline>
+<codeline lineno="974" refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aacccd1127e96dd121dc8dbe4a600b2903" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aacccd1127e96dd121dc8dbe4a600b2903" kindref="member">ECJPAKE_OPERATION_TYPE_ROUND_TWO_GENERATE_KEYS</ref><sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="975" refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aaa121074a25507188f1d89a816cfaf7ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a5b6f06e389209946330f5959887aa14aaa121074a25507188f1d89a816cfaf7ed" kindref="member">ECJPAKE_OPERATION_TYPE_COMPUTE_SHARED_SECRET</ref><sp/>=<sp/>5,</highlight></codeline>
+<codeline lineno="976"><highlight class="normal">}<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a1192459ad7e6919d94bbf95f499a8558" kindref="member">ECJPAKE_OperationType</ref>;</highlight></codeline>
+<codeline lineno="977"><highlight class="normal"></highlight></codeline>
+<codeline lineno="996" refid="_e_c_j_p_a_k_e_8h_1a743785709e9ca990077a97befed10232" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_e_c_j_p_a_k_e_8h_1a743785709e9ca990077a97befed10232" kindref="member">ECJPAKE_CallbackFxn</ref>)<sp/>(ECJPAKE_Handle<sp/>handle,</highlight></codeline>
+<codeline lineno="997"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int_fast16_t<sp/>returnStatus,</highlight></codeline>
+<codeline lineno="998"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="union_e_c_j_p_a_k_e___operation__" kindref="compound">ECJPAKE_Operation</ref><sp/>operation,</highlight></codeline>
+<codeline lineno="999"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a1192459ad7e6919d94bbf95f499a8558" kindref="member">ECJPAKE_OperationType</ref><sp/>operationType);</highlight></codeline>
+<codeline lineno="1000"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1009" refid="struct_e_c_j_p_a_k_e___params__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_j_p_a_k_e___params__" kindref="compound">ECJPAKE_Params_</ref><sp/>{</highlight></codeline>
+<codeline lineno="1010" refid="struct_e_c_j_p_a_k_e___params___1a49e4154263840d15c5b81eb9a03ceddd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a853ecb18a639ba6fe15a96dcc155b9d2" kindref="member">ECJPAKE_ReturnBehavior</ref><sp/><sp/><ref refid="struct_e_c_j_p_a_k_e___params___1a49e4154263840d15c5b81eb9a03ceddd" kindref="member">returnBehavior</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="1011" refid="struct_e_c_j_p_a_k_e___params___1a32fa42c8995428501217c5140d3d320b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a743785709e9ca990077a97befed10232" kindref="member">ECJPAKE_CallbackFxn</ref><sp/><sp/><sp/><sp/><sp/><ref refid="struct_e_c_j_p_a_k_e___params___1a32fa42c8995428501217c5140d3d320b" kindref="member">callbackFxn</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="1012" refid="struct_e_c_j_p_a_k_e___params___1a0ecbc53a1d917966e368c8017d8f1e4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_e_c_j_p_a_k_e___params___1a0ecbc53a1d917966e368c8017d8f1e4b" kindref="member">timeout</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="1015" refid="struct_e_c_j_p_a_k_e___params___1a56309392f6d13dbc219a4d0630d52972" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_j_p_a_k_e___params___1a56309392f6d13dbc219a4d0630d52972" kindref="member">custom</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="1018"><highlight class="normal">}<sp/><ref refid="_e_c_j_p_a_k_e_8h_1ad3a29a6adbbad0b2d742dd15f3c533e3" kindref="member">ECJPAKE_Params</ref>;</highlight></codeline>
+<codeline lineno="1019"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1028"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a700d51c05aed0c04a37615136583c96b" kindref="member">ECJPAKE_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1029"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1038"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_j_p_a_k_e_8h_1ad4905b7bbdda7a6d84d68a33825d71fc" kindref="member">ECJPAKE_OperationRoundOneGenerateKeys_init</ref>(<ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys__" kindref="compound">ECJPAKE_OperationRoundOneGenerateKeys</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="1039"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1048"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a309530be8bedab920f30a9e31e01f052" kindref="member">ECJPAKE_OperationGenerateZKP_init</ref>(<ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p__" kindref="compound">ECJPAKE_OperationGenerateZKP</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="1049"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1058"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_j_p_a_k_e_8h_1adecdfdaae05bd0dc70f3b2766014c0e4" kindref="member">ECJPAKE_OperationVerifyZKP_init</ref>(<ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p__" kindref="compound">ECJPAKE_OperationVerifyZKP</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="1059"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1068"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a779e5c3610e226d58917c1fdf6294f4c" kindref="member">ECJPAKE_OperationRoundTwoGenerateKeys_init</ref>(<ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys__" kindref="compound">ECJPAKE_OperationRoundTwoGenerateKeys</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="1069"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1070"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1079"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a0c65ce541534493bd352248f7bc7314f" kindref="member">ECJPAKE_OperationComputeSharedSecret_init</ref>(<ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret__" kindref="compound">ECJPAKE_OperationComputeSharedSecret</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="1080"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1090"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_j_p_a_k_e_8h_1a3fd8ad0728bebfd64e14537b2dbfedf1" kindref="member">ECJPAKE_close</ref>(ECJPAKE_Handle<sp/>handle);</highlight></codeline>
+<codeline lineno="1091"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1129"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a77ae22f3de6940a93eb2da9a519e10f3" kindref="member">ECJPAKE_control</ref>(ECJPAKE_Handle<sp/>handle,<sp/>uint32_t<sp/>cmd,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*args);</highlight></codeline>
+<codeline lineno="1130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1148"><highlight class="normal">ECJPAKE_Handle<sp/><ref refid="_e_c_j_p_a_k_e_8h_1aee777d6c12846f95c21a7ccce3b5daef" kindref="member">ECJPAKE_open</ref>(uint_least8_t<sp/>index,<sp/><ref refid="struct_e_c_j_p_a_k_e___params__" kindref="compound">ECJPAKE_Params</ref><sp/>*params);</highlight></codeline>
+<codeline lineno="1149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1162"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_j_p_a_k_e_8h_1accb0f74e2250c5cdb6bbd2d71d790323" kindref="member">ECJPAKE_Params_init</ref>(<ref refid="struct_e_c_j_p_a_k_e___params__" kindref="compound">ECJPAKE_Params</ref><sp/>*params);</highlight></codeline>
+<codeline lineno="1163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1181"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a12cd2e0e5f6828d904fbb76bd6c5c2d9" kindref="member">ECJPAKE_roundOneGenerateKeys</ref>(ECJPAKE_Handle<sp/>handle,<sp/><ref refid="struct_e_c_j_p_a_k_e___operation_round_one_generate_keys__" kindref="compound">ECJPAKE_OperationRoundOneGenerateKeys</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="1182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1209"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a422529b4456d9e53682985002fd87376" kindref="member">ECJPAKE_generateZKP</ref>(ECJPAKE_Handle<sp/>handle,<sp/><ref refid="struct_e_c_j_p_a_k_e___operation_generate_z_k_p__" kindref="compound">ECJPAKE_OperationGenerateZKP</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="1210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1227"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_j_p_a_k_e_8h_1af47d98b1e451cca11b450f425f94ddb0" kindref="member">ECJPAKE_verifyZKP</ref>(ECJPAKE_Handle<sp/>handle,<sp/><ref refid="struct_e_c_j_p_a_k_e___operation_verify_z_k_p__" kindref="compound">ECJPAKE_OperationVerifyZKP</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="1228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1246"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a6b0de26fef61a785906120acb0277074" kindref="member">ECJPAKE_roundTwoGenerateKeys</ref>(ECJPAKE_Handle<sp/>handle,<sp/><ref refid="struct_e_c_j_p_a_k_e___operation_round_two_generate_keys__" kindref="compound">ECJPAKE_OperationRoundTwoGenerateKeys</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="1247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1268"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_j_p_a_k_e_8h_1a6d46725aff59ef45fffff16ec1f5ae5b" kindref="member">ECJPAKE_computeSharedSecret</ref>(ECJPAKE_Handle<sp/>handle,<sp/><ref refid="struct_e_c_j_p_a_k_e___operation_compute_shared_secret__" kindref="compound">ECJPAKE_OperationComputeSharedSecret</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="1269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1274"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1275"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1276"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1278"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>ti_drivers_ECJPAKE__include<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_u_d_m_a_c_c26_x_x___config" kind="struct" language="C++" prot="public">
+    <compoundname>UDMACC26XX_Config</compoundname>
+    <includes refid="_u_d_m_a_c_c26_x_x_8h" local="no">UDMACC26XX.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_u_d_m_a_c_c26_x_x___config_1a9b87747e67e7cba15e71ccdd495bbf65" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* UDMACC26XX_Config::object</definition>
+        <argsstring></argsstring>
+        <name>object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to UDMACC26XX object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/dma/UDMACC26XX.h" line="232" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/dma/UDMACC26XX.h" bodystart="232" bodyend="-1"/>
+        <referencedby refid="_u_d_m_a_c_c26_x_x_8h_1a8bb3d9eff25abd3378f9cbc3189440bf" compoundref="_u_d_m_a_c_c26_x_x_8h" startline="256" endline="265">UDMACC26XX_init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_d_m_a_c_c26_x_x___config_1a394867c60268267c4c503fb10100d960" prot="public" static="no" mutable="no">
+        <type>void const  *</type>
+        <definition>void const* UDMACC26XX_Config::hwAttrs</definition>
+        <argsstring></argsstring>
+        <name>hwAttrs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to hardware attribute </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/dma/UDMACC26XX.h" line="233" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/dma/UDMACC26XX.h" bodystart="233" bodyend="-1"/>
+        <referencedby refid="_u_d_m_a_c_c26_x_x_8h_1a0cd214fa0e13f1ddb1a519a30acfe30c" compoundref="_u_d_m_a_c_c26_x_x_8h" startline="382" endline="391">UDMACC26XX_channelDisable</referencedby>
+        <referencedby refid="_u_d_m_a_c_c26_x_x_8h_1a5725e1db13295ef9096723f2b7c6364c" compoundref="_u_d_m_a_c_c26_x_x_8h" startline="326" endline="335">UDMACC26XX_channelDone</referencedby>
+        <referencedby refid="_u_d_m_a_c_c26_x_x_8h_1a1eec9bde0731a07b492a9f483b0c554b" compoundref="_u_d_m_a_c_c26_x_x_8h" startline="297" endline="306">UDMACC26XX_channelEnable</referencedby>
+        <referencedby refid="_u_d_m_a_c_c26_x_x_8h_1a1571fcbf7f44fca000fef38d8955eae6" compoundref="_u_d_m_a_c_c26_x_x_8h" startline="354" endline="363">UDMACC26XX_clearInterrupt</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>UDMACC26XX Global configuration. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/dma/UDMACC26XX.h" line="231" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/dma/UDMACC26XX.h" bodystart="231" bodyend="234"/>
+    <listofallmembers>
+      <member refid="struct_u_d_m_a_c_c26_x_x___config_1a394867c60268267c4c503fb10100d960" prot="public" virt="non-virtual"><scope>UDMACC26XX_Config</scope><name>hwAttrs</name></member>
+      <member refid="struct_u_d_m_a_c_c26_x_x___config_1a9b87747e67e7cba15e71ccdd495bbf65" prot="public" virt="non-virtual"><scope>UDMACC26XX_Config</scope><name>object</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

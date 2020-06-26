@@ -1,0 +1,98 @@
+{
+    /* user guide/schematics: http://www.ti.com/lit/ug/sliu008a/sliu008a.pdf */
+    "name"        : "MSP430BOOST_TPL0401",
+    "displayName" : "TPL0401 EVM",
+    "headerType"  : "Standard 40 pin",
+
+    "components"  : {
+        "TPL0401EVM_I2C" : {
+            "type": "I2C",
+            "isBus": true,
+            "displayName": "TPL0401 EVM I2C",
+            "definition": "/ti/boards/components/i2c.json",
+            "connections": {
+                /* signal name : header pin # */
+                "SCL":  14, /* conflicts with BP standard: SPI MISO */
+                "SDA":  15  /* conflicts with BP standard: SPI MOSI */
+            }
+        },
+
+        /* datasheet: http://www.ti.com/lit/ds/symlink/tlc59108.pdf */
+        "TLC59108": {
+            "type": "I2C_LED",
+            "displayName": "Constant-Current LED Sink Driver",
+            "settings": {
+                "address": 64 /* 0x40 = 64 */
+            },
+            "subComponents": {
+                "I2C": {
+                    "link": "TPL0401EVM_I2C"
+                }
+            }
+        },
+
+        /* datasheet: http://www.ti.com/lit/ds/slis144b/slis144b.pdf */
+        "TPL0401A": {
+            "type": "I2C_DPOT",
+            "displayName": "128-TAP Digital Potentiometer",
+            "settings": {
+                "address": 46 /* 0x2E = 46 */
+            },
+            "subComponents": {
+                "I2C": {
+                    "link": "TPL0401EVM_I2C"
+                }
+            }
+        },
+        "TPL0401B": {
+            "type": "I2C_DPOT",
+            "displayName": "128-TAP Digital Potentiometer",
+            "settings": {
+                "address": 62 /* 0x3E = 62 */
+            },
+            "subComponents": {
+                "I2C": {
+                    "link": "TPL0401EVM_I2C"
+                }
+            }
+        },
+
+        /* datasheet: http://www.ti.com/lit/ds/symlink/tca5405.pdf */
+        "TCA5405" : {
+            "type": "TCA5405",
+            "displayName": "TCA5405 Single-Wire Output Expander",
+            "signals": {
+                "digitalOutput": { "type": ["DOUT"], "connection": 8 }
+            }
+        },
+
+        /* datasheet: http://www.ti.com/lit/ds/symlink/tca7408.pdf */
+        "TCA7408": {
+            "type": "TCA7408",
+            "displayName": "TCA7408 8-bit I2C I/O Expander",
+            "settings": {
+                "address": 68 /* 0x44 = 68 */
+            },
+            "subComponents": {
+                "I2C": {
+                    "link": "TPL0401EVM_I2C"
+                },
+
+                "INT": {
+                    "type": "GPIO_INT",
+                    "displayName": "GPIO Input Change",
+                    "signals": {
+                        "INT": {
+                            "type": "DIN",
+                            "settings": {
+                                "interrupt": "Rising Edge",
+                                "callback": "NULL"
+                            },
+                            "connection": 7 /* conflicts with BP standard: SPI CLK */
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

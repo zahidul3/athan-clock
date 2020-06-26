@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>4</fileVersion>
+    <fileChecksum>1923680009</fileChecksum>
+    <configuration>
+        <name>FlashROM_Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\board_key.c</file>
+            <file>$PROJ_DIR$\..\..\..\src\app\simple_central.c</file>
+            <file>$PROJ_DIR$\..\..\..\src\app\simple_central_menu.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\menu\two_btn_menu.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\util.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\services\src\nv\cc26xx\crc.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\services\src\nv\cc26xx\nvoctp.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\hal\src\target\_common\TRNGCC26XX.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall_cc2650.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall_user_config.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\app\ble_user_config.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\app\icall_api_lite.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\target\board.c</file>
+            <file>$PROJ_DIR$\..\..\..\src\ccfg_app_ble.c</file>
+            <file>$PROJ_DIR$\..\..\..\src\app\main.c</file>
+            <file>$PROJ_DIR$\..\..\ble_debug.cfg</file>
+            <file>$PROJ_DIR$\..\..\ble_release.cfg</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\iar\cc26xx_app_and_stack_agama.icf</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\simple_central.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\board_key.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\simple_central_menu.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\two_btn_menu.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\util.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\crc.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\nvoctp.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\TRNGCC26XX.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\icall.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\icall_cc2650.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\icall_user_config.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\ble_user_config.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\icall_api_lite.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\board.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\ccfg_app_ble.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\board_key.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\simple_central.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\simple_central_menu.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\two_btn_menu.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\util.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\crc.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\nvoctp.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\TRNGCC26XX.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\icall.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\icall_cc2650.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\icall_user_config.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\ble_user_config.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\icall_api_lite.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\board.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\ccfg_app_ble.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Exe\ble5_simple_central_cc26x2r1lp_app_FlashROM_Debug.out</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Exe\ble5_simple_central_cc26x2r1lp_app_FlashROM_Debug.hex</file>
+            <file>$PROJ_DIR$\FlashROM_Debug\Obj\cc26x2r1lp_app.pbd</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 51</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\board_key.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 20</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 35</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\src\app\simple_central.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 19</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 36</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\src\app\simple_central_menu.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 21</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 37</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\menu\two_btn_menu.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 22</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 38</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\util.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 23</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 39</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\services\src\nv\cc26xx\crc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 40</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\services\src\nv\cc26xx\nvoctp.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 25</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 41</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\hal\src\target\_common\TRNGCC26XX.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 26</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 42</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 27</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 43</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall_cc2650.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 28</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 44</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall_user_config.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 29</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 45</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\app\ble_user_config.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 30</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\app\icall_api_lite.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 31</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 47</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\target\board.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 32</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 48</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\src\ccfg_app_ble.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 33</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 49</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\src\app\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 34</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 50</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\FlashROM_Debug\Exe\ble5_simple_central_cc26x2r1lp_app_FlashROM_Debug.out</name>
+            <outputs>
+                <tool>
+                    <name>OBJCOPY</name>
+                    <file> 52</file>
+                </tool>
+            </outputs>
+        </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>ILINK</tool>
+        </forcedrebuild>
+    </configuration>
+    <configuration>
+        <name>FlashROM_Release</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\board_key.c</file>
+            <file>$PROJ_DIR$\..\..\..\src\app\simple_central.c</file>
+            <file>$PROJ_DIR$\..\..\..\src\app\simple_central_menu.c</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Exe\ble5_simple_central_cc26x2r1lp_app_FlashROM_Release.out</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Exe\ble5_simple_central_cc26x2r1lp_app_FlashROM_Release.hex</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\cc26x2r1lp_app.pbd</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\board_key.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\simple_central.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\simple_central_menu.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\two_btn_menu.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\util.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\crc.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\nvoctp.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\TRNGCC26XX.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall_cc2650.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall_user_config.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\ble_user_config.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall_api_lite.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\board.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\ccfg_app_ble.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\main.__cstat.et</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall_cc2650.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall_user_config.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\ble_user_config.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall_api_lite.o</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\menu\two_btn_menu.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\util.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\services\src\nv\cc26xx\crc.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\services\src\nv\cc26xx\nvoctp.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\hal\src\target\_common\TRNGCC26XX.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall_cc2650.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall_user_config.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\app\ble_user_config.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\app\icall_api_lite.c</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\target\board.c</file>
+            <file>$PROJ_DIR$\..\..\..\src\ccfg_app_ble.c</file>
+            <file>$PROJ_DIR$\..\..\..\src\app\main.c</file>
+            <file>$PROJ_DIR$\..\..\ble_debug.cfg</file>
+            <file>$PROJ_DIR$\..\..\ble_release.cfg</file>
+            <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\iar\cc26xx_app_and_stack_agama.icf</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\simple_central_menu.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\board_key.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\simple_central.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\two_btn_menu.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\util.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\crc.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\nvoctp.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\TRNGCC26XX.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\board.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\ccfg_app_ble.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\main.o</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\board_key.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\simple_central.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\simple_central_menu.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\two_btn_menu.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\util.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\crc.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\nvoctp.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\TRNGCC26XX.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall_cc2650.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall_user_config.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\ble_user_config.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\icall_api_lite.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\board.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\ccfg_app_ble.pbi</file>
+            <file>$PROJ_DIR$\FlashROM_Release\Obj\main.pbi</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 3</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\board_key.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 44</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 6</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 54</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\src\app\simple_central.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 45</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 7</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 55</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\src\app\simple_central_menu.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 43</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 8</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 56</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\FlashROM_Release\Exe\ble5_simple_central_cc26x2r1lp_app_FlashROM_Release.out</name>
+            <outputs>
+                <tool>
+                    <name>OBJCOPY</name>
+                    <file> 4</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\menu\two_btn_menu.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 46</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 9</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 57</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\common\cc26xx\util.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 47</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 10</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 58</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\services\src\nv\cc26xx\crc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 48</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 11</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 59</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\services\src\nv\cc26xx\nvoctp.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 49</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 12</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 60</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\hal\src\target\_common\TRNGCC26XX.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 50</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 13</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 61</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 22</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 14</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 62</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall_cc2650.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 23</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 15</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 63</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\src\icall_user_config.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 16</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 64</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\app\ble_user_config.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 25</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 17</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 65</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\icall\app\icall_api_lite.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 26</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 18</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 66</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\..\..\..\..\..\source\ti\ble5stack\target\board.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 51</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 19</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 67</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\src\ccfg_app_ble.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 52</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 20</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 68</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\src\app\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 53</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 21</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 69</file>
+                </tool>
+            </outputs>
+        </file>
+    </configuration>
+</project>

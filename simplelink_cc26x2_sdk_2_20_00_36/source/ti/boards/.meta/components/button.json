@@ -1,0 +1,9 @@
+{
+    "type"       : "button",
+    "name"       : "Button",
+    "displayName": "Button",
+    "signals"    :
+    {
+        "input": { "type": "DIN" }
+    }
+}

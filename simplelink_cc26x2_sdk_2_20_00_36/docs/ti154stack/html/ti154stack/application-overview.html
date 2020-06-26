@@ -1,0 +1,1137 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Application Overview &mdash; SimpleLink™ CC26x2 TI 15.4-Stack User&#39;s Guide 2.06.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI 15.4-Stack User&#39;s Guide 2.06.00.00 documentation" href="../index.html"/>
+        <link rel="up" title="TI 15.4-Stack" href="index-cc26x2.html"/>
+        <link rel="next" title="Example Applications" href="example-applications.html"/>
+        <link rel="prev" title="Overview" href="ti154stack-overview.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ti154stack application-overview";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../ti154stack-guide/index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI 15.4-Stack User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.06.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-ti154stack.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tirtos/index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index-cc26x2.html">TI 15.4-Stack</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ti154stack-overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ti154stack-overview.html#architecture-choices">Architecture Choices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ti154stack-overview.html#data-rate-and-phy">Data-Rate and PHY</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Application Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#application-architecture">Application Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-up-in-main">Start-Up in main()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indirect-call-framework">Indirect Call Framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#icall-protocol-stack-service">ICall Protocol Stack Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#icall-primitive-service">ICall Primitive Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#icall-initialization-and-registration">ICALL Initialization and Registration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#icall-thread-synchronization">ICALL Thread Synchronization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-stack">System Stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-icall-usage">Example ICALL Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#general-application-architecture">General Application Architecture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#application-initialization-function">Application Initialization Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#event-processing-in-the-task-function">Event Processing in the Task Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#callbacks">Callbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#non-volatile-memory">Non-Volatile Memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ti-rtos-drivers">TI-RTOS Drivers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-driver">Adding a Driver</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="example-applications.html">Example Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="beacon-mode.html">Beacon Enabled Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="non-beacon-mode.html">Non-Beacon Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-stack.html">Configuring Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packet-sniffer.html">Packet Sniffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-custom-applications.html">Creating Custom Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/ti154stack-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oad/index-ti154stack.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack-guide/migration-guide.html">Migration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack-guide/references-cc26x2.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#terms-and-acronyms">Terms and Acronyms</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../ti154stack-guide/index-cc26x2.html">SimpleLink™ CC26x2 TI 15.4-Stack User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../ti154stack-guide/index-cc26x2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index-cc26x2.html">TI 15.4-Stack</a> &raquo;</li>
+      
+    <li>Application Overview</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="application-overview">
+<span id="sec-application-overview"></span><h1>Application Overview<a class="headerlink" href="#application-overview" title="Permalink to this headline">¶</a></h1>
+<p>TI 15.4-Stack example applications are designed to enable faster end-product
+development by providing implementation of various common-protocol
+stack-specific tasks, and other essential features such as nonvolatile memory
+storage, saving information over power cycles, in addition to protocol
+functionality. This chapter explains the example application implementation to
+help developers quickly modify the TI 15.4-Stack out-of-box example applications for
+customized development. The following sections detail the example applications
+of the TI 15.4-Stack projects.</p>
+<ul class="simple">
+<li>Pre-RTOS initialization</li>
+<li>Application architecture: the Application task which is the lowest priority
+task in the system. The code for this task resides in the <code class="docutils literal"><span class="pre">Application</span></code>
+IDE folder.</li>
+<li>Indirect Call Framework (<a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-icall"><span class="xref std std-term">ICALL</span></a>): an interface module which abstracts
+communication between the Stack and other tasks.</li>
+</ul>
+<div class="section" id="application-architecture">
+<span id="sec-inc-architecture-standard-project-task-hierarchy"></span><h2>Application Architecture<a class="headerlink" href="#application-architecture" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#fig-example-application-block-diagram"><span class="std std-numref">Figure 11.</span></a> shows the block diagram of the
+Sensor and Collector example applications. Refer to the <a class="reference external" href="http://www.ti.com/tool/TI-15.4-STACK-GATEWAY-LINUX-SDK#TechnicalDocuments">TI 15.4-Stack Linux
+User’s Guide</a> for details on the Linux example applications on an external host
+<a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-mcu"><span class="xref std std-term">MCU</span></a>.</p>
+<div class="figure align-center" id="id4">
+<span id="fig-example-application-block-diagram"></span><img alt="../_images/fig-example-application-block-diagram.png" src="../_images/fig-example-application-block-diagram.png" />
+<p class="caption"><span class="caption-number">Figure 11. </span><span class="caption-text">Example Application Block Diagram</span></p>
+</div>
+<p>High-level descriptions of various blocks in <a class="reference internal" href="#fig-example-application-block-diagram"><span class="std std-numref">Figure 11.</span></a> follow:</p>
+<p><strong>Example Application:</strong> The platform-independent implementation of the example
+use case. The TI 15.4-Stack out-of-box demonstrates two use cases – Collector and
+Sensor. Developers can modify the code in this module in out-of-box example
+applications for custom application requirements, to quickly develop end
+products. This is platform-independent code, used as in the Linux example
+application and also the SimpleLink MCU platform example applications.</p>
+<p><strong>Logical Link Controller:</strong> Implements various essential IEEE 802.15.4 specific
+or Wi-SUN (for frequency-hopping configuration) specific tasks, such as network
+formation, network joining, and rejoining. This block intends to offload various
+protocol-specific implementations from the developers, and enable faster custom
+application development. This is platform-independent code used in the Linux
+example application and SimpleLink MCU platform example applications.</p>
+<p><strong>TI-RTOS Start-up Code:</strong> Initializes the application (see
+<a class="reference internal" href="#sec-start-up-in-main"><span class="std std-ref">Start-Up in main()</span></a> for more details).</p>
+<p><strong>Utility Functions:</strong> Provides various platform utilities which the application
+can use for example LCD, timers, keys, and so on.</p>
+<p><strong>Application-Specific Functions:</strong> Implements platform-specific functions such
+as data storage over power cycles (non-volatile memory), and provides user
+interface functions such as handling button presses or displaying essential
+information on the LCD, and so on.</p>
+<p><strong>TI 15.4-Stack API Module (API MAC Module):</strong> This module provides an interface
+to the management and data services of the 802.15.4 stack through the Indirect
+Call Framework (<a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-icall"><span class="xref std std-term">ICALL</span></a>) module. The ICALL module is described in
+<a class="reference internal" href="#sec-indirect-call-framework"><span class="std std-ref">Indirect Call Framework</span></a>.</p>
+</div>
+<div class="section" id="start-up-in-main">
+<span id="sec-start-up-in-main"></span><h2>Start-Up in main()<a class="headerlink" href="#start-up-in-main" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">main()</span></code> function inside of <code class="docutils literal"><span class="pre">main.c</span></code> is the application starting point
+at runtime. This point is where the board is brought up with interrupts disabled
+and board-related components are initialized. Tasks in this function are
+configured by initializing the necessary parameters, setting its priority, and
+initializing the stack size for the application. In the final step, interrupts
+are enabled and the <code class="docutils literal"><span class="pre">SYS/BIOS</span></code> kernel scheduler is started by calling
+<code class="docutils literal"><span class="pre">BIOS_start()</span></code>, which does not return. See the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC26x2 Technical Reference Manual</a> for information on
+the start-up sequence before <code class="docutils literal"><span class="pre">main()</span></code> is reached.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Task_Params</span> <span class="n">taskParams</span><span class="p">;</span>
+
+<span class="cp">#ifndef USE_DEFAULT_USER_CFG</span>
+    <span class="n">user0Cfg</span><span class="p">.</span><span class="n">pAssertFP</span> <span class="o">=</span> <span class="n">macHalAssertHandler</span><span class="p">;</span>
+<span class="cp">#endif</span>
+
+    <span class="cm">/* enable iCache prefetching */</span>
+    <span class="n">VIMSConfigure</span><span class="p">(</span><span class="n">VIMS_BASE</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">);</span>
+
+    <span class="cm">/* Enable cache */</span>
+    <span class="n">VIMSModeSet</span><span class="p">(</span> <span class="n">VIMS_BASE</span><span class="p">,</span> <span class="n">VIMS_MODE_ENABLED</span><span class="p">);</span> <span class="n">CPU_WriteBufferDisable</span><span class="p">();</span>
+
+    <span class="cm">/* Initialization for board related stuff such as LEDs following TI- RTOS convention */</span>
+    <span class="n">PIN_init</span><span class="p">(</span><span class="n">BoardGpioInitTable</span><span class="p">);</span>
+
+    <span class="cm">/* Configure task. */</span>
+    <span class="n">Task_Params_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">taskParams</span><span class="p">);</span>
+    <span class="n">taskParams</span><span class="p">.</span><span class="n">stack</span> <span class="o">=</span> <span class="n">myTaskStack</span><span class="p">;</span>
+    <span class="n">taskParams</span><span class="p">.</span><span class="n">stackSize</span> <span class="o">=</span> <span class="n">APP_TASK_STACK_SIZE</span><span class="p">;</span>
+    <span class="n">taskParams</span><span class="p">.</span><span class="n">priority</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">Task_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">myTask</span><span class="p">,</span> <span class="n">taskFxn</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">taskParams</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+<span class="cp">#ifdef DEBUG_SW_TRACE</span>
+    <span class="n">IOCPortConfigureSet</span><span class="p">(</span><span class="n">IOID_8</span><span class="p">,</span> <span class="n">IOC_PORT_RFC_TRC</span><span class="p">,</span> <span class="n">IOC_STD_OUTPUT</span>
+    <span class="o">|</span> <span class="n">IOC_CURRENT_4MA</span> <span class="o">|</span> <span class="n">IOC_SLEW_ENABLE</span><span class="p">);</span>
+<span class="cp">#endif </span><span class="cm">/* DEBUG_SW_TRACE */</span><span class="cp"></span>
+
+    <span class="n">BIOS_start</span><span class="p">();</span> <span class="cm">/* enable interrupts and start SYS/BIOS */</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="indirect-call-framework">
+<span id="sec-indirect-call-framework"></span><h2>Indirect Call Framework<a class="headerlink" href="#indirect-call-framework" title="Permalink to this headline">¶</a></h2>
+<p>ICall is a module that provides a mechanism for the Application to
+interface with TI 15.4-Stack services (such as TI 15.4-Stack APIs), as well as certain
+primitive services (such as thread synchronization) provided by the real-time
+operating system (RTOS). ICall allows both the Application and
+protocol stack tasks to efficiently operate, communicate, and share resources in
+a unified RTOS environment.</p>
+<p>The central component of the ICall architecture is the dispatcher, which
+facilitates the application program interface between the Application and the
+TI 15.4-Stack task. Although most of the ICall interactions are abstracted within the
+TI 15.4-Stack APIs, it is important for the application developer to understand the
+underlying architecture so that proper TI 15.4-Stack protocol stack operation is
+achieved in the multi-threaded RTOS environment. The source code of the ICall
+module is provided in the ICall IDE folder in the Application project.</p>
+<div class="figure align-center" id="id5">
+<span id="fig-icall-block-diagram"></span><a class="reference internal image-reference" href="../_images/fig-icall-block-diagram.png"><img alt="../_images/fig-icall-block-diagram.png" src="../_images/fig-icall-block-diagram.png" style="width: 346.8px; height: 482.4px;" /></a>
+<p class="caption"><span class="caption-number">Figure 12. </span><span class="caption-text">ICall Application – Protocol Stack Abstraction</span></p>
+</div>
+<div class="section" id="icall-protocol-stack-service">
+<span id="sec-icall-ti154stack-service"></span><h3>ICall Protocol Stack Service<a class="headerlink" href="#icall-protocol-stack-service" title="Permalink to this headline">¶</a></h3>
+<p>As depicted in <a class="reference internal" href="#fig-icall-block-diagram"><span class="std std-numref">Figure 12.</span></a> the ICall core use-case
+involves messaging between a server entity (the TI 15.4-Stack task) and a client
+entity (the Application task). The reasoning for this architecture is twofold:
+to enable independent updating of the application and TI 15.4-Stack, and also to
+maintain API consistency as the software is ported from legacy platforms (for
+example OSAL for the CC253x) to TI-RTOS. The ICall TI 15.4-Stack Service serves as the
+Application interface to all TI 15.4-Stack APIs. Internally, when a TI 15.4-Stack protocol
+stack API is called by the Application, the ICall module routes (dispatches) the
+command to the TI 15.4-Stack, and where appropriate, routes messages from the TI 15.4-Stack
+to the Application.</p>
+<p>Because the ICall module is part of the Application project, the Application
+task can access the ICall with direct function calls. User modifications to the
+ICall source are not encouraged. Also, because the TI 15.4-Stack executes at the
+highest priority, the Application task blocks until the response is received.
+Certain protocol stack APIs may respond immediately; however, the Application
+thread blocks because the API is being dispatched to the TI 15.4-Stack through the
+ICall. Other TI 15.4-Stack APIs (such as event updates) may also respond
+asynchronously to the Application through the ICall, with the response sent to
+the task event handler of the Application.</p>
+</div>
+<div class="section" id="icall-primitive-service">
+<span id="sec-icall-primitive-servie"></span><h3>ICall Primitive Service<a class="headerlink" href="#icall-primitive-service" title="Permalink to this headline">¶</a></h3>
+<p>ICall includes a primitive service that abstracts various operating system
+related functions. Due to shared resources, and to maintain interprocess
+communication, the Application must use the following ICall primitive service
+functions.</p>
+<ul class="simple">
+<li>Messaging and Thread Synchronization</li>
+<li>Heap Allocation and Management</li>
+</ul>
+<div class="section" id="messaging-and-thread-synchronization">
+<span id="sec-messaging-and-thread-synchronization"></span><h4>Messaging and Thread Synchronization<a class="headerlink" href="#messaging-and-thread-synchronization" title="Permalink to this headline">¶</a></h4>
+<p>The messaging and thread synchronization functions provided by the ICall let
+users design an application to protocol stack interface in the multi-threaded
+RTOS environment. Within the ICall, messaging between two tasks is achieved by
+sending a message block from one thread to the other using a message queue. The
+sender allocates memory, writes the content of the message into the memory
+block, and then sends (enqueues) the memory block to the recipient. Notification
+of message delivery is accomplished using a signaling semaphore. The receiver
+wakes up on the semaphore, copies the message memory block (or blocks),
+processes the message, and returns (frees) the memory block to the heap.</p>
+<p>The Stack uses the ICall for notifying and sending messages to the
+Application. These service messages (such as state change notifications)
+received by the Application task are delivered by the ICall and
+processed in the task context of the Application.</p>
+</div>
+<div class="section" id="heap-allocation-and-management">
+<span id="sec-heap-allocation-and-management"></span><h4>Heap Allocation and Management<a class="headerlink" href="#heap-allocation-and-management" title="Permalink to this headline">¶</a></h4>
+<p>The ICall provides the Application with global heap APIs for dynamic memory
+allocation. The size of the ICall heap is configured with the <code class="docutils literal"><span class="pre">HEAPMGR_SIZE</span></code>
+preprocessor define in the Application project. ICall uses this heap for all
+protocol stack messaging as well as to obtain memory for other ICall services.
+TI recommends that the Application uses these ICall APIs for dynamic memory
+allocation within the Application. Setting <code class="docutils literal"><span class="pre">HEAPMGR_SIZE=0</span></code> uses all available
+<a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-ram"><span class="xref std std-term">RAM</span></a> as heap.</p>
+</div>
+</div>
+<div class="section" id="icall-initialization-and-registration">
+<span id="sec-icall-init-and-registration"></span><h3>ICALL Initialization and Registration<a class="headerlink" href="#icall-initialization-and-registration" title="Permalink to this headline">¶</a></h3>
+<p>To instantiate and initialize the ICall service, the following functions
+must be called by the application in <code class="docutils literal"><span class="pre">main()</span></code> before starting the <code class="docutils literal"><span class="pre">SYS/BIOS</span></code>
+kernel scheduler.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/* Initialize ICall module */</span>
+<span class="n">ICall_init</span><span class="p">();</span>
+
+<span class="cm">/* Start tasks of external images - Priority 5 */</span>
+<span class="n">ICall_createRemoteTasks</span><span class="p">();</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Calling <code class="docutils literal"><span class="pre">ICall_init()</span></code> initializes the ICall primitive service (for example,
+heap manager) and framework. Calling <code class="docutils literal"><span class="pre">ICall_createRemoteTasks()</span></code> creates, but
+does not start, the TI 15.4-Stack protocol stack task.</p>
+<p>Before using ICall protocol services, both the server and client must enroll and
+register with the ICall. The server enrolls a service which is enumerated at
+build time. Service function handler registration uses a globally defined unique
+identifier for each service. For example, TI 15.4-Stack uses
+<code class="docutils literal"><span class="pre">ICALL_SERVICE_CLASS_TIMAC</span></code> for receiving TI 15.4-Stack protocol stack messages
+through the ICall.</p>
+<p>The following is a call to enroll the TI 15.4-Stack protocol stack service (server)
+with the ICall in <code class="docutils literal"><span class="pre">MacStack.c</span></code></p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">// ICall enrollment</span>
+
+<span class="cm">/* Enroll the service that this stack represents */</span>
+<span class="n">ICall_enrollService</span><span class="p">(</span><span class="n">ICALL_SERVICE_CLASS_TIMAC</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">entity</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The registration mechanism is used by the client to send and receive messages
+through the ICall dispatcher. For a client (for example, Application task) to
+use the TI 15.4-Stack APIs, the client must first register its task with the ICall.
+This registration is done for the application in <code class="docutils literal"><span class="pre">ApiMac_init()</span></code>, which is
+called by the applications initialization functions. The following is the call
+to the ICall in <code class="docutils literal"><span class="pre">ApiMac_init()</span></code> in <code class="docutils literal"><span class="pre">api_mac.c</span></code>.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/* Register the current thread as an ICall dispatcher application</span>
+<span class="cm">* so that the application can send and receive messages.</span>
+<span class="cm">*/</span>
+<span class="n">ICall_registerApp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ApiMac_appEntity</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">api_mac.c</span></code> supplies the <code class="docutils literal"><span class="pre">ApiMac_appEntity</span></code> and <code class="docutils literal"><span class="pre">sem</span></code> inputs which, upon
+return of <code class="docutils literal"><span class="pre">ICall_registerApp()</span></code>, are initialized for the client (for example,
+Application) task. These objects are subsequently used by the ICall to
+facilitate messaging between the Application and server tasks. The <code class="docutils literal"><span class="pre">sem</span></code>
+argument represents the semaphore used for signaling, whereas the
+<code class="docutils literal"><span class="pre">ApiMac_appEntity</span></code> represents the task destination message queue. Each task
+registering with the ICall has unique <code class="docutils literal"><span class="pre">sem</span></code> and <code class="docutils literal"><span class="pre">ApiMac_appEntity</span></code>
+identifiers.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">TI 15.4-Stack APIs defined in <code class="docutils literal"><span class="pre">api_mac.c</span></code>, and other ICall primitive services, are not available for use before ICall registration.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="icall-thread-synchronization">
+<span id="sec-icall-thread-synchronization"></span><h3>ICALL Thread Synchronization<a class="headerlink" href="#icall-thread-synchronization" title="Permalink to this headline">¶</a></h3>
+<p>The ICall module switches between Application and Stack threads through
+the use of preemption and semaphore synchronization services provided by the
+RTOS. The two ICall functions to retrieve and enqueue messages are not
+blocking functions. They check whether there is a received message in the queue
+and if there is no message, the functions return immediately with the
+<code class="docutils literal"><span class="pre">ICALL_ERRNO_NOMSG</span></code> return value. To allow a client or a server thread to
+block until it receives a message, ICall provides the following function
+which blocks until the semaphore associated with the caller RTOS thread is
+posted.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">//static inline ICall_Errno ICall_wait(uint_fast32_t milliseconds)</span>
+<span class="n">ICall_Errno</span> <span class="n">errno</span> <span class="o">=</span> <span class="n">ICall_wait</span><span class="p">(</span><span class="n">ICALL_TIMEOUT_FOREVER</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>In the preceding function, milliseconds is the timeout period in ms, after which
+if the function has not already returned, the function returns with
+<code class="docutils literal"><span class="pre">ICALL_ERRNO_TIMEOUT</span></code>. If <code class="docutils literal"><span class="pre">ICALL_TIMEOUT_FOREVER</span></code> is passed as ms,
+the <code class="docutils literal"><span class="pre">ICall_wait()</span></code> shall block forever, or until the semaphore is posted.
+Allowing an application or a server thread to block is important to yield the
+processor resource to other lower priority threads, or to conserve energy by
+shutting down power and clock domains whenever possible. The semaphore
+associated with an RTOS thread is signaled by either of the following
+conditions.</p>
+<ul class="simple">
+<li>A new message is queued to the Application RTOS thread queue.</li>
+<li><code class="docutils literal"><span class="pre">ICall_signal()</span></code> is called for the semaphore.</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">ICall_signal()</span></code> is provided so that an application or a server can add
+its own event to unblock the <code class="docutils literal"><span class="pre">ICall_wait()</span></code> and synchronize the thread.
+<code class="docutils literal"><span class="pre">ICall_signal()</span></code> accepts a semaphore handle as its sole argument as follows.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">//static inline ICall_Errno ICall_signal(ICall_Semaphore msgsem)</span>
+<span class="n">ICall_signal</span><span class="p">(</span><span class="n">sem</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The semaphore handle associated with the thread is obtained through either the
+<code class="docutils literal"><span class="pre">ICall_enrollService()</span></code> call or <code class="docutils literal"><span class="pre">ICall_registerApp()</span></code> call.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is not possible to call an ICALL function from a stack callback. This action causes the
+ICall to abort (with <code class="docutils literal"><span class="pre">ICall_abort()</span></code>) and breaks the system.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="system-stack">
+<span id="sec-memory-management-system-stack"></span><h3>System Stack<a class="headerlink" href="#system-stack" title="Permalink to this headline">¶</a></h3>
+<p>Besides the <a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> and ICall heaps previously mentioned, there are other
+sections of memory to consider. As described in <a class="reference internal" href="../tirtos/index.html#sec-tirtos-overview"><span class="std std-ref">TI-RTOS (RTOS Kernel) Overview</span></a>, each
+task has its own runtime stack for context switching. Furthermore, another
+runtime stack is used by the <a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> for main(), HWIs, and SWIs. This
+system stack is allocated in the Application linker file, to be placed at the
+end of the RAM of the Application.</p>
+<p>For CCS, the <a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> system stack is defined by the Program.stack parameter
+in the app.cfg <a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> configuration file.</p>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="cm">/* main() and Hwi, Swi stack size */</span>
+<span class="nx">Program</span><span class="p">.</span><span class="nx">stack</span> <span class="o">=</span> <span class="mi">1280</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then the <a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> system stack is placed by the linker in the RAM space of
+the Application::</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/* Create global constant that points to top of stack */</span>
+<span class="cm">/* CCS: Change stack size under Project Properties */</span>
+<span class="n">STACK_TOP</span> <span class="o">=</span> <span class="n">stack</span> <span class="o">+</span> <span class="n">STACK_SIZE</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-icall-usage">
+<span id="sec-example-icall-usage"></span><h3>Example ICALL Usage<a class="headerlink" href="#example-icall-usage" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#fig-icall-messaging-example"><span class="std std-numref">Figure 13.</span></a> shows an example command being sent from
+the application to the TI 15.4-Stack through the ICall, with a corresponding return
+value passed back to the application. <code class="docutils literal"><span class="pre">ICall_init()</span></code> initializes the ICall
+module instance itself and <code class="docutils literal"><span class="pre">ICall_createRemoteTasks()</span></code> creates a task per
+external image, with an entry function at a known address. After initializing
+the ICall, the Application task registers with the ICall using
+<code class="docutils literal"><span class="pre">ICall_registerApp</span></code>. After the <code class="docutils literal"><span class="pre">SYS/BIOS</span></code> scheduler starts and the
+Application task runs, the application sends a protocol command defined in
+<code class="docutils literal"><span class="pre">api_mac.c</span></code> such as <code class="docutils literal"><span class="pre">ApiMac_mlmeSetReqArray()</span></code>. The protocol command is not
+executed in the application thread. Instead the command is encapsulated in an
+ICall message, and routed to the TI 15.4-Stack task through the ICall. In other words,
+this command is sent to the ICall dispatcher where it is dispatched and executed
+on the server side (TI 15.4-Stack). The Application thread meanwhile blocks (waits
+for) the corresponding command status message (status). When the TI 15.4-Stack
+protocol stack finishes executing the command, the command status message
+response is sent through the ICall back to the application thread.</p>
+<div class="figure align-center" id="id6">
+<span id="fig-icall-messaging-example"></span><img alt="../_images/fig-icall-messaging-example.png" src="../_images/fig-icall-messaging-example.png" />
+<p class="caption"><span class="caption-number">Figure 13. </span><span class="caption-text">ICall Messaging Example</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="general-application-architecture">
+<span id="sec-general-application-architecture"></span><h2>General Application Architecture<a class="headerlink" href="#general-application-architecture" title="Permalink to this headline">¶</a></h2>
+<p>This section describes how an Application task is structured in more detail.
+Having an understand of the out of box application architecture will allow
+develop custom applications quickly and easily with most software reuse from out
+of box example applications.</p>
+<div class="section" id="application-initialization-function">
+<span id="sec-application-init-function"></span><h3>Application Initialization Function<a class="headerlink" href="#application-initialization-function" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../tirtos/tasks.html#sec-rtos-overview-tasks"><span class="std std-ref">Tasks</span></a> describes how a task is constructed. After the
+task is constructed and the <code class="docutils literal"><span class="pre">SYS/BIOS</span></code> kernel scheduler is started, the
+function that was passed during task construction is run when the task is ready.
+Power-management functions are initialized here and the ICall module is
+initialized through <code class="docutils literal"><span class="pre">ICall_init()</span></code>. The primary IEEE address (programmed by
+TI) is obtained from the <a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-ccfg"><span class="xref std std-term">CCFG</span></a> area of the flash memory and NV drivers
+are initialized. The application task (Sensor application in
+<a class="reference internal" href="#fig-sensor-task-flow-chart"><span class="std std-numref">Figure 14.</span></a>) is initialized and started.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">Void</span> <span class="nf">taskFxn</span><span class="p">(</span><span class="n">UArg</span> <span class="n">a0</span><span class="p">,</span> <span class="n">UArg</span> <span class="n">a1</span><span class="p">)</span>
+<span class="p">{</span>
+
+    <span class="cm">/* Disallow shutting down JTAG, VIMS, SYSBUS during idle state since TIMAC requires</span>
+<span class="cm">    SYSBUS during idle. */</span>
+    <span class="n">Power_setConstraint</span><span class="p">(</span><span class="n">PowerCC26XX_IDLE_PD_DISALLOW</span><span class="p">);</span>
+
+    <span class="cm">/* Initialize ICall module */</span>
+    <span class="n">ICall_init</span><span class="p">();</span>
+
+<span class="cp">#ifdef FEATURE_MAC_SECURITY</span>
+
+    <span class="cm">/* Copy the extended address from the CCFG area Assumption: the memory in</span>
+<span class="cm">    CCFG_IEEE_MAC_0 and CCFG_IEEE_MAC_1 is contiguous and LSB first. */</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">ApiMac_extAddr</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">__ccfg</span><span class="p">.</span><span class="n">CCFG_IEEE_MAC_0</span><span class="p">),</span> <span class="p">(</span><span class="n">APIMAC_SADDR_EXT_LEN</span><span class="p">));</span>
+
+    <span class="cm">/* Check to see if the CCFG IEEE is valid */</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">memcmp</span><span class="p">(</span><span class="n">ApiMac_extAddr</span><span class="p">,</span> <span class="n">dummyExtAddr</span><span class="p">,</span> <span class="n">APIMAC_SADDR_EXT_LEN</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="cm">/* No, it isn&#39;t valid. Get the Primary IEEE Address */</span>
+        <span class="n">memcpy</span><span class="p">(</span><span class="n">ApiMac_extAddr</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)(</span><span class="n">FCFG1_BASE</span> <span class="o">+</span> <span class="n">EXTADDR_OFFSET</span><span class="p">),</span> <span class="p">(</span><span class="n">APIMAC_SADDR_EXT_LEN</span><span class="p">));</span>
+    <span class="p">}</span>
+
+<span class="cp">#endif</span>
+
+<span class="cp">#ifdef NV_RESTORE</span>
+    <span class="cm">/* Setup the NV driver */</span>
+    <span class="n">NVOCTP_loadApiPtrs</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Main_user1Cfg</span><span class="p">.</span><span class="n">nvFps</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">Main_user1Cfg</span><span class="p">.</span><span class="n">nvFps</span><span class="p">.</span><span class="n">initNV</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Main_user1Cfg</span><span class="p">.</span><span class="n">nvFps</span><span class="p">.</span><span class="n">initNV</span><span class="p">(</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="cp">#endif</span>
+
+    <span class="cm">/* Start tasks of external images */</span>
+    <span class="n">ICall_createRemoteTasks</span><span class="p">();</span>
+
+    <span class="cm">/* Initialize the application */</span>
+    <span class="n">Sensor_init</span><span class="p">();</span>
+
+    <span class="cm">/* Kick off application - Forever loop */</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Sensor_process</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>For example, in the sensor example application file <code class="docutils literal"><span class="pre">main.c</span></code> function
+<code class="docutils literal"><span class="pre">taskfxn()</span></code>, the initialization function</p>
+<p><code class="docutils literal"><span class="pre">Sensor_init()</span></code> sets several software configuration settings as well as
+parameters. Some examples are:</p>
+<ul class="simple">
+<li>Initializing structures for sensor data</li>
+<li>Initializing TI 15.4-Stack</li>
+<li>Setting up the security and logical link controller</li>
+<li>Registering MAC callbacks</li>
+</ul>
+</div>
+<div class="section" id="event-processing-in-the-task-function">
+<span id="sec-event-processing-task-function"></span><h3>Event Processing in the Task Function<a class="headerlink" href="#event-processing-in-the-task-function" title="Permalink to this headline">¶</a></h3>
+<p>In the initialization function in the previous code snippet, the task function
+enters an infinite loop so to continuously process as an independent task and
+does not run to completion, seen in <a class="reference internal" href="#fig-sensor-task-flow-chart"><span class="std std-numref">Figure 14.</span></a>.</p>
+<div class="figure align-center" id="id7">
+<span id="fig-sensor-task-flow-chart"></span><img alt="../_images/fig-sensor-task-flow-chart.jpeg" src="../_images/fig-sensor-task-flow-chart.jpeg" />
+<p class="caption"><span class="caption-number">Figure 14. </span><span class="caption-text">Sensor Example Application Task Flow Chart</span></p>
+</div>
+<p><a class="reference internal" href="#fig-sensor-task-flow-chart"><span class="std std-numref">Figure 14.</span></a> shows various reasons for posting to the
+semaphore, causing the task to become active.</p>
+<div class="section" id="events-signaled-through-the-internal-event-variable">
+<span id="sec-events-signaled-through-internal-event-variable"></span><h4>Events Signaled Through the Internal Event Variable<a class="headerlink" href="#events-signaled-through-the-internal-event-variable" title="Permalink to this headline">¶</a></h4>
+<p>The Application task uses an event variable bit mask to identify what action
+caused the process to wake up, and takes appropriate action. Each bit of the
+event variable corresponds to a defined event such as:</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/*! Event ID - Start the device in the network */</span>
+<span class="cp">#define SENSOR_START_EVT 0x0001</span>
+
+<span class="cm">/*! Event ID - Reading Timeout Event */</span>
+<span class="cp">#define SENSOR_READING_TIMEOUT_EVT 0x0002</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Whichever function sets this bit in the event variable must also ensure to post
+to the semaphore, to wake up the application for processing. An example of this
+is the clock handler which handles clock timeouts.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/* Is it time to send the next sensor data message? */</span>
+<span class="k">if</span><span class="p">(</span><span class="n">Sensor_events</span> <span class="o">&amp;</span><span class="n">SENSOR_READING_TIMEOUT_EVT</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* Setup for the next message */</span>
+    <span class="n">Ssf_setReadingClock</span><span class="p">(</span><span class="n">configSettings</span><span class="p">.</span><span class="n">reportingInterval</span><span class="p">);</span>
+
+    <span class="cm">/* Read sensors */</span>
+    <span class="n">readSensors</span><span class="p">();</span>
+
+    <span class="cm">/* Process Sensor Reading Message Event */</span>
+    <span class="n">processSensorMsgEvt</span><span class="p">();</span>
+
+    <span class="cm">/* Clear the event */</span>
+    <span class="n">Sensor_events</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">SENSOR_READING_TIMEOUT_EVT</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>When adding an event, it must be unique for the given task and be a power of 2
+(so that only 1 bit is set). Because the event variable is initialized as
+<code class="docutils literal"><span class="pre">uint16_t</span></code>, this setup allows for a maximum of 16 internal events.</p>
+</div>
+</div>
+<div class="section" id="callbacks">
+<span id="sec-callbacks"></span><h3>Callbacks<a class="headerlink" href="#callbacks" title="Permalink to this headline">¶</a></h3>
+<p>The application code also likely includes various callbacks from the protocol
+stack layer and RTOS modules. To ensure thread safety, processing should be
+minimized in the actual callback, and the bulk of the processing should be done
+in the application context. The following code snippet directs the callbacks
+through <code class="docutils literal"><span class="pre">ApiMac_processIncoming()</span></code> to the correct MAC API using the
+ICall after all the application events are processed.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">Sensor_process</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+
+<span class="p">{</span>
+
+    <span class="p">..</span>
+
+    <span class="p">..</span>
+
+    <span class="cm">/* Start the collector device in the network */</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">Sensor_events</span> <span class="o">&amp;</span> <span class="n">SENSOR_START_EVT</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="cm">/* Is it time to send the next sensor data message? */</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">Sensor_events</span> <span class="o">&amp;</span><span class="n">SENSOR_READING_TIMEOUT_EVT</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="cm">/* Process LLC Events */</span>
+    <span class="n">Jdllc_process</span><span class="p">();</span>
+
+    <span class="cm">/* Allow the Specific functions to process */</span>
+    <span class="n">Ssf_processEvents</span><span class="p">();</span>
+
+    <span class="cm">/* Don&#39;t process ApiMac messages until all of the sensor events are processed. */</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">Sensor_events</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="cm">/* Wait for response message or events */</span>
+        <span class="n">ApiMac_processIncoming</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The previous code snippet directs the callbacks to the correct MAC API using
+ICall. Two functions are defined per callback, one at the application
+level, the other in the MAC API. For example, consider the handling of a scan
+confirm in the following code snippet.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">case</span> <span class="nl">MAC_MLME_SCAN_CNF</span><span class="p">:</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">pMacCallbacks</span><span class="o">-&gt;</span><span class="n">pScanCnfCb</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">processScanCnf</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">pMsg</span><span class="o">-&gt;</span><span class="n">scanCnf</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="cm">/* If there&#39;s no callback, make sure the scanResults are freed */</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">scanResults</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">ICall_free</span><span class="p">(</span><span class="n">scanResults</span><span class="p">);</span>
+            <span class="n">scanResults</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="k">break</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The MAC API callback is overwritten by the following application callback.
+<code class="docutils literal"><span class="pre">pMacCbs-&gt;pScanCnfCb</span> <span class="pre">=</span> <span class="pre">scanCnfCb;</span></code> At the application level.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/*!</span>
+<span class="cm">* @brief Process Scan Confirm callback.</span>
+<span class="cm">*</span>
+<span class="cm">* @param pData - pointer to Scan Confirm</span>
+<span class="cm">*/</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">scanCnfCb</span><span class="p">(</span><span class="n">ApiMac_mlmeScanCnf_t</span> <span class="o">*</span><span class="n">pData</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">pData</span><span class="o">-&gt;</span><span class="n">status</span> <span class="o">==</span> <span class="n">ApiMac_status_success</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">pData</span><span class="o">-&gt;</span><span class="n">scanType</span> <span class="o">==</span> <span class="n">ApiMac_scantype_active</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="cm">/* set event to send Association Request */</span>
+            <span class="n">Jdllc_events</span> <span class="o">|=</span> <span class="n">JDLLC_ASSOCIATE_REQ_EVT</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pData</span><span class="o">-&gt;</span><span class="n">scanType</span> <span class="o">==</span> <span class="n">ApiMac_scantype_passive</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="cm">/* send sync request for beacon enabled device */</span>
+            <span class="n">switchState</span><span class="p">(</span><span class="n">Jdllc_deviceStates_syncReq</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pData</span><span class="o">-&gt;</span><span class="n">scanType</span> <span class="o">==</span> <span class="n">ApiMac_scantype_orphan</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="cm">/* coordinator realignment received, set event to process it */</span>
+            <span class="n">Jdllc_events</span> <span class="o">|=</span> <span class="n">JDLLC_COORD_REALIGN</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="cm">/* ….. */</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">macCallbacksCopy</span><span class="p">.</span><span class="n">pScanCnfCb</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">macCallbacksCopy</span><span class="p">.</span><span class="n">pScanCnfCb</span><span class="p">(</span><span class="n">pData</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The following code is at the MAC API level.</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/*!</span>
+<span class="cm">* @brief Process the incoming Scan Confirm callback.</span>
+<span class="cm">*</span>
+<span class="cm">* @param pCnf - pointer MAC Scan Confirm info</span>
+<span class="cm">*/</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">processScanCnf</span><span class="p">(</span><span class="n">macMlmeScanCnf_t</span> <span class="o">*</span><span class="n">pCnf</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* Confirmation structure */</span>
+    <span class="n">ApiMac_mlmeScanCnf_t</span> <span class="n">cnf</span><span class="p">;</span>
+
+    <span class="cm">/* Initialize the structure */</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cnf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ApiMac_mlmeScanCnf_t</span><span class="p">));</span>
+
+    <span class="cm">/* copy the message to the confirmation structure */</span>
+    <span class="n">cnf</span><span class="p">.</span><span class="n">status</span> <span class="o">=</span> <span class="p">(</span><span class="n">ApiMac_status_t</span><span class="p">)</span><span class="n">pCnf</span><span class="o">-&gt;</span><span class="n">hdr</span><span class="p">.</span><span class="n">status</span><span class="p">;</span>
+    <span class="n">cnf</span><span class="p">.</span><span class="n">scanType</span> <span class="o">=</span> <span class="p">(</span><span class="n">ApiMac_scantype_t</span><span class="p">)</span><span class="n">pCnf</span><span class="o">-&gt;</span><span class="n">scanType</span><span class="p">;</span>
+    <span class="n">cnf</span><span class="p">.</span><span class="n">channelPage</span> <span class="o">=</span> <span class="n">pCnf</span><span class="o">-&gt;</span><span class="n">channelPage</span><span class="p">;</span>
+    <span class="n">cnf</span><span class="p">.</span><span class="n">phyId</span> <span class="o">=</span> <span class="n">pCnf</span><span class="o">-&gt;</span><span class="n">phyID</span><span class="p">;</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">unscannedChannels</span><span class="p">,</span> <span class="n">pCnf</span><span class="o">-&gt;</span><span class="n">unscannedChannels</span><span class="p">,</span> <span class="n">APIMAC_154G_CHANNEL_BITMAP_SIZ</span><span class="p">);</span>
+    <span class="n">cnf</span><span class="p">.</span><span class="n">resultListSize</span> <span class="o">=</span> <span class="n">pCnf</span><span class="o">-&gt;</span><span class="n">resultListSize</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">resultListSize</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">scanType</span> <span class="o">==</span> <span class="n">ApiMac_scantype_energyDetect</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cnf</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">pEnergyDetect</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="n">ICall_malloc</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">resultListSize</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">uint8_t</span><span class="p">));</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">pEnergyDetect</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">memcpy</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">pEnergyDetect</span><span class="p">,</span> <span class="n">pCnf</span><span class="o">-&gt;</span><span class="n">result</span><span class="p">.</span><span class="n">pEnergyDetect</span><span class="p">,</span> <span class="n">cnf</span><span class="p">.</span><span class="n">resultListSize</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">cnf</span><span class="p">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">ApiMac_status_noResources</span><span class="p">;</span>
+                <span class="n">cnf</span><span class="p">.</span><span class="n">resultListSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">cnf</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">pPanDescriptor</span> <span class="o">=</span> <span class="p">(</span><span class="n">ApiMac_panDesc_t</span> <span class="o">*</span><span class="p">)</span><span class="n">ICall_malloc</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">resultListSize</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ApiMac_panDesc_t</span><span class="p">));</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">pPanDescriptor</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">uint8_t</span> <span class="n">x</span><span class="p">;</span>
+                <span class="n">ApiMac_panDesc_t</span> <span class="o">*</span><span class="n">pDstPanDesc</span> <span class="o">=</span> <span class="n">cnf</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">pPanDescriptor</span><span class="p">;</span>
+                <span class="n">macPanDesc_t</span> <span class="o">*</span><span class="n">pSrcPanDesc</span> <span class="o">=</span> <span class="n">pCnf</span><span class="o">-&gt;</span><span class="n">result</span><span class="p">.</span><span class="n">pPanDescriptor</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">cnf</span><span class="p">.</span><span class="n">resultListSize</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">,</span> <span class="n">pDstPanDesc</span><span class="o">++</span><span class="p">,</span> <span class="n">pSrcPanDesc</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">copyMacPanDescToApiMacPanDesc</span><span class="p">(</span><span class="n">pDstPanDesc</span><span class="p">,</span> <span class="n">pSrcPanDesc</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">cnf</span><span class="p">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">ApiMac_status_noResources</span><span class="p">;</span>
+                <span class="n">cnf</span><span class="p">.</span><span class="n">resultListSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="cm">/* We processed the scan confirm, so free the results */</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">scanResults</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">ICall_free</span><span class="p">(</span><span class="n">scanResults</span><span class="p">);</span>
+        <span class="n">scanResults</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="cm">/*</span>
+<span class="cm">    * Initiate the callback, no need to check pMacCallbacks or the function</span>
+<span class="cm">    * pointer for non-null, the calling function will check the function</span>
+<span class="cm">    * pointer</span>
+<span class="cm">    */</span>
+
+    <span class="n">pMacCallbacks</span><span class="o">-&gt;</span><span class="n">pScanCnfCb</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cnf</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">resultListSize</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">scanType</span> <span class="o">==</span> <span class="n">ApiMac_scantype_energyDetect</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">ICall_free</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">pEnergyDetect</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">ICall_free</span><span class="p">(</span><span class="n">cnf</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">pPanDescriptor</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="non-volatile-memory">
+<span id="sec-nv"></span><h2>Non-Volatile Memory<a class="headerlink" href="#non-volatile-memory" title="Permalink to this headline">¶</a></h2>
+<p>The NV area of flash is used for storing persistent data for the application. TI
+15,4-Stack provides two implementations of NV. One uses one page of internal
+flash, while the other uses two. By default example applications use one page
+NV. For more information on one page NV please refer to <code class="docutils literal"><span class="pre">nvocop.c</span></code> which
+describes the implementation details. Also nvoctp.c describes the implementation
+details of the two page NV. The last page in flash is the CCA page, depending on
+whether one page or two page NV is used one or two pages before the last page
+(CCFG) are defined as the NV area. The example projects use the NV driver with
+the API defined in <code class="docutils literal"><span class="pre">nvintf.h</span></code>.</p>
+<p>The NV driver is set up in main.c:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#ifdef NV_RESTORE</span>
+    <span class="cm">/* Setup the NV driver */</span>
+    <span class="n">NVOCTP_loadApiPtrs</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Main_user1Cfg</span><span class="p">.</span><span class="n">nvFps</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">Main_user1Cfg</span><span class="p">.</span><span class="n">nvFps</span><span class="p">.</span><span class="n">initNV</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Main_user1Cfg</span><span class="p">.</span><span class="n">nvFps</span><span class="p">.</span><span class="n">initNV</span><span class="p">(</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>Then the applications use the function pointers in Main_user1Cfg to call the NV
+functions defined in nvintf.h:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">//! Structure of NV API function pointers</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">nvintf_nvfuncts_t</span>
+<span class="p">{</span>
+    <span class="c1">//! Initialization function</span>
+    <span class="n">NVINTF_initNV</span> <span class="n">initNV</span><span class="p">;</span>
+    <span class="c1">//! Compact NV function</span>
+    <span class="n">NVINTF_compactNV</span> <span class="n">compactNV</span><span class="p">;</span>
+    <span class="c1">//! Create item function</span>
+    <span class="n">NVINTF_createItem</span> <span class="n">createItem</span><span class="p">;</span>
+    <span class="c1">//! Delete NV item function</span>
+    <span class="n">NVINTF_deleteItem</span> <span class="n">deleteItem</span><span class="p">;</span>
+    <span class="c1">//! Read item function</span>
+    <span class="n">NVINTF_readItem</span> <span class="n">readItem</span><span class="p">;</span>
+    <span class="c1">//! Write item function</span>
+    <span class="n">NVINTF_writeItem</span> <span class="n">writeItem</span><span class="p">;</span>
+    <span class="c1">//! Write existing item function</span>
+    <span class="n">NVINTF_writeItemEx</span> <span class="n">writeItemEx</span><span class="p">;</span>
+    <span class="c1">//! Get item length function</span>
+    <span class="n">NVINTF_getItemLen</span> <span class="n">getItemLen</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">NVINTF_nvFuncts_t</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The following is an example of a write from csf.c:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">updateDeviceListItem</span><span class="p">(</span><span class="n">Llc_deviceListItem_t</span> <span class="o">*</span><span class="n">pItem</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">((</span><span class="n">pNV</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">pItem</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">idx</span><span class="p">;</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">findDeviceListIndex</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pItem</span><span class="o">-&gt;</span><span class="n">devInfo</span><span class="p">.</span><span class="n">extAddress</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">idx</span> <span class="o">!=</span> <span class="n">DEVICE_INDEX_NOT_FOUND</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">NVINTF_itemID_t</span> <span class="n">id</span><span class="p">;</span>
+
+            <span class="cm">/* Setup NV ID for the device list record */</span>
+            <span class="n">id</span><span class="p">.</span><span class="n">systemID</span> <span class="o">=</span> <span class="n">NVINTF_SYSID_APP</span><span class="p">;</span>
+            <span class="n">id</span><span class="p">.</span><span class="n">itemID</span> <span class="o">=</span> <span class="n">CSF_NV_DEVICELIST_ID</span><span class="p">;</span>
+            <span class="n">id</span><span class="p">.</span><span class="n">subID</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint16_t</span><span class="p">)</span><span class="n">idx</span><span class="p">;</span>
+
+            <span class="cm">/* write the device list record */</span>
+            <span class="n">pNV</span><span class="o">-&gt;</span><span class="n">writeItem</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Llc_deviceListItem_t</span><span class="p">),</span> <span class="n">pItem</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following is an example of a read from csf.c:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">Csf_getNetworkInformation</span><span class="p">(</span><span class="n">Llc_netInfo_t</span> <span class="o">*</span><span class="n">pInfo</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">((</span><span class="n">pNV</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">pNV</span><span class="o">-&gt;</span><span class="n">readItem</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">pInfo</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">NVINTF_itemID_t</span> <span class="n">id</span><span class="p">;</span>
+
+        <span class="cm">/* Setup NV ID */</span>
+        <span class="n">id</span><span class="p">.</span><span class="n">systemID</span> <span class="o">=</span> <span class="n">NVINTF_SYSID_APP</span><span class="p">;</span>
+        <span class="n">id</span><span class="p">.</span><span class="n">itemID</span> <span class="o">=</span> <span class="n">CSF_NV_NETWORK_INFO_ID</span><span class="p">;</span>
+        <span class="n">id</span><span class="p">.</span><span class="n">subID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="cm">/* Read Network Information from NV */</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">pNV</span><span class="o">-&gt;</span><span class="n">readItem</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Llc_netInfo_t</span><span class="p">),</span> <span class="n">pInfo</span><span class="p">)</span> <span class="o">==</span> <span class="n">NVINTF_SUCCESS</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The NV system is a collection of NV items. Each item is unique and have the
+following pieces to it (defined in nvintf.h).:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">*  NV Item Identification structure</span>
+<span class="cm">*/</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">nvintf_itemid_t</span>
+<span class="p">{</span>
+    <span class="c1">//! NV System ID - identifies system (ZStack, BLE, App, OAD...)</span>
+    <span class="kt">uint8_t</span> <span class="n">systemID</span><span class="p">;</span>
+    <span class="c1">//! NV Item ID</span>
+    <span class="kt">uint16_t</span> <span class="n">itemID</span><span class="p">;</span>
+    <span class="c1">//! NV Item sub ID</span>
+    <span class="kt">uint16_t</span> <span class="n">subID</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">NVINTF_itemID_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ti-rtos-drivers">
+<span id="tirtos-drivers"></span><h2>TI-RTOS Drivers<a class="headerlink" href="#ti-rtos-drivers" title="Permalink to this headline">¶</a></h2>
+<p>The TI-RTOS provides a suite of CC26x2 peripheral drivers that can be added to
+an application. The drivers provide a mechanism for the application to interface
+with the CC26x2 onboard peripherals and communicate with external devices.
+These drivers make use of DriverLib to abstract register access.</p>
+<p>There is significant documentation relating to each TI-RTOS driver located in
+the SDK. Refer to the SDK release notes for the specific location. This
+section only provides an overview of how drivers fit into the software
+ecosystem. For a description of available features and driver APIs, refer to the
+TI-RTOS API Reference.</p>
+<div class="section" id="adding-a-driver">
+<span id="id3"></span><h3>Adding a Driver<a class="headerlink" href="#adding-a-driver" title="Permalink to this headline">¶</a></h3>
+<p>Some of the drivers are added to the project as source files in their
+respective folder under the Drivers folder in the project workspace.</p>
+<p>The driver source files can be found in their respective folder at
+<code class="docutils literal"><span class="pre">$DRIVER_LOC\ti\drivers</span></code>.</p>
+<p>The <code class="docutils literal"><span class="pre">$DRIVER_LOC</span></code> argument variable refers to the
+installation location and can be viewed in the <em>Project Options -&gt;
+Resource -&gt; Linked Resources</em>, Path Variables tab of CCS.</p>
+<p>To add a driver to a project, include the C and include file of the
+respective driver in the application file (or files) where the
+driver APIs are referenced.</p>
+<p>For example, to add the PIN driver for reading or controlling an
+output I/O pin, add the following:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;ti/drivers/pin/PINCC26XX.h&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>Also add the following TI-RTOS driver files to the project under the
+Drivers\PIN folder:</p>
+<ul class="simple">
+<li>PINCC26XX.c</li>
+<li>PINCC26XX.h</li>
+<li>PIN.h</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="example-applications.html" class="btn btn-neutral float-right" title="Example Applications" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ti154stack-overview.html" class="btn btn-neutral" title="Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.06.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

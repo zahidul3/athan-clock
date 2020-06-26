@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectSpec>
+    <applicability>
+        <when>
+            <context
+                deviceFamily="ARM"
+                deviceId="Cortex M.CC2642R1F"
+            />
+        </when>
+    </applicability>
+
+    <import spec="${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/kernel/tirtos/builds/CC26X2R1_LAUNCHXL/release/ccs/tirtos_builds_CC26X2R1_LAUNCHXL_release_ccs.projectspec"/>
+
+    <project
+        title="SPI Slave"
+        name="spislave_CC26X2R1_LAUNCHXL_tirtos_ccs_syscfg"
+        toolChain="TI"
+        connection="TIXDS110_Connection.xml"
+        device="Cortex M.CC2642R1F"
+        ignoreDefaultDeviceSettings="true"
+        ignoreDefaultCCSSettings="true"
+        references="tirtos_builds_CC26X2R1_LAUNCHXL_release_ccs"
+        compilerBuildOptions=" -I${PROJECT_ROOT} -I${PROJECT_ROOT}/${ConfigName} -DDeviceFamily_CC26X2 -I${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/ti/posix/ccs --silicon_version=7M4 --code_state=16 --little_endian --display_error_number --diag_warning=255 --diag_wrap=off --gen_func_subsections=on --float_support=FPv4SPD16 --symdebug:dwarf -I${CG_TOOL_ROOT}/include"
+        linkerBuildOptions=" -i${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source -lti/display/lib/display.aem4f -lti/grlib/lib/ccs/m4f/grlib.a -lthird_party/spiffs/lib/ccs/m4f/spiffs_cc26xx.a -lti/drivers/rf/lib/rf_multiMode_cc26x2_v1.aem4f -lti/drivers/lib/drivers_cc26x2_v1.aem4f -lti/drivers/pdm/lib/pdm_cc26x2_v1.aem4f -i${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/kernel/tirtos/packages -lti/dpl/lib/dpl_cc26x2_v1.aem4f -l${GENERATED_LIBRARIES} -lti/devices/cc13x2_cc26x2_v1/driverlib/bin/ccs/driverlib.lib --warn_sections --display_error_number --diag_wrap=off --rom_model -i${CG_TOOL_ROOT}/lib -llibc.a"
+        enableSysConfigTool="true"
+        sysConfigBuildOptions="--product ${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/.metadata/sdk.json --board /ti/boards/.meta/CC26X2R1_LAUNCHXL"
+        description="Demonstrates how to use the SPI driver in slave mode to communicate with a master device">
+
+        <property name="buildProfile" value="release"/>
+        <property name="isHybrid" value="true"/>
+        <group id="spislave.SIMPLELINK_CC26X2_SDK.CC26X2R1_LAUNCHXL.drivers.TI"/>
+        <file path="../../overview.rov.json" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../README.md" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../spislave.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../spislave.syscfg" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../README.html" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../tirtos/main_tirtos.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../tirtos/ccs/CC26X2R1_LAUNCHXL_TIRTOS.cmd" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../CC26X2R1_LAUNCHXL_fxns.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../ccfg.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/ti/boards/CC26X2R1_LAUNCHXL/Board.html" openOnCreation="false" excludeFromBuild="false" action="link">
+        </file>
+    </project>
+</projectSpec>
+

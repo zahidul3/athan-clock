@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iarUserArgVars>
+    <group name="CC13xx TI-RTOS" active="true">
+        <variable>
+            <name>SIMPLELINK_CC26X2_SDK_INSTALL_DIR</name>
+            <value>$PROJ_DIR$\..\..\..\..\..\..\..</value>
+        </variable>
+
+        <variable>
+            <name>XDCROOT</name>
+            <value>$PROJ_DIR$\..\..\..\..\..\..\..\..\xdctools_3_50_07_20_core</value>
+        </variable>
+        <variable>
+            <name>TI_RTOS_KERNEL</name>
+            <value>$PROJ_DIR$\..\..\..\..\..\..\..\kernel\tirtos</value>
+        </variable>
+        <variable>
+            <name>XDCPATH</name>
+            <value>$TI_RTOS_KERNEL$\packages;$PROJ_DIR$\..\..\..\..\..\..\..\source</value>
+        </variable>
+        <variable>
+            <name>BIOS_LOC</name>
+            <value>$PROJ_DIR$\..\..\..\..\..\..\..\kernel\tirtos\packages</value>
+        </variable>
+        <variable>
+            <name>CC13XXWARE</name>
+            <value>$PROJ_DIR$\..\..\..\..\..\..\..\source\ti\devices\cc13x2_cc26x2_v1</value>
+        </variable>
+        <variable>
+            <name>COM_COMP</name>
+            <value>$PROJ_DIR$\..\..\..\..\..\..\..\source\ti\ti154stack</value>
+        </variable>
+        <variable>
+            <name>DAL_COM_COMP</name>
+            <value>$PROJ_DIR$\..\..\..\..\..\..\..\source\ti\ti154stack</value>
+        </variable>
+        <variable>
+            <name>MAC_APPS</name>
+            <value>$PROJ_DIR$\..\..\..\</value>
+        </variable>
+        <variable>
+            <name>MAC_CORE</name>
+            <value>$PROJ_DIR$\..\..\..\..\..\..\..\source\ti\ti154stack</value>
+        </variable>
+        <variable>
+            <name>MAC_LIBS</name>
+            <value>$MAC_APPS$\library\tirtos\iar\bin</value>
+        </variable>
+    </group>
+</iarUserArgVars>

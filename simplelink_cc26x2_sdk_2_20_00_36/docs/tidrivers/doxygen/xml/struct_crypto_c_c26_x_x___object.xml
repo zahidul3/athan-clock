@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_crypto_c_c26_x_x___object" kind="struct" language="C++" prot="public">
+    <compoundname>CryptoCC26XX_Object</compoundname>
+    <includes refid="_crypto_c_c26_x_x_8h" local="no">CryptoCC26XX.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1aed6ed8c1a1fb38542f0a66bac8b207d1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CryptoCC26XX_Object::openCnt</definition>
+        <argsstring></argsstring>
+        <name>openCnt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Counting number of clients </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="721" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="721" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a7bf2c514e22988c397d2b49e5a7be53b" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t CryptoCC26XX_Object::timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timeout for encrypt/decrypt operation </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="722" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="722" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a73d676dd4ff0815b55058c15c6315bb9" prot="public" static="no" mutable="no">
+        <type><ref refid="_crypto_c_c26_x_x_8h_1a30e647b6ad6b608b60990929200686e0" kindref="member">CryptoCC26XX_KeyStore</ref></type>
+        <definition>CryptoCC26XX_KeyStore CryptoCC26XX_Object::keyStore</definition>
+        <argsstring></argsstring>
+        <name>keyStore</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Key store for Crypto </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="723" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="723" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a6ebc5fa5ae8455db12e9a01b34a75dbf" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref> *</type>
+        <definition>CryptoCC26XX_Transaction* CryptoCC26XX_Object::currentTransact</definition>
+        <argsstring></argsstring>
+        <name>currentTransact</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to ongoing transaction </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="724" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="724" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a6723e9a4eb86f36e8860c5ef541466fc" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref> *</type>
+        <definition>CryptoCC26XX_Transaction* CryptoCC26XX_Object::headPtr</definition>
+        <argsstring></argsstring>
+        <name>headPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>head pointer for queued transactions </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="727" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="727" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a7474f4d229f4f9274dbfa2b0766b52ce" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref> *</type>
+        <definition>CryptoCC26XX_Transaction* CryptoCC26XX_Object::tailPtr</definition>
+        <argsstring></argsstring>
+        <name>tailPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>tail pointer for queued transactions </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="728" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="728" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1ac6f020255e0552838fa662df76bfdb8e" prot="public" static="no" mutable="no">
+        <type><ref refid="_power_8h_1a380d08b754e6f3f096349ab5fc464209" kindref="member">Power_NotifyObj</ref></type>
+        <definition>Power_NotifyObj CryptoCC26XX_Object::cryptoNotiObj</definition>
+        <argsstring></argsstring>
+        <name>cryptoNotiObj</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Crypto notification object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="731" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="731" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a141b9a34345818955a399560366f7d6b" prot="public" static="no" mutable="no">
+        <type>HwiP_Struct</type>
+        <definition>HwiP_Struct CryptoCC26XX_Object::hwi</definition>
+        <argsstring></argsstring>
+        <name>hwi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hwi object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="734" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="734" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1ab5d81cd802d52ca33244e6bc34fdc564" prot="public" static="no" mutable="no">
+        <type>SemaphoreP_Struct</type>
+        <definition>SemaphoreP_Struct CryptoCC26XX_Object::transSem</definition>
+        <argsstring></argsstring>
+        <name>transSem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>CryptoCC26XX transaction semaphore </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="735" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="735" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___object_1a85396b71216ed1c573a6919e4879ab0f" prot="public" static="no" mutable="no">
+        <type>SemaphoreP_Struct</type>
+        <definition>SemaphoreP_Struct CryptoCC26XX_Object::waitSem</definition>
+        <argsstring></argsstring>
+        <name>waitSem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Semaphore for use in blocking mode </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="736" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="736" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>CryptoCC26XX Object. </para>    </briefdescription>
+    <detaileddescription>
+<para>The application must not access any member variables of this structure! </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="116">
+        <label>List_Elem</label>
+        <link refid="struct_list___elem"/>
+        <childnode refid="116" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="117">
+        <label>CryptoCC26XX_Transaction</label>
+        <link refid="struct_crypto_c_c26_x_x___transaction"/>
+      </node>
+      <node id="115">
+        <label>Power_NotifyObj_</label>
+        <link refid="struct_power___notify_obj__"/>
+        <childnode refid="116" relation="usage">
+          <edgelabel>link</edgelabel>
+        </childnode>
+      </node>
+      <node id="114">
+        <label>CryptoCC26XX_Object</label>
+        <link refid="struct_crypto_c_c26_x_x___object"/>
+        <childnode refid="115" relation="usage">
+          <edgelabel>cryptoNotiObj</edgelabel>
+        </childnode>
+        <childnode refid="117" relation="usage">
+          <edgelabel>currentTransact</edgelabel>
+          <edgelabel>headPtr</edgelabel>
+          <edgelabel>tailPtr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="719" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="719" bodyend="737"/>
+    <listofallmembers>
+      <member refid="struct_crypto_c_c26_x_x___object_1ac6f020255e0552838fa662df76bfdb8e" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>cryptoNotiObj</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1a6ebc5fa5ae8455db12e9a01b34a75dbf" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>currentTransact</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1a6723e9a4eb86f36e8860c5ef541466fc" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>headPtr</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1a141b9a34345818955a399560366f7d6b" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>hwi</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1a73d676dd4ff0815b55058c15c6315bb9" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>keyStore</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1aed6ed8c1a1fb38542f0a66bac8b207d1" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>openCnt</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1a7474f4d229f4f9274dbfa2b0766b52ce" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>tailPtr</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1a7bf2c514e22988c397d2b49e5a7be53b" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>timeout</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1ab5d81cd802d52ca33244e6bc34fdc564" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>transSem</name></member>
+      <member refid="struct_crypto_c_c26_x_x___object_1a85396b71216ed1c573a6919e4879ab0f" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Object</scope><name>waitSem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

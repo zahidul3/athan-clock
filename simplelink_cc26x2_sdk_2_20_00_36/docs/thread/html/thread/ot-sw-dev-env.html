@@ -1,0 +1,868 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TI-OpenThread Stack Software Development Environment &mdash; SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation" href="../index.html"/>
+        <link rel="next" title="TI-OpenThread Stack Overview" href="ot-stack-overview.html"/>
+        <link rel="prev" title="Debug Serial Back Channel Connection" href="../cc26x2/hardware-thread.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug thread ot-sw-dev-env";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI Thread User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-thread.html">CC26x2 Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TI-OpenThread Stack Software Development Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ot-stack-description">TI-OpenThread Stack Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#protocol-stack-and-application-configurations">Protocol Stack and Application Configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solution-platform">Solution Platform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#directory-structure">Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projects">Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cli">CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ncp">NCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#door-lock">Door Lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shade">Shade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thermostat">Thermostat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temperature-sensor">Temperature Sensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#border-router">Border Router</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fcc-testing-functionality">FCC Testing Functionality</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test-of-continuous-transmission">Test of Continuous Transmission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-of-continuous-reception">Test of Continuous Reception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-of-continuous-tone">Test of Continuous Tone</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#useful-ccs-ide-settings">Useful CCS IDE Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-preprocessor-symbols">Accessing Preprocessor Symbols</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#project-specific-preprocessor-symbols">Project Specific Preprocessor Symbols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-header-preprocessor-symbols">Configuration Header Preprocessor Symbols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#software-architecture">Software Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ot-stack-task-architecture">OpenThread Stack Task Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#application-task-architecture">Application Task Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#application-stack-interface">Application Stack Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#flash">Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-management-ram">Memory Management (RAM)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#system-stack">System Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-memory-allocation">Dynamic Memory Allocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-note-on-initializing-rtos-objects">A Note on Initializing RTOS Objects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ot-stack-overview.html">TI-OpenThread Stack Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-example-apps-cc26x2.html">Example Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-br/index.html">Linux Border Router Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating-custom-apps.html">Creating Custom Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-hardware.html">Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packet-sniffer.html">Packet Sniffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/thread-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-oad/index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index-cc26x2.html">SimpleLink™ CC26x2 TI Thread User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index-cc26x2.html">Docs</a> &raquo;</li>
+      
+    <li>TI-OpenThread Stack Software Development Environment</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ot-stack-software-development-environment">
+<span id="chap-ti154stack-software-development-platform"></span><h1>TI-OpenThread Stack Software Development Environment<a class="headerlink" href="#ot-stack-software-development-environment" title="Permalink to this headline">¶</a></h1>
+<p>TI’s royalty-free SimpleLink CC26x2 SDK is a complete software platform for developing
+applications that require low-power, security, reliability, and mesh
+networking. This kit is based on the SimpleLink CC26x2 ultra-low power
+wireless microcontroller unit (MCU). The CC26x2 device combines a 2.4 GHz RF
+transceiver with 352KB of in-system programmable memory, 80KB of SRAM, and a
+full range of peripherals. The CC26x2 device is centered on an ARM®
+Cortex®-M4F series processor, that executes the user application and
+stack code, and an autonomous radio core centered on an ARM Cortex-M0
+processor, which handles all the low-level radio control. The sensor controller
+block provides additional flexibility by allowing autonomous data acquisition
+and control independent of the Cortex-M4F processor core, which further extends
+the low-power capabilities of the CC26x2 device.</p>
+<div class="section" id="ot-stack-description">
+<span id="sec-protocol-stack-description"></span><h2>TI-OpenThread Stack Description<a class="headerlink" href="#ot-stack-description" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="protocol-stack-and-application-configurations">
+<span id="sec-protocol-stack-application-configuration"></span><h3>Protocol Stack and Application Configurations<a class="headerlink" href="#protocol-stack-and-application-configurations" title="Permalink to this headline">¶</a></h3>
+<p>The below diagram shows the two different system architectures enabled by
+TI-OpenThread Stack.</p>
+<ul class="simple">
+<li>A single device is shown in the diagram below (left). The application and
+protocol stack are both implemented on the CC26x2 as a true single-chip
+solution. This configuration is the simplest and most common when using the
+CC26x2 for network devices. This configuration is the most cost-effective
+technique and provides the lowest-power performance.</li>
+<li>A network co-processor (NCP) is shown in the diagram below (right). The
+protocol stack runs on the CC26x2 while the application is executed on an
+external host processor. The application processor interfaces with the
+CC26x2 using the Spinel protocol over a serial universal asynchronous
+receiver/transmitter (UART) connection. The description of the Spinel
+interface is provided in the <a class="reference external" href="https://tools.ietf.org/html/draft-rquattle-spinel-unified-00">Spinel Protocol Specification</a>. This
+configuration is useful for applications that must add wireless connectivity
+or peripheral applications, which execute on a host processor without the
+requirement to implement the complexities associated with a wireless
+networking protocol. In these cases, the application can be developed
+externally on a host processor while running TI-OpenThread Stack on the CC26x2,
+which provides ease of development and quickly adds Thread support and
+wireless connectivity to existing products.</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/ditaa-128891c76840a32bd20197665a5ec0bcac346476.png"><img alt="../_images/ditaa-128891c76840a32bd20197665a5ec0bcac346476.png" class="align-center" src="../_images/ditaa-128891c76840a32bd20197665a5ec0bcac346476.png" style="width: 65%;" /></a>
+</div>
+<div class="section" id="solution-platform">
+<span id="sec-solution-platform"></span><h3>Solution Platform<a class="headerlink" href="#solution-platform" title="Permalink to this headline">¶</a></h3>
+<p>This section describes the various components that are installed with the
+SimpleLink CC26x2 SDK, the directory structure of the protocol stack, and any tools required
+for development. The diagram below shows the TI-OpenThread Stack development system.</p>
+<a class="reference internal image-reference" href="../_images/ditaa-cdcea250fb7f952fd9aba4572a0ffda957f683e4.png"><img alt="../_images/ditaa-cdcea250fb7f952fd9aba4572a0ffda957f683e4.png" class="align-center" src="../_images/ditaa-cdcea250fb7f952fd9aba4572a0ffda957f683e4.png" style="width: 65%;" /></a>
+<p>The following components are included in the solution platform:</p>
+<ul class="simple">
+<li>Real-time operating system (<a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a>) with the TI-RTOS ™ SYS/BIOS kernel,
+optimized power management support, and peripheral drivers.</li>
+<li>The driverLib provides a register abstraction layer that is used by software
+and drivers to control the CC26x2 MCU.</li>
+<li>Example applications make the beginning stages of development easier. Example
+applications are provided for the CC26x2 platform.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="directory-structure">
+<span id="sec-directory-structure"></span><h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<p>The SimpleLink CC26x2 SDK directory structure is broken down into a few major directories at
+the root to allow easy differentiation between documentation, examples, kernel
+source, and other source code. From the root directory, the sub-directories
+are:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">docs:</th><td class="field-body">Contains HTML and PDF documentation for the SimpleLink CC26x2 SDK.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">examples:</th><td class="field-body">Contains the example projects and example source for this SimpleLink CC26x2 SDK.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">kernel:</th><td class="field-body">Contains the source and build tools for the kernels supported by this
+SimpleLink CC26x2 SDK.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">source:</th><td class="field-body">Contains the source code for the larger components of the SimpleLink CC26x2 SDK. A
+more detailed description of this directory follows.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">tools:</th><td class="field-body">Scripts and definition files used by the SimpleLink CC26x2 SDK. Contains scripts
+referenced by the SimpleLink CC26x2 SDK documentation.</td>
+</tr>
+</tbody>
+</table>
+<p>The source directory is split into major categories based on where the source
+code came from. All of the source code within the <code class="docutils literal"><span class="pre">third_party</span></code> directory
+comes from vendors other than Texas Instruments. All of the source code within
+the <code class="docutils literal"><span class="pre">ti</span></code> directory comes from Texas Instruments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">third_party\openthread:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Contains the TI-OpenThread Stack stack repository.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ti\devices:</th><td class="field-body">Contains the board support source code.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ti\display:</th><td class="field-body">Contains the source code for the display libraries.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ti\drivers:</th><td class="field-body">Contains the source code for the TI-RTOS drivers.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ti\grlib:</th><td class="field-body">Contains the source code for the graphics libraries.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ti\mw:</th><td class="field-body">Contains the source code for the middleware drivers.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="projects">
+<span id="sec-projects"></span><h2>Projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h2>
+<p>The TI-OpenThread Stack component within the SimpleLink CC26x2 SDK includes several projects.</p>
+<div class="section" id="cli">
+<h3>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h3>
+<p>The CLI projects can be used to interact with and explore the different aspects
+of the Thread protocol. The CLI interface <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> presents is also used for
+certification with the Thread Group test harness.</p>
+<p>Four variants of the Command Line Interface examples exist for CC26x2 in the
+examples directory. Two for each device type [<a class="reference internal" href="index-cc26x2.html#term-ftd"><span class="xref std std-term">FTD</span></a>, <a class="reference internal" href="index-cc26x2.html#term-mtd"><span class="xref std std-term">MTD</span></a>], with one example
+for each toolchain [<a class="reference internal" href="index-cc26x2.html#term-30"><span class="xref std std-term">CCS</span></a>, <a class="reference internal" href="index-cc26x2.html#term-gcc"><span class="xref std std-term">GCC</span></a>]. These examples use the <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> Posix APIs for
+execution of the application and stack tasks.</p>
+<p>The CLI examples are a great place to start learning about Thread.</p>
+<p>Consult the <code class="docutils literal"><span class="pre">README.html</span></code> in the imported example for usage directions.</p>
+</div>
+<div class="section" id="ncp">
+<h3>NCP<a class="headerlink" href="#ncp" title="Permalink to this headline">¶</a></h3>
+<p>The NCP projects are used to connect the TI-OpenThread Stack to a host processor.  The
+Spinel interface <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> presents can be used with the <cite>OpenThread wpantund</cite> to create a
+bridge from a Linux host processor to the CC26x2.</p>
+<p>Four variants of the Network CoProcessor example exist for CC26x2 in the
+examples directory. Two for each device type [<a class="reference internal" href="index-cc26x2.html#term-ftd"><span class="xref std std-term">FTD</span></a>, <a class="reference internal" href="index-cc26x2.html#term-mtd"><span class="xref std std-term">MTD</span></a>], with one example
+for each toolchain [<a class="reference internal" href="index-cc26x2.html#term-30"><span class="xref std std-term">CCS</span></a>, <a class="reference internal" href="index-cc26x2.html#term-gcc"><span class="xref std std-term">GCC</span></a>]. These examples use the <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> Posix APIs for
+execution of the application and stack tasks.</p>
+<p>Consult the <code class="docutils literal"><span class="pre">README.html</span></code> in the imported example for usage directions.</p>
+</div>
+<div class="section" id="door-lock">
+<h3>Door Lock<a class="headerlink" href="#door-lock" title="Permalink to this headline">¶</a></h3>
+<p>The door lock project presents a simple CoAP server representing a door lock.
+The door lock example is best used with a <cite>Sharp® Memory LCD BoosterPack</cite>, but also can be
+used with only the basic UART log.</p>
+<p>Two variants of the door lock example exist for CC26x2 in the examples
+directory. One <a class="reference internal" href="index-cc26x2.html#term-mtd"><span class="xref std std-term">MTD</span></a> example exists for each toolchain [<a class="reference internal" href="index-cc26x2.html#term-30"><span class="xref std std-term">CCS</span></a>, <a class="reference internal" href="index-cc26x2.html#term-gcc"><span class="xref std std-term">GCC</span></a>]. These
+examples use the <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> Posix APIs for execution of the application and stack
+tasks. An image of a lock is displayed on the <cite>Sharp® Memory LCD BoosterPack</cite> for each
+state, locked or unlocked. Transitions are animated on the screen and logged
+over the UART connection.</p>
+<p>Consult the <code class="docutils literal"><span class="pre">README.html</span></code> in the imported example for usage directions.</p>
+</div>
+<div class="section" id="shade">
+<h3>Shade<a class="headerlink" href="#shade" title="Permalink to this headline">¶</a></h3>
+<p>The shade project presents a simple CoAP server representing window blinds.
+The shade example is best used with a <cite>Sharp® Memory LCD BoosterPack</cite>, but also can be used
+with only the basic UART log.</p>
+<p>Two variants of the shade example exist for CC26x2 in the examples
+directory. One <a class="reference internal" href="index-cc26x2.html#term-mtd"><span class="xref std std-term">MTD</span></a> example exists for each toolchain [<a class="reference internal" href="index-cc26x2.html#term-30"><span class="xref std std-term">CCS</span></a>, <a class="reference internal" href="index-cc26x2.html#term-gcc"><span class="xref std std-term">GCC</span></a>]. These
+examples use the <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> Posix APIs for execution of the application and stack
+tasks. An image of window blinds is displayed on the <cite>Sharp® Memory LCD BoosterPack</cite> for
+each state, open or drawn or closed. Transitions are animated on the screen and
+logged over the UART connection.</p>
+<p>Consult the <code class="docutils literal"><span class="pre">README.html</span></code> in the imported example for usage directions.</p>
+</div>
+<div class="section" id="thermostat">
+<h3>Thermostat<a class="headerlink" href="#thermostat" title="Permalink to this headline">¶</a></h3>
+<p>The thermostat project presents a simple CoAP server representing a
+thermostat. The thermostat example is best used with a <cite>Sharp® Memory LCD BoosterPack</cite>, but
+also can be used with only the basic UART log.</p>
+<p>Two variants of the thermostat example exist for CC26x2 in the examples
+directory. One <a class="reference internal" href="index-cc26x2.html#term-ftd"><span class="xref std std-term">FTD</span></a> example exists for each toolchain [<a class="reference internal" href="index-cc26x2.html#term-30"><span class="xref std std-term">CCS</span></a>, <a class="reference internal" href="index-cc26x2.html#term-gcc"><span class="xref std std-term">GCC</span></a>]. These
+examples use the <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> Posix APIs for execution of the application and stack
+tasks. The current temperature reported to the thermostat and set-point are
+displayed on the <cite>Sharp® Memory LCD BoosterPack</cite>. Transitions are animated on the screen
+and logged over the UART connection.</p>
+<p>For full functionality, this example should be used with a border router and
+temperature sensor example.</p>
+<p>Consult the <code class="docutils literal"><span class="pre">README.html</span></code> in the imported example for usage directions.</p>
+</div>
+<div class="section" id="temperature-sensor">
+<h3>Temperature Sensor<a class="headerlink" href="#temperature-sensor" title="Permalink to this headline">¶</a></h3>
+<p>The Temperature Sensor project presents a simple CoAP server and client
+representing an embedded temperature sensor.</p>
+<p>Two variants of the temp sensor example exist for CC26x2 in the examples
+directory. One <a class="reference internal" href="index-cc26x2.html#term-mtd"><span class="xref std std-term">MTD</span></a> example exists for each toolchain [<a class="reference internal" href="index-cc26x2.html#term-30"><span class="xref std std-term">CCS</span></a>, <a class="reference internal" href="index-cc26x2.html#term-gcc"><span class="xref std std-term">GCC</span></a>]. These
+examples use the <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> Posix APIs for execution of the application and stack
+tasks. The current temperature read from the internal temp sensor is reported
+over the UART, presented by a CoAP server, and reported to a statically
+compile-time assigned address.</p>
+<p>For full functionality, this example should be used with a border router and
+thermostat example.</p>
+<p>Consult the <code class="docutils literal"><span class="pre">README.html</span></code> in the imported example for usage directions.</p>
+</div>
+<div class="section" id="border-router">
+<h3>Border Router<a class="headerlink" href="#border-router" title="Permalink to this headline">¶</a></h3>
+<p>The border router example is a basic implementation of a Thread Border Router.
+A Thread Border Router is a node on the Thread network that can bridge traffic
+from an IPv4 or IPv6 network to the Thread network and vice-versa. A Thread
+Border Router also enables off network commissioning of new devices into the
+Thread network.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Specific documentation for the Border Router application can be
+found in the <code class="docutils literal"><span class="pre">${border_router}/doc</span></code> folder</p>
+</div>
+</div>
+</div>
+<div class="section" id="fcc-testing-functionality">
+<span id="sec-fcc-testing-functionality"></span><h2>FCC Testing Functionality<a class="headerlink" href="#fcc-testing-functionality" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="index-cc26x2.html#term-fcc"><span class="xref std std-term">FCC</span></a> and other similar RF regulatory bodies often require certain
+certifications to be fullfilled before a product is brought to market, even
+though the Thread protocol makes no such requirements. Therefore, it is
+desirable to have <a class="reference internal" href="index-cc26x2.html#term-fcc"><span class="xref std std-term">FCC</span></a> testing functionality available in a Thread
+example project.</p>
+<p>The <em>diag</em> (diagnostic) module in OpenThread provides a set of commands to
+manipulate the radio from within the OpenThread environment. The <em>diag</em> module
+is accesible from the OpenThread CLI application.</p>
+<p>Mainly two <a class="reference internal" href="index-cc26x2.html#term-fcc"><span class="xref std std-term">FCC</span></a> testing functionalities are supported: <a class="reference internal" href="index-cc26x2.html#term-per"><span class="xref std std-term">PER</span></a> test
+functionality with <a class="reference external" href="http://www.ti.com/tool/smartrftm-studio">SmartRF Studio</a> compatibility, and test of continuous
+tone. The result of a <a class="reference internal" href="index-cc26x2.html#term-per"><span class="xref std std-term">PER</span></a> test is calculated in the same fashion as
+<a class="reference external" href="http://www.ti.com/tool/smartrftm-studio">SmartRF Studio</a>, shown in Equation <a class="reference internal" href="#equation-smartrf_studio_per">(1)</a>.</p>
+<div class="math" id="equation-smartrf_studio_per">
+<p><span class="eqno">(1)<a class="headerlink" href="#equation-smartrf_studio_per" title="Permalink to this equation">¶</a></span><img src="../_images/math/438b53b787ee78fe49b12d52d38bb1bd8ed6366e.svg" alt="\text{Error Count} &amp;= \text{CRC Error Count} + \text{Lost Packet Count}
+
+\text{Packet Error Rate}[\%] &amp;= \frac{\text{Error Count}}{\text{Packet Count} + \text{Error Count}} \times 100"/></p>
+</div><div class="section" id="test-of-continuous-transmission">
+<span id="subsec-fcc-continuous-transmission"></span><h3>Test of Continuous Transmission<a class="headerlink" href="#test-of-continuous-transmission" title="Permalink to this headline">¶</a></h3>
+<p>The API for starting and stopping a continuous transmission is on the
+following format:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="n">transmit</span> <span class="n">start</span> <span class="o">&lt;</span><span class="n">packet</span> <span class="n">size</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">interframe</span> <span class="n">space</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">transmit</span> <span class="n">count</span><span class="o">&gt;</span>
+<span class="n">diag</span> <span class="n">transmit</span> <span class="n">stop</span>
+</pre></div>
+</div>
+<p><em>Packet size</em> specifies the payload of the packet in bytes, the <em>interframe
+space</em> specifies time beween each packet in milliseconds, and <em>transmit count</em>
+specifies the number of packets to send.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you want to receive and observe the transmitted packets, you can use an
+IEEE 802.15.4-capable LaunchPad with <a class="reference external" href="http://www.ti.com/tool/smartrftm-studio">SmartRF Studio</a>, configuring the
+device to the same channel in Packet RX mode expecting infinite packets.
+This is optional.</p>
+</div>
+<p>To start a test of continuous transmission with your Thread device, do the
+following:</p>
+<ol class="arabic">
+<li><p class="first">Build and flash the <em>cli_ftd</em> example application.</p>
+</li>
+<li><p class="first">Input the following commands in the UART CLI.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="n">start</span>
+<span class="n">diag</span> <span class="n">channel</span> <span class="mi">12</span>
+<span class="n">diag</span> <span class="n">power</span> <span class="mi">5</span>
+<span class="n">diag</span> <span class="n">transmit</span> <span class="n">start</span> <span class="mi">100</span> <span class="mi">30</span> <span class="mi">500</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">(Optional) Observe the packets in <a class="reference external" href="http://www.ti.com/tool/smartrftm-studio">SmartRF Studio</a>.</p>
+</li>
+<li><p class="first">Stop the transmission with the commands in the UART CLI.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="n">transmit</span> <span class="n">stop</span>
+<span class="n">diag</span> <span class="n">stop</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>After stopping the transmission, a test report is displayed with statistics
+over how many packets were transmitted.</p>
+</div>
+<div class="section" id="test-of-continuous-reception">
+<span id="subsec-fcc-continuous-reception"></span><h3>Test of Continuous Reception<a class="headerlink" href="#test-of-continuous-reception" title="Permalink to this headline">¶</a></h3>
+<p>The API for starting and stopping a continuous transmission is one the
+following format:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="n">receive</span> <span class="n">start</span>
+<span class="n">diag</span> <span class="n">receive</span> <span class="n">stop</span>
+</pre></div>
+</div>
+<p>No additional parameters are required. Stopping the continuous reception will
+present a <a class="reference internal" href="index-cc26x2.html#term-per"><span class="xref std std-term">PER</span></a> report of packets received.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is required to have a device sending out a continuous transmission on
+the same channel, while the continuous reception test is running to have
+any meaningful results. Either setup <a class="reference external" href="http://www.ti.com/tool/smartrftm-studio">SmartRF Studio</a> with an IEEE
+802.15.4-capable LaunchPad in Packet TX mode on the same channel sending
+infinite packets, or see <a class="reference internal" href="#subsec-fcc-continuous-transmission"><span class="std std-ref">Test of Continuous Transmission</span></a>.</p>
+</div>
+<p>To start a test of continuous reception with your Thread device, do the
+following:</p>
+<ol class="arabic">
+<li><p class="first">Build and flash the <em>cli_ftd</em> example application.</p>
+</li>
+<li><p class="first">Input the following cmmands in the UART CLI.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="n">start</span>
+<span class="n">diag</span> <span class="n">channel</span> <span class="mi">12</span>
+<span class="n">diag</span> <span class="n">receive</span> <span class="n">start</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Start packet transmissions from your other device.</p>
+</li>
+<li><p class="first">When satisfied, stop packet transmissions.</p>
+</li>
+<li><p class="first">Stop the transmission with the commands in the UART CLI, observing the report.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="n">receive</span> <span class="n">stop</span>
+<span class="n">diag</span> <span class="n">stop</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>After stopping the reception, a test report is displayed with statistics over
+received packets, including <a class="reference internal" href="index-cc26x2.html#term-per"><span class="xref std std-term">PER</span></a>.</p>
+</div>
+<div class="section" id="test-of-continuous-tone">
+<span id="subsec-fcc-continuous-ton"></span><h3>Test of Continuous Tone<a class="headerlink" href="#test-of-continuous-tone" title="Permalink to this headline">¶</a></h3>
+<p>The API for starting and stopping a continuous tone is one the following
+format:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="n">tone</span> <span class="n">start</span>
+<span class="n">diag</span> <span class="n">tone</span> <span class="n">stop</span>
+</pre></div>
+</div>
+<p>No additional parameters are required. To observe the continuous tone, setup a
+Spectrum Analyzer near the DUT; or, setup <a class="reference external" href="http://www.ti.com/tool/smartrftm-studio">SmartRF Studio</a> in Continuous RX
+mode on the same channel.</p>
+<p>To start a test of continuous tone with your Thread device, do the following:</p>
+<ol class="arabic">
+<li><p class="first">Build and flash the <em>cli_ftd</em> example application.</p>
+</li>
+<li><p class="first">Input the following cmmands in the UART CLI.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="n">start</span>
+<span class="n">diag</span> <span class="n">channel</span> <span class="mi">12</span>
+<span class="n">diag</span> <span class="n">power</span> <span class="mi">5</span>
+<span class="n">diag</span> <span class="n">tone</span> <span class="n">start</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Observe the transmission over the air with the Spectrum Analizer or <a class="reference external" href="http://www.ti.com/tool/smartrftm-studio">SmartRF Studio</a>.</p>
+</li>
+<li><p class="first">Stop the transmission with the commands in the UART CLI, observing the report.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">diag</span> <span class="n">tone</span> <span class="n">stop</span>
+<span class="n">diag</span> <span class="n">stop</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>No test report is displayed after stopping the tone.</p>
+</div>
+</div>
+<div class="section" id="useful-ccs-ide-settings">
+<span id="sec-useful-ccs-settings"></span><h2>Useful CCS IDE Settings<a class="headerlink" href="#useful-ccs-ide-settings" title="Permalink to this headline">¶</a></h2>
+<p>The CCS provides a large number of configurable settings that can be used to
+customize the IDE and individual projects. The following examples do not alter
+the generated program code, but they can improve the developer’s experience
+when working with CCS projects. The CCS can reduce project compilation time by
+taking advantage of multiple processor cores on the development computer.</p>
+<p>To use this feature, open the properties dialog by selecting <code class="docutils literal"><span class="pre">Project</span></code> →
+<code class="docutils literal"><span class="pre">Properties</span></code> then selecting <code class="docutils literal"><span class="pre">Build</span></code> → <code class="docutils literal"><span class="pre">Behavior</span></code> and select Enable
+parallel build, as shown in <a class="reference internal" href="#fig-properties-cli"><span class="std std-numref">Figure 11.</span></a>.</p>
+<div class="figure align-center" id="id4">
+<span id="fig-properties-cli"></span><img alt="../_images/fig-properties-cli.jpeg" src="../_images/fig-properties-cli.jpeg" />
+<p class="caption"><span class="caption-number">Figure 11. </span><span class="caption-text">Properties for cli example</span></p>
+</div>
+<p>CCS users can control the amount of information that is displayed in the
+Console portion of the screen during project compilation and linking, ranging
+from Verbose to Super quiet. To change this setting, open the preferences
+dialog by selecting <code class="docutils literal"><span class="pre">Window</span></code> → <code class="docutils literal"><span class="pre">Preferences</span></code> and navigating to <code class="docutils literal"><span class="pre">Code</span>
+<span class="pre">Composer</span> <span class="pre">Studio</span></code> → <code class="docutils literal"><span class="pre">Build</span></code> and select an entry from the Console
+verbosity level drop-down, as shown in <a class="reference internal" href="#fig-ccs-console-verbosity"><span class="std std-numref">Figure 12.</span></a></p>
+<div class="figure align-center" id="id5">
+<span id="fig-ccs-console-verbosity"></span><img alt="../_images/fig-ccs-console-verbosity.jpeg" src="../_images/fig-ccs-console-verbosity.jpeg" />
+<p class="caption"><span class="caption-number">Figure 12. </span><span class="caption-text">Console Verbosity Level Preferences</span></p>
+</div>
+</div>
+<div class="section" id="accessing-preprocessor-symbols">
+<span id="sec-accessing-preprocessor-symbols"></span><h2>Accessing Preprocessor Symbols<a class="headerlink" href="#accessing-preprocessor-symbols" title="Permalink to this headline">¶</a></h2>
+<p>Throughout this document and in the source code, various C preprocessor symbols
+may need to be defined or modified at the project level. Preprocessor symbols
+(also known as Predefined Symbols) are used to enable and disable features and
+set operational values to be considered when the program is compiled. The
+preprocessor symbols are split between project specific preprocessor symbols
+and configuration header preprocessor symbols.</p>
+<div class="section" id="project-specific-preprocessor-symbols">
+<h3>Project Specific Preprocessor Symbols<a class="headerlink" href="#project-specific-preprocessor-symbols" title="Permalink to this headline">¶</a></h3>
+<p>Configurations for a given example project are stored in CCS’s predefined
+symbols setting for that project.</p>
+<p>In CCS, preprocessor symbols are accessed by opening the appropriate Project
+Properties by right clicking on the project in the Project Explorer and
+selecting <code class="docutils literal"><span class="pre">Properties</span></code> then navigating to <code class="docutils literal"><span class="pre">CCS</span> <span class="pre">Build</span></code> → <code class="docutils literal"><span class="pre">ARM</span>
+<span class="pre">Compiler</span></code> → <code class="docutils literal"><span class="pre">Predefined</span> <span class="pre">Symbols</span></code>. To add, delete, or edit a
+preprocessor symbol, use one of the icons shown in the red box in
+<a class="reference internal" href="#fig-ccs-predefined-symbols"><span class="std std-numref">Figure 13.</span></a>.</p>
+<div class="figure align-center" id="id6">
+<span id="fig-ccs-predefined-symbols"></span><img alt="../_images/fig-ccs-predefined-symbols.jpeg" src="../_images/fig-ccs-predefined-symbols.jpeg" />
+<p class="caption"><span class="caption-number">Figure 13. </span><span class="caption-text">Predefined Symbols Pane</span></p>
+</div>
+</div>
+<div class="section" id="configuration-header-preprocessor-symbols">
+<span id="sec-configuration-preprocessor-symbols"></span><h3>Configuration Header Preprocessor Symbols<a class="headerlink" href="#configuration-header-preprocessor-symbols" title="Permalink to this headline">¶</a></h3>
+<p>Configuration for the OpenThread libraries is stored in the configuration
+header within the libopenthread project. These defines control certain features
+of the OpenThread stack itself.</p>
+<p>In <a class="reference internal" href="#fig-header-predefined-symbols"><span class="std std-numref">Figure 14.</span></a> you can see the OpenThread header
+for the cc2652 chip, ccs toolchain, and ftd device type. This configuration
+file is linked with the highlighted <code class="docutils literal"><span class="pre">cli_ftd_CC26X2_LAUNCHXL_tirtos_ccs</span></code>
+example project. These configuration headers are common across all projects
+within the workspace that link to the library projects. These configuration
+headers were generated from the <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> configuration step and modified to work
+with the example applications.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The configuration header associated with your project may be different. The
+name of the library project depends on the board, toolchain, and device
+type.</p>
+</div>
+<div class="figure align-center" id="id7">
+<span id="fig-header-predefined-symbols"></span><img alt="../_images/fig-header-predefined-symbols.jpeg" src="../_images/fig-header-predefined-symbols.jpeg" />
+<p class="caption"><span class="caption-number">Figure 14. </span><span class="caption-text">OpenThread configuration header</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="software-architecture">
+<span id="sec-software-architecture"></span><h2>Software Architecture<a class="headerlink" href="#software-architecture" title="Permalink to this headline">¶</a></h2>
+<p>The Application Architecture is split into two major sections, the <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> stack
+and the application logic. The <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> stack logic is executed within its own
+<a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> task. The application logic is executed in a separate <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> task and
+controls the <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> stack execution.</p>
+<div class="section" id="ot-stack-task-architecture">
+<h3><a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> Stack Task Architecture<a class="headerlink" href="#ot-stack-task-architecture" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> stack task handles instantiation of the OpenThread instance object and
+basic setup of the stack primatives. The task then spins in an infinite loop to
+processing OpenThread tasklets and the process functions of the OpenThread
+drivers.</p>
+<p>The OpenThread stack manages a queue of tasks to be run called tasklets. These
+tasklets are processed by the OpenThread stack task by the call to the
+<code class="docutils literal"><span class="pre">otTaskletsProcess()</span></code>, this function processes the queued tasklets. Tasklets
+are segments of code written in a non-blocking fashion.</p>
+<p>The OpenThread stack task also processes the OpenThread platform drivers. These
+are an adaptation layer betweeen OpenThread and the <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> drivers. The process
+functions for the OpenThread platform layer are handled by
+<code class="docutils literal"><span class="pre">PlatformProcessDrivers()</span></code>.</p>
+</div>
+<div class="section" id="application-task-architecture">
+<h3>Application Task Architecture<a class="headerlink" href="#application-task-architecture" title="Permalink to this headline">¶</a></h3>
+<p>The application task handles setup and execution of the application and
+execution and some management of the OpenThread stack. In contrast to the
+OpenThread Stack, the application task is written in a blocking manor. The
+application task is meant to execute for a short period of time, then block on
+an <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> event or timer to allow the OpenThread stack time to execute.</p>
+<p>The NCP and CLI applications are special example applications. The bulk of
+their code resides in a library within the OpenThread package. Those examples
+execute from OpenThread tasklets. The files built inside the example
+application project are only what is necessary to start those examples. The
+application task in these examples starts the respective tasklets and timers in
+OpenThread, then blocks in a timer loop to toggle the Red LED on CC26x2
+Launchpad.</p>
+<p>The CoAP examples setup the display and any necessary peripherals, then enter
+an infinite loop blocking on an <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> events structure. The stack task or
+<a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> timers unblock the processing loop by posting the events to that
+structure. In this fashion the application task updates the display and
+internal data structures.</p>
+</div>
+<div class="section" id="application-stack-interface">
+<h3>Application Stack Interface<a class="headerlink" href="#application-stack-interface" title="Permalink to this headline">¶</a></h3>
+<p>For simplicity and ease of testing the <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> developers have chosen a single
+threaded design for their stack. This means that the OpenThread stack assumes
+singular access to its data structures. This poses a challenge in the
+Multi-Threaded <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a>. To remedy these access issues, a simple framework has
+been put in place for the CC26x2 examples. The usage of a recursive <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a>
+mutex is employed to ensure coherent access to the OpenThread APIs.</p>
+<p>The API mutex is locked and unlocked through the <code class="docutils literal"><span class="pre">OtRtosApi</span></code> module within
+the example project. The OpenThread Stack task locks the mutex before
+processing the stack functionality, and un-locks the mutex immediately after.
+An application should be expected to lock and un-lock the API mutex in much the
+same fashion when calling an OpenThread API.</p>
+<div class="literal-block-wrapper docutils container" id="openthread-stack-task-api-lock">
+<div class="code-block-caption"><span class="caption-number">Listing 17. </span><span class="caption-text"><cite>The OpenThread Stack locking and un-locking the API mutex</cite></span><a class="headerlink" href="#openthread-stack-task-api-lock" title="Permalink to this code">¶</a></div>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/* Process the OpenThread tasklets and driver functions. */</span>
+<span class="n">OtRtosApi_lock</span><span class="p">();</span>
+<span class="n">otTaskletsProcess</span><span class="p">(</span><span class="n">OtStack_instance</span><span class="p">);</span>
+<span class="n">PlatformProcessDrivers</span><span class="p">(</span><span class="n">OtStack_instance</span><span class="p">);</span>
+<span class="n">OtRtosApi_unlock</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="application-task-api-lock">
+<div class="code-block-caption"><span class="caption-number">Listing 18. </span><span class="caption-text"><cite>The Application locking and un-locking the API mutex</cite></span><a class="headerlink" href="#application-task-api-lock" title="Permalink to this code">¶</a></div>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">OtRtosApi_lock</span><span class="p">();</span>
+<span class="n">otCliUartInit</span><span class="p">(</span><span class="n">instance</span><span class="p">);</span>
+<span class="n">OtRtosApi_unlock</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<p>Here is a high level overview of the Application Stack interface.</p>
+<img alt="../_images/ditaa-5a9c19b436add16f2e50883168ff58ccef7cb126.png" src="../_images/ditaa-5a9c19b436add16f2e50883168ff58ccef7cb126.png" />
+</div>
+</div>
+<div class="section" id="flash">
+<span id="id2"></span><h2>Flash<a class="headerlink" href="#flash" title="Permalink to this headline">¶</a></h2>
+<p>The data and text segments of the final image are placed by the toolchain
+linker. The non-volatile storage used by the TI-OpenThread Stack is placed in the second
+and third to last page.</p>
+</div>
+<div class="section" id="memory-management-ram">
+<span id="ram"></span><h2>Memory Management (RAM)<a class="headerlink" href="#memory-management-ram" title="Permalink to this headline">¶</a></h2>
+<p>Space for RAM is configured in the linker configuration file</p>
+<div class="section" id="system-stack">
+<span id="sec-memory-management-system-stack"></span><h3>System Stack<a class="headerlink" href="#system-stack" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="dynamic-memory-allocation">
+<span id="id3"></span><h3>Dynamic Memory Allocation<a class="headerlink" href="#dynamic-memory-allocation" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="a-note-on-initializing-rtos-objects">
+<h3>A Note on Initializing RTOS Objects<a class="headerlink" href="#a-note-on-initializing-rtos-objects" title="Permalink to this headline">¶</a></h3>
+<p>Due to the limited size of the <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> heap, TI strongly recommends that users
+construct and not create <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> objects. To illustrate this recommendation,
+consider the difference between the Clock_construct() and Clock_create()
+functions. <a class="reference internal" href="#construct-vs-create-code"><span class="std std-numref">Listing 19.</span></a> shows the definitions of these
+functions from the SYS/BIOS API.</p>
+<div class="literal-block-wrapper docutils container" id="construct-vs-create-code">
+<div class="code-block-caption"><span class="caption-number">Listing 19. </span><span class="caption-text">Definitions of Functions from the SYS/BIOS API</span><a class="headerlink" href="#construct-vs-create-code" title="Permalink to this code">¶</a></div>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">// Allocate and initialize a new instance object and return its handle</span>
+<span class="n">Clock_Handle</span> <span class="nf">Clock_create</span><span class="p">(</span><span class="n">Clock_FuncPtr</span><span class="p">,</span> <span class="n">UInt</span> <span class="n">timeout</span><span class="p">,</span>  \
+    <span class="k">const</span> <span class="n">Clock_params</span> <span class="o">*</span><span class="n">params</span><span class="p">,</span> <span class="n">Error_Block</span> <span class="o">*</span><span class="n">eb</span><span class="p">);</span>
+
+<span class="c1">// Initialize a new instance object inside the provided structure</span>
+<span class="n">Void</span> <span class="nf">Clock_construct</span><span class="p">(</span><span class="n">Clock_Struct</span> <span class="o">*</span><span class="n">structP</span><span class="p">,</span> <span class="n">Clock_FuncPtr</span> <span class="n">clockFxn</span><span class="p">,</span> \
+    <span class="n">UInt</span> <span class="n">timeout</span><span class="p">,</span> <span class="k">const</span> <span class="n">Clock_Params</span> <span class="o">*</span><span class="n">params</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>By declaring a static <code class="docutils literal"><span class="pre">Clock_Struct</span></code> object and passing this object to
+<code class="docutils literal"><span class="pre">Clock_construct()</span></code>, the .DATA section for the actual <code class="docutils literal"><span class="pre">Clock_Struct</span></code> is
+used, not the limited <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> heap. Conversely, <code class="docutils literal"><span class="pre">Clock_create()</span></code> causes the
+<a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> to allocate <code class="docutils literal"><span class="pre">Clock_Struct</span></code> using the limited heap of the <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a>. As
+much as possible, this method is how clocks and <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> objects in general,
+should be initialized throughout the project. If creating <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> objects must
+be used, the size of the <a class="reference internal" href="index-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a> heap may need to be adjusted in app.cfg.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ot-stack-overview.html" class="btn btn-neutral float-right" title="TI-OpenThread Stack Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../cc26x2/hardware-thread.html" class="btn btn-neutral" title="Debug Serial Back Channel Connection" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

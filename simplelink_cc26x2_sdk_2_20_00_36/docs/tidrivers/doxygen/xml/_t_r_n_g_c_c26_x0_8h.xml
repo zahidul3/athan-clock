@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="_t_r_n_g_c_c26_x0_8h" kind="file" language="C++">
+    <compoundname>TRNGCC26X0.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="_power_8h" local="no">ti/drivers/Power.h</includes>
+    <includes refid="_t_r_n_g_8h" local="no">ti/drivers/TRNG.h</includes>
+    <includes refid="_crypto_key_8h" local="no">ti/drivers/cryptoutils/cryptokey/CryptoKey.h</includes>
+    <includes local="no">ti/drivers/dpl/HwiP.h</includes>
+    <includes local="no">ti/drivers/dpl/SwiP.h</includes>
+    <includes local="no">ti/drivers/dpl/SemaphoreP.h</includes>
+    <incdepgraph>
+      <node id="665">
+        <label>stdbool.h</label>
+      </node>
+      <node id="664">
+        <label>stdint.h</label>
+      </node>
+      <node id="667">
+        <label>ti/drivers/utils/List.h</label>
+        <link refid="_list_8h"/>
+        <childnode refid="664" relation="include">
+        </childnode>
+        <childnode refid="665" relation="include">
+        </childnode>
+        <childnode refid="668" relation="include">
+        </childnode>
+      </node>
+      <node id="670">
+        <label>ti/drivers/cryptoutils/cryptokey/CryptoKey.h</label>
+        <link refid="_crypto_key_8h"/>
+        <childnode refid="664" relation="include">
+        </childnode>
+        <childnode refid="665" relation="include">
+        </childnode>
+      </node>
+      <node id="673">
+        <label>ti/drivers/dpl/SemaphoreP.h</label>
+      </node>
+      <node id="668">
+        <label>stddef.h</label>
+      </node>
+      <node id="671">
+        <label>ti/drivers/dpl/HwiP.h</label>
+      </node>
+      <node id="663">
+        <label>TRNGCC26X0.h</label>
+        <link refid="_t_r_n_g_c_c26_x0_8h"/>
+        <childnode refid="664" relation="include">
+        </childnode>
+        <childnode refid="665" relation="include">
+        </childnode>
+        <childnode refid="666" relation="include">
+        </childnode>
+        <childnode refid="669" relation="include">
+        </childnode>
+        <childnode refid="670" relation="include">
+        </childnode>
+        <childnode refid="671" relation="include">
+        </childnode>
+        <childnode refid="672" relation="include">
+        </childnode>
+        <childnode refid="673" relation="include">
+        </childnode>
+      </node>
+      <node id="672">
+        <label>ti/drivers/dpl/SwiP.h</label>
+      </node>
+      <node id="666">
+        <label>ti/drivers/Power.h</label>
+        <link refid="_power_8h"/>
+        <childnode refid="665" relation="include">
+        </childnode>
+        <childnode refid="664" relation="include">
+        </childnode>
+        <childnode refid="667" relation="include">
+        </childnode>
+      </node>
+      <node id="669">
+        <label>ti/drivers/TRNG.h</label>
+        <link refid="_t_r_n_g_8h"/>
+        <childnode refid="665" relation="include">
+        </childnode>
+        <childnode refid="668" relation="include">
+        </childnode>
+        <childnode refid="664" relation="include">
+        </childnode>
+        <childnode refid="670" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_t_r_n_g_c_c26_x0___h_w_attrs" prot="public">TRNGCC26X0_HWAttrs</innerclass>
+    <innerclass refid="struct_t_r_n_g_c_c26_x0___object" prot="public">TRNGCC26X0_Object</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_t_r_n_g_c_c26_x0_8h_1a99506ff5c6b6fc7ac86e326a8bfe4a47" prot="public" static="no">
+        <type>struct <ref refid="struct_t_r_n_g_c_c26_x0___h_w_attrs" kindref="compound">TRNGCC26X0_HWAttrs</ref></type>
+        <definition>typedef struct TRNGCC26X0_HWAttrs  TRNGCC26X0_HWAttrs</definition>
+        <argsstring></argsstring>
+        <name>TRNGCC26X0_HWAttrs</name>
+        <briefdescription>
+<para>TRNGCC26X0 Hardware Attributes. </para>        </briefdescription>
+        <detaileddescription>
+<para>TRNG26X0 hardware attributes should be included in the board file and pointed to by the TRNG_config struct. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="99" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_t_r_n_g_c_c26_x0_8h_1a7aeed919d9d194b64fa1a1f1c8fe3138" prot="public" static="no">
+        <type>struct <ref refid="struct_t_r_n_g_c_c26_x0___object" kindref="compound">TRNGCC26X0_Object</ref></type>
+        <definition>typedef struct TRNGCC26X0_Object  TRNGCC26X0_Object</definition>
+        <argsstring></argsstring>
+        <name>TRNGCC26X0_Object</name>
+        <briefdescription>
+<para>TRNGCC26XX Object. </para>        </briefdescription>
+        <detaileddescription>
+<para>The application must not access any member variables of this structure! </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="117" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>TRNG driver implementation for the CC26X0 family. </para>    </briefdescription>
+    <detaileddescription>
+<para>============================================================================</para><para><simplesect kind="warning"><para>This is a beta API. It may change in future releases.</para></simplesect>
+This file should only be included in the board file to fill the TRNG_config struct.</para><para>The CC26X0 family has a dedicated hardware TRNG based on sampling multiple free running oscillators. With all FROs enabled, the TRNG hardware generates 64 bits of entropy approximately every 5ms. The driver implementation chains multiple 64-bit entropy generation operations together to generate an arbitrary amount of entropy.</para><para>The driver implementation does not perform runtime checks for most input parameters. Only values that are likely to have a stochastic element to them are checked (such as whether a driver is already open). Higher input paramter validation coverage is achieved by turning on assertions when compiling the driver. </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2018,<sp/>Texas<sp/>Instruments<sp/>Incorporated</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>Texas<sp/>Instruments<sp/>Incorporated<sp/>nor<sp/>the<sp/>names<sp/>of</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>its<sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>from<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>OWNER<sp/>OR</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>CONTRIBUTORS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*/</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor">#ifndef<sp/>ti_drivers_TRNG_TRNGCC26X0__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ti_drivers_TRNG_TRNGCC26X0__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_power_8h" kindref="compound">ti/drivers/Power.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_t_r_n_g_8h" kindref="compound">ti/drivers/TRNG.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_crypto_key_8h" kindref="compound">ti/drivers/cryptoutils/cryptokey/CryptoKey.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ti/drivers/dpl/HwiP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ti/drivers/dpl/SwiP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ti/drivers/dpl/SemaphoreP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="struct_t_r_n_g_c_c26_x0___h_w_attrs" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_t_r_n_g_c_c26_x0___h_w_attrs" kindref="compound">TRNGCC26X0_HWAttrs</ref><sp/>{</highlight></codeline>
+<codeline lineno="92" refid="struct_t_r_n_g_c_c26_x0___h_w_attrs_1aec2ddee8639880c58015e10dbf4bb635" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><ref refid="struct_t_r_n_g_c_c26_x0___h_w_attrs_1aec2ddee8639880c58015e10dbf4bb635" kindref="member">intPriority</ref>;</highlight></codeline>
+<codeline lineno="98" refid="struct_t_r_n_g_c_c26_x0___h_w_attrs_1a89e3cf97a8d0350d69decb9ccb33f689" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><ref refid="struct_t_r_n_g_c_c26_x0___h_w_attrs_1a89e3cf97a8d0350d69decb9ccb33f689" kindref="member">swiPriority</ref>;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}<sp/><ref refid="_t_r_n_g_c_c26_x0_8h_1a99506ff5c6b6fc7ac86e326a8bfe4a47" kindref="member">TRNGCC26X0_HWAttrs</ref>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="struct_t_r_n_g_c_c26_x0___object" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_t_r_n_g_c_c26_x0___object" kindref="compound">TRNGCC26X0_Object</ref><sp/>{</highlight></codeline>
+<codeline lineno="107" refid="struct_t_r_n_g_c_c26_x0___object_1adfd53fe1f7aef99cb53f669e123f80b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_t_r_n_g_c_c26_x0___object_1adfd53fe1f7aef99cb53f669e123f80b1" kindref="member">isOpen</ref>;</highlight></codeline>
+<codeline lineno="108" refid="struct_t_r_n_g_c_c26_x0___object_1a7386ebeb319a41a2c7187e069f0f0147" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int_fast16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_t_r_n_g_c_c26_x0___object_1a7386ebeb319a41a2c7187e069f0f0147" kindref="member">returnStatus</ref>;</highlight></codeline>
+<codeline lineno="109" refid="struct_t_r_n_g_c_c26_x0___object_1af9b342ca1ae4cefeb70ad74dfc24419d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_t_r_n_g_8h_1acc01a389d7aaeb2b7a727e847aaa280f" kindref="member">TRNG_ReturnBehavior</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_t_r_n_g_c_c26_x0___object_1af9b342ca1ae4cefeb70ad74dfc24419d" kindref="member">returnBehavior</ref>;</highlight></codeline>
+<codeline lineno="110" refid="struct_t_r_n_g_c_c26_x0___object_1a0db61b942d9dcfc0fb0786feda677b81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_t_r_n_g_c_c26_x0___object_1a0db61b942d9dcfc0fb0786feda677b81" kindref="member">entropyGenerated</ref>;</highlight></codeline>
+<codeline lineno="111" refid="struct_t_r_n_g_c_c26_x0___object_1a646231b43dbf2e52b3acd281dec79570" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_t_r_n_g_c_c26_x0___object_1a646231b43dbf2e52b3acd281dec79570" kindref="member">entropyRequested</ref>;</highlight></codeline>
+<codeline lineno="112" refid="struct_t_r_n_g_c_c26_x0___object_1a8b12c8d7eb7c83770745f4141fc62370" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_t_r_n_g_c_c26_x0___object_1a8b12c8d7eb7c83770745f4141fc62370" kindref="member">semaphoreTimeout</ref>;</highlight></codeline>
+<codeline lineno="113" refid="struct_t_r_n_g_c_c26_x0___object_1ab0313babeb997423e9a6311656046bd1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_t_r_n_g_c_c26_x0___object_1ab0313babeb997423e9a6311656046bd1" kindref="member">entropyBuffer</ref>;</highlight></codeline>
+<codeline lineno="114" refid="struct_t_r_n_g_c_c26_x0___object_1a1f564ef1d9b135f644d3c5d11641b9da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_t_r_n_g_c_c26_x0___object_1a1f564ef1d9b135f644d3c5d11641b9da" kindref="member">entropyKey</ref>;</highlight></codeline>
+<codeline lineno="115" refid="struct_t_r_n_g_c_c26_x0___object_1aa9216e6a7f07fd8c287f3d2ab81379d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_t_r_n_g_8h_1aa8a1cce751bd3736d54a843fb48d2413" kindref="member">TRNG_CallbackFxn</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_t_r_n_g_c_c26_x0___object_1aa9216e6a7f07fd8c287f3d2ab81379d6" kindref="member">callbackFxn</ref>;</highlight></codeline>
+<codeline lineno="116" refid="struct_t_r_n_g_c_c26_x0___object_1acebdb4b7fc6c0c21f283e7b00e0ff250" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>SwiP_Struct<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_t_r_n_g_c_c26_x0___object_1acebdb4b7fc6c0c21f283e7b00e0ff250" kindref="member">callbackSwi</ref>;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}<sp/><ref refid="_t_r_n_g_c_c26_x0_8h_1a7aeed919d9d194b64fa1a1f1c8fe3138" kindref="member">TRNGCC26X0_Object</ref>;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>ti_drivers_TRNG_TRNGCC26X0__include<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h"/>
+  </compounddef>
+</doxygen>

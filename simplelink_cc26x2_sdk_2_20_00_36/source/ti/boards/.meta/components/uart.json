@@ -1,0 +1,8 @@
+{
+    "type"        : "UART",
+    "displayName" : "UART", /* generic 2 wire + ground UART; no HW flow control */
+    "signals"     : {
+        "RXD": { "type": "UART_RXD" },
+        "TXD": { "type": "UART_TXD" }
+    }
+}

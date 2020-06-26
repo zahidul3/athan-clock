@@ -1,0 +1,48 @@
+{
+    "name": "SimpleLinkSDK",
+    "displayName": "SimpleLink SDK",
+    "version": "3.60.01.00",
+
+    "includePaths": [
+        "../source",
+        "."
+    ],
+
+    "templates": [{
+        "name": "/ti/drivers/templates/Board.c.xdt",
+        "outputPath": "Board.c"
+    }, {
+        "name": "/ti/drivers/templates/Board.h.xdt",
+        "outputPath": "Board.h"
+    }],
+
+    "topModules": [
+        "/ti/drivers/ADC",
+        "/ti/drivers/ADCBuf",
+        "/ti/drivers/AESCCM",
+        "/ti/drivers/AESECB",
+        "/ti/display/Display",
+        "/ti/drivers/DMA",
+        "/ti/drivers/ECDH",
+        "/ti/drivers/ECDSA",
+        "/ti/drivers/ECJPAKE",
+        "/ti/drivers/GPIO",
+        "/ti/drivers/I2C",
+        "/ti/drivers/NVS",
+        "/ti/drivers/Power",
+        "/ti/drivers/PWM",
+        "/ti/drivers/RF",
+        "/ti/drivers/SD",
+        "/ti/drivers/SHA2",
+        "/ti/drivers/SPI",
+        "/ti/drivers/Timer",
+        "/ti/drivers/TRNG",
+        "/ti/drivers/UART",
+        "/ti/drivers/Watchdog"
+    ],
+
+    "devices": [
+        "CC13.2",
+        "CC26.2"
+    ]
+}

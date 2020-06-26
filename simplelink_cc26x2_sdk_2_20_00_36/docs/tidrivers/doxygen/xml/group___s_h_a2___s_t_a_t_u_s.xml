@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="group___s_h_a2___s_t_a_t_u_s" kind="group">
+    <compoundname>SHA2_STATUS</compoundname>
+    <title>Status Codes</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___s_h_a2___s_t_a_t_u_s_1gaf830601fb3cebbf96c405ca6f1cbbc79" prot="public" static="no">
+        <name>SHA2_STATUS_SUCCESS</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+<para>Successful status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return SHA2_STATUS_SUCCESS if the function was executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="301" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___s_h_a2___s_t_a_t_u_s_1gaf9c9e8e3c5044c83eefdaef9063860a0" prot="public" static="no">
+        <name>SHA2_STATUS_ERROR</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+<para>Generic error status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return SHA2_STATUS_ERROR if the function was not executed successfully and no more specific error is applicable. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="309" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___s_h_a2___s_t_a_t_u_s_1gae87f63ef8b73b1dfba6365930573d0ac" prot="public" static="no">
+        <name>SHA2_STATUS_UNDEFINEDCMD</name>
+        <initializer>(-2)</initializer>
+        <briefdescription>
+<para>An error status code returned by <ref refid="_s_h_a2_8h_1aec000471f31e52bb3e8a44e178a837f2" kindref="member">SHA2_control()</ref> for undefined command codes. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_s_h_a2_8h_1aec000471f31e52bb3e8a44e178a837f2" kindref="member">SHA2_control()</ref> returns SHA2_STATUS_UNDEFINEDCMD if the control code is not recognized by the driver implementation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="318" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___s_h_a2___s_t_a_t_u_s_1ga79f870938f2275ff40d9a923839baba9" prot="public" static="no">
+        <name>SHA2_STATUS_RESOURCE_UNAVAILABLE</name>
+        <initializer>(-3)</initializer>
+        <briefdescription>
+<para>An error status code returned if the hardware or software resource is currently unavailable. </para>        </briefdescription>
+        <detaileddescription>
+<para>SHA2 driver implementations may have hardware or software limitations on how many clients can simultaneously perform operations. This status code is returned if the mutual exclusion mechanism signals that an operation cannot currently be performed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="328" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>SHA2_STATUS_* macros are general status codes returned by SHA2 functions </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

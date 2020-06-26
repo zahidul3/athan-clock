@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="group___e_c_d_s_a___s_t_a_t_u_s" kind="group">
+    <compoundname>ECDSA_STATUS</compoundname>
+    <title>Status Codes</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1ga183cb58b608d3ddca2814118bc3e6d58" prot="public" static="no">
+        <name>ECDSA_STATUS_SUCCESS</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+<para>Successful status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECDSA_STATUS_SUCCESS if the function was executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="392" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="392" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1gaf9e7be7d0379e85deb66de69bcc801f2" prot="public" static="no">
+        <name>ECDSA_STATUS_ERROR</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+<para>Generic error status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECDSA_STATUS_ERROR if the function was not executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="400" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="400" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1gae9514d8ffe14f830a5e8d629ca2c8413" prot="public" static="no">
+        <name>ECDSA_STATUS_UNDEFINEDCMD</name>
+        <initializer>(-2)</initializer>
+        <briefdescription>
+<para>An error status code returned by <ref refid="_e_c_d_s_a_8h_1a63e02bdcc5d5e60f7c4c0f51dfc8793a" kindref="member">ECDSA_control()</ref> for undefined command codes. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_e_c_d_s_a_8h_1a63e02bdcc5d5e60f7c4c0f51dfc8793a" kindref="member">ECDSA_control()</ref> returns ECDSA_STATUS_UNDEFINEDCMD if the control code is not recognized by the driver implementation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="409" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="409" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1ga10c2305f3aad581623a9828b116b6418" prot="public" static="no">
+        <name>ECDSA_STATUS_RESOURCE_UNAVAILABLE</name>
+        <initializer>(-3)</initializer>
+        <briefdescription>
+<para>An error status code returned if the hardware or software resource is currently unavailable. </para>        </briefdescription>
+        <detaileddescription>
+<para>ECDSA driver implementations may have hardware or software limitations on how many clients can simultaneously perform operations. This status code is returned if the mutual exclusion mechanism signals that an operation cannot currently be performed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="419" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="419" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1gaf8e62a453a17a2259dc7d90cdffa1027" prot="public" static="no">
+        <name>ECDSA_STATUS_INVALID_PMSN</name>
+        <initializer>(-4)</initializer>
+        <briefdescription>
+<para>The PMSN passed into the the call is invalid. </para>        </briefdescription>
+        <detaileddescription>
+<para>PMSNs must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="427" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="427" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1ga7f28203b6d117f448e07f6ca9a76fb9b" prot="public" static="no">
+        <name>ECDSA_STATUS_R_LARGER_THAN_ORDER</name>
+        <initializer>(-5)</initializer>
+        <briefdescription>
+<para>The r value passed in is larger than the order of the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>Signature components (r and s) must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="435" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="435" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1gaf49a1701c4762053d1c5bd4f5013f1d2" prot="public" static="no">
+        <name>ECDSA_STATUS_S_LARGER_THAN_ORDER</name>
+        <initializer>(-6)</initializer>
+        <briefdescription>
+<para>The r value passed in is larger than the order of the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>Signature components (r and s) must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="443" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="443" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1ga0b7af7614f3a3f4d318e29f629968524" prot="public" static="no">
+        <name>ECDSA_STATUS_PUBLIC_KEY_NOT_ON_CURVE</name>
+        <initializer>(-7)</initializer>
+        <briefdescription>
+<para>The public key of the other party does not lie upon the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>The public key received from the other party does not lie upon the agreed upon curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="451" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="451" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1ga6759d42de4b04816b814b989ca8e42ab" prot="public" static="no">
+        <name>ECDSA_STATUS_PUBLIC_KEY_LARGER_THAN_PRIME</name>
+        <initializer>(-8)</initializer>
+        <briefdescription>
+<para>A coordinate of the public key of the other party is too large. </para>        </briefdescription>
+        <detaileddescription>
+<para>A coordinate of the public key received from the other party is larger than the prime of the curve. This implies that the point was not correctly generated on that curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="460" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="460" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1gadc0537d9a7af71de05125d7a7abbe578" prot="public" static="no">
+        <name>ECDSA_STATUS_POINT_AT_INFINITY</name>
+        <initializer>(-9)</initializer>
+        <briefdescription>
+<para>The public key to verify against is the point at infinity. </para>        </briefdescription>
+        <detaileddescription>
+<para>The point at infinity is not a valid input. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="467" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="467" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>ECDSA_STATUS_* macros are general status codes returned by ECDSA functions </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

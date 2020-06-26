@@ -1,0 +1,20 @@
+{
+    "name"        : "SD_BOOST",
+    "displayName" : "SD BoosterPack",
+    "headerType"  : "Standard 40 pin",
+    "components"  : {
+        "SD_SPI" : {
+            "name": "SD_SPI",
+            "displayName": "SD SPI",
+            "type": "SD_SPI",
+            "definition": "/ti/boards/components/spiFlash.json",
+            "connections": {
+                /* signal name : header pin # */
+                "CLK"       : 7,
+                "SIMO"      : 15,
+                "SOMI"      : 14,
+                "SELECT"    : 8
+            }
+        }
+    }
+}

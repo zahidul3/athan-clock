@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="union_s_h_a2___operation__" kind="union" language="C++" prot="public">
+    <compoundname>SHA2_Operation_</compoundname>
+    <includes refid="_s_h_a2_8h" local="no">SHA2.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="union_s_h_a2___operation___1a2b79a5674ea9e0dbe2362eeb08f2f0e5" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1a7897667294293c26749c7594b2f8da6c" kindref="member">SHA2_OperationStartHash</ref> *</type>
+        <definition>SHA2_OperationStartHash* SHA2_Operation_::startHash</definition>
+        <argsstring></argsstring>
+        <name>startHash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to a SHA2_OperationStartHash struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="536" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="536" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_s_h_a2___operation___1adc108e7faf533d692aca9ef279ba6e35" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1a693e8d1caab92b5b1a59a5458ab88f96" kindref="member">SHA2_OperationProcessHash</ref> *</type>
+        <definition>SHA2_OperationProcessHash* SHA2_Operation_::processHash</definition>
+        <argsstring></argsstring>
+        <name>processHash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to a SHA2_OperationProcessHash struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="537" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="537" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_s_h_a2___operation___1a7973728d385e6d5667914213c7902a21" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1abb4659258ee0a0ba6aa8404775c8d1d7" kindref="member">SHA2_OperationFinishHash</ref> *</type>
+        <definition>SHA2_OperationFinishHash* SHA2_Operation_::finishHash</definition>
+        <argsstring></argsstring>
+        <name>finishHash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to a SHA2_OperationFinishHash struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="538" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="538" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_s_h_a2___operation___1a5518d9e53dcbc066954f04d4eebeace8" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1ae83d274a9a7429cb65ec6b929d07c7ba" kindref="member">SHA2_OperationOneStepHash</ref> *</type>
+        <definition>SHA2_OperationOneStepHash* SHA2_Operation_::oneStepHash</definition>
+        <argsstring></argsstring>
+        <name>oneStepHash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to a SHA2_OperationOneStepHash struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="539" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="539" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Union containing pointers to all supported operation structs. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="570">
+        <label>SHA2_OperationProcessHash_</label>
+        <link refid="struct_s_h_a2___operation_process_hash__"/>
+      </node>
+      <node id="569">
+        <label>SHA2_OperationFinishlHash_</label>
+        <link refid="struct_s_h_a2___operation_finishl_hash__"/>
+      </node>
+      <node id="567">
+        <label>SHA2_Operation_</label>
+        <link refid="union_s_h_a2___operation__"/>
+        <childnode refid="568" relation="usage">
+          <edgelabel>oneStepHash</edgelabel>
+        </childnode>
+        <childnode refid="569" relation="usage">
+          <edgelabel>finishHash</edgelabel>
+        </childnode>
+        <childnode refid="570" relation="usage">
+          <edgelabel>processHash</edgelabel>
+        </childnode>
+        <childnode refid="571" relation="usage">
+          <edgelabel>startHash</edgelabel>
+        </childnode>
+      </node>
+      <node id="571">
+        <label>SHA2_OperationStartHash_</label>
+        <link refid="struct_s_h_a2___operation_start_hash__"/>
+      </node>
+      <node id="568">
+        <label>SHA2_OperationOneStep_</label>
+        <link refid="struct_s_h_a2___operation_one_step__"/>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="535" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="535" bodyend="540"/>
+    <listofallmembers>
+      <member refid="union_s_h_a2___operation___1a7973728d385e6d5667914213c7902a21" prot="public" virt="non-virtual"><scope>SHA2_Operation_</scope><name>finishHash</name></member>
+      <member refid="union_s_h_a2___operation___1a5518d9e53dcbc066954f04d4eebeace8" prot="public" virt="non-virtual"><scope>SHA2_Operation_</scope><name>oneStepHash</name></member>
+      <member refid="union_s_h_a2___operation___1adc108e7faf533d692aca9ef279ba6e35" prot="public" virt="non-virtual"><scope>SHA2_Operation_</scope><name>processHash</name></member>
+      <member refid="union_s_h_a2___operation___1a2b79a5674ea9e0dbe2362eeb08f2f0e5" prot="public" virt="non-virtual"><scope>SHA2_Operation_</scope><name>startHash</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

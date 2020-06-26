@@ -1,0 +1,15 @@
+[
+    {
+        "metadataVersion": "3.0.0",
+        "id": "com.ti.SIMPLELINK_CC26X2_SDK",
+        "name": "SimpleLink CC26X2 SDK",
+        "version": "2.20.00.36",
+        "type": "software",
+        "devices": ["CC2652R1F"],
+        "allowPartialDownload": "false",
+        "image": "./cc26x2-tirex.png",
+        "license": "../../license_simplelink_cc26x2_sdk_2_20_00_36.txt",
+        "dependencies": [{"packageId": "xdctools", "version": "3.50.07.20", "require": "optional"}],
+        "description": "<p>The SimpleLink™ CC26x2 SDK is part of TI's SimpleLink MCU platform, offering a single development environment that delivers flexible hardware, software and tool options for customers developing wired and wireless applications. SimpleLink CC26x2 Software Development Kit (SDK) is a set of software development tools that enables_engineers to develop software applications on the SimpleLink CC26x2 ULP devices. This powerful software toolkit provides a cohesive and consistent software experience for all SimpleLink CC26x2 users by packaging essential software components such as TI RTOS, peripheral drivers, TI 15.4-Stack, Bluetooth® low energy, and TI OpenThread Stack examples in one easy-to-use software package along with exhaustive documentation. For more information, visit <a href=\"http://www.ti.com/simplelink\">http://www.ti.com/simplelink</a>.</p>"
+    }
+]

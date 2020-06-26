@@ -1,0 +1,1024 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TI 15.4-Stack OAD &mdash; SimpleLink™ CC26x2 TI 15.4-Stack User&#39;s Guide 2.06.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI 15.4-Stack User&#39;s Guide 2.06.00.00 documentation" href="../index.html"/>
+        <link rel="up" title="Over-the-Air Download (OAD)" href="../oad/index-ti154stack.html"/>
+        <link rel="next" title="OAD Image Tool" href="../oad/tools.html"/>
+        <link rel="prev" title="Flash Layout for Off-Chip OAD" href="../oad/flash-layout-off-chip.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ti154stack oad-transport";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../ti154stack-guide/index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI 15.4-Stack User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.06.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-ti154stack.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tirtos/index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-cc26x2.html">TI 15.4-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/ti154stack-index.html">Debugging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../oad/index-ti154stack.html">Over-the-Air Download (OAD)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../oad/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/bim.html">Boot Image Manager (BIM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/image-header.html">OAD Image Header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/ext-flash-image-header.html">OAD External Flash Image Header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/flash-layout-off-chip.html">Flash Layout for Off-Chip OAD</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TI 15.4-Stack OAD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#oad-protocol">OAD Protocol</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#oad-messages">OAD Messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oad-message-flow">OAD Message Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oad-configurable-parameters">OAD Configurable Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#oad-architecture">OAD Architecture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modules">Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#oad-protocol-module">OAD Protocol Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#initialization">Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-interface">Application Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#oad-storage-module">OAD Storage Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#oad-storage-configuration">OAD Storage Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initilization">Initilization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Application Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#oad-client-module">OAD Client Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Application Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-function-trace">Example Function Trace</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#oad-server">OAD Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oad-pause-and-resume">OAD Pause and Resume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#support-for-multiple-oad-files">Support for multiple OAD files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oad-default-settings">OAD Default Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/tools.html">OAD Image Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack-guide/migration-guide.html">Migration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack-guide/references-cc26x2.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#terms-and-acronyms">Terms and Acronyms</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../ti154stack-guide/index-cc26x2.html">SimpleLink™ CC26x2 TI 15.4-Stack User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../ti154stack-guide/index-cc26x2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../oad/index-ti154stack.html">Over-the-Air Download (OAD)</a> &raquo;</li>
+      
+    <li>TI 15.4-Stack OAD</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ti-15-4-stack-oad">
+<h1>TI 15.4-Stack OAD<a class="headerlink" href="#ti-15-4-stack-oad" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the TI 15.4-Stack specific implementation of OAD. First
+the OAD protocol is explained, then the various software modules (OAD Client,
+OAD Storage, etc).</p>
+<div class="section" id="oad-protocol">
+<span id="sec-oad-protocol"></span><h2>OAD Protocol<a class="headerlink" href="#oad-protocol" title="Permalink to this headline">¶</a></h2>
+<p>The OAD protocol is based on the principle that the OAD Server initiates and the
+OAD Client the request the OAD FW image blocks. The OAD client is responsible
+for requesting image blocks ad handling an error conditions and re-requesting
+image block when required. Once the OAD has completed the OAD Client will reset
+and start running the new image.</p>
+<div class="section" id="oad-messages">
+<h3>OAD Messages<a class="headerlink" href="#oad-messages" title="Permalink to this headline">¶</a></h3>
+<p>The OAD Protocol uses requests and responses between the OAD Server
+(Distributer) and OAD Client (Target). The supported messages are described in
+<a class="reference internal" href="#tab-oad-protocol-messages"><span class="std std-numref">Table 12.</span></a>.</p>
+<table border="1" class="docutils" id="tab-oad-protocol-messages">
+<caption><span class="caption-number">Table 12. </span><span class="caption-text">OAD Protocol Message Types</span><a class="headerlink" href="#tab-oad-protocol-messages" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="5%" />
+<col width="2%" />
+<col width="2%" />
+<col width="91%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Message</th>
+<th class="head">Client</th>
+<th class="head">Server</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FwVersionReq</td>
+<td>RX</td>
+<td>TX</td>
+<td>Request Firmware version of an OAD Client node.</td>
+</tr>
+<tr class="row-odd"><td>FwVersionRsp</td>
+<td>TX</td>
+<td>RX</td>
+<td>Response sent from an OAD Client node contatining the firmware version currently running. The OAD Server uses this information to determine if an update is nessisary.</td>
+</tr>
+<tr class="row-even"><td>ImgIdentifyReq</td>
+<td>RX</td>
+<td>TX</td>
+<td>Request containing the OAD header of the new FW image sent to a specific OAD client node.</td>
+</tr>
+<tr class="row-odd"><td>ImgIdentifyRsp</td>
+<td>TX</td>
+<td>RX</td>
+<td>Response from the OAD client node. If the OAD image header is accepted by the OAD client node then the response will contain a success status, if not it will contain a fail status. The reasons for an OAD client node to send a fail status could include: Invalid image type, Invalid version (Client is running a newer version), or Invalid binary size.</td>
+</tr>
+<tr class="row-even"><td>SendOadImgBlockReq</td>
+<td>TX</td>
+<td>RX</td>
+<td>If the OAD client node accepts the image header in the ImgIdentifyReq then it will request OAD blocks using the SendOadImgBlockReq. The OAD client will implement a timeout for the SendOadImgBlockRsp and will re-request the OAD block n times if a timeout occurs.</td>
+</tr>
+<tr class="row-odd"><td>SendOadImgBlockRsp</td>
+<td>RX</td>
+<td>TX</td>
+<td>The requested OAD block will be sent by the OAD server in a SendOadImgBlockRsp. The SendOadImgBlockReq’s and SendOadImgBlockRsp’s will continue until all blocks have been received by the OAD client. Default OAD_BLOCK_SIZE = 128.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="oad-message-flow">
+<h3>OAD Message Flow<a class="headerlink" href="#oad-message-flow" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#fig-oad-protocol-flow"><span class="std std-numref">Figure 55.</span></a> shows the flow of OAD messages throughout the
+entire OAD process.</p>
+<div class="figure align-center" id="fig-oad-protocol-flow">
+<img alt="../_images/fig-oad-protocol-flow.png" src="../_images/fig-oad-protocol-flow.png" />
+<p class="caption"><span class="caption-number">Figure 55. </span><span class="caption-text">OAD Protocol Flow Diagram</span></p>
+</div>
+<p>The following sequence diagrams illustrate the message flow for the various
+stages in the OAD. The message flow assumes that the Server is a Fully
+Functional Device (<a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-ffd"><span class="xref std std-term">FFD</span></a>) and the Client is a Reduced Functional Device
+(<a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-rfd"><span class="xref std std-term">RFD</span></a>).</p>
+<div class="section" id="fw-version">
+<h4>FW Version<a class="headerlink" href="#fw-version" title="Permalink to this headline">¶</a></h4>
+<p>The FW version is requested by the application on the Server and responded to by
+the Application on the Client. The Client will only receive the request when it
+sends a Data Request to the Server.</p>
+<div class="figure align-center" id="id6">
+<img alt="../_images/fig-oad-fw-version.png" src="../_images/fig-oad-fw-version.png" />
+<p class="caption"><span class="caption-number">Figure 56. </span><span class="caption-text">FwVersionReq and FwVersionRsp</span></p>
+</div>
+</div>
+<div class="section" id="initiating-oad">
+<h4>Initiating OAD<a class="headerlink" href="#initiating-oad" title="Permalink to this headline">¶</a></h4>
+<p>An OAD is initiated by the OAD Server and is accepted by the OAD Client. The
+client will only receive the request when it sends a Data Request to the server.
+The OAD Initiate request will only be accepted by the client if the image header
+in the request is valid.</p>
+<div class="figure align-center" id="id7">
+<img alt="../_images/fig-oad-init.png" src="../_images/fig-oad-init.png" />
+<p class="caption"><span class="caption-number">Figure 57. </span><span class="caption-text">OAD process being initiated.</span></p>
+</div>
+</div>
+<div class="section" id="oad-block-transfers">
+<h4>OAD Block Transfers<a class="headerlink" href="#oad-block-transfers" title="Permalink to this headline">¶</a></h4>
+<p>An OAD Client sends a Image Block Request to to OAD Server. There are three
+possible outcomes of this request:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A single block is transfered successfully</li>
+<li>A single block is transfered, but requires multiple poll requests</li>
+<li>A request time-out occurs and the request is retried</li>
+</ul>
+</div></blockquote>
+<p><a class="reference internal" href="#fig-oad-block-transfer"><span class="std std-numref">Figure 58.</span></a> illustrates a message flow for a single block
+transfer, and assumes no timeouts occur. Block n represent block 0 to the 2nd to
+last image block.</p>
+<div class="figure align-center" id="fig-oad-block-transfer">
+<img alt="../_images/fig-oad-block-transfer.png" src="../_images/fig-oad-block-transfer.png" />
+<p class="caption"><span class="caption-number">Figure 58. </span><span class="caption-text">Single Block Transfer.</span></p>
+</div>
+<p><a class="reference internal" href="#fig-oad-block-poll"><span class="std std-numref">Figure 59.</span></a> illustrates a message flow for a single block
+transfer, where the OAD Server does not retrieve the image block before the
+clients Data Request. Block n represent a random block in the image where the
+image block is not ready in time for the Data Request.</p>
+<div class="figure align-center" id="fig-oad-block-poll">
+<img alt="../_images/fig-oad-block-poll.png" src="../_images/fig-oad-block-poll.png" />
+<p class="caption"><span class="caption-number">Figure 59. </span><span class="caption-text">Single Block Transer with Multiple Poll Requests.</span></p>
+</div>
+<p><a class="reference internal" href="#fig-oad-block-transfer-retry"><span class="std std-numref">Figure 60.</span></a> illustrates a message flow for a single
+block transfer, where the OAD clients block request is lost, possibly due to a
+queue overflow. Block n represent a random block in the image where the image
+block request is lost. The below assumes a maximum of 3 Data Request time-outs.</p>
+<div class="figure align-center" id="fig-oad-block-transfer-retry">
+<img alt="../_images/fig-oad-block-transfer-retry.png" src="../_images/fig-oad-block-transfer-retry.png" />
+<p class="caption"><span class="caption-number">Figure 60. </span><span class="caption-text">Single Block Timeout and is Retried.</span></p>
+</div>
+<p>The down fall here is that the OAD Client will continue sending poll requests
+for a block response that will not come. This should be considered when choosing
+the OAD_POLL_INTERVAL. The trade off is that for longer OAD_POLL_INTERVAL’s the
+OAD Server will need to queue the block request in the MAC data queue of the
+Embedded collector for longer. Queuing OAD blocks in the MAC data buffer for
+large amounts of time could lead to a queue overflow and further block requests
+not being serviced.</p>
+</div>
+</div>
+<div class="section" id="oad-configurable-parameters">
+<h3>OAD Configurable Parameters<a class="headerlink" href="#oad-configurable-parameters" title="Permalink to this headline">¶</a></h3>
+<p>The following parameters can be configured at compile-time:</p>
+<ul class="simple">
+<li>OAD_POLL_INTERVAL: This define is measured in ms and controls the timing on
+the OAD Client from the sending the Block Request to sending the poll
+request for the OAD Block Response. A smaller OAD_POLL_INTERVAL decreases
+the amount of time the OAD Block is queued in the collector and hence the
+chance that the collector will suffer a buffer overflow. However the
+Collector will take a finite amount of time to retrieve the OAD block, and
+queue the OAD Block Response, so care must be taken to make the
+OAD_POLL_INTERVAL long enough to allow the collector to retrieve the OAD
+block after receiving the OAD Block request. It is advisable to make this as
+small as possible in large networks where the collector needs to queue
+messages for many RFD’s.</li>
+<li>OAD_REQ_TIMEOUT: This define is measured in ms. It defines the amount of
+time on the OAD Client between 1 block request and the next block request.
+Reducing this will reduce the time taken to send an OAD. How quickly the OAD
+takes to complete is application dependent, severaly power constrained
+devices may need large periods between block req to allow the power source
+to recover. Other applications may require the OAD to complete quickly, such
+as in systems where a service engineer is required to performing the OAD.</li>
+<li>OAD_BLOCK_SIZE: This define also effects the time taken to complete the OAD.
+The OAD_BLOCK_SIZE is the number of bytes sent in an OAD Block and can be a
+minimum of 16 and a maximum of 496B. Care must be taking when setting this
+to a high value in environments where noise is a concern, as the chances of
+a block being corrupted due to an interfere increases with the size of the
+block.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Increasing <code class="docutils literal"><span class="pre">OAD_BLOCK_SIZE</span></code> past 128 on a linux VM may cause
+instability.</p>
+</div>
+</div>
+</div>
+<div class="section" id="oad-architecture">
+<span id="sec-oad-client"></span><h2>OAD Architecture<a class="headerlink" href="#oad-architecture" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#fig-oad-block-diagram"><span class="std std-numref">Figure 61.</span></a> shows the SW Architecture for the OAD
+feature.</p>
+<div class="figure align-center" id="fig-oad-block-diagram">
+<img alt="../_images/fig-oad-block-diagram.png" src="../_images/fig-oad-block-diagram.png" />
+<p class="caption"><span class="caption-number">Figure 61. </span><span class="caption-text">TI 15.4-Stack OAD Block Diagram</span></p>
+</div>
+<div class="section" id="modules">
+<h3>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h3>
+<p>TI 15.4-Stack OAD comprises of the following software modules:</p>
+<ul class="simple">
+<li>OAD Protocol Module</li>
+<li>OAD Storage Module</li>
+<li>OAD Client Module</li>
+</ul>
+<p>The OAD Server Module is simpler to than the OAD client, and does not need to
+handle events, error conditions or retires. The OAD server functionality is
+embedded into the existing Linux Collector module.</p>
+</div>
+</div>
+<div class="section" id="oad-protocol-module">
+<h2>OAD Protocol Module<a class="headerlink" href="#oad-protocol-module" title="Permalink to this headline">¶</a></h2>
+<p>The OAD Protocol interface provides device independent APIs, data types, and
+macros. The Over the Air Download (OAD) Protocol module provides protocol
+functionality for transferring an OAD image. The APIs in this module serve as an
+interface to a TI-RTOS application and offers functionality for an OAD messaging
+protocol between OAD Sever and the OAD Client. The module handles the formatting
+and parsing of messages.</p>
+<div class="section" id="initialization">
+<h3>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h3>
+<p>In order to use the OAD Protocol APIs, the application is required to provide
+application specific configuration and callbacks. For the application to process
+OAD Messages the following callback table must be provided:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/** @brief OADProtocol callback table</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="k">typedef</span> <span class="k">struct</span>
+<span class="p">{</span>
+    <span class="n">fwVersionReqCb_t</span>      <span class="n">pfnFwVersionReqCb</span><span class="p">;</span> <span class="c1">///&lt; Incoming FW Req</span>
+    <span class="n">fwVersionRspCb_t</span>      <span class="n">pfnFwVersionRspCb</span><span class="p">;</span> <span class="c1">///&lt; Incoming FW Version Rsp</span>
+    <span class="n">oadImgIdentifyReqCb_t</span> <span class="n">pfnOadImgIdentifyReqCb</span><span class="p">;</span> <span class="c1">///&lt; Incoming Image IdentifyReq</span>
+    <span class="n">oadImgIdentifyRspCb_t</span> <span class="n">pfnOadImgIdentifyRspCb</span><span class="p">;</span> <span class="c1">///&lt; Incoming Image IdentifyRsp</span>
+    <span class="n">oadBlockReqCb_t</span>       <span class="n">pfnOadBlockReqCb</span><span class="p">;</span> <span class="c1">///&lt; Incoming OAD Block Req</span>
+    <span class="n">oadBlockRspCb_t</span>       <span class="n">pfnOadBlockRspCb</span><span class="p">;</span> <span class="c1">///&lt; Incoming OAD Block Rsp</span>
+<span class="p">}</span> <span class="n">OADProtocol_MsgCBs_t</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>For the OAD module to allocate buffers and send messages the following platform
+specific call back must be provided:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/** @brief OADProtocol platform access functions</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="k">typedef</span> <span class="k">struct</span>
+<span class="p">{</span>
+    <span class="n">plaformAccessAllocMsg_t</span>         <span class="n">pfnRadioAccessAllocMsg</span><span class="p">;</span>   <span class="c1">///&lt; Function for allocating a message buffer</span>
+    <span class="n">platformAccessPacketSend_t</span>      <span class="n">pfnRadioAccessPacketSend</span><span class="p">;</span> <span class="c1">///&lt; Function for sending message over the radio</span>
+<span class="p">}</span> <span class="n">OADProtocol_PlatformAccessFxns_t</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">OADProtocol_init()</span></code> must be called before any other OADProtocol APIs. The
+following parametric configuration is passed:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/** @brief RF parameter struct</span>
+<span class="cm"> *  RF parameters are used with the OADProtocol_open() and OADProtocol_Params_init() call.</span>
+<span class="cm"> */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">OADProtocol_PlatformAccessFxns_t</span>  <span class="o">*</span><span class="n">pPlatformAccessFxns</span><span class="p">;</span>    <span class="c1">///&lt; Platform access function table</span>
+    <span class="n">OADProtocol_MsgCBs_t</span>              <span class="o">*</span><span class="n">pProtocolMsgCallbacks</span><span class="p">;</span>  <span class="c1">///&lt; Application Callbacks for pressing packets</span>
+<span class="p">}</span> <span class="n">OADProtocol_Params_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="application-interface">
+<h3>Application Interface<a class="headerlink" href="#application-interface" title="Permalink to this headline">¶</a></h3>
+<p>The OAD Protocol module formats and parses the OAD messages. The following API
+is exposed:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/** @brief  Function to initialize the OADProtocol_Params struct to its defaults</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @param  params      An pointer to RF_Params structure for</span>
+<span class="cm"> *                      initialization</span>
+<span class="cm"> *</span>
+<span class="cm"> *  Defaults values are:</span>
+<span class="cm"> *      maxretires          = OADProtocol_DEFAULT_MAX_RETRIES</span>
+<span class="cm"> *     pRadioAccessFxns     = {0}</span>
+<span class="cm"> *      pCallbacks          = {0}</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">OADProtocol_Params_init</span><span class="p">(</span><span class="n">OADProtocol_Params_t</span> <span class="o">*</span><span class="n">params</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function that initializes the Wsn Protocol Task and creates all TI-RTOS objects</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">OADProtocol_init</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function to open the OADProtocol module</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @param  params      An pointer to RF_Params structure for initialization</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">OADProtocol_open</span><span class="p">(</span><span class="n">OADProtocol_Params_t</span> <span class="o">*</span><span class="n">params</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function to parse OADProtocol packets</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @param  srcAddr             address of the device that sent the message</span>
+<span class="cm"> *  @param  incomingPacket      pointer to packet to be parsed</span>
+<span class="cm"> *  @param  packetLen           length of the message</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="n">OADProtocol_Status_t</span> <span class="nf">OADProtocol_ParseIncoming</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">pSrcAddr</span><span class="p">,</span> <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">incomingPacket</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">packetLen</span><span class="p">);</span>
+
+
+<span class="cm">/** @brief  Function to send a FW version request packet</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @param  dstAddress          Address to send the request to</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @return                     Status</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="n">OADProtocol_Status_t</span> <span class="nf">OADProtocol_sendFwVersionReq</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">pDstAddress</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function to send a FW version response packet</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @param  dstAddress          Address to send the response to</span>
+<span class="cm"> *  @param  fwVersion           Firmware version string to send</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @return                     Status</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="n">OADProtocol_Status_t</span> <span class="nf">OADProtocol_sendFwVersionRsp</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">pDstAddress</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fwVersion</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function to send an OAD image identify request packet</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @param  dstAddress          Address to send the request to *</span>
+<span class="cm"> *  @param  imgId               image ID used for requesting image blocks</span>
+<span class="cm"> *  @param  pImgInfoData        Image header</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @return                     Status</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="n">OADProtocol_Status_t</span> <span class="nf">OADProtocol_sendImgIdentifyReq</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">pDstAddress</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">imgId</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pImgInfoData</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function to send an OAD image identify request packet</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @param  dstAddress          Address to send the response to</span>
+<span class="cm"> *  @param  status              status to send</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @return                     Status</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="n">OADProtocol_Status_t</span> <span class="nf">OADProtocol_sendOadIdentifyImgRsp</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">pDstAddress</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">status</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function to send an OAD block request packet</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @param  dstAddress          Address to send the request to</span>
+<span class="cm"> *  @param  imgId               image ID of image blocks</span>
+<span class="cm"> *  @param  blockNum            block Number to request</span>
+<span class="cm"> *  @param  multiBlockSize      Numer of blocks in the multi Block transfer (0 or 1 for none-multiblock)</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @return                     Status</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="n">OADProtocol_Status_t</span> <span class="nf">OADProtocol_sendOadImgBlockReq</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">pDstAddress</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">imgId</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">blockNum</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">multiBlockSize</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function to send an OAD block response packet</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @param  dstAddress          Address to send the response to</span>
+<span class="cm"> *  @param  imgId               image ID of image blocks</span>
+<span class="cm"> *  @param  blockNum            Block number</span>
+<span class="cm"> *  @param  block               pointer to image block</span>
+<span class="cm"> *</span>
+<span class="cm"> *  @return                     Status</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="n">OADProtocol_Status_t</span> <span class="nf">OADProtocol_sendOadImgBlockRsp</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">pDstAddress</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">imgId</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">blockNum</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<p>To use the OAD Protocol module to format and parse OAD messages, the application
+calls the following APIs:</p>
+<blockquote>
+<div><ul class="simple">
+<li>OADProtocol_init(): Initialize the OADProtocol module/task</li>
+<li>OADProtocol_Params_init(): Initialize a OADProtocol_Params structure with
+default values. Then change the parameters from non-default values as
+needed.</li>
+<li>OADProtocol_open(): Open an instance of the OADProtocol module, passing the
+initialized parameters.</li>
+<li>OADProtocol_sendFwRequest(): This is an example of an OAD message that is
+formated and sent.</li>
+</ul>
+</div></blockquote>
+<p>The following code example opens OADProtocol, sends a FW version request and
+processes the response.:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">OADProtocol_packetCBs_t</span> <span class="n">OADProtocolCbs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nb">NULL</span><span class="p">,</span> <span class="c1">//Incoming FW Req</span>
+  <span class="n">fwVersionReqCb</span><span class="p">,</span> <span class="c1">//Incoming FW Version Rsp</span>
+  <span class="nb">NULL</span><span class="p">,</span> <span class="c1">//Incoming Image Identify Req</span>
+  <span class="nb">NULL</span><span class="p">,</span> <span class="c1">//Incoming Image Identify Rsp</span>
+  <span class="nb">NULL</span><span class="p">,</span> <span class="c1">//Incoming OAD Block Req</span>
+  <span class="nb">NULL</span><span class="p">,</span> <span class="c1">//Incoming OAD Block Rsp</span>
+  <span class="nb">NULL</span><span class="p">,</span> <span class="c1">//Error callback</span>
+<span class="p">};</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">fwVersionRspCb</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">srcAddr</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fwVersionStr</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">//Do something with srcAddr and fwVersionStr</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">someTaskInit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">OADProtocol_init</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">someTaskFxn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Set Default parameters structure</span>
+  <span class="k">static</span> <span class="n">OADProtocol_Params_t</span> <span class="n">OADProtocol_params</span><span class="p">;</span>
+
+  <span class="c1">// Initialize and open the Wsn Protocol Task</span>
+  <span class="n">OADProtocol_Params_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">OADProtocol_params</span><span class="p">);</span>
+  <span class="n">OADProtocol_params</span><span class="p">.</span><span class="n">pCallbacks</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">OADProtocolCbs</span><span class="p">;</span>
+  <span class="n">OADProtocol_params</span><span class="p">.</span><span class="n">devType</span> <span class="o">=</span> <span class="n">OADProtocol_DevType_Concentrator</span><span class="p">;</span>
+  <span class="n">OADProtocol_params</span><span class="p">.</span><span class="n">devAddress</span> <span class="o">=</span> <span class="n">OADProtocol_CONCENTRATOR_ADDRESS</span><span class="p">;</span>
+  <span class="n">OADProtocol_open</span><span class="p">(</span><span class="o">&amp;</span><span class="n">OADProtocol_params</span><span class="p">);</span>
+
+  <span class="n">OADProtocol_sendFwVersionReq</span><span class="p">(</span><span class="n">nodeAddress</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="oad-storage-module">
+<h2>OAD Storage Module<a class="headerlink" href="#oad-storage-module" title="Permalink to this headline">¶</a></h2>
+<p>The OAD Storage interface provides device independent APIs, data types, and
+macros for Storing the OAD image. The OAD Storage module calls into oad_target,
+which provide the device dependent functionality to write the OAD image into
+flash. oad_target contains the support for internal (on-chip) and external
+(off-chip) OAD Image storage.</p>
+<div class="section" id="oad-storage-configuration">
+<h3>OAD Storage Configuration<a class="headerlink" href="#oad-storage-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The oad_target module can be configured at build time to use on-chip or off chip
+storage by linking in the correct target c file:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">oad_target_external_flash.c</span></code></li>
+<li><code class="docutils literal"><span class="pre">oad_target_internal_flash.c</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For on-chip OAD, the OAD Storage module must be built with
+<code class="docutils literal"><span class="pre">FEATURE_OAD_ONCHIP</span></code> defined.</p>
+</div>
+</div>
+<div class="section" id="initilization">
+<h3>Initilization<a class="headerlink" href="#initilization" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">OADStorage_init()</span></code> must be called before any other OADTarget APIs.</p>
+</div>
+<div class="section" id="id3">
+<h3>Application Interface<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>The OAD Storage module exposes the following API for staring the OAD image:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/*********************************************************************</span>
+<span class="cm"> * @fn      OADStorage_init</span>
+<span class="cm"> *</span>
+<span class="cm"> * @brief   Initialise the OAD Target Profile.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param   None.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return  None.</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">OADStorage_init</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="cm">/*********************************************************************</span>
+<span class="cm"> * @fn      OADStorage_imgIdentifyWrite</span>
+<span class="cm"> *</span>
+<span class="cm"> * @brief   Process the Image Identify Write.  Determine from the received OAD</span>
+<span class="cm"> *          Image Header if the Downloaded Image should be acquired.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param   pValue     - pointer to data to be written</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return  status</span>
+<span class="cm"> */</span>
+<span class="k">extern</span> <span class="n">OADStorage_Status_t</span> <span class="nf">OADStorage_imgIdentifyWrite</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pValue</span><span class="p">);</span>
+
+<span class="cm">/*********************************************************************</span>
+<span class="cm"> * @fn      OADStorage_imgBlockWrite</span>
+<span class="cm"> *</span>
+<span class="cm"> * @brief   Process the Image Block Write.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param   connHandle - connection message was received on</span>
+<span class="cm"> * @param   pValue - pointer to data to be written</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return  status</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="n">OADStorage_Status_t</span> <span class="nf">OADStorage_imgBlockWrite</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pValue</span><span class="p">);</span>
+
+<span class="cm">/*********************************************************************</span>
+<span class="cm"> * @fn      OADStorage_imgFinalise</span>
+<span class="cm"> *</span>
+<span class="cm"> * @brief   Checks the image CRC and marks the image for use. The BIM</span>
+<span class="cm"> *          will than copy the image (for off-chip) and execute.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param  none</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return  status</span>
+<span class="cm"> */</span>
+<span class="n">OADStorage_Status_t</span> <span class="nf">OADStorage_imgFinalise</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="cm">/*********************************************************************</span>
+<span class="cm"> * @fn      OADStorage_close</span>
+<span class="cm"> *</span>
+<span class="cm"> * @brief   Releases the resource required for OAD storage.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param  none</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return none</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">OADStorage_close</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="oad-client-module">
+<h2>OAD Client Module<a class="headerlink" href="#oad-client-module" title="Permalink to this headline">¶</a></h2>
+<p>The OAD client module has been designed to provide a simple and customizable
+implementation for the customer. In its most rudimentary form, this
+module is responsible for accepting/rejecting an OAD interaction based
+on image header criteria, storing the image in its appropriate location,
+and causing a device reset if the download is successful so that the
+downloaded application image is run by the <a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-bim"><span class="xref std std-term">BIM</span></a>.</p>
+<p>The OAD Client module provides a service to process and generate application
+events for OAD Client functionality, it is specific to a TI 15.4-Stack
+application. It houses the code required for the application to act as an OAD
+Target, reducing the code needing to be added in the application files. The OAD
+Client uses the services provided by the OAD_Protocol and OAD_Storage modules.</p>
+<div class="section" id="id4">
+<h3>Initialization<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>In order for the OAD Client module to process and generate application events it
+needs to be initialized with an event handle used to set event masks as they
+occur and the applications semaphore that can be used to wake up the
+application after an event is set.</p>
+<p><code class="docutils literal"><span class="pre">OADClient_init()</span></code> must be called before the module can process OAD events.
+The following parametric configuration is passed:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/** @brief RF parameter struct</span>
+<span class="cm">*  RF parameters are used with the SOADProtocol_open()</span>
+<span class="cm">*   and SOADProtocol_Params_init() call.</span>
+<span class="cm">*/</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">uint16_t</span> <span class="o">*</span><span class="n">pEvent</span><span class="p">;</span>             <span class="c1">///&lt; Event handle to post to</span>
+    <span class="n">ICall_Semaphore</span> <span class="n">eventSem</span><span class="p">;</span>    <span class="c1">///&lt; Semaphore to post event</span>
+<span class="p">}</span> <span class="n">OADClient_Params_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Application Interface<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>The OAD Client module formats and parses the OAD messages. The following
+API is exposed:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/** @brief  Function to open the OADProtocol module</span>
+<span class="cm">*</span>
+<span class="cm">*  @param  params      An pointer to OADClient_Params_t structure</span>
+<span class="cm">*  for initialization</span>
+<span class="cm">*/</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">OADClient_open</span><span class="p">(</span><span class="n">OADClient_Params_t</span> <span class="o">*</span><span class="n">params</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function to process OAD events</span>
+<span class="cm">*</span>
+<span class="cm">*  @param  pEvent      Event to process</span>
+<span class="cm">*/</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="nf">OADClient_processEvent</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="o">*</span><span class="n">pEvent</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function abort OAD</span>
+<span class="cm">*</span>
+<span class="cm">*  @param  resume      set to true if a auto resume is required</span>
+<span class="cm">*/</span>
+<span class="kt">void</span> <span class="nf">OADClient_abort</span><span class="p">(</span><span class="kt">bool</span> <span class="n">resume</span><span class="p">);</span>
+
+<span class="cm">/** @brief  Function abort OAD</span>
+<span class="cm">*</span>
+<span class="cm">*  @param  delay      time in ms to start resume</span>
+<span class="cm">*/</span>
+<span class="kt">void</span> <span class="nf">OADClient_resume</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">delay</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-function-trace">
+<h3>Example Function Trace<a class="headerlink" href="#example-function-trace" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#fig-oad-req-message-flow"><span class="std std-numref">Figure 62.</span></a> shows the typical function flow for an OAD
+Client to send a message from the Application through the OAD Client and
+OAD Protocol modules to the MAC API.</p>
+<div class="figure align-center" id="fig-oad-req-message-flow">
+<img alt="../_images/fig-oad-req-message-flow.png" src="../_images/fig-oad-req-message-flow.png" />
+<p class="caption"><span class="caption-number">Figure 62. </span><span class="caption-text">Block Request message flow.</span></p>
+</div>
+<p><a class="reference internal" href="#fig-oad-rsp-message-flow"><span class="std std-numref">Figure 63.</span></a> shows the typical function flow for an OAD
+Client receiving a messge from the OAD Server through the OAD Protocol module to
+the MAC API.</p>
+<div class="figure align-center" id="fig-oad-rsp-message-flow">
+<img alt="../_images/fig-oad-rsp-message-flow.png" src="../_images/fig-oad-rsp-message-flow.png" />
+<p class="caption"><span class="caption-number">Figure 63. </span><span class="caption-text">Block Response processing.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="oad-server">
+<span id="sec-oad-server"></span><h2>OAD Server<a class="headerlink" href="#oad-server" title="Permalink to this headline">¶</a></h2>
+<p>There is no separate tool for the OAD Server, OAD Server functionality is
+provided by the Linux Collector Application, part of the <a class="reference external" href="http://www.ti.com/tool/ti-15.4-stack-gateway-linux-sdk">TI 15.4-Stack Linux
+SDK</a>. When the collector application is built without the <code class="docutils literal"><span class="pre">IS_HEADLESS</span></code> flag
+an interactive command-line interface to the collector application exposes the
+following functionality:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Devices can be selected</li>
+<li>A firmware file can be selected for transfer</li>
+<li>LED toggle requests can be sent to the selected device</li>
+<li>Version requests can be sent to the selected device</li>
+<li>Firmware update requests can be sent to the selected device</li>
+</ul>
+</div></blockquote>
+<p>A typical view of this interface</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">TI</span> <span class="n">Collector</span>
+<span class="nl">Nwk</span><span class="p">:</span> <span class="n">Started</span>
+<span class="n">Sensor</span> <span class="mh">0x0001</span><span class="o">:</span> <span class="n">Temp</span> <span class="mi">25</span><span class="p">,</span> <span class="n">RSSI</span> <span class="o">-</span><span class="mi">18</span>
+<span class="n">Sensor</span> <span class="mh">0x0002</span><span class="o">:</span> <span class="n">OAD</span> <span class="n">Block</span> <span class="mi">211</span> <span class="n">of</span> <span class="mi">960</span>
+
+
+<span class="nl">Info</span><span class="p">:</span> <span class="n">Sending</span> <span class="mh">0x0002</span> <span class="n">FW</span> <span class="n">update</span> <span class="n">Req</span>
+<span class="nl">cmd</span><span class="p">:</span> <span class="n">u</span>
+</pre></div>
+</div>
+<p>The available commands are:</p>
+<ul class="simple">
+<li>sxx: Select a device. Example ‘s1’ or ‘s0x1234’</li>
+<li>o:   Open or close the network for new devices to join</li>
+<li>t:   Send an LED toggle request to selected device</li>
+<li>v:   Send a version request to selected device</li>
+<li>u:   Send FW update request to selected device</li>
+<li>fxx: Set FW file from configured OAD FW dir. Example ‘f sensor_mac_oad_cc13x0lp_app_v2.bin’</li>
+</ul>
+</div>
+<div class="section" id="oad-pause-and-resume">
+<h2>OAD Pause and Resume<a class="headerlink" href="#oad-pause-and-resume" title="Permalink to this headline">¶</a></h2>
+<p>The TI 15.4-Stack OAD feature supports the following robustness features:</p>
+<ol class="arabic simple">
+<li>Timeouts: This is when a the data request for a block response is not
+answered. The data request delay from an OAD block request being sent is set
+by OADBLOCKREQPOLLDELAY ms, it is advised that this be set as short as
+possible to avoid unnecessary queueing of data in the Co-Processor. A
+timeout is typically caused by the Linux Collector taking too long to read
+the OAD Block from the FW Image file (due to CPU load). The number of
+timeouts before a retry is set by OADMAXTIMEOUTS.</li>
+<li>Retries: A retry is when the maximum number timeouts has expired before the
+OAD Block Response has been received. In his case the OAD Block Request is
+resent. The number of retires before an OAD Abort is set by OADMAXRETRIES.</li>
+<li>Aborts: The OAD is aborted after there are OADMAXRETRIES block requests with
+no response. After an OAD abort the OAD is attempted to be resumed after
+OADBLOCKAUTORESUMEDELAY ms, if the OAD abort again on the same block number
+the OAD is terminated.</li>
+</ol>
+<p>The OAD is aborted if the device Orphans, when the device rejoins an OAD resume
+is attempted. If the device is reset / powered off during an OAD the device will
+attempt to resume when it rejoins. The block it resumes from is set to the first
+block of the page it was aborted from in case the flash page was corrupted by
+the power cycle.</p>
+</div>
+<div class="section" id="support-for-multiple-oad-files">
+<h2>Support for multiple OAD files<a class="headerlink" href="#support-for-multiple-oad-files" title="Permalink to this headline">¶</a></h2>
+<p>The OAD protocol supports multiple OAD images by using an Image ID that is sent
+when the Collector initiates the OAD and then in each OAD block request /
+response. This insures that the device always receives a block from the correct
+FW image, especially in the case where a device loses power or orphans and it is
+not known when it will come back on line. When an OAD image file is selected on
+the collector it is assigned a new image ID and added to a table, when a block
+request is received the image ID in the block request is used to find the
+correct FW image file. This insures that a device will always get a block from
+the correct image, no matter how long it is off line.</p>
+</div>
+<div class="section" id="oad-default-settings">
+<h2>OAD Default Settings<a class="headerlink" href="#oad-default-settings" title="Permalink to this headline">¶</a></h2>
+<p>Most OAD settings are defined in <code class="docutils literal"><span class="pre">oad_client.c</span></code>, and already discussed in the
+Pause and Resume section. In addition to this you can override the
+<code class="docutils literal"><span class="pre">OADBLOCK_SIZE</span></code> from the default of 128 by defining it in the project options.
+Setting this higher than 128 is not advised as this is the setting used during
+system testing.</p>
+<p>Beacon Mode, Non Beacon Mode and Frequency Hoping network modes are supported.
+In Non Beacon Mode and Frequency Hoping the default OAD parameters are:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#define OAD_BLOCK_REQ_RATE            200</span>
+<span class="cp">#define OAD_BLOCK_REQ_POLL_DELAY      40</span>
+<span class="cp">#define OAD_MAX_TIMEOUTS              3</span>
+<span class="cp">#define OAD_MAX_RETRIES               3</span>
+<span class="cp">#define OAD_BLOCK_AUTO_RESUME_DELAY   5000</span>
+</pre></div>
+</div>
+<p>Under normal conditions the sensor sends a block request every 200ms, with a
+typical file of 920 blocks this takes ~3 minutes. In Beacon Mode only one data
+request can be sent during 1 beacon interval. The default OAD settings are:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#define OAD_BLOCK_REQ_RATE            ((CONFIG_SUPERFRAME_ORDER * 1000) - 500)</span>
+<span class="cp">#define OAD_BLOCK_REQ_POLL_DELAY      (CONFIG_SUPERFRAME_ORDER * 1000)</span>
+<span class="cp">#define OAD_MAX_TIMEOUTS              3</span>
+<span class="cp">#define OAD_MAX_RETRIES               3</span>
+<span class="cp">#define OAD_BLOCK_AUTO_RESUME_DELAY   (CONFIG_SUPERFRAME_ORDER * 5)</span>
+</pre></div>
+</div>
+<p>Under normal conditions the OAD will take CONFIG_SUPERFRAME_ORDER * 920 seconds.</p>
+<p>The <code class="docutils literal"><span class="pre">sensor_oad</span></code> project has 2 defines related to te OAD feature, defined by
+default in the project options:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">FEATURE_OAD</span></code> This includes the OAD linker command file and OAD TI-RTOS
+config file.</li>
+<li><code class="docutils literal"><span class="pre">FEATURE_NATIVE_OAD</span></code> This includes the TI 15.4-Stack OAD client. This
+results in an application that supports the OAD messages needed to receive
+an OAD update over the TI 15.4-Stack network.</li>
+</ul>
+<p>Removing the <code class="docutils literal"><span class="pre">FEATURE_NATIVE_OAD</span></code> symbol will result in an application that is
+capable of being updated through a BLE link only. For a TI 15.4-Stack OAD both
+<code class="docutils literal"><span class="pre">FEATURE_OAD</span></code> and <code class="docutils literal"><span class="pre">FEATURE_NATIVE_OAD</span></code> should be defined.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../oad/tools.html" class="btn btn-neutral float-right" title="OAD Image Tool" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../oad/flash-layout-off-chip.html" class="btn btn-neutral" title="Flash Layout for Off-Chip OAD" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.06.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

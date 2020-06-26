@@ -1,0 +1,549 @@
+TI 15.4-Stack OAD
+=================
+
+This section describes the TI 15.4-Stack specific implementation of OAD. First
+the OAD protocol is explained, then the various software modules (OAD Client,
+OAD Storage, etc).
+
+.. include:: inc_oad-protocol.rst
+
+.. _sec-oad-client:
+
+OAD Architecture
+----------------
+
+:numref:`fig-oad-block-diagram` shows the SW Architecture for the OAD
+feature.
+
+.. figure:: resources/fig-oad-block-diagram.png
+  :name: fig-oad-block-diagram
+  :align: center
+
+  TI 15.4-Stack OAD Block Diagram
+
+Modules
+^^^^^^^
+
+TI 15.4-Stack OAD comprises of the following software modules:
+
+-   OAD Protocol Module
+-   OAD Storage Module
+-   OAD Client Module
+
+The OAD Server Module is simpler to than the OAD client, and does not need to
+handle events, error conditions or retires. The OAD server functionality is
+embedded into the existing Linux Collector module. 
+
+OAD Protocol Module
+-------------------
+
+The OAD Protocol interface provides device independent APIs, data types, and
+macros. The Over the Air Download (OAD) Protocol module provides protocol
+functionality for transferring an OAD image. The APIs in this module serve as an
+interface to a TI-RTOS application and offers functionality for an OAD messaging
+protocol between OAD Sever and the OAD Client. The module handles the formatting
+and parsing of messages.
+
+Initialization
+^^^^^^^^^^^^^^
+
+In order to use the OAD Protocol APIs, the application is required to provide
+application specific configuration and callbacks. For the application to process
+OAD Messages the following callback table must be provided::
+
+  /** @brief OADProtocol callback table
+   *
+   */
+  typedef struct
+  {
+      fwVersionReqCb_t      pfnFwVersionReqCb; ///< Incoming FW Req
+      fwVersionRspCb_t      pfnFwVersionRspCb; ///< Incoming FW Version Rsp
+      oadImgIdentifyReqCb_t pfnOadImgIdentifyReqCb; ///< Incoming Image IdentifyReq
+      oadImgIdentifyRspCb_t pfnOadImgIdentifyRspCb; ///< Incoming Image IdentifyRsp
+      oadBlockReqCb_t       pfnOadBlockReqCb; ///< Incoming OAD Block Req
+      oadBlockRspCb_t       pfnOadBlockRspCb; ///< Incoming OAD Block Rsp
+  } OADProtocol_MsgCBs_t;
+
+For the OAD module to allocate buffers and send messages the following platform
+specific call back must be provided::
+
+  /** @brief OADProtocol platform access functions
+   *
+   */
+  typedef struct
+  {
+      plaformAccessAllocMsg_t         pfnRadioAccessAllocMsg;   ///< Function for allocating a message buffer
+      platformAccessPacketSend_t      pfnRadioAccessPacketSend; ///< Function for sending message over the radio
+  } OADProtocol_PlatformAccessFxns_t;
+
+``OADProtocol_init()`` must be called before any other OADProtocol APIs. The
+following parametric configuration is passed::
+
+  /** @brief RF parameter struct
+   *  RF parameters are used with the OADProtocol_open() and OADProtocol_Params_init() call.
+   */
+  typedef struct {
+      OADProtocol_PlatformAccessFxns_t  *pPlatformAccessFxns;    ///< Platform access function table
+      OADProtocol_MsgCBs_t              *pProtocolMsgCallbacks;  ///< Application Callbacks for pressing packets
+  } OADProtocol_Params_t;
+
+Application Interface
+^^^^^^^^^^^^^^^^^^^^^
+
+The OAD Protocol module formats and parses the OAD messages. The following API
+is exposed::
+
+  /** @brief  Function to initialize the OADProtocol_Params struct to its defaults
+   *
+   *  @param  params      An pointer to RF_Params structure for
+   *                      initialization
+   *
+   *  Defaults values are:
+   *      maxretires          = OADProtocol_DEFAULT_MAX_RETRIES
+   *     pRadioAccessFxns     = {0}
+   *      pCallbacks          = {0}
+   */
+  extern void OADProtocol_Params_init(OADProtocol_Params_t *params);
+
+  /** @brief  Function that initializes the Wsn Protocol Task and creates all TI-RTOS objects
+   *
+   */
+  extern void OADProtocol_init(void);
+
+  /** @brief  Function to open the OADProtocol module
+   *
+   *  @param  params      An pointer to RF_Params structure for initialization
+   */
+  extern void OADProtocol_open(OADProtocol_Params_t *params);
+
+  /** @brief  Function to parse OADProtocol packets
+   *
+   *  @param  srcAddr             address of the device that sent the message
+   *  @param  incomingPacket      pointer to packet to be parsed
+   *  @param  packetLen           length of the message
+   */
+  extern OADProtocol_Status_t OADProtocol_ParseIncoming(void* pSrcAddr, uint8_t* incomingPacket, uint8_t packetLen);
+
+
+  /** @brief  Function to send a FW version request packet
+   *
+   *  @param  dstAddress          Address to send the request to
+   *
+   *  @return                     Status
+   */
+  extern OADProtocol_Status_t OADProtocol_sendFwVersionReq(void* pDstAddress);
+
+  /** @brief  Function to send a FW version response packet
+   *
+   *  @param  dstAddress          Address to send the response to
+   *  @param  fwVersion           Firmware version string to send
+   *
+   *  @return                     Status
+   */
+  extern OADProtocol_Status_t OADProtocol_sendFwVersionRsp(void* pDstAddress, char *fwVersion);
+
+  /** @brief  Function to send an OAD image identify request packet
+   *
+   *  @param  dstAddress          Address to send the request to *
+   *  @param  imgId               image ID used for requesting image blocks
+   *  @param  pImgInfoData        Image header
+   *
+   *  @return                     Status
+   */
+  extern OADProtocol_Status_t OADProtocol_sendImgIdentifyReq(void* pDstAddress, uint8_t imgId, uint8_t *pImgInfoData);
+
+  /** @brief  Function to send an OAD image identify request packet
+   *
+   *  @param  dstAddress          Address to send the response to
+   *  @param  status              status to send
+   *
+   *  @return                     Status
+   */
+  extern OADProtocol_Status_t OADProtocol_sendOadIdentifyImgRsp(void* pDstAddress, uint8_t status);
+
+  /** @brief  Function to send an OAD block request packet
+   *
+   *  @param  dstAddress          Address to send the request to
+   *  @param  imgId               image ID of image blocks
+   *  @param  blockNum            block Number to request
+   *  @param  multiBlockSize      Numer of blocks in the multi Block transfer (0 or 1 for none-multiblock)
+   *
+   *  @return                     Status
+   *
+   */
+  extern OADProtocol_Status_t OADProtocol_sendOadImgBlockReq(void* pDstAddress, uint8_t imgId, uint16_t blockNum, uint16_t multiBlockSize);
+
+  /** @brief  Function to send an OAD block response packet
+   *
+   *  @param  dstAddress          Address to send the response to
+   *  @param  imgId               image ID of image blocks
+   *  @param  blockNum            Block number
+   *  @param  block               pointer to image block
+   *
+   *  @return                     Status
+   *
+   */
+  extern OADProtocol_Status_t OADProtocol_sendOadImgBlockRsp(void* pDstAddress, uint8_t imgId, uint16_t blockNum, uint8_t *block);
+
+Usage
+^^^^^
+
+To use the OAD Protocol module to format and parse OAD messages, the application
+calls the following APIs:
+
+  - OADProtocol_init(): Initialize the OADProtocol module/task
+
+  - OADProtocol_Params_init(): Initialize a OADProtocol_Params structure with
+    default values. Then change the parameters from non-default values as
+    needed.
+
+  - OADProtocol_open(): Open an instance of the OADProtocol module, passing the
+    initialized parameters.
+
+  - OADProtocol_sendFwRequest(): This is an example of an OAD message that is
+    formated and sent.
+
+The following code example opens OADProtocol, sends a FW version request and
+processes the response.::
+
+  OADProtocol_packetCBs_t OADProtocolCbs = {
+    NULL, //Incoming FW Req
+    fwVersionReqCb, //Incoming FW Version Rsp
+    NULL, //Incoming Image Identify Req
+    NULL, //Incoming Image Identify Rsp
+    NULL, //Incoming OAD Block Req
+    NULL, //Incoming OAD Block Rsp
+    NULL, //Error callback
+  };
+
+  static void fwVersionRspCb(uint16_t srcAddr, char *fwVersionStr)
+  {
+    //Do something with srcAddr and fwVersionStr
+  }
+
+  void someTaskInit(void)
+  {
+    OADProtocol_init();
+  }
+
+  void someTaskFxn(void)
+  {
+    // Set Default parameters structure
+    static OADProtocol_Params_t OADProtocol_params;
+
+    // Initialize and open the Wsn Protocol Task
+    OADProtocol_Params_init(&OADProtocol_params);
+    OADProtocol_params.pCallbacks = &OADProtocolCbs;
+    OADProtocol_params.devType = OADProtocol_DevType_Concentrator;
+    OADProtocol_params.devAddress = OADProtocol_CONCENTRATOR_ADDRESS;
+    OADProtocol_open(&OADProtocol_params);
+
+    OADProtocol_sendFwVersionReq(nodeAddress);
+
+  }
+
+OAD Storage Module
+------------------
+
+The OAD Storage interface provides device independent APIs, data types, and
+macros for Storing the OAD image. The OAD Storage module calls into oad_target,
+which provide the device dependent functionality to write the OAD image into
+flash. oad_target contains the support for internal (on-chip) and external
+(off-chip) OAD Image storage.
+
+OAD Storage Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The oad_target module can be configured at build time to use on-chip or off chip
+storage by linking in the correct target c file:
+
+-   ``oad_target_external_flash.c``
+-   ``oad_target_internal_flash.c``
+
+.. note:: For on-chip OAD, the OAD Storage module must be built with
+    ``FEATURE_OAD_ONCHIP`` defined.
+
+
+Initilization
+^^^^^^^^^^^^^
+
+``OADStorage_init()`` must be called before any other OADTarget APIs.
+
+Application Interface
+^^^^^^^^^^^^^^^^^^^^^
+
+The OAD Storage module exposes the following API for staring the OAD image::
+
+  /*********************************************************************
+   * @fn      OADStorage_init
+   *
+   * @brief   Initialise the OAD Target Profile.
+   *
+   * @param   None.
+   *
+   * @return  None.
+   */
+  extern void OADStorage_init(void);
+
+  /*********************************************************************
+   * @fn      OADStorage_imgIdentifyWrite
+   *
+   * @brief   Process the Image Identify Write.  Determine from the received OAD
+   *          Image Header if the Downloaded Image should be acquired.
+   *
+   * @param   pValue     - pointer to data to be written
+   *
+   * @return  status
+   */
+  extern OADStorage_Status_t OADStorage_imgIdentifyWrite(uint8_t *pValue);
+
+  /*********************************************************************
+   * @fn      OADStorage_imgBlockWrite
+   *
+   * @brief   Process the Image Block Write.
+   *
+   * @param   connHandle - connection message was received on
+   * @param   pValue - pointer to data to be written
+   *
+   * @return  status
+   */
+  void OADStorage_Status_t OADStorage_imgBlockWrite(uint8_t *pValue);
+
+  /*********************************************************************
+   * @fn      OADStorage_imgFinalise
+   *
+   * @brief   Checks the image CRC and marks the image for use. The BIM
+   *          will than copy the image (for off-chip) and execute.
+   *
+   * @param  none
+   *
+   * @return  status
+   */
+  OADStorage_Status_t OADStorage_imgFinalise(void);
+
+  /*********************************************************************
+   * @fn      OADStorage_close
+   *
+   * @brief   Releases the resource required for OAD storage.
+   *
+   * @param  none
+   *
+   * @return none
+   */
+  void OADStorage_close(void);
+
+OAD Client Module
+-----------------
+
+The OAD client module has been designed to provide a simple and customizable
+implementation for the customer. In its most rudimentary form, this
+module is responsible for accepting/rejecting an OAD interaction based
+on image header criteria, storing the image in its appropriate location,
+and causing a device reset if the download is successful so that the
+downloaded application image is run by the :term:`BIM`.
+
+The OAD Client module provides a service to process and generate application
+events for OAD Client functionality, it is specific to a TI 15.4-Stack
+application. It houses the code required for the application to act as an OAD
+Target, reducing the code needing to be added in the application files. The OAD
+Client uses the services provided by the OAD_Protocol and OAD_Storage modules.
+
+Initialization
+^^^^^^^^^^^^^^
+
+In order for the OAD Client module to process and generate application events it
+needs to be initialized with an event handle used to set event masks as they
+occur and the applications semaphore that can be used to wake up the
+application after an event is set.
+
+``OADClient_init()`` must be called before the module can process OAD events.
+The following parametric configuration is passed::
+
+  /** @brief RF parameter struct
+  *  RF parameters are used with the SOADProtocol_open()
+  *   and SOADProtocol_Params_init() call.
+  */
+  typedef struct {
+      uint16_t *pEvent;             ///< Event handle to post to
+      ICall_Semaphore eventSem;    ///< Semaphore to post event
+  } OADClient_Params_t;
+
+Application Interface
+^^^^^^^^^^^^^^^^^^^^^
+
+The OAD Client module formats and parses the OAD messages. The following
+API is exposed::
+
+  /** @brief  Function to open the OADProtocol module
+  *
+  *  @param  params      An pointer to OADClient_Params_t structure
+  *  for initialization
+  */
+  extern void OADClient_open(OADClient_Params_t *params);
+
+  /** @brief  Function to process OAD events
+  *
+  *  @param  pEvent      Event to process
+  */
+  extern void OADClient_processEvent(uint16_t *pEvent);
+
+  /** @brief  Function abort OAD
+  *
+  *  @param  resume      set to true if a auto resume is required
+  */
+  void OADClient_abort(bool resume);
+
+  /** @brief  Function abort OAD
+  *
+  *  @param  delay      time in ms to start resume
+  */
+  void OADClient_resume(uint32_t delay);
+
+Example Function Trace
+^^^^^^^^^^^^^^^^^^^^^^
+
+:numref:`fig-oad-req-message-flow` shows the typical function flow for an OAD
+Client to send a message from the Application through the OAD Client and
+OAD Protocol modules to the MAC API.
+
+.. figure:: resources/fig-oad-req-message-flow.png
+  :name: fig-oad-req-message-flow
+  :align: center
+
+  Block Request message flow.
+
+:numref:`fig-oad-rsp-message-flow` shows the typical function flow for an OAD
+Client receiving a messge from the OAD Server through the OAD Protocol module to
+the MAC API.
+
+.. figure:: resources/fig-oad-rsp-message-flow.png
+  :name: fig-oad-rsp-message-flow
+  :align: center
+
+  Block Response processing.
+
+.. _sec-oad-server:
+
+OAD Server
+----------
+
+There is no separate tool for the OAD Server, OAD Server functionality is
+provided by the Linux Collector Application, part of the `TI 15.4-Stack Linux
+SDK`_. When the collector application is built without the ``IS_HEADLESS`` flag
+an interactive command-line interface to the collector application exposes the
+following functionality:
+
+  - Devices can be selected
+  - A firmware file can be selected for transfer
+  - LED toggle requests can be sent to the selected device
+  - Version requests can be sent to the selected device
+  - Firmware update requests can be sent to the selected device
+
+A typical view of this interface
+
+.. parsed-literal::
+
+  TI Collector
+  Nwk: Started
+  Sensor 0x0001: Temp 25, RSSI -18
+  Sensor 0x0002: OAD Block 211 of 960
+
+
+  Info: Sending 0x0002 FW update Req
+  cmd: u
+
+The available commands are:
+
+- sxx: Select a device. Example 's1' or 's0x1234'
+- o:   Open or close the network for new devices to join
+- t:   Send an LED toggle request to selected device
+- v:   Send a version request to selected device
+- u:   Send FW update request to selected device
+- fxx: Set FW file from configured OAD FW dir. Example 'f sensor_mac_oad_cc13x0lp_app_v2.bin'
+
+OAD Pause and Resume
+--------------------
+
+The TI 15.4-Stack OAD feature supports the following robustness features:
+
+#.  Timeouts: This is when a the data request for a block response is not
+    answered. The data request delay from an OAD block request being sent is set
+    by OADBLOCKREQPOLLDELAY ms, it is advised that this be set as short as
+    possible to avoid unnecessary queueing of data in the Co-Processor. A
+    timeout is typically caused by the Linux Collector taking too long to read
+    the OAD Block from the FW Image file (due to CPU load). The number of
+    timeouts before a retry is set by OADMAXTIMEOUTS.
+
+#.  Retries: A retry is when the maximum number timeouts has expired before the
+    OAD Block Response has been received. In his case the OAD Block Request is
+    resent. The number of retires before an OAD Abort is set by OADMAXRETRIES.
+
+#.  Aborts: The OAD is aborted after there are OADMAXRETRIES block requests with
+    no response. After an OAD abort the OAD is attempted to be resumed after
+    OADBLOCKAUTORESUMEDELAY ms, if the OAD abort again on the same block number
+    the OAD is terminated.
+
+The OAD is aborted if the device Orphans, when the device rejoins an OAD resume
+is attempted. If the device is reset / powered off during an OAD the device will
+attempt to resume when it rejoins. The block it resumes from is set to the first
+block of the page it was aborted from in case the flash page was corrupted by
+the power cycle.
+
+Support for multiple OAD files
+------------------------------
+
+The OAD protocol supports multiple OAD images by using an Image ID that is sent
+when the Collector initiates the OAD and then in each OAD block request /
+response. This insures that the device always receives a block from the correct
+FW image, especially in the case where a device loses power or orphans and it is
+not known when it will come back on line. When an OAD image file is selected on
+the collector it is assigned a new image ID and added to a table, when a block
+request is received the image ID in the block request is used to find the
+correct FW image file. This insures that a device will always get a block from
+the correct image, no matter how long it is off line.
+
+OAD Default Settings
+--------------------
+
+Most OAD settings are defined in ``oad_client.c``, and already discussed in the
+Pause and Resume section. In addition to this you can override the
+``OADBLOCK_SIZE`` from the default of 128 by defining it in the project options.
+Setting this higher than 128 is not advised as this is the setting used during
+system testing.
+
+Beacon Mode, Non Beacon Mode and Frequency Hoping network modes are supported.
+In Non Beacon Mode and Frequency Hoping the default OAD parameters are::
+
+    #define OAD_BLOCK_REQ_RATE            200
+    #define OAD_BLOCK_REQ_POLL_DELAY      40
+    #define OAD_MAX_TIMEOUTS              3
+    #define OAD_MAX_RETRIES               3
+    #define OAD_BLOCK_AUTO_RESUME_DELAY   5000
+
+Under normal conditions the sensor sends a block request every 200ms, with a
+typical file of 920 blocks this takes ~3 minutes. In Beacon Mode only one data
+request can be sent during 1 beacon interval. The default OAD settings are::
+
+    #define OAD_BLOCK_REQ_RATE            ((CONFIG_SUPERFRAME_ORDER * 1000) - 500)
+    #define OAD_BLOCK_REQ_POLL_DELAY      (CONFIG_SUPERFRAME_ORDER * 1000)
+    #define OAD_MAX_TIMEOUTS              3
+    #define OAD_MAX_RETRIES               3
+    #define OAD_BLOCK_AUTO_RESUME_DELAY   (CONFIG_SUPERFRAME_ORDER * 5)
+
+Under normal conditions the OAD will take CONFIG_SUPERFRAME_ORDER * 920 seconds.
+
+The ``sensor_oad`` project has 2 defines related to te OAD feature, defined by
+default in the project options:
+
+-   ``FEATURE_OAD`` This includes the OAD linker command file and OAD TI-RTOS 
+    config file.
+
+-   ``FEATURE_NATIVE_OAD`` This includes the TI 15.4-Stack OAD client. This
+    results in an application that supports the OAD messages needed to receive
+    an OAD update over the TI 15.4-Stack network.
+
+Removing the ``FEATURE_NATIVE_OAD`` symbol will result in an application that is
+capable of being updated through a BLE link only. For a TI 15.4-Stack OAD both
+``FEATURE_OAD`` and ``FEATURE_NATIVE_OAD`` should be defined.
+
+

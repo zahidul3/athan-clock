@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_display_dogm1286___h_w_attrs" kind="struct" language="C++" prot="public">
+    <compoundname>DisplayDogm1286_HWAttrs</compoundname>
+    <includes refid="_display_dogm1286_8h" local="no">DisplayDogm1286.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_display_dogm1286___h_w_attrs_1a5b7a6005271e6c9117a617e9c735ece1" prot="public" static="no" mutable="no">
+        <type><ref refid="_l_c_d_dogm1286_8h_1a72910a78c343543f1610fd082d17d803" kindref="member">LCD_Handle</ref></type>
+        <definition>LCD_Handle DisplayDogm1286_HWAttrs::lcdHandle</definition>
+        <argsstring></argsstring>
+        <name>lcdHandle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/display/DisplayDogm1286.h" line="48" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/display/DisplayDogm1286.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_dogm1286___h_w_attrs_1a9949d110bdfbcab837d945a2e27dadd2" prot="public" static="no" mutable="no">
+        <type><ref refid="_p_i_n_8h_1a9ae8197f460bb76ea09a84f47d09921f" kindref="member">PIN_Id</ref></type>
+        <definition>PIN_Id DisplayDogm1286_HWAttrs::powerPin</definition>
+        <argsstring></argsstring>
+        <name>powerPin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/display/DisplayDogm1286.h" line="49" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/display/DisplayDogm1286.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="143">
+        <label>LCD_Config</label>
+        <link refid="struct_l_c_d___config"/>
+        <childnode refid="144" relation="usage">
+          <edgelabel>hwAttrs</edgelabel>
+        </childnode>
+        <childnode refid="146" relation="usage">
+          <edgelabel>object</edgelabel>
+        </childnode>
+      </node>
+      <node id="148">
+        <label>SPI_Config_</label>
+        <link refid="struct_s_p_i___config__"/>
+        <childnode refid="149" relation="usage">
+          <edgelabel>fxnTablePtr</edgelabel>
+        </childnode>
+      </node>
+      <node id="144">
+        <label>LCD_HWAttrs</label>
+        <link refid="struct_l_c_d___h_w_attrs"/>
+        <childnode refid="145" relation="usage">
+          <edgelabel>LCD_initCmd</edgelabel>
+        </childnode>
+      </node>
+      <node id="149">
+        <label>SPI_FxnTable_</label>
+        <link refid="struct_s_p_i___fxn_table__"/>
+        <childnode refid="148" relation="usage">
+          <edgelabel>closeFxn</edgelabel>
+          <edgelabel>initFxn</edgelabel>
+          <edgelabel>transferCancelFxn</edgelabel>
+          <edgelabel>controlFxn</edgelabel>
+          <edgelabel>openFxn</edgelabel>
+          <edgelabel>transferFxn</edgelabel>
+        </childnode>
+      </node>
+      <node id="145">
+        <label>LCD_Command</label>
+        <link refid="struct_l_c_d___command"/>
+      </node>
+      <node id="147">
+        <label>LCD_Buffer</label>
+        <link refid="struct_l_c_d___buffer"/>
+      </node>
+      <node id="146">
+        <label>LCD_Object</label>
+        <link refid="struct_l_c_d___object"/>
+        <childnode refid="147" relation="usage">
+          <edgelabel>lcdBuffers</edgelabel>
+        </childnode>
+        <childnode refid="148" relation="usage">
+          <edgelabel>spiHandle</edgelabel>
+        </childnode>
+      </node>
+      <node id="142">
+        <label>DisplayDogm1286_HWAttrs</label>
+        <link refid="struct_display_dogm1286___h_w_attrs"/>
+        <childnode refid="143" relation="usage">
+          <edgelabel>lcdHandle</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/display/DisplayDogm1286.h" line="47" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/display/DisplayDogm1286.h" bodystart="46" bodyend="50"/>
+    <listofallmembers>
+      <member refid="struct_display_dogm1286___h_w_attrs_1a5b7a6005271e6c9117a617e9c735ece1" prot="public" virt="non-virtual"><scope>DisplayDogm1286_HWAttrs</scope><name>lcdHandle</name></member>
+      <member refid="struct_display_dogm1286___h_w_attrs_1a9949d110bdfbcab837d945a2e27dadd2" prot="public" virt="non-virtual"><scope>DisplayDogm1286_HWAttrs</scope><name>powerPin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

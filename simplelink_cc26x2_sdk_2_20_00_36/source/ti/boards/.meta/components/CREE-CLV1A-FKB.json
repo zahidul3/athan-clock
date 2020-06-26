@@ -1,0 +1,36 @@
+{
+    "type"         : "RGBMulticolorLED",
+    "name"         : "CREE_CLV1A_FKB",
+    "displayName"  : "RGB Multicolor LED",
+    "partNum"      : "Cree CLV1A-FKB",
+    "subComponents":
+    {
+        "redChannel":
+        {
+            "type"       : "multiLedChannel",
+            "displayName": "Multicolor LED Red Channel",
+            "signals"    :
+            {
+                "digitalOutput": { "type": ["LED", "DOUT", "PWM"] }
+            }
+        },
+        "greenChannel":
+        {
+            "type"       : "multiLedChannel",
+            "displayName": "Multicolor LED Green Channel",
+            "signals"    :
+            {
+                "digitalOutput": { "type": ["LED", "DOUT", "PWM"] }
+            }
+        },
+        "blueChannel":
+        {
+            "type"       : "multiLedChannel",
+            "displayName": "Multicolor LED Blue Channel",
+            "signals"    :
+            {
+                "digitalOutput": { "type": ["LED", "DOUT", "PWM"] }
+            }
+        }
+    }
+}

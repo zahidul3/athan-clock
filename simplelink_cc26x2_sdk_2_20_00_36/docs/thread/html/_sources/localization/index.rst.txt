@@ -1,0 +1,35 @@
+Localization Toolbox
+====================
+
+The Localization Toolbox, or RTLS Toolbox, is a collection of RTLS (Real Time
+Locating System) techniques that can be implemented on TI’s standard Bluetooth
+low energy radios in the CC26xx series. These techniques provide raw data that
+can be used for locating, tracking, and securely range bounding other
+Bluetooth nodes.
+
+The inherent flexibility of the CC26xx RF Core is what enables this
+significant extension of function beyond merely communications, and the main
+advantages are that customers can start adding RTLS features and security with
+little or no extra cost, very little additional energy consumption and no
+increase in peak power.
+
+
+There are two fundamentally different approaches to location finding:
+
++-------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
+| **Trilateration**                                                             | **Triangulation**                                                              |
++-------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
+|  .. figure:: resources/trilateration.png                                      |   .. figure:: resources/triangulation.png                                      |
++-------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
+| Trilateration is where you know the distance between a reference node and a   | Triangulation is where you know the direction from a reference node to a       |
+| target node. This means that the possible locations seen by one locator       | target node. This means that the possible locations seen by one locator        |
+| constitute a circle, so typically  three locators are needed to find a single | constitute a straight line,  so two nodes will be enough to determine a single |
+| common intersect point. (Assuming a 2D scenario)                              | intersect point. (Assuming a 2D scenario)                                      |
+|                                                                               |                                                                                |
+| :ref:`sec-aoa` gives you the angle from the receiver to the transmitter.      |                                                                                |
+|                                                                               | :ref:`sec-tof` gives you the distance from the receiver to the transmitter.    |
++-------------------------------------------------------------------------------+--------------------------------------------------------------------------------+
+
+.. include:: inc_aoa.rst
+
+.. include:: inc_tof.rst

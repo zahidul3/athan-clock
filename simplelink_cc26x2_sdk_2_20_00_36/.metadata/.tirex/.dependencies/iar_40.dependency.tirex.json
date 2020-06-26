@@ -1,0 +1,26 @@
+[
+   {
+      "name" : "na",
+      "default" : "na",
+      "packages" : [],
+      "files" : [
+         "+../main_nortos.c -> main_nortos.c",
+         "+../smartrf_settings/smartrf_settings.c -> smartrf_settings/smartrf_settings.c",
+         "+../rfPacketTx.c -> rfPacketTx.c",
+         "+../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../ccfg.c -> ccfg.c",
+         "+./CC26X2R1_LAUNCHXL_NoRTOS.icf -> rfPacketTx_CC26X2R1_LAUNCHXL_NoRTOS.icf",
+         "+../smartrf_settings/smartrf_settings.h -> smartrf_settings/smartrf_settings.h",
+         "+../Board.h -> Board.h",
+         "+../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+../README.md -> README.md",
+         "+../README.html -> README.html"
+      ],
+      "compiler" : {
+         "effective" : "na",
+         "specified" : "na",
+         "location" : "na"
+      }
+   }
+]

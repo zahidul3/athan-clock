@@ -1,0 +1,981 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>UTIL_NV_Read &mdash; Vendor Specific Guide 5.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Vendor Specific Guide 5.00.00 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Vendor Specific Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_interface.html">HCI Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="att_api.html">ATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gap_api.html">GAP Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gapbondmgr_api.html">GapBondMgr Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gatt_api.html">GATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_ext_api.html">HCI Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l2cap_api.html">L2CAP Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util_api.html">UTIL Extension Vendor Specific API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Vendor Specific Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>UTIL_NV_Read</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="util-nv-read">
+<h1>UTIL_NV_Read<a class="headerlink" href="#util-nv-read" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE81</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Send this command to read an NV parameter.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nvID:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 1-byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">nvLen:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 1-byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="util-nv-write">
+<h1>UTIL_NV_Write<a class="headerlink" href="#util-nv-write" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE82</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Send this command to write an NV parameter.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nvID:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 1-byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">nvDataLen:</th><td class="field-body"><p class="first">Size of NV data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Value:</th><td class="field-body">size(nvData)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">nvData:</th><td class="field-body"><p class="first">NV Data Field. Structure can be different for each NV item</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">input byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">“00”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 1-byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="util-forceboot">
+<h1>UTIL_ForceBoot<a class="headerlink" href="#util-forceboot" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE83</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Force the boot loader to run.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the device resets if the boot loader is present. Otherwise, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="util-buildrevision">
+<h1>UTIL_BuildRevision<a class="headerlink" href="#util-buildrevision" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE84</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This command is used to read the build revision information of the BLE stack software.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+<p><strong>Additional Command Status Return Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">dataLen:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">stk ver (mj/mn/ph):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">3 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">bld ver:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">stk info:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( StatStatus==0x00)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>IARProject</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>CCSProject</td>
+</tr>
+<tr class="row-even"><td>0x10</td>
+<td>IARLibrary</td>
+</tr>
+<tr class="row-odd"><td>0x80</td>
+<td>ROMBuild</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ctrl info:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( StatStatus==0x00)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">2 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>ADV_NCONN</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>ADV_CONN</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>SCAN</td>
+</tr>
+<tr class="row-odd"><td>0x08</td>
+<td>INIT</td>
+</tr>
+<tr class="row-even"><td>0x10</td>
+<td>PING</td>
+</tr>
+<tr class="row-odd"><td>0x20</td>
+<td>SLV_FEAT_EXCHG</td>
+</tr>
+<tr class="row-even"><td>0x40</td>
+<td>CONN_PARAM_REQ</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">host info:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( StatStatus==0x00)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">2 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>BROADCASTER</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>OBSERVER</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>PERIPHERAL</td>
+</tr>
+<tr class="row-odd"><td>0x08</td>
+<td>CENTRAL</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="util-getmemstats">
+<h1>UTIL_GetMemStats<a class="headerlink" href="#util-getmemstats" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE87</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Get memory statistics</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">command ID:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">2</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>Light Heap Statistic</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>Full Heap Statistic (requieres HEAPMGR_METRICS)</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>Thread usage Statistic (requieres HEAPMGR_METRICS)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+<p><strong>Additional Command Status Return Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">dataLen:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:all cmdID receive :</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>Light Heap Statistic</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>Full Heap Statistic (requieres HEAPMGR_METRICS)</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>Thread usage Statistic (requieres HEAPMGR_METRICS)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">cmdID:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( (cmdID &amp; 0x01) == 0x01)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>Light Heap Statistic</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>Full Heap Statistic (requieres HEAPMGR_METRICS)</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>Thread usage Statistic (requieres HEAPMGR_METRICS)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Heap Size:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x01) == 0x01)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Heap Size Free:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x01) == 0x01)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Biggest free buffer Available:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x01) == 0x01)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">cmdID:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( (cmdID &amp; 0x02) == 0x02)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>Light Heap Statistic</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>Full Heap Statistic (requieres HEAPMGR_METRICS)</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>Thread usage Statistic (requieres HEAPMGR_METRICS)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Heap Fail number:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x02) == 0x02)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Heap Allocated:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x02) == 0x02)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Heap Max Allocated:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x02) == 0x02)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">cmdID:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( (cmdID &amp; 0x04) ==0x04)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>Light Heap Statistic</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>Full Heap Statistic (requieres HEAPMGR_METRICS)</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>Thread usage Statistic (requieres HEAPMGR_METRICS)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Number of Thread:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x04) ==0x04)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>An array of size “Count” will be returned containing the parameters starting here:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Priority:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x04) ==0x04)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Handle:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x04) ==0x04)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">max Stack used:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x04) ==0x04)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">stack size:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( (cmdID &amp; 0x04) ==0x04)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The array of parameters ends here.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

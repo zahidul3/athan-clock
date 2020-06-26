@@ -1,0 +1,2159 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HCI_EXT_SetRxGainDone &mdash; Vendor Specific Guide 5.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Vendor Specific Guide 5.00.00 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Vendor Specific Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_interface.html">HCI Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="att_api.html">ATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gap_api.html">GAP Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gapbondmgr_api.html">GapBondMgr Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gatt_api.html">GATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_ext_api.html">HCI Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l2cap_api.html">L2CAP Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util_api.html">UTIL Extension Vendor Specific API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Vendor Specific Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>HCI_EXT_SetRxGainDone</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hci-ext-setrxgaindone">
+<h1>HCI_EXT_SetRxGainDone<a class="headerlink" href="#hci-ext-setrxgaindone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0400</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the RF receiver gain has been set, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-settxpowerdone">
+<h1>HCI_EXT_SetTxPowerDone<a class="headerlink" href="#hci-ext-settxpowerdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0401</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the RF transmitter power has been set, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-onepacketpereventdone">
+<h1>HCI_EXT_OnePacketPerEventDone<a class="headerlink" href="#hci-ext-onepacketpereventdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0402</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the One Packet Per Event feature has been enabled or disabled, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-decryptcommanddone">
+<h1>HCI_EXT_DecryptCommandDone<a class="headerlink" href="#hci-ext-decryptcommanddone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0405</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate Decryption has completed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Decrypted Data:</th><td class="field-body"><p class="first">128 bit decrypted data block. The most significant octet of plainTextData corresponds to plainTextData using the notation specified in FIPS 197.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 16 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-writelocalfeaturesupportdone">
+<h1>HCI_EXT_WriteLocalFeatureSupportDone<a class="headerlink" href="#hci-ext-writelocalfeaturesupportdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0406</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Set Local Supported Features command has completed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-setfasttxresponsetimedone">
+<h1>HCI_EXT_SetFastTxResponseTimeDone<a class="headerlink" href="#hci-ext-setfasttxresponsetimedone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0407</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Set Fast Transmit Response Time feature has been enabled or disabled, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-modemtesttxdone">
+<h1>HCI_EXT_ModemTestTxDone<a class="headerlink" href="#hci-ext-modemtesttxdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0408</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Modem Test Transmit test has started, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-modemhoptesttxdone">
+<h1>HCI_EXT_ModemHopTestTxDone<a class="headerlink" href="#hci-ext-modemhoptesttxdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0409</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Modem Hop Test Transmit test has started, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-modemtestrxdone">
+<h1>HCI_EXT_ModemTestRxDone<a class="headerlink" href="#hci-ext-modemtestrxdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x040A</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Modem Test Receive test has started, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-enhancedmodemtesttxdone">
+<h1>HCI_EXT_EnhancedModemTestTxDone<a class="headerlink" href="#hci-ext-enhancedmodemtesttxdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0427</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the enhanced Modem Test Transmit test has started, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-enhancedmodemhoptesttxdone">
+<h1>HCI_EXT_EnhancedModemHopTestTxDone<a class="headerlink" href="#hci-ext-enhancedmodemhoptesttxdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0428</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the enhanced Modem Hop Test Transmit test has started, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-enhancedmodemtestrxdone">
+<h1>HCI_EXT_EnhancedModemTestRxDone<a class="headerlink" href="#hci-ext-enhancedmodemtestrxdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0429</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the enhanced Modem Test Receive test has started, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-endmodemtestdone">
+<h1>HCI_EXT_EndModemTestDone<a class="headerlink" href="#hci-ext-endmodemtestdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x040B</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the modem test has been shutdown, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-setbdaddrdone">
+<h1>HCI_EXT_SetBDADDRDone<a class="headerlink" href="#hci-ext-setbdaddrdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x040C</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the devices BLE address has been set, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-setscadone">
+<h1>HCI_EXT_SetSCADone<a class="headerlink" href="#hci-ext-setscadone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x040D</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the devices SCA has been set, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-enableptmdone">
+<h1>HCI_EXT_EnablePTMDone<a class="headerlink" href="#hci-ext-enableptmdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x040E</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">There is not a corresponding event opcode (0x040E) and parameters for this command as it is only allowed as a direct function call by the application software.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-setmaxdtmtxpowerdone">
+<h1>HCI_EXT_SetMaxDtmTxPowerDone<a class="headerlink" href="#hci-ext-setmaxdtmtxpowerdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0411</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the maximum Direct Test Mode (DTM) RF transmitter power has been set, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-disconnectimmeddone">
+<h1>HCI_EXT_DisconnectImmedDone<a class="headerlink" href="#hci-ext-disconnectimmeddone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0413</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Disconnect Immediate command has completed, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-per">
+<h1>HCI_EXT_PER<a class="headerlink" href="#hci-ext-per" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0414</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Packet Error Rate Reset or Read command has completed, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">PER Command Type:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Read or Reset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Reset PER Counters</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Read PER Counters</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">RX Pkts:</th><td class="field-body"><p class="first">Number of received packets.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( cmdVal!=0x00 &amp;&amp; cmdStat==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RX CRC Fails:</th><td class="field-body"><p class="first">Number of received packets with CRC error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( cmdVal!=0x00 &amp;&amp; cmdStat==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Events:</th><td class="field-body"><p class="first">Number of connection events.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( cmdVal!=0x00 &amp;&amp; cmdStat==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Missed Events:</th><td class="field-body"><p class="first">Number of missed connection events.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( cmdVal!=0x00 &amp;&amp; cmdStat==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-overridesldone">
+<h1>HCI_EXT_OverrideSLDone<a class="headerlink" href="#hci-ext-overridesldone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x041A</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Set Slave Latency Override feature has been enabled or disabled, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-buildrevisiondone">
+<h1>HCI_EXT_BuildRevisionDone<a class="headerlink" href="#hci-ext-buildrevisiondone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x041B</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the user revision number and the build revision of the stack, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">User Revision Number:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">The user revision number set by the application software. If no value was ever set, than 0x0000.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( cmdStat==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Build Revision Number:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">The build revision number of the BLE stack.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( cmdStat==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-resetsystemdone">
+<h1>HCI_EXT_ResetSystemDone<a class="headerlink" href="#hci-ext-resetsystemdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x041D</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Reset System command has completed, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-numcomplpktslimitdone">
+<h1>HCI_EXT_NumComplPktsLimitDone<a class="headerlink" href="#hci-ext-numcomplpktslimitdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x041F</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Number Completed Packets Limit command has completed, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-getconninfodone">
+<h1>HCI_EXT_GetConnInfoDone<a class="headerlink" href="#hci-ext-getconninfodone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0420</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Get Connection Information command has completed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Alloc Conns:</th><td class="field-body"><p class="first">Total number of allocated connections</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Active Conns:</th><td class="field-body"><p class="first">Number of currently active connections</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>An array of size “numConn” will be returned containing the parameters starting here:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Conn Handle:</th><td class="field-body"><p class="first">Connection Handle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Conn Role:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x22</td>
+<td>LMP/LL Response Timeout</td>
+</tr>
+<tr class="row-odd"><td>0x23</td>
+<td>LMP Error Transaction Collision</td>
+</tr>
+<tr class="row-even"><td>0x24</td>
+<td>LMP PDU Not Allowed</td>
+</tr>
+<tr class="row-odd"><td>0x25</td>
+<td>Encryption Mode Not Acceptable</td>
+</tr>
+<tr class="row-even"><td>0x26</td>
+<td>Link Key Can Not be Changed</td>
+</tr>
+<tr class="row-odd"><td>0x27</td>
+<td>Requested QoS Not Supported</td>
+</tr>
+<tr class="row-even"><td>0x28</td>
+<td>Instant Passed</td>
+</tr>
+<tr class="row-odd"><td>0x29</td>
+<td>Pairing With Unit Key Not Supported</td>
+</tr>
+<tr class="row-even"><td>0x2A</td>
+<td>Different Transaction Collision</td>
+</tr>
+<tr class="row-odd"><td>0x2B</td>
+<td>Reserved</td>
+</tr>
+<tr class="row-even"><td>0x2C</td>
+<td>QoS Unacceptable Parameter</td>
+</tr>
+<tr class="row-odd"><td>0x2D</td>
+<td>QoS Rejected</td>
+</tr>
+<tr class="row-even"><td>0x2E</td>
+<td>Channel Assessment Not Supported</td>
+</tr>
+<tr class="row-odd"><td>0x2F</td>
+<td>Insufficient Security</td>
+</tr>
+<tr class="row-even"><td>0x30</td>
+<td>Parameter Out Of Mandatory Range</td>
+</tr>
+<tr class="row-odd"><td>0x31</td>
+<td>Reserved</td>
+</tr>
+<tr class="row-even"><td>0x32</td>
+<td>Role Switch Pending</td>
+</tr>
+<tr class="row-odd"><td>0x33</td>
+<td>Reserved</td>
+</tr>
+<tr class="row-even"><td>0x34</td>
+<td>Reserved Slot Violation</td>
+</tr>
+<tr class="row-odd"><td>0x35</td>
+<td>Role Switch Failed</td>
+</tr>
+<tr class="row-even"><td>0x36</td>
+<td>Extended Inquiry Response Too Large</td>
+</tr>
+<tr class="row-odd"><td>0x37</td>
+<td>Simple Pairing Not Supported By Host</td>
+</tr>
+<tr class="row-even"><td>0x38</td>
+<td>Host Busy - Pairing</td>
+</tr>
+<tr class="row-odd"><td>0x39</td>
+<td>Connection Rejected Due To No Suitable Channel Found</td>
+</tr>
+<tr class="row-even"><td>0x3A</td>
+<td>Controller Busy</td>
+</tr>
+<tr class="row-odd"><td>0x3B</td>
+<td>Unacceptable Connection Interval</td>
+</tr>
+<tr class="row-even"><td>0x3C</td>
+<td>Directed Advertising Timeout</td>
+</tr>
+<tr class="row-odd"><td>0x3D</td>
+<td>Connection Terminated Due To MIC Failure</td>
+</tr>
+<tr class="row-even"><td>0x3E</td>
+<td>Connection Failed To Be Established</td>
+</tr>
+<tr class="row-odd"><td>0x3F</td>
+<td>MAC Connection Failed</td>
+</tr>
+<tr class="row-even"><td>0x40</td>
+<td>Coarse Clock Adjust Rejected</td>
+</tr>
+<tr class="row-odd"><td>0x41</td>
+<td>Type0 Submap Not Defined</td>
+</tr>
+<tr class="row-even"><td>0x42</td>
+<td>Unknown Advertising Identifier</td>
+</tr>
+<tr class="row-odd"><td>0x43</td>
+<td>Limit Reached</td>
+</tr>
+<tr class="row-even"><td>0x44</td>
+<td>Operation Cancelled by Host</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Peer Addr:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Peer Addr Type:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>Public</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Random</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>Public Identity</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>Random Identity</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The array of parameters ends here.</p>
+</div>
+<div class="section" id="hci-ext-setmaxdatalengthdone">
+<h1>HCI_EXT_SetMaxDataLengthDone<a class="headerlink" href="#hci-ext-setmaxdatalengthdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0421</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the Set Max Data Length command has completed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-setdtmtxpktcntdone">
+<h1>HCI_EXT_SetDtmTxPktCntDone<a class="headerlink" href="#hci-ext-setdtmtxpktcntdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0424</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate the DTM TX Packet Count has been set, or that there was an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-le-adv-event">
+<h1>HCI_EXT_LE_ADV_EVENT<a class="headerlink" href="#hci-ext-le-adv-event" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0425</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Extended advertisement event.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">eventID:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>Adv Start After Enable</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Adv End After Disable</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>Adv Start</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>Adv End</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>Adv Report</td>
+</tr>
+<tr class="row-odd"><td>0x05</td>
+<td>Adv Set Terminated</td>
+</tr>
+<tr class="row-even"><td>0x06</td>
+<td>Scan req received</td>
+</tr>
+<tr class="row-odd"><td>0x07</td>
+<td>Scan Timeout</td>
+</tr>
+<tr class="row-even"><td>0x08</td>
+<td>Scan Start</td>
+</tr>
+<tr class="row-odd"><td>0x09</td>
+<td>Scan End</td>
+</tr>
+<tr class="row-even"><td>0x0A</td>
+<td>Scan Window End</td>
+</tr>
+<tr class="row-odd"><td>0x0B</td>
+<td>Scan Interval End</td>
+</tr>
+<tr class="row-even"><td>0x0C</td>
+<td>Scan Duration End</td>
+</tr>
+<tr class="row-odd"><td>0x0D</td>
+<td>Scan Period End</td>
+</tr>
+<tr class="row-even"><td>0x0E</td>
+<td>LL Out of memory</td>
+</tr>
+<tr class="row-odd"><td>0x0F</td>
+<td>Adv Data Truncated</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Adv Data Len:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x0f)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Available Adv Data Len:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x0f)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-le-scan-event">
+<h1>HCI_EXT_LE_SCAN_EVENT<a class="headerlink" href="#hci-ext-le-scan-event" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0426</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Extended Scanner event.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">eventID:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>Adv Start After Enable</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Adv End After Disable</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>Adv Start</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>Adv End</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>Adv Report</td>
+</tr>
+<tr class="row-odd"><td>0x05</td>
+<td>Adv Set Terminated</td>
+</tr>
+<tr class="row-even"><td>0x06</td>
+<td>Scan req received</td>
+</tr>
+<tr class="row-odd"><td>0x07</td>
+<td>Scan Timeout</td>
+</tr>
+<tr class="row-even"><td>0x08</td>
+<td>Scan Start</td>
+</tr>
+<tr class="row-odd"><td>0x09</td>
+<td>Scan End</td>
+</tr>
+<tr class="row-even"><td>0x0A</td>
+<td>Scan Window End</td>
+</tr>
+<tr class="row-odd"><td>0x0B</td>
+<td>Scan Interval End</td>
+</tr>
+<tr class="row-even"><td>0x0C</td>
+<td>Scan Duration End</td>
+</tr>
+<tr class="row-odd"><td>0x0D</td>
+<td>Scan Period End</td>
+</tr>
+<tr class="row-even"><td>0x0E</td>
+<td>LL Out of memory</td>
+</tr>
+<tr class="row-odd"><td>0x0F</td>
+<td>Adv Data Truncated</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hci-ext-lltestmodedone">
+<h1>HCI_EXT_LLTestModeDone<a class="headerlink" href="#hci-ext-lltestmodedone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0470</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">LL Test Mode event.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Command Opcode:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="commandstatus">
+<h1>CommandStatus<a class="headerlink" href="#commandstatus" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x067F</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The Command Status event is used to indicate that the command given by opCode parameter has been received and is being processed. If successful, an HCI vendor specific event that corresponds to the command will follow if applicable. Otherwise, no event will follow since the command was not started.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">opCode:</th><td class="field-body"><p class="first">opCode from the corresponding command</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Command Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">length:</th><td class="field-body"><p class="first">Payload length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">(StatOpCode!=0x010C &amp;&amp; StatOpCode!=0xFCF3 &amp;&amp; StatOpCode!=0xFCF4 &amp;&amp; StatOpCode!=0xFCF5 &amp;&amp; StatOpCode!=0xFE84 &amp;&amp; StatOpCode!=0xFE87 &amp;&amp; StatOpCode!=0xFE3E &amp;&amp; StatOpCode!=0xFE54 &amp;&amp; StatOpCode!=0xFE56 &amp;&amp; StatOpCode!=0xFE58 &amp;&amp; StatOpCode!=0xFE61 &amp;&amp; StatOpCode!=0x0682 &amp;&amp; StatOpCode!=0xFE43 &amp;&amp; StatOpCode!=0xFE37 &amp;&amp; StatOpCode!=0xFE49)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">payload:</th><td class="field-body"><p class="first">See the corresponding command for payload parsing information if it exists.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">(StatOpCode!=0x010C &amp;&amp; StatOpCode!=0xFCF3 &amp;&amp; StatOpCode!=0xFCF4 &amp;&amp; StatOpCode!=0xFCF5 &amp;&amp; StatOpCode!=0xFE84 &amp;&amp; StatOpCode!=0xFE87 &amp;&amp; StatOpCode!=0xFE3E &amp;&amp; StatOpCode!=0xFE54 &amp;&amp; StatOpCode!=0xFE56 &amp;&amp; StatOpCode!=0xFE58 &amp;&amp; StatOpCode!=0xFE61 &amp;&amp; StatOpCode!=0x0682 &amp;&amp; StatOpCode!=0xFE43 &amp;&amp; StatOpCode!=0xFE37 &amp;&amp; StatOpCode!=0xFE49)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">length byte(s)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TI-OpenThread Stack Overview &mdash; SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation" href="../index.html"/>
+        <link rel="next" title="Example Applications" href="running-example-apps-cc26x2.html"/>
+        <link rel="prev" title="TI-OpenThread Stack Software Development Environment" href="ot-sw-dev-env.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug thread ot-stack-overview";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI Thread User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-thread.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ot-sw-dev-env.html">TI-OpenThread Stack Software Development Environment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TI-OpenThread Stack Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#device-types-and-network-structure">Device Types and Network Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#device-roles">Device Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#device-types">Device Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#device-modes">Device Modes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-a-thread-network">Working With a Thread Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#forming-a-network">Forming a Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attaching-to-a-thread-network">Attaching to a Thread Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commissioning">Commissioning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="running-example-apps-cc26x2.html">Example Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-br/index.html">Linux Border Router Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating-custom-apps.html">Creating Custom Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-hardware.html">Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packet-sniffer.html">Packet Sniffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/thread-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-oad/index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index-cc26x2.html">SimpleLink™ CC26x2 TI Thread User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index-cc26x2.html">Docs</a> &raquo;</li>
+      
+    <li>TI-OpenThread Stack Overview</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stack-overview">
+<span id="chap-ot-stack-overview"></span><h1>TI-OpenThread Stack Overview<a class="headerlink" href="#stack-overview" title="Permalink to this headline">¶</a></h1>
+<p>This chapter gives a brief overview of the Thread Networking protocol with
+examples from the SimpleLink CC26x2 SDK. This section will present examples using the CLI
+example applications seen below
+<a class="reference internal" href="#fig-stack-overview-cli-examples-import"><span class="std std-numref">Figure 15.</span></a></p>
+<div class="figure align-center" id="id2">
+<span id="fig-stack-overview-cli-examples-import"></span><img alt="../_images/fig-stack-overview-cli-examples-import.png" src="../_images/fig-stack-overview-cli-examples-import.png" />
+<p class="caption"><span class="caption-number">Figure 15. </span><span class="caption-text">CLI example applications</span></p>
+</div>
+<div class="section" id="device-types-and-network-structure">
+<h2>Device Types and Network Structure<a class="headerlink" href="#device-types-and-network-structure" title="Permalink to this headline">¶</a></h2>
+<p>In the following sections we will explain; the different roles a device can
+take on, the two different device types, and what modes each device type uses
+to fill a role.</p>
+<div class="section" id="device-roles">
+<h3>Device Roles<a class="headerlink" href="#device-roles" title="Permalink to this headline">¶</a></h3>
+<p>Thread devices can take on four roles within a Thread Network; End Device,
+Router, Leader, Border Router. All devices start as End Devices and are
+promoted from there as the network requires.</p>
+<a class="reference internal image-reference" href="../_images/ditaa-6e63bba83585d53cd2bc4147672eec3ad1007573.png"><img alt="../_images/ditaa-6e63bba83585d53cd2bc4147672eec3ad1007573.png" class="align-center" src="../_images/ditaa-6e63bba83585d53cd2bc4147672eec3ad1007573.png" style="width: 65%;" /></a>
+<p>End Devices connect to a single Router. All traffic to and from the End Device
+goes through its parent Router. If the End Device loses the connection to its
+parent Router, it will attempt to find a new parent Router.</p>
+<p>Routers connect to other Routers and act as parents to End Devices. These
+devices transmit, receive, and forward messages around the mesh network.
+Routers can act as parents to multiple child End Devices; Routers act as
+proxies for their children when doing networking activities like responding to
+address queries. Routers maintain their next hop and cost to all other Routers
+in the network. Routers maintain a copy of the active dataset from the Leader.</p>
+<p>The Leader of a Thread Network is a Router that has been elected to make
+decisions for the Thread Network. These decisions are choices like; the current
+active commissioner, Router upgrading, and more. The Leader is elected by being
+the first Router within a partition.</p>
+<p>Border Routers are Routers on the Thread Network with an off-mesh route.
+Border Routers act as the bridge from the Thread IPv6 network and an adjacent
+IPv6 network like WiFi or Ethernet networks. Border Routers offer globally
+routable IPv6 prefixes configurable with <a class="reference internal" href="index-cc26x2.html#term-slaac"><span class="xref std std-term">SLAAC</span></a> or <a class="reference internal" href="index-cc26x2.html#term-dhcpv6"><span class="xref std std-term">DHCPv6</span></a>.</p>
+</div>
+<div class="section" id="device-types">
+<h3>Device Types<a class="headerlink" href="#device-types" title="Permalink to this headline">¶</a></h3>
+<p>A Thread device can be either a Full Thread Device or a Minimal Thread Device.
+An <a class="reference internal" href="index-cc26x2.html#term-ftd"><span class="xref std std-term">FTD</span></a> can act as an End Device, a Router, a Leader, or a Border Router. An
+<a class="reference internal" href="index-cc26x2.html#term-mtd"><span class="xref std std-term">MTD</span></a> is limited to only the End Device role with some configurations allowed
+to sleep.</p>
+<p>With the TI-OpenThread Stack a Full Thread Device can be configured at runtime to be a
+Minimal Thread Device. However, a Minimal Thread Device has necessary sections
+compiled out so it cannot act as a Full Thread Device. If both flavors of
+device exist as examples within the SimpleLink CC26x2 SDK they will have the string <code class="docutils literal"><span class="pre">ftd</span></code> or
+<code class="docutils literal"><span class="pre">mtd</span></code> in the example name. If only one flavor exists, the device type will be
+noted in the example’s README. Whether a device is an FTD or MTD affects what
+OpenThread library projects get linked into the final project.</p>
+</div>
+<div class="section" id="device-modes">
+<h3>Device Modes<a class="headerlink" href="#device-modes" title="Permalink to this headline">¶</a></h3>
+<p>In the CLI example application the command <code class="docutils literal"><span class="pre">mode</span></code> lists the possible modes
+functions that can be enabled or disabled.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt; mode
+rsdn
+Done
+</pre></div>
+</div>
+<p>With the values:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="29%" />
+<col width="67%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>R</td>
+<td>RX on while idle</td>
+<td>Set this value to have the receiver always on.
+Clearing this enables the radio to sleep.</td>
+</tr>
+<tr class="row-even"><td>S</td>
+<td>Secure IEEE 802.15.4
+data requests</td>
+<td>Set this value to enable encryption on data
+requests to the parent router. Clearing this
+may introduce a weak link in the network. Data
+Polls are only sent when the radio can sleep.</td>
+</tr>
+<tr class="row-odd"><td>D</td>
+<td>Full Function Device</td>
+<td>Indication that this device should act as an
+802.15.4 FFD. This is required for FTDs.</td>
+</tr>
+<tr class="row-even"><td>N</td>
+<td>Full Network Data</td>
+<td>Set this to indicate that this device should
+receive all network data, stable and unstable.</td>
+</tr>
+</tbody>
+</table>
+<p>If a device subscribes to full network data, it will receive both stable and
+unstable network data. Subscribing to unstable network data will increase
+network traffic to the device.</p>
+<p>Device modes are tied to how that device will behave once it is attached to a
+Thread Network. When an MTD attaches to a Thread Network, it will attach as
+either a Minimal End Device (<a class="reference internal" href="index-cc26x2.html#term-med"><span class="xref std std-term">MED</span></a>) or a Sleepy End Device (<a class="reference internal" href="index-cc26x2.html#term-sed"><span class="xref std std-term">SED</span></a>).
+If an MTD attaches as a SED, the parent Router is required to buffer messages
+for the SED until it wakes up and polls. When an FTD attaches to a Thread
+Network it will attach as a Full End Device (<a class="reference internal" href="index-cc26x2.html#term-fed"><span class="xref std std-term">FED</span></a>) or a Router-Eligible
+End Device (<a class="reference internal" href="index-cc26x2.html#term-reed"><span class="xref std std-term">REED</span></a>). If the FTD attaches as a REED, the Thread network
+will make the decision to promote that device to an Active Router roll if
+network topology or routing requires.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="23%" />
+<col width="11%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Device
+Type</th>
+<th class="head">Device Role</th>
+<th class="head">Device
+Mode</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="2">Full
+Thread
+Device
+(FTD)</td>
+<td>Router-Eligible
+End Device
+(REED)</td>
+<td>RSDN</td>
+<td>A router that is acting as an End
+Device. This node may be promoted to
+a Router role as the network demands.</td>
+</tr>
+<tr class="row-odd"><td>Full End Device
+(FED)</td>
+<td>RSD</td>
+<td>A Full Thread Device that has been
+limited to the End Device mode.</td>
+</tr>
+<tr class="row-even"><td rowspan="3">Minimal
+Thread
+Device
+(MTD)</td>
+<td>Minimal End
+Device (MED)</td>
+<td>RS</td>
+<td>A Minimal Thread Device that has been
+limited to End Device mode.</td>
+</tr>
+<tr class="row-odd"><td rowspan="2">Sleepy End
+Device (SED)</td>
+<td>S</td>
+<td rowspan="2">An End device that is allowed to turn
+its receiver off during sleep.</td>
+</tr>
+<tr class="row-even"><td>” “</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="working-with-a-thread-network">
+<h2>Working With a Thread Network<a class="headerlink" href="#working-with-a-thread-network" title="Permalink to this headline">¶</a></h2>
+<p>In this section we will explain how to form, attach, commission and join, with
+the CLI example application. It is recommended that you have two CC26x2 LaunchPad
+with a <code class="docutils literal"><span class="pre">cli_ftd</span></code> example programmed on them. Open a terminal for each
+LaunchPad and follow along with the sections below.</p>
+<div class="section" id="forming-a-network">
+<span id="forming-a-thread-network"></span><h3>Forming a Network<a class="headerlink" href="#forming-a-network" title="Permalink to this headline">¶</a></h3>
+<p>A Thread Network has to start somewhere, this is done by a device forming a new
+partition on a channel. This device begins by attempting to attach to a network
+that already exists on the channel and PANID. Since there is not a Thread
+Network operating there, the device begins the process of forming a Thread
+Partition. This is referred to as a singleton network because there is a single
+device in the network.</p>
+<p>To show this behavior, follow along with the following code block on one of
+your CLI FTD examples. This will set the device to channel <code class="docutils literal"><span class="pre">14</span></code> and PANID
+<code class="docutils literal"><span class="pre">0xface</span></code>. Then start the radio with <code class="docutils literal"><span class="pre">ifconfig</span> <span class="pre">up</span></code>, and start Thread
+networking with the <code class="docutils literal"><span class="pre">thread</span> <span class="pre">start</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The CLI example is not as robust as other interactive consoles like Bash.
+You may have to press the <code class="docutils literal"><span class="pre">enter</span></code> key to get a prompt <code class="docutils literal"><span class="pre">&gt;</span></code>.</p>
+</div>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt; channel 14
+Done
+&gt; panid 0xface
+Done
+&gt; ifconfig up
+Done
+&gt; thread start
+Done
+&gt; state
+detached
+Done
+&gt; state
+leader
+Done
+&gt;
+</pre></div>
+</div>
+<p>A Thread network is now operating on channel <code class="docutils literal"><span class="pre">14</span></code> and PANID <code class="docutils literal"><span class="pre">0xface</span></code>. You
+should be able to see network advertisements over the air from the Thread
+Device. You can use the legacy network scan on another CLI example to see the
+Thread Network.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt; scan
+| J | Network Name     | Extended PAN     | PAN  | MAC Address      | Ch | dBm | LQI |
++---+------------------+------------------+------+------------------+----+-----+-----+
+&gt; | 0 | OpenThread       | dead00beef00cafe | face | ce77ba3a27eef08a | 14 | -29 |  61 |
+Done
+</pre></div>
+</div>
+</div>
+<div class="section" id="attaching-to-a-thread-network">
+<h3>Attaching to a Thread Network<a class="headerlink" href="#attaching-to-a-thread-network" title="Permalink to this headline">¶</a></h3>
+<p>To attach to a parent router in a thread network, a device needs to know some
+information about a Thread Network like the channel and masterkey. This
+information is supposed to be disseminated to the attaching node through a
+commissioning process, but we are going to take advantage of the defaults in
+the CLI example to show just attaching.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">setting</th>
+<th class="head">value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Master Key</td>
+<td><code class="docutils literal"><span class="pre">00112233445566778899aabbccddeeff</span></code></td>
+</tr>
+<tr class="row-odd"><td>Extended Pan ID</td>
+<td><code class="docutils literal"><span class="pre">dead00beef00cafe</span></code></td>
+</tr>
+<tr class="row-even"><td>Network Name</td>
+<td><code class="docutils literal"><span class="pre">OpenThread</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>As in the section <a class="reference internal" href="#forming-a-thread-network"><span class="std std-ref">Forming a Network</span></a> form a network with one of
+the CLI example applications.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt; channel 14
+Done
+&gt; panid 0xface
+Done
+&gt; ifconfig up
+Done
+&gt; thread start
+Done
+&gt;
+</pre></div>
+</div>
+<p>On another CLI example follow along below to scan for a network, attach to the
+network, and ping the link local multicast address.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt; scan
+| J | Network Name     | Extended PAN     | PAN  | MAC Address      | Ch | dBm | LQI |
++---+------------------+------------------+------+------------------+----+-----+-----+
+&gt; | 0 | OpenThread       | dead00beef00cafe | face | ce77ba3a27eef08a | 14 | -29 |  61 |
+Done
+
+&gt; channel 14
+Done
+&gt; panid 0xface
+Done
+&gt; ifconfig up
+Done
+&gt; thread start
+Done
+&gt; state
+child
+Done
+&gt; ping ff02::1
+&gt; 8 bytes from fe80:0:0:0:cc77:ba3a:27ee:f08a: icmp_seq=1 hlim=64 time=6ms
+
+&gt;
+</pre></div>
+</div>
+<p>The attaching device will go through the same process as the device in
+<a class="reference internal" href="#forming-a-thread-network"><span class="std std-ref">Forming a Network</span></a> did when creating a Thread Network partition.
+Except this time there will be a Thread Network to attach to instead of having
+to form one of its own.</p>
+</div>
+<div class="section" id="commissioning">
+<h3>Commissioning<a class="headerlink" href="#commissioning" title="Permalink to this headline">¶</a></h3>
+<p>Commissioning is the process where a new untrusted device is authenticated and
+securely brought onto the Thread Network. Commissioning can be split into two
+major categories, external commissioning and native commissioning. External
+commissioning would be the case if the commissioner resides off-mesh of the
+Thread Network. External commissioning requires a border agent to relay
+communication to and from on and off mesh. Native commissioning only requires
+on-mesh nodes, and will be explained here. Consult chapter 8 of the Thread
+1.1.1 specification for a better overview of the commissioning protocol.</p>
+<p>To illustrate commissioning, it is necessary to form a network to commission
+with. Follow along with the following code block on one of your CLI FTD
+examples. This will form a Thread Network on channel <code class="docutils literal"><span class="pre">14</span></code> and PANID
+<code class="docutils literal"><span class="pre">0xface</span></code>, and start the node as a commissioner. From now on we will refer to
+this node as the Commissioner.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The masterkey is set in this example to make it different than the default
+OpenThread masterkey.</p>
+</div>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt; masterkey ffeeddccbbaa99887766554433221100
+Done
+&gt; channel 14
+Done
+&gt; panid 0xface
+Done
+&gt; ifconfig up
+Done
+&gt; thread start
+Done
+&gt; state
+detached
+Done
+&gt; state
+leader
+Done
+&gt; commissioner start
+Done
+&gt;
+</pre></div>
+</div>
+<p>In a second CLI FTD example, use the command <code class="docutils literal"><span class="pre">eui64</span></code> to discover the
+CC26x2’s EUI. This will be used by the Commissioner to securely join this
+device into the Thread Network. From now on we will refer to this device as the
+Joiner.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt; eui64
+00124b000f6e6131
+Done
+&gt;
+</pre></div>
+</div>
+<p>Now we need to tell the Commissioner to look for a device with the EUI
+<code class="docutils literal"><span class="pre">00124b000f6e6131</span></code> and some pre-shared key, we will use <code class="docutils literal"><span class="pre">PPSSKK</span></code>. On the
+Commissioner, follow along with the code block below to add a joiner entry to
+the commissioning dataset.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt; commissioner joiner add 00124b000f6e6131 PPSSKK
+Done
+&gt;
+</pre></div>
+</div>
+<p>This network is most likely a singleton, so the change in the commissioning
+data set will take effect immediately. In a larger network with more nodes the
+Commissioner would notify the Leader of the change to the commissioning dataset
+and the Leader would disseminate that information to the Routers in the Thread
+Network.</p>
+<p>Follow along below on the Joiner device to start the discovery and joining
+process. Then attach to the Thread network now that the information is present
+on the Joiner device.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The masterkey commands are only to show that the Thread Masterkey has been
+updated on the Joiner by commissioning.</p>
+</div>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt; masterkey
+00112233445566778899aabbccddeeff
+Done
+&gt; ifconfig up
+Done
+&gt; joiner start PPSSKK
+Done
+&gt; Join success
+
+&gt; masterkey
+ffeeddccbbaa99887766554433221100
+Done
+&gt; thread start
+Done
+&gt; state
+child
+Done
+&gt; ping ff02::1
+&gt; 8 bytes from fe80:0:0:0:2c31:402d:60a9:6fb9: icmp_seq=1 hlim=64 time=6ms
+
+&gt;
+</pre></div>
+</div>
+<p>Don’t forget to stop the Commissioner so that other commissioners can do their
+job.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt; commissioner stop
+Done
+&gt;
+</pre></div>
+</div>
+<p>The Joiner has now been added to the Thread Network.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="running-example-apps-cc26x2.html" class="btn btn-neutral float-right" title="Example Applications" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ot-sw-dev-env.html" class="btn btn-neutral" title="TI-OpenThread Stack Software Development Environment" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

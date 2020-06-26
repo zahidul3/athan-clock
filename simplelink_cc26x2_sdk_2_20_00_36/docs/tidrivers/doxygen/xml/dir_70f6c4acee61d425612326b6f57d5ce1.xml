@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="dir_70f6c4acee61d425612326b6f57d5ce1" kind="dir">
+    <compoundname>uart</compoundname>
+    <innerfile refid="_u_a_r_t_c_c26_x0_8h">UARTCC26X0.h</innerfile>
+    <innerfile refid="_u_a_r_t_c_c26_x2_8h">UARTCC26X2.h</innerfile>
+    <innerfile refid="_u_a_r_t_c_c26_x_x_8h">UARTCC26XX.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/"/>
+  </compounddef>
+</doxygen>

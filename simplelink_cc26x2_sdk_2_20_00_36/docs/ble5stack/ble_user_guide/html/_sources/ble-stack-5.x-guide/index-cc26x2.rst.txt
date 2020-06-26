@@ -1,0 +1,26 @@
+.. _sdg-overview:
+
+#######################
+|STACK| User's Guide
+#######################
+
+.. rubric:: Table of contents
+
+.. toctree::
+   :maxdepth: 2
+
+   disclaimer
+   platform-cc26x2
+   /ble-stack-tirtos/index
+   /ble-stack-5.x/index-cc26x2
+   /sensor-controller/sensor-controller.rst
+   /debugging/ble-index
+   /energy-trace/energy-trace
+   /ble-stack-oad/index.rst
+   /ble-stack-5.x-guide/migration-cc26x2.rst
+   /ble-stack-5.x-guide/api-reference
+   /ble-stack-5.x-guide/reference-cc26x2
+
+Indexes and tables
+##################
+* :ref:`genindex`

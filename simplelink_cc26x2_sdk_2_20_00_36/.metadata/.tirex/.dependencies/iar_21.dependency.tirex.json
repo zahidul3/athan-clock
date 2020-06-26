@@ -1,0 +1,24 @@
+[
+   {
+      "default" : "na",
+      "name" : "na",
+      "files" : [
+         "+../../mpu.c -> mpu.c",
+         "+../../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../../ccfg.c -> ccfg.c",
+         "+./CC26X2R1_LAUNCHXL_TIRTOS.icf -> mpu_CC26X2R1_LAUNCHXL_TIRTOS.icf",
+         "+../../Board.h -> Board.h",
+         "+../../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+../mpu.cfg -> mpu.cfg",
+         "+../../README.md -> README.md",
+         "+../../README.html -> README.html"
+      ],
+      "packages" : [],
+      "compiler" : {
+         "specified" : "na",
+         "effective" : "na",
+         "location" : "na"
+      }
+   }
+]

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>4</fileVersion>
+    <fileChecksum>3784417873</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\CC26X2R1_LAUNCHXL.c</file>
+            <file>$PROJ_DIR$\CC26X2R1_LAUNCHXL_fxns.c</file>
+            <file>$PROJ_DIR$\ccfg.c</file>
+            <file>$PROJ_DIR$\main_tirtos.c</file>
+            <file>$PROJ_DIR$\uartecho.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\CC26X2R1_LAUNCHXL.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\ccfg.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\CC26X2R1_LAUNCHXL.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\CC26X2R1_LAUNCHXL_fxns.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main_tirtos.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\uartecho.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\uartecho.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\main_tirtos.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\ccfg.pbi</file>
+            <file>$PROJ_DIR$\Debug\Exe\uartecho.out</file>
+            <file>$PROJ_DIR$\Debug\Obj\CC26X2R1_LAUNCHXL_fxns.pbi</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 14</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CC26X2R1_LAUNCHXL.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 5</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 7</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CC26X2R1_LAUNCHXL_fxns.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 15</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 8</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\ccfg.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 6</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main_tirtos.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 12</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 9</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\uartecho.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 11</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 10</file>
+                </tool>
+            </outputs>
+        </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>ILINK</tool>
+        </forcedrebuild>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs>
+            <file>$PROJ_DIR$\CC26X2R1_LAUNCHXL.c</file>
+            <file>$PROJ_DIR$\CC26X2R1_LAUNCHXL_fxns.c</file>
+            <file>$PROJ_DIR$\ccfg.c</file>
+            <file>$PROJ_DIR$\main_tirtos.c</file>
+            <file>$PROJ_DIR$\uartecho.c</file>
+            <file>$PROJ_DIR$\Release\Obj\CC26X2R1_LAUNCHXL_fxns.pbi</file>
+            <file>$PROJ_DIR$\Release\Obj\CC26X2R1_LAUNCHXL.o</file>
+            <file>$PROJ_DIR$\Release\Obj\CC26X2R1_LAUNCHXL_fxns.o</file>
+            <file>$PROJ_DIR$\Release\Obj\ccfg.o</file>
+            <file>$PROJ_DIR$\Release\Obj\CC26X2R1_LAUNCHXL.pbi</file>
+            <file>$PROJ_DIR$\Release\Obj\main_tirtos.o</file>
+            <file>$PROJ_DIR$\Release\Obj\uartecho.o</file>
+            <file>$PROJ_DIR$\Release\Obj\uartecho.pbi</file>
+            <file>$PROJ_DIR$\Release\Obj\ccfg.pbi</file>
+            <file>$PROJ_DIR$\Release\Obj\main_tirtos.pbi</file>
+            <file>$PROJ_DIR$\Release\Exe\uartecho.out</file>
+            <file>$PROJ_DIR$\Release\Obj\uartecho.pbd</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 15</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CC26X2R1_LAUNCHXL.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 6</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 9</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CC26X2R1_LAUNCHXL_fxns.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 7</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 5</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\ccfg.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 8</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main_tirtos.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 14</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\uartecho.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 11</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 12</file>
+                </tool>
+            </outputs>
+        </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>ILINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

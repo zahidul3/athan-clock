@@ -1,0 +1,19 @@
+/******************************************************************************
+
+ @file  host_xxxo.opt
+
+ @brief This file contains the Bluetooth Low Energy (BLE) build config options.
+
+ Group: WCS, BTS
+ $Target Device: DEVICES $
+
+ ******************************************************************************
+ $License: TISD 2011 $
+ ******************************************************************************
+ $Release Name: PACKAGE NAME $
+ $Release Date: PACKAGE RELEASE DATE $
+ *****************************************************************************/
+
+-DHOST_CONFIG=OBSERVER_CFG
+-DFLASH_ONLY_BUILD
+-DBUILD_REVISION=0xa6df636

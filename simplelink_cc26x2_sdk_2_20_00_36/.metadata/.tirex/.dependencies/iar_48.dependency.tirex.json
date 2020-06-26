@@ -1,0 +1,24 @@
+[
+   {
+      "files" : [
+         "+../../spiffsexternal.c -> spiffsexternal.c",
+         "+../main_spiffs_tirtos.c -> tirtos/main_spiffs_tirtos.c",
+         "+../../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../../ccfg.c -> ccfg.c",
+         "+./CC26X2R1_LAUNCHXL_TIRTOS.icf -> spiffsexternal_CC26X2R1_LAUNCHXL_TIRTOS.icf",
+         "+../../Board.h -> Board.h",
+         "+../../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+../../README.md -> README.md",
+         "+../../README.html -> README.html"
+      ],
+      "packages" : [],
+      "default" : "na",
+      "name" : "na",
+      "compiler" : {
+         "location" : "na",
+         "effective" : "na",
+         "specified" : "na"
+      }
+   }
+]

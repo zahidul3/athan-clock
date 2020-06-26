@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Migration Guide &mdash; SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation" href="../index.html"/>
+        <link rel="prev" title="Reverting to a Factory Image" href="../ble-stack-oad/revert-to-factory.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug thread migration";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI Thread User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-thread.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ot-sw-dev-env.html">TI-OpenThread Stack Software Development Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ot-stack-overview.html">TI-OpenThread Stack Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-example-apps-cc26x2.html">Example Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-br/index.html">Linux Border Router Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating-custom-apps.html">Creating Custom Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-hardware.html">Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packet-sniffer.html">Packet Sniffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/thread-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-oad/index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Migration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#migrating-from-ti-openthread-0-95-00-to-1-00-00">Migrating from TI-OpenThread 0.95.00 to 1.00.00</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#change-the-selected-product">Change the selected product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clean-all-the-projects">Clean all the projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-and-find-errors">Build and find errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#posix-errors">Posix errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deprecated-openthread-apis">Deprecated OpenThread APIs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#openthread-config-changes">OpenThread config changes</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index-cc26x2.html">SimpleLink™ CC26x2 TI Thread User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index-cc26x2.html">Docs</a> &raquo;</li>
+      
+    <li>Migration Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="migration-guide">
+<span id="migrating"></span><h1>Migration Guide<a class="headerlink" href="#migration-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="migrating-from-ti-openthread-0-95-00-to-1-00-00">
+<h2>Migrating from TI-OpenThread 0.95.00 to 1.00.00<a class="headerlink" href="#migrating-from-ti-openthread-0-95-00-to-1-00-00" title="Permalink to this headline">¶</a></h2>
+<p>In this guide we will take the doorlock example application from a built state
+in the TI-OpenThread Stack version <code class="docutils literal"><span class="pre">0.95.00</span></code> to working with the
+TI-OpenThread Stack version <code class="docutils literal"><span class="pre">1.00.00</span></code>. The doorlock is a <a class="reference internal" href="index-cc26x2.html#term-mtd"><span class="xref std std-term">MTD</span></a> example,
+the migration will be very similar for <a class="reference internal" href="index-cc26x2.html#term-ftd"><span class="xref std std-term">FTD</span></a> projects. I am showing off
+migrating a ti-cgt toolchain example (ccs), the relevant information changes
+for gcc will be called out.</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/fig-legacy-project.png" src="../_images/fig-legacy-project.png" />
+<p class="caption"><span class="caption-number">Figure 76. </span><span class="caption-text">Legacy 0.95.00 doorlock project</span></p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The doorlock example was choosen for it’s simple nature, and because it
+shows off the issues we faced porting from the previous stack to this one.
+This guide is by no means exhaustive, your application may use different
+APIs or expect different behavior.</p>
+</div>
+<div class="section" id="change-the-selected-product">
+<h3>Change the selected product<a class="headerlink" href="#change-the-selected-product" title="Permalink to this headline">¶</a></h3>
+<p>The first thing to check is that the new SimpleLink SDK is installed and that
+CCS has discovered it. Open the CCS Preferences dialog by clicking <code class="docutils literal"><span class="pre">Window</span></code>
+→ <code class="docutils literal"><span class="pre">Preferences</span></code>, then navigate to the products page by selecting <code class="docutils literal"><span class="pre">Code</span>
+<span class="pre">Composer</span> <span class="pre">Studio</span></code> → <code class="docutils literal"><span class="pre">Products</span></code>. You should see the new SimpleLink SDK
+recognized in the <code class="docutils literal"><span class="pre">Installed</span> <span class="pre">products:</span></code> pane as in
+<a class="reference internal" href="#fig-new-product-installed"><span class="std std-numref">Figure 77.</span></a> If CCS has not discovered your newly
+installed product you can click <code class="docutils literal"><span class="pre">Rediscover...</span></code> or restart CCS to have it
+scan again. If CCS does not discover the new SDK, you may not have installed it
+correctly.</p>
+<div class="figure align-center" id="id3">
+<span id="fig-new-product-installed"></span><img alt="../_images/fig-new-product-installed.png" src="../_images/fig-new-product-installed.png" />
+<p class="caption"><span class="caption-number">Figure 77. </span><span class="caption-text">Legacy 0.95.00 doorlock project</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Here I have installed an engineering version of the SDK, your version will
+be the released version. This will work exactly the same as the one I have
+installed.</p>
+</div>
+<p>Right click on your project in the project explorer and select <code class="docutils literal"><span class="pre">Properties</span></code>
+to open up the Properties dialog for that project. I have opened the doorlock
+project’s properties in <a class="reference internal" href="#fig-select-new-product"><span class="std std-numref">Figure 78.</span></a> In the Properties
+dialog, navigate to the <code class="docutils literal"><span class="pre">General</span></code> page and select the <code class="docutils literal"><span class="pre">Products</span></code> tab. From
+there change the selected SimpleLink SDK version to your newly installed SDK.
+Once you click <code class="docutils literal"><span class="pre">OK</span></code>, CCS will rewrite the SDK base variable from the old SDK
+to the new SDK.</p>
+<div class="figure align-center" id="id4">
+<span id="fig-select-new-product"></span><img alt="../_images/fig-select-new-product.png" src="../_images/fig-select-new-product.png" />
+<p class="caption"><span class="caption-number">Figure 78. </span><span class="caption-text">Changing the selected SimpleLink SDK version</span></p>
+</div>
+<p>Repeat this process for each of the projects in your Project Explorer.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will rewrite the base that the OpenThread projects use to find the
+OpenThread source code. If you have made any modification to the OpenThread
+source code you will have to manually port those changes from the old SDK
+to the new SDK.</p>
+</div>
+</div>
+<div class="section" id="clean-all-the-projects">
+<h3>Clean all the projects<a class="headerlink" href="#clean-all-the-projects" title="Permalink to this headline">¶</a></h3>
+<p>These projects were originally built with the old SDK source. We need to make
+sure that no built content is accidentally left over from the old SDK. Select
+<code class="docutils literal"><span class="pre">Project</span></code> → <code class="docutils literal"><span class="pre">Clean...</span></code> to open the Clean dialog. Make sure that the
+<code class="docutils literal"><span class="pre">Clean</span> <span class="pre">all</span> <span class="pre">projects</span></code> radio button is selected and that the <code class="docutils literal"><span class="pre">Start</span> <span class="pre">a</span> <span class="pre">build</span>
+<span class="pre">immediately</span></code> checkbox is unchecked. Then click <code class="docutils literal"><span class="pre">OK</span></code> to begin cleaning all
+the projects in your workspace.</p>
+<div class="figure align-center" id="id5">
+<span id="fig-clean-all-projects"></span><img alt="../_images/fig-clean-all-projects.png" src="../_images/fig-clean-all-projects.png" />
+<p class="caption"><span class="caption-number">Figure 79. </span><span class="caption-text">Clean all CCS projects</span></p>
+</div>
+</div>
+<div class="section" id="build-and-find-errors">
+<h3>Build and find errors<a class="headerlink" href="#build-and-find-errors" title="Permalink to this headline">¶</a></h3>
+<p>Now that you have migrated your projects to point to the new SDK root, try
+building. This will most likely end in error as seen in
+<a class="reference internal" href="#fig-build-and-error"><span class="std std-numref">Figure 80.</span></a> Now we’ve got our work cut out for us.</p>
+<div class="figure align-center" id="id6">
+<span id="fig-build-and-error"></span><img alt="../_images/fig-build-and-error.png" src="../_images/fig-build-and-error.png" />
+<p class="caption"><span class="caption-number">Figure 80. </span><span class="caption-text">Build and find the errors</span></p>
+</div>
+<div class="section" id="posix-errors">
+<h4>Posix errors<a class="headerlink" href="#posix-errors" title="Permalink to this headline">¶</a></h4>
+<p>Most of the errors we face on our first build are definitions of Posix headers
+and types. This can be seen in <a class="reference internal" href="#fig-posix-error"><span class="std std-numref">Figure 81.</span></a></p>
+<div class="figure align-center" id="id7">
+<span id="fig-posix-error"></span><img alt="../_images/fig-posix-error.png" src="../_images/fig-posix-error.png" />
+<p class="caption"><span class="caption-number">Figure 81. </span><span class="caption-text">Posix errors</span></p>
+</div>
+<p>These errors are caused by a change in how TI-RTOS treats Posix headers. This
+can be seen in the Upgrade an Compatibility section of the
+<code class="docutils literal"><span class="pre">simplelink_mcu_sdk</span></code> release notes. In the TI-RTOS config file
+<code class="docutils literal"><span class="pre">release.cfg</span></code> we must change the Posix configuration.</p>
+<p>From:</p>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">Settings</span> <span class="o">=</span> <span class="nx">xdc</span><span class="p">.</span><span class="nx">useModule</span><span class="p">(</span><span class="s1">&#39;ti.sysbios.posix.Settings&#39;</span><span class="p">);</span>
+<span class="nx">Settings</span><span class="p">.</span><span class="nx">supportsMutexPriority</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>To:</p>
+<div class="highlight-js"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">Settings</span> <span class="o">=</span> <span class="nx">xdc</span><span class="p">.</span><span class="nx">useModule</span><span class="p">(</span><span class="s1">&#39;ti.posix.tirtos.Settings&#39;</span><span class="p">);</span>
+<span class="nx">Settings</span><span class="p">.</span><span class="nx">enableMutexPriority</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>It is also necessary to change the Posix include paths.</p>
+<p>From:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>TIRTOS: &lt;SDK_INSTALL_DIR&gt;/kernel/tirtos/packages/ti/sysbios/posix
+FreeRTOS: &lt;SDK_INSTALL_DIR&gt;/kernel/freertos/posix
+</pre></div>
+</div>
+<p>To:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>CCS Compiler: &lt;SDK_INSTALL_DIR&gt;/source/ti/posix/ccs
+GCC Compiler: &lt;SDK_INSTALL_DIR&gt;/source/ti/posix/gcc
+IAR Compiler: &lt;SDK_INSTALL_DIR&gt;/source/ti/posix/iar
+</pre></div>
+</div>
+<p>Right click on the project that uses Posix and select <code class="docutils literal"><span class="pre">Properties</span></code> to open up
+the properties dialog. Then navigate to the Include Options page by selecting
+<code class="docutils literal"><span class="pre">Build</span></code> → <code class="docutils literal"><span class="pre">ARM</span> <span class="pre">Compiler</span></code> → <code class="docutils literal"><span class="pre">Include</span> <span class="pre">Options</span></code>. Then change the
+posix include path as seen in <a class="reference internal" href="#fig-posix-include"><span class="std std-numref">Figure 82.</span></a></p>
+<div class="figure align-center" id="id8">
+<span id="fig-posix-include"></span><img alt="../_images/fig-posix-include.png" src="../_images/fig-posix-include.png" />
+<p class="caption"><span class="caption-number">Figure 82. </span><span class="caption-text">Change Posix includes</span></p>
+</div>
+</div>
+<div class="section" id="deprecated-openthread-apis">
+<h4>Deprecated OpenThread APIs<a class="headerlink" href="#deprecated-openthread-apis" title="Permalink to this headline">¶</a></h4>
+<p>Trying to build after fixing the Posix include paths will result in the errors
+seen in <a class="reference internal" href="#fig-openthread-deprecated"><span class="std std-numref">Figure 83.</span></a></p>
+<div class="figure align-center" id="id9">
+<span id="fig-openthread-deprecated"></span><img alt="../_images/fig-openthread-deprecated.png" src="../_images/fig-openthread-deprecated.png" />
+<p class="caption"><span class="caption-number">Figure 83. </span><span class="caption-text"><code class="docutils literal"><span class="pre">otLinkGetJoinerId</span></code> has been removed</span></p>
+</div>
+<p>OpenThread removed the API to query the HashMacAddr value. This was because the
+commissioning process was updated to use the EUI64 instead. For our purposes,
+it is enough to remove the uses of the API; your application may need to be
+updated to work around this change.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">These are the only APIs that were deprecated in our example applications.
+Functionality may have changed between versions of OpenThread, check the
+difference and changelog on github.com/openthread/openthread.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="openthread-config-changes">
+<h2>OpenThread config changes<a class="headerlink" href="#openthread-config-changes" title="Permalink to this headline">¶</a></h2>
+<p>The OpenThread configuration headers are copied into the repository, make sure
+to check the difference between your workspace’s configuration files and the
+ones in a freshly imported project.</p>
+<div class="figure align-center" id="id10">
+<span id="fig-openthread-config"></span><img alt="../_images/fig-openthread-config.png" src="../_images/fig-openthread-config.png" />
+<p class="caption"><span class="caption-number">Figure 84. </span><span class="caption-text">Workspace configuration files</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../ble-stack-oad/revert-to-factory.html" class="btn btn-neutral" title="Reverting to a Factory Image" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

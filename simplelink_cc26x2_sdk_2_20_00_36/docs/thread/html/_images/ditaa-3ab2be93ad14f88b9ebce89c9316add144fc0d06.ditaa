@@ -1,0 +1,23 @@
+                  OAD App Only          OAD App + Stack
+                      Image              Library Image
+
+                |   App Image   |
+                |     ...       |
+                |               |
+                |               |
+                |               |     |   App Image   |
+                +---------------+     |     ...       |
+                |    Contiguous |     |               |
+                |    Image      |     |               |
+                |    Segment    |     |               |
+                |     c7AF      |     +---------------+
+                +---------------+     |    Contiguous |
+                |    Boundary   |     |    Image      |
+                |    Segment    |     |    Segment    |
+                |     c7AF      |     |     c7AF      |
+                +---------------+     +---------------+
+  addresses     |               |     |               |
+      ^         |     Core      |     |     Core      |
+      |         |  Image Header |     |  Image Header |
+      |         |     cRED      |     |     cRED      |
+------+-----    +---------------+     +---------------+

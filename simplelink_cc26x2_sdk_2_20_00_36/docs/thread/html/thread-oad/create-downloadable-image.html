@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Create a Downloadable Thread Image &mdash; SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation" href="../index.html"/>
+        <link rel="up" title="Over-the-Air Download (OAD)" href="index.html"/>
+        <link rel="next" title="Creating a Production Image" href="../ble-stack-oad/creating-a-production-image.html"/>
+        <link rel="prev" title="Performing a BLE OAD" href="../ble-stack-oad/performing-an-oad.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug thread-oad create-downloadable-image";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../thread/index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI Thread User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../thread/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-thread.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/ot-sw-dev-env.html">TI-OpenThread Stack Software Development Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/ot-stack-overview.html">TI-OpenThread Stack Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/running-example-apps-cc26x2.html">Example Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-br/index.html">Linux Border Router Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/creating-custom-apps.html">Creating Custom Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/custom-hardware.html">Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/packet-sniffer.html">Packet Sniffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/thread-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Over-the-Air Download (OAD)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../oad/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/bim.html">Boot Image Manager (BIM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/image-header.html">OAD Image Header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/ext-flash-image-header.html">OAD External Flash Image Header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/flash-layout-off-chip.html">Flash Layout for Off-Chip OAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/tools.html">OAD Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad-process.html">OAD Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-oad/setting-up-environment.html">Setting up the BLE OAD Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-oad/performing-an-oad.html">Performing a BLE OAD</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Create a Downloadable Thread Image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#changes-to-linker-script">Changes to linker script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remove-or-change-project-files">Remove or change project files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-the-post-build-steps-to-the-project">Add the post-build steps to the project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-oad/creating-a-production-image.html">Creating a Production Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-oad/revert-to-factory.html">Reverting to a Factory Image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/migration.html">Migration Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../thread/index-cc26x2.html">SimpleLink™ CC26x2 TI Thread User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../thread/index-cc26x2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Over-the-Air Download (OAD)</a> &raquo;</li>
+      
+    <li>Create a Downloadable Thread Image</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="create-a-downloadable-thread-image">
+<h1>Create a Downloadable Thread Image<a class="headerlink" href="#create-a-downloadable-thread-image" title="Permalink to this headline">¶</a></h1>
+<p>The only supported out-of-box example of a downloadable image for Thread is the
+<code class="docutils literal"><span class="pre">oad_cli_&lt;BOARD&gt;_tirtos_ccs</span></code> project. This is a modified version of
+the <code class="docutils literal"><span class="pre">cli_ftd_&lt;BOARD&gt;_tirtos_ccs</span></code> project. We will be looking at the
+differences between the two example applications as a case study for adding OAD
+support to an existing project.</p>
+<div class="section" id="changes-to-linker-script">
+<h2>Changes to linker script<a class="headerlink" href="#changes-to-linker-script" title="Permalink to this headline">¶</a></h2>
+<p>One of the major changes between the downloadable CLI example application and
+the regular CLI example is the linker script. Changes include; reserving space
+for the metadata headers, reserving the last page of flash, moving the
+<a class="reference internal" href="../thread/index-cc26x2.html#term-28"><span class="xref std std-term">CCFG</span></a>, and.</p>
+<p>To reserve the necessary memory for the image header, a memory section was
+added to the flash map, this can be seen on line <code class="docutils literal"><span class="pre">94</span></code> below. As mentioned in
+<a class="reference internal" href="../oad/image-header.html#sec-oad-image-header"><span class="std std-ref">OAD Image Header</span></a> the required size and position is fixed at the base
+of the flash layout and is <code class="docutils literal"><span class="pre">0x100</span></code> bytes in size.</p>
+<p>Another memory section is reserved for the reset vectors. To ensure that the
+application’s reset vectors are placed at <code class="docutils literal"><span class="pre">0x100</span></code>, this section is explicitly
+placed on line <code class="docutils literal"><span class="pre">95</span></code> below. The length of that section is set at <code class="docutils literal"><span class="pre">0x100</span></code> to
+ensure that more than enough room is reserved for the reset vectors.</p>
+<p>Finally, as noted in <a class="reference internal" href="../oad/bim.html#sec-oad-bim"><span class="std std-ref">Boot Image Manager (BIM)</span></a> we need to reserve enough space for the
+BIM itself. This is defined as the last page in our flash map. This reservation
+can be seen by noticing that the <code class="docutils literal"><span class="pre">FLASH_BULK</span></code> section is 3 pages smaller than
+the flash size on line <code class="docutils literal"><span class="pre">96</span></code> below. A section is also added for a debug BIM
+and CCFG on line <code class="docutils literal"><span class="pre">99</span></code> below, this is used to place a pre-built BIM and CCFG.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The author of this OAD example application choose to reserve the second and
+third to last pages of flash for NV storage. This is different than the
+regular CLI example. Both approaches are valid.</p>
+</div>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105</pre></div></td><td class="code"><div class="highlight"><pre><span></span>MEMORY
+{
+    /* Application stored in and executes from internal flash */
+    FLASH_IMG_HDR   : origin = FLASH_BASE + 0x000 , length = 0x100
+    FLASH_ENTRY     : origin = FLASH_BASE + 0x100 , length = 0x100
+    FLASH_BULK (RX) : origin = FLASH_BASE + 0x200 , length = (FLASH_SIZE - (3 * FLASH_SECTOR_SIZE) - 0x200)
+
+    // For CCS - the FLASH_NV is defined by other means
+    FLASH_BIM_CCFG (RX)  : origin = FLASH_BIM_CCFG_BASE , length = FLASH_BIM_CCFG_SIZE
+    /* Application uses internal RAM for data */
+    SRAM (RWX) : origin = RAM_BASE, length = RAM_SIZE
+    /* Application can use GPRAM region as RAM if cache is disabled in the CCFG
+    (DEFAULT_CCFG_SIZE_AND_DIS_FLAGS.SET_CCFG_SIZE_AND_DIS_FLAGS_DIS_GPRAM = 0) */
+    GPRAM (RWX): origin = GPRAM_BASE, length = GPRAM_SIZE
+}
+</pre></div>
+</td></tr></table></div>
+<p>Then the two new sections need to be filled with information. Place the OAD
+image header in the flash image header section. And, move the interrupt vectors
+into the new flash entry section. Don’t forget to rename the placements for the
+old flash section.</p>
+<div class="highlight-none"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125</pre></div></td><td class="code"><div class="highlight"><pre><span></span>GROUP &gt; FLASH_IMG_HDR
+{
+    .oad_image_header
+}
+
+GROUP &gt; FLASH_ENTRY
+{
+    .resetVecs
+    .intvecs
+    EntrySection LOAD_START(prgEntryAddr)
+}
+</pre></div>
+</td></tr></table></div>
+<p>Remove the now unused ccfg placement. For our ti-cgt toolchain examples this
+usually shows up as <code class="docutils literal"><span class="pre">.ccfg</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">:</span>&#160;&#160; <span class="pre">&gt;</span> <span class="pre">FLASH</span> <span class="pre">(HIGH)</span></code> in the linker
+script.</p>
+</div>
+<div class="section" id="remove-or-change-project-files">
+<h2>Remove or change project files<a class="headerlink" href="#remove-or-change-project-files" title="Permalink to this headline">¶</a></h2>
+<p>Some files need to be removed from the project to allow placement to continue.
+Some files need to be added to the project to build the image header. And some
+files can be optionally added to improve the debug and development experience.</p>
+<p>Remove the <code class="docutils literal"><span class="pre">ccfg.c</span></code> file from the project. This will prevent the <a class="reference internal" href="../thread/index-cc26x2.html#term-28"><span class="xref std std-term">CCFG</span></a>
+from being added to the final built image. The CCFG is now owned by the BIM
+project, and the CC26x2 will use that CCFG.</p>
+<p>Add the <code class="docutils literal"><span class="pre">oad_image_header.c</span></code> and <code class="docutils literal"><span class="pre">oad_image_header.h</span></code> files to your
+project. These can be copied from the <code class="docutils literal"><span class="pre">oad_cli_&lt;BOARD&gt;_tirtos_ccs</span></code> project
+directly. These source files define the OAD image header that is placed at the
+origin of the image.</p>
+<p>Optionally add the files <code class="docutils literal"><span class="pre">bim_oad_debug_image_bim.c</span></code> and
+<code class="docutils literal"><span class="pre">bim_oad_debug_image_bim.h</span></code> files to your project. These are not required for
+creating a downloadable image. These source files add a C array at the end of
+flash that is a known good BIM image. This only serves to make programming and
+debugging within the CCS environment easy. It may be advisable for you to look
+at the BIM project, or to create your own.</p>
+<p>Consult the <code class="docutils literal"><span class="pre">main_oad.c</span></code> source file in <code class="docutils literal"><span class="pre">oad_cli_&lt;BOARD&gt;_tirtos_ccs</span></code> for a
+mechanism to erase the CRC metadata in the image header. This will allow you to
+invalidate your running image and force BIM to reload the factory image.</p>
+</div>
+<div class="section" id="add-the-post-build-steps-to-the-project">
+<h2>Add the post-build steps to the project<a class="headerlink" href="#add-the-post-build-steps-to-the-project" title="Permalink to this headline">¶</a></h2>
+<p>Finally we need to define the post-build step that takes the <code class="docutils literal"><span class="pre">*.out</span></code> file to
+a <code class="docutils literal"><span class="pre">*.hex</span></code> file and finally creating the downloadable <code class="docutils literal"><span class="pre">*.bin</span></code> file.</p>
+<p>First we need to define the location of the OAD image tool. Open the project
+properties by right clicking on the project in the project explorer and
+selecting <code class="docutils literal"><span class="pre">Properties</span></code>. Then navigate to the Linked Resources page by
+selecting <code class="docutils literal"><span class="pre">Resource</span></code> → <code class="docutils literal"><span class="pre">Linked</span> <span class="pre">Resources</span></code>. From there add a new path
+variable by clicking <code class="docutils literal"><span class="pre">New...</span></code> as seen below.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Name</td>
+<td><code class="docutils literal"><span class="pre">OAD_IMAGE_TOOL</span></code></td>
+</tr>
+<tr class="row-even"><td>Location</td>
+<td><code class="docutils literal"><span class="pre">${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}\tools\common\oad\bin\${OsType}\oad_image_tool</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="figure align-center" id="id2">
+<img alt="../_images/fig-define-image-tool.png" src="../_images/fig-define-image-tool.png" />
+<p class="caption"><span class="caption-number">Figure 73. </span><span class="caption-text">Defining the OAD image tool location</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">CCS may complain that the location does not exist, this is due to the
+<code class="docutils literal"><span class="pre">${OsType}</span></code> build variable in the path. This variable is only valid at
+build time.</p>
+</div>
+<p>Finally we need to add the post-build steps to the configuration. In the
+project’s Properties, navigate to the Build page by selecting <code class="docutils literal"><span class="pre">Build</span></code>. Then
+select the <code class="docutils literal"><span class="pre">Steps</span></code> tab and add the following lines to the <code class="docutils literal"><span class="pre">Post-build</span>
+<span class="pre">steps</span></code> text box.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>${CG_TOOL_HEX} -order MS --memwidth=8 --romwidth=8 --intel -o ${ProjName}.hex ${ProjName}.out
+${OAD_IMAGE_TOOL} --verbose ccs ${PROJECT_LOC}/${ConfigName} 7 -hex1 ${ProjName}.hex -o ${ProjName}_oad
+</pre></div>
+</div>
+<p>This will add the two necessary steps to flatten the image into a <code class="docutils literal"><span class="pre">*.hex</span></code>,
+and create the downloadable <code class="docutils literal"><span class="pre">*.bin</span></code> binary.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ble-stack-oad/creating-a-production-image.html" class="btn btn-neutral float-right" title="Creating a Production Image" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ble-stack-oad/performing-an-oad.html" class="btn btn-neutral" title="Performing a BLE OAD" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+BLE5-Stack 1.01.00 to BLE5-Stack 1.01.02
+========================================
+
+This section will describe a way to migrate a project from BLE5-Stack 1.01.00 to
+a BLE5-Stack 1.01.02 project.
+
+For this migration guide, simple\_peripheral from BLE5-Stack 1.01.00 will be
+ported over to BLE5-Stack 1.01.02. Because the directory structure is nearly
+identical between the two releases, the recommended approach is to start with a
+BLE5-Stack 1.01.02 project that contains the same base functionality as the
+porting target project and merge in any custom functionality.
+
+#. Choose a BLE5-Stack 1.01.02 example project that contains your target project's base functionality.
+
+    For reference, see available sample projects that start with simple\_
+
+    In this example, we're going to use simple\_peripheral as the starting
+    BLE5-Stack 1.01.02 sample project.
+
+#. Transfer all modified application files from BLE5-Stack 1.01.00 into the BLE5-Stack 1.01.02 example project.
+
+    In this example, the following files from BLE5-Stack 1.01.00 were moved into
+    simple\_peripheral BLE5-Stack 1.01.02 example:
+
+    - ``simple_peripheral.c``
+    - ``simple_peripheral.h``
+    - ``simple_gatt_profile.c``
+    - ``simple_gatt_profile.h``
+
+#. Modify ``main.c`` in the BLE5-Stack 1.01.02 example if additional tasks were added in the BLE5-Stack 1.01.00 project.
+
+#. Note that address mode and random address are now set from ``GAP_DeviceInit``
+
+    The ``GAP_DeviceInit()`` function now includes parameters for setting the
+    address mode and for setting a pointer to a random address when that mode is
+    used.
+
+    .. code-block:: c
+
+        /**
+         * GAP Device Initialization
+         *
+         * Setup the device. Can only be called once per reset. In order to change
+         * the address mode / random address, it is necessary to reset the device
+         * and call this API again. In the case where the address mode or random address
+         * is different than it was for the last initialization, all bonds and local
+         * information stored in NV will be erased.
+         *
+         * @par Corresponding Events:
+         * @ref GAP_DEVICE_INIT_DONE_EVENT of type @ref gapDeviceInitDoneEvent_t
+         *
+         * @param profileRole GAP Profile Roles: @ref GAP_Profile_Roles
+         * @param taskID end application task to receive unprocessed GAP events.
+         * @param addrMode Own address mode. If always using Resolvable Private Address,
+         *        set this to either @ref ADDRMODE_RP_WITH_PUBLIC_ID or
+         *        @ref ADDRMODE_RP_WITH_RANDOM_ID. If always using Identity
+         *        Address, set this to either @ref ADDRMODE_PUBLIC or
+         *        @ref ADDRMODE_RANDOM.
+         * @param pRandomAddr Pointer to 6-byte Random Static Address of this device
+         *        that will be copied to the stack. Valid only if addrMode
+         *        is @ref ADDRMODE_RANDOM or @ref ADDRMODE_RP_WITH_RANDOM_ID and can
+         *        not be NULL in these cases. Ignored for other address types.
+         *
+         * @return @ref SUCCESS : initialization started
+         * @return @ref INVALIDPARAMETER : invalid profile role, role combination,
+         *         or invalid Random Static Address,
+         * @return @ref bleIncorrectMode : initialization has already occurred
+         * @return @ref bleInternalError : error erasing NV
+         */
+        extern bStatus_t GAP_DeviceInit(uint8_t profileRole, uint8_t taskID,
+                                        GAP_Addr_Modes_t addrMode,
+                                        uint8_t* pRandomAddr);
+
+    Any calls to ``GAP_DeviceInit()`` should be modified to pass a parameter
+    addrMode of type ``GAP_Addr_Modes_t``.
+
+    .. code-block:: c
+
+        // Address mode of the local device
+        #define DEFAULT_ADDRESS_MODE                  ADDRMODE_PUBLIC
+
+    .. code-block:: c
+
+        // Address mode
+        static GAP_Addr_Modes_t addrMode = DEFAULT_ADDRESS_MODE;
+
+    .. code-block:: c
+
+        //Initialize GAP layer for Peripheral role and register to receive GAP events
+        GAP_DeviceInit(GAP_PROFILE_PERIPHERAL, selfEntity, addrMode, NULL);
+
+    Additionally, remove all code using ``GAP_ConfigDeviceAddr()`` because the
+    address mode and random address are now only able to be set from
+    ``GAP_DeviceInit()``. ``GAP_DeviceInit()`` can only be called once after a
+    reset, so any functions related to change the address mode on the fly should
+    be removed.
+
+#. Removal of HCI Extension notice commands:
+
+    The following HCI Extension commands have been removed:
+        - ``HCI_EXT_ConnEventNoticeCmd()``
+        - ``HCI_EXT_AdvEventNoticeCmd()``
+        - ``HCI_EXT_ScanEventNoticeCmd()``
+        - ``HCI_EXT_ScanReqRptCmd()``
+
+    Any calls to these commands should be removed as well as references to
+    events related to these commands.
+
+    For ``HCI_EXT_ConnEventNoticeCmd()``, ``Gap_RegisterConnEventCb`` is now
+    provided  as an option instead as a way to handle connection events.
+
+#. If necessary, update the project to use the newer TI-RTOS drivers that are supplied with the |SDK|.
+
+    The following drivers have changed from BLE5-Stack 1.01.00. Please see the
+    changes to these drivers by comparing the supplied headers between them in
+    simplelink_cc2640r2_sdk_1_50_00_71 and those in the |SDK|.
+
+    * LCD: Driver is found in source/ti/display/lcd instead of previous ti/mw/lcd/
+
+#. Refer to the |TIRTOSUPGRADE| for additional information and the TI-RTOS examples included with |SDK|.
+
+    For additional information on how BLE5-Stack 1.01.02 uses TI-RTOS see
+    :ref:`sec-tirtos-overview`
+
+    For any utilized TI Drivers, review `TI-RTOS Kernel Users Guide`_ and
+    `Driver APIs <..\/..\/..\/..\/..\/tidrivers\/tidriversAPIs.html>`__.

@@ -1,0 +1,21 @@
+Single Device SoC         :    Two Chip Network
+Configuration             :    Co-Processor
++--------------------+    :    +--------------------+
+| SimpleLink         |    :    | External MCU       |
+| Wireless MCU  cFFF |    :    |               cFFF |
+| +------------------+    :    | +------------------+
+| | User Application |    :    | | User Application |
+| |                  |    :    | |             cC00 |
+| |                  |    :    +-+------------------+
+| |             cC00 |    :     ^ | Serial
+| +------------------+    :     | V Transfer (UART)
+| | OpenThread Stack |    :    +--------------------+
+| |                  |    :    | SimpleLink         |
+| |             c0BC |    :    | Wireless MCU  cFFF |
+| +------------------+    :    | +------------------+
+| | RTOS Kernel      |    :    | | OpenThread NCP   |
+| | and Drivers      |    :    | | Application c0BC |
+| |                  |    :    | +------------------+
+| |                  |    :    | | RTOS Kernel      |
+| |             cAAA |    :    | | and Drivers cAAA |
++-+------------------+    :    +-+------------------+

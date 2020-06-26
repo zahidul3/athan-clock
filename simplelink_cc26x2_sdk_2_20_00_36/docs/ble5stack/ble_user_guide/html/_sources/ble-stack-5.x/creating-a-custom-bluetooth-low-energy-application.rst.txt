@@ -1,0 +1,698 @@
+A system designer must have a firm grasp on the general system
+architecture, application, and Bluetooth low energy stack framework
+to implement a custom Bluetooth low energy application. This section
+provides indications and guidance on where and how to start
+implementing a custom application based on information presented in
+the previous sections (:ref:`the_application` and :ref:`the_stack`)
+as well as knowledge of TI-RTOS and |DEVICE|.
+
+Decide what role and purpose the custom application should have. If an
+application is tied to a specific service or profile, start with that sample
+application.
+
+A project's role can be essentially be placed in one of the five (5)
+categories as described by :ref:`gap_roles`.
+
+
+Defining Application Behavior
+-----------------------------
+
+The Sample Applications will often contain simple TI-RTOS tasks with a barebones
+messaging system between tasks. For more information on how the application
+tasks works in general, review :ref:`the_application`.
+
+.. _creating-a-custom-ble-app_directed_advertisements:
+
+Directed Advertisements as GATT Server
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In |STACKVER|, Privacy is always enabled. Most of the privacy
+features are handled by the GAP bond manager in the stack. To conserve
+flash memory, by default, the GAP bond manager does not enable GATT
+client features. The implication of these disabled GATT client features
+is that the GAP bond manager will not query the Central Address
+Resolution characteristic of the remote device.
+
+In order to perform a directed advertisement when the initiator's
+address is set to Private Resolvable Address, the peripheral device
+must read the Central Address Resolution characteristic of its remote
+device to make sure address resolution is supported. Failure to do so
+before sending directed advertisements violates the |CORESPEC|.
+
+By default, sample applications such as simple\_peripheral does not define GATT_NO_CLIENT
+and initializes the GATT Client as shown below:
+
+  .. code-block:: c
+    :caption: Compiling using GATT_NO_CLIENT
+
+      // Initialize GATT Client, used by GAPBondMgr to look for RPAO characteristic for network privacy
+      GATT_InitClient();
+
+.. _sec-compiler-options:
+
+Compiler Options
+----------------
+
+For |STACK| projects, compiler options are defined via ``.opt`` files that are
+included in the IDE's ``TOOLS\defines`` folder. Each project's build
+configuration will include its very own ``.opt`` file.
+
+The predefined symbols in the ``.opt`` files are prefixed with a ``-D``, which
+is standard commandline prefix notation across all the supported toolchains.
+Of the predefined symbols in the ``.opt`` files, some of them are configurable
+and some are not. See :ref:`appconfigurablefeatures`
+and :ref:`stackconfigurablefeatures` for reference as to which options are
+configurable.
+
+The convention to disable a symbol in the ``.opt`` files is to put an 'x' in
+front of the name. For example, to disable power management,
+change ``-DPOWER_SAVING`` to ``-DxPOWER_SAVING``. It is also possible to disable
+a symbol by commenting it out via 'C - style' syntax
+(e.g. ``/* -DPOWER_SAVING */``)
+
+.. warning::
+  Changes in an ``.opt`` file may not be detected by the compiler/toolchain.
+  It is best to rebuild the entire project when a define is changed.
+
+Linker Options
+--------------
+
+Linker symbols may need to be set or adjusted at the project level in order to
+control the memory layout of the generated image.
+The following procedure describes how to access and modify linker
+symbols.
+
+CCS
+^^^
+
+#.  Open **Project Properties**
+#.  Navigate to **Build** -> **ARM Linker** -> **Command File Preprocessing**
+#.  Use the buttons highlighted in :numref:`fig-ccs-linker-defines-box` to add,
+    delete, or edit a linker symbol.
+
+.. _fig-ccs-linker-defines-box:
+.. figure:: resources/ccs_linker_opts.png
+    :align: center
+    :width: 75%
+
+    CCS Linker Symbols
+
+IAR
+^^^
+
+#. Open the Project's **Options** and select the **Linker** Category.
+#. Open the **Config** tab.
+#. View the **Configuration File symbol definitions** box (see :numref:`fig-iar-linker-defines-box`).
+#. Add or edit the preprocessor symbols.
+
+.. _fig-iar-linker-defines-box:
+.. figure:: resources/iar_linker_opts.png
+    :align: center
+
+    IAR Defined Symbols Box
+
+
+
+.. _sec-creating-custom-ble-application-creating-additional-tasks:
+
+Creating Additional ICall Enabled Tasks
+---------------------------------------
+
+.. warning::
+    TI Recommends limiting the number of ICall enabled tasks due to resource usage.
+    For more information on creating ICall enabled tasks,
+    see `Adding ICall RTOS Tasks <http://processors.wiki.ti.com/index.php/Adding_Custom_RTOS_Task>`_
+
+The objective of this section is to familiarize the programmer with the
+process of adding an RTOS task that can communicate with the |STACK|. Tasks
+call functions within the |STACK| must follow a few additional steps
+to register with ICall. These details are covered below:
+
+1. Follow all the steps detailed in :ref:`sec-rtos-overview-tasks` to
+create a TI-RTOS task.
+
+2. Modify the task's init function to register with ICall
+   (explained in :ref:`the-application-icall-initialization-and-registration`)
+
+  .. code-block:: c
+    :linenos:
+    :caption: ICall Registration for custom task
+
+    // ******************************************************************
+    // N0 STACK API CALLS CAN OCCUR BEFORE THIS CALL TO ICall_registerApp
+    // ******************************************************************
+    // Register the current thread as an ICall dispatcher application
+    // so that the application can send and receive messages.
+    ICall_registerApp(&selfEntity, &syncEvent);
+
+3. Modify the task's main function to pend on ``syncEvent``
+   (explained in :ref:`sec-the-application-icall-thread-sync`)
+
+  .. code-block:: c
+    :linenos:
+    :caption: ICall Wait
+
+    static void NotificationTask_taskFxn(UArg a0, UArg a1)
+    {
+      // Initialize application
+      NotificationTask_init();
+
+      // Application main loop
+      for (;;)
+      {
+          // Waits for an event to be posted associated with the calling thread.
+          // Note that an event associated with a thread is posted when a
+          // message is queued to the message receive queue of the thread
+          events = Event_pend(syncEvent, Event_Id_NONE, SBP_ALL_EVENTS, ICALL_TIMEOUT_FOREVER);
+
+          //...
+      }
+      // ...
+    }
+
+4. Modify number of ICall enabled tasks:
+
+  - Increase the following preprocessor defines:
+
+    - ICALL\_MAX\_NUM\_TASKS (**App**)
+    - OSAL\_MAX\_NUM\_PROXY\_TASKS (**Stack**)
+
+  - See :ref:`sec-compiler-options` for steps on how to change symbols.
+
+.. warning::
+  If OSAL\_MAX\_NUM\_PROXY\_TASKS and ICALL\_MAX\_NUM\_TASKS do not match, the
+  stack will abort.
+
+5. Modify number of ICall entities:
+
+  - Increase the following preprocessor defines:
+
+    - ICALL\_MAX\_NUM\_ENTITIES (**App**)
+
+For further description of the above preprocessor defines, please see :numref:`stackconfigurablefeatures`
+
+
+.. _sec-using-production-test-mode:
+
+Using Production Test Mode (PTM)
+--------------------------------
+
+PTM is a way to pass HCI commands from an external communication protocol to
+the controller of the |STACK|.
+
+This section provide a brief overview of enabling PTM and an example of
+how to implement PTM on on a stack library **simple\_peripheral** project
+using UART as the transfer protocol. The steps shown will be using IAR,
+however the steps are the same for CCS.
+
+To enable PTM and send the HCI status back via external transport protocol,
+the application must:
+
+  #. **Add NPI to the Application Project**
+
+       Network Processor Interface (NPI) is utilized to move HCI commands from
+       the various entities in the embedded application. Relevant NPI files will
+       need to be added to the application to enable access for this
+       functionality.
+
+  #. **Configure NPI to Receive Commands From Transport Protocol**
+
+       A transport protocol is used to transfer commands and status between a
+       BLE HCI Tester and the application. NPI currently supports SPI and
+       UART protocols. UART will be used in the example below. NPI by default
+       utilizes a handshake/flow control system to signal when a slave is ready
+       to transmit/receive and when a master is ready to transmit/receive.
+       This feature will be disabled as the functionality is not needed.
+       For more information
+       on NPI see `NPI Wiki <http://processors.wiki.ti.com/index.php/NPI>`_
+
+
+  #. **Send HCI Commands Using ICall Direct API**
+
+       The embedded application must intercept the NPI Frame and send the
+       message to the BLE-Stack through the enhanced ICall’s direct message API.
+       To configure NPI to only send messages to the embedded
+       application, the ``NPITask_registerIncomingRXEventAppCB`` function is
+       utilized to tell NPI to ``INTERCEPT`` messages and send them to a
+       function which will then utilize ICall Direct API. The ICall HCI
+       Transport Layer (``icall_hci_tl.c``) will also be added to the project.
+       ICall Direct API for any given HCI command can be translated from an
+       NPI frame via ``HCI_TL_SendToStack``, defined by the ICall HCI Transport
+       Layer, into a Direct API expected by the BLE-Stack.
+
+  #. **Explicitly Enable PTM and Configure HCI Transport Layer**
+
+       On the stack side, the transport layer capability is defined in the
+       ``build_config.opt`` file under the ``Tools`` folder. To enable the
+       transport layer, this file will need to be modified to define
+       ``HCI_TL_PTM``. The stack can now be notified to enter PTM via the
+       ``HCI_EXT_EnablePTMCmd()`` Vendor Specific HCI Command.
+
+  #. **Configure NPI to Forward Responses to Transport Protocol**
+
+       Events and status of commands should be sent back to the transport
+       protocol. This is done by registering callback functions with the
+       transport layer which forward the messages to NPI. Once NPI has the
+       messages, it then will send the message to the transport protocol
+       configured.
+
+Stack Project Changes
+^^^^^^^^^^^^^^^^^^^^^
+Preprocessor Defines
+""""""""""""""""""""
+These defines are located in the ``.opt`` file in the stack's ``Tools/defines``
+folder. Select the ``.opt`` that is appropriate to the current build
+configuration (FlashROM_Library, etc.). For additional information on adding
+ICall Aware Tasks, and the modifications made to the Application and
+Stack Projects see
+:ref:`sec-creating-custom-ble-application-creating-additional-tasks`.
+
+Add or modify (if it pre-exists) the following preprocessor defines:
+
+.. code-block:: none
+    :emphasize-lines: 2
+    :caption: Stack Preprocessor Defines
+
+    ...
+    -DOSAL_MAX_NUM_PROXY_TASKS=4
+    ...
+
+``OSAL_MAX_NUM_PROXY_TASKS`` increases by one to accommodate for an NPI Task to
+be created. So this should increase by one based on your appplication's
+current value. The value of 4 here is used as an example.
+
+
+Enable PTM and Configure HCI Transport Layer
+""""""""""""""""""""""""""""""""""""""""""""
+The HCI Transport Layer needs to be configured to use the correct
+jump table.
+
+On the stack side, the transport layer capabilities is defined in the
+``build_config.opt`` file under the ``Tools`` folder. By default no
+transport layer is included on the stack side to save flash.
+
+In this example, the following modification in ``build_config.opt``
+to enable PTM commands:
+
+  .. code-block:: none
+    :emphasize-lines: 3
+
+    /* Include Transport Layer (Full or PTM) */
+    /* -DHCI_TL_NONE Comment this line */
+    -DHCI_TL_PTM
+    /* -DHCI_TL_FULL */
+
+The stack must now be rebuilt for the changes to take effect and ensure support
+for the PTM commands.
+
+Application Project Changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Preprocessor Defines
+""""""""""""""""""""
+These defines are located in the ``.opt`` file in the app's ``Tools/defines``
+folder. Select the ``.opt`` that is appropriate to the current build
+configuration (Release, Debug, etc.).
+
+Add or modify (if it pre-exists) the following preprocessor defines:
+
+.. code-block:: none
+    :emphasize-lines: 2, 3, 4
+    :caption: Application Preprocessor Defines
+
+    ...
+    -DICALL_MAX_NUM_TASKS=4
+    -DNPI_USE_UART
+    -DNPI_FLOW_CTRL=0
+    ...
+
+``ICALL_MAX_NUM_TASKS`` increases by one to accommodate for an NPI Task to
+be created. So this should increase by one based on your appplication's
+current value. The value of 4 here is used as an example.
+
+``NPI_USE_UART`` enables UART as the transport protocol for NPI.
+A transport protocol is used to transfer commands and status between
+a BLE HCI Tester and the application. NPI currently supports SPI and UART
+protocols.
+
+NPI by default utilizes a handshake/flow control system to signal
+when a slave is ready to transmit/receive and when a master is
+ready to transmit/receive. For testing purposes,
+this functionality isn't needed and is disabled with ``NPI_FLOW_CTRL=0``.
+
+Adding NPI and ICall HCI TL Files
+"""""""""""""""""""""""""""""""""
+To add NPI and the ICall HCI TL file to the project, add the following files
+to your application. Replace **<SDK>** with your SDK's file path.
+You may want to copy these files into the project instead of linking it to
+prevent unwanted SDK modifications:
+
+  .. code-block:: none
+
+    <SDK>\source\ti\ble5stack\npi\src\npi_frame_hci.c
+    <SDK>\source\ti\ble5stack\npi\src\npi_rxbuf.c
+    <SDK>\source\ti\ble5stack\npi\src\npi_task.c
+    <SDK>\source\ti\ble5stack\npi\src\npi_tl.c
+    <SDK>\source\ti\ble5stack\npi\src\npi_tl_uart.c
+    <SDK>\source\ti\ble5stack\icall\app\icall_hci_tl.c
+
+  .. figure:: resources/ptm_npi_include_folder.jpg
+      :align: center
+      :width: 50%
+
+      Added Files in NPI Folder (IAR)
+
+  .. figure:: resources/ptm_hci_tl.jpg
+      :align: center
+      :width: 50%
+
+      Added File in ICallBLE Folder (IAR)
+
+If not added already, within your application’s project settings add the NPI and
+ROM (for ICall) include directory to the include search path for the IDE:
+
+ .. code-block:: none
+
+    <SDK>\source\ti\ble5stack\npi\src
+    <SDK>\source\ti\ble5stack\npi\src\inc
+    <SDK>\source\ti\ble5stack\rom
+
+ .. figure:: resources/ptm_npi_include_search.jpg
+     :align: center
+     :width: 85%
+
+     NPI Include Directories (IAR)
+
+ .. figure:: resources/ptm_npi_include_search_rom.jpg
+     :align: center
+     :width: 85%
+
+     ROM Include Directories (IAR)
+
+Creating the NPI Task in main.c
+"""""""""""""""""""""""""""""""
+The following changes are to be made in the ``Startup/main.c`` file.
+To include the NPI Task into the project, add ``npi_task.h`` to ``main.c``
+and add ``NPITask_createTask(ICALL_SERVICE_CLASS_BLE);`` towards the end of
+``main()`` where tasks are being created.
+
+  .. code-block:: c
+    :emphasize-lines: 2, 11-12
+
+    #include "simple_peripheral.h"
+    #include "npi_task.h"
+
+    //...
+
+    int main()
+    {
+
+      //...
+
+      /* Start task for NPI task */
+      NPITask_createTask(ICALL_SERVICE_CLASS_BLE);
+
+      /* enable interrupts and start SYS/BIOS */
+      BIOS_start();
+      //...
+
+    }
+
+Set the NPI Task Priority
+"""""""""""""""""""""""""
+The NPI task must be set to a proper priority in ``npi_task.c``.
+Ideally it should be lower than the stack task, but higher than the GAP task.
+This allows commands to interrupt tasks if required.
+
+For this example, the priority of 4 worked perfectly:
+
+  .. code-block:: c
+
+    //! \brief Task priority for NPI RTOS task
+    #define NPITASK_PRIORITY 4
+
+
+Modifying the App File
+""""""""""""""""""""""
+The following changes are to be made in the application's ``.c`` file.
+This example will be provided with the context of ``simple_peripheral.c``.
+Refer to the added comments for further information.
+
+Include the following header files:
+
+  .. code-block:: c
+    :emphasize-lines: 5-7
+
+    //...
+
+    #include "simple_peripheral.h"
+
+    #include "npi_task.h"        // To allow RX event registration
+    #include "npi_ble.h"         // To enable transmission of messages to UART
+    #include "icall_hci_tl.h"    // To allow ICall HCI Transport Layer
+
+    //...
+
+Add the following function declarations and definitions:
+
+  .. code-block:: c
+    :emphasize-lines: 3-4, 8-57
+
+    //...
+
+    void SBP_handleNPIRxInterceptEvent(uint8_t *pMsg);  // Declaration
+    static void SBP_sendToNPI(uint8_t *buf, uint16_t len);  // Declaration
+
+    //...
+
+     /*********************************************************************
+    * @fn      SBP_handleNPIRxInterceptEvent
+    *
+    * @brief   Intercept an NPI RX serial message and queue for this application.
+    *
+    * @param   pMsg - a NPIMSG_msg_t containing the intercepted message.
+    *
+    * @return  none.
+    */
+    void SBP_handleNPIRxInterceptEvent(uint8_t *pMsg)
+    {
+      // Send Command via HCI TL
+      HCI_TL_SendToStack(((NPIMSG_msg_t *)pMsg)->pBuf);
+
+      // The data is stored as a message, free this first.
+      ICall_freeMsg(((NPIMSG_msg_t *)pMsg)->pBuf);
+
+      // Free container.
+      ICall_free(pMsg);
+    }
+
+    /*********************************************************************
+    * @fn      SBP_sendToNPI
+    *
+    * @brief   Create an NPI packet and send to NPI to transmit.
+    *
+    * @param   buf - pointer HCI event or data.
+    *
+    * @param   len - length of buf in bytes.
+    *
+    * @return  none
+    */
+    static void SBP_sendToNPI(uint8_t *buf, uint16_t len)
+    {
+      npiPkt_t *pNpiPkt = (npiPkt_t *)ICall_allocMsg(sizeof(npiPkt_t) + len);
+
+      if (pNpiPkt)
+      {
+        pNpiPkt->hdr.event = buf[0]; //Has the event status code in first byte of payload
+        pNpiPkt->hdr.status = 0xFF;
+        pNpiPkt->pktLen = len;
+        pNpiPkt->pData  = (uint8 *)(pNpiPkt + 1);
+
+        memcpy(pNpiPkt->pData, buf, len);
+
+        // Send to NPI
+        // Note: there is no need to free this packet.  NPI will do that itself.
+        NPITask_sendToHost((uint8_t *)pNpiPkt);
+      }
+    }
+
+At the end of the initialization function, add the following function calls:
+
+  .. code-block:: c
+    :emphasize-lines: 8-9, 11-12, 14-15, 17-18
+
+    //...
+
+    static void SimpleBLEPeripheral_init(void)
+    {
+
+      //...
+
+      // Intercept NPI RX events.
+      NPITask_registerIncomingRXEventAppCB(SBP_handleNPIRxInterceptEvent, INTERCEPT);
+
+      // Register for Command Status information
+      HCI_TL_Init(NULL, (HCI_TL_CommandStatusCB_t) SBP_sendToNPI, NULL, selfEntity);
+
+      // Register for Events
+      HCI_TL_getCmdResponderID(ICall_getLocalMsgEntityId(ICALL_SERVICE_CLASS_BLE_MSG, selfEntity));
+
+      // Inform Stack to Initialize PTM
+      HCI_EXT_EnablePTMCmd();
+
+    }
+
+    //...
+
+At the end of the process stack message function, add the following:
+
+ .. code-block:: c
+    :emphasize-lines: 13-48
+
+    //...
+
+    static uint8_t SimpleBLEPeripheral_processStackMsg(ICall_Hdr *pMsg)
+    {
+
+      //...
+
+      switch (pMsg->event)
+      {
+        //...
+      }
+
+      // Check for NPI Messages
+      hciPacket_t *pBuf = (hciPacket_t *)pMsg;
+
+      // Serialized HCI Event
+      if (pBuf->hdr.event == HCI_CTRL_TO_HOST_EVENT)
+      {
+        uint16_t len = 0;
+
+        // Determine the packet length
+        switch(pBuf->pData[0])
+        {
+          case HCI_EVENT_PACKET:
+            len = HCI_EVENT_MIN_LENGTH + pBuf->pData[2];
+            break;
+
+          case HCI_ACL_DATA_PACKET:
+            len = HCI_DATA_MIN_LENGTH + BUILD_UINT16(pBuf->pData[3], pBuf->pData[4]);
+            break;
+
+          default:
+            break;
+        }
+
+        // Send to Remote Host.
+        SBP_sendToNPI(pBuf->pData, len);
+
+        // Free buffers if needed.
+        switch (pBuf->pData[0])
+        {
+          case HCI_ACL_DATA_PACKET:
+          case HCI_SCO_DATA_PACKET:
+            BM_free(pBuf->pData);
+          default:
+            break;
+        }
+      }
+
+      return (safeToDealloc);
+    }
+
+    //...
+
+
+When PTM is enabled, a ``HCI_ResetCmd()`` is issued. This resets the controller
+and various parts of the stack. PTM should be configured such that it’s only
+enabled if a particular set of GPIOs or other signals are in a particular state.
+Else the regular application should run. So the following functions in the app
+should be called when PTM is desired by the developer.
+For example, ``PTM_ENABLE_FLAG`` can be set to a value when specific conditions
+are met, such as when a GPIO is toggled during start up:
+
+  .. code-block:: c
+    :emphasize-lines: 1-2, 14
+
+    if(PTM_ENABLE_FLAG)
+    {
+      // Intercept NPI RX events.
+      NPITask_registerIncomingRXEventAppCB(SBP_handleNPIRxInterceptEvent, INTERCEPT);
+
+      // Register for Command Status information
+      HCI_TL_Init(NULL, (HCI_TL_CommandStatusCB_t) SBP_sendToNPI, NULL, selfEntity);
+
+      // Register for Events
+      HCI_TL_getCmdResponderID(ICall_getLocalMsgEntityId(ICALL_SERVICE_CLASS_BLE_MSG, selfEntity));
+
+      // Inform Stack to Initialize PTM
+      HCI_EXT_EnablePTMCmd();
+    }
+
+With the project now modified, the PTM configuration will now be entered at
+run-time. The application's only functionality will be to receive PTM commands
+over HCI and send a response over HCI. PTM is only a subset of HCI commands and
+it won't be able to do anything other than the commands found in the
+``hciCmdTable`` found in ``hci_tl.c``. Check this file for the latest table of
+supported commands.
+
+.. _optimizing-ble-memory-usage:
+
+Optimizing Bluetooth low energy Stack Memory Usage
+--------------------------------------------------
+
+Configuration of the Bluetooth low energy protocol stack is
+essential for maximizing the amount of RAM and flash memory
+available for the application. Refer to :ref:`stack_features_configuration` to configure
+parameters that impact runtime RAM usage, such as the maximum
+allowable size and number of PDUs. The TI Bluetooth low energy
+protocol stack is implemented to use a small RAM footprint, and
+allow the application to control the behavior of the stack by using
+the runtime ICall heap. For example, an application that only sends
+one GATT notification per connection event must store only one PDU
+in the heap, whereas as an application that must send multiple
+notifications must enqueue multiple PDUs in the heap.
+
+To increase the available flash memory allocated to the application
+project, minimize the flash usage of the protocol stack by including
+only Bluetooth low energy features required to implement the defined
+role of the device. The available protocol stack configurable
+features are described in :ref:`stack_features_configuration`.
+Adding additional features to the protocol stack has the net effect
+of reducing the amount of flash memory to the application.
+
+Additional Memory Configuration Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following tips can be used to minimize RAM and flash usage by
+the protocol stack:
+
+  1.  Verify that your application uses the *optimize for flash size*
+      compiler optimization settings (default for TI projects).
+
+  2.  Use only one page of SNV or do not use any NV pages if the GAP bond
+      manager is not required. Set the ``NO_OSAL_SNV`` stack preprocessor
+      option. See :ref:`using-simple-nv` for a description of SNV.
+
+  3.  Exclude the GATT client functionality by defining the
+      ``GATT_NO_CLIENT`` predefined symbol in the stack project for
+      peripheral devices. (Peripheral devices do not typically
+      implement the GATT client role.)
+
+  4.  Remove or exclude debug DISPLAY drivers from the application project
+      (see :ref:`development-and-debugging-dynamic-allocation-errors`).
+
+  5.  Exclude Bluetooth low energy features from the Bluetooth low energy
+      stack that are not used.
+
+See :ref:`development-and-debugging-check-system-flash-and-ram-usage-with-map-file` for
+the procedure to check the size of the configured protocol stack.
+
+Defining Bluetooth Low Energy Behavior
+--------------------------------------
+
+This step involves using Bluetooth low energy protocol stack APIs to
+define the system behavior and adding profiles, defining the GATT
+database, configuring the security model, and so forth. Use the
+concepts explained in :ref:`the_stack` as well as the Bluetooth low energy
+API reference in :ref:`ble_api_reference`.

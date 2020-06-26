@@ -1,0 +1,10 @@
+{
+    "type"        : "I2C_SENSOR",
+    "displayName" : "TMP006 Temperature Sensor",
+    "partNum"     : "TI-TMP006",
+    "signals"     : {
+        "SCL": { "type": "I2C_SCL" },
+        "SDA": { "type": "I2C_SDA" },
+        "INT": { "type": "DIN"     }
+    }
+}

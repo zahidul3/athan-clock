@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview &mdash; SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation" href="../index.html"/>
+        <link rel="next" title="CC26x2 Overview" href="../cc26x2/index-thread.html"/>
+        <link rel="prev" title="TI-OpenThread Stack User’s Guide" href="index-cc26x2.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug thread overview";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI Thread User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#disclaimer">Disclaimer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-thread.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ot-sw-dev-env.html">TI-OpenThread Stack Software Development Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ot-stack-overview.html">TI-OpenThread Stack Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-example-apps-cc26x2.html">Example Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-br/index.html">Linux Border Router Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating-custom-apps.html">Creating Custom Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-hardware.html">Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packet-sniffer.html">Packet Sniffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/thread-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-oad/index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index-cc26x2.html">SimpleLink™ CC26x2 TI Thread User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index-cc26x2.html">Docs</a> &raquo;</li>
+      
+    <li>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview">
+<span id="chap-overview"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>The TI-OpenThread Stack is part of the SimpleLink CC26x2 SDK, which contains the supported software for
+the CC26x2. The TI-OpenThread Stack is based on the <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> stack by Nest with the added
+benefit of running on top of TI-RTOS. Please refer to the
+<a class="reference internal" href="ot-sw-dev-env.html#sec-software-architecture"><span class="std std-ref">Software Architecture</span></a> section for more information about the
+TI-OpenThread Stack implementation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Do not use this document as a substitute for the complete protocol
+specification.  For more details, see the <a class="reference external" href="https://openthread.io">OpenThread Wiki</a> and the Thread
+specification</p>
+</div>
+<div class="section" id="introduction">
+<span id="sec-overview-introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="https://www.threadgroup.org/technology/ourtechnology#certifiedproducts"><div align="right" class="align-right"><img alt="../_images/img-thread-certified-component.svg" src="../_images/img-thread-certified-component.svg" /></div>
+</a>
+<p>The SimpleLink CC26x2 SDK is part of TI’s SimpleLink MCU platform which offers a single
+development environment that delivers flexible hardware, software and tool
+options for customers developing wired and wireless applications. For more
+information about the SimpleLink MCU platform, visit
+(<a class="reference external" href="http://www.ti.com/simplelink">http://www.ti.com/simplelink</a>).</p>
+<p>Thread is an IP-Based mesh networking protocol that runs on <a class="reference internal" href="index-cc26x2.html#term-ieee"><span class="xref std std-term">IEEE</span></a>
+802.15.4 radios. Thread was designed with one goal in mind: “To create the best
+way to connect and control products in the home”.</p>
+<p><a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> is an open source implementation of the Thread specification, which
+includes all Thread networking layers and device roles, as well as Border
+Router support.</p>
+<p>Besides supporting all the <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> features the TI-OpenThread Stack has the added benefit
+of running on top of TI-RTOS which inherently adds support for all the
+LaunchPad ecosystem and peripheral drivers.</p>
+</div>
+<div class="section" id="disclaimer">
+<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>SimpleLink, TI-RTOS, Code Composer Studio, Sensor Controller Studio,
+SmartRF, BoosterPack are trademarks of Texas Instruments.</li>
+<li>ARM, Cortex are registered trademarks of ARM Ltd.</li>
+<li>Wireshark is a trademark of CACE Technologies, LLC.</li>
+<li>IEEE is a trademark of International Electrical and Electronics Engineers.</li>
+<li>Node.js is a registered trademark of Joyent, Inc.</li>
+<li>Linux is a registered trademark of Linus Torvalds.</li>
+<li>Windows is a registered trademark of Microsoft Corporation.</li>
+<li>All other trademarks are the property of their respective owners.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cc26x2/index-thread.html" class="btn btn-neutral float-right" title="CC26x2 Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index-cc26x2.html" class="btn btn-neutral" title="TI-OpenThread Stack User’s Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

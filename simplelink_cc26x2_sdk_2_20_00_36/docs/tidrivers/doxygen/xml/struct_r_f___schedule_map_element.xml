@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_r_f___schedule_map_element" kind="struct" language="C++" prot="public">
+    <compoundname>RF_ScheduleMapElement</compoundname>
+    <includes refid="_r_f_8h" local="no">RF.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_r_f___schedule_map_element_1a8c96b7655968eea04187f2f864c7dd93" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1acab1f56c62a9fd1ad0a91a46b6da23f1" kindref="member">RF_CmdHandle</ref></type>
+        <definition>RF_CmdHandle RF_ScheduleMapElement::ch</definition>
+        <argsstring></argsstring>
+        <name>ch</name>
+        <briefdescription>
+<para>Command handle. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1371" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1371" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___schedule_map_element_1aaba31f986c1826ab3a44fba106caca4c" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a5e8ab7fc87fb818f435d9b6226ee573f" kindref="member">RF_Handle</ref></type>
+        <definition>RF_Handle RF_ScheduleMapElement::pClient</definition>
+        <argsstring></argsstring>
+        <name>pClient</name>
+        <briefdescription>
+<para>Pointer to client object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1372" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___schedule_map_element_1a114e912b54edf47b1ae5b02c36a91f3e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_ScheduleMapElement::startTime</definition>
+        <argsstring></argsstring>
+        <name>startTime</name>
+        <briefdescription>
+<para>Start time (in RAT tick) of the command or access request. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1373" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1373" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___schedule_map_element_1a615ed3c74407996016f69a2d01a66ff6" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_ScheduleMapElement::endTime</definition>
+        <argsstring></argsstring>
+        <name>endTime</name>
+        <briefdescription>
+<para>End time (in RAT tick) of the command or access request. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1374" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1374" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___schedule_map_element_1aec3c01a661e746e18a525d5516c88498" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1ae5f9a893d178e64e6d0a7a783ea06e32" kindref="member">RF_Priority</ref></type>
+        <definition>RF_Priority RF_ScheduleMapElement::priority</definition>
+        <argsstring></argsstring>
+        <name>priority</name>
+        <briefdescription>
+<para>Priority of the command or access request. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1375" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1375" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RF schedule map entry structure. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="531">
+        <label>RF_Object</label>
+        <link refid="struct_r_f___object"/>
+      </node>
+      <node id="530">
+        <label>RF_ScheduleMapElement</label>
+        <link refid="struct_r_f___schedule_map_element"/>
+        <childnode refid="531" relation="usage">
+          <edgelabel>pClient</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1370" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1370" bodyend="1376"/>
+    <listofallmembers>
+      <member refid="struct_r_f___schedule_map_element_1a8c96b7655968eea04187f2f864c7dd93" prot="public" virt="non-virtual"><scope>RF_ScheduleMapElement</scope><name>ch</name></member>
+      <member refid="struct_r_f___schedule_map_element_1a615ed3c74407996016f69a2d01a66ff6" prot="public" virt="non-virtual"><scope>RF_ScheduleMapElement</scope><name>endTime</name></member>
+      <member refid="struct_r_f___schedule_map_element_1aaba31f986c1826ab3a44fba106caca4c" prot="public" virt="non-virtual"><scope>RF_ScheduleMapElement</scope><name>pClient</name></member>
+      <member refid="struct_r_f___schedule_map_element_1aec3c01a661e746e18a525d5516c88498" prot="public" virt="non-virtual"><scope>RF_ScheduleMapElement</scope><name>priority</name></member>
+      <member refid="struct_r_f___schedule_map_element_1a114e912b54edf47b1ae5b02c36a91f3e" prot="public" virt="non-virtual"><scope>RF_ScheduleMapElement</scope><name>startTime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

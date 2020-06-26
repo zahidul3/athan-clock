@@ -1,0 +1,34 @@
+.. _sec-oad-types:
+
+OAD Type Comparison
+===================
+
+There are two methods of implementing an over the air download update: On-chip
+and Off-chip. The key difference between the two methods is where the
+downloaded image is to be stored during the OAD process. During on-chip OAD, the
+downloaded image is written to internal flash, allowing for a single
+chip OAD solution. Off-chip stores the downloaded image in an
+external flash part, requiring a two chip OAD solution.
+Each type of OAD has associated trade offs and benefits which will be discussed
+in their respective sections. Despite their differences, both OAD methods share
+the same over the air profile and image header.
+
+.. _oad_types_overview:
+.. table:: OAD Types Overview.
+
+    +----------+-----------------------------------------------------------+---------------------------------+
+    | OAD      | Advantages                                                | Limitations                     |
+    | Type     |                                                           |                                 |
+    +----------+-----------------------------------------------------------+---------------------------------+
+    |  On-chip | - No external flash required                              | - Application size restriction  |
+    |          |                                                           | - Stack upgrade must erase app  |
+    |          |                                                           |   (two step upgrade)            |
+    |          |                                                           | - Stack upgrade must not change |
+    |          |                                                           |   stack APIs                    |
+    |          |                                                           | - User app not running during   |
+    |          |                                                           |   OAD                           |
+    +----------+-----------------------------------------------------------+---------------------------------+
+    | Off-chip | - Ability to store multiple / backup images               | - Low power external flash      |
+    |          | - App + Stack merged update supported                     |   required                      |
+    |          | - Maximum application size availabe to customer           |                                 |
+    +----------+-----------------------------------------------------------+---------------------------------+

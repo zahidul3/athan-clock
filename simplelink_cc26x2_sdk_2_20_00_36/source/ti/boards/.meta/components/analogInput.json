@@ -1,0 +1,10 @@
+{
+    "type": "AIN",
+    "displayName": "Generic Analog Input",
+    "partNum": "analogInput",
+    "signals": {
+        "input": {
+            "type": "AIN"
+        }
+    }
+}

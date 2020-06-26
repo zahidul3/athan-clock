@@ -1,0 +1,1328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BLE5-Stack 1.00.01 to BLE5-Stack 1.01.00 &mdash; SimpleLink™ CC26x2 SDK BLE5-Stack User&#39;s Guide 1.02.01.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 SDK BLE5-Stack User&#39;s Guide 1.02.01.00 documentation" href="../index.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-5.x-guide ble5stack1.00.01-to-ble5stack1.01.00";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 SDK BLE5-Stack User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.01.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platform-cc26x2.html">The CC26x2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-tirtos/index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-5.x/index-cc26x2.html">Developing a Bluetooth Low Energy Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/ble-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-oad/index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration-cc26x2.html">Updating from previous SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-cc26x2.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index-cc26x2.html">SimpleLink™ CC26x2 SDK BLE5-Stack User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index-cc26x2.html">Docs</a> &raquo;</li>
+      
+    <li>BLE5-Stack 1.00.01 to BLE5-Stack 1.01.00</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ble5-stack-1-00-01-to-ble5-stack-1-01-00">
+<h1>BLE5-Stack 1.00.01 to BLE5-Stack 1.01.00<a class="headerlink" href="#ble5-stack-1-00-01-to-ble5-stack-1-01-00" title="Permalink to this headline">¶</a></h1>
+<p>This section will describe a way to migrate a project from BLE5-Stack 1.00.01 to
+a BLE5-Stack 1.01.00. This approach will be modifying an existing project’s
+configuration to utilize BLE5-Stack 1.01.00 libraries, tools, and code.</p>
+<p>Once the project is converted to use the updated libraries, tools, and
+code of BLE5-Stack 1.01.00, the application then must be engineered to
+account for various API changes. This guide will contain API translation
+tables as well as tips to aide in the transition to BLE5-Stack 1.01.00.</p>
+<p>For this migration guide, simple_peripheral from BLE5-Stack 1.00.01 will be ported
+to BLE5-Stack 1.01.00. Utilize the IDE and Tools recommended by BLE5-Stack release notes.</p>
+<p>Once project configurations are updated, follow same building procedure
+used prior to the port. It is assumed the latest SDK has already been
+installed, see <a class="reference external" href="http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK">SimpleLink SDKs</a>.</p>
+<p>When applicable, this section will use simple_peripheral from BLE5-Stack 1.00.01
+as an example when porting to BLE5-Stack 1.01.00.</p>
+<p>For API Descriptions see <a class="reference internal" href="api-reference.html#ble-api-reference"><span class="std std-ref">BLE Stack API Reference</span></a></p>
+<p>Table of Contents:</p>
+<ul>
+<li><p class="first"><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config"><span class="std std-ref">Project Configuration Changes</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config-ccs-stack"><span class="std std-ref">CCS Stack Project</span></a></li>
+<li><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config-ccs-app"><span class="std std-ref">CCS Application Project</span></a></li>
+<li><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config-iar-config"><span class="std std-ref">IAR Common Project Configuration Changes</span></a></li>
+<li><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config-iar-stack"><span class="std std-ref">IAR Stack Project</span></a></li>
+<li><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config-iar-app"><span class="std std-ref">IAR Application Project</span></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config-app"><span class="std std-ref">Project Application Changes</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config-app-buildconfig"><span class="std std-ref">Stack Build Configuration File</span></a></li>
+<li><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config-app-gaprole"><span class="std std-ref">GAP Role Changes</span></a></li>
+<li><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config-app-gatt"><span class="std std-ref">GATT Profile Changes</span></a></li>
+<li><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-config-app-gapbondmgr"><span class="std std-ref">GAP Bond Manager Changes</span></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="#sec-porting-1-0-1-to-1-1-0-project-translation-tables"><span class="std std-ref">Appendix - Translation Tables</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="cc2640r2-to-cc26x2.html#tbl-ble5-porting-gaprole-changes"><span class="std std-ref">GAP Changes</span></a></li>
+<li><a class="reference internal" href="cc2640r2-to-cc26x2.html#tbl-ble5-porting-gapbondmgr-changes"><span class="std std-ref">GAP Bond Manager Changes</span></a></li>
+<li><a class="reference internal" href="cc2640r2-to-cc26x2.html#tbl-ble5-porting-gapgattserver-changes"><span class="std std-ref">GAP GATT Server Changes</span></a></li>
+<li><a class="reference internal" href="cc2640r2-to-cc26x2.html#tbl-ble5-porting-linkdb-changes"><span class="std std-ref">Link Database Changes</span></a></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="project-configuration-changes">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config"></span><h2>Project Configuration Changes<a class="headerlink" href="#project-configuration-changes" title="Permalink to this headline">¶</a></h2>
+<p>Project configuration needs to be updated in order to utilize the latest
+tools, code, and libraries. This section describes the changes necessary
+in order to do so in a IDE specific way.</p>
+<div class="section" id="ccs-stack-project">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config-ccs-stack"></span><h3>CCS Stack Project<a class="headerlink" href="#ccs-stack-project" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Updating XDC Tools to Version 3.50.3.33</p>
+<blockquote>
+<div><p>Open Project Properties of the stack project for the application being ported</p>
+<ol class="arabic simple">
+<li>Select General from the Navigation Tree</li>
+<li>Select Products Tab</li>
+<li>Select XDCtools version 3.50.3.33_core (Latest)</li>
+<li>Save Changes</li>
+</ol>
+<div class="figure align-center" id="id1">
+<span id="fig-updating-xdctools"></span><img alt="../_images/1.0.1-to-1.1.0-porting-guide-updating-xdctools.png" src="../_images/1.0.1-to-1.1.0-porting-guide-updating-xdctools.png" />
+<p class="caption"><span class="caption-text">CCS Updating XDC Tools Visual Instructions</span></p>
+</div>
+<p>This will update the <code class="docutils literal"><span class="pre">XDC_CG_ROOT</span></code> path variable to utilize the latest
+version of XDCtools.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Select BLE5-Stack 1.01.00</p>
+<blockquote>
+<div><p>Open Project Properties of the stack project for the application being ported</p>
+<ol class="arabic simple">
+<li>Select General from the Navigation Tree</li>
+<li>Select Products Tab</li>
+<li>Select SimpleLink CC2640R2 SDK version containing BLE5-Stack 1.01.00</li>
+<li>Save Changes</li>
+</ol>
+<div class="figure align-center" id="id2">
+<span id="fig-updating-ble-stack"></span><img alt="../_images/1.0.1-to-1.1.0-porting-guide-updating-ble-stack.png" src="../_images/1.0.1-to-1.1.0-porting-guide-updating-ble-stack.png" />
+<p class="caption"><span class="caption-text">CCS Updating BLE5-Stack Visual Instructions</span></p>
+</div>
+<p>This will update the <code class="docutils literal"><span class="pre">COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR</span></code> path
+variable to utilize the SDK containing BLE5-Stack 1.01.00.</p>
+<p>The path variables <code class="docutils literal"><span class="pre">SRC_BLE_DIR</span></code> and <code class="docutils literal"><span class="pre">TOOLS_BLE_DIR</span></code> will automatically
+be updated to point to the BLE5-Stack 1.01.00 version of tools and code.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Update lib_search tool to correctly pull in the proper libraries</p>
+<blockquote>
+<div><p>Open Project Properties of the stack project for the application being ported</p>
+<ol class="arabic">
+<li><p class="first">Select Build from the Navigation Tree</p>
+</li>
+<li><p class="first">Select Steps Tab</p>
+</li>
+<li><p class="first">Modify the prebuild step from</p>
+<blockquote>
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>${TOOLS_BLE_DIR}/lib_search/lib_search         ${PROJECT_LOC}/TOOLS/build_config.opt         ${SRC_BLE_DIR}/blelib         ${PROJECT_LOC}/FlashROM_Library/lib_linker.cmd         cc2640         ${TOOLS_BLE_DIR}/lib_search/lib_search.xml         ${SRC_BLE_DIR}/symbols
+</pre></div>
+</div>
+<p>to the following:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>${TOOLS_BLE_DIR}/lib_search/lib_search         --opt ${PROJECT_LOC}/TOOLS/build_config.opt         --lib-dir ${SRC_BLE_DIR}/blelib/cc26x0r2         --cmd ${PROJECT_LOC}/FlashROM_Library/lib_linker.cmd         --xml ${TOOLS_BLE_DIR}/lib_search/lib_search.xml         --sym-dir ${SRC_BLE_DIR}/symbols/cc26x0r2
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Save Changes</p>
+</li>
+</ol>
+<div class="figure align-center" id="id3">
+<span id="fig-updating-pre-build"></span><img alt="../_images/1.0.1-to-1.1.0-porting-guide-changing-prebuild-steps.png" src="../_images/1.0.1-to-1.1.0-porting-guide-changing-prebuild-steps.png" />
+<p class="caption"><span class="caption-text">CCS Updating Pre-Build Visual Instructions</span></p>
+</div>
+<p>This change accounts for updates to the lib_search tool’s argument variables.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Update include path for Controller files</p>
+<blockquote>
+<div><p>Open Project Properties of the stack project for the application being ported</p>
+<ol class="arabic simple">
+<li>Select Build -&gt; ARM Compiler -&gt; Include Options in the Navigation Tree</li>
+<li>Select <code class="docutils literal"><span class="pre">${SRC_BLE_DIR}/controller/cc26xx_r2/inc</span></code> include path</li>
+<li>Modify the path by double clicking or pressing ‘Edit’</li>
+<li>Change to <code class="docutils literal"><span class="pre">${SRC_BLE_DIR}/controller/cc26xx/inc</span></code> (remove _r2)</li>
+<li>Save Changes</li>
+</ol>
+<p>See <a class="reference internal" href="#fig-updating-change-include-path"><span class="std std-ref">CCS Updating Include Path Visual Instructions</span></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The include path <code class="docutils literal"><span class="pre">${SRC_BLE_DIR}/profiles/roles</span></code> can safely be removed.</p>
+</div>
+<p>The path to controller files have changed. In order include these files, a
+include path needs to be updated.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Update source references for Controller and GAP</p>
+<blockquote>
+<div><p>Due to path changes for several key files, the virtual links within
+the project need to be updated to properly find files.</p>
+<p>The files which have been moved are located in:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>C:\ti\simplelink_cc2640r2_sdk_1_50_00_06\source\ti\ble5stack\controller\cc26xx\inc
+
+C:\ti\simplelink_cc2640r2_sdk_1_50_00_06\source\ti\ble5stack\host
+</pre></div>
+</div>
+<p>Namely, controller files and GAP related files.</p>
+<p>Examples are <code class="docutils literal"><span class="pre">ll.h</span></code> located in the <code class="docutils literal"><span class="pre">INCLUDE</span></code> folder, and <code class="docutils literal"><span class="pre">gap.c</span></code>,
+<code class="docutils literal"><span class="pre">gapbondmgr.c</span></code>, and <code class="docutils literal"><span class="pre">gapbondmgr.h</span></code> located in the <code class="docutils literal"><span class="pre">PROFILES</span></code> folder.</p>
+<p>Open the properties of a resource file of the stack project.</p>
+<ol class="arabic simple">
+<li>Select Resource in the Navigation Tree</li>
+<li>Click Edit next to the Location field</li>
+<li>Modify location to match the resource’s actual location</li>
+<li>Confirm Changes</li>
+<li>Save Changes</li>
+</ol>
+<div class="figure align-center" id="id4">
+<span id="fig-updating-changing-virtual"></span><img alt="../_images/1.0.1-to-1.1.0-porting-guide-changing-virtual-link.png" src="../_images/1.0.1-to-1.1.0-porting-guide-changing-virtual-link.png" />
+<p class="caption"><span class="caption-text">CCS Updating Pre-Build Visual Instructions</span></p>
+</div>
+<p>This change allows the compiler to correctly resolve locations
+of moved files.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="ccs-application-project">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config-ccs-app"></span><h3>CCS Application Project<a class="headerlink" href="#ccs-application-project" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Updating XDC Tools to Version 3.50.3.33 and BLE5-Stack to 1.01.00</p>
+<blockquote>
+<div><p>Open Project Properties of the application project for the application being ported</p>
+<ol class="arabic simple">
+<li>Select General from the Navigation Tree</li>
+<li>Select Products Tab</li>
+<li>Select XDCtools version 3.50.3.33_core (Latest)</li>
+<li>Select SimpleLink CC2640R2 SDK version containing BLE5-Stack 1.01.00</li>
+<li>Save Changes</li>
+</ol>
+<div class="figure align-center" id="fig-checking-updating-app-stack-xdc">
+<img alt="../_images/1.0.1-to-1.1.0-porting-guide-updating-xdc-and-ble5stack.png" src="../_images/1.0.1-to-1.1.0-porting-guide-updating-xdc-and-ble5stack.png" />
+</div>
+<p>This will update the <code class="docutils literal"><span class="pre">XDC_CG_ROOT</span></code> path variable to utilize the latest
+version of XDCtools.</p>
+<p>This will update the <code class="docutils literal"><span class="pre">COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR</span></code> path
+variable to utilize the SDK containing BLE5-Stack 1.01.00.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Update include path for Controller files</p>
+<blockquote>
+<div><p>Open Project Properties of the stack project for the application being ported</p>
+<ol class="arabic simple">
+<li>Select Build -&gt; ARM Compiler -&gt; Include Options in the Navigation Tree</li>
+<li>Select <code class="docutils literal"><span class="pre">${SRC_BLE_DIR}/controller/cc26xx_r2/inc</span></code> include path</li>
+<li>Modify the path by double clicking or pressing ‘Edit’</li>
+<li>Change to <code class="docutils literal"><span class="pre">${SRC_BLE_DIR}/controller/cc26xx/inc</span></code> (remove _r2)</li>
+<li>Save Changes</li>
+</ol>
+<div class="figure align-center" id="id5">
+<span id="fig-updating-change-include-path"></span><img alt="../_images/1.0.1-to-1.1.0-porting-guide-changing-include-path.png" src="../_images/1.0.1-to-1.1.0-porting-guide-changing-include-path.png" />
+<p class="caption"><span class="caption-text">CCS Updating Include Path Visual Instructions</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The include path <code class="docutils literal"><span class="pre">${SRC_BLE_DIR}/profiles/roles</span></code> can safely be removed.</p>
+</div>
+<p>The path to controller files have changed, this change
+updates the include path.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Add <code class="docutils literal"><span class="pre">USE_CORE_SDK</span></code> to Predefined Symbols</p>
+<blockquote>
+<div><p>Open Project Properties of the stack project for the application being ported</p>
+<ol class="arabic simple">
+<li>Select Build -&gt; ARM Compiler -&gt; Predefined Symbols</li>
+<li>Click Add to enter another Symbol</li>
+<li>Add <code class="docutils literal"><span class="pre">USE_CORE_SDK</span></code> predefined symbol</li>
+<li>Confirm</li>
+<li>Save Changes</li>
+</ol>
+<div class="figure align-center" id="id6">
+<span id="fig-adding-predefined-symbol"></span><img alt="../_images/1.0.1-to-1.1.0-porting-guide-adding-preprocessor-define.png" src="../_images/1.0.1-to-1.1.0-porting-guide-adding-preprocessor-define.png" />
+<p class="caption"><span class="caption-text">CCS Adding Preprocessor Symbols Visual Instructions</span></p>
+</div>
+<p>This will allow correct resolution of middle ware drivers by the compiler.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="iar-common-project-configuration-changes">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config-iar-config"></span><h3>IAR Common Project Configuration Changes<a class="headerlink" href="#iar-common-project-configuration-changes" title="Permalink to this headline">¶</a></h3>
+<p>Since both the application and stack project utilize a common custom
+argument variable file, only this file needs to be configured to
+point to the correct stack and tools.</p>
+<ol class="arabic">
+<li><p class="first">Modifying Custom Argument Variables for BLE5-Stack 1.01.00 and XDCtools 3.50.3.33_core</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Click Tools from the Toolbar</p>
+</li>
+<li><p class="first">Select Configure Custom Argument Variable item</p>
+<blockquote>
+<div><div class="figure align-center" id="fig-iar-selecting-custom-arg-vars">
+<img alt="../_images/1.0.1-to-1.1.0-porting-guide-selecting-custom-args-menu.png" src="../_images/1.0.1-to-1.1.0-porting-guide-selecting-custom-args-menu.png" />
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Expand the <code class="docutils literal"><span class="pre">SIMPLELINK_CC2640R2_SRC_SDK</span></code> Heading</p>
+</li>
+<li><p class="first">Modify <code class="docutils literal"><span class="pre">SIMPLELINK_CORE_SDK_INSTALL_DIR</span></code> to path of SDK containing BLE5-Stack 1.01.00</p>
+</li>
+<li><p class="first">Modify <code class="docutils literal"><span class="pre">XDCROOT</span></code> to path of XDCtools 3.50.3.33_core</p>
+</li>
+<li><p class="first">Save Changes</p>
+<blockquote>
+<div><div class="figure align-center" id="id7">
+<span id="fig-iar-custom-arg-vars"></span><img alt="../_images/1.0.1-to-1.1.0-porting-guide-ble5-custom-argument-variables.png" src="../_images/1.0.1-to-1.1.0-porting-guide-ble5-custom-argument-variables.png" />
+<p class="caption"><span class="caption-text">IAR Changing Argument Variables</span></p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Re-launch IAR Embedded Workbench</p>
+<blockquote>
+<div><p>This will refresh all file references to use BLE5-Stack 1.01.00 and
+XDCtools 3.50.3.33_core.</p>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="iar-stack-project">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config-iar-stack"></span><h3>IAR Stack Project<a class="headerlink" href="#iar-stack-project" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Modifying Include Path and Preprocessor Defines</p>
+<blockquote>
+<div><p>Open Project Properties of the stack project for the application being ported</p>
+<ol class="arabic">
+<li><p class="first">Select C/C++ Compiler from the navigation tree</p>
+</li>
+<li><p class="first">Select Preprocessor Tab</p>
+</li>
+<li><p class="first">Modify include paths to point to correct directory</p>
+<blockquote>
+<div><p>Change <code class="docutils literal"><span class="pre">$SRC_BLE_DIR$\controller\cc26xx_r2\inc</span></code> to
+<code class="docutils literal"><span class="pre">$SRC_BLE_DIR$\controller\cc26xx\inc</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first">Add <code class="docutils literal"><span class="pre">USE_CORE_SDK</span></code> to Defined Symbols</p>
+</li>
+<li><p class="first">Save changes</p>
+<blockquote>
+<div><div class="figure align-center" id="id8">
+<span id="fig-iar-include-paths-defines"></span><img alt="../_images/1.0.1-to-1.1.0-porting-guide-iar-changing-preprocessor-include-paths.png" src="../_images/1.0.1-to-1.1.0-porting-guide-iar-changing-preprocessor-include-paths.png" />
+<p class="caption"><span class="caption-text">IAR Changing Include Paths</span></p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The include path <code class="docutils literal"><span class="pre">$SRC_BLE_DIR$\profiles\roles</span></code> can be safely removed</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Remove old referenced files</p>
+<blockquote>
+<div><p>Remove <code class="docutils literal"><span class="pre">Profiles/gap.c</span></code>, <code class="docutils literal"><span class="pre">Profiles/gapbondmgr.h</span></code>, <code class="docutils literal"><span class="pre">Profiles/gapbondmgr.c</span></code></p>
+<p>These files have been moved, and these old project links will be using the old location.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Add new files from proper locations</p>
+<blockquote>
+<div><p>Add <code class="docutils literal"><span class="pre">gap.c</span></code> and <code class="docutils literal"><span class="pre">gapbondmgr.c</span></code> from <code class="docutils literal"><span class="pre">&lt;SDK&gt;\source\ti\ble5stack\host</span></code> to
+the Profiles folder.</p>
+<p>Add <code class="docutils literal"><span class="pre">gapbondmgr.h</span></code> from <code class="docutils literal"><span class="pre">&lt;SDK&gt;\source\ti\ble5stack\inc</span></code> to the Profiles Folder.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="iar-application-project">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config-iar-app"></span><h3>IAR Application Project<a class="headerlink" href="#iar-application-project" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Modifying Include Path and Preprocessor Defines</p>
+<blockquote>
+<div><p>Open Project Properties of the stack project for the application being ported</p>
+<ol class="arabic">
+<li><p class="first">Select C/C++ Compiler from the navigation tree</p>
+</li>
+<li><p class="first">Select Preprocessor Tab</p>
+</li>
+<li><p class="first">Modify include paths to point to correct directory</p>
+<blockquote>
+<div><p>Change <code class="docutils literal"><span class="pre">$SRC_BLE_DIR$\controller\cc26xx_r2\inc</span></code> to
+<code class="docutils literal"><span class="pre">$SRC_BLE_DIR$\controller\cc26xx\inc</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first">Add <code class="docutils literal"><span class="pre">USE_CORE_SDK</span></code> to Defined Symbols</p>
+</li>
+<li><p class="first">Save changes</p>
+</li>
+</ol>
+<p>See <a class="reference internal" href="#fig-iar-include-paths-defines"><span class="std std-ref">IAR Changing Include Paths</span></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The include path <code class="docutils literal"><span class="pre">$SRC_BLE_DIR$\profiles\roles</span></code> can be safely removed</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Remove old referenced files</p>
+<blockquote>
+<div><p>Remove <code class="docutils literal"><span class="pre">Profiles/gap.c</span></code>, <code class="docutils literal"><span class="pre">Profiles/gapbondmgr.h</span></code>, <code class="docutils literal"><span class="pre">Profiles/gapbondmgr.c</span></code></p>
+<p>These files have been moved, and these old project links will be using the old location.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Add new files from proper locations</p>
+<blockquote>
+<div><p>Add <code class="docutils literal"><span class="pre">gap.c</span></code> and <code class="docutils literal"><span class="pre">gapbondmgr.c</span></code> from <code class="docutils literal"><span class="pre">&lt;SDK&gt;\source\ti\ble5stack\host</span></code> to
+the Profiles folder.</p>
+<p>Add <code class="docutils literal"><span class="pre">gapbondmgr.h</span></code> from <code class="docutils literal"><span class="pre">&lt;SDK&gt;\source\ti\ble5stack\inc</span></code> to the Profiles Folder.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="project-application-changes">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config-app"></span><h2>Project Application Changes<a class="headerlink" href="#project-application-changes" title="Permalink to this headline">¶</a></h2>
+<p>There are a number of different changes to the API in order to
+improve usability and ensure support with future BLE 5 features.</p>
+<p>Among these changes are core fundamental changes of how GAP Roles
+are done in BLE5-Stack. Namely, the removal of source files
+particular to GAP Roles, rather focusing on device behavior.</p>
+<p>Functionality has also been relocated to other modules where necessary
+to further facilitate this change. Additionally, Bluetooth 5.0
+features are now always enabled with no option to disable.</p>
+<p>For more information regarding the GAP changes and how to
+utilize them, see <a class="reference internal" href="../ble-stack-5.x/gap.html#gap"><span class="std std-ref">Generic Access Profile (GAP)</span></a></p>
+<div class="section" id="stack-build-configuration-file">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config-app-buildconfig"></span><h3>Stack Build Configuration File<a class="headerlink" href="#stack-build-configuration-file" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">build_config.opt</span></code> specifies which stack components will
+be utilized, and thus which library files should be used during
+the Stack Project build process. This file is located in the Tools
+folder of the Stack Project.</p>
+<p>BLE5-Stack 1.01.00 now comes with BLE 5.0 features always
+enabled. BLE 5.0 features can not be removed from the stack.</p>
+<p>Remove any references to BLE 5.0 features in the <code class="docutils literal"><span class="pre">build_config.opt</span></code></p>
+<p>For example, if <code class="docutils literal"><span class="pre">-DV50_FEATURES=PHY_LR_CFG</span></code> is in the <code class="docutils literal"><span class="pre">build_config.opt</span></code>
+comment out or remove the line altogether.</p>
+</div>
+<div class="section" id="gap-role-changes">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config-app-gaprole"></span><h3>GAP Role Changes<a class="headerlink" href="#gap-role-changes" title="Permalink to this headline">¶</a></h3>
+<p>All GAP Roles source files have been removed. These files such as
+<code class="docutils literal"><span class="pre">peripheral.c</span></code>, <code class="docutils literal"><span class="pre">central.c</span></code>, will produce build errors and
+must be removed.</p>
+<p>In general functionality of the roles has been broken into distinct
+GAP functions: Scanner, Advertiser, and Initiator.</p>
+<p>These functions of GAP can be independently controlled to
+allow the device to function as a desired GAP Role such
+as peripheral or central.</p>
+<p>Utilize <a class="reference internal" href="cc2640r2-to-cc26x2.html#tbl-ble5-porting-gaprole-changes"><span class="std std-ref">GAP Changes</span></a> to port
+application functionality.</p>
+<p>Examples may need to be used to assist in re-architecture of
+the application, such as simple_peripheral or simple_central.
+For example, initialization of GAP Advertiser can be found
+in simple_central.</p>
+</div>
+<div class="section" id="gatt-profile-changes">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config-app-gatt"></span><h3>GATT Profile Changes<a class="headerlink" href="#gatt-profile-changes" title="Permalink to this headline">¶</a></h3>
+<p>Due to changes in LinkDB defines (<code class="docutils literal"><span class="pre">linkdb.h</span></code>), custom GATT profiles
+may need to modified in order to account for the new definitions.</p>
+<p>For example, when calling GATTServApp_InitCharCfg with an invalid handle
+use the following:</p>
+<blockquote>
+<div><div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">// Initialize Client Characteristic Configuration attributes</span>
+<span class="n">GATTServApp_InitCharCfg</span><span class="p">(</span> <span class="n">CONNHANDLE_INVALID</span><span class="p">,</span> <span class="n">simpleProfileChar4Config</span> <span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The previous define for invalid handle as defined in <code class="docutils literal"><span class="pre">linkdb.h</span></code>
+was <code class="docutils literal"><span class="pre">INVALID_CONNHANDLE</span></code>.</p>
+<p>See <a class="reference internal" href="cc2640r2-to-cc26x2.html#tbl-ble5-porting-gapgattserver-changes"><span class="std std-ref">GAP GATT Server Changes</span></a> and
+<a class="reference internal" href="cc2640r2-to-cc26x2.html#tbl-ble5-porting-linkdb-changes"><span class="std std-ref">Link Database Changes</span></a> for additional changes as required.</p>
+</div>
+<div class="section" id="gap-bond-manager-changes">
+<span id="sec-porting-1-0-1-to-1-1-0-project-config-app-gapbondmgr"></span><h3>GAP Bond Manager Changes<a class="headerlink" href="#gap-bond-manager-changes" title="Permalink to this headline">¶</a></h3>
+<p>During the removal of GAP Roles source files, functionality relating to specific
+roles was moved into GAP Bond Manager. One particular change is the handling of
+passcodes. These are now handled via call back - see simple_peripheral or
+simple_central for implementation details (search for passcodeCb).</p>
+<p>See <a class="reference internal" href="cc2640r2-to-cc26x2.html#tbl-ble5-porting-gapbondmgr-changes"><span class="std std-ref">GAP Bond Manager Changes</span></a> for additional changes.</p>
+</div>
+</div>
+<div class="section" id="appendix-translation-tables">
+<span id="sec-porting-1-0-1-to-1-1-0-project-translation-tables"></span><h2>Appendix - Translation Tables<a class="headerlink" href="#appendix-translation-tables" title="Permalink to this headline">¶</a></h2>
+<span id="tbl-ble5-porting-gaprole-changes"></span><table border="1" class="docutils" id="id9">
+<caption><span class="caption-text">GAP Changes</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="7%" />
+<col width="27%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Previous Implementation</th>
+<th class="head">New/Current implementation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Type</td>
+<td>Name</td>
+<td>Description / API / Parameter</td>
+</tr>
+<tr class="row-odd"><td>GAP EVENT</td>
+<td>GAP_AdvertDataUpdateDone</td>
+<td><dl class="first last docutils">
+<dt>Based on <span>GAP_scanner_event</span>:</dt>
+<dd><a class="reference external" href="../../doxygen/ble/html/group___gap_adv_scan___event___i_ds.html#ga9dd52f37113be5557e3b2fe5d6612a69">GAP_EVT_ADV_REPORT</a></dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td>GAP EVENT</td>
+<td>GAP_DeviceDiscovery</td>
+<td><dl class="first last docutils">
+<dt>Based on <span>GAP_scanner_events</span>:</dt>
+<dd><a class="reference external" href="../../doxygen/ble/html/group___gap_adv_scan___event___i_ds.html#ga5f4bfc1431117cba4d13330440388a69">GAP_EVT_SCAN_DISABLED</a>
+<a class="reference external" href="../../doxygen/ble/html/group___gap_adv_scan___event___i_ds.html#ga3b3792598fdc62898e7662f2374107bb">GAP_EVT_SCAN_PRD_ENDED</a>
+<a class="reference external" href="../../doxygen/ble/html/group___gap_adv_scan___event___i_ds.html#gaa0bcd6a262584b380804df29885d54b4">GAP_EVT_SCAN_DUR_ENDED</a></dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>GAP EVENT</td>
+<td>GAP_AdvertDataUpdateDone</td>
+<td>Check Return Status on <span>GapAdv_loadData</span></td>
+</tr>
+<tr class="row-even"><td>GAP EVENT</td>
+<td>GAP_MakeDiscoverableDone</td>
+<td>Check Return Status on <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga9b94640e5689a2b2b800d70c1a55538b">GapAdv_enable()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP EVENT</td>
+<td>GAP_EndDiscoverableDone</td>
+<td>Check Return Status on <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga4e45550a6887067a26b8cc797e3d51fe">GapAdv_disable()</a></td>
+</tr>
+<tr class="row-even"><td>GAP EVENT</td>
+<td>GAP_RandomAddrChanged</td>
+<td>Obsolete - Address Resolution is done controller</td>
+</tr>
+<tr class="row-odd"><td>GAP EVENT</td>
+<td>GAP_LinkParamUpdate</td>
+<td>Event is same - now supports both LLCP and L2CAP</td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_GEN_DISC_ADV_MIN</td>
+<td>Configured by durationOrMaxEvents parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga9b94640e5689a2b2b800d70c1a55538b">GapAdv_enable()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_LIM_ADV_TIMEOUT</td>
+<td>Configured by durationOrMaxEvents parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga9b94640e5689a2b2b800d70c1a55538b">GapAdv_enable()</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_GEN_DISC_SCAN</td>
+<td>Configured by parameters of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga60e22e486791087008affa3e9054c0a9">GapScan_enable()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_LIM_DISC_SCAN</td>
+<td>Configured by parameters of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga60e22e486791087008affa3e9054c0a9">GapScan_enable()</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_GEN_DISC_SCAN_INT</td>
+<td>Configured by interval parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_GEN_DISC_SCAN_WIND</td>
+<td>Configured by window parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_LIM_DISC_SCAN_INT</td>
+<td>Configured by interval parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_LIM_DISC_SCAN_WIND</td>
+<td>Configured by window parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_CONN_EST_ADV_TIMEOUT</td>
+<td>Configured by durationOrMaxEvents parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga9b94640e5689a2b2b800d70c1a55538b">GapAdv_enable()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_CONN_PARAM_TIMEOUT</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#ggad3fe20690fa942f702d9009944fe4d38aea05b920f1fef179e4c0f9385a345056">GAP_PARAM_CONN_PARAM_TIMEOUT</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_LIM_DISC_ADV_INT_MIN</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aa70e48f6d64e39e15360b854892163716">GAP_ADV_PARAM_PRIMARY_INTERVAL_MIN</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_LIM_DISC_ADV_INT_MAX</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aa27bc46d1fbcc99ce9ed00d9b6ec47dca">GAP_ADV_PARAM_PRIMARY_INTERVAL_MAX</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_GEN_DISC_ADV_INT_MIN</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aa70e48f6d64e39e15360b854892163716">GAP_ADV_PARAM_PRIMARY_INTERVAL_MIN</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_GEN_DISC_ADV_INT_MAX</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aa27bc46d1fbcc99ce9ed00d9b6ec47dca">GAP_ADV_PARAM_PRIMARY_INTERVAL_MAX</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_CONN_ADV_INT_MIN</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aa70e48f6d64e39e15360b854892163716">GAP_ADV_PARAM_PRIMARY_INTERVAL_MIN</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_CONN_ADV_INT_MAX</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aa27bc46d1fbcc99ce9ed00d9b6ec47dca">GAP_ADV_PARAM_PRIMARY_INTERVAL_MAX</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_CONN_SCAN_INT</td>
+<td>Configured by interval parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_CONN_SCAN_WIND</td>
+<td>Configured by window parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_CONN_HIGH_SCAN_INT</td>
+<td>Configured by interval parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_CONN_HIGH_SCAN_WIND</td>
+<td>Configured by window parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_GEN_DISC_SCAN_INT</td>
+<td>Configured by interval parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_GEN_DISC_SCAN_WIND</td>
+<td>Configured by window parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_LIM_DISC_SCAN_INT</td>
+<td>Configured by interval parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_LIM_DISC_SCAN_WIND</td>
+<td>Configured by window parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga91e950a09e7bb42aca94de5825955144">GapScan_setPhyParams()</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_CONN_EST_INT_MIN</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_init.html#ga0f177b422346f91e33327b795324d611">GapInit_setPhyParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_init___params.html#ggac3e8401397e1008558c8db3def6412dda5d7949b6c095531435009be5759c058d">INIT_PHYPARAM_CONN_INT_MIN</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_CONN_EST_INT_MAX</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_init.html#ga0f177b422346f91e33327b795324d611">GapInit_setPhyParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_init___params.html#ggac3e8401397e1008558c8db3def6412dda6a81302c90ad76e729dcc1013a6f2b05">INIT_PHYPARAM_CONN_INT_MAX</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_CONN_EST_SCAN_INT</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_init.html#ga0f177b422346f91e33327b795324d611">GapInit_setPhyParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_init___params.html#ggac3e8401397e1008558c8db3def6412dda269a65de086b6fc242f4e8848e0a59c1">INIT_PHYPARAM_SCAN_INTERVAL</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_CONN_EST_SCAN_WIND</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_init.html#ga0f177b422346f91e33327b795324d611">GapInit_setPhyParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_init___params.html#ggac3e8401397e1008558c8db3def6412dda5b1ebcd3720793e29168ea0f6000d2e4">INIT_PHYPARAM_SCAN_WINDOW</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_CONN_EST_SUPERV_TIMEOUT</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_init.html#ga0f177b422346f91e33327b795324d611">GapInit_setPhyParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_init___params.html#ggac3e8401397e1008558c8db3def6412dda3b18583b740f8bf314533263f1f97aeb">INIT_PHYPARAM_SUP_TIMEOUT</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_CONN_EST_LATENCY</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_init.html#ga0f177b422346f91e33327b795324d611">GapInit_setPhyParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_init___params.html#ggac3e8401397e1008558c8db3def6412dda1cc8f466f6b0520940b7f2ad179842e8">INIT_PHYPARAM_CONN_LATENCY</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_CONN_EST_MIN_CE_LEN</td>
+<td>Obsolete - Not Used by Controller</td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_CONN_EST_MAX_CE_LEN</td>
+<td>Obsolete - Not Used by Controller</td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_PRIVATE_ADDR_INT</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#ggad3fe20690fa942f702d9009944fe4d38ab337d8055e0d3d4b34f4d1efa8160aad">GAP_PARAM_PRIVATE_ADDR_INT</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_CONN_PAUSE_CENTRAL</td>
+<td>Obsolete - Not Used by Controller</td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_CONN_PAUSE_PERIPHERAL</td>
+<td>Calling <a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaad99f6598df0ee36c4cd2608afa09618">GAP_UpdateLinkParamReq()</a> as desired</td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_SM_TIMEOUT</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#ggad3fe20690fa942f702d9009944fe4d38a62065759c379636e65fafd4f87ebdb01">GAP_PARAM_SM_TIMEOUT</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_SM_MIN_KEY_LEN</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#ggad3fe20690fa942f702d9009944fe4d38aee94f8781409d89f681fc6e43a88dc27">GAP_PARAM_SM_MIN_KEY_LEN</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_SM_MAX_KEY_LEN</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#ggad3fe20690fa942f702d9009944fe4d38aa7fb2b872a999c9b3dfd9a6345ed40d8">GAP_PARAM_SM_MAX_KEY_LEN</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_FILTER_ADV_REPORTS</td>
+<td>Obsolete - Duplicate Filtering done in Controller</td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_SCAN_RSP_RSSI_MIN</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#gaea670f68167c414703dc53a687f451d5">GapScan_setParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_scan___params.html#gga0ddb2a0f5c2ed1663478732f4836dacba48f59e808b2cec440ee2f364875ac13b">SCAN_PARAM_FLT_MIN_RSSI</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_REJECT_CONN_PARAMS</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#ggad3fe20690fa942f702d9009944fe4d38a3cfae7911ef33cc29782430c27d0e967">GAP_PARAM_LINK_UPDATE_DECISION</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_AUTH_TASK_ID</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <span>GAP_PARAM_AUTH_TASK_ID</span></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>TGAP_VERIFY_CAR</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <span>GAP_PARAM_VERIFY_CAR</span></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>TGAP_GGS_PARAMS</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <span>GAP_PARAM_GGS_PARAMS</span></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_IRK,
+GAPCENTRALROLE_IRK</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#ga9339519e357fc3272d7c1acb1034417d">GapConfig_SetParameter()</a> with <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#gga7f88123d7eedc652022788e7b6d0682fa5262747b071dc2890683e491ce0d7097">GAP_CONFIG_PARAM_IRK</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_SRK,
+GAPCENTRALROLE_SRK</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#ga9339519e357fc3272d7c1acb1034417d">GapConfig_SetParameter()</a> with <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#gga7f88123d7eedc652022788e7b6d0682fa5a489e46e912553833208f2a7348d911">GAP_CONFIG_PARAM_SRK</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_BD_ADDR,
+GAPCENTRALROLE_BD_ADDR</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___h_c_i.html#gac92bf295ab302f25d70d88105a12b3e9">HCI_ReadBDADDRCmd()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_ADVERT_ENABLED,
+GAPROLE_ADV_NONCONN_ENABLED</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga9b94640e5689a2b2b800d70c1a55538b">GapAdv_enable()</a> and <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga4e45550a6887067a26b8cc797e3d51fe">GapAdv_disable()</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_ADVERT_OFF_TIME</td>
+<td>Configured by durationOrMaxEvents parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga9b94640e5689a2b2b800d70c1a55538b">GapAdv_enable()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_ADVERT_DATA</td>
+<td><dl class="first last docutils">
+<dt>Various API:</dt>
+<dd><a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#gace138d1c3a9257893543e47f8774fdb9">GapAdv_loadByBuffer()</a>
+<span>GapAdv_loadHandle</span>
+<a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga2d97eeb71e379410e0f6f48c7c1eece7">GapAdv_prepareLoadByBuffer()</a>
+<a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#gae783d648cb49d7aa764cd97d366de812">GapAdv_prepareLoadByHandle()</a>
+<a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga3a6474a27ff9f32293698d34943e5085">GapAdv_getBuffer()</a></dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_SCAN_RSP_DATA</td>
+<td><dl class="first last docutils">
+<dt>Various API:</dt>
+<dd><a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#gace138d1c3a9257893543e47f8774fdb9">GapAdv_loadByBuffer()</a>
+<span>GapAdv_loadHandle</span>
+<a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga2d97eeb71e379410e0f6f48c7c1eece7">GapAdv_prepareLoadByBuffer()</a>
+<a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#gae783d648cb49d7aa764cd97d366de812">GapAdv_prepareLoadByHandle()</a>
+<a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga3a6474a27ff9f32293698d34943e5085">GapAdv_getBuffer()</a></dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_ADV_EVENT_TYPE</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga65020be0895c76efdaf18cb6da791a60">GapAdv_setParam()</a> or <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga5d73e17d3c353632a305f4de4d81e97f">GapAdv_getParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aaee9cd853f91a5219554748068efeded1">GAP_ADV_PARAM_PROPS</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_ADV_DIRECT_TYPE</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga65020be0895c76efdaf18cb6da791a60">GapAdv_setParam()</a> or <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga5d73e17d3c353632a305f4de4d81e97f">GapAdv_getParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aaca9f6c76bf6170cc20a248e39d0dace3">GAP_ADV_PARAM_PEER_ADDRESS_TYPE</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_ADV_DIRECT_ADDR</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga65020be0895c76efdaf18cb6da791a60">GapAdv_setParam()</a> or <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga5d73e17d3c353632a305f4de4d81e97f">GapAdv_getParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aa6a894fddde6054a3d590efa36cfbfb94">GAP_ADV_PARAM_PEER_ADDRESS</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_ADV_CHANNEL_MAP</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga65020be0895c76efdaf18cb6da791a60">GapAdv_setParam()</a> or <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga5d73e17d3c353632a305f4de4d81e97f">GapAdv_getParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aaafd978215f900bd05c50f9b2e0cacc3f">GAP_ADV_PARAM_PRIMARY_CHANNEL_MAP</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_ADV_FILTER_POLICY</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga65020be0895c76efdaf18cb6da791a60">GapAdv_setParam()</a> or <a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga5d73e17d3c353632a305f4de4d81e97f">GapAdv_getParam()</a> with <a class="reference external" href="../../doxygen/ble/html/group___gap_adv___params.html#ggaa58afceb7db92df94b51adb77393744aad979714bf19838f61230e34ecc84b122">GAP_ADV_PARAM_FILTER_POLICY</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_CONNHANDLE</td>
+<td>Returned for each GAP event, alternatively <span>HCI_EXT_GetConnInfoCmd</span></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_RSSI_READ_RATE</td>
+<td>RSSI can be received by <a class="reference external" href="../../doxygen/ble/html/group___h_c_i.html#ga19d1f14a0fde7b049a92f46e96671b40">HCI_ReadRssiCmd()</a></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_PARAM_UPDATE_ENABLE</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaad99f6598df0ee36c4cd2608afa09618">GAP_UpdateLinkParamReq()</a> can be called as desired</td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_MIN_CONN_INTERVAL</td>
+<td>pParams.connIntervalMin parameter of <span>GAP_EstablishLinkReq</span></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_MAX_CONN_INTERVAL</td>
+<td>pParams.connIntervalMax parameter of <span>GAP_EstablishLinkReq</span></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_SLAVE_LATENCY</td>
+<td>pParams.connLatency parameter of <span>GAP_EstablishLinkReq</span></td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_TIMEOUT_MULTIPLIER</td>
+<td>pParams.connTimeout parameter of <span>GAP_EstablishLinkReq</span></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_STATE</td>
+<td>Obsolete - Architecture removes need for this</td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_CONN_BD_ADDR,
+GAPROLE_BD_ADDR_TYPE</td>
+<td>Returned in <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___event___i_ds.html#gaca4a8fae9ea113d4240002a1f9853d15">GAP_LINK_ESTABLISHED_EVENT</a>,
+contained in stack message, <a class="reference external" href="../../doxygen/ble/html/structgap_est_link_req_event__t.html">gapEstLinkReqEvent_t</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_CONN_INTERVAL</td>
+<td>Returned from <a class="reference external" href="../../doxygen/ble/html/group___link_d_b.html#gaba6065b7e695aebc1d7ff177cd920e61">linkDB_GetInfo()</a>, as linkDBInfo_t.connInterval</td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPROLE_CONN_LATENCY</td>
+<td>Returned from <a class="reference external" href="../../doxygen/ble/html/group___link_d_b.html#gaba6065b7e695aebc1d7ff177cd920e61">linkDB_GetInfo()</a>, as linkDBInfo_t.connLatency</td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPROLE_CONN_TIMEOUT</td>
+<td>Returned from <a class="reference external" href="../../doxygen/ble/html/group___link_d_b.html#gaba6065b7e695aebc1d7ff177cd920e61">linkDB_GetInfo()</a>, as linkDBInfo_t.connTimeout</td>
+</tr>
+<tr class="row-even"><td>GAP PARAM</td>
+<td>GAPCENTRALROLE_MAX_SCAN_RES</td>
+<td>Configured by maxNumReport parameter of <a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga60e22e486791087008affa3e9054c0a9">GapScan_enable()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP PARAM</td>
+<td>GAPCENTRALROLE_LINK_PARAM_UPDATE_REQ_REPLY</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaefeda1d26837a7703c884939c5c8f749">GAP_SetParamValue()</a> with <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___params.html#ggad3fe20690fa942f702d9009944fe4d38a3cfae7911ef33cc29782430c27d0e967">GAP_PARAM_LINK_UPDATE_DECISION</a></td>
+</tr>
+<tr class="row-even"><td>GAP API</td>
+<td>GAP_DeviceInit,
+GAPRole_StartDevice,
+GAPCentralRole_StartDevice</td>
+<td><dl class="first last docutils">
+<dt>Declaration Change -  Use <a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gabd7c5f3cc85470854cf425e7e49b5ca5">GAP_DeviceInit()</a> with parameter for roles desired</dt>
+<dd>See <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___profile___roles.html">GAP_Profile_Roles</a></dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>GAP API</td>
+<td>GAPRole_RegisterAppCBs</td>
+<td>Obsolete - Functionality moved to <a class="reference external" href="../../doxygen/ble/html/group___g_a_p_bond_mgr.html#ga6f8ee9b4906eeb74ae8f10d511229eda">GAPBondMgr_Register()</a></td>
+</tr>
+<tr class="row-even"><td>GAP API</td>
+<td>GAP_SetAdvToken</td>
+<td>Obsolete - Advertisement Sets are Used</td>
+</tr>
+<tr class="row-odd"><td>GAP API</td>
+<td>GAP_GetAdvToken</td>
+<td>Obsolete - Advertisement Sets are Used</td>
+</tr>
+<tr class="row-even"><td>GAP API</td>
+<td>GAP_RemoveAdvToken</td>
+<td>Obsolete - Advertisement Sets are Used</td>
+</tr>
+<tr class="row-odd"><td>GAP API</td>
+<td>GAP_UpdateAdvTokens</td>
+<td>Obsolete - Advertisement Sets are Used</td>
+</tr>
+<tr class="row-even"><td>GAP API</td>
+<td>GAPRole_SendUpdateParam,
+GAPCentralRole_UpdateLink</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#gaad99f6598df0ee36c4cd2608afa09618">GAP_UpdateLinkParamReq()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP API</td>
+<td>GAP_MakeDiscoverable</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga9b94640e5689a2b2b800d70c1a55538b">GapAdv_enable()</a></td>
+</tr>
+<tr class="row-even"><td>GAP API</td>
+<td>GAP_UpdateAdvertisingData</td>
+<td><span>GapAdv_loadData</span></td>
+</tr>
+<tr class="row-odd"><td>GAP API</td>
+<td>GAP_EndDiscoverable</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_adv.html#ga4e45550a6887067a26b8cc797e3d51fe">GapAdv_disable()</a></td>
+</tr>
+<tr class="row-even"><td>GAP API</td>
+<td>GAP_DeviceDiscoveryRequest,
+GAPCentralRole_StartDiscovery</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#ga60e22e486791087008affa3e9054c0a9">GapScan_enable()</a></td>
+</tr>
+<tr class="row-odd"><td>GAP API</td>
+<td>GAP_DeviceDiscoveryCancel,
+GAPCentralRole_CancelDiscovery</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_scan.html#gac68c4fba007904dd8d7c3621970d9bef">GapScan_disable()</a></td>
+</tr>
+<tr class="row-even"><td>GAP API</td>
+<td>GAP_ResolvePrivateAddr</td>
+<td>Obsolete - Address Resolution is done controller</td>
+</tr>
+<tr class="row-odd"><td>GAP API</td>
+<td>GAP_EstablishLinkReq,
+GAPCentralRole_EstablishLink</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_init.html#gac48c7e153d960604f9da90aca3f75d08">GapInit_connect()</a>, or <a class="reference external" href="../../doxygen/ble/html/group___gap_init.html#ga51177eb45aa3d7e32807166b0aceffa6">GapInit_connectWl()</a> to use whitelist</td>
+</tr>
+<tr class="row-even"><td>GAP API</td>
+<td>GAP_TerminateLinkReq,
+GAPRole_TerminateConnection,
+GAPCentralRole_TerminateLink</td>
+<td><a class="reference external" href="../../doxygen/ble/html/group___gap_init.html#gab6106f8ac76d6991ad0fbf53b883e278">GapInit_cancelConnect()</a> for connection request, <a class="reference external" href="../../doxygen/ble/html/group___g_a_p.html#ga7e7d184cdce75306919cd660ccab3b3b">GAP_TerminateLinkReq()</a> otherwise</td>
+</tr>
+<tr class="row-odd"><td>GAP API</td>
+<td>GAP_ConfigDeviceAddr</td>
+<td>No Changes; now the only way to set address and address type across modules</td>
+</tr>
+<tr class="row-even"><td>GAP CB</td>
+<td>gapRolesParamUpdateCB_t,
+paramUpdateAppDecision_t,
+passThroughToApp_t</td>
+<td>These are handled through <a class="reference external" href="../../doxygen/ble/html/group___g_a_p___event___i_ds.html#gaede323cf41e04ee0fec404461a47ce17">GAP_UPDATE_LINK_PARAM_REQ_EVENT</a>,
+applies to the L2CAP Parameter Update Procedure as well.</td>
+</tr>
+<tr class="row-odd"><td>GAP CB</td>
+<td>gapRolesStateNotify_t,
+pfnGapCentralRoleEventCB_t</td>
+<td>Moved into GAP Bond Manager callbacks, gapBondCBs_t-&gt;gapEventCB</td>
+</tr>
+</tbody>
+</table>
+<span id="tbl-ble5-porting-gapbondmgr-changes"></span><table border="1" class="docutils" id="id10">
+<caption><span class="caption-text">GAP Bond Manager Changes</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="17%" />
+<col width="35%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Previous Implementation</th>
+<th class="head">New/Current implementation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Type</td>
+<td>Name</td>
+<td>Description / API / Parameter</td>
+</tr>
+<tr class="row-odd"><td>GAPBOND PARAM</td>
+<td>GAPBOND_DEFAULT_PASSCODE</td>
+<td>Use pfnPasscodeCB_t, shared default passcode
+defined in bcomdef.h (BAPP_DEFAULT_PASSCODE)</td>
+</tr>
+<tr class="row-even"><td>GAPBOND PARAM</td>
+<td>GAPBOND_REMOTE_OOB_SC_ENABLED</td>
+<td>Obsolete</td>
+</tr>
+<tr class="row-odd"><td>GAPBOND PARAM</td>
+<td>GAPBOND_REMOTE_OOB_SC_DATA</td>
+<td>Obsolete</td>
+</tr>
+<tr class="row-even"><td>GAPBOND PARAM</td>
+<td>GAPBOND_LOCAL_OOB_SC_ENABLED</td>
+<td>Obsolete</td>
+</tr>
+<tr class="row-odd"><td>GAPBOND PARAM</td>
+<td>GAPBOND_LOCAL_OOB_SC_DATA</td>
+<td>Obsolete</td>
+</tr>
+<tr class="row-even"><td>GAPBOND STATE</td>
+<td>GAPBOND_PAIRING_STATE_BONDED</td>
+<td>GAPBOND_PAIRING_STATE_ENCRYPTED</td>
+</tr>
+<tr class="row-odd"><td>GAPBOND DEF</td>
+<td>GBM_QUEUE_PAIRINGS</td>
+<td>Removed, is now default behavior</td>
+</tr>
+<tr class="row-even"><td>GAPBOND DEF</td>
+<td>GBM_GATT_NO_CLIENT</td>
+<td>Configured by GATT_NO_CLIENT</td>
+</tr>
+<tr class="row-odd"><td>GAPBOND DEF</td>
+<td>SNP_SECURITY</td>
+<td>Configured by GAPBONDMGR_NO_SIGNING</td>
+</tr>
+<tr class="row-even"><td>GAPBOND API</td>
+<td>GAPBondMgr_LinkEst</td>
+<td>Removed Application Access to API
+Handled Internally</td>
+</tr>
+<tr class="row-odd"><td>GAPBOND API</td>
+<td>GAPBondMgr_LinkTerm</td>
+<td>Removed Application Access to API
+Handled Internally</td>
+</tr>
+<tr class="row-even"><td>GAPBOND API</td>
+<td>GAPBondMgr_SlaveReqSecurity</td>
+<td>GAPBondMgr_Pair, allowing both masters
+and slaves to request pairing</td>
+</tr>
+<tr class="row-odd"><td>GAPBOND API</td>
+<td>GAPBondMgr_UpdateCharCfg</td>
+<td>Removed Application Access to API
+Handled Internally</td>
+</tr>
+<tr class="row-even"><td>GAPBOND API</td>
+<td>GAPBondMgr_ReadGattChar</td>
+<td>Removed Application Access to API
+Handled Internally</td>
+</tr>
+<tr class="row-odd"><td>GAPBOND API</td>
+<td>GAPBondMgr_SupportsEnhancedPriv</td>
+<td>Removed Application Access to API
+Handled Internally</td>
+</tr>
+<tr class="row-even"><td>GAPBOND API</td>
+<td>GAPBondMgr_CheckNVLen</td>
+<td>Removed Application Access to API
+Handled Internally</td>
+</tr>
+<tr class="row-odd"><td>GAPBOND API</td>
+<td>GAPBondMgr_syncResolvingList</td>
+<td>Removed Application Access to API
+Handled Internally</td>
+</tr>
+</tbody>
+</table>
+<span id="tbl-ble5-porting-gapgattserver-changes"></span><table border="1" class="docutils" id="id11">
+<caption><span class="caption-text">GAP GATT Server Changes</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="14%" />
+<col width="43%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Previous Implementation</th>
+<th class="head">New/Current implementation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Type</td>
+<td>Name</td>
+<td>Description / API / Parameter</td>
+</tr>
+<tr class="row-odd"><td>GGS PARAM</td>
+<td>GGS_PERI_PRIVACY_FLAG_ATT</td>
+<td>Obsolete</td>
+</tr>
+<tr class="row-even"><td>GGS PARAM</td>
+<td>GGS_RECONNCT_ADDR_ATT</td>
+<td>Obsolete</td>
+</tr>
+<tr class="row-odd"><td>GGS PARAM</td>
+<td>GGS_PERI_PRIVACY_FLAG_PROPS</td>
+<td>Obsolete</td>
+</tr>
+<tr class="row-even"><td>GGS PARAM</td>
+<td>GGS_W_PERMIT_PRIVACY_FLAG_ATT</td>
+<td>Obsolete</td>
+</tr>
+<tr class="row-odd"><td>GGS PARAM</td>
+<td>GGS_TESTMODE_W_PERMIT_PRIVACY_FLAG</td>
+<td>Obsolete</td>
+</tr>
+</tbody>
+</table>
+<span id="tbl-ble5-porting-linkdb-changes"></span><table border="1" class="docutils" id="id12">
+<caption><span class="caption-text">Link Database Changes</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="15%" />
+<col width="40%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Previous Implementation</th>
+<th class="head">New/Current implementation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Type</td>
+<td>Name</td>
+<td>Description / API / Parameter</td>
+</tr>
+<tr class="row-odd"><td>LinkDB API</td>
+<td>linkDB_Remove</td>
+<td>API now accepts linkDBItem_t* in
+addition to connection handle</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2010-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.01.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

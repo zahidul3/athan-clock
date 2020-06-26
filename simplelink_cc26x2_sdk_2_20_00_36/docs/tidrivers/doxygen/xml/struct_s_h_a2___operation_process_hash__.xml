@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_s_h_a2___operation_process_hash__" kind="struct" language="C++" prot="public">
+    <compoundname>SHA2_OperationProcessHash_</compoundname>
+    <includes refid="_s_h_a2_8h" local="no">SHA2.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_s_h_a2___operation_process_hash___1a6ade5c033deb170ea70ba51fd0ac8bc8" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1a5f8c101f0e9503615b13044c9a96eedf" kindref="member">SHA2_HashSize</ref></type>
+        <definition>SHA2_HashSize SHA2_OperationProcessHash_::hashSize</definition>
+        <argsstring></argsstring>
+        <name>hashSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The hash size to use. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="476" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="476" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_process_hash___1a4b5a0a7ddf43dfcdfde221f8f0307015" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t SHA2_OperationProcessHash_::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The length of the message segment to hash, in bytes. This length must be a multiple of the hash block size. The block size for 224 and 256 is 64 bytes and the block size for 384 and 512 is 128 bytes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="477" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="477" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_process_hash___1a1e50538613224469e881dffbe9a30193" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* SHA2_OperationProcessHash_::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the message segment to hash. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="482" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="482" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_process_hash___1a7bba9821817b5d132e40120e5bc1a788" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* SHA2_OperationProcessHash_::intermediateDigest</definition>
+        <argsstring></argsstring>
+        <name>intermediateDigest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to location the previous intermediate output digest will be loaded from and the newly computed intermediate output will be written back.</para><para>If NULL, the driver will store the intermediate digest itself and load the previous intermediate digest from within itself. This context may be overwritten by other clients performing their own hash operations however. The context may also be lost if going into low power modes in between hash operations.</para><para>User must allocate enough space for hash result (ex. 32 bytes for 256, 28 bytes for 224). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="483" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="483" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Struct containing the parameters required to continue hashing a message. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="475" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="475" bodyend="496"/>
+    <listofallmembers>
+      <member refid="struct_s_h_a2___operation_process_hash___1a6ade5c033deb170ea70ba51fd0ac8bc8" prot="public" virt="non-virtual"><scope>SHA2_OperationProcessHash_</scope><name>hashSize</name></member>
+      <member refid="struct_s_h_a2___operation_process_hash___1a7bba9821817b5d132e40120e5bc1a788" prot="public" virt="non-virtual"><scope>SHA2_OperationProcessHash_</scope><name>intermediateDigest</name></member>
+      <member refid="struct_s_h_a2___operation_process_hash___1a4b5a0a7ddf43dfcdfde221f8f0307015" prot="public" virt="non-virtual"><scope>SHA2_OperationProcessHash_</scope><name>length</name></member>
+      <member refid="struct_s_h_a2___operation_process_hash___1a1e50538613224469e881dffbe9a30193" prot="public" virt="non-virtual"><scope>SHA2_OperationProcessHash_</scope><name>message</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

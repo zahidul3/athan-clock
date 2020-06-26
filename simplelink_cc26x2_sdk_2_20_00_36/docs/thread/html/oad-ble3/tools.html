@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OAD Image Tool &mdash; SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation" href="../index.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug oad-ble3 tools";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../thread/index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI Thread User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../thread/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-thread.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/ot-sw-dev-env.html">TI-OpenThread Stack Software Development Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/ot-stack-overview.html">TI-OpenThread Stack Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/running-example-apps-cc26x2.html">Example Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-br/index.html">Linux Border Router Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/creating-custom-apps.html">Creating Custom Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/custom-hardware.html">Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/packet-sniffer.html">Packet Sniffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/thread-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-oad/index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/migration.html">Migration Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../thread/index-cc26x2.html">SimpleLink™ CC26x2 TI Thread User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../thread/index-cc26x2.html">Docs</a> &raquo;</li>
+      
+    <li>OAD Image Tool</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="oad-image-tool">
+<span id="sec-generating-image-header-vector"></span><span id="sec-oad-tools"></span><h1>OAD Image Tool<a class="headerlink" href="#oad-image-tool" title="Permalink to this headline">¶</a></h1>
+<p>The OAD image tool is a script written in python that is intended to process
+the compiler output in the form of a hexfile and prepare the image for over the
+air transfer.</p>
+<p>The major components of the oad_image_tool include:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Conversion from *.hex to *.bin</li>
+<li>Padding the image to be word aligned</li>
+<li>Calculating the CRC and embedding it in the image header</li>
+<li>Optional: Merging a split image into a single app + stack image</li>
+<li>Optional: Adding security info to the image header if present</li>
+</ul>
+</div></blockquote>
+<p>The tool is located in the <code class="docutils literal"><span class="pre">tools/blestack/oad</span></code> folder of the SimpleLink CC26x2 SDK.
+There are two flavors of the tool, the version which supports security and the
+one which does not. They are found in the <code class="docutils literal"><span class="pre">oad_secure</span></code> and <code class="docutils literal"><span class="pre">oad_unsecure</span></code>
+folders respectively.</p>
+<div class="section" id="running-the-tool">
+<h2>Running the tool<a class="headerlink" href="#running-the-tool" title="Permalink to this headline">¶</a></h2>
+<p>The OAD Image Tool is distributed in both source and binary form. The correct
+binary will be bundled with the installer for a given platform (i.e. Linux,
+Windows, Mac). However, the tool can also be run in source if desired.</p>
+<p>The tool is intended to run as a post build step to an OAD application.  When
+run as a post build step, the tool will generate an output binary file named
+<code class="docutils literal"><span class="pre">&lt;app_name&gt;_oad.bin</span></code> where <code class="docutils literal"><span class="pre">&lt;app_name&gt;</span></code> is the name and path specified by
+the required <code class="docutils literal"><span class="pre">-o</span></code> argument to the script.</p>
+<p>It is recommended to use the OAD enabled example application from the intended
+protocol stack component of the SimpleLink CC26x2 SDK and copy + modify the post build step as
+needed.</p>
+</div>
+<div class="section" id="running-the-tool-from-source">
+<h2>Running the Tool from Source<a class="headerlink" href="#running-the-tool-from-source" title="Permalink to this headline">¶</a></h2>
+<p>In general, it is recommended to invoke the tool via the binaries distributed
+with the SimpleLink CC26x2 SDK. However if it is required to run the tool is source, the
+following steps should be taken:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Ensure Python is installed on the system (Python 3 recommended)</li>
+<li>Install the required packages via pip (see <code class="docutils literal"><span class="pre">requirements.txt</span></code> in the
+same folder as the tool)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="generating-new-security-keys">
+<span id="sec-gen-security-keys"></span><h2>Generating new security keys<a class="headerlink" href="#generating-new-security-keys" title="Permalink to this headline">¶</a></h2>
+<p>By default, public and private keys will be provided in the <code class="docutils literal"><span class="pre">private.pem</span></code>
+and <code class="docutils literal"><span class="pre">public.pem</span></code> files. The private key will be used by the OAD image tool to
+sign the application image before outputting the binary. The path to the private
+key must be provided if using using security, this is provided using the <code class="docutils literal"><span class="pre">-k</span></code>
+option. You must be using the secure version of the tool to do this.</p>
+<p>The default keys are also installed in the BIM projects in order for the out of
+box demos to work.</p>
+<p>However, before production it is recommended that the customer generate new
+keys using the process detailed below:</p>
+<ol class="arabic simple">
+<li>Generate a new keypair by calling <code class="docutils literal"><span class="pre">python</span> <span class="pre">keys/key_generate.py</span></code> from
+within the OAD tool folder. This will override the existing <code class="docutils literal"><span class="pre">private.pem</span></code>
+<code class="docutils literal"><span class="pre">public.pem</span></code>, and <code class="docutils literal"><span class="pre">key_info.txt</span></code> files.</li>
+<li>Replace the keys used by the BIM with the new ones generated by the tool.
+The code snippet below shows how to do this.
+Replace the “NEW ** HERE” placeholders below with the contents of
+the appropriate line in the <code class="docutils literal"><span class="pre">key_info.txt</span></code> file.</li>
+</ol>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="p">.</span><span class="n">version</span>    <span class="o">=</span> <span class="n">SECURE_SIGN_TYPE</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">len</span>        <span class="o">=</span> <span class="n">SECURE_CERT_LENGTH</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">options</span>    <span class="o">=</span> <span class="n">SECURE_CERT_OPTIONS</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">signerInfo</span> <span class="o">=</span> <span class="p">{</span><span class="cm">/* NEW SIGNER INFO HERE */</span><span class="p">},</span>
+    <span class="p">.</span><span class="n">certPayload</span><span class="p">.</span><span class="n">eccKey</span><span class="p">.</span><span class="n">pubKeyX</span> <span class="o">=</span> <span class="p">{</span><span class="cm">/* NEW PUB KEY X HERE */</span><span class="p">},</span>
+    <span class="p">.</span><span class="n">certPayload</span><span class="p">.</span><span class="n">eccKey</span><span class="p">.</span><span class="n">pubKeyY</span> <span class="o">=</span> <span class="p">{</span><span class="cm">/* NEW PUB KEY Y HERE */</span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>The structure above can be found in the following files:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Off-chip OAD: <code class="docutils literal"><span class="pre">bim_main.c</span></code></li>
+<li>On-chip OAD: <code class="docutils literal"><span class="pre">bim_onchip.c</span></code></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You will need to add proper C style syntax to the key arrays when pasting
+them into the BIM files. Be sure to add a comma between each element and
+prepends all hex values with <code class="docutils literal"><span class="pre">0x</span></code>. Refer to the placeholder keys for
+more information.</p>
+</div>
+</div>
+<div class="section" id="required-arguments-getting-help">
+<h2>Required Arguments/Getting help<a class="headerlink" href="#required-arguments-getting-help" title="Permalink to this headline">¶</a></h2>
+<p>If help is needed when running the tool, invoke it with the <code class="docutils literal"><span class="pre">-h</span></code> option which
+will describe the supported features of the tool, the arguments and the actions
+they perform.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

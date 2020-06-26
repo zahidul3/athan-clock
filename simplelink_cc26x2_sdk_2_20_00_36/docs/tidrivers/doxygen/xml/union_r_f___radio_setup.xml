@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="union_r_f___radio_setup" kind="union" language="C++" prot="public">
+    <compoundname>RF_RadioSetup</compoundname>
+    <includes refid="_r_f_8h" local="no">RF.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="union_r_f___radio_setup_1a7849a5bb5dc28c798cc55793f6c347dd" prot="public" static="no" mutable="no">
+        <type>rfc_command_t</type>
+        <definition>rfc_command_t RF_RadioSetup::commandId</definition>
+        <argsstring></argsstring>
+        <name>commandId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generic command identifier. This is the first field in every radio operation command. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1113" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_r_f___radio_setup_1afd03d9690df15d5cca3e82c4ff25ba58" prot="public" static="no" mutable="no">
+        <type>rfc_CMD_RADIO_SETUP_t</type>
+        <definition>rfc_CMD_RADIO_SETUP_t RF_RadioSetup::common</definition>
+        <argsstring></argsstring>
+        <name>common</name>
+        <briefdescription>
+<para>Radio setup command for BLE and IEEE modes. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1116" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_r_f___radio_setup_1add11d56e4882de38a71bc75c3d38cb18" prot="public" static="no" mutable="no">
+        <type>rfc_CMD_BLE5_RADIO_SETUP_t</type>
+        <definition>rfc_CMD_BLE5_RADIO_SETUP_t RF_RadioSetup::ble5</definition>
+        <argsstring></argsstring>
+        <name>ble5</name>
+        <briefdescription>
+<para>Radio setup command for BLE5 mode. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1117" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_r_f___radio_setup_1afd693ac0735adf77800aa285124bd03a" prot="public" static="no" mutable="no">
+        <type>rfc_CMD_PROP_RADIO_SETUP_t</type>
+        <definition>rfc_CMD_PROP_RADIO_SETUP_t RF_RadioSetup::prop</definition>
+        <argsstring></argsstring>
+        <name>prop</name>
+        <briefdescription>
+<para>Radio setup command for PROPRIETARY mode on 2.4 GHz. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1118" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_r_f___radio_setup_1ae5b63db8408d7cd3cc773f7c38ea0545" prot="public" static="no" mutable="no">
+        <type>rfc_CMD_PROP_RADIO_DIV_SETUP_t</type>
+        <definition>rfc_CMD_PROP_RADIO_DIV_SETUP_t RF_RadioSetup::prop_div</definition>
+        <argsstring></argsstring>
+        <name>prop_div</name>
+        <briefdescription>
+<para>Radio setup command for PROPRIETARY mode on Sub-1 Ghz. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1119" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A unified type for radio setup commands of different PHYs. </para>    </briefdescription>
+    <detaileddescription>
+<para>Radio setup commands are used to initialize a PHY on the RF core. Various partially similar commands exist, each one represented by a different data type. <ref refid="union_r_f___radio_setup" kindref="compound">RF_RadioSetup</ref> is a generic container for all types. A specific setup command is usually exported from SmartRF Studio and then passed to the RF driver in <ref refid="_r_f_8h_1a13a7c6f5a2b797e0aac18fecfaba6f64" kindref="member">RF_open()</ref>. </para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1112" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1112" bodyend="1120"/>
+    <listofallmembers>
+      <member refid="union_r_f___radio_setup_1add11d56e4882de38a71bc75c3d38cb18" prot="public" virt="non-virtual"><scope>RF_RadioSetup</scope><name>ble5</name></member>
+      <member refid="union_r_f___radio_setup_1a7849a5bb5dc28c798cc55793f6c347dd" prot="public" virt="non-virtual"><scope>RF_RadioSetup</scope><name>commandId</name></member>
+      <member refid="union_r_f___radio_setup_1afd03d9690df15d5cca3e82c4ff25ba58" prot="public" virt="non-virtual"><scope>RF_RadioSetup</scope><name>common</name></member>
+      <member refid="union_r_f___radio_setup_1afd693ac0735adf77800aa285124bd03a" prot="public" virt="non-virtual"><scope>RF_RadioSetup</scope><name>prop</name></member>
+      <member refid="union_r_f___radio_setup_1ae5b63db8408d7cd3cc773f7c38ea0545" prot="public" virt="non-virtual"><scope>RF_RadioSetup</scope><name>prop_div</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

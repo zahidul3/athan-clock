@@ -1,0 +1,115 @@
+.. _stack_features_configuration:
+
+Stack Configurations
+--------------------
+
+Configuring Bluetooth low energy Protocol Stack Features
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Bluetooth low energy protocol stack can be configured to include
+or exclude certain Bluetooth Low Energy features by changing the
+library configuration in the stack project. The available Bluetooth
+low energy features are defined in the ``build_config.opt`` file in
+the Tools folder of the stack project within the IDE. Based on the
+features selected in the ``build_config.opt`` file, the ``lib_search.exe`` tool
+selects the respective precompiled library during the build process of the
+stack project.
+
+.. note::
+
+      Selecting the correct stack configuration is essential in
+      optimizing the amount of flash memory available to the application.
+      To conserve memory, exclude certain Bluetooth Low Energy protocol
+      stack features that may not be required.
+
+Run-Time Bluetooth low energy Protocol Stack Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Bluetooth low energy protocol stack can be configured with
+various parameters that control its runtime behavior and RF antenna
+layout. The available configuration parameters are described in
+the ``ble_user_config.h`` file in the ICallBLE IDE folder of the
+application. During initialization, these parameters are supplied to the
+Bluetooth Low Energy protocol stack by the ``user0Cfg`` structure, declared in
+main.c.
+
+.. code-block:: c
+
+  #include "ble_user_config.h"
+
+  // BLE user defined configuration
+  bleUserCfg_t user0Cfg = BLE_USER_CFG;
+
+Because the ``ble_user_config.h`` file is shared filed between the Bluetooth
+Low Energy projects within the SDK, TI recommends defining configuration
+parameters in the ``.opt`` files found under ``TOOLS\defines``. The ``.opt``
+files contain preprocessor symbols of the application when the default value
+isn't sufficient. For example, to change the maximum PDU size from the default
+27 to 162, set the preprocessor symbol ``MAX_PDU_SIZE=162`` in the
+preprocessor symbols for the application project. Increasing certain
+parameters may increase heap memory use by the protocol stack;
+adjust the ``HEAPMGR_SIZE`` as required (if not using auto sized heap).
+:numref:`stackconfigurablefeatures` and :numref:`stackconfigurablefeatures`
+list the available configuration parameters.
+
+.. _appconfigurablefeatures:
+
+.. table:: Bluetooth Low Energy Application Configuration Parameters
+
+    =============== =============================== ===================================================================================================================================================================================================
+     Configurable?              Define                                                                                                          Description
+    =============== =============================== ===================================================================================================================================================================================================
+           Y        BOARD\_DISPLAY\_USE\_LCD        0 or 1 determines if the Display driver should use LCD
+           Y        BOARD\_DISPLAY\_USE\_UART       0 or 1 determines if the Display driver should use UART
+           Y        BOARD\_DISPLAY\_USE\_UART\_ANSI 0 or 1 determines if the Display driver should use UART ANSI
+           N        CC26X2                          This selects the chipset
+           Y        CC26X2R1\_LAUNCHXL              This define may be changed when migrating to a custom development board
+           N        CC26XX                          This selects the chipset
+           N        DeviceFamily\_CC26X2            This selects the chipset
+           Y        Display\_DISABLE\_ALL           If set, the Display module will be disabled.
+           Y        EXT\_HAL\_ASSERT                Defining this assert will forward ble5stack asserts to the application
+           Y        HEAPMGR\_METRICS                Defining this will enable heap profiling.
+           N        ICALL\_EVENTS                   This define is used with ICALL - do not modify
+           N        ICALL\_JT                       This define is used with ICALL - do not modify
+           N        ICALL\_LITE                     This define is used with ICALL - do not modify
+           Y        ICALL\_MAX\_NUM\_ENTITIES       This Maximum number of entities that use ICall, including service entities and application entities.
+           Y        ICALL\_MAX\_NUM\_TASKS          Defines the max number of ICall enabled tasks. Must be the same as OSAL\_MAX\_NUM\_PROXY\_TASKS. Default is 2.
+           Y        L2CAP\_NUM\_CO\_CHANNELS        Maximum number of L2CAP Connection-Oriented (CO) Channels. Default is 3.
+           Y        L2CAP\_NUM\_PSM                 Maximum number of L2CAP Protocol/Service Multiplexers (PSM). Default is 3.
+           Y        MAX\_NUM\_BLE\_CONNS            This is the maximum number of simultaneous Bluetooth low energy collections allowed. Adding more connections uses more RAM and may require increasing HEAPMGR\_SIZE. Profile heap usage accordingly
+           Y        MAX\_NUM\_PDU                   Maximum number of Bluetooth low energy HCI PDUs. Default is 5. If the maximum number of connections is set to 0, then this number should also be set to 0.
+           Y        MAX\_PDU\_SIZE                  Maximum size in bytes of the Bluetooth low energy HCI PDU. Default is 27. Valid range is 27 to 255. The maximum ATT\_MTU is MAX\_PDU\_SIZE - 4. See Configuring for Larger MTU Values.
+           Y        NPI\_SPI\_CONFIG                When NPI\_USE\_API is defined, this will allows you to choose which SPI driver instance NPI will be used.
+           Y        NPI\_USE\_SPI                   Configure NPI to use SPI. Do not define NPI\_USE\_UART and NPI\_USE\_SPI at the same time.
+           Y        NPI\_USE\_UART                  Configure NPI to use UART. Do not define NPI\_USE\_SPI and NPI\_USE\_UART at the same time.
+           Y        PM\_STARTUP\_MARGIN             Defines time in microseconds (us) the system will wake up before the start of the connection event. Default is 300. This value is optimized for the example projects.
+           Y        POWER\_SAVING                   Power management is enabled when defined, and disabled when not defined. Requires same option in stack project
+           N        STACK\_LIBRARY                  Build/Use the build configuration where the stack is built as a library
+           Y        TBM\_ACTIVE\_ITEMS\_ONLY        When using the Two Button Menu, Only active items will be displayed
+           N        USE\_ICALL                      This define is used with ICALL - do not modify
+    =============== =============================== ===================================================================================================================================================================================================
+
+.. _stackconfigurablefeatures:
+
+.. table:: Bluetooth Low Energy Stack Configuration Parameters
+
+    =============== =============================== ===================================================================================================================================================================================================
+     Configurable?              Define                                                                                                          Description
+    =============== =============================== ===================================================================================================================================================================================================
+           N        CC26X2                          This selects the chipset
+           N        CC26XX                          This selects the chipset
+           N        DeviceFamily\_CC26X2            This selects the chipset
+           Y        EXT\_HAL\_ASSERT                Defining this assert will forward ble5stack asserts to the application
+           Y        FLASH\_ROM\_BUILD               Setting this option will use the ble5stack with ROM APIs - decreasing flash footprint
+           N        ICALL\_EVENTS                   This define is used with ICALL - do not modify
+           N        ICALL\_JT                       This define is used with ICALL - do not modify
+           N        ICALL\_LITE                     This define is used with ICALL - do not modify
+           Y        OSAL\_CBTIMER\_NUM\_TASKS       Defines the number of osal callback tasks. Each osal callback task can contain up to 16 osal callback functions. Default is 1.
+           Y        OSAL\_MAX\_NUM\_PROXY\_TASKS    Defines the max number of ICall enabled tasks. Must be the same as ICALL\_MAX\_NUM\_TASKS. Default is 2.
+           Y        OSAL\_SNV                       Define the number of non-volatile flash pages are to be used with the Simple Non-Volatile module. Default is 2.
+           Y        POWER\_SAVING                   Power management is enabled when defined, and disabled when not defined. Requires same option in stack project
+           Y        RF\_FE\_MODE\_AND\_BIAS         Defines the RF antenna front end and bias configuration. Set this value to match the actual hardware antenna layout. This value can be set directly, or through Board.h.
+           Y        SC\_HOST\_DEBUG                 Defining this will allow you to capture over-the-air bluetooth low energy traffic that use LE Secure Connections.
+           N        STACK\_LIBRARY                  Build/Use the build configuration where the stack is built as a library
+           N        USE\_ICALL                      This define is used with ICALL - do not modify
+    =============== =============================== ===================================================================================================================================================================================================

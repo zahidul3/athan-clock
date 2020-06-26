@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="nortos" version="1, 0, 0" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/package_nortos.c"/>
+        <srcFile name="dpl/posix_sleep.c"/>
+        <srcFile name="dpl/DebugP_nortos.c"/>
+        <srcFile name="dpl/MutexP_nortos.c"/>
+        <srcFile name="./NoRTOS.c"/>
+        <srcFile name="dpl/QueueP_nortos.c"/>
+        <srcFile name="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="dpl/SwiP_nortos.c"/>
+        <srcFile name="dpl/SystemP_nortos.c"/>
+        <srcFile name="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="dpl/PowerCC26XX_nortos.c"/>
+        <srcFile name="startup/startup_cc13xx_cc26xx_ccs.c"/>
+        <srcFile name="startup/startup_cc13xx_cc26xx_iar.c"/>
+        <srcFile name="startup/startup_cc13xx_cc26xx_gcc.c"/>
+        <srcFile name="dpl/PowerCC26X2_nortos.c"/>
+    </sources>
+    <configscripts>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="lib/nortos_cc13x0.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/package/package_nortos.oem3.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/posix_sleep.oem3.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/DebugP_nortos.oem3.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/MutexP_nortos.oem3.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/./NoRTOS.oem3.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/QueueP_nortos.oem3.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/SemaphoreP_nortos.oem3.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/SwiP_nortos.oem3.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/SystemP_nortos.oem3.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/ClockPTimer_nortos.oem3.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/TimerPCC26XX_nortos.oem3.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/HwiPCC26XX_nortos.oem3.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/PowerCC26XX_nortos.oem3.dep" src="dpl/PowerCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/startup/startup_cc13xx_cc26xx_ccs.oem3.dep" src="startup/startup_cc13xx_cc26xx_ccs.c"/>
+        <srcFile name="lib/nortos_cc26x0.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/package/package_nortos.oem3.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/posix_sleep.oem3.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/DebugP_nortos.oem3.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/MutexP_nortos.oem3.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/./NoRTOS.oem3.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/QueueP_nortos.oem3.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/SemaphoreP_nortos.oem3.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/SwiP_nortos.oem3.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/SystemP_nortos.oem3.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/ClockPTimer_nortos.oem3.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/TimerPCC26XX_nortos.oem3.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/HwiPCC26XX_nortos.oem3.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/PowerCC26XX_nortos.oem3.dep" src="dpl/PowerCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/startup/startup_cc13xx_cc26xx_ccs.oem3.dep" src="startup/startup_cc13xx_cc26xx_ccs.c"/>
+        <srcFile name="lib/nortos_cc26x0r2.aem3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/package/package_nortos.oem3.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/posix_sleep.oem3.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/DebugP_nortos.oem3.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/MutexP_nortos.oem3.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/./NoRTOS.oem3.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/QueueP_nortos.oem3.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/SemaphoreP_nortos.oem3.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/SwiP_nortos.oem3.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/SystemP_nortos.oem3.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/ClockPTimer_nortos.oem3.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/TimerPCC26XX_nortos.oem3.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/HwiPCC26XX_nortos.oem3.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/PowerCC26XX_nortos.oem3.dep" src="dpl/PowerCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/startup/startup_cc13xx_cc26xx_ccs.oem3.dep" src="startup/startup_cc13xx_cc26xx_ccs.c"/>
+        <srcFile name="lib/nortos_cc13x0.arm3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/package/package_nortos.orm3.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/posix_sleep.orm3.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/DebugP_nortos.orm3.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/MutexP_nortos.orm3.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/./NoRTOS.orm3.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/QueueP_nortos.orm3.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/SemaphoreP_nortos.orm3.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/SwiP_nortos.orm3.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/SystemP_nortos.orm3.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/ClockPTimer_nortos.orm3.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/TimerPCC26XX_nortos.orm3.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/HwiPCC26XX_nortos.orm3.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/PowerCC26XX_nortos.orm3.dep" src="dpl/PowerCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/startup/startup_cc13xx_cc26xx_iar.orm3.dep" src="startup/startup_cc13xx_cc26xx_iar.c"/>
+        <srcFile name="lib/nortos_cc26x0.arm3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/package/package_nortos.orm3.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/posix_sleep.orm3.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/DebugP_nortos.orm3.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/MutexP_nortos.orm3.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/./NoRTOS.orm3.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/QueueP_nortos.orm3.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/SemaphoreP_nortos.orm3.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/SwiP_nortos.orm3.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/SystemP_nortos.orm3.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/ClockPTimer_nortos.orm3.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/TimerPCC26XX_nortos.orm3.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/HwiPCC26XX_nortos.orm3.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/PowerCC26XX_nortos.orm3.dep" src="dpl/PowerCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/startup/startup_cc13xx_cc26xx_iar.orm3.dep" src="startup/startup_cc13xx_cc26xx_iar.c"/>
+        <srcFile name="lib/nortos_cc26x0r2.arm3.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/package/package_nortos.orm3.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/posix_sleep.orm3.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/DebugP_nortos.orm3.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/MutexP_nortos.orm3.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/./NoRTOS.orm3.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/QueueP_nortos.orm3.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/SemaphoreP_nortos.orm3.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/SwiP_nortos.orm3.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/SystemP_nortos.orm3.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/ClockPTimer_nortos.orm3.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/TimerPCC26XX_nortos.orm3.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/HwiPCC26XX_nortos.orm3.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/PowerCC26XX_nortos.orm3.dep" src="dpl/PowerCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/startup/startup_cc13xx_cc26xx_iar.orm3.dep" src="startup/startup_cc13xx_cc26xx_iar.c"/>
+        <srcFile name="lib/nortos_cc13x0.am3g.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/package/package_nortos.om3g.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/posix_sleep.om3g.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/DebugP_nortos.om3g.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/MutexP_nortos.om3g.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/./NoRTOS.om3g.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/QueueP_nortos.om3g.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/SemaphoreP_nortos.om3g.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/SwiP_nortos.om3g.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/SystemP_nortos.om3g.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/ClockPTimer_nortos.om3g.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/TimerPCC26XX_nortos.om3g.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/HwiPCC26XX_nortos.om3g.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/dpl/PowerCC26XX_nortos.om3g.dep" src="dpl/PowerCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x0/startup/startup_cc13xx_cc26xx_gcc.om3g.dep" src="startup/startup_cc13xx_cc26xx_gcc.c"/>
+        <srcFile name="lib/nortos_cc26x0.am3g.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/package/package_nortos.om3g.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/posix_sleep.om3g.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/DebugP_nortos.om3g.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/MutexP_nortos.om3g.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/./NoRTOS.om3g.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/QueueP_nortos.om3g.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/SemaphoreP_nortos.om3g.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/SwiP_nortos.om3g.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/SystemP_nortos.om3g.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/ClockPTimer_nortos.om3g.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/TimerPCC26XX_nortos.om3g.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/HwiPCC26XX_nortos.om3g.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/dpl/PowerCC26XX_nortos.om3g.dep" src="dpl/PowerCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0/startup/startup_cc13xx_cc26xx_gcc.om3g.dep" src="startup/startup_cc13xx_cc26xx_gcc.c"/>
+        <srcFile name="lib/nortos_cc26x0r2.am3g.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/package/package_nortos.om3g.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/posix_sleep.om3g.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/DebugP_nortos.om3g.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/MutexP_nortos.om3g.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/./NoRTOS.om3g.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/QueueP_nortos.om3g.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/SemaphoreP_nortos.om3g.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/SwiP_nortos.om3g.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/SystemP_nortos.om3g.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/ClockPTimer_nortos.om3g.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/TimerPCC26XX_nortos.om3g.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/HwiPCC26XX_nortos.om3g.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/dpl/PowerCC26XX_nortos.om3g.dep" src="dpl/PowerCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x0r2/startup/startup_cc13xx_cc26xx_gcc.om3g.dep" src="startup/startup_cc13xx_cc26xx_gcc.c"/>
+        <srcFile name="lib/nortos_cc13x2_v1.aem4f.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/package/package_nortos.oem4f.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/posix_sleep.oem4f.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/DebugP_nortos.oem4f.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/MutexP_nortos.oem4f.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/./NoRTOS.oem4f.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/QueueP_nortos.oem4f.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/SemaphoreP_nortos.oem4f.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/SwiP_nortos.oem4f.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/SystemP_nortos.oem4f.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/ClockPTimer_nortos.oem4f.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/TimerPCC26XX_nortos.oem4f.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/HwiPCC26XX_nortos.oem4f.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/PowerCC26X2_nortos.oem4f.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/startup/startup_cc13xx_cc26xx_ccs.oem4f.dep" src="startup/startup_cc13xx_cc26xx_ccs.c"/>
+        <srcFile name="lib/nortos_cc26x2_v1.aem4f.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/package/package_nortos.oem4f.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/posix_sleep.oem4f.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/DebugP_nortos.oem4f.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/MutexP_nortos.oem4f.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/./NoRTOS.oem4f.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/QueueP_nortos.oem4f.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/SemaphoreP_nortos.oem4f.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/SwiP_nortos.oem4f.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/SystemP_nortos.oem4f.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/ClockPTimer_nortos.oem4f.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/TimerPCC26XX_nortos.oem4f.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/HwiPCC26XX_nortos.oem4f.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/PowerCC26X2_nortos.oem4f.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/startup/startup_cc13xx_cc26xx_ccs.oem4f.dep" src="startup/startup_cc13xx_cc26xx_ccs.c"/>
+        <srcFile name="lib/nortos_cc13x2_v2.aem4f.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/package/package_nortos.oem4f.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/posix_sleep.oem4f.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/DebugP_nortos.oem4f.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/MutexP_nortos.oem4f.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/./NoRTOS.oem4f.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/QueueP_nortos.oem4f.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/SemaphoreP_nortos.oem4f.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/SwiP_nortos.oem4f.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/SystemP_nortos.oem4f.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/ClockPTimer_nortos.oem4f.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/TimerPCC26XX_nortos.oem4f.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/HwiPCC26XX_nortos.oem4f.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/PowerCC26X2_nortos.oem4f.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/startup/startup_cc13xx_cc26xx_ccs.oem4f.dep" src="startup/startup_cc13xx_cc26xx_ccs.c"/>
+        <srcFile name="lib/nortos_cc26x2_v2.aem4f.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/package/package_nortos.oem4f.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/posix_sleep.oem4f.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/DebugP_nortos.oem4f.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/MutexP_nortos.oem4f.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/./NoRTOS.oem4f.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/QueueP_nortos.oem4f.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/SemaphoreP_nortos.oem4f.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/SwiP_nortos.oem4f.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/SystemP_nortos.oem4f.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/ClockPTimer_nortos.oem4f.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/TimerPCC26XX_nortos.oem4f.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/HwiPCC26XX_nortos.oem4f.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/PowerCC26X2_nortos.oem4f.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/startup/startup_cc13xx_cc26xx_ccs.oem4f.dep" src="startup/startup_cc13xx_cc26xx_ccs.c"/>
+        <srcFile name="lib/nortos_cc13x2_v1.am4fg.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/package/package_nortos.om4fg.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/posix_sleep.om4fg.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/DebugP_nortos.om4fg.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/MutexP_nortos.om4fg.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/./NoRTOS.om4fg.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/QueueP_nortos.om4fg.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/SemaphoreP_nortos.om4fg.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/SwiP_nortos.om4fg.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/SystemP_nortos.om4fg.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/ClockPTimer_nortos.om4fg.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/TimerPCC26XX_nortos.om4fg.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/HwiPCC26XX_nortos.om4fg.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/PowerCC26X2_nortos.om4fg.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/startup/startup_cc13xx_cc26xx_gcc.om4fg.dep" src="startup/startup_cc13xx_cc26xx_gcc.c"/>
+        <srcFile name="lib/nortos_cc26x2_v1.am4fg.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/package/package_nortos.om4fg.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/posix_sleep.om4fg.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/DebugP_nortos.om4fg.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/MutexP_nortos.om4fg.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/./NoRTOS.om4fg.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/QueueP_nortos.om4fg.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/SemaphoreP_nortos.om4fg.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/SwiP_nortos.om4fg.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/SystemP_nortos.om4fg.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/ClockPTimer_nortos.om4fg.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/TimerPCC26XX_nortos.om4fg.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/HwiPCC26XX_nortos.om4fg.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/PowerCC26X2_nortos.om4fg.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/startup/startup_cc13xx_cc26xx_gcc.om4fg.dep" src="startup/startup_cc13xx_cc26xx_gcc.c"/>
+        <srcFile name="lib/nortos_cc13x2_v2.am4fg.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/package/package_nortos.om4fg.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/posix_sleep.om4fg.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/DebugP_nortos.om4fg.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/MutexP_nortos.om4fg.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/./NoRTOS.om4fg.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/QueueP_nortos.om4fg.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/SemaphoreP_nortos.om4fg.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/SwiP_nortos.om4fg.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/SystemP_nortos.om4fg.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/ClockPTimer_nortos.om4fg.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/TimerPCC26XX_nortos.om4fg.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/HwiPCC26XX_nortos.om4fg.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/PowerCC26X2_nortos.om4fg.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/startup/startup_cc13xx_cc26xx_gcc.om4fg.dep" src="startup/startup_cc13xx_cc26xx_gcc.c"/>
+        <srcFile name="lib/nortos_cc26x2_v2.am4fg.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/package/package_nortos.om4fg.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/posix_sleep.om4fg.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/DebugP_nortos.om4fg.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/MutexP_nortos.om4fg.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/./NoRTOS.om4fg.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/QueueP_nortos.om4fg.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/SemaphoreP_nortos.om4fg.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/SwiP_nortos.om4fg.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/SystemP_nortos.om4fg.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/ClockPTimer_nortos.om4fg.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/TimerPCC26XX_nortos.om4fg.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/HwiPCC26XX_nortos.om4fg.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/PowerCC26X2_nortos.om4fg.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/startup/startup_cc13xx_cc26xx_gcc.om4fg.dep" src="startup/startup_cc13xx_cc26xx_gcc.c"/>
+        <srcFile name="lib/nortos_cc13x2_v1.arm4f.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/package/package_nortos.orm4f.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/posix_sleep.orm4f.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/DebugP_nortos.orm4f.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/MutexP_nortos.orm4f.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/./NoRTOS.orm4f.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/QueueP_nortos.orm4f.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/SemaphoreP_nortos.orm4f.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/SwiP_nortos.orm4f.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/SystemP_nortos.orm4f.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/ClockPTimer_nortos.orm4f.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/TimerPCC26XX_nortos.orm4f.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/HwiPCC26XX_nortos.orm4f.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/dpl/PowerCC26X2_nortos.orm4f.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v1/startup/startup_cc13xx_cc26xx_iar.orm4f.dep" src="startup/startup_cc13xx_cc26xx_iar.c"/>
+        <srcFile name="lib/nortos_cc26x2_v1.arm4f.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/package/package_nortos.orm4f.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/posix_sleep.orm4f.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/DebugP_nortos.orm4f.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/MutexP_nortos.orm4f.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/./NoRTOS.orm4f.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/QueueP_nortos.orm4f.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/SemaphoreP_nortos.orm4f.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/SwiP_nortos.orm4f.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/SystemP_nortos.orm4f.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/ClockPTimer_nortos.orm4f.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/TimerPCC26XX_nortos.orm4f.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/HwiPCC26XX_nortos.orm4f.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/dpl/PowerCC26X2_nortos.orm4f.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v1/startup/startup_cc13xx_cc26xx_iar.orm4f.dep" src="startup/startup_cc13xx_cc26xx_iar.c"/>
+        <srcFile name="lib/nortos_cc13x2_v2.arm4f.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/package/package_nortos.orm4f.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/posix_sleep.orm4f.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/DebugP_nortos.orm4f.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/MutexP_nortos.orm4f.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/./NoRTOS.orm4f.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/QueueP_nortos.orm4f.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/SemaphoreP_nortos.orm4f.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/SwiP_nortos.orm4f.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/SystemP_nortos.orm4f.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/ClockPTimer_nortos.orm4f.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/TimerPCC26XX_nortos.orm4f.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/HwiPCC26XX_nortos.orm4f.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/dpl/PowerCC26X2_nortos.orm4f.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc13x2_v2/startup/startup_cc13xx_cc26xx_iar.orm4f.dep" src="startup/startup_cc13xx_cc26xx_iar.c"/>
+        <srcFile name="lib/nortos_cc26x2_v2.arm4f.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/package/package_nortos.orm4f.dep" src="package/package_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/posix_sleep.orm4f.dep" src="dpl/posix_sleep.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/DebugP_nortos.orm4f.dep" src="dpl/DebugP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/MutexP_nortos.orm4f.dep" src="dpl/MutexP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/./NoRTOS.orm4f.dep" src="./NoRTOS.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/QueueP_nortos.orm4f.dep" src="dpl/QueueP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/SemaphoreP_nortos.orm4f.dep" src="dpl/SemaphoreP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/SwiP_nortos.orm4f.dep" src="dpl/SwiP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/SystemP_nortos.orm4f.dep" src="dpl/SystemP_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/ClockPTimer_nortos.orm4f.dep" src="dpl/ClockPTimer_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/TimerPCC26XX_nortos.orm4f.dep" src="dpl/TimerPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/HwiPCC26XX_nortos.orm4f.dep" src="dpl/HwiPCC26XX_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/dpl/PowerCC26X2_nortos.orm4f.dep" src="dpl/PowerCC26X2_nortos.c"/>
+        <srcFile name="package/lib/lib/nortos_cc26x2_v2/startup/startup_cc13xx_cc26xx_iar.orm4f.dep" src="startup/startup_cc13xx_cc26xx_iar.c"/>
+        <srcFile name="package/rel/nortos.tar.dep" src="package/rel/nortos.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M3"
+            version="ti.targets.arm.elf.M3{1,0,18.1,1"
+            rawVersion="18.1.1"
+            platform="ti.platforms.simCM3"
+            isa="v7M"
+            suffix="em3"
+            rootDir="/db/vendors/ti/arm/18.1.1.LTS/Linux"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="iar.targets.arm.M3"
+            version="iar.targets.arm.M3{1,0,8.20,2"
+            rawVersion="8.20.2.58"
+            platform="ti.platforms.tiva:TM4C1294NCPDT:1"
+            isa="v7M"
+            suffix="rm3"
+            rootDir="/db/vendors/iar/arm/8.20.2.58/Linux"
+            os="undefined"
+            rts="iar.targets.arm.rts">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="gnu.targets.arm.M3"
+            version="gnu.targets.arm.M3{1,0,7.2,1"
+            rawVersion="7.2.1"
+            platform="ti.platforms.tiva:TM4C1294NCPDT"
+            isa="v7M"
+            suffix="m3g"
+            rootDir="/db/vendors/linaro/gcc-arm-none-eabi-7-2017-q4-major"
+            os="undefined"
+            rts="gnu.targets.arm.rtsv7M">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="ti.targets.arm.elf.M4F"
+            version="ti.targets.arm.elf.M4F{1,0,18.1,1"
+            rawVersion="18.1.1"
+            platform="ti.platforms.tiva:TM4C1294NCPDT:1"
+            isa="v7M4"
+            suffix="em4f"
+            rootDir="/db/vendors/ti/arm/18.1.1.LTS/Linux"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="gnu.targets.arm.M4F"
+            version="gnu.targets.arm.M4F{1,0,7.2,1"
+            rawVersion="7.2.1"
+            platform="ti.platforms.tiva:TM4C1294NCPDT"
+            isa="v7M4"
+            suffix="m4fg"
+            rootDir="/db/vendors/linaro/gcc-arm-none-eabi-7-2017-q4-major"
+            os="undefined"
+            rts="gnu.targets.arm.rtsv7M">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="iar.targets.arm.M4F"
+            version="iar.targets.arm.M4F{1,0,8.20,2"
+            rawVersion="8.20.2.58"
+            platform="ti.platforms.tiva:TM4C1294NCPDT:1"
+            isa="v7M4"
+            suffix="rm4f"
+            rootDir="/db/vendors/iar/arm/8.20.2.58/Linux"
+            os="undefined"
+            rts="iar.targets.arm.rts">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    <library name="lib/nortos_cc13x0"
+        pname="lib/nortos_cc13x0.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/nortos_cc26x0"
+        pname="lib/nortos_cc26x0.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/nortos_cc26x0r2"
+        pname="lib/nortos_cc26x0r2.aem3"
+        profile="release"
+        target="ti.targets.arm.elf.M3"/>
+    <library name="lib/nortos_cc13x0"
+        pname="lib/nortos_cc13x0.arm3"
+        profile="release"
+        target="iar.targets.arm.M3"/>
+    <library name="lib/nortos_cc26x0"
+        pname="lib/nortos_cc26x0.arm3"
+        profile="release"
+        target="iar.targets.arm.M3"/>
+    <library name="lib/nortos_cc26x0r2"
+        pname="lib/nortos_cc26x0r2.arm3"
+        profile="release"
+        target="iar.targets.arm.M3"/>
+    <library name="lib/nortos_cc13x0"
+        pname="lib/nortos_cc13x0.am3g"
+        profile="release"
+        target="gnu.targets.arm.M3"/>
+    <library name="lib/nortos_cc26x0"
+        pname="lib/nortos_cc26x0.am3g"
+        profile="release"
+        target="gnu.targets.arm.M3"/>
+    <library name="lib/nortos_cc26x0r2"
+        pname="lib/nortos_cc26x0r2.am3g"
+        profile="release"
+        target="gnu.targets.arm.M3"/>
+    <library name="lib/nortos_cc13x2_v1"
+        pname="lib/nortos_cc13x2_v1.aem4f"
+        profile="release"
+        target="ti.targets.arm.elf.M4F"/>
+    <library name="lib/nortos_cc26x2_v1"
+        pname="lib/nortos_cc26x2_v1.aem4f"
+        profile="release"
+        target="ti.targets.arm.elf.M4F"/>
+    <library name="lib/nortos_cc13x2_v2"
+        pname="lib/nortos_cc13x2_v2.aem4f"
+        profile="release"
+        target="ti.targets.arm.elf.M4F"/>
+    <library name="lib/nortos_cc26x2_v2"
+        pname="lib/nortos_cc26x2_v2.aem4f"
+        profile="release"
+        target="ti.targets.arm.elf.M4F"/>
+    <library name="lib/nortos_cc13x2_v1"
+        pname="lib/nortos_cc13x2_v1.am4fg"
+        profile="release"
+        target="gnu.targets.arm.M4F"/>
+    <library name="lib/nortos_cc26x2_v1"
+        pname="lib/nortos_cc26x2_v1.am4fg"
+        profile="release"
+        target="gnu.targets.arm.M4F"/>
+    <library name="lib/nortos_cc13x2_v2"
+        pname="lib/nortos_cc13x2_v2.am4fg"
+        profile="release"
+        target="gnu.targets.arm.M4F"/>
+    <library name="lib/nortos_cc26x2_v2"
+        pname="lib/nortos_cc26x2_v2.am4fg"
+        profile="release"
+        target="gnu.targets.arm.M4F"/>
+    <library name="lib/nortos_cc13x2_v1"
+        pname="lib/nortos_cc13x2_v1.arm4f"
+        profile="release"
+        target="iar.targets.arm.M4F"/>
+    <library name="lib/nortos_cc26x2_v1"
+        pname="lib/nortos_cc26x2_v1.arm4f"
+        profile="release"
+        target="iar.targets.arm.M4F"/>
+    <library name="lib/nortos_cc13x2_v2"
+        pname="lib/nortos_cc13x2_v2.arm4f"
+        profile="release"
+        target="iar.targets.arm.M4F"/>
+    <library name="lib/nortos_cc26x2_v2"
+        pname="lib/nortos_cc26x2_v2.arm4f"
+        profile="release"
+        target="iar.targets.arm.M4F"/>
+    </libraries>
+    <configurations>
+    </configurations>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="nortos"
+        pname="../../exports/nortos.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package.bld"/>
+        <file name="./dpl"/>
+        <file name="./startup"/>
+        <file name="./posix"/>
+        <file name="./NoRTOS.h"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="lib/nortos_cc13x0.aem3"/>
+        <file name="package/package_nortos.c"/>
+        <file name="dpl/posix_sleep.c"/>
+        <file name="dpl/DebugP_nortos.c"/>
+        <file name="dpl/MutexP_nortos.c"/>
+        <file name="./NoRTOS.c"/>
+        <file name="dpl/QueueP_nortos.c"/>
+        <file name="dpl/SemaphoreP_nortos.c"/>
+        <file name="dpl/SwiP_nortos.c"/>
+        <file name="dpl/SystemP_nortos.c"/>
+        <file name="dpl/ClockPTimer_nortos.c"/>
+        <file name="dpl/TimerPCC26XX_nortos.c"/>
+        <file name="dpl/HwiPCC26XX_nortos.c"/>
+        <file name="dpl/PowerCC26XX_nortos.c"/>
+        <file name="startup/startup_cc13xx_cc26xx_ccs.c"/>
+        <file name="lib/nortos_cc26x0.aem3"/>
+        <file name="lib/nortos_cc26x0r2.aem3"/>
+        <file name="lib/nortos_cc13x0.arm3"/>
+        <file name="startup/startup_cc13xx_cc26xx_iar.c"/>
+        <file name="lib/nortos_cc26x0.arm3"/>
+        <file name="lib/nortos_cc26x0r2.arm3"/>
+        <file name="lib/nortos_cc13x0.am3g"/>
+        <file name="startup/startup_cc13xx_cc26xx_gcc.c"/>
+        <file name="lib/nortos_cc26x0.am3g"/>
+        <file name="lib/nortos_cc26x0r2.am3g"/>
+        <file name="lib/nortos_cc13x2_v1.aem4f"/>
+        <file name="dpl/PowerCC26X2_nortos.c"/>
+        <file name="lib/nortos_cc26x2_v1.aem4f"/>
+        <file name="lib/nortos_cc13x2_v2.aem4f"/>
+        <file name="lib/nortos_cc26x2_v2.aem4f"/>
+        <file name="lib/nortos_cc13x2_v1.am4fg"/>
+        <file name="lib/nortos_cc26x2_v1.am4fg"/>
+        <file name="lib/nortos_cc13x2_v2.am4fg"/>
+        <file name="lib/nortos_cc26x2_v2.am4fg"/>
+        <file name="lib/nortos_cc13x2_v1.arm4f"/>
+        <file name="lib/nortos_cc26x2_v1.arm4f"/>
+        <file name="lib/nortos_cc13x2_v2.arm4f"/>
+        <file name="lib/nortos_cc26x2_v2.arm4f"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

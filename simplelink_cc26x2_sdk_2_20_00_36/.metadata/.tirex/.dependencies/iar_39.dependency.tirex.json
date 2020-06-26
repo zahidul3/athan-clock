@@ -1,0 +1,28 @@
+[
+   {
+      "files" : [
+         "+../../RFQueue.c -> RFQueue.c",
+         "+../main_tirtos.c -> main_tirtos.c",
+         "+../../smartrf_settings/smartrf_settings.c -> smartrf_settings/smartrf_settings.c",
+         "+../../rfPacketRx.c -> rfPacketRx.c",
+         "+../../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../../ccfg.c -> ccfg.c",
+         "+./CC26X2R1_LAUNCHXL_TIRTOS.icf -> rfPacketRx_CC26X2R1_LAUNCHXL_TIRTOS.icf",
+         "+../../RFQueue.h -> RFQueue.h",
+         "+../../smartrf_settings/smartrf_settings.h -> smartrf_settings/smartrf_settings.h",
+         "+../../Board.h -> Board.h",
+         "+../../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+../../README.md -> README.md",
+         "+../../README.html -> README.html"
+      ],
+      "packages" : [],
+      "default" : "na",
+      "name" : "na",
+      "compiler" : {
+         "location" : "na",
+         "effective" : "na",
+         "specified" : "na"
+      }
+   }
+]

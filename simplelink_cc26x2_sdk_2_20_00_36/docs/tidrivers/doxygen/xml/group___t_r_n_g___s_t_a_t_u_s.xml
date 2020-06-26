@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="group___t_r_n_g___s_t_a_t_u_s" kind="group">
+    <compoundname>TRNG_STATUS</compoundname>
+    <title>Status Codes</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___t_r_n_g___s_t_a_t_u_s_1gada01c2ca6b7043d067d07410e7c0d8bc" prot="public" static="no">
+        <name>TRNG_STATUS_SUCCESS</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+<para>Successful status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return TRNG_STATUS_SUCCESS if the function was executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/TRNG.h" line="347" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/TRNG.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___t_r_n_g___s_t_a_t_u_s_1ga80cc550c12f937e36cf602accc843766" prot="public" static="no">
+        <name>TRNG_STATUS_ERROR</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+<para>Generic error status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return TRNG_STATUS_ERROR if the function was not executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/TRNG.h" line="355" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/TRNG.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___t_r_n_g___s_t_a_t_u_s_1gaf49b7d378318820c1c0f2f0a63cbeb04" prot="public" static="no">
+        <name>TRNG_STATUS_UNDEFINEDCMD</name>
+        <initializer>(-2)</initializer>
+        <briefdescription>
+<para>An error status code returned by <ref refid="_t_r_n_g_8h_1a2e503d783e78c1b667f8f523b0dde81e" kindref="member">TRNG_control()</ref> for undefined command codes. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_t_r_n_g_8h_1a2e503d783e78c1b667f8f523b0dde81e" kindref="member">TRNG_control()</ref> returns TRNG_STATUS_UNDEFINEDCMD if the control code is not recognized by the driver implementation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/TRNG.h" line="364" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/TRNG.h" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___t_r_n_g___s_t_a_t_u_s_1ga9df04d8cca579f5607e90928c045bf5a" prot="public" static="no">
+        <name>TRNG_STATUS_RESOURCE_UNAVAILABLE</name>
+        <initializer>(-3)</initializer>
+        <briefdescription>
+<para>An error status code returned if the hardware or software resource is currently unavailable. </para>        </briefdescription>
+        <detaileddescription>
+<para>TRNG driver implementations may have hardware or software limitations on how many clients can simultaneously perform operations. This status code is returned if the mutual exclusion mechanism signals that an operation cannot currently be performed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/TRNG.h" line="374" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/TRNG.h" bodystart="374" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>TRNG_STATUS_* macros are general status codes returned by TRNG functions </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

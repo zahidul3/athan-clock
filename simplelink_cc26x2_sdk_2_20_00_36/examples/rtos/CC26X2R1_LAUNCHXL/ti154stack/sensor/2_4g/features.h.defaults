@@ -1,0 +1,14 @@
+FEATURE_ALL_MODES = define 
+
+FEATURE_FREQ_HOP_MODE = undef 
+
+FEATURE_BEACON_MODE = undef 
+
+
+FEATURE_NON_BEACON_MODE = undef 
+
+
+FEATURE_MAC_SECURITY = define 
+
+
+FEATURE_BLE = undef

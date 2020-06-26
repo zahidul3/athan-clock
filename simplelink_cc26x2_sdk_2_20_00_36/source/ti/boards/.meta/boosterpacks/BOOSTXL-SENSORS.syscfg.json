@@ -1,0 +1,169 @@
+/*
+ *  Standard portable signal type names:
+ *     DOUT
+ *     AIN
+ *     AOUT
+ *     PWM
+ *     UART_RXD
+ *     UART_TXD
+ *     UART_CTS
+ *     UART_RTS
+ *     SPI_CLK
+ *     SPI_SIMO
+ *     SPI_SOMI
+ *     I2C_SDA
+ *     I2C_SCL
+ *
+ *  A signal type is either one of the signal type names above or
+ *  an array of these names.
+ */
+{
+    "name": "BOOSTXL_SENSORS", /* must be C identifier */
+    "displayName": "SENSORS BoosterPack",
+    "headerType": "Standard 40 pin",
+    "components": {
+        "SENSORS_I2C": {
+            "isBus": true,
+            "type": "I2C",
+            "displayName": "Sensors I2C",
+
+            "signals": {
+                /* BP standard: I2C_SDA (MSP P6.4) */
+                "SDA": {"type": "I2C_SDA", "connection": 10},
+
+                /* BP standard: I2C_SCL (MSP P6.5) */
+                "SCL": {"type": "I2C_SCL", "connection":  9}
+            }
+        },
+
+        "TMP007": {
+            "type": "TMP007",
+            "displayName": "Temperature Sensor",
+            "settings": {
+                "address": 64 /* 0x40 = 64 */
+            },
+
+            "subComponents": {
+                "I2C": {
+                    "link": "SENSORS_I2C"
+                },
+
+                "TMP_INT": {
+                    "type": "SENSOR_INT",
+                    "displayName": "Temperature Interrupt",
+                    "signals": {
+                        "TMP_INT": {
+                            "type": "DIN",
+                            "settings": {
+                                "interrupt": "Rising Edge",
+                                "callback": "NULL"
+                            },
+                            "connection": 12 /* BP std GPIO|SPI CS (display) */
+                        }
+                    }
+                }
+            }
+        },
+
+        "BMI160_BMI150": {
+            "type": "BMI160_BMI150",
+            "displayName": "Inertial Measurement Unit",
+            "settings": {
+                "address": 105 /* 0x69 = 96 + 9 */
+            },
+
+            "subComponents": {
+                "I2C": {
+                    "link": "SENSORS_I2C"
+                },
+
+                "INT1": {
+                    "type": "SENSOR_INT",
+                    "displayName": "Acc/Gyro Interrupt 1",
+                    "signals": {
+                        "INT1": {
+                            "type": "DIN",
+                            "settings": {
+                                "interrupt": "Rising Edge",
+                                "callback" : "NULL"
+                            },
+                            "connection": 5 /* BP standard: GPIO (MSP P4.1) */
+                        }
+                    }
+                },
+
+                "INT2": {
+                    "type": "SENSOR_INT",
+                    "displayName": "Acc/Gyro Interrupt 2",
+                    "signals": {
+                        "INT2": {
+                            "type": "DIN",
+                            "settings": {
+                                "interrupt": "Rising Edge",
+                                "callback" : "NULL"
+                            },
+                            "connection": 13 /* BP GPIO | SPI CS (MSP P5.0) */
+                        }
+                    }
+                },
+
+                "MAG_INT": {
+                    "type": "SENSOR_INT",
+                    "displayName": "Magnetometer Interrupt",
+                    "signals": {
+                        "MAG_INT": {
+                            "type": "DIN",
+                            "settings": {
+                                "interrupt": "Rising Edge",
+                                "callback" : "NULL"
+                            },
+                            "connection": 8 /* BP standard GPIO (MSP P4.6) */
+                        }
+                    }
+                }
+            }
+        },
+
+        "BME280": {
+            "type": "BME280",
+            "displayName": "Environmental Sensor",
+
+            "settings": {
+                "address": 119 /* 0x77 = 112 + 7 */
+            },
+
+            "subComponents": {
+                "I2C": {
+                    "link": "SENSORS_I2C"
+                }
+            }
+        },
+
+        "OPT3001": {
+            "type": "OPT3001",
+            "displayName": "Optical Sensor",
+            "settings": {
+                "address": 71 /* 0x47 = 64 + 7 */
+            },
+            "subComponents": {
+                "I2C": {
+                    "link": "SENSORS_I2C"
+                },
+                "OPT_INT": {
+                    "type": "SENSOR_INT",
+                    "displayName": "Optical Interrupt",
+                    "signals": {
+                        "OPT_INT": {
+                            "type": "DIN",
+                            "settings": {
+                                "interrupt": "Rising Edge",
+                                "callback" : "NULL"
+                            },
+                            "connection": 11 /* BP std GPIO|SPI CS (display) */
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

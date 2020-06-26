@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_e_c_d_s_a___params__" kind="struct" language="C++" prot="public">
+    <compoundname>ECDSA_Params_</compoundname>
+    <includes refid="_e_c_d_s_a_8h" local="no">ECDSA.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_e_c_d_s_a___params___1aac6cb7ec2a0c3e0b52603097bf608636" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_d_s_a_8h_1a9e98ef4b81f12ff6d5d5232475362d4b" kindref="member">ECDSA_ReturnBehavior</ref></type>
+        <definition>ECDSA_ReturnBehavior ECDSA_Params_::returnBehavior</definition>
+        <argsstring></argsstring>
+        <name>returnBehavior</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Blocking, callback, or polling return behavior </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="646" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="646" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_s_a___params___1a05d057fbcc9a1e57875762d24eb56590" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_d_s_a_8h_1a2969615c2ad61fa703031658001791a1" kindref="member">ECDSA_CallbackFxn</ref></type>
+        <definition>ECDSA_CallbackFxn ECDSA_Params_::callbackFxn</definition>
+        <argsstring></argsstring>
+        <name>callbackFxn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback function pointer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="647" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="647" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_s_a___params___1aac9be5fb45f0ca4722cffad139acdef3" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ECDSA_Params_::timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timeout in system ticks before the operation fails and returns </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="648" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="648" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_s_a___params___1a53cfc2b288bca7e07500ad6bc8b70e0a" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* ECDSA_Params_::custom</definition>
+        <argsstring></argsstring>
+        <name>custom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Custom argument used by driver implementation </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="651" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="651" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ECDSA Parameters. </para>    </briefdescription>
+    <detaileddescription>
+<para>ECDSA Parameters are used to with the <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> call. Default values for these parameters are set using <ref refid="_e_c_d_s_a_8h_1ac8a50e673e908088f643396f7f898f84" kindref="member">ECDSA_Params_init()</ref>.</para><para><simplesect kind="see"><para><ref refid="_e_c_d_s_a_8h_1ac8a50e673e908088f643396f7f898f84" kindref="member">ECDSA_Params_init()</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="251">
+        <label>ECDSA_Config_</label>
+        <link refid="struct_e_c_d_s_a___config__"/>
+      </node>
+      <node id="250">
+        <label>ECDSA_Params_</label>
+        <link refid="struct_e_c_d_s_a___params__"/>
+        <childnode refid="251" relation="usage">
+          <edgelabel>callbackFxn</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="645" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="645" bodyend="654"/>
+    <listofallmembers>
+      <member refid="struct_e_c_d_s_a___params___1a05d057fbcc9a1e57875762d24eb56590" prot="public" virt="non-virtual"><scope>ECDSA_Params_</scope><name>callbackFxn</name></member>
+      <member refid="struct_e_c_d_s_a___params___1a53cfc2b288bca7e07500ad6bc8b70e0a" prot="public" virt="non-virtual"><scope>ECDSA_Params_</scope><name>custom</name></member>
+      <member refid="struct_e_c_d_s_a___params___1aac6cb7ec2a0c3e0b52603097bf608636" prot="public" virt="non-virtual"><scope>ECDSA_Params_</scope><name>returnBehavior</name></member>
+      <member refid="struct_e_c_d_s_a___params___1aac9be5fb45f0ca4722cffad139acdef3" prot="public" virt="non-virtual"><scope>ECDSA_Params_</scope><name>timeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

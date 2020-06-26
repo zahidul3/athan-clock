@@ -1,0 +1,50 @@
+{
+    "name": "MSP430BOOST_SHARP96", /* must be C identifier */
+    "displayName": "Sharp 96x96 LCD Display",
+    "headerType": "Standard 40 pin",
+    "components": {
+        "SHARP_LCD_DISPLAY" : {
+            "type": "SHARP_LCD",
+            "displayName" : "Sharp LCD Display",
+            "subComponents": {
+                "LCD_SPI": {
+                    "isBus": true,
+                    "type": "SPI",
+                    "displayName": "LCD SPI",
+                    "signals": {
+                        /* BP standard: SPI_CLK (J7) */
+                        "CLK": {"type": "SPI_CLK", "connection": 7},
+                        /* BP standard: SPI_SIMO (J15) */
+                        "SIMO": {"type": "SPI_SIMO", "connection":  15},
+                        /* BP standard: SPI_SOMI (J14) */
+                        "SOMI": {"type": "SPI_SOMI", "connection":  14}
+                    }
+                },
+                "LCD_POWER": {
+                    "isBus": false,
+                    "type": "GPIO",
+                    "displayName": "LCD Power",
+                    "signals": {
+                        "LCD_POWER": {"type": "DOUT", "connection": 5}
+                    }
+                },
+                "LCD_ENABLE": {
+                    "isBus": false,
+                    "type": "GPIO",
+                    "displayName": "LCD Enable",
+                    "signals": {
+                        "LCD_ENABLE": {"type": "DOUT", "connection": 2}
+                    }
+                },
+                "LCD_CS": {
+                    "isBus": false,
+                    "type": "GPIO",
+                    "displayName": "LCD Chip Select",
+                    "signals": {
+                        "LCD_ENABLE": {"type": "DOUT", "connection": 6}
+                    }
+                }
+            }
+        }
+    }
+}

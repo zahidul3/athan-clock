@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction" kind="struct" language="C++" prot="public">
+    <compoundname>CryptoCC26XX_AESCCM_Transaction</compoundname>
+    <includes refid="_crypto_c_c26_x_x_8h" local="no">CryptoCC26XX.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a290d9a7869443690836e17e2540fc369" prot="public" static="no" mutable="no">
+        <type><ref refid="_crypto_c_c26_x_x_8h_1a28465385e5b45efecc00f2015605f970" kindref="member">CryptoCC26XX_Operation</ref></type>
+        <definition>CryptoCC26XX_Operation CryptoCC26XX_AESCCM_Transaction::opType</definition>
+        <argsstring></argsstring>
+        <name>opType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The type of the crypto operation </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="582" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="582" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a47c6078be481486d0dda9a9ab2685d0c" prot="public" static="no" mutable="no">
+        <type><ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cd" kindref="member">CryptoCC26XX_Mode</ref></type>
+        <definition>CryptoCC26XX_Mode CryptoCC26XX_AESCCM_Transaction::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The mode of current transaction. Set by transact function. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="583" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="583" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1af0eb856eb89478eef0d83a61e52ad435" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t CryptoCC26XX_AESCCM_Transaction::keyIndex</definition>
+        <argsstring></argsstring>
+        <name>keyIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The key store index to be used </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="584" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="584" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1ae543053e1c5906db60e8566764e74b22" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t CryptoCC26XX_AESCCM_Transaction::authLength</definition>
+        <argsstring></argsstring>
+        <name>authLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is the the length of the authentication field 0, 2, 4, 6, 8, 10, 12, 14 or 16 octets. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="585" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="585" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1afad21bc3309b0689f288a8ee27e7a166" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* CryptoCC26XX_AESCCM_Transaction::nonce</definition>
+        <argsstring></argsstring>
+        <name>nonce</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to a nonce. It must satisfy the equation 15 = q + n, where q is the fieldLength and n is the length of the nonce.</para><para>The minimum size of the array containing the nonce is 12 bytes. When using nonces of length &lt; 12 bytes, the nonce must be zero-padded to 12 bytes. The driverlib implementation in ROM was written with 12 and 13-byte nonces in mind. It constructs the IV&apos;s internally and hence copies either 12 or 13 bytes into another buffer. Providing a nonce buffer with less than 12 bytes would result in whatever is after the nonce in memory being incorrectly copied into the IV&apos;s.</para><para>As long as the correct fieldLength is set for the &lt; 12-bytes nonce, the correct nonce-length will be used.</para><para>Valid nonce lengths are {7, 8, 9, 10, 11, 12, 13}. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="587" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="587" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1af14be4d0036174b871b733437fd38361" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* CryptoCC26XX_AESCCM_Transaction::msgIn</definition>
+        <argsstring></argsstring>
+        <name>msgIn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>Encryption: A pointer to the octet string input message and after the transaction, the location of the encrypted cleartext. The cleatext is encrypted in place.</para></listitem><listitem><para>Decryption: A pointer to the encrypted ciphertext composed of the encrypted cleartext concatenated with the encrypted message authentication code. </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="604" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="604" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1ab0fd5775305de978e833c66bc7e29c23" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* CryptoCC26XX_AESCCM_Transaction::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Additional Authentication Data (AAD). This header is authenticated but not encrypted. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="610" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="610" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a75508e70a56c297c0bc4351cd586bfdc" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* CryptoCC26XX_AESCCM_Transaction::msgOut</definition>
+        <argsstring></argsstring>
+        <name>msgOut</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to where the encrypted CBC-MAC shall be written to.<itemizedlist>
+<listitem><para>Encryption: It is recommended to set this to msgIn + msgInLength. The cyphertext sent out must be the concatenation of the encrypted message and encrypted MAC anyway.</para></listitem><listitem><para>Decyption: Do NOT set msgOut to the same location as the received MAC in the cyphertext within msgIn! Doing this effectively disables verification. </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="611" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="611" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a8d848bfae83f3b16e8d3a7e83a1c5694" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t CryptoCC26XX_AESCCM_Transaction::fieldLength</definition>
+        <argsstring></argsstring>
+        <name>fieldLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This parameter specifies the size in bytes of the message length field. (Not the length of the message itself!)</para><para>It sets the maximum length of the message according to p &lt; 2^(8*q) where p is the message length and q is the fieldLength.</para><para>It must satisfy the equation 15 = q + n where q is the fieldLength and n is the length of the nonce.</para><para>Valid values are {2, 3, 4, 5, 6, 7, 8}. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="617" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="617" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1aa29e2771fcf7967303c7a761e23630fc" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t CryptoCC26XX_AESCCM_Transaction::msgInLength</definition>
+        <argsstring></argsstring>
+        <name>msgInLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>Encryption: The length of the cleartext.</para></listitem><listitem><para>Decryption: The length of the ciphertext. </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="628" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="628" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a28e4d04c356e342908588e19011a0e5d" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t CryptoCC26XX_AESCCM_Transaction::headerLength</definition>
+        <argsstring></argsstring>
+        <name>headerLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The length of the header in octets </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="630" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="630" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>CryptoCC26XX AES-CCM Transaction. </para>    </briefdescription>
+    <detaileddescription>
+<para>The Counter with CBC-MAC (CCM) mode of operation is a generic authenticated encryption block cipher mode. It can be used with any 128-bit block cipher. AES-CCM combines CBC-MAC with an AES block cipher.</para><para>AES-CCM encryption has the following inputs and outputs:</para><para><table rows="8" cols="2"><caption>AES-CCM input and output parameters</caption>
+<row>
+<entry thead="yes"><para>Encryption</para></entry><entry thead="yes"><para>Decryption </para></entry></row>
+<row>
+<entry thead="yes"><para>Input </para></entry></row>
+<row>
+<entry thead="no"><para>Shared AES key</para></entry><entry thead="no"><para>Shared AES key </para></entry></row>
+<row>
+<entry thead="no"><para>Nonce</para></entry><entry thead="no"><para>Nonce </para></entry></row>
+<row>
+<entry thead="no"><para>Cleartext</para></entry><entry thead="no"><para>Ciphertext (encrypted cleartext + MAC) </para></entry></row>
+<row>
+<entry thead="no"><para>AAD (optional)</para></entry><entry thead="no"><para>AAD (optional) </para></entry></row>
+<row>
+<entry thead="yes"><para>Output </para></entry></row>
+<row>
+<entry thead="no"><para>Ciphertext (encrypted cleartext + MAC)</para></entry><entry thead="no"><para>Cleartext </para></entry></row>
+</table>
+</para><para>The AES key is a shared secret between the two parties and has a length of 128 Bit. The key is stored in the dedicated RAM of the AES hardware unit before the crypto operation.</para><para>The nonce is generated by the party performing the authenticated encryption operation. Within the scope of any authenticated encryption key, the nonce value must be unique. That is, the set of nonce values used with any given key must not contain any duplicate values. Using the same nonce for two different messages encrypted with the same key destroys the security properties.</para><para>The optional AAD is authenticated, but not encrypted. Thus, the AAD is not included in the AES-CCM output. It can be used to authenticate packet headers for transport layer security.</para><para>After the encryption operation, the ciphertext contains the encrypted data and the message authentication code (MAC). The MAC can be seen as an encrypted fingerprint of the message header and content.</para><para>AES-CCM works in both ways: encryption and decryption. When a message is decrypted, then ciphertext, AAD and nonce are used as inputs while the output comprises the cleartext only. The decryption operation is successful, when the received ciphertext, the nonce and the AAD can reproduce the containing MAC.</para><para>The <ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction" kindref="compound">CryptoCC26XX_AESCCM_Transaction</ref> structure defines all necessary parameters for a AES-CCM transaction. </para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="581" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="581" bodyend="631"/>
+    <listofallmembers>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1ae543053e1c5906db60e8566764e74b22" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>authLength</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a8d848bfae83f3b16e8d3a7e83a1c5694" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>fieldLength</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1ab0fd5775305de978e833c66bc7e29c23" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>header</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a28e4d04c356e342908588e19011a0e5d" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>headerLength</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1af0eb856eb89478eef0d83a61e52ad435" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>keyIndex</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a47c6078be481486d0dda9a9ab2685d0c" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>mode</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1af14be4d0036174b871b733437fd38361" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>msgIn</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1aa29e2771fcf7967303c7a761e23630fc" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>msgInLength</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a75508e70a56c297c0bc4351cd586bfdc" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>msgOut</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1afad21bc3309b0689f288a8ee27e7a166" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>nonce</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a290d9a7869443690836e17e2540fc369" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESCCM_Transaction</scope><name>opType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

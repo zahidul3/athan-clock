@@ -1,0 +1,78 @@
+.. _oad-process:
+
+OAD Process
+===========
+
+|STACK| does not currently have an in-band Over the Air Download process.
+|STACK| will use the BLE OAD process as its transport. Thread will use the
+Bluetooth Low Energy OAD process as a black-box for the purposes of this guide.
+The specifics of downloading the Thread image into external flash are not
+covered here, consult the BLE User's Guide for more details on the process.
+
+Thread will use BTool connected to Host Test on a |DEVICE| as the OAD
+distributor for the process. This configuration is responsible for taking the
+downloadable image and sending it to a BLE device with the OAD profile.
+
+A BLE example application with the OAD profile (simple_peripheral,
+project_zero) will be loaded on a |DEVICE| as the OAD target. This image will
+allow BTool + Host Test to download a new image to the |DEVICE|. This example
+image will also be marked as the factory image, allowing multiple image updates
+by reverting to the factory image.
+
+The running Thread image can be invalidated by pressing the Left button (BTN-1)
+on the |DEVICE|. Once the running Thread image is invalidated, the BIM will
+load the factory image from external flash. This factory image is the original
+example image programmed on the |DEVICE|, in this fashion a new image may be
+downloaded onto the |DEVICE|.
+
+.. _fig-oad-sequence-diagram:
+.. uml::
+
+    @startuml
+
+    [*] --> bim
+
+    state bim {
+        [*] --> checkImage
+
+        checkImage : check if the\n current image\n is invalid
+        checkImage --> loadFactory : image invalid
+        checkImage --> runImage : image valid
+
+        loadFactory : copy image\n from sector 0
+        loadFactory --> bleExample : reset
+
+        runImage : jump to\n loaded image
+        runImage --> threadExample : reset
+        runImage --> bleExample : reset
+    }
+
+    state bleExample {
+        [*] --> writeFactory
+
+        writeFactory : write the\n factory image\n to external flash
+        writeFactory --> Idle
+
+        Idle : wait for\n connection
+        Idle --> Idle
+        Idle --> downloadImage
+
+        downloadImage : new image\n downloaded into\n external flash
+        downloadImage --> threadExample : reset
+    }
+
+    state threadExample {
+        [*] --> startup
+        startup : check if\n button pressed
+
+        startup --> invalidate : pressed
+        invalidate : invalidate CRC\n for running image
+        invalidate --> bim : reset
+
+        startup --> normalOperation : not pressed
+        normalOperation : Thread example runs\n as normal until reset
+        normalOperation --> normalOperation
+        normalOperation --> bim : reset
+    }
+
+    @enduml

@@ -1,0 +1,25 @@
+[
+   {
+      "compiler" : {
+         "location" : "na",
+         "effective" : "na",
+         "specified" : "na"
+      },
+      "name" : "na",
+      "default" : "na",
+      "packages" : [],
+      "files" : [
+         "+../Board.h -> Board.h",
+         "+../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+CC26X2R1_LAUNCHXL_NoRTOS.lds -> CC26X2R1_LAUNCHXL_NoRTOS.lds",
+         "+../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../README.html -> README.html",
+         "+../README.md -> README.md",
+         "+../ccfg.c -> ccfg.c",
+         "+../main_nortos.c -> main_nortos.c",
+         "+../pinStandby.c -> pinStandby.c",
+         "+../../../../../../source/ti/boards/CC26X2R1_LAUNCHXL/Board.html -> Board.html"
+      ]
+   }
+]

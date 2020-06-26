@@ -1,0 +1,10 @@
+{
+    "isBus": true,
+    "type" : "I2C",
+    "displayName": "General I2C Bus",
+    "partNum": "I2C partnum",
+    "signals": {
+        "SCL": { "type": "I2C_SCL" },
+        "SDA": { "type": "I2C_SDA" }
+    }
+}

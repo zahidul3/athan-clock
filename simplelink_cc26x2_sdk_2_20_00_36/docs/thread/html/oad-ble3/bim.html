@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Boot Image Manager (BIM) &mdash; SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation" href="../index.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug oad-ble3 bim";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../thread/index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI Thread User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../thread/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-thread.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/ot-sw-dev-env.html">TI-OpenThread Stack Software Development Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/ot-stack-overview.html">TI-OpenThread Stack Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/running-example-apps-cc26x2.html">Example Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-br/index.html">Linux Border Router Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/creating-custom-apps.html">Creating Custom Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/custom-hardware.html">Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/packet-sniffer.html">Packet Sniffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/thread-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-oad/index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread/migration.html">Migration Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../thread/index-cc26x2.html">SimpleLink™ CC26x2 TI Thread User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../thread/index-cc26x2.html">Docs</a> &raquo;</li>
+      
+    <li>Boot Image Manager (BIM)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="boot-image-manager-bim">
+<span id="sec-oad-bim"></span><h1>Boot Image Manager (BIM)<a class="headerlink" href="#boot-image-manager-bim" title="Permalink to this headline">¶</a></h1>
+<p>The Boot Image Manager resides on the OAD target, and is responsible for loading
+new images after a download has completed. The BIM executes on a device reset
+and determines if a firmware update needs to be applied. If no update is being
+applied, then the BIM will transfer program execution to the main application
+image.</p>
+<div class="section" id="overview-software-architecture">
+<h2>Overview &amp; Software Architecture<a class="headerlink" href="#overview-software-architecture" title="Permalink to this headline">¶</a></h2>
+<p>BIM is a fully executable application that is independent of any high
+level protocol stack or user application. It is guaranteed to run on boot.
+BIM enables power loss fault tolerance during OAD. If the device power is lost
+during OAD, the BIM will still be able to run from reset and revert to a
+working image if one is available. The BIM is intended to reside permanently on
+the chip and cannot be updated via the OAD process.</p>
+<p>BIM executes before kernel initialization takes place so the design is
+single threaded and bare metal. Hardware access is accomplished through
+driverlib.</p>
+<p>As a separate application, BIM requires its own interrupt vector table
+and linker file. It will produce a fully executable image that must be merged
+with the user application image in order to create a functional OAD enabled
+firmware system.</p>
+<p>In general, BIM is responsible for finding and analyzing OAD image header.
+From a high level BIM does the following:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Check for newly downloaded images from a recent OAD.</li>
+<li>If available, copy the newly downloaded images to their target location
+in internal flash</li>
+<li>Dynamically locate the entry point of the valid image and jump to it</li>
+</ol>
+</div></blockquote>
+<p>The following section will cover the BIM boot procedure and image
+checking routine in detail.</p>
+</div>
+<div class="section" id="boot-procedure">
+<span id="sec-oad-bim-boot"></span><h2>Boot procedure<a class="headerlink" href="#boot-procedure" title="Permalink to this headline">¶</a></h2>
+<p>On reset, the software in the ROM of the CC26x2 will execute basic startup
+routines, and then jump to the location pointed to by the <a class="reference internal" href="../thread/index-cc26x2.html#term-28"><span class="xref std std-term">CCFG</span></a>’s
+<code class="docutils literal"><span class="pre">IMAGE_VALID_CONF</span></code> field. More information about the fields of the CCFG and
+the generic device boot procedure is detailed in the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC26x2 Technical Reference Manual</a>. The BIM is setup to
+link the CCFG as part of its image. This is another failsafe mechanism to ensure
+that a CCFG is always present on the device. To enable this feature, BIM uses a
+custom CCFG where the value of the <code class="docutils literal"><span class="pre">IMAGE_VALID_CONF</span></code> field points to BIM’s
+reset vector table. More information about the CCFG and the <code class="docutils literal"><span class="pre">IMAGE_VALID_CONF</span></code>
+is available in the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC26x2 Technical Reference Manual</a>.</p>
+<p>In summary, the boot ROM code will jump to the <code class="docutils literal"><span class="pre">ResetISR()</span></code> in BIM’s
+vector table. Being a bare metal application, BIM uses the toolchain
+specific boot code provided in driverlib.</p>
+<p>The reset ISR code can be found in driverlib under the <code class="docutils literal"><span class="pre">startup</span></code> folder. In
+summary, it performs the following:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Device specific trim functionality</li>
+<li>C/C++ runtime initialization</li>
+<li>Jump to BIM’s <code class="docutils literal"><span class="pre">main()</span></code></li>
+</ol>
+</div></blockquote>
+<p>See the figure below for a graphical representation of the boot procedure. Red
+boxes indicate driverlib/ROM code, blue boxes represent BIM code.</p>
+<blockquote>
+<div><img alt="../_images/ditaa-237b15ca35f8f8e08d20a016aa273d25ac485fb2.png" src="../_images/ditaa-237b15ca35f8f8e08d20a016aa273d25ac485fb2.png" />
+</div></blockquote>
+<div class="section" id="device-trim">
+<span id="sec-oad-bim-trim"></span><h3>Device trim<a class="headerlink" href="#device-trim" title="Permalink to this headline">¶</a></h3>
+<p>The device trim function is responsible for tuning hardware settings of the
+device to ensure stable and optimal operation. It must run at least once every
+time the device boots, but may be ran more than once. Parts of the trim function
+are dependent on the CCFG which is another reason why it is linked
+with BIM.</p>
+<p>By default, both BIM and the user application will trim the device.</p>
+<p>This offers the benefit that the user application may link to a newer version of
+the trim function. This comes at the cost of a small amount of additional flash
+in the user application.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">It is recommend to leave device trim enabled in both the BIM and the
+user application to enable development via a debugger without a BIM
+present.</p>
+</div>
+<p>Removing the device trim for the user application is only suggested for final
+production code. Additional validation should be performed on images with
+additional trimming disabled. App level trimming can be disabled by modifying
+the Boot module within the kernel’s <code class="docutils literal"><span class="pre">*.cfg</span></code> file.</p>
+</div>
+</div>
+<div class="section" id="locating-and-preparing-a-user-application">
+<span id="sec-oad-bim-flow"></span><h2>Locating and Preparing a user application<a class="headerlink" href="#locating-and-preparing-a-user-application" title="Permalink to this headline">¶</a></h2>
+<p>Besides booting and trimming the device, BIM’s primary function is to
+find and prepare a user application to run on the CC26x2. The method by which
+this is performed depends on the type of OAD that is being done (i.e. on-chip
+or offchip). Please the following sections for each platform.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">As a convention, the vector table comes immediately after the image header
+in OAD enabled images. The BIM and the image header are tightly coupled,
+refer to the <a class="reference internal" href="../oad/image-header.html#sec-oad-image-header"><span class="std std-ref">OAD Image Header</span></a> chapter for more detail on the
+image header vector and its fields.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

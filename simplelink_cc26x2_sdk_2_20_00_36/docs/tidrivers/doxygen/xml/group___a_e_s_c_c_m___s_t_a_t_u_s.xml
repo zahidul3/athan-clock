@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="group___a_e_s_c_c_m___s_t_a_t_u_s" kind="group">
+    <compoundname>AESCCM_STATUS</compoundname>
+    <title>Status Codes</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___a_e_s_c_c_m___s_t_a_t_u_s_1gafde7b16d8daa5643d3d9e4c0ed9fe60d" prot="public" static="no">
+        <name>AESCCM_STATUS_SUCCESS</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+<para>Successful status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return AESCCM_STATUS_SUCCESS if the function was executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESCCM.h" line="381" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESCCM.h" bodystart="381" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___a_e_s_c_c_m___s_t_a_t_u_s_1gaf5a6b56e602e7d8730b86ffd0ec46938" prot="public" static="no">
+        <name>AESCCM_STATUS_ERROR</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+<para>Generic error status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return AESCCM_STATUS_ERROR if the function was not executed successfully and no more pertinent error code could be returned. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESCCM.h" line="389" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESCCM.h" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___a_e_s_c_c_m___s_t_a_t_u_s_1ga4c853c141d8abcf42fb2576611b7f55d" prot="public" static="no">
+        <name>AESCCM_STATUS_UNDEFINEDCMD</name>
+        <initializer>(-2)</initializer>
+        <briefdescription>
+<para>An error status code returned by <ref refid="_a_e_s_c_c_m_8h_1ab43f29586baa2c11634bdd05b81f14fb" kindref="member">AESCCM_control()</ref> for undefined command codes. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_a_e_s_c_c_m_8h_1ab43f29586baa2c11634bdd05b81f14fb" kindref="member">AESCCM_control()</ref> returns AESCCM_STATUS_UNDEFINEDCMD if the control code is not recognized by the driver implementation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESCCM.h" line="398" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESCCM.h" bodystart="398" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___a_e_s_c_c_m___s_t_a_t_u_s_1gaabf9f8e552b6a5a12f512d6c862f04fa" prot="public" static="no">
+        <name>AESCCM_STATUS_RESOURCE_UNAVAILABLE</name>
+        <initializer>(-3)</initializer>
+        <briefdescription>
+<para>An error status code returned if the hardware or software resource is currently unavailable. </para>        </briefdescription>
+        <detaileddescription>
+<para>AESCCM driver implementations may have hardware or software limitations on how many clients can simultaneously perform operations. This status code is returned if the mutual exclusion mechanism signals that an operation cannot currently be performed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESCCM.h" line="408" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESCCM.h" bodystart="408" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___a_e_s_c_c_m___s_t_a_t_u_s_1gadf7ebf9930072745c454b0bf932d694b" prot="public" static="no">
+        <name>AESCCM_STATUS_MAC_INVALID</name>
+        <initializer>(-4)</initializer>
+        <briefdescription>
+<para>An error status code returned if the MAC provided by the application for a decryption operation does not match the one calculated during the operation. </para>        </briefdescription>
+        <detaileddescription>
+<para>This code is returned by <ref refid="_a_e_s_c_c_m_8h_1ae092228253d3a51ea081f99e9865de90" kindref="member">AESCCM_oneStepDecrypt()</ref> if the verification of the MAC fails. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESCCM.h" line="417" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESCCM.h" bodystart="417" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>AESCCM_STATUS_* macros are general status codes returned by AESCCM functions </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

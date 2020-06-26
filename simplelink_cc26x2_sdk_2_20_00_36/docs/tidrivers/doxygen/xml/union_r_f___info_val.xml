@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="union_r_f___info_val" kind="union" language="C++" prot="public">
+    <compoundname>RF_InfoVal</compoundname>
+    <includes refid="_r_f_8h" local="no">RF.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="union_r_f___info_val_1a19bf3d8f9d5a9d3b3ec34fd6238f6564" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1acab1f56c62a9fd1ad0a91a46b6da23f1" kindref="member">RF_CmdHandle</ref></type>
+        <definition>RF_CmdHandle RF_InfoVal::ch</definition>
+        <argsstring></argsstring>
+        <name>ch</name>
+        <briefdescription>
+<para>Command handle (<ref refid="_r_f_8h_1a22596109459422a7a4d4f386dffbb8faa4a4b88384acfaa135421ad57557140e6" kindref="member">RF_GET_CURR_CMD</ref>). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1359" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_r_f___info_val_1ae380eea33c0f34396c006a85e97baa71" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t RF_InfoVal::availRatCh</definition>
+        <argsstring></argsstring>
+        <name>availRatCh</name>
+        <briefdescription>
+<para>Available RAT channels (RF_GET_AVAIL_RAT_CH). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1360" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_r_f___info_val_1ae8142037b3833868a4e6b7498c4a631c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RF_InfoVal::bRadioState</definition>
+        <argsstring></argsstring>
+        <name>bRadioState</name>
+        <briefdescription>
+<para>Current RF core power state (<ref refid="_r_f_8h_1a22596109459422a7a4d4f386dffbb8faa51ac83691ed47bb591818e2e34e49d44" kindref="member">RF_GET_RADIO_STATE</ref>). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1361" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_r_f___info_val_1a1ca81db912d2929d27726ae29eb65c79" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a5e8ab7fc87fb818f435d9b6226ee573f" kindref="member">RF_Handle</ref></type>
+        <definition>RF_Handle RF_InfoVal::pClientList[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>pClientList</name>
+        <briefdescription>
+<para>Client pointer list, [0]: client 1, [1]: client 2. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1362" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_r_f___info_val_1a3593c8e569ae4cb95561fc47e587817f" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_InfoVal::phySwitchingTimeInUs[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>phySwitchingTimeInUs</name>
+        <briefdescription>
+<para>Phy switching time 0: client 1 -&gt; 2, 1 : client 2 -&gt; 1. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1363" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_r_f___info_val_1ae33dc7b74020dfde9708504e46ac634c" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* RF_InfoVal::pScheduleMap</definition>
+        <argsstring></argsstring>
+        <name>pScheduleMap</name>
+        <briefdescription>
+<para>Pointer to scheduling map (<ref refid="_r_f_8h_1a22596109459422a7a4d4f386dffbb8faac08f2876adac275a8cf5f36cb47e3b52" kindref="member">RF_GET_SCHEDULE_MAP</ref>). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1364" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1364" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stores output parameters for <ref refid="_r_f_8h_1a4bd7985a3e0c5ad2b9f5e94aa945db63" kindref="member">RF_getInfo()</ref>. </para>    </briefdescription>
+    <detaileddescription>
+<para>This union structure holds one out of multiple data types. The contained value is selected by <ref refid="_r_f_8h_1a22596109459422a7a4d4f386dffbb8fa" kindref="member">RF_InfoType</ref>. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="504">
+        <label>RF_InfoVal</label>
+        <link refid="union_r_f___info_val"/>
+        <childnode refid="505" relation="usage">
+          <edgelabel>pClientList</edgelabel>
+        </childnode>
+      </node>
+      <node id="505">
+        <label>RF_Object</label>
+        <link refid="struct_r_f___object"/>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1358" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1358" bodyend="1365"/>
+    <listofallmembers>
+      <member refid="union_r_f___info_val_1ae380eea33c0f34396c006a85e97baa71" prot="public" virt="non-virtual"><scope>RF_InfoVal</scope><name>availRatCh</name></member>
+      <member refid="union_r_f___info_val_1ae8142037b3833868a4e6b7498c4a631c" prot="public" virt="non-virtual"><scope>RF_InfoVal</scope><name>bRadioState</name></member>
+      <member refid="union_r_f___info_val_1a19bf3d8f9d5a9d3b3ec34fd6238f6564" prot="public" virt="non-virtual"><scope>RF_InfoVal</scope><name>ch</name></member>
+      <member refid="union_r_f___info_val_1a1ca81db912d2929d27726ae29eb65c79" prot="public" virt="non-virtual"><scope>RF_InfoVal</scope><name>pClientList</name></member>
+      <member refid="union_r_f___info_val_1a3593c8e569ae4cb95561fc47e587817f" prot="public" virt="non-virtual"><scope>RF_InfoVal</scope><name>phySwitchingTimeInUs</name></member>
+      <member refid="union_r_f___info_val_1ae33dc7b74020dfde9708504e46ac634c" prot="public" virt="non-virtual"><scope>RF_InfoVal</scope><name>pScheduleMap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

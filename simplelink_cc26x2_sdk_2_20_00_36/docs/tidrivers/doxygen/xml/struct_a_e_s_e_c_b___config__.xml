@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_a_e_s_e_c_b___config__" kind="struct" language="C++" prot="public">
+    <compoundname>AESECB_Config_</compoundname>
+    <includes refid="_a_e_s_e_c_b_8h" local="no">AESECB.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_a_e_s_e_c_b___config___1a560351ad7ffe300a7e993f194366e6f5" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* AESECB_Config_::object</definition>
+        <argsstring></argsstring>
+        <name>object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to a driver specific data object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESECB.h" line="455" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESECB.h" bodystart="455" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_a_e_s_e_c_b___config___1aa17a92ee782df93ff276eadf1a0daeb1" prot="public" static="no" mutable="no">
+        <type>void const  *</type>
+        <definition>void const* AESECB_Config_::hwAttrs</definition>
+        <argsstring></argsstring>
+        <name>hwAttrs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to a driver specific hardware attributes structure </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESECB.h" line="458" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESECB.h" bodystart="458" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>AESECB Global configuration. </para>    </briefdescription>
+    <detaileddescription>
+<para>The AESECB_Config structure contains a set of pointers used to characterize the AESECB driver implementation.</para><para>This structure needs to be defined before calling <ref refid="_a_e_s_e_c_b_8h_1a4f4274c6aa928e8e10d3e516e73f77ea" kindref="member">AESECB_init()</ref> and it must not be changed thereafter.</para><para><simplesect kind="see"><para><ref refid="_a_e_s_e_c_b_8h_1a4f4274c6aa928e8e10d3e516e73f77ea" kindref="member">AESECB_init()</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESECB.h" line="453" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/AESECB.h" bodystart="453" bodyend="459"/>
+    <listofallmembers>
+      <member refid="struct_a_e_s_e_c_b___config___1aa17a92ee782df93ff276eadf1a0daeb1" prot="public" virt="non-virtual"><scope>AESECB_Config_</scope><name>hwAttrs</name></member>
+      <member refid="struct_a_e_s_e_c_b___config___1a560351ad7ffe300a7e993f194366e6f5" prot="public" virt="non-virtual"><scope>AESECB_Config_</scope><name>object</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

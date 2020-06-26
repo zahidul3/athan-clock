@@ -1,0 +1,19 @@
+{
+    "type": "SPI_FLASH",
+    "displayName": "user visible description of this flash hw component - optional and can change without breaking backwards compat - 'name' is the filename",
+    "partNum": "spiflash partnum",
+    "signals": {
+        "CLK": {
+            "type": "SPI_CLK"
+        },
+        "SIMO": {
+            "type": "SPI_SIMO"
+        },
+        "SOMI": {
+            "type": "SPI_SOMI"
+        },
+        "SELECT": {
+            "type": ["SPI_STE", "DOUT"]
+        }
+    }
+}

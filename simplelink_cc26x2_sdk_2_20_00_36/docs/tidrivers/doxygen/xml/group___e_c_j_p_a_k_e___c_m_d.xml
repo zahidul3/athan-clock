@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="group___e_c_j_p_a_k_e___c_m_d" kind="group">
+    <compoundname>ECJPAKE_CMD</compoundname>
+    <title>Command Codes</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>ECJPAKE_CMD_* macros are general command codes for <ref refid="_e_c_j_p_a_k_e_8h_1a77ae22f3de6940a93eb2da9a519e10f3" kindref="member">ECJPAKE_control()</ref>. Not all ECJPAKE driver implementations support these command codes. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

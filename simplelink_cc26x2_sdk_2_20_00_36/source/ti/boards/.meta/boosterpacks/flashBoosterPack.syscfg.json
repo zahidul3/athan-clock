@@ -1,0 +1,30 @@
+{
+    "name": "flashBoosterPack",
+    "displayName": "Flash BoosterPack (test)",
+    "headerType": "Standard 40 pin",
+    "components": {
+        "externalSPIFlash": {
+            "type": "SPI_FLASH",
+            "displayName": "External SPI Flash",
+            "definition": "/ti/boards/components/spiFlash.json",
+            "connections": {
+                "CLK": 7,
+                "SIMO": 15,
+                "SOMI": 14,
+                "SELECT": 11
+            }
+        },
+
+        "externalSPIFlash4Pin": {
+            "type": "SPI_FLASH",
+            "displayName": "External SPI Flash (4 Pin SPI)",
+            "definition": "/ti/boards/components/spiFlash.json",
+            "connections": {
+                "CLK": 19,
+                "SIMO": 40,
+                "SOMI": 39,
+                "SELECT": 38
+            }
+        }
+    }
+}

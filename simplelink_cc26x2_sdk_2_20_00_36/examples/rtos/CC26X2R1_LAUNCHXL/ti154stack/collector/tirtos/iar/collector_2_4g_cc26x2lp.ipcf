@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IAR Project Connection File -->
+
+<iarProjectConnection version="1.2" name="collector_cc26x2lp_2_4g" oneShot="true"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="IarProjectConnection_1.2.xsd">
+
+  <device>
+    <name>CC2652R1F</name>
+  </device>
+
+  <extraOptions>
+    <args>
+      <arg>-I$PROJ_DIR$</arg>
+      <arg>-f$MAC_APPS$\common\boards\CC26X2R1_LAUNCHXL\configPkg\compiler.opt.defs</arg>
+      <arg>-I$SIMPLELINK_CC26X2_SDK_INSTALL_DIR$/source</arg>
+      <arg>-I$MAC_APPS$\collector</arg>
+      <arg>-I$MAC_APPS$\collector\2_4g</arg>
+      <arg>-I$BIOS_LOC$</arg>
+      <arg>-I$SIMPLELINK_CC26X2_SDK_INSTALL_DIR$\source</arg>
+      <arg>-I$XDCROOT$\packages</arg>
+      <arg>-I$XDCROOT$\packages\xdc</arg>
+      <arg>-I$MAC_APPS$\common</arg>
+      <arg>-I$MAC_APPS$\common\inc</arg>
+      <arg>-I$MAC_APPS$\common\boards</arg>
+      <arg>-I$MAC_APPS$\common\boards\2_4g</arg>
+      <arg>-I$MAC_APPS$\common\boards\CC26X2R1_LAUNCHXL</arg>
+      <arg>-I$MAC_APPS$\common\api\inc</arg>
+      <arg>-I$MAC_APPS$\common\util</arg>
+      <arg>-I$MAC_APPS$\stack\src</arg>
+      <arg>-I$MAC_APPS$\stack\tirtos\inc</arg>
+      <arg>-I$MAC_APPS$\stack\tirtos\src</arg>
+      <arg>-I$COM_COMP$\heapmgr</arg>
+      <arg>-I$COM_COMP$\hal\src\inc</arg>
+      <arg>-I$COM_COMP$\hal\src\target\_common</arg>
+      <arg>-I$COM_COMP$\hal\src\target\_common\cc13xx</arg>
+      <arg>-I$COM_COMP$\icall\src\inc</arg>
+      <arg>-I$COM_COMP$\osal\src\inc</arg>
+      <arg>-I$COM_COMP$\services\src\aes</arg>
+      <arg>-I$COM_COMP$\services\src\appasrt</arg>
+      <arg>-I$DAL_COM_COMP$\source\common\nv</arg>
+      <arg>-I$COM_COMP$\services\src\saddr</arg>
+      <arg>-I$COM_COMP$\services\src\sdata</arg>
+      <arg>-I$COM_COMP$\stack\src\icall</arg>
+      <arg>-I$MAC_CORE$\fh</arg>
+      <arg>-I$MAC_CORE$\high_level</arg>
+      <arg>-I$MAC_CORE$\inc</arg>
+      <arg>-I$MAC_CORE$\rom</arg>
+      <arg>-I$MAC_CORE$\inc\cc13xx</arg>
+      <arg>-I$MAC_CORE$\low_level\cc13xx</arg>
+      <arg>-I$MAC_CORE$\low_level\cc13xx\2_4g</arg>
+      <arg>-I$MAC_CORE$\tracer</arg>
+      <arg>-I$CC13XXWARE$</arg>
+      <arg>-I$CC13XXWARE$\devices</arg>
+      <arg>-I$CC13XXWARE$\inc</arg>
+      <arg>-I$CC13XXWARE$\driverlib</arg>
+      <arg>-DUSE_CORE_SDK</arg>
+      <arg>-DTEMP_SENSOR</arg>
+      <arg>-DAUTO_START</arg>
+      <arg>-DxASSERT_LEDS</arg>
+      <arg>-DNV_RESTORE</arg>
+      <arg>-DFEATURE_FH_OPT</arg>
+      <arg>-DxPOWER_MEAS</arg>
+      <arg>-DMAX_DEVICE_TABLE_ENTRIES=50</arg>
+      <arg>-DBOARD_DISPLAY_USE_UART</arg>
+      <arg>-DxBOARD_DISPLAY_USE_LCD</arg>
+      <arg>-DTWO_PAGE_NV</arg>
+      <arg>-DONE_PAGE_NV_FULL_HDR</arg>
+      <arg>-DDEVICE_FAMILY=cc26x0</arg>
+      <arg>-DDeviceFamily_CC26X2</arg>
+      <arg>-DCC26X2R1_LAUNCHXL</arg>
+      <arg>-DCCFG_FORCE_VDDR_HH=0</arg>
+      <arg>-DSET_CCFG_BL_CONFIG_BL_LEVEL=0x00</arg>
+      <arg>-DSET_CCFG_BL_CONFIG_BL_ENABLE=0xC5</arg>
+      <arg>-DSET_CCFG_BL_CONFIG_BL_PIN_NUMBER=0x0D</arg>
+      <arg>-DSET_CCFG_BL_CONFIG_BOOTLOADER_ENABLE=0xC5</arg>
+      <arg>-DHEAPMGR_SIZE=16000</arg>
+      <arg>-DUSE_ICALL</arg>
+      <arg>-DSTACK_LIBRARY</arg>
+      <arg>-DICALL_LITE</arg>
+      <arg>-DRCN_APP_ASSERT</arg>
+      <arg>-DHAL_ASSERT_SPIN</arg>
+      <arg>-DICALL_HOOK_ABORT_FUNC=halAssertHandler</arg>
+      <arg>-Dxdc_runtime_Log_DISABLE_ALL</arg>
+      <arg>-Dxdc_runtime_Assert_DISABLE_ALL</arg>
+      <arg>-DxPREAMBLE_COMPATIBILITY</arg>
+      <arg>-Dxdc_target_types__=iar/targets/arm/std.h</arg>
+      <arg>-Dxdc_target_name__=M4F</arg>
+      <arg>-DFEATURE_ENHANCED_ACK</arg>
+      <arg>-DFEATURE_SYSTEM_STATS</arg>
+      <arg>-DxFCS_TYPE16</arg>
+      <arg>-DFREQ_2_4G</arg>
+      <arg>-DAUTO_ACK</arg>
+      <arg>-DAUTO_CSMA</arg>
+      <arg>-DFEATURE_GREEN_POWER</arg>
+      <arg>--preinclude=$MAC_APPS$/collector/2_4g/features.h</arg>
+      <arg>--debug</arg>
+      <arg>--silent</arg>
+      <arg>-e</arg>
+      <arg>--aeabi</arg>
+      <arg>--thumb</arg>
+      <arg>--diag_suppress=Pa050</arg>
+    </args>
+  </extraOptions>
+
+  <linkerFile>
+    <override>true</override>
+    <path>$MAC_APPS$/common/boards/CC26X2R1_LAUNCHXL/cc26x2lp.icf</path>
+  </linkerFile>
+
+  <linkerExtraOptions>
+    <args>
+        <arg>-f$MAC_APPS$\common\boards\CC26X2R1_LAUNCHXL\configPkg\linker.cmd</arg>
+        <arg>$SIMPLELINK_CC26X2_SDK_INSTALL_DIR$/source/ti/devices/cc13x2_cc26x2_v1/driverlib/bin/iar/driverlib.lib</arg>
+        <arg>$SIMPLELINK_CC26X2_SDK_INSTALL_DIR$/source/ti/display/lib/display.arm4f</arg>
+        <arg>$SIMPLELINK_CC26X2_SDK_INSTALL_DIR$/source/ti/grlib/lib/ccs/m4f/grlib.a</arg>
+        <arg>$SIMPLELINK_CC26X2_SDK_INSTALL_DIR$/source/ti/drivers/lib/drivers_cc26x2_v1.arm4f</arg>
+        <arg>$SIMPLELINK_CC26X2_SDK_INSTALL_DIR$/source/ti/drivers/rf/lib/rf_multiMode_cc26x2_v1.arm4f</arg>
+        <arg>$SIMPLELINK_CC26X2_SDK_INSTALL_DIR$/kernel/tirtos/packages/ti/dpl/lib/dpl_cc26x2_v1.arm4f</arg>
+        <arg>$MAC_LIBS$/maclib_secure_cc2652_2_4g.a</arg>
+        <arg>--silent</arg>
+        <arg>--cpu=Cortex-M4F</arg>
+        <arg>--redirect</arg>
+        <arg>_Printf=_PrintfSmall</arg>
+        <arg>--redirect</arg>
+        <arg>_Scanf=_ScanfSmall</arg>
+        <arg>--config_def TWO_PAGE_NV=1</arg>
+        <arg>--config_def ONE_PAGE_NV_FULL_HDR=1</arg>
+    </args>
+  </linkerExtraOptions>
+
+  <customBuildTools>
+    <customBuildTool name="configuro">   <!-- Custom build tool that will be assigned to a file group -->
+      <fileExtensions>.cfg</fileExtensions>
+      <command>"$XDCROOT$/bin/stderr"</command>
+      <output>
+        <path>$MAC_APPS$\common\boards\CC26X2R1_LAUNCHXL\configPkg\package.mak</path>
+      </output>
+    </customBuildTool>
+  </customBuildTools>
+
+  <heaps>
+    <heap> <!-- If omitted, id="0" -->
+      <size>0</size>
+    </heap>
+    <heap id="1">
+      <size>0</size>
+    </heap>
+  </heaps>
+  <stacks>
+    <stack> <!-- If omitted, id="0" -->
+      <size>512</size>
+    </stack>
+  </stacks>
+
+  <preBuild>
+    <command>"$XDCROOT$/xs" --xdcpath="$XDCPATH$" iar.tools.configuro -c "$TOOLKIT_DIR$" --cc "$COMPILER_PATH$" --device "$DEVICE$" --compileOptions $COMPILER_ARGS_ROOT_QUOTED$ --linkOptions $LINKER_ARGS_QUOTED$ --profile release --projFile "$PROJ_PATH$"</command>
+  </preBuild>
+
+  <files>
+    <group name="Application">
+      <path reference="$PROJ_DIR$/api_mac.c">$MAC_APPS$\common\api\icall\api_mac.c</path>
+      <path reference="$PROJ_DIR$/api_mac.h">$MAC_APPS$\common\api\inc\api_mac.h</path>
+      <path reference="$PROJ_DIR$/ccfg.c">$SIMPLELINK_CC26X2_SDK_INSTALL_DIR$\source\ti\boards\CC26X2R1_LAUNCHXL\ccfg.c</path>
+      <path reference="$PROJ_DIR$/cllc.c">$MAC_APPS$\common\cllc\cllc.c</path>
+      <path reference="$PROJ_DIR$/cllc.h">$MAC_APPS$\common\inc\cllc.h</path>
+      <path reference="$PROJ_DIR$/collector.c">$MAC_APPS$\collector\collector.c</path>
+      <path reference="$PROJ_DIR$/collector.h">$MAC_APPS$\collector\collector.h</path>
+      <path reference="$PROJ_DIR$/board.h">$MAC_APPS$\collector\board.h</path>
+      <path reference="$PROJ_DIR$/csf.c">$MAC_APPS$\collector\csf.c</path>
+      <path reference="$PROJ_DIR$/csf.h">$MAC_APPS$\collector\csf.h</path>
+      <path reference="$PROJ_DIR$/llc.h">$MAC_APPS$\common\inc\llc.h </path>
+      <path reference="$PROJ_DIR$/mac_user_config.c">$MAC_APPS$\common\boards\2_4g\mac_user_config.c</path>
+      <path reference="$PROJ_DIR$/mac_user_config.h">$MAC_APPS$\common\boards\2_4g\mac_user_config.h</path>
+      <path reference="$PROJ_DIR$/mac_user_config_cc26x2r1_2_4g.h">$MAC_APPS$\common\boards\2_4g\mac_user_config_cc26x2r1_2_4g.h</path>
+      <path reference="$PROJ_DIR$/main.c">$MAC_APPS$\collector\main.c</path>
+      <path reference="$PROJ_DIR$/smsgs.h">$MAC_APPS$\common\inc\smsgs.h</path>
+      <path reference="$PROJ_DIR$/timer.c">$MAC_APPS$\common\util\timer.c</path>
+      <path reference="$PROJ_DIR$/timer.h">$MAC_APPS$\common\util\timer.h</path>
+      <path reference="$PROJ_DIR$/util.c">$MAC_APPS$\common\util\util.c</path>
+      <path reference="$PROJ_DIR$/util.h">$MAC_APPS$\common\util\util.h</path>
+      <path reference="$PROJ_DIR$/uart_printf.c">$MAC_APPS$\common\util\uart_printf.c</path>
+      <path reference="$PROJ_DIR$/uart_printf.h">$MAC_APPS$\common\util\uart_printf.h</path> 
+
+    <group name="2_4g">
+       <path reference="$PROJ_DIR$/config.h">$MAC_APPS$\collector\2_4g\config.h</path>
+      <path reference="$PROJ_DIR$/features.h">$MAC_APPS$\collector\2_4g\features.h</path>
+    </group>
+
+    <group name="ICall">
+      <path reference="$PROJ_DIR$/icall.c">$COM_COMP$\icall\src\icall.c</path>
+      <path reference="$PROJ_DIR$/icall_addrs.h">$MAC_APPS$\stack\tirtos\inc\icall_addrs.h</path>
+      <path reference="$PROJ_DIR$/icall_cc2650.c">$COM_COMP$\icall\src\icall_cc2650.c</path>
+      <path reference="$PROJ_DIR$/icall_lite_translation.c">$COM_COMP$\icall\src\icall_lite_translation.c</path>
+    </group>
+
+    <group name="LaunchPad">
+      <path reference="$PROJ_DIR$/CC26X2R1_LAUNCHXL.c">$MAC_APPS$\common\boards\CC26X2R1_LAUNCHXL\CC26X2R1_LAUNCHXL.c</path>
+      <path reference="$PROJ_DIR$/board_key.c">$MAC_APPS$\common\util\launchpad\board_key.c</path>
+      <path reference="$PROJ_DIR$/board_key.h">$MAC_APPS$\common\util\board_key.h</path>
+      <path reference="$PROJ_DIR$/board_lcd.c">$MAC_APPS$\common\util\launchpad\board_lcd.c</path>
+      <path reference="$PROJ_DIR$/board_lcd.h">$MAC_APPS$\common\util\board_lcd.h</path>
+      <path reference="$PROJ_DIR$/board_led.c">$MAC_APPS$\common\util\launchpad\board_led.c</path>
+      <path reference="$PROJ_DIR$/board_led.h">$MAC_APPS$\common\util\board_led.h</path>
+      <path reference="$PROJ_DIR$/board_gpio.c">$MAC_APPS$\common\util\launchpad\board_gpio.c</path>
+      <path reference="$PROJ_DIR$/board_gpio.h">$MAC_APPS$\common\util\board_gpio.h</path>
+    </group>
+
+    <group name="MAC">
+      <path reference="$PROJ_DIR$/mac_api.h">$MAC_CORE$\inc\mac_api.h</path>
+
+      <group name="HighLevel">
+        <path reference="$PROJ_DIR$/mac_cfg.c">$MAC_CORE$\high_level\mac_cfg.c</path>
+        <path reference="$PROJ_DIR$/mac_high_level.h">$MAC_CORE$\high_level\mac_high_level.h</path>
+        <path reference="$PROJ_DIR$/hmac_global.c">$MAC_CORE$\high_level\hmac_global.c</path>
+        <path reference="$PROJ_DIR$/hmac_map_direct.h">$MAC_CORE$\rom\hmac_map_direct.h</path>
+      </group>
+
+      <group name="LowLevel">
+        <path reference="$PROJ_DIR$/mac_assert.h">$MAC_CORE$\low_level\cc13xx\mac_assert.h</path>
+        <path reference="$PROJ_DIR$/2_4g\mac_settings.c">$MAC_CORE$\low_level\cc13xx\2_4g\mac_settings.c</path>
+        <path reference="$PROJ_DIR$/2_4g\mac_settings.h">$MAC_CORE$\low_level\cc13xx\2_4g\mac_settings.h</path>
+        <path reference="$PROJ_DIR$/mac_tx.h">$MAC_CORE$\low_level\cc13xx\mac_tx.h</path>
+        <path reference="$PROJ_DIR$/lmac_global.c">$MAC_CORE$\low_level\cc13xx\lmac_global.c</path>
+        <path reference="$PROJ_DIR$/lmac_map_direct.h">$MAC_CORE$\rom\lmac_map_direct.h</path>
+      </group>
+    </group>
+
+    <group name="OSAL">
+      <path reference="$PROJ_DIR$/comdef.h">$COM_COMP$\osal\src\inc\comdef.h</path>
+      <path reference="$PROJ_DIR$/osal.c">$COM_COMP$\osal\src\common\osal.c</path>
+      <path reference="$PROJ_DIR$/osal.h">$COM_COMP$\osal\src\inc\osal.h</path>
+      <path reference="$PROJ_DIR$/osal_bufmgr.c">$COM_COMP$\osal\src\common\osal_bufmgr.c</path>
+      <path reference="$PROJ_DIR$/osal_bufmgr.h">$COM_COMP$\osal\src\inc\osal_bufmgr.h</path>
+      <path reference="$PROJ_DIR$/osal_clock.c">$COM_COMP$\osal\src\common\osal_clock.c</path>
+      <path reference="$PROJ_DIR$/osal_clock.h">$COM_COMP$\osal\src\inc\osal_clock.h</path>
+      <path reference="$PROJ_DIR$/osal_memory.h">$COM_COMP$\osal\src\inc\osal_memory.h</path>
+      <path reference="$PROJ_DIR$/osal_memory_icall.c">$COM_COMP$\osal\src\common\osal_memory_icall.c</path>
+      <path reference="$PROJ_DIR$/osal_pwrmgr.c">$COM_COMP$\osal\src\common\osal_pwrmgr.c</path>
+      <path reference="$PROJ_DIR$/osal_pwrmgr.h">$COM_COMP$\osal\src\inc\osal_pwrmgr.h</path>
+      <path reference="$PROJ_DIR$/osal_timers.c">$COM_COMP$\osal\src\common\osal_timers.c</path>
+      <path reference="$PROJ_DIR$/osal_timers.h">$COM_COMP$\osal\src\inc\osal_timers.h</path>
+    </group>
+
+    <group name="Services">
+      <path reference="$PROJ_DIR$/nvintf.h">$DAL_COM_COMP$\source\common\nv\nvintf.h</path>
+      <path reference="$PROJ_DIR$/nvocop.c">$MAC_APPS$\common\util\nvocop.c</path>
+      <path reference="$PROJ_DIR$/nvocop.h">$MAC_APPS$\common\util\nvocop.h</path>
+      <path reference="$PROJ_DIR$/crc.c">$DAL_COM_COMP$\source\common\nv\crc.c</path>
+      <path reference="$PROJ_DIR$/nvoctp.c">$DAL_COM_COMP$\source\common\nv\nvoctp.c</path>
+      <path reference="$PROJ_DIR$/nvoctp.h">$DAL_COM_COMP$\source\common\nv\nvoctp.h</path>
+      <path reference="$PROJ_DIR$/saddr.c">$COM_COMP$\services\src\saddr\saddr.c</path>
+      <path reference="$PROJ_DIR$/saddr.h">$COM_COMP$\services\src\saddr\saddr.h</path>
+      <path reference="$PROJ_DIR$/sdata.h">$COM_COMP$\services\src\sdata\sdata.h</path>
+    </group>
+
+    <group name="StartUp">
+      <path reference="$PROJ_DIR$/macstack.c">$MAC_APPS$\stack\src\macstack.c</path>
+      <path reference="$PROJ_DIR$/icall_startup.c">$MAC_APPS$\common\rtos\icall_startup.c</path>
+      <path reference="$PROJ_DIR$/osaltasks.c">$MAC_APPS$\stack\tirtos\src\osaltasks.c</path>
+    </group>
+
+    <group name="HAL">
+      <group name="common">
+        <path reference="$PROJ_DIR$/hal_appasrt.c">$COM_COMP$\hal\src\common\hal_appasrt.c</path>
+        <path reference="$PROJ_DIR$/hal_appasrt.h">$COM_COMP$\hal\src\inc\hal_appasrt.h</path>
+      </group>
+
+      <group name="target">
+        <path reference="$PROJ_DIR$/dbg.c">$MAC_CORE$\tracer\dbg.c</path>
+        <path reference="$PROJ_DIR$/dbg.h">$MAC_CORE$\tracer\dbg.h</path>
+        <path reference="$PROJ_DIR$/hal_aes.c">$COM_COMP$\hal\src\target\cc2650tirtos\hal_aes.c</path>
+        <path reference="$PROJ_DIR$/hal_aes.h">$COM_COMP$\hal\src\target\cc2650tirtos\hal_aes.h</path>
+        <path reference="$PROJ_DIR$/hal_ccm.c">$COM_COMP$\hal\src\target\cc2650tirtos\hal_ccm.c</path>
+        <path reference="$PROJ_DIR$/hal_ccm.h">$COM_COMP$\hal\src\target\cc2650tirtos\hal_ccm.h</path>
+        <path reference="$PROJ_DIR$/hal_flash_wrapper.c">$COM_COMP$\hal\src\target\cc2650tirtos\hal_flash_wrapper.c</path>
+        <path reference="$PROJ_DIR$/hal_mcu.h">$COM_COMP$\hal\src\target\cc2650tirtos\hal_mcu.h</path>
+        <path reference="$PROJ_DIR$/hal_rtc_wrapper.c">$COM_COMP$\hal\src\target\cc2650tirtos\hal_rtc_wrapper.c</path>
+        <path reference="$PROJ_DIR$/hal_rtc_wrapper.h">$COM_COMP$\hal\src\target\cc2650tirtos\hal_rtc_wrapper.h</path>
+        <path reference="$PROJ_DIR$/hal_trng_wrapper.c">$COM_COMP$\hal\src\target\cc2650tirtos\hal_trng_wrapper.c</path>
+        <path reference="$PROJ_DIR$/hal_trng_wrapper.h">$COM_COMP$\hal\src\target\cc2650tirtos\hal_trng_wrapper.h</path>
+      </group>
+    </group>
+
+    <group name="Tools" customBuildTool="configuro">
+       <path reference="$PROJ_DIR$/Tools/app.cfg">$MAC_APPS$\common\boards\CC26X2R1_LAUNCHXL\app.cfg</path>
+    </group>
+ </group>
+
+    <path reference="$PROJ_DIR$/cc26x2lp.icf">$MAC_APPS$/common/boards/CC26X2R1_LAUNCHXL/cc26x2lp.icf</path>
+
+    <group name="Documentation" build="false">
+      <path reference="$PROJ_DIR$/Board.html">$SIMPLELINK_CC26X2_SDK_INSTALL_DIR$/source/ti/boards/CC26X2R1_LAUNCHXL/Board.html</path>
+    </group>
+  </files>
+</iarProjectConnection>

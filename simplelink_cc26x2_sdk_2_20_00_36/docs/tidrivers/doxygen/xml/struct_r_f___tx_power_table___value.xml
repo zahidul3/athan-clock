@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_r_f___tx_power_table___value" kind="struct" language="C++" prot="public">
+    <compoundname>RF_TxPowerTable_Value</compoundname>
+    <includes refid="_r_f_8h" local="no">RF.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_r_f___tx_power_table___value_1a8636d2f86a74329740cd19242ebae1b4" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_TxPowerTable_Value::rawValue</definition>
+        <argsstring></argsstring>
+        <name>rawValue</name>
+        <bitfield>22</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hardware configuration value.</para><para><itemizedlist>
+<listitem><para><computeroutput></computeroutput>[15:0] used for default PA,</para></listitem><listitem><para><computeroutput></computeroutput>[21:0] used for High-power PA </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="979" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="979" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___tx_power_table___value_1a0aa4162c0537124893ec5d705e90c407" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_TxPowerTable_Value::__dummy</definition>
+        <argsstring></argsstring>
+        <name>__dummy</name>
+        <bitfield>9</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="983" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="983" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___tx_power_table___value_1a6a14d4aba3c660a461c4c4d16384307d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_TxPowerTable_Value::paType</definition>
+        <argsstring></argsstring>
+        <name>paType</name>
+        <bitfield>1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Selects the PA type to be used.</para><para><itemizedlist>
+<listitem><para>0: <ref refid="_r_f_8h_1ac51c0cef00a3f230e4e73ccd00a503b8aecb8f811a5580e7156d0059686e0ea7f" kindref="member">RF_TxPowerTable_DefaultPA</ref></para></listitem><listitem><para>1: <ref refid="_r_f_8h_1ac51c0cef00a3f230e4e73ccd00a503b8af828b6a1f4d544e598912b10f8ce9954" kindref="member">RF_TxPowerTable_HighPA</ref> </para></listitem></itemizedlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="984" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="984" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PA configuration value for a certain power level. </para>    </briefdescription>
+    <detaileddescription>
+<para>A RF_TxPowerTable_Value contains the power amplifier (PA) configuration for a certain power level. It encodes the PA type as well as a raw configuration value for the RF core hardware.</para><para><simplesect kind="see"><para><ref refid="_r_f_8h_1aed02cc74cc7da5d2be9c0fb68ab5efc3" kindref="member">RF_getTxPower()</ref>, <ref refid="_r_f_8h_1a45ae701a298b6f4cddbc845333e61ad5" kindref="member">RF_setTxPower()</ref>, <ref refid="struct_r_f___tx_power_table___entry" kindref="compound">RF_TxPowerTable_Entry</ref>, <ref refid="_r_f_8h_1ac51c0cef00a3f230e4e73ccd00a503b8" kindref="member">RF_TxPowerTable_PAType</ref>. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="978" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="978" bodyend="988"/>
+    <listofallmembers>
+      <member refid="struct_r_f___tx_power_table___value_1a0aa4162c0537124893ec5d705e90c407" prot="public" virt="non-virtual"><scope>RF_TxPowerTable_Value</scope><name>__dummy</name></member>
+      <member refid="struct_r_f___tx_power_table___value_1a6a14d4aba3c660a461c4c4d16384307d" prot="public" virt="non-virtual"><scope>RF_TxPowerTable_Value</scope><name>paType</name></member>
+      <member refid="struct_r_f___tx_power_table___value_1a8636d2f86a74329740cd19242ebae1b4" prot="public" virt="non-virtual"><scope>RF_TxPowerTable_Value</scope><name>rawValue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

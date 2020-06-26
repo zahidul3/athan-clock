@@ -1,0 +1,26 @@
+[
+   {
+      "files" : [
+         "+../../display.c -> display.c",
+         "+../../splash_image.c -> splash_image.c",
+         "+../main_tirtos.c -> main_tirtos.c",
+         "+../../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../../ccfg.c -> ccfg.c",
+         "+./CC26X2R1_LAUNCHXL_TIRTOS.icf -> display_CC26X2R1_LAUNCHXL_TIRTOS.icf",
+         "+../../splash_image.h -> splash_image.h",
+         "+../../Board.h -> Board.h",
+         "+../../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+../../README.md -> README.md",
+         "+../../README.html -> README.html"
+      ],
+      "packages" : [],
+      "default" : "na",
+      "name" : "na",
+      "compiler" : {
+         "specified" : "na",
+         "effective" : "na",
+         "location" : "na"
+      }
+   }
+]

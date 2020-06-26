@@ -1,0 +1,999 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="_e_c_d_h_8h" kind="file" language="C++">
+    <compoundname>ECDH.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes refid="_crypto_key_8h" local="no">ti/drivers/cryptoutils/cryptokey/CryptoKey.h</includes>
+    <includes refid="_e_c_c_params_8h" local="no">ti/drivers/cryptoutils/ecc/ECCParams.h</includes>
+    <includedby refid="_e_c_d_h_c_c26_x2_8h" local="no">ECDHCC26X2.h</includedby>
+    <incdepgraph>
+      <node id="233">
+        <label>stdbool.h</label>
+      </node>
+      <node id="235">
+        <label>stdint.h</label>
+      </node>
+      <node id="236">
+        <label>ti/drivers/cryptoutils/cryptokey/CryptoKey.h</label>
+        <link refid="_crypto_key_8h"/>
+        <childnode refid="235" relation="include">
+        </childnode>
+        <childnode refid="233" relation="include">
+        </childnode>
+      </node>
+      <node id="237">
+        <label>ti/drivers/cryptoutils/ecc/ECCParams.h</label>
+        <link refid="_e_c_c_params_8h"/>
+        <childnode refid="235" relation="include">
+        </childnode>
+        <childnode refid="233" relation="include">
+        </childnode>
+        <childnode refid="236" relation="include">
+        </childnode>
+      </node>
+      <node id="234">
+        <label>stddef.h</label>
+      </node>
+      <node id="232">
+        <label>ECDH.h</label>
+        <link refid="_e_c_d_h_8h"/>
+        <childnode refid="233" relation="include">
+        </childnode>
+        <childnode refid="234" relation="include">
+        </childnode>
+        <childnode refid="235" relation="include">
+        </childnode>
+        <childnode refid="236" relation="include">
+        </childnode>
+        <childnode refid="237" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="238">
+        <label>ECDH.h</label>
+        <link refid="_e_c_d_h_8h"/>
+        <childnode refid="239" relation="include">
+        </childnode>
+      </node>
+      <node id="239">
+        <label>ECDHCC26X2.h</label>
+        <link refid="_e_c_d_h_c_c26_x2_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_e_c_d_h___config__" prot="public">ECDH_Config_</innerclass>
+    <innerclass refid="struct_e_c_d_h___operation_generate_public_key__" prot="public">ECDH_OperationGeneratePublicKey_</innerclass>
+    <innerclass refid="struct_e_c_d_h___operation_compute_shared_secret__" prot="public">ECDH_OperationComputeSharedSecret_</innerclass>
+    <innerclass refid="union_e_c_d_h___operation__" prot="public">ECDH_Operation_</innerclass>
+    <innerclass refid="struct_e_c_d_h___params__" prot="public">ECDH_Params_</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___e_c_d_h___c_o_n_t_r_o_l_1gabfc5ce4072f58603493b8921564b94d6" prot="public" static="no">
+        <name>ECDH_CMD_RESERVED</name>
+        <initializer>(32)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Common ECDH_control command code reservation offset. ECC driver implementations should offset command codes with ECDH_CMD_RESERVED growing positively</para><para>Example implementation specific command codes: <programlisting><codeline><highlight class="normal">#define<sp/>ECCXYZ_CMD_COMMAND0<sp/><sp/><sp/><sp/><sp/>ECDH_CMD_RESERVED<sp/>+<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>ECCXYZ_CMD_COMMAND1<sp/><sp/><sp/><sp/><sp/>ECDH_CMD_RESERVED<sp/>+<sp/>1</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="326" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___c_o_n_t_r_o_l_1ga00dbed059c824024835da32a82143cf9" prot="public" static="no">
+        <name>ECDH_STATUS_RESERVED</name>
+        <initializer>(-32)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Common ECDH_control status code reservation offset. ECC driver implementations should offset status codes with ECDH_STATUS_RESERVED growing negatively.</para><para>Example implementation specific status codes: <programlisting><codeline><highlight class="normal">#define<sp/>ECCXYZ_STATUS_ERROR0<sp/><sp/><sp/><sp/>ECDH_STATUS_RESERVED<sp/>-<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>ECCXYZ_STATUS_ERROR1<sp/><sp/><sp/><sp/>ECDH_STATUS_RESERVED<sp/>-<sp/>1</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>ECCXYZ_STATUS_ERROR2<sp/><sp/><sp/><sp/>ECDH_STATUS_RESERVED<sp/>-<sp/>2</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="340" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gaadb5927711e0215b36d2895573622a5f" prot="public" static="no">
+        <name>ECDH_STATUS_SUCCESS</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+<para>Successful status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECDH_STATUS_SUCCESS if the function was executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="355" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1ga833a693cf04fcd2e6983105f9ff137c5" prot="public" static="no">
+        <name>ECDH_STATUS_ERROR</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+<para>Generic error status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECDH_STATUS_ERROR if the function was not executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="363" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gaa69f61c43b944cffd84a88652c69394e" prot="public" static="no">
+        <name>ECDH_STATUS_UNDEFINEDCMD</name>
+        <initializer>(-2)</initializer>
+        <briefdescription>
+<para>An error status code returned by <ref refid="_e_c_d_h_8h_1a1a5e651310388708c3c0fec76f3d58ca" kindref="member">ECDH_control()</ref> for undefined command codes. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_e_c_d_h_8h_1a1a5e651310388708c3c0fec76f3d58ca" kindref="member">ECDH_control()</ref> returns ECDH_STATUS_UNDEFINEDCMD if the control code is not recognized by the driver implementation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="372" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gab70467d8fc82bab4e8e709273d6cd322" prot="public" static="no">
+        <name>ECDH_STATUS_RESOURCE_UNAVAILABLE</name>
+        <initializer>(-3)</initializer>
+        <briefdescription>
+<para>An error status code returned if the hardware or software resource is currently unavailable. </para>        </briefdescription>
+        <detaileddescription>
+<para>ECC driver implementations may have hardware or software limitations on how many clients can simultaneously perform operations. This status code is returned if the mutual exclusion mechanism signals that an operation cannot currently be performed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="382" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="382" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gad1255d673e521a12585d034ab228af3f" prot="public" static="no">
+        <name>ECDH_STATUS_POINT_AT_INFINITY</name>
+        <initializer>(-4)</initializer>
+        <briefdescription>
+<para>The result of the operation is the point at infinity. </para>        </briefdescription>
+        <detaileddescription>
+<para>The operation yielded the point at infinity on this curve. This point is not permitted for further use in ECC operations. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="390" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1ga9858e344c1e0603f86645ae4928a3eca" prot="public" static="no">
+        <name>ECDH_STATUS_PRIVATE_KEY_LARGER_EQUAL_ORDER</name>
+        <initializer>(-5)</initializer>
+        <briefdescription>
+<para>The private key passed in is larger than the order of the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>Private keys must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="398" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="398" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gad4a3781705d2a5cf7850187828a27a58" prot="public" static="no">
+        <name>ECDH_STATUS_PRIVATE_KEY_ZERO</name>
+        <initializer>(-6)</initializer>
+        <briefdescription>
+<para>The private key passed in is zero. </para>        </briefdescription>
+        <detaileddescription>
+<para>Private keys must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="406" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="406" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gaaf391c2c59fbf91364c2664b38af7bbe" prot="public" static="no">
+        <name>ECDH_STATUS_PUBLIC_KEY_NOT_ON_CURVE</name>
+        <initializer>(-7)</initializer>
+        <briefdescription>
+<para>The public key of the other party does not lie upon the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>The public key received from the other party does not lie upon the agreed upon curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="415" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="415" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1ga0765420780e918aaa5814c077f59daec" prot="public" static="no">
+        <name>ECDH_STATUS_PUBLIC_KEY_LARGER_THAN_PRIME</name>
+        <initializer>(-8)</initializer>
+        <briefdescription>
+<para>A coordinate of the public key of the other party is too large. </para>        </briefdescription>
+        <detaileddescription>
+<para>A coordinate of the public key received from the other party is larger than the prime of the curve. This implies that the point was not correctly generated on that curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="424" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92b" prot="public" static="no">
+        <name>ECDH_ReturnBehavior_</name>
+        <enumvalue id="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92baab484909ed8c542b06511a66cc52ef18" prot="public">
+          <name>ECDH_RETURN_BEHAVIOR_CALLBACK</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The function call will return immediately while the ECC operation goes on in the background. The registered callback function is called after the operation completes. The context the callback function is called (task, HWI, SWI) is implementation-dependent. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92bad76afb7626a0e43453bd8d7713eae59a" prot="public">
+          <name>ECDH_RETURN_BEHAVIOR_BLOCKING</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The function call will block while ECC operation goes on in the background. ECC operation results are available after the function returns. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92ba91e4b64cb2e16e67d8d3085efb31cc52" prot="public">
+          <name>ECDH_RETURN_BEHAVIOR_POLLING</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The function call will continuously poll a flag while ECC operation goes on in the background. ECC operation results are available after the function returns. </para>          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The way in which ECC function calls return after performing an encryption + authentication or decryption + verification operation. </para>        </briefdescription>
+        <detaileddescription>
+<para>Not all ECC operations exhibit the specified return behavor. Functions that do not require significant computation and cannot offload that computation to a background thread behave like regular functions. Which functions exhibit the specfied return behavior is not implementation dependent. Specifically, a software-backed implementation run on the same CPU as the application will emulate the return behavior while not actually offloading the computation to the background thread.</para><para>ECC functions exhibiting the specified return behavior have restrictions on the context from which they may be called.</para><para><table rows="4" cols="4"><row>
+<entry thead="yes"><para></para></entry><entry thead="yes"><para>Task </para></entry><entry thead="yes"><para>Hwi </para></entry><entry thead="yes"><para>Swi  </para></entry></row>
+<row>
+<entry thead="no"><para>ECDH_RETURN_BEHAVIOR_CALLBACK </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+<row>
+<entry thead="no"><para>ECDH_RETURN_BEHAVIOR_BLOCKING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para></para></entry><entry thead="no"><para></para></entry></row>
+<row>
+<entry thead="no"><para>ECDH_RETURN_BEHAVIOR_POLLING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+</table>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="470" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="470" bodyend="485"/>
+      </memberdef>
+      <memberdef kind="enum" id="_e_c_d_h_8h_1a50ecd96446ea392ad274228d85d807bf" prot="public" static="no">
+        <name>ECDH_OperationType_</name>
+        <enumvalue id="_e_c_d_h_8h_1a50ecd96446ea392ad274228d85d807bfa62570c7af35bd230669defb259782d16" prot="public">
+          <name>ECDH_OPERATION_TYPE_GENERATE_PUBLIC_KEY</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_d_h_8h_1a50ecd96446ea392ad274228d85d807bfa5cd7dd7ccef7e1a2cda0dda6b6a309e5" prot="public">
+          <name>ECDH_OPERATION_TYPE_COMPUTE_SHARED_SECRET</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enum for the operation types supported by the driver. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="549" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="549" bodyend="552"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_e_c_d_h_8h_1a75e0fffee9c97d9f22cb4f1118236614" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_d_h___config__" kindref="compound">ECDH_Config_</ref> *</type>
+        <definition>typedef struct ECDH_Config_* ECDH_Handle</definition>
+        <argsstring></argsstring>
+        <name>ECDH_Handle</name>
+        <briefdescription>
+<para>A handle that is returned from an <ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref> call. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="447" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="447" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_h_8h_1a3ae70d3a1b95499c07b36a0f9e6d9db7" prot="public" static="no">
+        <type>enum <ref refid="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92b" kindref="member">ECDH_ReturnBehavior_</ref></type>
+        <definition>typedef enum ECDH_ReturnBehavior_  ECDH_ReturnBehavior</definition>
+        <argsstring></argsstring>
+        <name>ECDH_ReturnBehavior</name>
+        <briefdescription>
+<para>The way in which ECC function calls return after performing an encryption + authentication or decryption + verification operation. </para>        </briefdescription>
+        <detaileddescription>
+<para>Not all ECC operations exhibit the specified return behavor. Functions that do not require significant computation and cannot offload that computation to a background thread behave like regular functions. Which functions exhibit the specfied return behavior is not implementation dependent. Specifically, a software-backed implementation run on the same CPU as the application will emulate the return behavior while not actually offloading the computation to the background thread.</para><para>ECC functions exhibiting the specified return behavior have restrictions on the context from which they may be called.</para><para><table rows="4" cols="4"><row>
+<entry thead="yes"><para></para></entry><entry thead="yes"><para>Task </para></entry><entry thead="yes"><para>Hwi </para></entry><entry thead="yes"><para>Swi  </para></entry></row>
+<row>
+<entry thead="no"><para>ECDH_RETURN_BEHAVIOR_CALLBACK </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+<row>
+<entry thead="no"><para>ECDH_RETURN_BEHAVIOR_BLOCKING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para></para></entry><entry thead="no"><para></para></entry></row>
+<row>
+<entry thead="no"><para>ECDH_RETURN_BEHAVIOR_POLLING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+</table>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="485" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_h_8h_1a80527012e7ffe67b74120ceae40ac688" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_d_h___config__" kindref="compound">ECDH_Config_</ref></type>
+        <definition>typedef struct ECDH_Config_  ECDH_Config</definition>
+        <argsstring></argsstring>
+        <name>ECDH_Config</name>
+        <briefdescription>
+<para>ECC Global configuration. </para>        </briefdescription>
+        <detaileddescription>
+<para>The ECDH_Config structure contains a set of pointers used to characterize the ECC driver implementation.</para><para>This structure needs to be defined before calling <ref refid="_e_c_d_h_8h_1aeafc9a67220447bca292685b6b2e7640" kindref="member">ECDH_init()</ref> and it must not be changed thereafter.</para><para><simplesect kind="see"><para><ref refid="_e_c_d_h_8h_1aeafc9a67220447bca292685b6b2e7640" kindref="member">ECDH_init()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="505" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_h_8h_1ad3d2f4e4e043114c4bd630a7571562f4" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_d_h___operation_generate_public_key__" kindref="compound">ECDH_OperationGeneratePublicKey_</ref></type>
+        <definition>typedef struct ECDH_OperationGeneratePublicKey_  ECDH_OperationGeneratePublicKey</definition>
+        <argsstring></argsstring>
+        <name>ECDH_OperationGeneratePublicKey</name>
+        <briefdescription>
+<para>Struct containing the parameters required to generate a public key. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="518" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_h_8h_1a1d663108cf3fb7004f85f5d10489e2f0" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_d_h___operation_compute_shared_secret__" kindref="compound">ECDH_OperationComputeSharedSecret_</ref></type>
+        <definition>typedef struct ECDH_OperationComputeSharedSecret_  ECDH_OperationComputeSharedSecret</definition>
+        <argsstring></argsstring>
+        <name>ECDH_OperationComputeSharedSecret</name>
+        <briefdescription>
+<para>Struct containing the parameters required to compute the shared secret. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="536" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_h_8h_1addfcd5e533ffe35867e6ff11281bae1f" prot="public" static="no">
+        <type>union <ref refid="union_e_c_d_h___operation__" kindref="compound">ECDH_Operation_</ref></type>
+        <definition>typedef union ECDH_Operation_  ECDH_Operation</definition>
+        <argsstring></argsstring>
+        <name>ECDH_Operation</name>
+        <briefdescription>
+<para>Union containing pointers to all supported operation structs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="544" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_h_8h_1ade105285f97cb2204b52179f0978c888" prot="public" static="no">
+        <type>enum <ref refid="_e_c_d_h_8h_1a50ecd96446ea392ad274228d85d807bf" kindref="member">ECDH_OperationType_</ref></type>
+        <definition>typedef enum ECDH_OperationType_  ECDH_OperationType</definition>
+        <argsstring></argsstring>
+        <name>ECDH_OperationType</name>
+        <briefdescription>
+<para>Enum for the operation types supported by the driver. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="552" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_h_8h_1a978c9e16d670371e7c0c50793fc4ec04" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* ECDH_CallbackFxn) (ECDH_Handle handle, int_fast16_t returnStatus, ECDH_Operation operation, ECDH_OperationType operationType)</definition>
+        <argsstring>)(ECDH_Handle handle, int_fast16_t returnStatus, ECDH_Operation operation, ECDH_OperationType operationType)</argsstring>
+        <name>ECDH_CallbackFxn</name>
+        <briefdescription>
+<para>The definition of a callback function used by the ECDH driver when used in <ref refid="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92baab484909ed8c542b06511a66cc52ef18" kindref="member">ECDH_RETURN_BEHAVIOR_CALLBACK</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle of the client that started the ECDH operation.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>returnStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The result of the ECDH operation. May contain an error code if the result is the point at infinity for example.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A union of pointers to operation structs. Only one type of pointer is valid per call to the callback function. Which type is currently valid is determined by /c operationType. The union allows easier access to the struct&apos;s fields without the need to typecase the result.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operationType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This parameter determined which operation the callback refers to and which type to access through /c operation. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="572" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="572" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_h_8h_1aa5a15905b9a80ed269adf4ca519151ed" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_d_h___params__" kindref="compound">ECDH_Params_</ref></type>
+        <definition>typedef struct ECDH_Params_  ECDH_Params</definition>
+        <argsstring></argsstring>
+        <name>ECDH_Params</name>
+        <briefdescription>
+<para>ECC Parameters. </para>        </briefdescription>
+        <detaileddescription>
+<para>ECC Parameters are used to with the <ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref> call. Default values for these parameters are set using <ref refid="_e_c_d_h_8h_1aba742374e7813cd416d26a1b86872bf4" kindref="member">ECDH_Params_init()</ref>.</para><para><simplesect kind="see"><para><ref refid="_e_c_d_h_8h_1aba742374e7813cd416d26a1b86872bf4" kindref="member">ECDH_Params_init()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="592" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_e_c_d_h_8h_1ad97202536e7a3ea20529969825b5c389" prot="public" static="no" mutable="no">
+        <type>const <ref refid="_e_c_d_h_8h_1aa5a15905b9a80ed269adf4ca519151ed" kindref="member">ECDH_Params</ref></type>
+        <definition>const ECDH_Params ECDH_defaultParams</definition>
+        <argsstring></argsstring>
+        <name>ECDH_defaultParams</name>
+        <briefdescription>
+<para>Default ECDH_Params structure. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="_e_c_d_h_8h_1aba742374e7813cd416d26a1b86872bf4" kindref="member">ECDH_Params_init()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="599" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_e_c_d_h_8h_1aeafc9a67220447bca292685b6b2e7640" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECDH_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>ECDH_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>This function initializes the ECC module. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>The ECDH_config structure must exist and be persistent before this function can be called. This function must also be called before any other ECC driver APIs. This function call does not modify any peripheral registers. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="609" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_h_8h_1aba742374e7813cd416d26a1b86872bf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECDH_Params_init</definition>
+        <argsstring>(ECDH_Params *params)</argsstring>
+        <name>ECDH_Params_init</name>
+        <param>
+          <type><ref refid="_e_c_d_h_8h_1aa5a15905b9a80ed269adf4ca519151ed" kindref="member">ECDH_Params</ref> *</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize the ECDH_Params struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An pointer to ECDH_Params structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are: returnBehavior = ECDH_RETURN_BEHAVIOR_BLOCKING callbackFxn = NULL timeout = SemaphoreP_WAIT_FOREVER custom = NULL </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="623" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_e_c_d_h_8h_1a75e0fffee9c97d9f22cb4f1118236614" kindref="member">ECDH_Handle</ref></type>
+        <definition>ECDH_Handle ECDH_open</definition>
+        <argsstring>(uint_least8_t index, ECDH_Params *params)</argsstring>
+        <name>ECDH_open</name>
+        <param>
+          <type>uint_least8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_d_h_8h_1aa5a15905b9a80ed269adf4ca519151ed" kindref="member">ECDH_Params</ref> *</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>This function opens a given ECC peripheral. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>ECC controller has been initialized using <ref refid="_e_c_d_h_8h_1aeafc9a67220447bca292685b6b2e7640" kindref="member">ECDH_init()</ref></para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Logical peripheral number for the ECC indexed into the ECDH_config table</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an parameter block, if NULL it will use default values.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An ECDH_Handle on success or a NULL on an error or if it has been opened already.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_e_c_d_h_8h_1aeafc9a67220447bca292685b6b2e7640" kindref="member">ECDH_init()</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="_e_c_d_h_8h_1a47f6da8d23ef19680b27354e424dfcc1" kindref="member">ECDH_close()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="642" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_h_8h_1a47f6da8d23ef19680b27354e424dfcc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECDH_close</definition>
+        <argsstring>(ECDH_Handle handle)</argsstring>
+        <name>ECDH_close</name>
+        <param>
+          <type><ref refid="_e_c_d_h_8h_1a75e0fffee9c97d9f22cb4f1118236614" kindref="member">ECDH_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function to close an ECC peripheral specified by the ECC handle. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para><ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref> has to be called first.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECC handle returned from <ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="653" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_h_8h_1a1a5e651310388708c3c0fec76f3d58ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECDH_control</definition>
+        <argsstring>(ECDH_Handle handle, uint32_t cmd, void *args)</argsstring>
+        <name>ECDH_control</name>
+        <param>
+          <type><ref refid="_e_c_d_h_8h_1a75e0fffee9c97d9f22cb4f1118236614" kindref="member">ECDH_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cmd</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Function performs implementation specific features on a given ECDH_Handle. </para>        </briefdescription>
+        <detaileddescription>
+<para>Commands for ECDH_control can originate from ECC.h or from implementation specific ECC*.h (<emphasis>ECCCC26XX.h</emphasis>, <emphasis>EECCSP432.h</emphasis>, etc.. ) files. While commands from ECC.h are API portable across driver implementations, not all implementations may support all these commands. Conversely, commands from driver implementation specific ECC*.h files add unique driver capabilities but are not API portable across all ECC driver implementations.</para><para>Commands supported by ECC.h follow an ECDH_CMD_&lt;cmd&gt; naming convention.<linebreak/>
+ Commands supported by ECC*.h follow an ECC*_CMD_&lt;cmd&gt; naming convention.<linebreak/>
+ Each control command defines <bold>arg</bold> differently. The types of <bold>arg</bold> are documented with each command.</para><para>See <ref refid="group___e_c_d_h___c_m_d" kindref="compound">ECDH_control command codes</ref> for command codes.</para><para>See <ref refid="group___e_c_d_h___s_t_a_t_u_s" kindref="compound">ECDH_control return status codes</ref> for status codes.</para><para><simplesect kind="pre"><para><ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref> has to be called first.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A ECC handle returned from <ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cmd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ECC.h or ECC*.h commands.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional R/W (read/write) command argument accompanied with cmd</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Implementation specific return codes. Negative values indicate unsuccessful operations.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="692" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_h_8h_1a3828b70f1353f25ed32ce4daff66b5be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECDH_OperationGeneratePublicKey_init</definition>
+        <argsstring>(ECDH_OperationGeneratePublicKey *operation)</argsstring>
+        <name>ECDH_OperationGeneratePublicKey_init</name>
+        <param>
+          <type><ref refid="_e_c_d_h_8h_1ad3d2f4e4e043114c4bd630a7571562f4" kindref="member">ECDH_OperationGeneratePublicKey</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize an ECDH_OperationGeneratePublicKey struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to ECDH_OperationGeneratePublicKey structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are all zeros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="702" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_h_8h_1ad2eb16f459a7dad3cf51db76c74400bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECDH_OperationComputeSharedSecret_init</definition>
+        <argsstring>(ECDH_OperationComputeSharedSecret *operation)</argsstring>
+        <name>ECDH_OperationComputeSharedSecret_init</name>
+        <param>
+          <type><ref refid="_e_c_d_h_8h_1a1d663108cf3fb7004f85f5d10489e2f0" kindref="member">ECDH_OperationComputeSharedSecret</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize an ECDH_OperationComputeSharedSecret struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to ECDH_OperationComputeSharedSecret structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are all zeros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="712" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_h_8h_1af674c6e1f24af5212f0694ac033b3542" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECDH_generatePublicKey</definition>
+        <argsstring>(ECDH_Handle handle, ECDH_OperationGeneratePublicKey *operation)</argsstring>
+        <name>ECDH_generatePublicKey</name>
+        <param>
+          <type><ref refid="_e_c_d_h_8h_1a75e0fffee9c97d9f22cb4f1118236614" kindref="member">ECDH_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_d_h_8h_1ad3d2f4e4e043114c4bd630a7571562f4" kindref="member">ECDH_OperationGeneratePublicKey</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Generates a public key for use in key agreement. </para>        </briefdescription>
+        <detaileddescription>
+<para>ECDH_generateKey() can be used for generating ephemeral keys.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A ECC handle returned from <ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a struct containing the requisite parameters to execute the function.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>Call <ref refid="_e_c_d_h_8h_1a3828b70f1353f25ed32ce4daff66b5be" kindref="member">ECDH_OperationGeneratePublicKey_init()</ref> on <computeroutput>operation</computeroutput>.</para></simplesect>
+<simplesect kind="post"><para><ref refid="_e_c_d_h_8h_1aac7cce4647109da02f1f4f952697ae85" kindref="member">ECDH_computeSharedSecret()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="729" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_h_8h_1aac7cce4647109da02f1f4f952697ae85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECDH_computeSharedSecret</definition>
+        <argsstring>(ECDH_Handle handle, ECDH_OperationComputeSharedSecret *operation)</argsstring>
+        <name>ECDH_computeSharedSecret</name>
+        <param>
+          <type><ref refid="_e_c_d_h_8h_1a75e0fffee9c97d9f22cb4f1118236614" kindref="member">ECDH_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_d_h_8h_1a1d663108cf3fb7004f85f5d10489e2f0" kindref="member">ECDH_OperationComputeSharedSecret</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Computes a shared secret. </para>        </briefdescription>
+        <detaileddescription>
+<para>This secret can be used to generate shared keys for encryption and authentication.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A ECC handle returned from <ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a struct containing the requisite</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>Call <ref refid="_e_c_d_h_8h_1ad2eb16f459a7dad3cf51db76c74400bb" kindref="member">ECDH_OperationComputeSharedSecret_init()</ref> on <computeroutput>operation</computeroutput>. Generate a shared secret off-chip or using <ref refid="_e_c_d_h_8h_1af674c6e1f24af5212f0694ac033b3542" kindref="member">ECDH_generatePublicKey()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="744" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>TI Driver for Elliptic Curve Diffie-Hellman key agreement scheme. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="warning"><para>This is a beta API. It may change in future releases.</para></simplesect>
+<heading level="1">Overview</heading>
+</para><para>Elliptic Curve Diffie-Hellman (ECDH) is a key agreement scheme between two parties based on the Diffie-Hellman key exchange protocol.</para><para>It provides a means of generating a shared secret and derived symmetric key between the two parties over an insecure channel.</para><para>It does not provide authentication. As such, it does not guarantee that the party you are exchanging keys with is truly the party you wish to establish a secured channel with.</para><para>The two parties each generate a private key and a public key. The private key is a random integer in the interval [1, n - 1], where n is the order of a previously agreed upon curve. The public key is generated by multiplying the private key by the generator point of a previously agreed upon elliptic curve such as NISTP256 or Curve 25519. The public key is itself a point upon the elliptic curve. Each public key is then transmitted to the other party over a potentially insecure channel. The other party&apos;s public key is then multiplied with the private key, generating a shared secret. This shared secret is also a point on the curve. However, the entropy in the secret is not spread evenly throughout the shared secret. In order to generate one or more shared symmetric keys, the shared secret must be run through a key derivation function (KDF) that was previously agreed upon. Usually, only the X coordinate is processed in this way as it contains all the entropy of the shared secret and some curve implementations only provide the X coordinate. The key derivation function can take many forms, from simply hashing the X coordinate of the shared secret with SHA2 and truncating the result to generating multiple symmetric keys with HKDF, an HMAC based KDF.</para><para>Key derivation functions in the context of symmetric key generation after elliptic curve based key exchange differ from KDFs used to generate keys from passwords a user provides in a login. Those KDFs such as bcrypt purposefully add additional computation to increase a system&apos;s resistance against brute force or dictionary attacks.</para><para><heading level="1">Usage</heading>
+</para><para><heading level="2">Before starting an ECDH operation</heading>
+</para><para>Before starting an ECDH operation, the application must do the following:<itemizedlist>
+<listitem><para>Call <ref refid="_e_c_d_h_8h_1aeafc9a67220447bca292685b6b2e7640" kindref="member">ECDH_init()</ref> to initialize the driver</para></listitem><listitem><para>Call <ref refid="_e_c_d_h_8h_1aba742374e7813cd416d26a1b86872bf4" kindref="member">ECDH_Params_init()</ref> to initialize the ECDH_Params to default values.</para></listitem><listitem><para>Modify the ECDH_Params as desired</para></listitem><listitem><para>Call <ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref> to open an instance of the driver</para></listitem></itemizedlist>
+</para><para><heading level="2">Generating your public-private key pair</heading>
+</para><para>To generate a public-private key pair for an agreed upon curve, the application must do the following:<itemizedlist>
+<listitem><para>Generate the keying material for the private key. This keying material must be an integer in the interval [1, n - 1], where n is the order of the curve. It should be stored in an array with the least significant byte of the integer hex representation stored in the lowest address of the array (little-endian). The array should be the same length as the curve parameters of the curve used. The driver validates private keys against the provided curve by default.</para></listitem><listitem><para>Initialize the private key CryptoKey. CryptoKeys are opaque datastructures and representations of keying material and its storage. Depending on how the keying material is stored (RAM or flash, key store, key blob), the CryptoKey must be initialized differently. The ECDH API can handle all types of CryptoKey. However, not all device-specific implementions support all types of CryptoKey. Devices without a key store will not support CryptoKeys with keying material stored in a key store for example. All devices support plaintext CryptoKeys.</para></listitem><listitem><para>Initialize a blank CryptoKey for the public key. The CryptoKey will keep track of where the keying material for the public key should be copied and how long it is. It should have twice the length of the private key.</para></listitem><listitem><para>Initialize the ECDH_OperationGeneratePublicKey struct and then populate it.</para></listitem><listitem><para>Call <ref refid="_e_c_d_h_8h_1af674c6e1f24af5212f0694ac033b3542" kindref="member">ECDH_generatePublicKey()</ref>. The generated keying material will be copied according the the CryptoKey passed in as the public key parameter. The CryptoKey will no longer be considered &apos;blank&apos; after the operation.</para></listitem></itemizedlist>
+</para><para><heading level="2">Calculating a shared secret</heading>
+</para><para>After trading public keys with the other party, the application should do the following to calculate the shared secret:<itemizedlist>
+<listitem><para>Initialize a CryptoKey as public key with the keying material received from the other party.</para></listitem><listitem><para>Initialize a blank CryptoKey with the same size as the previously initialized public key.</para></listitem><listitem><para>Initialize the ECDH_OperationComputeSharedSecret struct and then populate it.</para></listitem><listitem><para>Call <ref refid="_e_c_d_h_8h_1aac7cce4647109da02f1f4f952697ae85" kindref="member">ECDH_computeSharedSecret()</ref>. The shared secret will be copied to a location according to the shared secret CryptoKey passed to the function call. The driver will validate the supplied public key and reject invalid ones.</para></listitem></itemizedlist>
+</para><para><heading level="2">Creating one or more symmetric keys from the shared secret</heading>
+</para><para>After calculating the shared secret between the application and the other party, the entropy in the shared secret must be evened out and stretched as needed. There are uncountable methods and algorithms to stretch an original seed entropy (the share secret) to generate symmetric keys.<itemizedlist>
+<listitem><para>Run the X coordinate of the resulting entropy through a key derivation function (KDF)</para></listitem></itemizedlist>
+</para><para><heading level="2">After a key exchange</heading>
+</para><para>After the ECDH key exchange completes, the application should either start another operation or close the driver by calling <ref refid="_e_c_d_h_8h_1a47f6da8d23ef19680b27354e424dfcc1" kindref="member">ECDH_close()</ref></para><para><heading level="2">General usage</heading>
+</para><para>The API expects elliptic curves as defined in <ref refid="_e_c_c_params_8h" kindref="compound">ti/drivers/cryptoutils/ecc/ECCParams.h</ref>. Several commonly used curves are provided. Check the device-specific ECDH documentation for curve type (short Weierstrass, Montgomery, Edwards) support for your device. ECDH support for a curve type on a device does not imply curve-type support for other ECC schemes.</para><para>Public keys and shared secrets are points on an elliptic curve. These points can be expressed in several ways. The most common one is in affine coordinates as an X,Y pair. This API uses points expressed in affine coordinates. The point is stored as a concatenated array of X followed by Y in a location described by its CryptoKey. Some implementations do not require or yield the Y coordinate for ECDH on certain curves. It is recommended that the full keying material buffer of twice the curve param length is used to facilitate code-reuse. Implementations that do not use the Y coordinate will zero-out the Y-coordinate whenever they write a point to the CryptoKey.</para><para>This API accepts and returns the keying material of public keys according to the following table:</para><para><table rows="4" cols="3"><row>
+<entry thead="yes"><para>Curve Type </para></entry><entry thead="yes"><para>Keying Material Array </para></entry><entry thead="yes"><para>Array Length  </para></entry></row>
+<row>
+<entry thead="no"><para>Short Weierstrass </para></entry><entry thead="no"><para>[X, Y] </para></entry><entry thead="no"><para>2 * Curve Param Length </para></entry></row>
+<row>
+<entry thead="no"><para>Montgomery </para></entry><entry thead="no"><para>[X, Y] </para></entry><entry thead="no"><para>2 * Curve Param Length </para></entry></row>
+<row>
+<entry thead="no"><para>Edwards </para></entry><entry thead="no"><para>[X, Y] </para></entry><entry thead="no"><para>2 * Curve Param Length </para></entry></row>
+</table>
+<heading level="2">ECDH Driver Configuration</heading>
+</para><para>In order to use the ECDH APIs, the application is required to provide device-specific ECDH configuration in the Board.c file. The ECDH driver interface defines a configuration data structure:</para><para><programlisting><codeline><highlight class="normal">typedef<sp/>struct<sp/>ECDH_Config_<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*object;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/><sp/><sp/><sp/>*hwAttrs;</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>ECDH_Config;</highlight></codeline>
+</programlisting></para><para>The application must declare an array of ECDH_Config elements, named ECDH_config[]. Each element of ECDH_config[] must be populated with pointers to a device specific ECDH driver implementation&apos;s driver object, hardware attributes. The hardware attributes define properties such as the ECDH peripheral&apos;s base address. Each element in ECDH_config[] corresponds to an ECDH instance, and none of the elements should have NULL pointers. There is no correlation between the index and the peripheral designation (such as ECDH0 or ECDH1). For example, it is possible to use ECDH_config[0] for ECDH1. Multiple drivers and driver instances may all access the same underlying hardware. This is transparent to the application. Mutual exclusion is performed automatically by the drivers as necessary.</para><para>Because the ECDH configuration is very device dependent, you will need to check the doxygen for the device specific ECDH implementation. There you will find a description of the ECDH hardware attributes. Please also refer to the Board.c file of any of your examples to see the ECDH configuration.</para><para><heading level="2">ECDH Parameters</heading>
+</para><para>The <ref refid="_e_c_d_h_8h_1aa5a15905b9a80ed269adf4ca519151ed" kindref="member">ECDH_Params</ref> structure is passed to the <ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref> call. If NULL is passed for the parameters, <ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open()</ref> uses default parameters. An <ref refid="_e_c_d_h_8h_1aa5a15905b9a80ed269adf4ca519151ed" kindref="member">ECDH_Params</ref> structure is initialized with default values by passing it to <ref refid="_e_c_d_h_8h_1aba742374e7813cd416d26a1b86872bf4" kindref="member">ECDH_Params_init()</ref>. Some of the ECDH parameters are described below. To see brief descriptions of all the parameters, see <ref refid="_e_c_d_h_8h_1aa5a15905b9a80ed269adf4ca519151ed" kindref="member">ECDH_Params</ref>.</para><para><heading level="1">Examples</heading>
+</para><para><heading level="2">ECDH exchange with plaintext CryptoKeys</heading>
+</para><para><programlisting><codeline><highlight class="normal">#include<sp/>&lt;ti/drivers/cryptoutils/cryptokey/CryptoKeyPlaintext.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;ti/drivers/ECDH.h&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Our<sp/>private<sp/>key<sp/>is<sp/>0x0000000000000000000000000000000000000000000000000000000000000001</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>In<sp/>practice,<sp/>this<sp/>value<sp/>should<sp/>come<sp/>from<sp/>a<sp/>TRNG,<sp/>PRNG,<sp/>PUF,<sp/>or<sp/>device-specific<sp/>pre-seeded<sp/>key</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPrivateKeyingMaterial[32]<sp/>=<sp/>{0x01,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00,<sp/>0x00};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPublicKeyingMaterial[64]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirPublicKeyingMaterial[64]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>sharedSecretKeyingMaterial[64]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>symmetricKeyingMaterial[16]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPrivateKey;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPublicKey;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>theirPublicKey;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>sharedSecret;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>symmetricKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECDH_Handle<sp/>ecdhHandle;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int_fast16_t<sp/>operationResult;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECDH_OperationGeneratePublicKey<sp/>operationGeneratePublicKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Since<sp/>we<sp/>are<sp/>using<sp/>default<sp/>ECDH_Params,<sp/>we<sp/>just<sp/>pass<sp/>in<sp/>NULL<sp/>for<sp/>that<sp/>parameter.</highlight></codeline>
+<codeline><highlight class="normal">ecdhHandle<sp/>=<sp/>ECDH_open(0,<sp/>NULL);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(!ecdhHandle)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Handle<sp/>error</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initialize<sp/>myPrivateKey<sp/>and<sp/>myPublicKey</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;myPrivateKey,<sp/>myPrivateKeyingMaterial,<sp/>sizeof(myPrivateKeyingMaterial));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;myPublicKey,<sp/>myPublicKeyingMaterial,<sp/>sizeof(myPublicKeyingMaterial));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECDH_OperationGeneratePublicKey_init(&amp;operationGeneratePublicKey);</highlight></codeline>
+<codeline><highlight class="normal">operationGeneratePublicKey.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationGeneratePublicKey.myPrivateKey<sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateKey;</highlight></codeline>
+<codeline><highlight class="normal">operationGeneratePublicKey.myPublicKey<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPublicKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>the<sp/>keying<sp/>material<sp/>for<sp/>myPublicKey<sp/>and<sp/>store<sp/>it<sp/>in<sp/>myPublicKeyingMaterial</highlight></codeline>
+<codeline><highlight class="normal">operationResult<sp/>=<sp/>ECDH_generatePublicKey(ecdhHandle,<sp/>&amp;operationGeneratePublicKey);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(operationResult<sp/>!=<sp/>ECDH_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Handle<sp/>error</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Now<sp/>send<sp/>the<sp/>content<sp/>of<sp/>myPublicKeyingMaterial<sp/>to<sp/>theother<sp/>party,</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>receive<sp/>their<sp/>public<sp/>key,<sp/>and<sp/>copy<sp/>their<sp/>public<sp/>keying<sp/>material<sp/>to<sp/>theirPublicKeyingMaterial</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initialise<sp/>their<sp/>public<sp/>CryptoKey<sp/>and<sp/>the<sp/>shared<sp/>secret<sp/>CryptoKey</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;theirPublicKey,<sp/>theirPublicKeyingMaterial,<sp/>sizeof(theirPublicKeyingMaterial));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;sharedSecret,<sp/>sharedSecretKeyingMaterial,<sp/>sizeof(sharedSecretKeyingMaterial));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>The<sp/>ECC_NISTP256<sp/>struct<sp/>is<sp/>provided<sp/>in<sp/>ti/drivers/types/EccParams.h<sp/>and<sp/>the<sp/>corresponding<sp/>device-specific<sp/>implementation</highlight></codeline>
+<codeline><highlight class="normal">ECDH_OperationComputeSharedSecret_init(&amp;operationComputeSharedSecret);</highlight></codeline>
+<codeline><highlight class="normal">operationComputeSharedSecret.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationComputeSharedSecret.myPrivateKey<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateKey;</highlight></codeline>
+<codeline><highlight class="normal">operationComputeSharedSecret.theirPublicKey<sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;theirPublicKey;</highlight></codeline>
+<codeline><highlight class="normal">operationComputeSharedSecret.sharedSecret<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;sharedSecret;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Compute<sp/>the<sp/>shared<sp/>secret<sp/>and<sp/>copy<sp/>it<sp/>to<sp/>sharedSecretKeyingMaterial</highlight></codeline>
+<codeline><highlight class="normal">operationResult<sp/>=<sp/>ECDH_computeSharedSecret(ecdhHandle,<sp/>&amp;operationComputeSharedSecret);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(operationResult<sp/>!=<sp/>ECDH_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Handle<sp/>error</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initBlankKey(&amp;symmetricKey,<sp/>symmetricKeyingMaterial,<sp/>sizeof(symmetricKeyingMaterial));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Set<sp/>up<sp/>a<sp/>KDF<sp/>such<sp/>as<sp/>HKDF<sp/>and<sp/>open<sp/>the<sp/>requisite<sp/>cryptographic<sp/>primitive<sp/>driver<sp/>to<sp/>implement<sp/>it</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>HKDF<sp/>and<sp/>SHA2<sp/>were<sp/>chosen<sp/>as<sp/>an<sp/>example<sp/>and<sp/>may<sp/>not<sp/>be<sp/>available<sp/>directly</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>At<sp/>this<sp/>point,<sp/>you<sp/>and<sp/>the<sp/>other<sp/>party<sp/>have<sp/>both<sp/>created<sp/>the<sp/>content<sp/>within<sp/>symmetricKeyingMaterial<sp/>without</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>someone<sp/>else<sp/>listening<sp/>to<sp/>your<sp/>communication<sp/>channel<sp/>being<sp/>able<sp/>to<sp/>do<sp/>so</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2017-2018,<sp/>Texas<sp/>Instruments<sp/>Incorporated</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>Texas<sp/>Instruments<sp/>Incorporated<sp/>nor<sp/>the<sp/>names<sp/>of</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>its<sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>from<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>OWNER<sp/>OR</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>CONTRIBUTORS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*/</highlight></codeline>
+<codeline lineno="295"><highlight class="preprocessor">#ifndef<sp/>ti_drivers_ECDH__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ti_drivers_ECDH__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_crypto_key_8h" kindref="compound">ti/drivers/cryptoutils/cryptokey/CryptoKey.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_e_c_c_params_8h" kindref="compound">ti/drivers/cryptoutils/ecc/ECCParams.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326" refid="group___e_c_d_h___c_o_n_t_r_o_l_1gabfc5ce4072f58603493b8921564b94d6" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_CMD_RESERVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(32)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="340" refid="group___e_c_d_h___c_o_n_t_r_o_l_1ga00dbed059c824024835da32a82143cf9" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_STATUS_RESERVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(-32)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355" refid="group___e_c_d_h___s_t_a_t_u_s_1gaadb5927711e0215b36d2895573622a5f" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_STATUS_SUCCESS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363" refid="group___e_c_d_h___s_t_a_t_u_s_1ga833a693cf04fcd2e6983105f9ff137c5" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_STATUS_ERROR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(-1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight></codeline>
+<codeline lineno="372" refid="group___e_c_d_h___s_t_a_t_u_s_1gaa69f61c43b944cffd84a88652c69394e" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_STATUS_UNDEFINEDCMD<sp/><sp/><sp/><sp/>(-2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight></codeline>
+<codeline lineno="382" refid="group___e_c_d_h___s_t_a_t_u_s_1gab70467d8fc82bab4e8e709273d6cd322" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_STATUS_RESOURCE_UNAVAILABLE<sp/>(-3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="383"><highlight class="normal"></highlight></codeline>
+<codeline lineno="390" refid="group___e_c_d_h___s_t_a_t_u_s_1gad1255d673e521a12585d034ab228af3f" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_STATUS_POINT_AT_INFINITY<sp/>(-4)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight></codeline>
+<codeline lineno="398" refid="group___e_c_d_h___s_t_a_t_u_s_1ga9858e344c1e0603f86645ae4928a3eca" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_STATUS_PRIVATE_KEY_LARGER_EQUAL_ORDER<sp/>(-5)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="399"><highlight class="normal"></highlight></codeline>
+<codeline lineno="406" refid="group___e_c_d_h___s_t_a_t_u_s_1gad4a3781705d2a5cf7850187828a27a58" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_STATUS_PRIVATE_KEY_ZERO<sp/>(-6)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="407"><highlight class="normal"></highlight></codeline>
+<codeline lineno="408"><highlight class="normal"></highlight></codeline>
+<codeline lineno="415" refid="group___e_c_d_h___s_t_a_t_u_s_1gaaf391c2c59fbf91364c2664b38af7bbe" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_STATUS_PUBLIC_KEY_NOT_ON_CURVE<sp/>(-7)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="416"><highlight class="normal"></highlight></codeline>
+<codeline lineno="424" refid="group___e_c_d_h___s_t_a_t_u_s_1ga0765420780e918aaa5814c077f59daec" refkind="member"><highlight class="preprocessor">#define<sp/>ECDH_STATUS_PUBLIC_KEY_LARGER_THAN_PRIME<sp/>(-8)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="425"><highlight class="normal"></highlight></codeline>
+<codeline lineno="438"><highlight class="comment">/*<sp/>Add<sp/>ECDH_CMD_&lt;commands&gt;<sp/>here<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="439"><highlight class="normal"></highlight></codeline>
+<codeline lineno="447" refid="_e_c_d_h_8h_1a75e0fffee9c97d9f22cb4f1118236614" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_d_h___config__" kindref="compound">ECDH_Config_</ref><sp/><sp/><sp/><sp/>*<ref refid="_e_c_d_h_8h_1a75e0fffee9c97d9f22cb4f1118236614" kindref="member">ECDH_Handle</ref>;</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"></highlight></codeline>
+<codeline lineno="470" refid="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92b" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92b" kindref="member">ECDH_ReturnBehavior_</ref><sp/>{</highlight></codeline>
+<codeline lineno="471" refid="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92baab484909ed8c542b06511a66cc52ef18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92baab484909ed8c542b06511a66cc52ef18" kindref="member">ECDH_RETURN_BEHAVIOR_CALLBACK</ref><sp/>=<sp/>1,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="477" refid="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92bad76afb7626a0e43453bd8d7713eae59a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92bad76afb7626a0e43453bd8d7713eae59a" kindref="member">ECDH_RETURN_BEHAVIOR_BLOCKING</ref><sp/>=<sp/>2,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="481" refid="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92ba91e4b64cb2e16e67d8d3085efb31cc52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_h_8h_1af19eccaed2fddc99068576029d6ee92ba91e4b64cb2e16e67d8d3085efb31cc52" kindref="member">ECDH_RETURN_BEHAVIOR_POLLING</ref><sp/><sp/>=<sp/>4,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="485"><highlight class="normal">}<sp/><ref refid="_e_c_d_h_8h_1a3ae70d3a1b95499c07b36a0f9e6d9db7" kindref="member">ECDH_ReturnBehavior</ref>;</highlight></codeline>
+<codeline lineno="486"><highlight class="normal"></highlight></codeline>
+<codeline lineno="487"><highlight class="normal"></highlight></codeline>
+<codeline lineno="499" refid="struct_e_c_d_h___config__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_d_h___config__" kindref="compound">ECDH_Config_</ref><sp/>{</highlight></codeline>
+<codeline lineno="501" refid="struct_e_c_d_h___config___1ab07cfca2bb1a372676088fff3b4805b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_h___config___1ab07cfca2bb1a372676088fff3b4805b1" kindref="member">object</ref>;</highlight></codeline>
+<codeline lineno="502"><highlight class="normal"></highlight></codeline>
+<codeline lineno="504" refid="struct_e_c_d_h___config___1ad52f2cdf10370ecbd0422bff4ece7d7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="struct_e_c_d_h___config___1ad52f2cdf10370ecbd0422bff4ece7d7c" kindref="member">hwAttrs</ref>;</highlight></codeline>
+<codeline lineno="505"><highlight class="normal">}<sp/><ref refid="_e_c_d_h_8h_1a80527012e7ffe67b74120ceae40ac688" kindref="member">ECDH_Config</ref>;</highlight></codeline>
+<codeline lineno="506"><highlight class="normal"></highlight></codeline>
+<codeline lineno="510" refid="struct_e_c_d_h___operation_generate_public_key__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_d_h___operation_generate_public_key__" kindref="compound">ECDH_OperationGeneratePublicKey_</ref><sp/>{</highlight></codeline>
+<codeline lineno="511" refid="struct_e_c_d_h___operation_generate_public_key___1ac7dd3eabf7bcdefa12729b982533093e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_e_c_c_params___curve_params__" kindref="compound">ECCParams_CurveParams</ref><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_h___operation_generate_public_key___1ac7dd3eabf7bcdefa12729b982533093e" kindref="member">curve</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="512" refid="struct_e_c_d_h___operation_generate_public_key___1ae3010a26cb64eeb3e150855e2ace5459" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_h___operation_generate_public_key___1ae3010a26cb64eeb3e150855e2ace5459" kindref="member">myPrivateKey</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="515" refid="struct_e_c_d_h___operation_generate_public_key___1a0cbda21f8e8a254825ffe7eea5f67bee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_h___operation_generate_public_key___1a0cbda21f8e8a254825ffe7eea5f67bee" kindref="member">myPublicKey</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="518"><highlight class="normal">}<sp/><ref refid="_e_c_d_h_8h_1ad3d2f4e4e043114c4bd630a7571562f4" kindref="member">ECDH_OperationGeneratePublicKey</ref>;</highlight></codeline>
+<codeline lineno="519"><highlight class="normal"></highlight></codeline>
+<codeline lineno="523" refid="struct_e_c_d_h___operation_compute_shared_secret__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_d_h___operation_compute_shared_secret__" kindref="compound">ECDH_OperationComputeSharedSecret_</ref><sp/>{</highlight></codeline>
+<codeline lineno="524" refid="struct_e_c_d_h___operation_compute_shared_secret___1aaf7ee4e779006cb36919bae5c3caa024" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_e_c_c_params___curve_params__" kindref="compound">ECCParams_CurveParams</ref><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_h___operation_compute_shared_secret___1aaf7ee4e779006cb36919bae5c3caa024" kindref="member">curve</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="527" refid="struct_e_c_d_h___operation_compute_shared_secret___1a5330c1dd0d08c1146aa77ef79b7da091" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_h___operation_compute_shared_secret___1a5330c1dd0d08c1146aa77ef79b7da091" kindref="member">myPrivateKey</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="530" refid="struct_e_c_d_h___operation_compute_shared_secret___1aa706deb353568a869fcca5b1c56781f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_h___operation_compute_shared_secret___1aa706deb353568a869fcca5b1c56781f3" kindref="member">theirPublicKey</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="533" refid="struct_e_c_d_h___operation_compute_shared_secret___1a766652b2d52a5eda1fdb6bea947bb4a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_h___operation_compute_shared_secret___1a766652b2d52a5eda1fdb6bea947bb4a6" kindref="member">sharedSecret</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="536"><highlight class="normal">}<sp/><ref refid="_e_c_d_h_8h_1a1d663108cf3fb7004f85f5d10489e2f0" kindref="member">ECDH_OperationComputeSharedSecret</ref>;</highlight></codeline>
+<codeline lineno="537"><highlight class="normal"></highlight></codeline>
+<codeline lineno="541" refid="union_e_c_d_h___operation__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">union<sp/></highlight><highlight class="normal"><ref refid="union_e_c_d_h___operation__" kindref="compound">ECDH_Operation_</ref><sp/>{</highlight></codeline>
+<codeline lineno="542" refid="union_e_c_d_h___operation___1a7bdbf4be0f78280fd938cce80d70c9d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_e_c_d_h___operation_generate_public_key__" kindref="compound">ECDH_OperationGeneratePublicKey</ref><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="union_e_c_d_h___operation___1a7bdbf4be0f78280fd938cce80d70c9d3" kindref="member">generatePublicKey</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="543" refid="union_e_c_d_h___operation___1abfe850b0656dd1efb9e6a288d556adbf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_e_c_d_h___operation_compute_shared_secret__" kindref="compound">ECDH_OperationComputeSharedSecret</ref><sp/><sp/><sp/><sp/>*<ref refid="union_e_c_d_h___operation___1abfe850b0656dd1efb9e6a288d556adbf" kindref="member">computeSharedSecret</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="544"><highlight class="normal">}<sp/><ref refid="_e_c_d_h_8h_1addfcd5e533ffe35867e6ff11281bae1f" kindref="member">ECDH_Operation</ref>;</highlight></codeline>
+<codeline lineno="545"><highlight class="normal"></highlight></codeline>
+<codeline lineno="549" refid="_e_c_d_h_8h_1a50ecd96446ea392ad274228d85d807bf" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_h_8h_1a50ecd96446ea392ad274228d85d807bf" kindref="member">ECDH_OperationType_</ref><sp/>{</highlight></codeline>
+<codeline lineno="550" refid="_e_c_d_h_8h_1a50ecd96446ea392ad274228d85d807bfa62570c7af35bd230669defb259782d16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_h_8h_1a50ecd96446ea392ad274228d85d807bfa62570c7af35bd230669defb259782d16" kindref="member">ECDH_OPERATION_TYPE_GENERATE_PUBLIC_KEY</ref><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="551" refid="_e_c_d_h_8h_1a50ecd96446ea392ad274228d85d807bfa5cd7dd7ccef7e1a2cda0dda6b6a309e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_h_8h_1a50ecd96446ea392ad274228d85d807bfa5cd7dd7ccef7e1a2cda0dda6b6a309e5" kindref="member">ECDH_OPERATION_TYPE_COMPUTE_SHARED_SECRET</ref><sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="552"><highlight class="normal">}<sp/><ref refid="_e_c_d_h_8h_1ade105285f97cb2204b52179f0978c888" kindref="member">ECDH_OperationType</ref>;</highlight></codeline>
+<codeline lineno="553"><highlight class="normal"></highlight></codeline>
+<codeline lineno="572" refid="_e_c_d_h_8h_1a978c9e16d670371e7c0c50793fc4ec04" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_e_c_d_h_8h_1a978c9e16d670371e7c0c50793fc4ec04" kindref="member">ECDH_CallbackFxn</ref>)<sp/>(ECDH_Handle<sp/>handle,</highlight></codeline>
+<codeline lineno="573"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int_fast16_t<sp/>returnStatus,</highlight></codeline>
+<codeline lineno="574"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="union_e_c_d_h___operation__" kindref="compound">ECDH_Operation</ref><sp/>operation,</highlight></codeline>
+<codeline lineno="575"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_e_c_d_h_8h_1ade105285f97cb2204b52179f0978c888" kindref="member">ECDH_OperationType</ref><sp/>operationType);</highlight></codeline>
+<codeline lineno="576"><highlight class="normal"></highlight></codeline>
+<codeline lineno="585" refid="struct_e_c_d_h___params__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_d_h___params__" kindref="compound">ECDH_Params_</ref><sp/>{</highlight></codeline>
+<codeline lineno="586" refid="struct_e_c_d_h___params___1abc8e1116a8c1d383e0edd5be439b6074" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_h_8h_1a3ae70d3a1b95499c07b36a0f9e6d9db7" kindref="member">ECDH_ReturnBehavior</ref><sp/><sp/><sp/><sp/><sp/><ref refid="struct_e_c_d_h___params___1abc8e1116a8c1d383e0edd5be439b6074" kindref="member">returnBehavior</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="587" refid="struct_e_c_d_h___params___1ae184d47f21b29f672fcfee065c61e8f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_h_8h_1a978c9e16d670371e7c0c50793fc4ec04" kindref="member">ECDH_CallbackFxn</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_e_c_d_h___params___1ae184d47f21b29f672fcfee065c61e8f9" kindref="member">callbackFxn</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="588" refid="struct_e_c_d_h___params___1a2c0c26e4c3157b71862d8aa628b44162" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_e_c_d_h___params___1a2c0c26e4c3157b71862d8aa628b44162" kindref="member">timeout</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="589" refid="struct_e_c_d_h___params___1a2a3d32d2b5392399d9b45b04cb469ee1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_h___params___1a2a3d32d2b5392399d9b45b04cb469ee1" kindref="member">custom</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="592"><highlight class="normal">}<sp/><ref refid="_e_c_d_h_8h_1aa5a15905b9a80ed269adf4ca519151ed" kindref="member">ECDH_Params</ref>;</highlight></codeline>
+<codeline lineno="593"><highlight class="normal"></highlight></codeline>
+<codeline lineno="599"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_e_c_d_h___params__" kindref="compound">ECDH_Params</ref><sp/><ref refid="_e_c_d_h_8h_1ad97202536e7a3ea20529969825b5c389" kindref="member">ECDH_defaultParams</ref>;</highlight></codeline>
+<codeline lineno="600"><highlight class="normal"></highlight></codeline>
+<codeline lineno="609"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_h_8h_1aeafc9a67220447bca292685b6b2e7640" kindref="member">ECDH_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="610"><highlight class="normal"></highlight></codeline>
+<codeline lineno="623"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_h_8h_1aba742374e7813cd416d26a1b86872bf4" kindref="member">ECDH_Params_init</ref>(<ref refid="struct_e_c_d_h___params__" kindref="compound">ECDH_Params</ref><sp/>*params);</highlight></codeline>
+<codeline lineno="624"><highlight class="normal"></highlight></codeline>
+<codeline lineno="642"><highlight class="normal">ECDH_Handle<sp/><ref refid="_e_c_d_h_8h_1a4c10865a8a3c33937111b8a379e3783b" kindref="member">ECDH_open</ref>(uint_least8_t<sp/>index,<sp/><ref refid="struct_e_c_d_h___params__" kindref="compound">ECDH_Params</ref><sp/>*params);</highlight></codeline>
+<codeline lineno="643"><highlight class="normal"></highlight></codeline>
+<codeline lineno="653"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_h_8h_1a47f6da8d23ef19680b27354e424dfcc1" kindref="member">ECDH_close</ref>(ECDH_Handle<sp/>handle);</highlight></codeline>
+<codeline lineno="654"><highlight class="normal"></highlight></codeline>
+<codeline lineno="692"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_d_h_8h_1a1a5e651310388708c3c0fec76f3d58ca" kindref="member">ECDH_control</ref>(ECDH_Handle<sp/>handle,<sp/>uint32_t<sp/>cmd,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*args);</highlight></codeline>
+<codeline lineno="693"><highlight class="normal"></highlight></codeline>
+<codeline lineno="702"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_h_8h_1a3828b70f1353f25ed32ce4daff66b5be" kindref="member">ECDH_OperationGeneratePublicKey_init</ref>(<ref refid="struct_e_c_d_h___operation_generate_public_key__" kindref="compound">ECDH_OperationGeneratePublicKey</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="703"><highlight class="normal"></highlight></codeline>
+<codeline lineno="712"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_h_8h_1ad2eb16f459a7dad3cf51db76c74400bb" kindref="member">ECDH_OperationComputeSharedSecret_init</ref>(<ref refid="struct_e_c_d_h___operation_compute_shared_secret__" kindref="compound">ECDH_OperationComputeSharedSecret</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="713"><highlight class="normal"></highlight></codeline>
+<codeline lineno="729"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_d_h_8h_1af674c6e1f24af5212f0694ac033b3542" kindref="member">ECDH_generatePublicKey</ref>(ECDH_Handle<sp/>handle,<sp/><ref refid="struct_e_c_d_h___operation_generate_public_key__" kindref="compound">ECDH_OperationGeneratePublicKey</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="730"><highlight class="normal"></highlight></codeline>
+<codeline lineno="744"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_d_h_8h_1aac7cce4647109da02f1f4f952697ae85" kindref="member">ECDH_computeSharedSecret</ref>(ECDH_Handle<sp/>handle,<sp/><ref refid="struct_e_c_d_h___operation_compute_shared_secret__" kindref="compound">ECDH_OperationComputeSharedSecret</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="745"><highlight class="normal"></highlight></codeline>
+<codeline lineno="746"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="747"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="748"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="749"><highlight class="normal"></highlight></codeline>
+<codeline lineno="750"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>ti_drivers_ECDH__include<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h"/>
+  </compounddef>
+</doxygen>

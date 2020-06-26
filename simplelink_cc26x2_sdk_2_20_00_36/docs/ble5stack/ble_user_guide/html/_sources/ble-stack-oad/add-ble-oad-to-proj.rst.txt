@@ -1,0 +1,104 @@
+.. _sec-add-ble-oad-to-project:
+
+Adding BLE OAD to an Existing Project
+=====================================
+
+.. _SimpleLink Academy Enhanced OAD Module for SimpleLink CC26x2 SDK: http://dev.ti.com/tirex/#/?link=Software%2FSimpleLink%20CC26X2%20SDK
+
+This section will provide high level detail about  how to add BLE OAD to an
+existing project. It is intended as a high level checklist that covers
+the major steps involved in adding OAD to an existing project, detailed
+steps and instructions can be found in the
+`SimpleLink Academy Enhanced OAD Module for SimpleLink CC26x2 SDK`_.
+
+Off-Chip OAD
+------------
+
+This section will detail how to add off-chip OAD to an existing project.
+
+
+Project Changes
+"""""""""""""""
+
+In order to add OAD, certain files and include paths should be added to the
+project, these are detailed in the list below.
+
+#. Replace the default linker file with the following:
+
+    - ``cc26x2_app_oad_agama.cmd`` : For CCS
+    - ``cc26xx_app_and_stack_agama_oad.icf`` : For IAR
+
+#. Add the following to the linker defines:
+
+    - ``OAD_IMG_E=1``
+
+#. Add the following define to the ``.opt`` files:
+
+    - ``-DMAX_PDU_SIZE=251``
+
+    .. note::
+
+        This define will control the negotiated block size. Block Size is
+        derived from MTU size, which is derived by the minimum of the local
+        supported PDU size and peer's supported MTU. See
+        :ref:`sec-blk-size-rules`.
+
+#. Relocate the TI-RTOS reset vectors:
+
+    - Set ``m3Hwi.resetVectorAddress  = 0x50;`` in the application's ``.cfg``
+      file. Note: Each application has two of these (debug, release), apply
+      change for both. Replace any previous values in the file.
+
+#. The following files should be removed from the project:
+
+    - ``ccfg_app_ble.c`` : The BIM links the CCFG in an OAD system.
+
+#. Add the following files to the project
+
+    - ``oad.c`` : OAD profile implementation
+    - ``oad.h`` : Public OAD profile API definition
+    - ``crc32.c`` : CRC32 algorithm and helper functions
+    - ``crc32.h`` : CRC32 public API definition
+    - ``flash_interface.h`` : A flash abstraction layer that abstracts flash
+      operations for on and off-chip OAD.
+    - ``oad_iamge_header.h`` : Structure definitions for the OAD image header
+    - ``oad_image_header_app.c``: Application definition of image header.
+    - ``oad_defines.h``: Common header containing OAD definitions
+    - ``bim_util.h`` :  Public API definition of utility functions shared
+      between the BIM and application.
+    - ``bim_util.c`` : Implementation of BIM utility functions
+    - ``flash_interface_ext_rtos_NVS.c``: TI-RTOS NVS driver implementation of
+      flash interface for **off-chip** OAD.
+
+    The following files are only required if the optional revert to factory
+    image feature is required:
+
+    - ``mark_switch_factory_img.h`` : Public API definition for factory image
+      switch.
+    - ``mark_switch_factory_img.c`` : Implementation of factory image switching
+      mechanism.
+
+#. The following pre-processor include paths should be added to the project.
+
+    - ``source/ti``
+    - ``source/ti/ble5stack``
+
+#. Add the OAD image tool post build step to the project.
+
+    - See the sample applications within the SDK with OAD enabled
+      (``project_zero``, ``simple_peripheral_oad_offchip``) and copy the post
+      build step from there.
+    - Note that the ``TOOLS_OAD_DIR`` environment variable may not exist for all
+      projects. It can either be added or substituted with a path to the
+      OAD executable.
+    - Also note that some projects do not append their configuration name to
+      their output hex file. If the image tool reports that it cannot find the
+      input file, check the naming.
+
+Code Changes
+""""""""""""
+
+The required code changes are detailed in the
+`SimpleLink Academy Enhanced OAD Module for SimpleLink CC26x2 SDK`_.
+
+

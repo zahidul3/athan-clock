@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_g_p_timer_c_c26_x_x___params" kind="struct" language="C++" prot="public">
+    <compoundname>GPTimerCC26XX_Params</compoundname>
+    <includes refid="_g_p_timer_c_c26_x_x_8h" local="no">GPTimerCC26XX.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_p_timer_c_c26_x_x___params_1a4c9e040425769960160b4d42496f5aec" prot="public" static="no" mutable="no">
+        <type><ref refid="_g_p_timer_c_c26_x_x_8h_1a37f7594eb4084eff43d5b80bb6418ec7" kindref="member">GPTimerCC26XX_Width</ref></type>
+        <definition>GPTimerCC26XX_Width GPTimerCC26XX_Params::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timer configuration (32/16-bit) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/timer/GPTimerCC26XX.h" line="395" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/timer/GPTimerCC26XX.h" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_timer_c_c26_x_x___params_1ae911c92ad3079146c568a02575bb6300" prot="public" static="no" mutable="no">
+        <type><ref refid="_g_p_timer_c_c26_x_x_8h_1ac3f0539fd948c59b31df04dff5b7024c" kindref="member">GPTimerCC26XX_Mode</ref></type>
+        <definition>GPTimerCC26XX_Mode GPTimerCC26XX_Params::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timer mode </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/timer/GPTimerCC26XX.h" line="396" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/timer/GPTimerCC26XX.h" bodystart="396" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_timer_c_c26_x_x___params_1aebaace525be6fc274c77ff655f604754" prot="public" static="no" mutable="no">
+        <type><ref refid="_g_p_timer_c_c26_x_x_8h_1ab4c80c79c9acaf8e482e8244adbae73e" kindref="member">GPTimerCC26XX_DebugMode</ref></type>
+        <definition>GPTimerCC26XX_DebugMode GPTimerCC26XX_Params::debugStallMode</definition>
+        <argsstring></argsstring>
+        <name>debugStallMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timer debug stall mode </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/timer/GPTimerCC26XX.h" line="397" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/timer/GPTimerCC26XX.h" bodystart="397" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>GPTimerCC26XX Parameters. </para>    </briefdescription>
+    <detaileddescription>
+<para>GPTimer parameters are used to with the <ref refid="_g_p_timer_c_c26_x_x_8h_1a30f6c028f0abea0b35c3be3d1609ea9b" kindref="member">GPTimerCC26XX_open()</ref> call. Default values for these parameters are set using <ref refid="_g_p_timer_c_c26_x_x_8h_1a11e9f3ff24f5f075989f89d99e65e827" kindref="member">GPTimerCC26XX_Params_init()</ref>.</para><para><simplesect kind="see"><para><ref refid="_g_p_timer_c_c26_x_x_8h_1a11e9f3ff24f5f075989f89d99e65e827" kindref="member">GPTimerCC26XX_Params_init()</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/timer/GPTimerCC26XX.h" line="394" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/timer/GPTimerCC26XX.h" bodystart="393" bodyend="398"/>
+    <listofallmembers>
+      <member refid="struct_g_p_timer_c_c26_x_x___params_1aebaace525be6fc274c77ff655f604754" prot="public" virt="non-virtual"><scope>GPTimerCC26XX_Params</scope><name>debugStallMode</name></member>
+      <member refid="struct_g_p_timer_c_c26_x_x___params_1ae911c92ad3079146c568a02575bb6300" prot="public" virt="non-virtual"><scope>GPTimerCC26XX_Params</scope><name>mode</name></member>
+      <member refid="struct_g_p_timer_c_c26_x_x___params_1a4c9e040425769960160b4d42496f5aec" prot="public" virt="non-virtual"><scope>GPTimerCC26XX_Params</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

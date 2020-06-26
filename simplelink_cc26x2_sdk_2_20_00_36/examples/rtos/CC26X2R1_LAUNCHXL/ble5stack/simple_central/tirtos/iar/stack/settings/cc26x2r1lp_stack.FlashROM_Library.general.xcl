@@ -1,0 +1,13 @@
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\bin\armproc.dll" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\bin\armsim2.dll" 
+
+"C:\TI\simplelink_cc26x2_sdk_2_20_00_36\examples\rtos\CC26X2R1_LAUNCHXL\ble5stack\simple_central\tirtos\iar\stack\FlashROM_Library\Exe\ble5_simple_central_cc26x2r1lp_stack_FlashROM_Library.out" 
+
+--plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\bin\armbat.dll" 
+
+--device_macro="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\config\debugger\TexasInstruments\CC26x2.dmac" 
+
+
+
+

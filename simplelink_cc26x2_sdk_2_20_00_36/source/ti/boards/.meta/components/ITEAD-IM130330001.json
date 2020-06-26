@@ -1,0 +1,38 @@
+{
+    "type"         : "joystick",
+    "name"         : "ITEAD_IM130330001",
+    "displayName"  : "2-Axis Joystick with Pushbutton",
+    "partNum"      : "ITEAD IM130330001",
+    "subComponents":
+    {
+        "horizontal":
+        {
+            "type"       : "joystick-axis",
+            "displayName": "Joystick Horizontal Axis",
+            "signals"    :
+            {
+                "analogInput": { "type": "AIN" }
+            }
+        },
+
+        "vertical":
+        {
+            "type"       : "joystick-axis",
+            "displayName": "Joystick Vertical Axis",
+            "signals"    :
+            {
+                "analogInput": { "type": "AIN" }
+            }
+        },
+
+        "select":
+        {
+            "type"       : "button",
+            "displayName": "Joystick Pushbutton",
+            "signals"    :
+            {
+                "digitalInput": { "type": "DIN" }
+            }
+        }
+    }
+}

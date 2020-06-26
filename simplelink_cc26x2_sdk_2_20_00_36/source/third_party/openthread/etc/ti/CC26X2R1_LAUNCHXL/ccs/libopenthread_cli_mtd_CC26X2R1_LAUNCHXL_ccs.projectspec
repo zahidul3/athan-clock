@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <applicability>
+        <when>
+            <context
+                deviceFamily="ARM"
+                deviceId="Cortex M.CC2652R1F"
+            />
+        </when>
+    </applicability>
+    <project
+      name="libopenthread_cli_mtd_CC26X2R1_LAUNCHXL_ccs"
+      device="Cortex M.CC2652R1F"
+      configurations="OptimizeSize"
+      toolChain="TI"
+      outputType="staticLibrary"
+      references=""
+      description="this is the openthread cli (mode: mtd) library"
+      launchWizard ="false"
+      artifactName="libopenthread_cli_mtd"
+      products="com.ti.SIMPLELINK_CC26X2_SDK"
+      ignoreDefaultDeviceSettings="true"
+      >
+
+    <configuration name="OptimizeSize"
+		   compilerBuildOptions="-O4 --opt_for_speed=0 -mv7M4 --abi=eabi -me --c99 --gcc --float_operations_allowed=none --printf_support=nofloat --gen_func_subsections=on --embedded_constants=on --wchar_t=16 --enum_type=packed --gen_data_subsections=on --common=on --plain_char=unsigned --diag_suppress=23000 -I${OPENTHREAD_ROOT_DIR}/examples/platforms -DSIMPLELINK_OPENTHREAD_SDK_BUILD=1 -DSIMPLELINK_OPENTHREAD_CONFIG_MTD=1 -DSIMPLELINK_OPENTHREAD_CONFIG_CC2652=1 -DOPENTHREAD_CONFIG_FILE=&apos;&quot;openthread-config-cc2652-ccs-mtd.h&quot;&apos; -DOPENTHREAD_PROJECT_CORE_CONFIG_FILE=&apos;&quot;openthread-core-cc2652-config-ide.h&quot;&apos; -DMBEDTLS_CONFIG_FILE=&apos;&quot;mbedtls-config-cc2652-ccs.h&quot;&apos; -I${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source -I${WorkspaceDirPath}/libmbedcrypto_CC26X2R1_LAUNCHXL_ccs -I${WorkspaceDirPath}/libopenthread_mtd_CC26X2R1_LAUNCHXL_ccs -I${OPENTHREAD_ROOT_DIR}/third_party/mbedtls -I${OPENTHREAD_ROOT_DIR}/third_party/mbedtls/repo.patched/include -I${OPENTHREAD_ROOT_DIR}/src/core -I${OPENTHREAD_ROOT_DIR}/src -I${OPENTHREAD_ROOT_DIR}/include -I${OPENTHREAD_ROOT_DIR}/etc/ti/CC26X2R1_LAUNCHXL/ccs -DHAVE_CONFIG_H -D_BSD_SOURCE=1 -D_DEFAULT_SOURCE=1 -DOPENTHREAD_MTD=1"
+		   ></configuration>
+
+
+    <property name="target" value="ti.targets.arm.elf.M4"/>
+    <property name="platform" value="ti.platforms.simplelink:CC2652R1F"/>
+    <property name="buildProfile" value="Release"/>
+
+
+        <pathVariable name="LIBCLI_PROJECTSPEC_DIR" path="." scope="project"/>
+        <pathVariable name="OPENTHREAD_ROOT_DIR" path="${LIBCLI_PROJECTSPEC_DIR}/../../../.." scope="project"/>
+
+        <file path="OPENTHREAD_ROOT_DIR/src/cli" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="src" createVirtualFolders="true"/>
+
+  </project>
+</projectSpec>

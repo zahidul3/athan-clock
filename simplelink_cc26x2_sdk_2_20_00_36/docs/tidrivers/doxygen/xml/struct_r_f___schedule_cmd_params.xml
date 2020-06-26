@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_r_f___schedule_cmd_params" kind="struct" language="C++" prot="public">
+    <compoundname>RF_ScheduleCmdParams</compoundname>
+    <includes refid="_r_f_8h" local="no">RF.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_r_f___schedule_cmd_params_1ae4244a807352c8c93def2d39bbbd080e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_ScheduleCmdParams::endTime</definition>
+        <argsstring></argsstring>
+        <name>endTime</name>
+        <briefdescription>
+<para>End time in RAT Ticks for the radio command. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1519" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1519" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___schedule_cmd_params_1a809078fc59bdf91f81ef390da0047537" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1ae5f9a893d178e64e6d0a7a783ea06e32" kindref="member">RF_Priority</ref></type>
+        <definition>RF_Priority RF_ScheduleCmdParams::priority</definition>
+        <argsstring></argsstring>
+        <name>priority</name>
+        <briefdescription>
+<para>Intra client priority. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1520" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1520" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___schedule_cmd_params_1aa52c58bb63181c248966b0bd67c76975" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_ScheduleCmdParams::allowDelay</definition>
+        <argsstring></argsstring>
+        <name>allowDelay</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Control word to define the policy of the scheduler if the timing of a command cannot be met. Only applicable on CC13x2 and CC26x2 devices. RF_AllowDelayNone: Reject the command. RF_AllowDelayAny: Append the command to the end of the queue. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1521" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1521" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1518" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1518" bodyend="1525"/>
+    <listofallmembers>
+      <member refid="struct_r_f___schedule_cmd_params_1aa52c58bb63181c248966b0bd67c76975" prot="public" virt="non-virtual"><scope>RF_ScheduleCmdParams</scope><name>allowDelay</name></member>
+      <member refid="struct_r_f___schedule_cmd_params_1ae4244a807352c8c93def2d39bbbd080e" prot="public" virt="non-virtual"><scope>RF_ScheduleCmdParams</scope><name>endTime</name></member>
+      <member refid="struct_r_f___schedule_cmd_params_1a809078fc59bdf91f81ef390da0047537" prot="public" virt="non-virtual"><scope>RF_ScheduleCmdParams</scope><name>priority</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

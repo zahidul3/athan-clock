@@ -1,0 +1,131 @@
+/*******************************************************************************
+  Filename:       IAR.mac
+  Revised:        $Date: 2012-02-15 14:16:51 -0800 (Wed, 15 Feb 2012) $
+  Revision:       $Revision: 29310 $
+
+  Description:    This file contains IAR C-SPY reserved and user defined macros.
+
+  Copyright 2012-2013 Texas Instruments Incorporated. All rights reserved.
+
+  IMPORTANT: Your use of this Software is limited to those specific rights
+  granted under the terms of a software license agreement between the user
+  who downloaded the software, his/her employer (which must be your employer)
+  and Texas Instruments Incorporated (the "License").  You may not use this
+  Software unless you agree to abide by the terms of the License. The License
+  limits your use, and you acknowledge, that the Software may not be modified,
+  copied or distributed unless embedded on a Texas Instruments microcontroller
+  or used solely and exclusively in conjunction with a Texas Instruments radio
+  frequency transceiver, which is integrated into your product.  Other than for
+  the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+  works of, modify, distribute, perform, display or sell this Software and/or
+  its documentation for any purpose.
+
+  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+  NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+  TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+  NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+  LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+  INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+  OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+  OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+  (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+
+  Should you have any questions regarding your right to use this Software,
+  contact Texas Instruments Incorporated at www.TI.com.
+*******************************************************************************/
+
+/*******************************************************************************
+** Reserved Setup Macro Functions
+*/
+
+execUserReset() 
+{
+  /* hardware reset the MCU */
+  resetMCU();
+
+  /* clear the debugger DNI file so it will prompt for probe */
+  resetXdsProbe();
+
+  return;
+}
+
+/*******************************************************************************
+** User Functions
+*/
+
+/*******************************************************************************
+ * @fn          resetMCU
+ *
+ * @brief       This macro performs a hardware reset of the target by setting
+ *              the TRIG bit in the CC26xx PRCM SYSRES_DBG register. This
+ *              generates a reset pulse that resets all MCU logic (HW cleared).
+ *
+ * input parameters
+ *
+ * @param       None.
+ *
+ * output parameters
+ *
+ * @param       None.
+ *
+ * @return      None.
+ */
+resetMCU()
+{
+  __message "Asserting HW MCU reset using SYSRES_DBG.TRIG..."; 
+  __writeMemory32(0x00000001, 0x40082270, "Memory");
+
+  return;
+}
+
+
+/*******************************************************************************
+ * @fn          resetXdsProbe
+ *
+ * @brief       This macro replaces the first three lines of the debugger DNI 
+ *              file, leaving off the XDS100 serial name. This causes the 
+ *              debugger to prompt for the probe when connecting to the target 
+ *              (if multiple probes have been identified), thereby allowing a 
+ *              common project to be used with multiple targets.
+ *
+ *              Note: After being prompted for and connecting to the first
+ *                    target, the second target will be automatically connected
+ *                    to without a prompt.
+ *
+ *              Note: This code assumes the name of the DNI file is CC2650.dni.
+ *
+ * input parameters
+ *
+ * @param       None.
+ *
+ * output parameters
+ *
+ * @param       None.
+ *
+ * @return      None.
+ */
+resetXdsProbe()
+{
+  __var fd;
+  
+  fd = __openFile("$PROJ_DIR$\\settings\\CC2650.dni","w" );
+
+  if ( fd ) 
+  {
+    __message "Invalidating XDS100 probe..."; 
+    __resetFile( fd );
+	__fmessage fd, "[xds100]\n";
+	__fmessage fd, "xds100serialNo=\n";
+	__fmessage fd, "xds100foundProbes=MASTER:SLAVE:";
+    __closeFile( fd ); 
+  }
+  else /* invalid file descriptor */
+  {
+    __message "Unable to open the DNI file!";
+  }
+
+  return;
+}
+

@@ -1,0 +1,24 @@
+[
+   {
+      "packages" : [],
+      "files" : [
+         "+../../gpiointerrupt.c -> gpiointerrupt.c",
+         "+../main_tirtos.c -> main_tirtos.c",
+         "+../../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../../ccfg.c -> ccfg.c",
+         "+./CC26X2R1_LAUNCHXL_TIRTOS.icf -> gpiointerrupt_CC26X2R1_LAUNCHXL_TIRTOS.icf",
+         "+../../Board.h -> Board.h",
+         "+../../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+../../README.md -> README.md",
+         "+../../README.html -> README.html"
+      ],
+      "name" : "na",
+      "default" : "na",
+      "compiler" : {
+         "location" : "na",
+         "specified" : "na",
+         "effective" : "na"
+      }
+   }
+]

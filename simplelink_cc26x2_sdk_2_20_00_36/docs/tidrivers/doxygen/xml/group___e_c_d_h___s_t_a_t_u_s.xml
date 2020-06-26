@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="group___e_c_d_h___s_t_a_t_u_s" kind="group">
+    <compoundname>ECDH_STATUS</compoundname>
+    <title>Status Codes</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gaadb5927711e0215b36d2895573622a5f" prot="public" static="no">
+        <name>ECDH_STATUS_SUCCESS</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+<para>Successful status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECDH_STATUS_SUCCESS if the function was executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="355" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1ga833a693cf04fcd2e6983105f9ff137c5" prot="public" static="no">
+        <name>ECDH_STATUS_ERROR</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+<para>Generic error status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECDH_STATUS_ERROR if the function was not executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="363" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gaa69f61c43b944cffd84a88652c69394e" prot="public" static="no">
+        <name>ECDH_STATUS_UNDEFINEDCMD</name>
+        <initializer>(-2)</initializer>
+        <briefdescription>
+<para>An error status code returned by <ref refid="_e_c_d_h_8h_1a1a5e651310388708c3c0fec76f3d58ca" kindref="member">ECDH_control()</ref> for undefined command codes. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_e_c_d_h_8h_1a1a5e651310388708c3c0fec76f3d58ca" kindref="member">ECDH_control()</ref> returns ECDH_STATUS_UNDEFINEDCMD if the control code is not recognized by the driver implementation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="372" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gab70467d8fc82bab4e8e709273d6cd322" prot="public" static="no">
+        <name>ECDH_STATUS_RESOURCE_UNAVAILABLE</name>
+        <initializer>(-3)</initializer>
+        <briefdescription>
+<para>An error status code returned if the hardware or software resource is currently unavailable. </para>        </briefdescription>
+        <detaileddescription>
+<para>ECC driver implementations may have hardware or software limitations on how many clients can simultaneously perform operations. This status code is returned if the mutual exclusion mechanism signals that an operation cannot currently be performed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="382" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="382" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gad1255d673e521a12585d034ab228af3f" prot="public" static="no">
+        <name>ECDH_STATUS_POINT_AT_INFINITY</name>
+        <initializer>(-4)</initializer>
+        <briefdescription>
+<para>The result of the operation is the point at infinity. </para>        </briefdescription>
+        <detaileddescription>
+<para>The operation yielded the point at infinity on this curve. This point is not permitted for further use in ECC operations. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="390" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1ga9858e344c1e0603f86645ae4928a3eca" prot="public" static="no">
+        <name>ECDH_STATUS_PRIVATE_KEY_LARGER_EQUAL_ORDER</name>
+        <initializer>(-5)</initializer>
+        <briefdescription>
+<para>The private key passed in is larger than the order of the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>Private keys must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="398" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="398" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gad4a3781705d2a5cf7850187828a27a58" prot="public" static="no">
+        <name>ECDH_STATUS_PRIVATE_KEY_ZERO</name>
+        <initializer>(-6)</initializer>
+        <briefdescription>
+<para>The private key passed in is zero. </para>        </briefdescription>
+        <detaileddescription>
+<para>Private keys must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="406" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="406" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1gaaf391c2c59fbf91364c2664b38af7bbe" prot="public" static="no">
+        <name>ECDH_STATUS_PUBLIC_KEY_NOT_ON_CURVE</name>
+        <initializer>(-7)</initializer>
+        <briefdescription>
+<para>The public key of the other party does not lie upon the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>The public key received from the other party does not lie upon the agreed upon curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="415" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="415" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_h___s_t_a_t_u_s_1ga0765420780e918aaa5814c077f59daec" prot="public" static="no">
+        <name>ECDH_STATUS_PUBLIC_KEY_LARGER_THAN_PRIME</name>
+        <initializer>(-8)</initializer>
+        <briefdescription>
+<para>A coordinate of the public key of the other party is too large. </para>        </briefdescription>
+        <detaileddescription>
+<para>A coordinate of the public key received from the other party is larger than the prime of the curve. This implies that the point was not correctly generated on that curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="424" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>ECDH_STATUS_* macros are general status codes returned by ECC functions </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

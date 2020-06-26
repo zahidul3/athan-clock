@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="group___e_c_j_p_a_k_e___s_t_a_t_u_s" kind="group">
+    <compoundname>ECJPAKE_STATUS</compoundname>
+    <title>Status Codes</title>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga1e2fe3a0d3efd4d6505552b732402a35" prot="public" static="no">
+        <name>ECJPAKE_STATUS_SUCCESS</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+<para>Successful status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECJPAKE_STATUS_SUCCESS if the function was executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="589" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="589" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga3173a5ec592e345c4dc58e9fbbde2825" prot="public" static="no">
+        <name>ECJPAKE_STATUS_ERROR</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+<para>Generic error status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECJPAKE_STATUS_ERROR if the function was not executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="597" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="597" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga39b8195c58c304826d87061caa54bf19" prot="public" static="no">
+        <name>ECJPAKE_STATUS_UNDEFINEDCMD</name>
+        <initializer>(-2)</initializer>
+        <briefdescription>
+<para>An error status code returned by <ref refid="_e_c_j_p_a_k_e_8h_1a77ae22f3de6940a93eb2da9a519e10f3" kindref="member">ECJPAKE_control()</ref> for undefined command codes. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_e_c_j_p_a_k_e_8h_1a77ae22f3de6940a93eb2da9a519e10f3" kindref="member">ECJPAKE_control()</ref> returns ECJPAKE_STATUS_UNDEFINEDCMD if the control code is not recognized by the driver implementation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="606" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="606" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga668d9bd2a4926c046f40ee6698892362" prot="public" static="no">
+        <name>ECJPAKE_STATUS_RESOURCE_UNAVAILABLE</name>
+        <initializer>(-3)</initializer>
+        <briefdescription>
+<para>An error status code returned if the hardware or software resource is currently unavailable. </para>        </briefdescription>
+        <detaileddescription>
+<para>ECJPAKE driver implementations may have hardware or software limitations on how many clients can simultaneously perform operations. This status code is returned if the mutual exclusion mechanism signals that an operation cannot currently be performed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="616" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="616" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1gadc3a17b99ca7816137c60f780b51ef63" prot="public" static="no">
+        <name>ECJPAKE_STATUS_INVALID_PUBLIC_KEY</name>
+        <initializer>(-4)</initializer>
+        <briefdescription>
+<para>The public key of the other party is not valid. </para>        </briefdescription>
+        <detaileddescription>
+<para>The public key received from the other party is not valid. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="623" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="623" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga11dcd54552f0512755ba72f17ae5da46" prot="public" static="no">
+        <name>ECJPAKE_STATUS_PUBLIC_KEY_NOT_ON_CURVE</name>
+        <initializer>(-5)</initializer>
+        <briefdescription>
+<para>The public key of the other party does not lie upon the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>The public key received from the other party does not lie upon the agreed upon curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="631" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="631" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga79517ed3fbf41907b1d9e495f7bfef5c" prot="public" static="no">
+        <name>ECJPAKE_STATUS_PUBLIC_KEY_LARGER_THAN_PRIME</name>
+        <initializer>(-6)</initializer>
+        <briefdescription>
+<para>A coordinate of the public key of the other party is too large. </para>        </briefdescription>
+        <detaileddescription>
+<para>A coordinate of the public key received from the other party is larger than the prime of the curve. This implies that the point was not correctly generated on that curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="640" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="640" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga74586f857af1aaffbe358721b81f1b0f" prot="public" static="no">
+        <name>ECJPAKE_STATUS_POINT_AT_INFINITY</name>
+        <initializer>(-7)</initializer>
+        <briefdescription>
+<para>The result of the operation is the point at infinity. </para>        </briefdescription>
+        <detaileddescription>
+<para>The operation yielded the point at infinity on this curve. This point is not permitted for further use in ECC operations. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="648" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="648" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga4ca6b37156ce3f0bd1c26b5ecd4d4a23" prot="public" static="no">
+        <name>ECJPAKE_STATUS_INVALID_PRIVATE_KEY</name>
+        <initializer>(-8)</initializer>
+        <briefdescription>
+<para>The private key passed into the the call is invalid. </para>        </briefdescription>
+        <detaileddescription>
+<para>Private keys must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="656" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="656" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_j_p_a_k_e___s_t_a_t_u_s_1ga45e8ebd0af128c2b81c249022baa6667" prot="public" static="no">
+        <name>ECJPAKE_STATUS_INVALID_PRIVATE_V</name>
+        <initializer>(-9)</initializer>
+        <briefdescription>
+<para>The private v passed into the the call is invalid. </para>        </briefdescription>
+        <detaileddescription>
+<para>Private v must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" line="664" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECJPAKE.h" bodystart="664" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>ECJPAKE_STATUS_* macros are general status codes returned by ECJPAKE functions </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

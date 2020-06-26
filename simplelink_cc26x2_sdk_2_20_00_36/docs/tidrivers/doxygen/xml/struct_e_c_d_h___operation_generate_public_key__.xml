@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_e_c_d_h___operation_generate_public_key__" kind="struct" language="C++" prot="public">
+    <compoundname>ECDH_OperationGeneratePublicKey_</compoundname>
+    <includes refid="_e_c_d_h_8h" local="no">ECDH.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_e_c_d_h___operation_generate_public_key___1ac7dd3eabf7bcdefa12729b982533093e" prot="public" static="no" mutable="no">
+        <type>const <ref refid="_e_c_c_params_8h_1a6cbbd6d7c8362ef7e8fccc4f8c4925e4" kindref="member">ECCParams_CurveParams</ref> *</type>
+        <definition>const ECCParams_CurveParams* ECDH_OperationGeneratePublicKey_::curve</definition>
+        <argsstring></argsstring>
+        <name>curve</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to the elliptic curve parameters for myPrivateKey </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="511" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="511" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h___operation_generate_public_key___1ae3010a26cb64eeb3e150855e2ace5459" prot="public" static="no" mutable="no">
+        <type>const <ref refid="_crypto_key_8h_1a6f7dd04b6cb67a2b6c40aeb4483be246" kindref="member">CryptoKey</ref> *</type>
+        <definition>const CryptoKey* ECDH_OperationGeneratePublicKey_::myPrivateKey</definition>
+        <argsstring></argsstring>
+        <name>myPrivateKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to the private ECC key from which the new public key will be generated. (maybe your static key) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="512" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="512" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h___operation_generate_public_key___1a0cbda21f8e8a254825ffe7eea5f67bee" prot="public" static="no" mutable="no">
+        <type><ref refid="_crypto_key_8h_1a6f7dd04b6cb67a2b6c40aeb4483be246" kindref="member">CryptoKey</ref> *</type>
+        <definition>CryptoKey* ECDH_OperationGeneratePublicKey_::myPublicKey</definition>
+        <argsstring></argsstring>
+        <name>myPublicKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to a public ECC key which has been initialized blank. Newly generated key will be placed in this location. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="515" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="515" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Struct containing the parameters required to generate a public key. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="206">
+        <label>CryptoKey_KeyStore_</label>
+        <link refid="struct_crypto_key___key_store__"/>
+      </node>
+      <node id="202">
+        <label>ECDH_OperationGeneratePublicKey_</label>
+        <link refid="struct_e_c_d_h___operation_generate_public_key__"/>
+        <childnode refid="203" relation="usage">
+          <edgelabel>myPrivateKey</edgelabel>
+          <edgelabel>myPublicKey</edgelabel>
+        </childnode>
+        <childnode refid="207" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="203">
+        <label>CryptoKey_</label>
+        <link refid="struct_crypto_key__"/>
+        <childnode refid="204" relation="usage">
+          <edgelabel>keyBlob</edgelabel>
+        </childnode>
+        <childnode refid="205" relation="usage">
+          <edgelabel>plaintext</edgelabel>
+        </childnode>
+        <childnode refid="206" relation="usage">
+          <edgelabel>keyStore</edgelabel>
+        </childnode>
+      </node>
+      <node id="207">
+        <label>ECCParams_CurveParams_</label>
+        <link refid="struct_e_c_c_params___curve_params__"/>
+      </node>
+      <node id="204">
+        <label>CryptoKey_KeyBlob_</label>
+        <link refid="struct_crypto_key___key_blob__"/>
+      </node>
+      <node id="205">
+        <label>CryptoKey_Plaintext_</label>
+        <link refid="struct_crypto_key___plaintext__"/>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" line="510" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDH.h" bodystart="510" bodyend="518"/>
+    <listofallmembers>
+      <member refid="struct_e_c_d_h___operation_generate_public_key___1ac7dd3eabf7bcdefa12729b982533093e" prot="public" virt="non-virtual"><scope>ECDH_OperationGeneratePublicKey_</scope><name>curve</name></member>
+      <member refid="struct_e_c_d_h___operation_generate_public_key___1ae3010a26cb64eeb3e150855e2ace5459" prot="public" virt="non-virtual"><scope>ECDH_OperationGeneratePublicKey_</scope><name>myPrivateKey</name></member>
+      <member refid="struct_e_c_d_h___operation_generate_public_key___1a0cbda21f8e8a254825ffe7eea5f67bee" prot="public" virt="non-virtual"><scope>ECDH_OperationGeneratePublicKey_</scope><name>myPublicKey</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,9 @@
+{
+    "type": "SD_HOST",
+    "displayName": "SD Host",
+    "signals": {
+        "CLK": { "type": "SDHost_CLK" },
+        "CMD": { "type": "SDHost_CMD" },
+        "DATA": { "type": "SDHost_DATA" }
+    }
+}

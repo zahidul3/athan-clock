@@ -1,0 +1,9 @@
+{
+    "type"        : "UART",
+    "displayName" : "Description of the LCD component",
+    "partNum"     : "Part number description for some LCD",
+    "signals"     : {
+        "RXD": { "type": "UART_RXD" },
+        "TXD": { "type": "UART_TXD" }
+    }
+}

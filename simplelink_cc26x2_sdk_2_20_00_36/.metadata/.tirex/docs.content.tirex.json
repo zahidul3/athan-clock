@@ -1,0 +1,277 @@
+[
+    {
+        "name": "Release Notes",
+        "resourceType": "file",
+        "location": "../../release_notes_simplelink_cc26x2_sdk_2_20_00_36.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"]
+    },
+    {
+        "name": "Documentation Overview",
+        "resourceType": "file",
+        "location": "../../docs/Documentation_Overview.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"]
+    },
+    {
+        "name": "Quick Start Guide",
+        "resourceType": "file",
+        "location": "../../docs/simplelink_mcu_sdk/Quick_Start_Guide.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"]
+    },
+    {
+        "name": "SimpleLink MCU SDK User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/simplelink_mcu_sdk/Users_Guide.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"]
+    },
+    {
+        "name": "SimpleLink MCU SDK Migration Guide",
+        "resourceType": "file",
+        "location": "../../docs/simplelink_mcu_sdk/Migration_Guide.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"]
+    },
+    {
+        "name": "BLE5-Stack User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/ble5stack/ble_user_guide/ble5stack-users-guide.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE5-Stack"]
+    },
+    {
+        "name": "BLE5-Stack Quick Start Guide",
+        "resourceType": "file",
+        "location": "../../docs/simplelink_mcu_sdk/html/quickstart-guide/ble5-quick-start.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE5-Stack"]
+    },
+    {
+        "name": "BLE5-Stack API Guide",
+        "resourceType": "file",
+        "location": "../../docs/ble5stack/ble_user_guide/ble5stack-apis.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE5-Stack"]
+    },
+    {
+        "name": "BLE5-Stack Migration Guide",
+        "resourceType": "file",
+        "location": "../../docs/ble5stack/ble_user_guide/ble5stack-migration-guide.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE5-Stack"]
+    },
+    {
+        "name": "BLE5-Stack Debugging Guide",
+        "resourceType": "file",
+        "location": "../../docs/ble5stack/ble_user_guide/ble5stack-debugging.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["BLE5-Stack"]
+    },
+    {
+        "name": "TI Thread Quick Start Guide",
+        "resourceType": "file",
+        "location": "../../docs/simplelink_mcu_sdk/html/quickstart-guide/thread-quick-start.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI Thread"]
+    },
+    {
+        "name": "TI Thread Migration Guide",
+        "resourceType": "file",
+        "location": "../../docs/thread/thread-migration-guide.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI Thread"]
+    },
+    {
+        "name": "TI Thread User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/thread/thread-users-guide.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI Thread"]
+    },
+    {
+        "name": "TI Thread API Guide",
+        "resourceType": "file",
+        "location": "../../docs/thread/thread-apis.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI Thread"]
+    },
+    {
+        "name": "TI 15.4-Stack Quick Start Guide",
+        "resourceType": "file",
+        "location": "../../docs/simplelink_mcu_sdk/html/quickstart-guide/ti154stack-quick-start.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI 15.4-Stack"]
+    },
+    {
+        "name": "TI 15.4-Stack User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/ti154stack/ti-15.4-stack-users-guide.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI 15.4-Stack"]
+    },
+    {
+        "name": "TI 15.4-Stack Migration Guide",
+        "resourceType": "file",
+        "location": "../../docs/ti154stack/ti-15.4-stack-migration-guide.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI 15.4-Stack"]
+    },
+    {
+        "name": "TI 15.4-Stack API Guide",
+        "resourceType": "file",
+        "location": "../../docs/ti154stack/mac_api/ti154mac_api.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI 15.4-Stack"]
+    },
+    {
+        "name": "TI Drivers Power Management",
+        "resourceType": "file",
+        "location": "../../docs/tidrivers/Power_Management.pdf",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents", "Drivers"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI Drivers"]
+    },
+    {
+        "name": "TI Drivers Runtime APIs",
+        "resourceType": "file",
+        "location": "../../docs/tidrivers/tidriversAPIs.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents", "Drivers"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI Drivers"]
+    },
+    {
+        "name": "TI-RTOS Kernel Release Notes",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/sysbios/release_notes_bios_6_55_01_03.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents", "Kernel"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI-RTOS Kernel"]
+    },
+    {
+        "name": "TI-RTOS Kernel User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/sysbios/docs/Bios_User_Guide.pdf",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents", "Kernel"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI-RTOS Kernel"]
+    },
+    {
+        "name": "TI-RTOS Kernel Runtime APIs and Configuration",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/sysbios/docs/Bios_APIs.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents", "Kernel"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["TI-RTOS Kernel"]
+    },
+    {
+        "name": "Driverlib Release Notes",
+        "resourceType": "file",
+        "location": "../../docs/driverlib_cc13xx_cc26xx/release_notes_driverlib_cc13xx_cc26xx.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents", "DriverLib"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["DriverLib"]
+    },
+    {
+        "name": "Driverlib Documentation",
+        "resourceType": "file",
+        "location": "../../docs/driverlib_cc13xx_cc26xx/doc_overview_driverlib_cc13xx_cc26xx.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents", "DriverLib"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["DriverLib"]
+    },
+    {
+        "name": "TI-RTOS Instrumentation Release Notes",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/uia/release_notes_uia_2_30_01_02.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents", "Instrumentation"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Instrumentation"]
+    },
+    {
+        "name": "TI-RTOS Instrumentation User's Guide",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/uia/docs/spruh43f.pdf",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents", "Instrumentation"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Instrumentation"]
+    },
+    {
+        "name": "TI-RTOS Instrumentation Runtime APIs and Configuration",
+        "resourceType": "file",
+        "location": "../../docs/tirtos/uia/docs/cdoc/index.html",
+        "devices": ["CC2642R1F"],
+        "devtools": ["LAUNCHXL-CC26X2R1"],
+        "categories": ["Documents", "Instrumentation"],
+        "mainCategories": ["Documents"],
+        "subCategories": ["Instrumentation"]
+    }
+]

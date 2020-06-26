@@ -1,0 +1,38 @@
+{
+    "type"         : "Accelerometer",
+    "name"         : "Kionix_KXTC9_2050",
+    "displayName"  : "3-Axis Analog Accelerometer",
+    "partNum"      : "Kionix KXTC9-2050",
+    "subComponents":
+    {
+        "axisX":
+        {
+            "type"       : "Accelerometer-Axis",
+            "displayName": "Accelerometer Axis X",
+            "signals"    :
+            {
+                "analogInput": { "type": "AIN" }
+            }
+        },
+
+        "axisY":
+        {
+            "type"       : "Accelerometer-Axis",
+            "displayName": "Accelerometer Axis Y",
+            "signals"    :
+            {
+                "analogInput": { "type": "AIN" }
+            }
+        },
+
+        "axisZ":
+        {
+            "type"       : "Accelerometer-Axis",
+            "displayName": "Accelerometer Axis Z",
+            "signals"    :
+            {
+                "analogInput": { "type": "AIN" }
+            }
+        }
+    }
+}

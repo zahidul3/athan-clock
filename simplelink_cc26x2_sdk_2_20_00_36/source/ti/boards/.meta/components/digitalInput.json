@@ -1,0 +1,10 @@
+{
+    "type": "DIN",
+    "displayName": "Generic Digital Input",
+    "partNum": "digitalInput",
+    "signals": {
+        "input": {
+            "type": "DIN"
+        }
+    }
+}

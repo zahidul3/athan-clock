@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Adding BLE OAD to an Existing Project &mdash; SimpleLink™ CC26x2 SDK BLE5-Stack User&#39;s Guide 1.02.01.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 SDK BLE5-Stack User&#39;s Guide 1.02.01.00 documentation" href="../index.html"/>
+        <link rel="up" title="Over-the-Air Download (OAD)" href="index.html"/>
+        <link rel="next" title="Updating from previous SDKs" href="../ble-stack-5.x-guide/migration-cc26x2.html"/>
+        <link rel="prev" title="Reverting to a Factory Image" href="revert-to-factory.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-oad add-ble-oad-to-proj";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../ble-stack-5.x-guide/index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 SDK BLE5-Stack User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.01.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-5.x-guide/disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-5.x-guide/platform-cc26x2.html">The CC26x2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-tirtos/index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-5.x/index-cc26x2.html">Developing a Bluetooth Low Energy Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/ble-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Over-the-Air Download (OAD)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../oad/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/bim.html">Boot Image Manager (BIM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/image-header.html">OAD Image Header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/ext-flash-image-header.html">OAD External Flash Image Header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/flash-layout-off-chip.html">Flash Layout for Off-Chip OAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/tools.html">OAD Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad-application.html">OAD Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oad-profile.html">BLE-Stack OAD Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setting-up-environment.html">Setting up the BLE OAD Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performing-an-oad.html">Performing a BLE OAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-a-production-image.html">Creating a Production Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="revert-to-factory.html">Reverting to a Factory Image</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Adding BLE OAD to an Existing Project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#off-chip-oad">Off-Chip OAD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#project-changes">Project Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-changes">Code Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-5.x-guide/migration-cc26x2.html">Updating from previous SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-5.x-guide/api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-5.x-guide/reference-cc26x2.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../ble-stack-5.x-guide/index-cc26x2.html">SimpleLink™ CC26x2 SDK BLE5-Stack User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../ble-stack-5.x-guide/index-cc26x2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Over-the-Air Download (OAD)</a> &raquo;</li>
+      
+    <li>Adding BLE OAD to an Existing Project</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adding-ble-oad-to-an-existing-project">
+<span id="sec-add-ble-oad-to-project"></span><h1>Adding BLE OAD to an Existing Project<a class="headerlink" href="#adding-ble-oad-to-an-existing-project" title="Permalink to this headline">¶</a></h1>
+<p>This section will provide high level detail about  how to add BLE OAD to an
+existing project. It is intended as a high level checklist that covers
+the major steps involved in adding OAD to an existing project, detailed
+steps and instructions can be found in the
+<a class="reference external" href="http://dev.ti.com/tirex/#/?link=Software%2FSimpleLink%20CC26X2%20SDK">SimpleLink Academy Enhanced OAD Module for SimpleLink CC26x2 SDK</a>.</p>
+<div class="section" id="off-chip-oad">
+<h2>Off-Chip OAD<a class="headerlink" href="#off-chip-oad" title="Permalink to this headline">¶</a></h2>
+<p>This section will detail how to add off-chip OAD to an existing project.</p>
+<div class="section" id="project-changes">
+<h3>Project Changes<a class="headerlink" href="#project-changes" title="Permalink to this headline">¶</a></h3>
+<p>In order to add OAD, certain files and include paths should be added to the
+project, these are detailed in the list below.</p>
+<ol class="arabic">
+<li><p class="first">Replace the default linker file with the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">cc26x2_app_oad_agama.cmd</span></code> : For CCS</li>
+<li><code class="docutils literal"><span class="pre">cc26xx_app_and_stack_agama_oad.icf</span></code> : For IAR</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Add the following to the linker defines:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">OAD_IMG_E=1</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Add the following define to the <code class="docutils literal"><span class="pre">.opt</span></code> files:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">-DMAX_PDU_SIZE=251</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This define will control the negotiated block size. Block Size is
+derived from MTU size, which is derived by the minimum of the local
+supported PDU size and peer’s supported MTU. See
+<a class="reference internal" href="oad-profile.html#sec-blk-size-rules"><span class="std std-ref">OAD Block Size Rules</span></a>.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Relocate the TI-RTOS reset vectors:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Set <code class="docutils literal"><span class="pre">m3Hwi.resetVectorAddress</span>&#160; <span class="pre">=</span> <span class="pre">0x50;</span></code> in the application’s <code class="docutils literal"><span class="pre">.cfg</span></code>
+file. Note: Each application has two of these (debug, release), apply
+change for both. Replace any previous values in the file.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">The following files should be removed from the project:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">ccfg_app_ble.c</span></code> : The BIM links the CCFG in an OAD system.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Add the following files to the project</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">oad.c</span></code> : OAD profile implementation</li>
+<li><code class="docutils literal"><span class="pre">oad.h</span></code> : Public OAD profile API definition</li>
+<li><code class="docutils literal"><span class="pre">crc32.c</span></code> : CRC32 algorithm and helper functions</li>
+<li><code class="docutils literal"><span class="pre">crc32.h</span></code> : CRC32 public API definition</li>
+<li><code class="docutils literal"><span class="pre">flash_interface.h</span></code> : A flash abstraction layer that abstracts flash
+operations for on and off-chip OAD.</li>
+<li><code class="docutils literal"><span class="pre">oad_iamge_header.h</span></code> : Structure definitions for the OAD image header</li>
+<li><code class="docutils literal"><span class="pre">oad_image_header_app.c</span></code>: Application definition of image header.</li>
+<li><code class="docutils literal"><span class="pre">oad_defines.h</span></code>: Common header containing OAD definitions</li>
+<li><code class="docutils literal"><span class="pre">bim_util.h</span></code> :  Public API definition of utility functions shared
+between the BIM and application.</li>
+<li><code class="docutils literal"><span class="pre">bim_util.c</span></code> : Implementation of BIM utility functions</li>
+<li><code class="docutils literal"><span class="pre">flash_interface_ext_rtos_NVS.c</span></code>: TI-RTOS NVS driver implementation of
+flash interface for <strong>off-chip</strong> OAD.</li>
+</ul>
+<p>The following files are only required if the optional revert to factory
+image feature is required:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">mark_switch_factory_img.h</span></code> : Public API definition for factory image
+switch.</li>
+<li><code class="docutils literal"><span class="pre">mark_switch_factory_img.c</span></code> : Implementation of factory image switching
+mechanism.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">The following pre-processor include paths should be added to the project.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">source/ti</span></code></li>
+<li><code class="docutils literal"><span class="pre">source/ti/ble5stack</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Add the OAD image tool post build step to the project.</p>
+<blockquote>
+<div><ul class="simple">
+<li>See the sample applications within the SDK with OAD enabled
+(<code class="docutils literal"><span class="pre">project_zero</span></code>, <code class="docutils literal"><span class="pre">simple_peripheral_oad_offchip</span></code>) and copy the post
+build step from there.</li>
+<li>Note that the <code class="docutils literal"><span class="pre">TOOLS_OAD_DIR</span></code> environment variable may not exist for all
+projects. It can either be added or substituted with a path to the
+OAD executable.</li>
+<li>Also note that some projects do not append their configuration name to
+their output hex file. If the image tool reports that it cannot find the
+input file, check the naming.</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="code-changes">
+<h3>Code Changes<a class="headerlink" href="#code-changes" title="Permalink to this headline">¶</a></h3>
+<p>The required code changes are detailed in the
+<a class="reference external" href="http://dev.ti.com/tirex/#/?link=Software%2FSimpleLink%20CC26X2%20SDK">SimpleLink Academy Enhanced OAD Module for SimpleLink CC26x2 SDK</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ble-stack-5.x-guide/migration-cc26x2.html" class="btn btn-neutral float-right" title="Updating from previous SDKs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="revert-to-factory.html" class="btn btn-neutral" title="Reverting to a Factory Image" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2010-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.01.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

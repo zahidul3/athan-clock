@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_crypto_key___key_store__" kind="struct" language="C++" prot="public">
+    <compoundname>CryptoKey_KeyStore_</compoundname>
+    <includes refid="_crypto_key_8h" local="no">CryptoKey.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_crypto_key___key_store___1a2e1e5828e14d0046f32fa6c9c5f27b27" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* CryptoKey_KeyStore_::keyStore</definition>
+        <argsstring></argsstring>
+        <name>keyStore</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" line="186" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_key___key_store___1ad920c156723b43dfd2d5ada9b2faec96" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t CryptoKey_KeyStore_::keyLength</definition>
+        <argsstring></argsstring>
+        <name>keyLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" line="187" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_key___key_store___1a7df9a3fd69b263e3f185cd3ec9979f8a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t CryptoKey_KeyStore_::keyIndex</definition>
+        <argsstring></argsstring>
+        <name>keyIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" line="188" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Key store CryptoKey datastructure. </para>    </briefdescription>
+    <detaileddescription>
+<para>This structure contains all the information necessary to access keying material stored in a dedicated key store or key database with memory access controls. </para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" line="185" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" bodystart="185" bodyend="189"/>
+    <listofallmembers>
+      <member refid="struct_crypto_key___key_store___1a7df9a3fd69b263e3f185cd3ec9979f8a" prot="public" virt="non-virtual"><scope>CryptoKey_KeyStore_</scope><name>keyIndex</name></member>
+      <member refid="struct_crypto_key___key_store___1ad920c156723b43dfd2d5ada9b2faec96" prot="public" virt="non-virtual"><scope>CryptoKey_KeyStore_</scope><name>keyLength</name></member>
+      <member refid="struct_crypto_key___key_store___1a2e1e5828e14d0046f32fa6c9c5f27b27" prot="public" virt="non-virtual"><scope>CryptoKey_KeyStore_</scope><name>keyStore</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

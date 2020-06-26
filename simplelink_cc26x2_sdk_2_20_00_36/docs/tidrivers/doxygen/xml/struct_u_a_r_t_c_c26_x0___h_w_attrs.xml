@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_u_a_r_t_c_c26_x0___h_w_attrs" kind="struct" language="C++" prot="public">
+    <compoundname>UARTCC26X0_HWAttrs</compoundname>
+    <includes refid="_u_a_r_t_c_c26_x0_8h" local="no">UARTCC26X0.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a091822f9d5572be06426760ab3e6b44a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t UARTCC26X0_HWAttrs::baseAddr</definition>
+        <argsstring></argsstring>
+        <name>baseAddr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UART Peripheral&apos;s base address </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="518" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="518" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a2757773ef1f7b7c5cbdeb2a5dcfcaf8d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UARTCC26X0_HWAttrs::intNum</definition>
+        <argsstring></argsstring>
+        <name>intNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UART Peripheral&apos;s interrupt vector </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="520" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="520" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1af7beab6599c42fcdcdedcc5f1d297c7e" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t UARTCC26X0_HWAttrs::intPriority</definition>
+        <argsstring></argsstring>
+        <name>intPriority</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UART Peripheral&apos;s interrupt priority </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="522" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="522" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1aabef0fbd07e5c22381063255bf44cc02" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t UARTCC26X0_HWAttrs::swiPriority</definition>
+        <argsstring></argsstring>
+        <name>swiPriority</name>
+        <briefdescription>
+<para>Swi priority. The higher the number, the higher the priority. The minimum priority is 0 and the maximum is defined by the underlying OS. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="528" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="528" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1aa1f203b8f56e23257b1d741b1328e863" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t UARTCC26X0_HWAttrs::flowControl</definition>
+        <argsstring></argsstring>
+        <name>flowControl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hardware flow control setting </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="530" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="530" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a71cee2fff1816ab7a446928cd407711a" prot="public" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* UARTCC26X0_HWAttrs::ringBufPtr</definition>
+        <argsstring></argsstring>
+        <name>ringBufPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to an application ring buffer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="532" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="532" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a63a97d3afe9086654dcb9c3bdd5f5e83" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t UARTCC26X0_HWAttrs::ringBufSize</definition>
+        <argsstring></argsstring>
+        <name>ringBufSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Size of ringBufPtr </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="534" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="534" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1ae9da1e79a6d0e6d0e416ae96555a33af" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t UARTCC26X0_HWAttrs::rxPin</definition>
+        <argsstring></argsstring>
+        <name>rxPin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UART RX pin assignment </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="536" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="536" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a876b0b51e7841a9368015733c8b03caf" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t UARTCC26X0_HWAttrs::txPin</definition>
+        <argsstring></argsstring>
+        <name>txPin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UART TX pin assignment </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="538" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="538" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a40c89e214487955cc4a22e9d126a4c88" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t UARTCC26X0_HWAttrs::ctsPin</definition>
+        <argsstring></argsstring>
+        <name>ctsPin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UART clear to send (CTS) pin assignment </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="540" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="540" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1ace9e39605b976f710aec2b02dcdf00f2" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t UARTCC26X0_HWAttrs::rtsPin</definition>
+        <argsstring></argsstring>
+        <name>rtsPin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UART request to send (RTS) pin assignment </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="542" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="542" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a936362f162da99598578d59f13c54e4e" prot="public" static="no" mutable="no">
+        <type><ref refid="_u_a_r_t_c_c26_x0_8h_1a69a39a52094608adf3fe0f589d9c4ffe" kindref="member">UARTCC26X0_FifoThreshold</ref></type>
+        <definition>UARTCC26X0_FifoThreshold UARTCC26X0_HWAttrs::txIntFifoThr</definition>
+        <argsstring></argsstring>
+        <name>txIntFifoThr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UART TX interrupt FIFO threshold select </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="544" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="544" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a3681180de4f2d779ed7ad3972f01c1be" prot="public" static="no" mutable="no">
+        <type><ref refid="_u_a_r_t_c_c26_x0_8h_1a69a39a52094608adf3fe0f589d9c4ffe" kindref="member">UARTCC26X0_FifoThreshold</ref></type>
+        <definition>UARTCC26X0_FifoThreshold UARTCC26X0_HWAttrs::rxIntFifoThr</definition>
+        <argsstring></argsstring>
+        <name>rxIntFifoThr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UART RX interrupt FIFO threshold select </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="546" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="546" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a37268e5bb0184d82ecb659026b267113" prot="public" static="no" mutable="no">
+        <type><ref refid="_u_a_r_t_c_c26_x0_8h_1a48fe123eff31c217ca350aae01435432" kindref="member">UARTCC26X0_ErrorCallback</ref></type>
+        <definition>UARTCC26X0_ErrorCallback UARTCC26X0_HWAttrs::errorFxn</definition>
+        <argsstring></argsstring>
+        <name>errorFxn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Application error function to be called on receive errors </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="548" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="548" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>UARTCC26X0 Hardware attributes. </para>    </briefdescription>
+    <detaileddescription>
+<para>The fields, baseAddr and intNum are used by driverlib APIs and therefore must be populated by driverlib macro definitions. These definitions are found under the device family in:<itemizedlist>
+<listitem><para>inc/hw_memmap.h</para></listitem><listitem><para>inc/hw_ints.h</para></listitem><listitem><para>driverlib/uart.h</para></listitem></itemizedlist>
+</para><para>intPriority is the UART peripheral&apos;s interrupt priority, as defined by the underlying OS. It is passed unmodified to the underlying OS&apos;s interrupt handler creation code, so you need to refer to the OS documentation for usage. For example, for SYS/BIOS applications, refer to the ti.sysbios.family.arm.m3.Hwi documentation for SYS/BIOS usage of interrupt priorities. If the driver uses the ti.dpl interface instead of making OS calls directly, then the HwiP port handles the interrupt priority in an OS specific way. In the case of the SYS/BIOS port, intPriority is passed unmodified to Hwi_create(). The CC26xx uses three of the priority bits, meaning ~0 has the same effect as (7 &lt;&lt; 5). <verbatim>  (7 &lt;&lt; 5) will apply the lowest priority.
+  (1 &lt;&lt; 5) will apply the highest priority.
+</verbatim></para><para>Setting the priority to 0 is not supported by this driver. HWI&apos;s with priority 0 ignore the HWI dispatcher to support zero-latency interrupts, thus invalidating the critical sections in this driver.</para><para>A sample structure is shown below: <programlisting><codeline><highlight class="normal">unsigned<sp/>char<sp/>uartCC26X0RingBuffer[2][32];</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">const<sp/>UARTCC26X0_HWAttrs<sp/>uartCC26X0HWAttrs[]<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.baseAddr<sp/><sp/><sp/><sp/>=<sp/>UARTA0_BASE,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.intNum<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>INT_UART0_COMB,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.intPriority<sp/>=<sp/>(~0),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.swiPriority<sp/><sp/>=<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ringBufPtr<sp/><sp/>=<sp/>uartCC26X0RingBuffer[0],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ringBufSize<sp/>=<sp/>sizeof(uartCC26X0RingBuffer[0]),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.flowControl<sp/><sp/>=<sp/>UARTCC26X0_FLOWCTRL_NONE,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.rxPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>IOID_2,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.txPin<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>IOID_3,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ctsPin<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>PIN_UNASSIGNED,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.rtsPin<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>PIN_UNASSIGNED,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.txIntFifoThr<sp/>=<sp/>UARTCC26X0_FIFO_THRESHOLD_1_8,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.rxIntFifoThr<sp/>=<sp/>UARTCC26X0_FIFO_THRESHOLD_4_8,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.errorFxn<sp/><sp/><sp/><sp/>=<sp/>NULL</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="670">
+        <label>UARTCC26X0_HWAttrs</label>
+        <link refid="struct_u_a_r_t_c_c26_x0___h_w_attrs"/>
+        <childnode refid="671" relation="usage">
+          <edgelabel>errorFxn</edgelabel>
+        </childnode>
+      </node>
+      <node id="671">
+        <label>UART_Config_</label>
+        <link refid="struct_u_a_r_t___config__"/>
+        <childnode refid="672" relation="usage">
+          <edgelabel>fxnTablePtr</edgelabel>
+        </childnode>
+      </node>
+      <node id="672">
+        <label>UART_FxnTable_</label>
+        <link refid="struct_u_a_r_t___fxn_table__"/>
+        <childnode refid="671" relation="usage">
+          <edgelabel>writeFxn</edgelabel>
+          <edgelabel>readCancelFxn</edgelabel>
+          <edgelabel>closeFxn</edgelabel>
+          <edgelabel>initFxn</edgelabel>
+          <edgelabel>readPollingFxn</edgelabel>
+          <edgelabel>writeCancelFxn</edgelabel>
+          <edgelabel>controlFxn</edgelabel>
+          <edgelabel>openFxn</edgelabel>
+          <edgelabel>writePollingFxn</edgelabel>
+          <edgelabel>readFxn</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" line="516" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/uart/UARTCC26X0.h" bodystart="516" bodyend="549"/>
+    <listofallmembers>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a091822f9d5572be06426760ab3e6b44a" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>baseAddr</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a40c89e214487955cc4a22e9d126a4c88" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>ctsPin</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a37268e5bb0184d82ecb659026b267113" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>errorFxn</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1aa1f203b8f56e23257b1d741b1328e863" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>flowControl</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a2757773ef1f7b7c5cbdeb2a5dcfcaf8d" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>intNum</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1af7beab6599c42fcdcdedcc5f1d297c7e" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>intPriority</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a71cee2fff1816ab7a446928cd407711a" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>ringBufPtr</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a63a97d3afe9086654dcb9c3bdd5f5e83" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>ringBufSize</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1ace9e39605b976f710aec2b02dcdf00f2" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>rtsPin</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a3681180de4f2d779ed7ad3972f01c1be" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>rxIntFifoThr</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1ae9da1e79a6d0e6d0e416ae96555a33af" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>rxPin</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1aabef0fbd07e5c22381063255bf44cc02" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>swiPriority</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a936362f162da99598578d59f13c54e4e" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>txIntFifoThr</name></member>
+      <member refid="struct_u_a_r_t_c_c26_x0___h_w_attrs_1a876b0b51e7841a9368015733c8b03caf" prot="public" virt="non-virtual"><scope>UARTCC26X0_HWAttrs</scope><name>txPin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

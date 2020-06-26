@@ -1,0 +1,66 @@
+.. _CLI Example App: ..\/..\/..\/..\/examples\/rtos\/CC26X2R1_LAUNCHXL\/thread\/cli_ftd\/README.html
+.. _NCP Example App: ..\/..\/..\/..\/examples\/rtos\/CC26X2R1_LAUNCHXL\/thread\/ncp_ftd\/README.html
+.. _Door Lock Example App: ..\/..\/..\/..\/examples\/rtos\/CC26X2R1_LAUNCHXL\/thread\/door_lock\/README.html
+.. _Shade Example App: ..\/..\/..\/..\/examples\/rtos\/CC26X2R1_LAUNCHXL\/thread\/shade\/README.html
+.. _Temperature Sensor Example App: ..\/..\/..\/..\/examples\/rtos\/CC26X2R1_LAUNCHXL\/thread\/temp_sensor\/README.html
+.. _Thermostat Example App: ..\/..\/..\/..\/examples\/rtos\/CC26X2R1_LAUNCHXL\/thread\/thermostat\/README.html
+
+.. _chap-example-applications:
+
+Example Applications
+====================
+
+This section provides an overview of the |OT_STACK| out-of-box example
+applications and instructions on how to run them.
+
+
+.. _sec-cli-example-application:
+
+CLI Example Application
+-----------------------
+
+`CLI Example App`_
+
+.. _sec-ncp-example-application:
+
+NCP Example Application
+-----------------------
+
+`NCP Example App`_
+
+.. _sec-br-example-application:
+
+Border Router Example Application
+---------------------------------
+
+:ref:`chap-borderrouter-quick`
+
+.. _sec-dl-example-application:
+
+Door Lock Example Application
+-----------------------------
+
+`Door Lock Example App`_
+
+.. _sec-shade-example-application:
+
+Shade Example Application
+-------------------------
+
+`Shade Example App`_
+
+.. _sec-ts-example-application:
+
+Temperature Sensor Example Application
+--------------------------------------
+
+`Temperature Sensor Example App`_
+
+
+.. _sec-thermostat-example-application:
+
+Thermostat Example Application
+------------------------------
+
+`Thermostat Example App`_
+

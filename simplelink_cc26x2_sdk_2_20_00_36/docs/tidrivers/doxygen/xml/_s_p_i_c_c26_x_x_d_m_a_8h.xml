@@ -1,0 +1,849 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="_s_p_i_c_c26_x_x_d_m_a_8h" kind="file" language="C++">
+    <compoundname>SPICC26XXDMA.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="_s_p_i_8h" local="no">ti/drivers/SPI.h</includes>
+    <includes refid="_p_i_n_c_c26_x_x_8h" local="no">ti/drivers/pin/PINCC26XX.h</includes>
+    <includes refid="_u_d_m_a_c_c26_x_x_8h" local="no">ti/drivers/dma/UDMACC26XX.h</includes>
+    <includes refid="_power_8h" local="no">ti/drivers/Power.h</includes>
+    <includes refid="_power_c_c26_x_x_8h" local="no">ti/drivers/power/PowerCC26XX.h</includes>
+    <includes local="no">ti/drivers/dpl/HwiP.h</includes>
+    <includes local="no">ti/drivers/dpl/SemaphoreP.h</includes>
+    <includes local="no">ti/drivers/dpl/SwiP.h</includes>
+    <incdepgraph>
+      <node id="624">
+        <label>stdbool.h</label>
+      </node>
+      <node id="635">
+        <label>ti/drivers/power/PowerCC26XX.h</label>
+        <link refid="_power_c_c26_x_x_8h"/>
+        <childnode refid="627" relation="include">
+        </childnode>
+        <childnode refid="636" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+      </node>
+      <node id="622">
+        <label>stdint.h</label>
+      </node>
+      <node id="634">
+        <label>ti/drivers/utils/List.h</label>
+        <link refid="_list_8h"/>
+        <childnode refid="622" relation="include">
+        </childnode>
+        <childnode refid="624" relation="include">
+        </childnode>
+        <childnode refid="625" relation="include">
+        </childnode>
+      </node>
+      <node id="623">
+        <label>ti/drivers/SPI.h</label>
+        <link refid="_s_p_i_8h"/>
+        <childnode refid="624" relation="include">
+        </childnode>
+        <childnode refid="625" relation="include">
+        </childnode>
+        <childnode refid="622" relation="include">
+        </childnode>
+      </node>
+      <node id="639">
+        <label>ti/drivers/dpl/SemaphoreP.h</label>
+      </node>
+      <node id="621">
+        <label>SPICC26XXDMA.h</label>
+        <link refid="_s_p_i_c_c26_x_x_d_m_a_8h"/>
+        <childnode refid="622" relation="include">
+        </childnode>
+        <childnode refid="623" relation="include">
+        </childnode>
+        <childnode refid="626" relation="include">
+        </childnode>
+        <childnode refid="632" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="627" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
+        <childnode refid="640" relation="include">
+        </childnode>
+      </node>
+      <node id="625">
+        <label>stddef.h</label>
+      </node>
+      <node id="628">
+        <label>ti/drivers/PIN.h</label>
+        <link refid="_p_i_n_8h"/>
+        <childnode refid="624" relation="include">
+        </childnode>
+        <childnode refid="622" relation="include">
+        </childnode>
+      </node>
+      <node id="629">
+        <label>ti/devices/DeviceFamily.h</label>
+      </node>
+      <node id="627">
+        <label>ti/drivers/dpl/HwiP.h</label>
+      </node>
+      <node id="636">
+        <label>ti/drivers/dpl/ClockP.h</label>
+      </node>
+      <node id="631">
+        <label>DeviceFamily_constructPath(driverlib/gpio.h)</label>
+      </node>
+      <node id="637">
+        <label>DeviceFamily_constructPath(inc/hw_types.h)</label>
+      </node>
+      <node id="638">
+        <label>DeviceFamily_constructPath(driverlib/udma.h)</label>
+      </node>
+      <node id="640">
+        <label>ti/drivers/dpl/SwiP.h</label>
+      </node>
+      <node id="632">
+        <label>ti/drivers/dma/UDMACC26XX.h</label>
+        <link refid="_u_d_m_a_c_c26_x_x_8h"/>
+        <childnode refid="622" relation="include">
+        </childnode>
+        <childnode refid="624" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="629" relation="include">
+        </childnode>
+        <childnode refid="637" relation="include">
+        </childnode>
+        <childnode refid="638" relation="include">
+        </childnode>
+      </node>
+      <node id="633">
+        <label>ti/drivers/Power.h</label>
+        <link refid="_power_8h"/>
+        <childnode refid="624" relation="include">
+        </childnode>
+        <childnode refid="622" relation="include">
+        </childnode>
+        <childnode refid="634" relation="include">
+        </childnode>
+      </node>
+      <node id="626">
+        <label>ti/drivers/pin/PINCC26XX.h</label>
+        <link refid="_p_i_n_c_c26_x_x_8h"/>
+        <childnode refid="622" relation="include">
+        </childnode>
+        <childnode refid="625" relation="include">
+        </childnode>
+        <childnode refid="627" relation="include">
+        </childnode>
+        <childnode refid="628" relation="include">
+        </childnode>
+        <childnode refid="629" relation="include">
+        </childnode>
+        <childnode refid="630" relation="include">
+        </childnode>
+        <childnode refid="631" relation="include">
+        </childnode>
+      </node>
+      <node id="630">
+        <label>DeviceFamily_constructPath(driverlib/ioc.h)</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1" prot="public">SPICC26XXDMA_HWAttrsV1</innerclass>
+    <innerclass refid="struct_s_p_i_c_c26_x_x_d_m_a___object" prot="public">SPICC26XXDMA_Object</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___s_p_i___c_m_d_1ga348d271d5ad295c5e049e78d745c57e1" prot="public" static="no">
+        <name>SPICC26XXDMA_CMD_RETURN_PARTIAL_ENABLE</name>
+        <initializer>(<ref refid="group___s_p_i___c_o_n_t_r_o_l_1ga3d23d16525ee76f77276472d8dea80b0" kindref="member">SPI_CMD_RESERVED</ref> + 0)</initializer>
+        <briefdescription>
+<para>Command used by SPI_control to enable partial return. </para>        </briefdescription>
+        <detaileddescription>
+<para>Enabling this command allows SPI_transfer to return partial data if data reception is inactive for a given 32-bit period. With this command <bold>arg</bold> is <emphasis>don&apos;t</emphasis> <emphasis>care</emphasis> and it returns SPI_STATUS_SUCCESS. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="644" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" bodystart="644" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___s_p_i___c_m_d_1gaff8de4036abcdb2903cb5280120c30b4" prot="public" static="no">
+        <name>SPICC26XXDMA_CMD_RETURN_PARTIAL_DISABLE</name>
+        <initializer>(<ref refid="group___s_p_i___c_o_n_t_r_o_l_1ga3d23d16525ee76f77276472d8dea80b0" kindref="member">SPI_CMD_RESERVED</ref> + 1)</initializer>
+        <briefdescription>
+<para>Command used by SPI_control to disable partial return. </para>        </briefdescription>
+        <detaileddescription>
+<para>Disabling this command returns the SPICC26XXDMA to the default blocking behavior where SPI_transfer blocks until all data bytes were received. With this comand <bold>arg</bold> is <emphasis>don&apos;t</emphasis> <emphasis>care</emphasis> and it returns SPI_STATUS_SUCCESS. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="653" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" bodystart="653" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___s_p_i___c_m_d_1gab3ab03abd9ca073344acdcc6b442f9eb" prot="public" static="no">
+        <name>SPICC26XXDMA_CMD_SET_CSN_PIN</name>
+        <initializer>(<ref refid="group___s_p_i___c_o_n_t_r_o_l_1ga3d23d16525ee76f77276472d8dea80b0" kindref="member">SPI_CMD_RESERVED</ref> + 2)</initializer>
+        <briefdescription>
+<para>Command used by SPI_control to re-configure chip select pin. </para>        </briefdescription>
+        <detaileddescription>
+<para>This command specifies a chip select pin With this command <bold>arg</bold> is of type <computeroutput>PIN_Id</computeroutput> and it return SPI_STATUS_SUCCESS </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="661" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" bodystart="661" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_s_p_i_c_c26_x_x_d_m_a_8h_1a5d2c909f70c7093227d1b288354cef27" prot="public" static="no">
+        <name>SPICC26XXDMA_RETURN_PARTIAL_ENABLE</name>
+        <initializer><ref refid="group___s_p_i___c_m_d_1ga348d271d5ad295c5e049e78d745c57e1" kindref="member">SPICC26XXDMA_CMD_RETURN_PARTIAL_ENABLE</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="665" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" bodystart="665" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_s_p_i_c_c26_x_x_d_m_a_8h_1a6454ac0d2222d98114cf15a4a60367ca" prot="public" static="no">
+        <name>SPICC26XXDMA_RETURN_PARTIAL_DISABLE</name>
+        <initializer><ref refid="group___s_p_i___c_m_d_1gaff8de4036abcdb2903cb5280120c30b4" kindref="member">SPICC26XXDMA_CMD_RETURN_PARTIAL_DISABLE</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="666" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" bodystart="666" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_s_p_i_c_c26_x_x_d_m_a_8h_1a447172f0061a6de65a8f0d221a23f93c" prot="public" static="no">
+        <name>SPICC26XXDMA_SET_CSN_PIN</name>
+        <initializer><ref refid="group___s_p_i___c_m_d_1gab3ab03abd9ca073344acdcc6b442f9eb" kindref="member">SPICC26XXDMA_CMD_SET_CSN_PIN</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="667" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" bodystart="667" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81a" prot="public" static="no">
+        <name>SPICC26XXDMA_FrameSize</name>
+        <enumvalue id="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81aae775eeccbba1a059e3cf6ada00472a1b" prot="public">
+          <name>SPICC26XXDMA_8bit</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81aab7e0c593e19cb06ea65ad293f6fd0971" prot="public">
+          <name>SPICC26XXDMA_16bit</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="686" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" bodystart="686" bodyend="689"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_s_p_i_c_c26_x_x_d_m_a_8h_1aa9aa99fc2a0c94cd7aa263ba08eafb92" prot="public" static="no">
+        <type>enum <ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81a" kindref="member">SPICC26XXDMA_FrameSize</ref></type>
+        <definition>typedef enum SPICC26XXDMA_FrameSize  SPICC26XXDMA_FrameSize</definition>
+        <argsstring></argsstring>
+        <name>SPICC26XXDMA_FrameSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="689" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_s_p_i_c_c26_x_x_d_m_a_8h_1a17117d67b0bd141d91110f2c5bfaa9cf" prot="public" static="no">
+        <type>struct <ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1" kindref="compound">SPICC26XXDMA_HWAttrsV1</ref></type>
+        <definition>typedef struct SPICC26XXDMA_HWAttrsV1  SPICC26XXDMA_HWAttrsV1</definition>
+        <argsstring></argsstring>
+        <name>SPICC26XXDMA_HWAttrsV1</name>
+        <briefdescription>
+<para>SPICC26XXDMA Hardware attributes. </para>        </briefdescription>
+        <detaileddescription>
+<para>These fields, with the exception of intPriority, are used by driverlib APIs and therefore must be populated by driverlib macro definitions. For CC26xxWare these definitions are found in:<itemizedlist>
+<listitem><para>inc/hw_memmap.h</para></listitem><listitem><para>inc/hw_ints.h</para></listitem><listitem><para>driverlib/udma.h</para></listitem></itemizedlist>
+</para><para>intPriority is the SPI peripheral&apos;s interrupt priority, as defined by the underlying OS. It is passed unmodified to the underlying OS&apos;s interrupt handler creation code, so you need to refer to the OS documentation for usage. For example, for SYS/BIOS applications, refer to the ti.sysbios.family.arm.m3.Hwi documentation for SYS/BIOS usage of interrupt priorities. If the driver uses the ti.dpl interface instead of making OS calls directly, then the HwiP port handles the interrupt priority in an OS specific way. In the case of the SYS/BIOS port, intPriority is passed unmodified to Hwi_create().</para><para>A sample structure is shown below: <programlisting><codeline><highlight class="normal">const<sp/>SPICC26XXDMA_HWAttrsV1<sp/>spiCC26XXDMAobjects[]<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.baseAddr<sp/>=<sp/>SSI0_BASE,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.intNum<sp/>=<sp/>INT_SPI0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.intPriority<sp/>=<sp/>~0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.swiPriority<sp/>=<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.powerMngrId<sp/>=<sp/>PERIPH_SPI0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.defaultTxBufValue<sp/>=<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.rxChannelBitMask<sp/>=<sp/>UDMA_CHAN_SPI0_RX,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.txChannelBitMask<sp/>=<sp/>UDMA_CHAN_SPI0_TX,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.mosiPin<sp/>=<sp/>Board_SPI0_MISO,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.misoPin<sp/>=<sp/>Board_SPI0_MOSI,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.clkPin<sp/>=<sp/>Board_SPI0_CLK,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.csnPin<sp/>=<sp/>Board_SPI0_CSN</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.baseAddr<sp/>=<sp/>SSI1_BASE,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.intNum<sp/>=<sp/>INT_SPI1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.intPriority<sp/>=<sp/>~0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.swiPriority<sp/>=<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.powerMngrId<sp/>=<sp/>PERIPH_SPI1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.defaultTxBufValue<sp/>=<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.rxChannelBitMask<sp/>=<sp/>UDMA_CHAN_SPI1_RX,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.txChannelBitMask<sp/>=<sp/>UDMA_CHAN_SPI1_TX,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.mosiPin<sp/>=<sp/>Board_SPI1_MISO,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.misoPin<sp/>=<sp/>Board_SPI1_MOSI,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.clkPin<sp/>=<sp/>Board_SPI1_CLK,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.csnPin<sp/>=<sp/>Board_SPI1_CSN</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="789" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_s_p_i_c_c26_x_x_d_m_a_8h_1a17ff5bb4e58bb3bf27c26a711489f5e6" prot="public" static="no">
+        <type>struct <ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object" kindref="compound">SPICC26XXDMA_Object</ref></type>
+        <definition>typedef struct SPICC26XXDMA_Object  SPICC26XXDMA_Object</definition>
+        <argsstring></argsstring>
+        <name>SPICC26XXDMA_Object</name>
+        <briefdescription>
+<para>SPICC26XXDMA Object. </para>        </briefdescription>
+        <detaileddescription>
+<para>The application must not access any member variables of this structure! </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="848" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_s_p_i_c_c26_x_x_d_m_a_8h_1a23f13f9c52a6ced04e082c64bebf128f" prot="public" static="no">
+        <type>struct <ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object" kindref="compound">SPICC26XXDMA_Object</ref> *</type>
+        <definition>typedef struct SPICC26XXDMA_Object * SPICC26XXDMA_Handle</definition>
+        <argsstring></argsstring>
+        <name>SPICC26XXDMA_Handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="848" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_s_p_i_c_c26_x_x_d_m_a_8h_1a7a96d71ae8382c6fa489107d34d6c9b3" prot="public" static="no" mutable="no">
+        <type>const <ref refid="_s_p_i_8h_1a4e8e5691222e58e20960a9b82354a358" kindref="member">SPI_FxnTable</ref></type>
+        <definition>const SPI_FxnTable SPICC26XXDMA_fxnTable</definition>
+        <argsstring></argsstring>
+        <name>SPICC26XXDMA_fxnTable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h" line="675" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>SPI driver implementation for a CC26XX SPI controller using the UDMA controller. </para>    </briefdescription>
+    <detaileddescription>
+<para>============================================================================</para><para><heading level="1">Driver include</heading>
+</para><para>The SPI header file should be included in an application as follows: <programlisting><codeline><highlight class="normal">#include<sp/>&lt;ti/drivers/SPI.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;ti/drivers/spi/SPICC26XXDMA.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;ti/drivers/dma/UDMACC26XX.h&gt;</highlight></codeline>
+</programlisting></para><para>Refer to <ref refid="_s_p_i_8h" kindref="compound">SPI.h</ref> for a complete description of APIs.</para><para>Note that the user also needs to include the <ref refid="_u_d_m_a_c_c26_x_x_8h" kindref="compound">UDMACC26XX.h</ref> driver since the SPI uses uDMA in order to improve throughput.</para><para><heading level="1">Overview</heading>
+</para><para>The general SPI API should be used in application code, i.e. <ref refid="_s_p_i_8h_1a9c9022decfb136991d6b53f7dd2ae2fc" kindref="member">SPI_open()</ref> should be used instead of SPICC26XXDMA_open(). The board file will define the device specific config, and casting in the general API will ensure that the correct device specific functions are called. This is also reflected in the example code in <ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1USE_CASES_SPI" kindref="member">Use Cases</ref>.</para><para><heading level="1">General Behavior</heading>
+</para><para>Before using SPI on CC26XX:<itemizedlist>
+<listitem><para>The SPI driver is initialized by calling <ref refid="_s_p_i_8h_1afd9b09f58917f0e2d14c61b956eba214" kindref="member">SPI_init()</ref>.</para></listitem><listitem><para>The SPI HW is configured and flags system dependencies (e.g. IOs, power, etc.) by calling <ref refid="_s_p_i_8h_1a9c9022decfb136991d6b53f7dd2ae2fc" kindref="member">SPI_open()</ref>.</para></listitem><listitem><para>The SPI driver makes use of DMA in order to optimize throughput. This is handled directly by the SPI driver, so the application should never to make any calls directly to the <ref refid="_u_d_m_a_c_c26_x_x_8h" kindref="compound">UDMACC26XX.h</ref> driver.</para></listitem></itemizedlist>
+</para><para>The following is true for slave operation:<itemizedlist>
+<listitem><para>RX overrun IRQ, SPI and UDMA modules are enabled by calling <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref>.</para></listitem><listitem><para>All received bytes are ignored after <ref refid="_s_p_i_8h_1a9c9022decfb136991d6b53f7dd2ae2fc" kindref="member">SPI_open()</ref> is called, until the first <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref>.</para></listitem><listitem><para>If an RX overrun occur or if <ref refid="_s_p_i_8h_1a6819f7761fc3505c4f885653ff8121f0" kindref="member">SPI_transferCancel()</ref> is called, RX overrun IRQ, SPI and UDMA modules are disabled, TX and RX FIFOs are flushed and all bytes are ignored.</para></listitem><listitem><para>After a successful transfer, RX overrun IRQ and SPI module remains enabled and UDMA module is disabled. <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref> must be called again before RX FIFO goes full in order to avoid overflow. If the TX buffer is underflowed, zeros will be output. It is safe to call another <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref> from the transfer callback, see <ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1USE_CASE_CST" kindref="member">Continuous Slave Transfer</ref> use case below.</para></listitem><listitem><para>The SPI driver supports partial return, that can be used if the transfer size is unknown. If PARTIAL_RETURN is enabled, the transfer will end when chip select is deasserted. The <ref refid="struct_s_p_i___transaction___1a75a5cdfb2c377190f45bda6359bccd99" kindref="member">SPI_Transaction.status</ref> and the <ref refid="struct_s_p_i___transaction___1afddd181edfc742470340849cfdb2d9ca" kindref="member">SPI_Transaction.count</ref> will be updated to indicate whether the transfer ended due to a chip select deassertion and how many bytes were transferred. See <ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1USE_CASE_RP" kindref="member">Slave Mode With Return Partial</ref> use case below.</para></listitem></itemizedlist>
+</para><para><simplesect kind="warning"><para>The SPI modules on the CC13x0, CC26x0, and CC26x0R2 devices have a bug which may result in TX data being lost when operating in SPI slave mode. Please refer to the device errata sheet for full details. The SPI protocol should therefore include a data integrity check, such as appending a CRC to the payload to ensure all the data was transmitted correctly by the SPI slave.</para></simplesect>
+The following apply for master operation:<itemizedlist>
+<listitem><para>SPI and UDMA modules are enabled by calling <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref>.</para></listitem><listitem><para>If the <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref> succeeds, SPI module is enabled and UDMA module is disabled.</para></listitem><listitem><para>If <ref refid="_s_p_i_8h_1a6819f7761fc3505c4f885653ff8121f0" kindref="member">SPI_transferCancel()</ref> is called, SPI and UDMA modules are disabled and TX and RX FIFOs are flushed.</para></listitem></itemizedlist>
+After SPI operation has ended:<itemizedlist>
+<listitem><para>Release system dependencies for SPI by calling <ref refid="_s_p_i_8h_1a0e3448b30b88609fa120915e49560601" kindref="member">SPI_close()</ref>.</para></listitem></itemizedlist>
+The callback function is called in the following context:<itemizedlist>
+<listitem><para>When an error occurs, the callback function is called in a HWI context.</para></listitem><listitem><para>When no error occurs, the callback function is called in a SWI context.</para></listitem></itemizedlist>
+</para><para><simplesect kind="warning"><para>The application should avoid transmitting data stored in flash via SPI if the application might switch to the XOSC_HF, the high frequency external oscillator, during this transfer.</para></simplesect>
+<heading level="1">Error handling</heading>
+</para><para>If an RX overrun occurs during slave operation:<itemizedlist>
+<listitem><para>If a transfer is ongoing, all bytes received up until the error occurs will be returned, with the error signaled in the <ref refid="struct_s_p_i___transaction___1a75a5cdfb2c377190f45bda6359bccd99" kindref="member">SPI_Transaction.status</ref> field. RX overrun IRQ, SPI and UDMA modules are then disabled, TX and RX FIFOs are flushed and all bytes will be ignored until a new transfer is issued.</para></listitem><listitem><para>If a transfer is not ongoing, RX overrun IRQ, SPI and UDMA modules are disabled, TX and RX FIFOs are flushed and all bytes will be ignored until a new transfer is issued.</para></listitem></itemizedlist>
+</para><para><heading level="1">Timeout</heading>
+</para><para>Timeout can occur in <ref refid="_s_p_i_8h_1a274f8af064c15a3d850feba06415b53aa0dfb2358e008316426895e7237c398e8" kindref="member">SPI_MODE_BLOCKING</ref>, there&apos;s no timeout in <ref refid="_s_p_i_8h_1a274f8af064c15a3d850feba06415b53aa5631e69925c47a62a261c78ebbda39fb" kindref="member">SPI_MODE_CALLBACK</ref>. When in <ref refid="_s_p_i_8h_1a274f8af064c15a3d850feba06415b53aa5631e69925c47a62a261c78ebbda39fb" kindref="member">SPI_MODE_CALLBACK</ref>, the transfer must be cancelled by calling <ref refid="_s_p_i_8h_1a6819f7761fc3505c4f885653ff8121f0" kindref="member">SPI_transferCancel()</ref>.<linebreak/>
+If a timeout happens in either <ref refid="_s_p_i_8h_1a68904f4e636afb6c4c35caa611388126abc98c1546fe12d3fceb1f86cf670faa9" kindref="member">SPI_SLAVE</ref> or <ref refid="_s_p_i_8h_1a68904f4e636afb6c4c35caa611388126a84379dc90398ca075038c8d5ee465f6a" kindref="member">SPI_MASTER</ref> mode, the receive buffer will contain the bytes received up until the timeout occurred. The SPI transaction status will be set to <ref refid="_s_p_i_8h_1af4c3e24be43bce84209e2ca643ed2588ac01b83da31c34da13025a5b987ef013f" kindref="member">SPI_TRANSFER_FAILED</ref>. The SPI transaction count will be set to the number of bytes sent/received before timeout. The remaining bytes will be flushed from the TX FIFO so that the subsequent transfer can be executed correctly.</para><para><heading level="1">Power Management</heading>
+</para><para>The TI-RTOS power management framework will try to put the device into the most power efficient mode whenever possible. Please see the technical reference manual for further details on each power mode.</para><para>The <ref refid="_s_p_i_c_c26_x_x_d_m_a_8h" kindref="compound">SPICC26XXDMA.h</ref> driver is setting a power constraint during transfers to keep the device out of standby. When the transfer has finished, the power constraint is released. The following statements are valid:<itemizedlist>
+<listitem><para>After <ref refid="_s_p_i_8h_1a9c9022decfb136991d6b53f7dd2ae2fc" kindref="member">SPI_open()</ref>: the device is still allowed to enter standby.</para></listitem><listitem><para>In slave mode:<itemizedlist>
+<listitem><para>During <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref>: the device cannot enter standby, only idle.</para></listitem><listitem><para>After an RX overflow: device is allowed to enter standby.</para></listitem><listitem><para>After a successful <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref>: the device is allowed to enter standby, but SPI module remains enabled.<itemizedlist>
+<listitem><para><emphasis>Note</emphasis>: In slave mode, the device might enter standby while a byte is being transferred if <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref> is not called again after a successful transfer. This could result in corrupt data being transferred.</para></listitem></itemizedlist>
+</para></listitem><listitem><para>Application thread should typically either issue another transfer after <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref> completes successfully, or call <ref refid="_s_p_i_8h_1a6819f7761fc3505c4f885653ff8121f0" kindref="member">SPI_transferCancel()</ref> to disable the SPI module and thus assuring that no data is received while entering standby.</para></listitem></itemizedlist>
+</para></listitem><listitem><para>In master mode:<itemizedlist>
+<listitem><para>During <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref>: the device cannot enter standby, only idle.</para></listitem><listitem><para>After <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref> succeeds: the device can enter standby.</para></listitem><listitem><para>If <ref refid="_s_p_i_8h_1a6819f7761fc3505c4f885653ff8121f0" kindref="member">SPI_transferCancel()</ref> is called: the device can enter standby.</para></listitem></itemizedlist>
+</para></listitem></itemizedlist>
+</para><para><simplesect kind="note"><para>The external hardware connected to the SPI might have some pull configured on the SPI lines. When the SPI is inactive, this might cause leakage on the IO and the current consumption to increase. The application must configure a pull configuration that aligns with the external hardware. See <ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1USE_CASE_LPWR" kindref="member">Ensure low power during inactive periods</ref> for code example.</para></simplesect>
+<heading level="1">SPI details</heading>
+</para><para><heading level="2">Chip Select</heading>
+</para><para>This SPI controller supports a hardware chip select pin. Refer to the user manual on how this hardware chip select pin behaves in regards to the SPI frame format.</para><para><table rows="3" cols="3"><row>
+<entry thead="yes"><para>Chip select type </para></entry><entry thead="yes"><para>SPI_MASTER mode </para></entry><entry thead="yes"><para>SPI_SLAVE mode  </para></entry></row>
+<row>
+<entry thead="no"><para>Hardware chip select </para></entry><entry thead="no"><para>No action is needed by the application to select the peripheral. </para></entry><entry thead="no"><para>See the device documentation on it&apos;s chip select requirements.  </para></entry></row>
+<row>
+<entry thead="no"><para>Software chip select </para></entry><entry thead="no"><para>The application is responsible to ensure that correct SPI slave is selected before performing a <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref>. </para></entry><entry thead="no"><para>See the device documentation on it&apos;s chip select requirements.  </para></entry></row>
+</table>
+</para><para><heading level="3">Multiple slaves when operating in master mode</heading>
+</para><para>In a scenario where the SPI module is operating in master mode with multiple SPI slaves, the chip select pin can be reallocated at runtime to select the appropriate slave device. See <ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1USE_CASE_MMMS" kindref="member">Master Mode With Multiple Slaves</ref> use case below. This is only relevant when chip select is a hardware chip select. Otherwise the application can control the chip select pins directly using the PIN driver.</para><para><heading level="2">Data Frames</heading>
+</para><para>SPI data frames can be any size from 4-bits to 16-bits. If the dataSize in <ref refid="_s_p_i_8h_1a6072d65e3caf8e677473b54d2bce7d35" kindref="member">SPI_Params</ref> is greater that 8-bits, then the SPICC26XXDMA driver implementation will assume that the <ref refid="_s_p_i_8h_1a8db1a57134d152fae8659739b6f37c71" kindref="member">SPI_Transaction</ref> txBuf and rxBuf point to an array of 16-bit uint16_t elements.</para><para><table rows="3" cols="2"><row>
+<entry thead="yes"><para>dataSize </para></entry><entry thead="yes"><para>buffer element size  </para></entry></row>
+<row>
+<entry thead="no"><para>4-8 bits </para></entry><entry thead="no"><para>uint8_t </para></entry></row>
+<row>
+<entry thead="no"><para>9-16 bits </para></entry><entry thead="no"><para>uint16_t </para></entry></row>
+</table>
+<heading level="2">Bit Rate</heading>
+</para><para>When the SPI is configured as SPI slave, the maximum bit rate is 4MHz.</para><para>When the SPI is configured as SPI master, the maximum bit rate is 12MHz.</para><para><heading level="2">UDMA</heading>
+</para><para><heading level="3">Interrupts</heading>
+</para><para>The UDMA module generates IRQs on the SPI interrupt vector. This driver automatically installs a UDMA aware Hwi (interrupt) to service the assigned UDMA channels.</para><para><heading level="3">Transfer Size Limit</heading>
+</para><para>The UDMA controller only supports data transfers of up to 1024 data frames. A transfer with more than 1024 frames will be transmitted/received in multiple 1024 sized portions until all data has been transmitted/received. A data frame can be 4 to 16 bits in length.</para><para><heading level="3">Scratch Buffers</heading>
+</para><para>A uint16_t scratch buffer is used to allow SPI_transfers where txBuf or rxBuf are NULL. Rather than requiring txBuf or rxBuf to have a dummy buffer of size of the transfer count, a single-word UDMA accessible uint16_t scratch buffer is used. When rxBuf is NULL, the UDMA will transfer all the received SPI data into the scratch buffer as a &quot;bit-bucket&quot;. When txBuf is NULL, the scratch buffer is initialized to defaultTxBufValue so the uDMA will send some known value. Each SPI driver instance uses its own scratch buffer.</para><para><heading level="3">TX and RX buffers</heading>
+</para><para>Before SPI_transfer, txBuf should be filled with the outgoing SPI data. These data are sent out during the transfer, while the incoming data are received into rxBuf. To save memory space, txBuf and rxBuf can be assigned to the same buffer location. At the beginning of the transfer, this buffer holds outgoing data. At the end of the transfer, the outgoing data are overwritten and the buffer holds the received SPI data.</para><para><heading level="2">Polling SPI transfers</heading>
+</para><para>When used in blocking mode small SPI transfers are can be done by polling the peripheral &amp; sending data frame-by-frame. This will not block the task which requested the transfer, but instead immediately perform the transfer &amp; return. The minDmaTransferSize field in the hardware attributes is the threshold; if the transaction count is below the threshold a polling transfer is performed; otherwise a DMA transfer is done. This is intended to reduce the overhead of setting up a DMA transfer to only send a few data frames. Keep in mind that during polling transfers the current task is still being executed; there is no context switch to another task.</para><para><heading level="1">Supported Functions</heading>
+</para><para><table rows="7" cols="3"><row>
+<entry thead="yes"><para>Generic API function </para></entry><entry thead="yes"><para>API function </para></entry><entry thead="yes"><para>Description  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_s_p_i_8h_1afd9b09f58917f0e2d14c61b956eba214" kindref="member">SPI_init()</ref> </para></entry><entry thead="no"><para>SPICC26XXDMA_init() </para></entry><entry thead="no"><para>Initialize SPI driver </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_s_p_i_8h_1a9c9022decfb136991d6b53f7dd2ae2fc" kindref="member">SPI_open()</ref> </para></entry><entry thead="no"><para>SPICC26XXDMA_open() </para></entry><entry thead="no"><para>Initialize SPI HW and set system dependencies </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_s_p_i_8h_1a0e3448b30b88609fa120915e49560601" kindref="member">SPI_close()</ref> </para></entry><entry thead="no"><para>SPICC26XXDMA_close() </para></entry><entry thead="no"><para>Disable SPI and UDMA HW and release system dependencies </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_s_p_i_8h_1a1b3fafc9892141b7bab1bc9c19ede9ef" kindref="member">SPI_control()</ref> </para></entry><entry thead="no"><para>SPICC26XXDMA_control() </para></entry><entry thead="no"><para>Configure an already opened SPI handle </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref> </para></entry><entry thead="no"><para>SPICC26XXDMA_transfer() </para></entry><entry thead="no"><para>Start transfer from SPI </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_s_p_i_8h_1a6819f7761fc3505c4f885653ff8121f0" kindref="member">SPI_transferCancel()</ref> </para></entry><entry thead="no"><para>SPICC26XXDMA_transferCancel() </para></entry><entry thead="no"><para>Cancel ongoing transfer from SPI </para></entry></row>
+</table>
+<simplesect kind="note"><para>All calls should go through the generic API</para></simplesect>
+<heading level="2">Unsupported Functionality</heading>
+</para><para>The CC26XX SPI driver does not support:<itemizedlist>
+<listitem><para>SPICC26XXDMA_serviceISR()</para></listitem></itemizedlist>
+</para><para><heading level="2">Use Cases<anchor id="_s_p_i_c_c26_x_x_d_m_a_8h_1USE_CASES_SPI"/></heading>
+</para><para><heading level="3">Basic Slave Mode</heading>
+</para><para>Receive 100 bytes over SPI in <ref refid="_s_p_i_8h_1a274f8af064c15a3d850feba06415b53aa0dfb2358e008316426895e7237c398e8" kindref="member">SPI_MODE_BLOCKING</ref>. <programlisting><codeline><highlight class="normal">SPI_Handle<sp/>handle;</highlight></codeline>
+<codeline><highlight class="normal">SPI_Params<sp/>params;</highlight></codeline>
+<codeline><highlight class="normal">SPI_Transaction<sp/>transaction;</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>rxBuf[100];<sp/><sp/><sp/><sp/><sp/>//<sp/>Receive<sp/>buffer</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Init<sp/>SPI<sp/>and<sp/>specify<sp/>non-default<sp/>parameters</highlight></codeline>
+<codeline><highlight class="normal">SPI_Params_init(&amp;params);</highlight></codeline>
+<codeline><highlight class="normal">params.bitRate<sp/><sp/><sp/><sp/><sp/>=<sp/>1000000;</highlight></codeline>
+<codeline><highlight class="normal">params.frameFormat<sp/>=<sp/>SPI_POL1_PHA1;</highlight></codeline>
+<codeline><highlight class="normal">params.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>SPI_SLAVE;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Configure<sp/>the<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal">transaction.count<sp/>=<sp/>100;</highlight></codeline>
+<codeline><highlight class="normal">transaction.txBuf<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline><highlight class="normal">transaction.rxBuf<sp/>=<sp/>rxBuf;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Open<sp/>the<sp/>SPI<sp/>and<sp/>perform<sp/>the<sp/>transfer</highlight></codeline>
+<codeline><highlight class="normal">handle<sp/>=<sp/>SPI_open(Board_SPI,<sp/>&amp;params);</highlight></codeline>
+<codeline><highlight class="normal">SPI_transfer(handle,<sp/>&amp;transaction);</highlight></codeline>
+</programlisting></para><para><heading level="3">Slave Mode With Return Partial<anchor id="_s_p_i_c_c26_x_x_d_m_a_8h_1USE_CASE_RP"/></heading>
+</para><para>This use case will perform a transfer in <ref refid="_s_p_i_8h_1a274f8af064c15a3d850feba06415b53aa0dfb2358e008316426895e7237c398e8" kindref="member">SPI_MODE_BLOCKING</ref> until the wanted amount of bytes is transferred or until chip select is deasserted by the SPI master. This <ref refid="_s_p_i_8h_1a989e17f96b54fcc3dc2cac5f8ac6bdb2" kindref="member">SPI_transfer()</ref> call can be used when unknown amount of bytes shall be transferred. Note: The partial return is also possible in <ref refid="_s_p_i_8h_1a274f8af064c15a3d850feba06415b53aa5631e69925c47a62a261c78ebbda39fb" kindref="member">SPI_MODE_CALLBACK</ref> mode. <programlisting><codeline><highlight class="normal">SPI_Handle<sp/>handle;</highlight></codeline>
+<codeline><highlight class="normal">SPI_Params<sp/>params;</highlight></codeline>
+<codeline><highlight class="normal">SPI_Transaction<sp/>transaction;</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>rxBuf[100];<sp/><sp/><sp/><sp/><sp/>//<sp/>Receive<sp/>buffer</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Init<sp/>SPI<sp/>and<sp/>specify<sp/>non-default<sp/>parameters</highlight></codeline>
+<codeline><highlight class="normal">SPI_Params_init(&amp;params);</highlight></codeline>
+<codeline><highlight class="normal">params.bitRate<sp/><sp/><sp/><sp/><sp/>=<sp/>1000000;</highlight></codeline>
+<codeline><highlight class="normal">params.frameFormat<sp/>=<sp/>SPI_POL1_PHA1;</highlight></codeline>
+<codeline><highlight class="normal">params.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>SPI_SLAVE;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Configure<sp/>the<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal">transaction.count<sp/>=<sp/>100;</highlight></codeline>
+<codeline><highlight class="normal">transaction.txBuf<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline><highlight class="normal">transaction.rxBuf<sp/>=<sp/>rxBuf;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Open<sp/>the<sp/>SPI<sp/>and<sp/>initiate<sp/>the<sp/>partial<sp/>read</highlight></codeline>
+<codeline><highlight class="normal">handle<sp/>=<sp/>SPI_open(Board_SPI,<sp/>&amp;params);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Enable<sp/>RETURN_PARTIAL</highlight></codeline>
+<codeline><highlight class="normal">SPI_control(handle,<sp/>SPICC26XXDMA_RETURN_PARTIAL_ENABLE,<sp/>NULL);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Begin<sp/>transfer</highlight></codeline>
+<codeline><highlight class="normal">SPI_transfer(handle,<sp/>&amp;transaction);</highlight></codeline>
+</programlisting></para><para><heading level="3">Continuous Slave Transfer In <ref refid="_s_p_i_8h_1a274f8af064c15a3d850feba06415b53aa5631e69925c47a62a261c78ebbda39fb" kindref="member">SPI_MODE_CALLBACK</ref><anchor id="_s_p_i_c_c26_x_x_d_m_a_8h_1USE_CASE_CST"/></heading>
+</para><para>This use case will configure the SPI driver to transfer continuously in <ref refid="_s_p_i_8h_1a274f8af064c15a3d850feba06415b53aa5631e69925c47a62a261c78ebbda39fb" kindref="member">SPI_MODE_CALLBACK</ref>, 16 bytes at the time and echoing received data after every 16 bytes. <programlisting><codeline><highlight class="normal">//<sp/>Callback<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>void<sp/>transferCallback(SPI_Handle<sp/>handle,<sp/>SPI_Transaction<sp/>*transaction)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Start<sp/>another<sp/>transfer</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_transfer(handle,<sp/>transaction);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">static<sp/>void<sp/>taskFxn(uintptr_t<sp/>a0,<sp/>uintptr_t<sp/>a1)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_Handle<sp/>handle;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_Params<sp/>params;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_Transaction<sp/>transaction;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>buf[16];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Receive<sp/>and<sp/>transmit<sp/>buffer</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Init<sp/>SPI<sp/>and<sp/>specify<sp/>non-default<sp/>parameters</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_Params_init(&amp;params);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>params.bitRate<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1000000;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>params.frameFormat<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>SPI_POL1_PHA1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>params.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>SPI_SLAVE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>params.transferMode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>SPI_MODE_CALLBACK;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>params.transferCallbackFxn<sp/>=<sp/>transferCallback;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Configure<sp/>the<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>transaction.count<sp/>=<sp/>16;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>transaction.txBuf<sp/>=<sp/>buf;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>transaction.rxBuf<sp/>=<sp/>buf;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Open<sp/>the<sp/>SPI<sp/>and<sp/>initiate<sp/>the<sp/>first<sp/>transfer</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>handle<sp/>=<sp/>SPI_open(Board_SPI,<sp/>&amp;params);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_transfer(handle,<sp/>&amp;transaction);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Wait<sp/>forever</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while(true);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para><para><heading level="3">Basic Master Mode</heading>
+</para><para>This use case will configure a SPI master to send the data in txBuf while receiving data to rxBuf in BLOCKING_MODE. <programlisting><codeline><highlight class="normal">SPI_Handle<sp/>handle;</highlight></codeline>
+<codeline><highlight class="normal">SPI_Params<sp/>params;</highlight></codeline>
+<codeline><highlight class="normal">SPI_Transaction<sp/>transaction;</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>txBuf[]<sp/>=<sp/>&quot;Hello<sp/>World&quot;;<sp/><sp/><sp/><sp/>//<sp/>Transmit<sp/>buffer</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>rxBuf[11];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Receive<sp/>buffer</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Init<sp/>SPI<sp/>and<sp/>specify<sp/>non-default<sp/>parameters</highlight></codeline>
+<codeline><highlight class="normal">SPI_Params_init(&amp;params);</highlight></codeline>
+<codeline><highlight class="normal">params.bitRate<sp/><sp/><sp/><sp/><sp/>=<sp/>1000000;</highlight></codeline>
+<codeline><highlight class="normal">params.frameFormat<sp/>=<sp/>SPI_POL1_PHA1;</highlight></codeline>
+<codeline><highlight class="normal">params.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>SPI_MASTER;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Configure<sp/>the<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal">transaction.count<sp/>=<sp/>sizeof(txBuf);</highlight></codeline>
+<codeline><highlight class="normal">transaction.txBuf<sp/>=<sp/>txBuf;</highlight></codeline>
+<codeline><highlight class="normal">transaction.rxBuf<sp/>=<sp/>rxBuf;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Open<sp/>the<sp/>SPI<sp/>and<sp/>perform<sp/>the<sp/>transfer</highlight></codeline>
+<codeline><highlight class="normal">handle<sp/>=<sp/>SPI_open(Board_SPI,<sp/>&amp;params);</highlight></codeline>
+<codeline><highlight class="normal">SPI_transfer(handle,<sp/>&amp;transaction);</highlight></codeline>
+</programlisting></para><para><heading level="3">Master Mode With Multiple Slaves<anchor id="_s_p_i_c_c26_x_x_d_m_a_8h_1USE_CASE_MMMS"/></heading>
+</para><para>This use case will configure a SPI master to send data to one slave and then to another in BLOCKING_MODE. It is assumed that the board file is configured so that the two chip select pins have a default setting of a high output and that the <ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1" kindref="compound">SPICC26XXDMA_HWAttrsV1</ref> used points to one of them since the SPI driver will revert to this default setting when switching the chip select pin.</para><para><programlisting><codeline><highlight class="normal">//<sp/>From<sp/>board.c</highlight></codeline>
+<codeline><highlight class="normal">PIN_Config<sp/>BoardGpioInitTable[]<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Board_CSN_0<sp/><sp/><sp/>|<sp/>PIN_GPIO_OUTPUT_EN<sp/>|<sp/>PIN_GPIO_HIGH<sp/><sp/><sp/>|<sp/>PIN_PUSHPULL,<sp/><sp/><sp/>//<sp/>Ensure<sp/>SPI<sp/>slave<sp/>0<sp/>is<sp/>not<sp/>selected</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Board_CSN_1<sp/><sp/><sp/>|<sp/>PIN_GPIO_OUTPUT_EN<sp/>|<sp/>PIN_GPIO_HIGH<sp/><sp/><sp/>|<sp/>PIN_PUSHPULL<sp/><sp/><sp/><sp/>//<sp/>Ensure<sp/>SPI<sp/>slave<sp/>1<sp/>is<sp/>not<sp/>selected</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">const<sp/>SPICC26XXDMA_HWAttrsV1<sp/>spiCC26XXDMAHWAttrs[CC2650_SPICOUNT]<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">{<sp/><sp/><sp/>//<sp/>Use<sp/>SPI0<sp/>module<sp/>with<sp/>default<sp/>chip<sp/>select<sp/>on<sp/>Board_CSN_0</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.baseAddr<sp/>=<sp/>SSI0_BASE,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.intNum<sp/>=<sp/>INT_SSI0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.intPriority<sp/>=<sp/>~0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.swiPriority<sp/>=<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.defaultTxBufValue<sp/>=<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.powerMngrId<sp/>=<sp/>PERIPH_SSI0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.rxChannelIndex<sp/>=<sp/>UDMA_CHAN_SSI0_RX,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.txChannelIndex<sp/>=<sp/>UDMA_CHAN_SSI0_TX,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.mosiPin<sp/>=<sp/>Board_SPI0_MOSI,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.misoPin<sp/>=<sp/>Board_SPI0_MISO,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.clkPin<sp/>=<sp/>Board_SPI0_CLK,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.csnPin<sp/>=<sp/>Board_CSN_0</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>From<sp/>your_application.c</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>void<sp/>taskFxn(uintptr_t<sp/>a0,<sp/>uintptr_t<sp/>a1)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_Handle<sp/>handle;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_Params<sp/>params;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_Transaction<sp/>transaction;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>PIN_Id<sp/>csnPin1<sp/><sp/>=<sp/>PIN_ID(Board_CSN_1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>txBuf[]<sp/>=<sp/>&quot;Hello<sp/>World&quot;;<sp/><sp/><sp/><sp/>//<sp/>Transmit<sp/>buffer</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Init<sp/>SPI<sp/>and<sp/>specify<sp/>non-default<sp/>parameters</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_Params_init(&amp;params);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>params.bitRate<sp/><sp/><sp/><sp/><sp/>=<sp/>1000000;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>params.frameFormat<sp/>=<sp/>SPI_POL1_PHA1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>params.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>SPI_MASTER;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Configure<sp/>the<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>transaction.count<sp/>=<sp/>sizeof(txBuf);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>transaction.txBuf<sp/>=<sp/>txBuf;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>transaction.rxBuf<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Open<sp/>the<sp/>SPI<sp/>and<sp/>perform<sp/>transfer<sp/>to<sp/>the<sp/>first<sp/>slave</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>handle<sp/>=<sp/>SPI_open(Board_SPI,<sp/>&amp;params);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_transfer(handle,<sp/>&amp;transaction);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Then<sp/>switch<sp/>chip<sp/>select<sp/>pin<sp/>and<sp/>perform<sp/>transfer<sp/>to<sp/>the<sp/>second<sp/>slave</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_control(handle,<sp/>SPICC26XXDMA_SET_CSN_PIN,<sp/>&amp;csnPin1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_transfer(handle,<sp/>&amp;transaction);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para><para><heading level="3">Ensure low power during inactive periods<anchor id="_s_p_i_c_c26_x_x_d_m_a_8h_1USE_CASE_LPWR"/></heading>
+</para><para>External hardware connected on the SPI, i.e. SPI host/slave, might have configured a pull on one or more of the SPI lines. Dependent on the hardware, it might conflict with the pull used for the CC26XX SPI. To avoid increased leakage and ensure the lowest possible power consumption when the SPI is inactive, the application must configure a matching pull on the SPI IOs. An example of how this can be done is shown below.</para><para><programlisting><codeline><highlight class="normal">PIN_Handle<sp/>pinHandle;</highlight></codeline>
+<codeline><highlight class="normal">SPI_Handle<sp/>handle;</highlight></codeline>
+<codeline><highlight class="normal">SPI_Params<sp/>params;</highlight></codeline>
+<codeline><highlight class="normal">SPI_Transaction<sp/>transaction;</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>txBuf[]<sp/>=<sp/>&quot;Heartbeat&quot;;<sp/><sp/><sp/><sp/>//<sp/>Transmit<sp/>buffer</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>rxBuf[9];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Receive<sp/>buffer</highlight></codeline>
+<codeline><highlight class="normal">PIN_Id<sp/>misoPinId;</highlight></codeline>
+<codeline><highlight class="normal">uint32_t<sp/>standbyDurationMs<sp/>=<sp/>100;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Init<sp/>SPI<sp/>and<sp/>specify<sp/>non-default<sp/>parameters</highlight></codeline>
+<codeline><highlight class="normal">SPI_Params_init(&amp;params);</highlight></codeline>
+<codeline><highlight class="normal">params.bitRate<sp/><sp/><sp/><sp/><sp/>=<sp/>1000000;</highlight></codeline>
+<codeline><highlight class="normal">params.frameFormat<sp/>=<sp/>SPI_POL1_PHA1;</highlight></codeline>
+<codeline><highlight class="normal">params.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>SPI_MASTER;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Configure<sp/>the<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal">transaction.count<sp/>=<sp/>sizeof(txBuf);</highlight></codeline>
+<codeline><highlight class="normal">transaction.txBuf<sp/>=<sp/>txBuf;</highlight></codeline>
+<codeline><highlight class="normal">transaction.rxBuf<sp/>=<sp/>rxBuf;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Open<sp/>the<sp/>SPI<sp/>and<sp/>perform<sp/>the<sp/>transfer</highlight></codeline>
+<codeline><highlight class="normal">handle<sp/>=<sp/>SPI_open(Board_SPI,<sp/>&amp;params);</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Get<sp/>pinHandle</highlight></codeline>
+<codeline><highlight class="normal">pinHandle<sp/>=<sp/>((SPICC26XXDMA_Object<sp/>*)spiHandle-&gt;object)-&gt;pinHandle;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Get<sp/>miso<sp/>pin<sp/>id</highlight></codeline>
+<codeline><highlight class="normal">misoPinId<sp/>=<sp/>((SPICC26XXDMA_HWAttrsV1<sp/>*)spiHandle-&gt;hwAttrs)-&gt;misoPin;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Apply<sp/>low<sp/>power<sp/>sleep<sp/>pull<sp/>config<sp/>for<sp/>MISO</highlight></codeline>
+<codeline><highlight class="normal">PIN_setConfig(pinHandle,<sp/>PIN_BM_PULLING,<sp/>PIN_PULLUP<sp/>|<sp/>misoPinId);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Do<sp/>forever</highlight></codeline>
+<codeline><highlight class="normal">while(1)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Transfer<sp/>data</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>SPI_transfer(handle,<sp/>&amp;transaction);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Sleep</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Task_sleep(standbyDurationMs*100);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para><para><heading level="3">Wake Up On Chip Select Deassertion In Slave Mode Using <ref refid="_s_p_i_8h_1a274f8af064c15a3d850feba06415b53aa5631e69925c47a62a261c78ebbda39fb" kindref="member">SPI_MODE_CALLBACK</ref></heading>
+</para><para>To wake the SPI slave device up on deassertion of the chip select, the chip select pin must be controled outside of the SPI driver in between SPI transfers. The example below show how this can be implemented by registering the chip select pin with the PIN driver and configuring a callback on a falling edge. In the PIN callback, the chip select pin is released from the PIN driver, the SPI driver is opened, and a transaction started. During the SPI callback, the SPI driver is closed again and the chip select pin is reconfigured to trigger a callback on a falling edge again.</para><para>*Note: The SPI master must allow enough time between deasserting the chip select and the start of the transaction for the SPI slave to wake up and open up the SPI driver.</para><para><programlisting><codeline><highlight class="normal">//<sp/>Global<sp/>variables</highlight></codeline>
+<codeline><highlight class="normal">SPI_Handle<sp/>spiHandle</highlight></codeline>
+<codeline><highlight class="normal">SPI_Params<sp/>spiParams;</highlight></codeline>
+<codeline><highlight class="normal">SPI_Transaction<sp/>spiTransaction;</highlight></codeline>
+<codeline><highlight class="normal">const<sp/>uint8_t<sp/>transferSize<sp/>=<sp/>8;</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>txBuf[8];</highlight></codeline>
+<codeline><highlight class="normal">PIN_Handle<sp/>pinHandle;</highlight></codeline>
+<codeline><highlight class="normal">PIN_Config<sp/>pinConfig[]<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PIN_INPUT_EN<sp/>|<sp/>PIN_PULLUP<sp/>|<sp/>PIN_IRQ_NEGEDGE<sp/>|<sp/>CS_PIN_ID,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PIN_TERMINATE<sp/><sp/>//<sp/>Terminate<sp/>list</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Chip<sp/>select<sp/>callback</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>void<sp/>chipSelectCallback(PIN_Handle<sp/>handle,<sp/>PIN_Id<sp/>pinId)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Release<sp/>the<sp/>chip<sp/>select<sp/>pin</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>PIN_remove(handle,<sp/>pinId);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Open<sp/>SPI<sp/>driver</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiHandle<sp/>=<sp/>SPI_open(Board_SPI,<sp/>&amp;spiParams);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Issue<sp/>echo<sp/>transfer</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_transfer(spiHandle,<sp/>&amp;spiTransaction);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>SPI<sp/>transfer<sp/>callback</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>void<sp/>transferCallback(SPI_Handle<sp/>handle,<sp/>SPI_Transaction<sp/>*transaction)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Close<sp/>the<sp/>SPI<sp/>driver</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_close(handle);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Add<sp/>chip<sp/>select<sp/>back<sp/>to<sp/>the<sp/>PIN<sp/>driver</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>PIN_add(pinHandle,<sp/>pinConfig[0]);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Register<sp/>chip<sp/>select<sp/>callback</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>PIN_registerIntCb(pinHandle,<sp/>chipSelectCallback);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>From<sp/>your_application.c</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>void<sp/>taskFxn(uintptr_t<sp/>a0,<sp/>uintptr_t<sp/>a1)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>i;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>PIN_State<sp/><sp/><sp/>pinState;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Setup<sp/>SPI<sp/>params</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SPI_Params_init(&amp;spiParams);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiParams.bitRate<sp/><sp/><sp/><sp/><sp/>=<sp/>1000000;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiParams.frameFormat<sp/>=<sp/>SPI_POL1_PHA1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiParams.mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>SPI_SLAVE;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiParams.dataSize<sp/><sp/><sp/><sp/>=<sp/>transferSize;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiParams.transferMode<sp/>=<sp/>SPI_MODE_CALLBACK;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiParams.transferCallbackFxn<sp/>=<sp/>transferCallback;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Setup<sp/>SPI<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiTransaction.arg<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiTransaction.count<sp/>=<sp/>transferSize;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiTransaction.txBuf<sp/>=<sp/>txBuf;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>spiTransaction.rxBuf<sp/>=<sp/>txBuf;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>First<sp/>echo<sp/>message</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>for<sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>transferSize;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>txBuf[i]<sp/>=<sp/>i;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Open<sp/>PIN<sp/>driver<sp/>and<sp/>configure<sp/>chip<sp/>select<sp/>pin<sp/>callback</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pinHandle<sp/>=<sp/>PIN_open(&amp;pinState,<sp/>pinConfig);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>PIN_registerIntCb(pinHandle,<sp/>chipSelectCallback);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Wait<sp/>forever</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while(true);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para><para><heading level="1">Instrumentation</heading>
+</para><para>The SPI driver interface produces log statements if instrumentation is enabled.</para><para><table rows="3" cols="2"><row>
+<entry thead="yes"><para>Diagnostics Mask </para></entry><entry thead="yes"><para>Log details  </para></entry></row>
+<row>
+<entry thead="no"><para>Diags_USER1 </para></entry><entry thead="no"><para>basic SPI operations performed </para></entry></row>
+<row>
+<entry thead="no"><para>Diags_USER2 </para></entry><entry thead="no"><para>detailed SPI operations performed </para></entry></row>
+</table>
+<hruler/>
+ </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2015-2018,<sp/>Texas<sp/>Instruments<sp/>Incorporated</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>Texas<sp/>Instruments<sp/>Incorporated<sp/>nor<sp/>the<sp/>names<sp/>of</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>its<sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>from<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>OWNER<sp/>OR</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>CONTRIBUTORS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*/</highlight></codeline>
+<codeline lineno="595"><highlight class="preprocessor">#ifndef<sp/>ti_drivers_spi_SPICC26XXDMA__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="596"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ti_drivers_spi_SPICC26XXDMA__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="597"><highlight class="normal"></highlight></codeline>
+<codeline lineno="598"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="599"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="600"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="601"><highlight class="normal"></highlight></codeline>
+<codeline lineno="602"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="603"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_s_p_i_8h" kindref="compound">ti/drivers/SPI.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="604"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_p_i_n_c_c26_x_x_8h" kindref="compound">ti/drivers/pin/PINCC26XX.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="605"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_u_d_m_a_c_c26_x_x_8h" kindref="compound">ti/drivers/dma/UDMACC26XX.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="606"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_power_8h" kindref="compound">ti/drivers/Power.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="607"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_power_c_c26_x_x_8h" kindref="compound">ti/drivers/power/PowerCC26XX.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="608"><highlight class="normal"></highlight></codeline>
+<codeline lineno="609"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ti/drivers/dpl/HwiP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="610"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ti/drivers/dpl/SemaphoreP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="611"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ti/drivers/dpl/SwiP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="612"><highlight class="normal"></highlight></codeline>
+<codeline lineno="623"><highlight class="comment">/*<sp/>Add<sp/>SPICC26XXDMA_STATUS_*<sp/>macros<sp/>here<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="624"><highlight class="normal"></highlight></codeline>
+<codeline lineno="644" refid="group___s_p_i___c_m_d_1ga348d271d5ad295c5e049e78d745c57e1" refkind="member"><highlight class="preprocessor">#define<sp/>SPICC26XXDMA_CMD_RETURN_PARTIAL_ENABLE<sp/><sp/>(SPI_CMD_RESERVED<sp/>+<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="645"><highlight class="normal"></highlight></codeline>
+<codeline lineno="653" refid="group___s_p_i___c_m_d_1gaff8de4036abcdb2903cb5280120c30b4" refkind="member"><highlight class="preprocessor">#define<sp/>SPICC26XXDMA_CMD_RETURN_PARTIAL_DISABLE<sp/>(SPI_CMD_RESERVED<sp/>+<sp/>1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="654"><highlight class="normal"></highlight></codeline>
+<codeline lineno="661" refid="group___s_p_i___c_m_d_1gab3ab03abd9ca073344acdcc6b442f9eb" refkind="member"><highlight class="preprocessor">#define<sp/>SPICC26XXDMA_CMD_SET_CSN_PIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(SPI_CMD_RESERVED<sp/>+<sp/>2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="662"><highlight class="normal"></highlight></codeline>
+<codeline lineno="664"><highlight class="comment">/*<sp/>BACKWARDS<sp/>COMPATIBILITY<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="665" refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a5d2c909f70c7093227d1b288354cef27" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SPICC26XXDMA_RETURN_PARTIAL_ENABLE<sp/><sp/><sp/><sp/><sp/><sp/>SPICC26XXDMA_CMD_RETURN_PARTIAL_ENABLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="666" refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a6454ac0d2222d98114cf15a4a60367ca" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SPICC26XXDMA_RETURN_PARTIAL_DISABLE<sp/><sp/><sp/><sp/><sp/>SPICC26XXDMA_CMD_RETURN_PARTIAL_DISABLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="667" refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a447172f0061a6de65a8f0d221a23f93c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SPICC26XXDMA_SET_CSN_PIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SPICC26XXDMA_CMD_SET_CSN_PIN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="668"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>END<sp/>BACKWARDS<sp/>COMPATIBILITY<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="669"><highlight class="normal"></highlight></codeline>
+<codeline lineno="675"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_s_p_i___fxn_table__" kindref="compound">SPI_FxnTable</ref><sp/><ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a7a96d71ae8382c6fa489107d34d6c9b3" kindref="member">SPICC26XXDMA_fxnTable</ref>;</highlight></codeline>
+<codeline lineno="676"><highlight class="normal"></highlight></codeline>
+<codeline lineno="686" refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81a" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81a" kindref="member">SPICC26XXDMA_FrameSize</ref><sp/>{</highlight></codeline>
+<codeline lineno="687" refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81aae775eeccbba1a059e3cf6ada00472a1b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81aae775eeccbba1a059e3cf6ada00472a1b" kindref="member">SPICC26XXDMA_8bit</ref><sp/><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="688" refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81aab7e0c593e19cb06ea65ad293f6fd0971" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81aab7e0c593e19cb06ea65ad293f6fd0971" kindref="member">SPICC26XXDMA_16bit</ref><sp/>=<sp/>1</highlight></codeline>
+<codeline lineno="689"><highlight class="normal">}<sp/><ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81a" kindref="member">SPICC26XXDMA_FrameSize</ref>;</highlight></codeline>
+<codeline lineno="690"><highlight class="normal"></highlight></codeline>
+<codeline lineno="745" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1" kindref="compound">SPICC26XXDMA_HWAttrsV1</ref><sp/>{</highlight></codeline>
+<codeline lineno="747" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1a9599bdd7fa7cd54ba21abd1620ff9b7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1a9599bdd7fa7cd54ba21abd1620ff9b7c" kindref="member">baseAddr</ref>;</highlight></codeline>
+<codeline lineno="749" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1acd8e80fe8f87b4dd9dc2c4dd67154b4f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1acd8e80fe8f87b4dd9dc2c4dd67154b4f" kindref="member">intNum</ref>;</highlight></codeline>
+<codeline lineno="763" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1adf00bea7af47e0a9710abbb678f2a5d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1adf00bea7af47e0a9710abbb678f2a5d3" kindref="member">intPriority</ref>;</highlight></codeline>
+<codeline lineno="769" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1ae85e096957fdda594aef03bd11f3ecc9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1ae85e096957fdda594aef03bd11f3ecc9" kindref="member">swiPriority</ref>;</highlight></codeline>
+<codeline lineno="771" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1abb44579acb05087acf70a9f0f9b07a32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>PowerCC26XX_Resource<sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1abb44579acb05087acf70a9f0f9b07a32" kindref="member">powerMngrId</ref>;</highlight></codeline>
+<codeline lineno="773" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1a174e951d2fbfe1336e169146e4719cb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1a174e951d2fbfe1336e169146e4719cb3" kindref="member">defaultTxBufValue</ref>;</highlight></codeline>
+<codeline lineno="775" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1ab398cf4aa44a1856c8b8b2d874e838e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1ab398cf4aa44a1856c8b8b2d874e838e4" kindref="member">rxChannelBitMask</ref>;</highlight></codeline>
+<codeline lineno="777" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1a79459502de9e2ce20c4151a6ceb987f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1a79459502de9e2ce20c4151a6ceb987f3" kindref="member">txChannelBitMask</ref>;</highlight></codeline>
+<codeline lineno="779" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1aa67bd42df961080c01653b99a4d475a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_p_i_n_8h_1a9ae8197f460bb76ea09a84f47d09921f" kindref="member">PIN_Id</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1aa67bd42df961080c01653b99a4d475a0" kindref="member">mosiPin</ref>;</highlight></codeline>
+<codeline lineno="781" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1a420ee9fc74e0a5c86f5461ecea484bbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_p_i_n_8h_1a9ae8197f460bb76ea09a84f47d09921f" kindref="member">PIN_Id</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1a420ee9fc74e0a5c86f5461ecea484bbe" kindref="member">misoPin</ref>;</highlight></codeline>
+<codeline lineno="783" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1adcdbba63f9164524601115195754ccaa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_p_i_n_8h_1a9ae8197f460bb76ea09a84f47d09921f" kindref="member">PIN_Id</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1adcdbba63f9164524601115195754ccaa" kindref="member">clkPin</ref>;</highlight></codeline>
+<codeline lineno="785" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1ae6f53f93617b30ba7a3026cac95822e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_p_i_n_8h_1a9ae8197f460bb76ea09a84f47d09921f" kindref="member">PIN_Id</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1ae6f53f93617b30ba7a3026cac95822e3" kindref="member">csnPin</ref>;</highlight></codeline>
+<codeline lineno="786"><highlight class="normal"></highlight></codeline>
+<codeline lineno="788" refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1a5f6ef34d364b4037db08ee3afcb95135" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___h_w_attrs_v1_1a5f6ef34d364b4037db08ee3afcb95135" kindref="member">minDmaTransferSize</ref>;</highlight></codeline>
+<codeline lineno="789"><highlight class="normal">}<sp/><ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a17117d67b0bd141d91110f2c5bfaa9cf" kindref="member">SPICC26XXDMA_HWAttrsV1</ref>;</highlight></codeline>
+<codeline lineno="790"><highlight class="normal"></highlight></codeline>
+<codeline lineno="796" refid="struct_s_p_i_c_c26_x_x_d_m_a___object" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object" kindref="compound">SPICC26XXDMA_Object</ref><sp/>{</highlight></codeline>
+<codeline lineno="797"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>SPI<sp/>control<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="798" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a12fcb093793c5a34ff32f9e29a3d7cf4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i_8h_1aacc66eaab730438e7866bd7c90d29b19" kindref="member">SPI_TransferMode</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a12fcb093793c5a34ff32f9e29a3d7cf4" kindref="member">transferMode</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="799" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a6a89c25b77087f8298df74b52fde9615" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a6a89c25b77087f8298df74b52fde9615" kindref="member">transferTimeout</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="800" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1acee695558ae9a3f4108d8322c41b5c2c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i_8h_1a207e2d5a7e7ea5606b6995b6485ca015" kindref="member">SPI_CallbackFxn</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1acee695558ae9a3f4108d8322c41b5c2c" kindref="member">transferCallbackFxn</ref>;<sp/></highlight></codeline>
+<codeline lineno="801" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1acd71f040d34bcc9de82225b8e99bc7a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i_8h_1aaf545fda6ffd6648e2bc24d26cd26fc2" kindref="member">SPI_Mode</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1acd71f040d34bcc9de82225b8e99bc7a2" kindref="member">mode</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="808" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a056c615ea06764de3732a88bc0933422" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a056c615ea06764de3732a88bc0933422" kindref="member">bitRate</ref>;</highlight></codeline>
+<codeline lineno="809" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1ad5f703751ac0581fd69ad7b984bea44a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1ad5f703751ac0581fd69ad7b984bea44a" kindref="member">dataSize</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="810" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a8a73c6d84d6a8080f76e7b97421d2733" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i_8h_1ad0f9402c803cdf9211e1db54da938f78" kindref="member">SPI_FrameFormat</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a8a73c6d84d6a8080f76e7b97421d2733" kindref="member">frameFormat</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="812"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>SPI<sp/>SYS/BIOS<sp/>objects<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="813" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a0f2533663ef71ed6e658a5b2d0927a5f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>HwiP_Struct<sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a0f2533663ef71ed6e658a5b2d0927a5f" kindref="member">hwi</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="814" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a14e035d45fe4f48f401f8cbd116c3f07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>SwiP_Struct<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a14e035d45fe4f48f401f8cbd116c3f07" kindref="member">swi</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="815" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a03b535169583abde7f8af0262df40de7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>SemaphoreP_Struct<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a03b535169583abde7f8af0262df40de7" kindref="member">transferComplete</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="817"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>SPI<sp/>current<sp/>transaction<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="818" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a4a6ed13c8b6215e83ba22084f1ffc69b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i___transaction__" kindref="compound">SPI_Transaction</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a4a6ed13c8b6215e83ba22084f1ffc69b" kindref="member">currentTransaction</ref>;<sp/></highlight></codeline>
+<codeline lineno="819" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a8de29bc4b8bf578cceff93223af68aeb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a8de29bc4b8bf578cceff93223af68aeb" kindref="member">amtDataXferred</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="820" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a323d0ba757d3a8a62072e4d65f9b6572" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a323d0ba757d3a8a62072e4d65f9b6572" kindref="member">currentXferAmt</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="821" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1add4190b9bb9d623e4593056021ec19a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a1c5afb8465d3e8689a82088ad25fc81a" kindref="member">SPICC26XXDMA_FrameSize</ref><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1add4190b9bb9d623e4593056021ec19a8" kindref="member">frameSize</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="823"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Support<sp/>for<sp/>dynamic<sp/>CSN<sp/>pin<sp/>allocation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="824" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a436d2148d95d8cbb1f4ab7750ea4e081" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_p_i_n_8h_1a9ae8197f460bb76ea09a84f47d09921f" kindref="member">PIN_Id</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a436d2148d95d8cbb1f4ab7750ea4e081" kindref="member">csnPin</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="826"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>PIN<sp/>driver<sp/>state<sp/>object<sp/>and<sp/>handle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="827" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a2bf05a9ab13570614b205faef838a60f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_p_i_n___state__s" kindref="compound">PIN_State</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a2bf05a9ab13570614b205faef838a60f" kindref="member">pinState</ref>;</highlight></codeline>
+<codeline lineno="828" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a253e7758ec60b0deb706c12bf2cac7d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_p_i_n___state__s" kindref="compound">PIN_Handle</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a253e7758ec60b0deb706c12bf2cac7d8" kindref="member">pinHandle</ref>;</highlight></codeline>
+<codeline lineno="829"><highlight class="normal"></highlight></codeline>
+<codeline lineno="830"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>UDMA<sp/>driver<sp/>handle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="831" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1ad1b5299f66bd0ed6a1feb66bb17dbb70" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_u_d_m_a_c_c26_x_x___config" kindref="compound">UDMACC26XX_Handle</ref><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1ad1b5299f66bd0ed6a1feb66bb17dbb70" kindref="member">udmaHandle</ref>;</highlight></codeline>
+<codeline lineno="832"><highlight class="normal"></highlight></codeline>
+<codeline lineno="833"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Optional<sp/>slave<sp/>mode<sp/>features<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="834" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1aaad712b779c3c23a1a9c7b4e444c82fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1aaad712b779c3c23a1a9c7b4e444c82fd" kindref="member">returnPartial</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="836"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Scratch<sp/>buffer<sp/>of<sp/>size<sp/>uint32_t<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="837" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a9d4b85fd8a20f01c8ef9d83818394678" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a9d4b85fd8a20f01c8ef9d83818394678" kindref="member">scratchBuf</ref>;</highlight></codeline>
+<codeline lineno="838"><highlight class="normal"></highlight></codeline>
+<codeline lineno="839"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>SPI<sp/>pre-<sp/>and<sp/>post<sp/>notification<sp/>functions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="840" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1accb678d98cf66ed2d15a6ddf9ea993ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1accb678d98cf66ed2d15a6ddf9ea993ae" kindref="member">spiPreFxn</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="841" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a1f7b7de23148a962619517a66132a602" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a1f7b7de23148a962619517a66132a602" kindref="member">spiPostFxn</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="842" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1aaf7de912547eb0e0d6040e816329d942" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_power___notify_obj__" kindref="compound">Power_NotifyObj</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1aaf7de912547eb0e0d6040e816329d942" kindref="member">spiPreObj</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="843" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a0507bf0f4300ed38ede4a414a619a8ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_power___notify_obj__" kindref="compound">Power_NotifyObj</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a0507bf0f4300ed38ede4a414a619a8ea" kindref="member">spiPostObj</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="845" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1adbcda45a5bec189d12b7122426126181" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1adbcda45a5bec189d12b7122426126181" kindref="member">spiPowerConstraint</ref>;<sp/></highlight></codeline>
+<codeline lineno="847" refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a54ded097b995c036bd7e12fc2e00139f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s_p_i_c_c26_x_x_d_m_a___object_1a54ded097b995c036bd7e12fc2e00139f" kindref="member">isOpen</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="848"><highlight class="normal">}<sp/><ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a17ff5bb4e58bb3bf27c26a711489f5e6" kindref="member">SPICC26XXDMA_Object</ref>,<sp/>*<ref refid="_s_p_i_c_c26_x_x_d_m_a_8h_1a23f13f9c52a6ced04e082c64bebf128f" kindref="member">SPICC26XXDMA_Handle</ref>;</highlight></codeline>
+<codeline lineno="849"><highlight class="normal"></highlight></codeline>
+<codeline lineno="850"><highlight class="normal"></highlight></codeline>
+<codeline lineno="851"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="852"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="853"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="854"><highlight class="normal"></highlight></codeline>
+<codeline lineno="855"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>ti_drivers_spi_SPICC26XXDMA__include<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/spi/SPICC26XXDMA.h"/>
+  </compounddef>
+</doxygen>

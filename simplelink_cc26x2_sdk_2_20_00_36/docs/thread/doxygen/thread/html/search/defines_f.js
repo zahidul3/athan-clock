@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['seg_5fhdr_5flen',['SEG_HDR_LEN',['../oad__image__header_8h.html#acc8be633692add4e84646df56d272091',1,'oad_image_header.h']]],
+  ['seg_5flen_5foffset',['SEG_LEN_OFFSET',['../oad__image__header_8h.html#a478be27fc2f70f22677652c8f9cf0ec6',1,'oad_image_header.h']]],
+  ['sensor_5ftask_5fstack_5fsize',['SENSOR_TASK_STACK_SIZE',['../sensors_8c.html#a9f2ec03f3efab149ac0a38d8b139a850',1,'sensors.c']]],
+  ['sensors_5famb_5ftemp_5furi',['SENSORS_AMB_TEMP_URI',['../sensors_8h.html#a393f28b68fd7c43bc64c38d72810c161',1,'sensors.h']]],
+  ['sensors_5fhumidity_5furi',['SENSORS_HUMIDITY_URI',['../sensors_8h.html#a65bbb53921ed2df9bc0bf62a8689cfca',1,'sensors.h']]],
+  ['sensors_5fir_5ftemp_5furi',['SENSORS_IR_TEMP_URI',['../sensors_8h.html#a36906a5ed719e7b5418088cad0c0629c',1,'sensors.h']]],
+  ['sensors_5fluminosity_5furi',['SENSORS_LUMINOSITY_URI',['../sensors_8h.html#a581b57fa802fe83d11bb3782c8ee7b1b',1,'sensors.h']]],
+  ['sensors_5fpressure_5furi',['SENSORS_PRESSURE_URI',['../sensors_8h.html#aa7b34d825599f14f1f323b91da98439a',1,'sensors.h']]],
+  ['sensors_5fsample_5ftime',['SENSORS_SAMPLE_TIME',['../sensors_8c.html#a0a8ecf268e732c373857a4e83eeefa29',1,'sensors.c']]],
+  ['setpt_5ffont_5fh',['SETPT_FONT_H',['../thermostat_2images_8h.html#a26734d58f0c5041f315de2114d45de35',1,'images.h']]],
+  ['setpt_5ffont_5foffset',['SETPT_FONT_OFFSET',['../thermostat_2images_8h.html#a153f25825b90767c73d2b19f02e169ca',1,'images.h']]],
+  ['setpt_5ffont_5fw',['SETPT_FONT_W',['../thermostat_2images_8h.html#a57a4a7ab65782d9580a5f08c58d919be',1,'images.h']]],
+  ['setpt_5ffont_5fx',['SETPT_FONT_X',['../thermostat_2images_8h.html#a5ff7d2090f0a143649dc7aa9cdaeaf00',1,'images.h']]],
+  ['setpt_5ffont_5fy',['SETPT_FONT_Y',['../thermostat_2images_8h.html#a0717f002f2a69b08df68bb729c7a8930',1,'images.h']]],
+  ['shade_5fstate_5fclosed',['SHADE_STATE_CLOSED',['../shade_8h.html#aa03c17a369d0b334cf61028be3c1d900',1,'shade.h']]],
+  ['shade_5fstate_5fdrawn',['SHADE_STATE_DRAWN',['../shade_8h.html#af7caf89df0fd60e8dd05a8a2cb838457',1,'shade.h']]],
+  ['shade_5fstate_5fopen',['SHADE_STATE_OPEN',['../shade_8h.html#ad680a4f9815fd14f223a9b548ecf28eb',1,'shade.h']]],
+  ['shade_5fstate_5furi',['SHADE_STATE_URI',['../shade_8h.html#a9530ae8caee9851d27f08b0935f2e62b',1,'shade.h']]],
+  ['shade_5furi',['SHADE_URI',['../shade_8h.html#a77f6f04516d1d2e80ba4f8c9f7461b43',1,'shade.h']]],
+  ['software_5fver',['SOFTWARE_VER',['../oad__image__header_8h.html#ad1a7e10b3924c6e0ef479a849fc10a6a',1,'oad_image_header.h']]],
+  ['sprite_5fcount',['SPRITE_COUNT',['../thermostat_2images_8h.html#a3d2424bb60748d72b26b0d3ab2ac670b',1,'images.h']]],
+  ['subidmax',['SUBIDMAX',['../settings_8c.html#ad7ef65dd253af74a372b6a4cc25622be',1,'settings.c']]],
+  ['success',['SUCCESS',['../bme280_8h.html#aa90cac659d18e8ef6294c7ae337f6b58',1,'bme280.h']]]
+];

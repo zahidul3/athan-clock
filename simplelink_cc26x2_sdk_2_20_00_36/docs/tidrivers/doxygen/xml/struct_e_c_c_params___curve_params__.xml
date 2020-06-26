@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_e_c_c_params___curve_params__" kind="struct" language="C++" prot="public">
+    <compoundname>ECCParams_CurveParams_</compoundname>
+    <includes refid="_e_c_c_params_8h" local="no">ECCParams.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_e_c_c_params___curve_params___1a5743e499073380100fb73dae62480dde" prot="public" static="no" mutable="no">
+        <type>const <ref refid="_e_c_c_params_8h_1ab32a990c4ec0b897c27023280295baf4" kindref="member">ECCParams_CurveType</ref></type>
+        <definition>const ECCParams_CurveType ECCParams_CurveParams_::curveType</definition>
+        <argsstring></argsstring>
+        <name>curveType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" line="112" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_c_params___curve_params___1aeebdd7ec31ba259a5f3069e70c782165" prot="public" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t ECCParams_CurveParams_::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <briefdescription>
+<para>Length of the curve in bytes. All other buffers have this length. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" line="113" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_c_params___curve_params___1a3a4f69367ff163f58c519a77ed880853" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* ECCParams_CurveParams_::prime</definition>
+        <argsstring></argsstring>
+        <name>prime</name>
+        <briefdescription>
+<para>The prime that defines the field of the curve. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" line="114" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_c_params___curve_params___1a590246bea99547894e4306c5bcf7fa8c" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* ECCParams_CurveParams_::order</definition>
+        <argsstring></argsstring>
+        <name>order</name>
+        <briefdescription>
+<para>Order of the curve. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" line="115" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_c_params___curve_params___1a88c82b7c3583e1f484750e8fc2fdb173" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* ECCParams_CurveParams_::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <briefdescription>
+<para>Coefficient a of the equation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" line="116" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_c_params___curve_params___1a6859701955dcaea08d69d2ea1c3adda6" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* ECCParams_CurveParams_::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <briefdescription>
+<para>Coefficient b of the equation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" line="117" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_c_params___curve_params___1a926ab74e88953388d31b170983606739" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* ECCParams_CurveParams_::generatorX</definition>
+        <argsstring></argsstring>
+        <name>generatorX</name>
+        <briefdescription>
+<para>X coordinate of the generator point of the curve. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" line="118" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_c_params___curve_params___1a0795b9e656562233bbbf10b935b19266" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* ECCParams_CurveParams_::generatorY</definition>
+        <argsstring></argsstring>
+        <name>generatorY</name>
+        <briefdescription>
+<para>Y coordinate of the generator point of the curve. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" line="119" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A structure containing the parameters of an elliptic curve in short Weierstrass form. </para>    </briefdescription>
+    <detaileddescription>
+<para>Elliptical Curve Cryptography (ECC) prime curve.</para><para>The equation used to define the curve is expressed in the short Weierstrass form y^3 = x^2 + a*x + b </para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" line="111" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/ecc/ECCParams.h" bodystart="111" bodyend="120"/>
+    <listofallmembers>
+      <member refid="struct_e_c_c_params___curve_params___1a88c82b7c3583e1f484750e8fc2fdb173" prot="public" virt="non-virtual"><scope>ECCParams_CurveParams_</scope><name>a</name></member>
+      <member refid="struct_e_c_c_params___curve_params___1a6859701955dcaea08d69d2ea1c3adda6" prot="public" virt="non-virtual"><scope>ECCParams_CurveParams_</scope><name>b</name></member>
+      <member refid="struct_e_c_c_params___curve_params___1a5743e499073380100fb73dae62480dde" prot="public" virt="non-virtual"><scope>ECCParams_CurveParams_</scope><name>curveType</name></member>
+      <member refid="struct_e_c_c_params___curve_params___1a926ab74e88953388d31b170983606739" prot="public" virt="non-virtual"><scope>ECCParams_CurveParams_</scope><name>generatorX</name></member>
+      <member refid="struct_e_c_c_params___curve_params___1a0795b9e656562233bbbf10b935b19266" prot="public" virt="non-virtual"><scope>ECCParams_CurveParams_</scope><name>generatorY</name></member>
+      <member refid="struct_e_c_c_params___curve_params___1aeebdd7ec31ba259a5f3069e70c782165" prot="public" virt="non-virtual"><scope>ECCParams_CurveParams_</scope><name>length</name></member>
+      <member refid="struct_e_c_c_params___curve_params___1a590246bea99547894e4306c5bcf7fa8c" prot="public" virt="non-virtual"><scope>ECCParams_CurveParams_</scope><name>order</name></member>
+      <member refid="struct_e_c_c_params___curve_params___1a3a4f69367ff163f58c519a77ed880853" prot="public" virt="non-virtual"><scope>ECCParams_CurveParams_</scope><name>prime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

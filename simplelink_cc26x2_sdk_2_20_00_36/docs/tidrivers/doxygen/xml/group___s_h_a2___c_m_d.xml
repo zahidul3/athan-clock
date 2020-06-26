@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="group___s_h_a2___c_m_d" kind="group">
+    <compoundname>SHA2_CMD</compoundname>
+    <title>Command Codes</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>SHA2_CMD_* macros are general command codes for <ref refid="_s_h_a2_8h_1aec000471f31e52bb3e8a44e178a837f2" kindref="member">SHA2_control()</ref>. Not all SHA2 driver implementations support these command codes. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

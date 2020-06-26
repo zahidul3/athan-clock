@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_crypto_key___plaintext__" kind="struct" language="C++" prot="public">
+    <compoundname>CryptoKey_Plaintext_</compoundname>
+    <includes refid="_crypto_key_8h" local="no">CryptoKey.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_crypto_key___plaintext___1af42e0b31c5293366e53a84efb17909b2" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* CryptoKey_Plaintext_::keyMaterial</definition>
+        <argsstring></argsstring>
+        <name>keyMaterial</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" line="175" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_key___plaintext___1ad9fe22ddb2fc88511c31bc856e2f33da" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t CryptoKey_Plaintext_::keyLength</definition>
+        <argsstring></argsstring>
+        <name>keyLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" line="176" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Plaintext CryptoKey datastructure. </para>    </briefdescription>
+    <detaileddescription>
+<para>This structure contains all the information necessary to access keying material stored in plaintext form in flash or RAM. </para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" line="174" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h" bodystart="174" bodyend="177"/>
+    <listofallmembers>
+      <member refid="struct_crypto_key___plaintext___1ad9fe22ddb2fc88511c31bc856e2f33da" prot="public" virt="non-virtual"><scope>CryptoKey_Plaintext_</scope><name>keyLength</name></member>
+      <member refid="struct_crypto_key___plaintext___1af42e0b31c5293366e53a84efb17909b2" prot="public" virt="non-virtual"><scope>CryptoKey_Plaintext_</scope><name>keyMaterial</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

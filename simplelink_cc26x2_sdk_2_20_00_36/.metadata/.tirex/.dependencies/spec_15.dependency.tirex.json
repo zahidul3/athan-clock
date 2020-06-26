@@ -1,0 +1,27 @@
+[
+   {
+      "name" : "na",
+      "default" : "na",
+      "packages" : [],
+      "files" : [
+         "+../../Board.h -> Board.h",
+         "+../../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+CC26X2R1_LAUNCHXL_TIRTOS.lds -> CC26X2R1_LAUNCHXL_TIRTOS.lds",
+         "+../../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../../README.html -> README.html",
+         "+../../README.md -> README.md",
+         "+../../benchloop.c -> benchloop.c",
+         "+../benchloop.cfg -> benchloop.cfg",
+         "+../../ccfg.c -> ccfg.c",
+         "+../makefile.defs -> makefile.defs",
+         "+../../overview.rov.json -> overview.rov.json",
+         "+../../../../../../../source/ti/boards/CC26X2R1_LAUNCHXL/Board.html -> Board.html"
+      ],
+      "compiler" : {
+         "location" : "na",
+         "effective" : "na",
+         "specified" : "na"
+      }
+   }
+]

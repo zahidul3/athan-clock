@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TI-OpenThread Stack User’s Guide &mdash; SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation" href="../index.html"/>
+        <link rel="next" title="Overview" href="overview.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug thread index-cc26x2";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> SimpleLink™ CC26x2 TI Thread User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-thread.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ot-sw-dev-env.html">TI-OpenThread Stack Software Development Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ot-stack-overview.html">TI-OpenThread Stack Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-example-apps-cc26x2.html">Example Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-br/index.html">Linux Border Router Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating-custom-apps.html">Creating Custom Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-hardware.html">Custom Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packet-sniffer.html">Packet Sniffer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/thread-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-oad/index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">SimpleLink™ CC26x2 TI Thread User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>TI-OpenThread Stack User’s Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ot-stack-user-s-guide">
+<span id="sdg-overview"></span><h1>TI-OpenThread Stack User’s Guide<a class="headerlink" href="#ot-stack-user-s-guide" title="Permalink to this headline">¶</a></h1>
+<p class="rubric">Table of contents</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#disclaimer">Disclaimer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-thread.html">CC26x2 Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cc26x2/description.html">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cc26x2/hardware_architecture.html">Hardware Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tirtos/index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cc26x2/hardware-thread.html">Debug Serial Back Channel Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cc26x2/index-thread.html#further-information">Further information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cc26x2/index-thread.html#indexes-and-tables">Indexes and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ot-sw-dev-env.html">TI-OpenThread Stack Software Development Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ot-sw-dev-env.html#ot-stack-description">TI-OpenThread Stack Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ot-sw-dev-env.html#directory-structure">Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ot-sw-dev-env.html#projects">Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ot-sw-dev-env.html#fcc-testing-functionality">FCC Testing Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ot-sw-dev-env.html#useful-ccs-ide-settings">Useful CCS IDE Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ot-sw-dev-env.html#accessing-preprocessor-symbols">Accessing Preprocessor Symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ot-sw-dev-env.html#software-architecture">Software Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ot-sw-dev-env.html#flash">Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ot-sw-dev-env.html#memory-management-ram">Memory Management (RAM)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ot-stack-overview.html">TI-OpenThread Stack Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ot-stack-overview.html#device-types-and-network-structure">Device Types and Network Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ot-stack-overview.html#working-with-a-thread-network">Working With a Thread Network</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="running-example-apps-cc26x2.html">Example Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="running-example-apps-cc26x2.html#cli-example-application">CLI Example Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-example-apps-cc26x2.html#ncp-example-application">NCP Example Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-example-apps-cc26x2.html#border-router-example-application">Border Router Example Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-example-apps-cc26x2.html#door-lock-example-application">Door Lock Example Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-example-apps-cc26x2.html#shade-example-application">Shade Example Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-example-apps-cc26x2.html#temperature-sensor-example-application">Temperature Sensor Example Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-example-apps-cc26x2.html#thermostat-example-application">Thermostat Example Application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-br/index.html">Linux Border Router Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../thread-br/index.html#platform-notes">Platform Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thread-br/index.html#setting-up-the-bbb">Setting Up the BeagleBone Black</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thread-br/index.html#building-wpantund-and-libcoap">Building <code class="docutils literal"><span class="pre">wpantund</span></code> and <code class="docutils literal"><span class="pre">libcoap</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thread-br/index.html#running-libcoap-example">Running libcoap Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="creating-custom-apps.html">Creating Custom Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="creating-custom-apps.html#adding-a-board-file">Adding a Board File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-custom-apps.html#configuring-ot-parameters">Configuring OpenThread Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-custom-apps.html#creating-additional-tasks">Creating Additional Tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom-hardware.html">Custom Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom-hardware.html#ti-provided-board-files">TI Provided Board Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom-hardware.html#creating-a-custom-board-file">Creating a Custom Board File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="packet-sniffer.html">Packet Sniffer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="packet-sniffer.html#setting-up-ubiqua-protocol-analyzer">Setting Up Ubiqua Protocol analyzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packet-sniffer.html#setting-up-wireshark">Setting Up Wireshark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/thread-index.html">Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#external-resources">External Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#debug-interfaces">Debug Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#breakpoints">Breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#watching-variables-and-registers">Watching Variables and Registers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#memory-watchpoints">Memory Watchpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#ti-rtos-object-viewer">TI-RTOS Object Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#using-the-memory-browser">Using the Memory Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#optimizations">Optimizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#loading-ti-rtos-in-rom-symbols">Loading TI-RTOS in ROM Symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#deciphering-cpu-exceptions">Deciphering CPU Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/thread-index.html#openthread-logging-the-debug-uart">OpenThread Logging &amp; The Debug Uart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../energy-trace/energy-trace.html#energytrace-stand-alone-instructions">EnergyTrace stand-alone Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../energy-trace/energy-trace.html#energytrace-instructions">EnergyTrace++ Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-oad/index.html">Over-the-Air Download (OAD)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../oad/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/bim.html">Boot Image Manager (BIM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/image-header.html">OAD Image Header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/ext-flash-image-header.html">OAD External Flash Image Header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/flash-layout-off-chip.html">Flash Layout for Off-Chip OAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oad/tools.html">OAD Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thread-oad/oad-process.html">OAD Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-oad/setting-up-environment.html">Setting up the BLE OAD Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-oad/performing-an-oad.html">Performing a BLE OAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thread-oad/create-downloadable-image.html">Create a Downloadable Thread Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-oad/creating-a-production-image.html">Creating a Production Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ble-stack-oad/revert-to-factory.html">Reverting to a Factory Image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#migrating-from-ti-openthread-0-95-00-to-1-00-00">Migrating from TI-OpenThread 0.95.00 to 1.00.00</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#openthread-config-changes">OpenThread config changes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="references">
+<span id="chap-references"></span><h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="../../thread-apis.html">OpenThread API</a></li>
+<li><a class="reference external" href="https://openthread.io">OpenThread Wiki</a></li>
+<li><a class="reference external" href="http://www.ti.com/tool/sensor-controller-studio">Sensor Controller Studio</a></li>
+<li><a class="reference external" href="http://infocenter.arm.com/help/topic/com.arm.doc.dui0553a/DUI0553A_cortex_m4_dgug.pdf">ARM Cortex-M4 Devices Generic User’s Guide</a></li>
+</ul>
+</div>
+<div class="section" id="terms-and-definitions">
+<h2>Terms and Definitions<a class="headerlink" href="#terms-and-definitions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="terms-and-acronyms">
+<h2>Terms and Acronyms<a class="headerlink" href="#terms-and-acronyms" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-bim">BIM</dt>
+<dd>Boot Image Manager, the software bootloader</dd>
+<dt id="term-cca">CCA</dt>
+<dd>Clear Channel Assessment or Customer Configuration Area</dd>
+<dt id="term-ccfg">CCFG</dt>
+<dd>Customer Configuration Area, contains lock-bits on flash page 31 and
+the Customer Configuration Table (.ccfg)</dd>
+<dt id="term-ccs">CCS</dt>
+<dd>Code Composer Studio</dd>
+<dt id="term-dhcpv6">DHCPv6</dt>
+<dd>Dynamic Host Configuration Protocol for IPv6 Networks</dd>
+<dt id="term-fcc">FCC</dt>
+<dd>Federal Communications Commission.  A U.S. regulatory body for
+regulating interstate communications by radio, television, wire,
+satelitte, and cable.</dd>
+<dt id="term-fed">FED</dt>
+<dd>Full Thread Device acting as an End Device</dd>
+<dt id="term-ffd">FFD</dt>
+<dd>Full Functionality Device</dd>
+<dt id="term-ftd">FTD</dt>
+<dd>Full Thread Device</dd>
+<dt id="term-gcc">GCC</dt>
+<dd>GNU Compiler Collection</dd>
+<dt id="term-iar">IAR</dt>
+<dd>IAR Systems</dd>
+<dt id="term-ieee">IEEE</dt>
+<dd>Institute of Electrical and Electronics Engineers</dd>
+<dt id="term-mcu">MCU</dt>
+<dd>Microcontroller Unit</dd>
+<dt id="term-med">MED</dt>
+<dd>Mimimal Thread Device acting as an End Device</dd>
+<dt id="term-mtd">MTD</dt>
+<dd>Minimal Thread Device</dd>
+<dt id="term-oad">OAD</dt>
+<dd>Over the Air Download</dd>
+<dt id="term-oob">OOB</dt>
+<dd>Out-Of-Box</dd>
+<dt id="term-per">PER</dt>
+<dd>Packet Error Rate.  Represents the ratio between number of incorrectly
+received data packets and total number of transmitted data packets,
+often achieved by sending sequenced data packets.</dd>
+<dt id="term-pib">PIB</dt>
+<dd>Personal-Area-Network Information Bases</dd>
+<dt id="term-rcfg">RCFG</dt>
+<dd>TI-RTOS in ROM Configuration Table</dd>
+<dt id="term-reed">REED</dt>
+<dd>Router Eligible End Device</dd>
+<dt id="term-rfd">RFD</dt>
+<dd>Reduced Functionality Device</dd>
+<dt id="term-rom">ROM</dt>
+<dd>Read-only Memory</dd>
+<dt id="term-rtos">RTOS</dt>
+<dd>Real Time Operating System</dd>
+<dt id="term-sed">SED</dt>
+<dd>Sleepy End Device</dd>
+<dt id="term-slaac">SLAAC</dt>
+<dd>Stateless Address Autoconfiguration</dd>
+<dt id="term-snv">SNV</dt>
+<dd>Simple Non-Volatile storage</dd>
+</dl>
+<div class="section" id="general-terms-and-acronyms">
+<h3>General Terms and Acronyms<a class="headerlink" href="#general-terms-and-acronyms" title="Permalink to this headline">¶</a></h3>
+<dl class="glossary docutils">
+<dt id="term-customer-configuration">Customer Configuration<dt id="term-28">CCFG</dt>
+<dd>Customer Configuration is set by the application and contains
+configuration parameters for the ROM boot code, device hardware, and
+device firmware. It contains lock-bits on the last page of flash.
+You can read more in the Customer Configuration section in the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC26x2 Technical Reference Manual</a>.</dd>
+<dt id="term-code-composer-studio">Code Composer Studio<dt id="term-30">CCS</dt>
+<dd>An integrated development environment to develop
+applications for Texas Instruments embedded processors</dd>
+<dt id="term-cjtag">cJTAG</dt>
+<dd>Class 4 IEEE 1149.7: Standard for Reduced-pin and
+Enhanced-functionality Test Access Port and Boundary-scan Architecture.
+This is known by acronym cJTAG (compact JTAG).</dd>
+<dt id="term-32">IAR</dt>
+<dd>Refers to IAR Systems’ IAR Embedded Workbench, which is an integrated
+development environment used for building and debugging embedded
+applications.</dd>
+<dt id="term-jtag">JTAG</dt>
+<dd>IEEE standard 1149.1: Standard Test Access Port and Boundary Scan
+Architecture Test Access Port (TAP). This standard is known by the
+acronym JTAG (Joint Test Action Group).</dd>
+<dt id="term-34">MCU</dt>
+<dd>Microcontroller Unit</dd>
+<dt id="term-35">OAD</dt>
+<dd>Over the Air Download</dd>
+<dt id="term-rtsc">RTSC</dt>
+<dd>Real Time Software Components. A toolset for creating reusable code,
+used by TI-RTOS.</dd>
+<dt id="term-37">ROM</dt>
+<dd>Read-only Memory</dd>
+<dt id="term-simple-network-processor">Simple Network Processor<dt id="term-snp">SNP</dt>
+<dd>A BLE network processor implementation that
+supports the peripheral and broadcaster GAP Roles.</dd>
+<dt id="term-application-processor">Application Processor<dt id="term-ap">AP</dt>
+<dd>The host MCU that implements the user application.
+Connected to a network processor via a serial interface such as NPI</dd>
+<dt id="term-unified-network-processor-interface">Unified Network Processor Interface<dt id="term-unpi">UNPI</dt>
+<dd>A standardized serial transport format that is implemented by TI for the
+purposes of interfacing to network processor devices like the SNP.
+UNPI also manages the handshaking required for the serial interface.</dd>
+<dt id="term-real-time-software-components">Real Time Software Components<dt id="term-45">RTSC</dt>
+<dd>See <a class="reference external" href="http://www.eclipse.org/rtsc/">RTSC</a>
+and <a class="reference external" href="http://rtsc.eclipse.org/docs-tip/Main_Page">RTSC-Pedia</a>.</dd>
+<dt id="term-versatile-instruction-memory-system">Versatile Instruction Memory System<dt id="term-vims">VIMS</dt>
+<dd>A system control module that handles access to the device memory areas
+from the CPU and system bus. You can read more in the <a class="reference external" href="http://www.ti.com/lit/pdf/swcu117">CC26x2 Technical Reference Manual</a>.</dd>
+</dl>
+</div>
+<div class="section" id="ti-rtos-terms-and-acronyms">
+<h3>TI-RTOS Terms and Acronyms<a class="headerlink" href="#ti-rtos-terms-and-acronyms" title="Permalink to this headline">¶</a></h3>
+<dl class="glossary docutils">
+<dt id="term-hwi">Hwi</dt>
+<dd>A TI-RTOS Hardware interrupt.</dd>
+<dt id="term-idle-task">Idle Task</dt>
+<dd>A TI-RTOS default task that is executes when no other higher priority
+thread needs to run.</dd>
+<dt id="term-rov">ROV<dt id="term-runtime-object-view">Runtime Object View</dt>
+<dd>A TI-RTOS kernel plugin for <a class="reference internal" href="#term-30"><span class="xref std std-term">CCS</span></a> and <a class="reference internal" href="#term-32"><span class="xref std std-term">IAR</span></a> to view a
+target’s instrumentation data.</dd>
+<dt id="term-rtc">RTC</dt>
+<dd>Real-time Clock</dd>
+<dt id="term-53">RTSC</dt>
+<dd>Real Time Software Componenets. A toolset for creating reusable code,
+used by TI-RTOS.</dd>
+<dt id="term-swi">Swi</dt>
+<dd>A TI-RTOS Software interrupt.</dd>
+<dt id="term-ti-rtos">TI-RTOS</dt>
+<dd>Texas Instruments Real Time Operating System</dd>
+<dt id="term-zero-latency-interrupts">Zero-Latency Interrupts</dt>
+<dd>An interrupt that will not be routed through the TI-RTOS
+kernel’s Hwi dispatcher. For more information, see this
+<a class="reference external" href="http://processors.wiki.ti.com/index.php/SYS/BIOS_for_Stellaris_Devices#Configuring_a_Zero_Latency_Interrupt">wiki article</a>.</dd>
+</dl>
+</div>
+<div class="section" id="sensor-controller-terms-and-acronyms">
+<h3>Sensor Controller Terms and Acronyms<a class="headerlink" href="#sensor-controller-terms-and-acronyms" title="Permalink to this headline">¶</a></h3>
+<dl class="glossary docutils">
+<dt id="term-sc">SC</dt>
+<dd>Sensor Controller</dd>
+<dt id="term-scs">SCS</dt>
+<dd>Sensor Controller Studio</dd>
+</dl>
+</div>
+<div class="section" id="over-the-air-download-oad-terms-and-acronyms">
+<h3>Over the Air Download (OAD) Terms and Acronyms<a class="headerlink" href="#over-the-air-download-oad-terms-and-acronyms" title="Permalink to this headline">¶</a></h3>
+<dl class="glossary docutils">
+<dt id="term-59">BIM<dt id="term-boot-image-manager">Boot Image Manager</dt>
+<dd>A bootloader that runs after the device’s ROM startup code.
+The BIM is responsible for analyzing the image header of all images and
+determining the most suitable image to run. Once the BIM has found the
+proper image, it will jump to it’s program entry.</dd>
+<dt id="term-factory-image">Factory Image</dt>
+<dd>The factory image is a “golden” image that resides in external flash as a
+failsafe mechanism.</dd>
+<dt id="term-62">OAD<dt id="term-over-the-air-download">Over the Air Download</dt>
+<dd>The process of performing a device firmware update over the air.</dd>
+<dt id="term-oad-target">OAD Target</dt>
+<dd>The device whose firmware is being upgraded over the air.
+This is assumed to be a CC26xx device running the TI protocol specific
+transport for OAD.</dd>
+<dt id="term-oad-distributor">OAD Distributor</dt>
+<dd>The device responsible for accepting an OAD enabled image from the
+compiler and transferring it over the air to the OAD Target.</dd>
+</dl>
+<div class="section" id="indexes-and-tables">
+<h4>Indexes and tables<a class="headerlink" href="#indexes-and-tables" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

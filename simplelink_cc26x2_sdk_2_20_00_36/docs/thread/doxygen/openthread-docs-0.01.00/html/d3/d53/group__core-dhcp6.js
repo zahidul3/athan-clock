@@ -1,0 +1,165 @@
+var group__core_dhcp6 =
+[
+    [ "Dhcp6Header", "d6/d17/classot_1_1Dhcp6_1_1Dhcp6Header.html", [
+      [ "GetTransactionId", "d3/d53/group__core-dhcp6.html#gad78aa1f41830213e69446a4576487616", null ],
+      [ "GetType", "d3/d53/group__core-dhcp6.html#ga530cb78a7950dbcd052ee350f80ba589", null ],
+      [ "Init", "d3/d53/group__core-dhcp6.html#gab6d67f7834e167a5fb72331f471509eb", null ],
+      [ "SetTransactionId", "d3/d53/group__core-dhcp6.html#ga22794241b1366ad0cc9fb068f4ac0fa2", null ],
+      [ "SetType", "d3/d53/group__core-dhcp6.html#ga674872798821ed127c82ad18d5edef91", null ]
+    ] ],
+    [ "Dhcp6Option", "d6/d17/classot_1_1Dhcp6_1_1Dhcp6Option.html", [
+      [ "GetCode", "d3/d53/group__core-dhcp6.html#gac9d9fa63ef9447f0633c734d2c66a65d", null ],
+      [ "GetLength", "d3/d53/group__core-dhcp6.html#gab881908b4c8b0af0087fa195a7b7eea1", null ],
+      [ "Init", "d3/d53/group__core-dhcp6.html#ga2153312f07457ed3a266abf91de81391", null ],
+      [ "SetCode", "d3/d53/group__core-dhcp6.html#ga9b4355db216f65d593eb44b6385157f7", null ],
+      [ "SetLength", "d3/d53/group__core-dhcp6.html#gaeab68037c875d4cc0fdaa38de8900a3b", null ]
+    ] ],
+    [ "ClientIdentifier", "d9/d12/classot_1_1Dhcp6_1_1ClientIdentifier.html", [
+      [ "GetDuidHardwareType", "d3/d53/group__core-dhcp6.html#ga6341a877c15af16fbde61800b8a04513", null ],
+      [ "GetDuidLinkLayerAddress", "d3/d53/group__core-dhcp6.html#ga09fe7f56f35ee43a02a720bacb414a5b", null ],
+      [ "GetDuidType", "d3/d53/group__core-dhcp6.html#ga21e7509f75b5756f624d669fd06e8bb2", null ],
+      [ "Init", "d3/d53/group__core-dhcp6.html#gaa89464343fe5cf36d119571f69ed152b", null ],
+      [ "SetDuidHardwareType", "d3/d53/group__core-dhcp6.html#ga22d3aee4b3ac6aa2a198f514cde521ac", null ],
+      [ "SetDuidLinkLayerAddress", "d3/d53/group__core-dhcp6.html#gab14040b0fda0c22e7c623a65eb938f79", null ],
+      [ "SetDuidType", "d3/d53/group__core-dhcp6.html#ga007ec0963a4ca0506c91675d0eb27cdd", null ]
+    ] ],
+    [ "ServerIdentifier", "d0/ddc/classot_1_1Dhcp6_1_1ServerIdentifier.html", [
+      [ "GetDuidHardwareType", "d3/d53/group__core-dhcp6.html#gae705d0ceb232df421614a3962268468e", null ],
+      [ "GetDuidLinkLayerAddress", "d3/d53/group__core-dhcp6.html#ga61acdc2419d906652104966b916af2d8", null ],
+      [ "GetDuidType", "d3/d53/group__core-dhcp6.html#ga93689632de16c17228f6f2b7d48a0b37", null ],
+      [ "Init", "d3/d53/group__core-dhcp6.html#ga70748cb8b7efd9231a5a068a723fb207", null ],
+      [ "SetDuidHardwareType", "d3/d53/group__core-dhcp6.html#gacad0e73845d08a86386ffee7a42c13e4", null ],
+      [ "SetDuidLinkLayerAddress", "d3/d53/group__core-dhcp6.html#ga88741ca191ad1af8201faf93bca28af0", null ],
+      [ "SetDuidType", "d3/d53/group__core-dhcp6.html#gad4b825f9c69978fbfe2ba59b2e8ca76b", null ]
+    ] ],
+    [ "IaNa", "d8/d35/classot_1_1Dhcp6_1_1IaNa.html", [
+      [ "GetIaid", "d3/d53/group__core-dhcp6.html#ga238f7e0c2d00d13f42c4661a9a7cfc69", null ],
+      [ "GetT1", "d3/d53/group__core-dhcp6.html#gafa6f8ddcf969e0f4a5827a220ffb0dda", null ],
+      [ "GetT2", "d3/d53/group__core-dhcp6.html#ga0cb758c2e4218cae260017b1d740cc7d", null ],
+      [ "Init", "d3/d53/group__core-dhcp6.html#gaa1ea717368e0b70b74029cc482cfd275", null ],
+      [ "SetIaid", "d3/d53/group__core-dhcp6.html#ga3fa40b797a6bfde76c0ef7213e44fb5a", null ],
+      [ "SetT1", "d3/d53/group__core-dhcp6.html#ga776c26d3f850155bc49afe7be5a022f7", null ],
+      [ "SetT2", "d3/d53/group__core-dhcp6.html#ga4ff46effe576eaf6b757e29760223a97", null ]
+    ] ],
+    [ "IaAddress", "d1/d0d/classot_1_1Dhcp6_1_1IaAddress.html", [
+      [ "GetAddress", "d3/d53/group__core-dhcp6.html#ga7a44cc4d3509aa0c47e41c47fdcf9cbd", null ],
+      [ "GetPreferredLifetime", "d3/d53/group__core-dhcp6.html#gacbb6fa1ad5342ad683b5a866f7a9187b", null ],
+      [ "GetValidLifetime", "d3/d53/group__core-dhcp6.html#ga58a259c339879b220e3f8a21bdadc072", null ],
+      [ "Init", "d3/d53/group__core-dhcp6.html#ga54ebcccc4fdbca966ed41353bf940f25", null ],
+      [ "SetAddress", "d3/d53/group__core-dhcp6.html#ga3295d52d4958d875c0d41b96ae511098", null ],
+      [ "SetPreferredLifetime", "d3/d53/group__core-dhcp6.html#gaf8cd8422817297088e45a8f99f138e9d", null ],
+      [ "SetValidLifetime", "d3/d53/group__core-dhcp6.html#ga147bbbdfb203cc2dcbecaf1733034e86", null ]
+    ] ],
+    [ "ElapsedTime", "d9/d4e/classot_1_1Dhcp6_1_1ElapsedTime.html", [
+      [ "GetElapsedTime", "d3/d53/group__core-dhcp6.html#ga277f992719832671026248d9f8ed4503", null ],
+      [ "Init", "d3/d53/group__core-dhcp6.html#ga96d79f43abcf93b2bef4f5495ee37aa2", null ],
+      [ "SetElapsedTime", "d3/d53/group__core-dhcp6.html#ga783b16acc167f049751e5b196343783f", null ]
+    ] ],
+    [ "StatusCode", "db/d5b/classot_1_1Dhcp6_1_1StatusCode.html", [
+      [ "GetStatusCode", "d3/d53/group__core-dhcp6.html#ga6f977ab5a70fcb03ff0529a39785c363", null ],
+      [ "Init", "d3/d53/group__core-dhcp6.html#ga57de6af4b3ad6cde8cc9974d7d453f7d", null ],
+      [ "SetStatusCode", "d3/d53/group__core-dhcp6.html#ga5508228f9a1b86af6523a976b48daebc", null ]
+    ] ],
+    [ "RapidCommit", "d9/d26/classot_1_1Dhcp6_1_1RapidCommit.html", [
+      [ "Init", "d3/d53/group__core-dhcp6.html#ga302d9c54b1578674b9a3e2816a32fe0b", null ]
+    ] ],
+    [ "IdentityAssociation", "d1/d9c/classot_1_1Dhcp6_1_1IdentityAssociation.html", [
+      [ "Status", "d3/d53/group__core-dhcp6.html#gaa1041113742309884ad3ce266d090298", null ],
+      [ "Status", "d3/d53/group__core-dhcp6.html#ga53bd32e1d11caf3b63c37ad0535cb2fd", [
+        [ "kStatusInvalid", "d3/d53/group__core-dhcp6.html#gga53bd32e1d11caf3b63c37ad0535cb2fda31dd8186bbcc491aa40a8a71379b8937", null ],
+        [ "kStatusSolicit", "d3/d53/group__core-dhcp6.html#gga53bd32e1d11caf3b63c37ad0535cb2fda41cf76e9fbfcaf6c7c69e3155ad4ad1c", null ],
+        [ "kStatusSoliciting", "d3/d53/group__core-dhcp6.html#gga53bd32e1d11caf3b63c37ad0535cb2fda8386395f87b2796a7ac0a1da3a9b9c84", null ],
+        [ "kStatusSolicitReplied", "d3/d53/group__core-dhcp6.html#gga53bd32e1d11caf3b63c37ad0535cb2fda47aaa24277f89de14c5792ba84012574", null ]
+      ] ],
+      [ "GetNext", "d3/d53/group__core-dhcp6.html#ga4264fb94322ee25e6023f2b68424bc19", null ],
+      [ "GetPrefix", "d3/d53/group__core-dhcp6.html#gaa4479d65734b102efa222ad110e143d1", null ],
+      [ "GetPrefixAgentRloc", "d3/d53/group__core-dhcp6.html#ga6e0790ac43cb01419f572f5498d77e0c", null ],
+      [ "GetStatus", "d3/d53/group__core-dhcp6.html#ga9d775b353e719ab3dde11d071d29ff36", null ],
+      [ "SetNext", "d3/d53/group__core-dhcp6.html#ga687fe1bb1baf45d088a9d7e2fbd49e01", null ],
+      [ "SetPrefix", "d3/d53/group__core-dhcp6.html#ga6908612517c7e616b2d6c8a3899635d3", null ],
+      [ "SetPrefixAgentRloc", "d3/d53/group__core-dhcp6.html#ga85a79cdde772e318ee89f7268cfbeaa8", null ],
+      [ "SetStatus", "d3/d53/group__core-dhcp6.html#gaa0bb819f7c9e77f10602bed0b4c1f3ff", null ]
+    ] ],
+    [ "Dhcp6Client", "dc/db3/classot_1_1Dhcp6_1_1Dhcp6Client.html", [
+      [ "Dhcp6Client", "d3/d53/group__core-dhcp6.html#gae9a5f0239a2020e9d46d1ac759aede23", null ],
+      [ "UpdateAddresses", "d3/d53/group__core-dhcp6.html#ga35facd83ade9d33ef370ad702a9e5231", null ]
+    ] ],
+    [ "PrefixAgent", "d6/d53/classot_1_1Dhcp6_1_1PrefixAgent.html", [
+      [ "GetPrefix", "d3/d53/group__core-dhcp6.html#ga4b197f922be8cbb5dd37ed700a0f920e", null ],
+      [ "SetPrefix", "d3/d53/group__core-dhcp6.html#gaa232a35b5c8ba9bcc40e76ab13650e53", null ]
+    ] ],
+    [ "Dhcp6Server", "d9/d07/classot_1_1Dhcp6_1_1Dhcp6Server.html", [
+      [ "Dhcp6Server", "d3/d53/group__core-dhcp6.html#gaadd3a76ea55276db1bb4647134eb2130", null ],
+      [ "UpdateService", "d3/d53/group__core-dhcp6.html#ga7008ee635bccdc65980643bbc0921506", null ]
+    ] ],
+    [ "OT_DHCP6_DEFAULT_IA_NA_T1", "d3/d53/group__core-dhcp6.html#ga6d462cac00521057553547f5f26a1c80", null ],
+    [ "Code", "d3/d53/group__core-dhcp6.html#gadedd43f8731c0ce2bee85e1bb7edcd70", null ],
+    [ "DuidType", "d3/d53/group__core-dhcp6.html#ga1e73b6a984714b97c3df556c9433903e", null ],
+    [ "Status", "d3/d53/group__core-dhcp6.html#gaa1041113742309884ad3ce266d090298", null ],
+    [ "Status", "d3/d53/group__core-dhcp6.html#gabaac50462d2e50e60bcd91ea8dce37d1", null ],
+    [ "Type", "d3/d53/group__core-dhcp6.html#ga5022e68ce8e83b8fb4451272f15268da", null ],
+    [ "Code", "d3/d53/group__core-dhcp6.html#ga195c8014d3b3fb33c86958aeae9b05e3", null ],
+    [ "DuidType", "d3/d53/group__core-dhcp6.html#ga49dc4b1cd7847a2f98a15055fb170a36", null ],
+    [ "Status", "d3/d53/group__core-dhcp6.html#ga53bd32e1d11caf3b63c37ad0535cb2fd", null ],
+    [ "Status", "d3/d53/group__core-dhcp6.html#gab59b5d8472487d07fe5d413fe5496f00", null ],
+    [ "Type", "d3/d53/group__core-dhcp6.html#ga70602c28692f74977ff0cd43787220cd", null ],
+    [ "Dhcp6Client", "d3/d53/group__core-dhcp6.html#gae9a5f0239a2020e9d46d1ac759aede23", null ],
+    [ "Dhcp6Server", "d3/d53/group__core-dhcp6.html#gaadd3a76ea55276db1bb4647134eb2130", null ],
+    [ "GetAddress", "d3/d53/group__core-dhcp6.html#ga7a44cc4d3509aa0c47e41c47fdcf9cbd", null ],
+    [ "GetCode", "d3/d53/group__core-dhcp6.html#gac9d9fa63ef9447f0633c734d2c66a65d", null ],
+    [ "GetDuidHardwareType", "d3/d53/group__core-dhcp6.html#ga6341a877c15af16fbde61800b8a04513", null ],
+    [ "GetDuidHardwareType", "d3/d53/group__core-dhcp6.html#gae705d0ceb232df421614a3962268468e", null ],
+    [ "GetDuidLinkLayerAddress", "d3/d53/group__core-dhcp6.html#ga09fe7f56f35ee43a02a720bacb414a5b", null ],
+    [ "GetDuidLinkLayerAddress", "d3/d53/group__core-dhcp6.html#ga61acdc2419d906652104966b916af2d8", null ],
+    [ "GetDuidType", "d3/d53/group__core-dhcp6.html#ga21e7509f75b5756f624d669fd06e8bb2", null ],
+    [ "GetDuidType", "d3/d53/group__core-dhcp6.html#ga93689632de16c17228f6f2b7d48a0b37", null ],
+    [ "GetElapsedTime", "d3/d53/group__core-dhcp6.html#ga277f992719832671026248d9f8ed4503", null ],
+    [ "GetIaid", "d3/d53/group__core-dhcp6.html#ga238f7e0c2d00d13f42c4661a9a7cfc69", null ],
+    [ "GetLength", "d3/d53/group__core-dhcp6.html#gab881908b4c8b0af0087fa195a7b7eea1", null ],
+    [ "GetNext", "d3/d53/group__core-dhcp6.html#ga4264fb94322ee25e6023f2b68424bc19", null ],
+    [ "GetPreferredLifetime", "d3/d53/group__core-dhcp6.html#gacbb6fa1ad5342ad683b5a866f7a9187b", null ],
+    [ "GetPrefix", "d3/d53/group__core-dhcp6.html#ga4b197f922be8cbb5dd37ed700a0f920e", null ],
+    [ "GetPrefix", "d3/d53/group__core-dhcp6.html#gaa4479d65734b102efa222ad110e143d1", null ],
+    [ "GetPrefixAgentRloc", "d3/d53/group__core-dhcp6.html#ga6e0790ac43cb01419f572f5498d77e0c", null ],
+    [ "GetStatus", "d3/d53/group__core-dhcp6.html#ga9d775b353e719ab3dde11d071d29ff36", null ],
+    [ "GetStatusCode", "d3/d53/group__core-dhcp6.html#ga6f977ab5a70fcb03ff0529a39785c363", null ],
+    [ "GetT1", "d3/d53/group__core-dhcp6.html#gafa6f8ddcf969e0f4a5827a220ffb0dda", null ],
+    [ "GetT2", "d3/d53/group__core-dhcp6.html#ga0cb758c2e4218cae260017b1d740cc7d", null ],
+    [ "GetTransactionId", "d3/d53/group__core-dhcp6.html#gad78aa1f41830213e69446a4576487616", null ],
+    [ "GetType", "d3/d53/group__core-dhcp6.html#ga530cb78a7950dbcd052ee350f80ba589", null ],
+    [ "GetValidLifetime", "d3/d53/group__core-dhcp6.html#ga58a259c339879b220e3f8a21bdadc072", null ],
+    [ "Init", "d3/d53/group__core-dhcp6.html#gab6d67f7834e167a5fb72331f471509eb", null ],
+    [ "Init", "d3/d53/group__core-dhcp6.html#ga2153312f07457ed3a266abf91de81391", null ],
+    [ "Init", "d3/d53/group__core-dhcp6.html#gaa89464343fe5cf36d119571f69ed152b", null ],
+    [ "Init", "d3/d53/group__core-dhcp6.html#ga70748cb8b7efd9231a5a068a723fb207", null ],
+    [ "Init", "d3/d53/group__core-dhcp6.html#gaa1ea717368e0b70b74029cc482cfd275", null ],
+    [ "Init", "d3/d53/group__core-dhcp6.html#ga54ebcccc4fdbca966ed41353bf940f25", null ],
+    [ "Init", "d3/d53/group__core-dhcp6.html#ga96d79f43abcf93b2bef4f5495ee37aa2", null ],
+    [ "Init", "d3/d53/group__core-dhcp6.html#ga57de6af4b3ad6cde8cc9974d7d453f7d", null ],
+    [ "Init", "d3/d53/group__core-dhcp6.html#ga302d9c54b1578674b9a3e2816a32fe0b", null ],
+    [ "SetAddress", "d3/d53/group__core-dhcp6.html#ga3295d52d4958d875c0d41b96ae511098", null ],
+    [ "SetCode", "d3/d53/group__core-dhcp6.html#ga9b4355db216f65d593eb44b6385157f7", null ],
+    [ "SetDuidHardwareType", "d3/d53/group__core-dhcp6.html#ga22d3aee4b3ac6aa2a198f514cde521ac", null ],
+    [ "SetDuidHardwareType", "d3/d53/group__core-dhcp6.html#gacad0e73845d08a86386ffee7a42c13e4", null ],
+    [ "SetDuidLinkLayerAddress", "d3/d53/group__core-dhcp6.html#gab14040b0fda0c22e7c623a65eb938f79", null ],
+    [ "SetDuidLinkLayerAddress", "d3/d53/group__core-dhcp6.html#ga88741ca191ad1af8201faf93bca28af0", null ],
+    [ "SetDuidType", "d3/d53/group__core-dhcp6.html#ga007ec0963a4ca0506c91675d0eb27cdd", null ],
+    [ "SetDuidType", "d3/d53/group__core-dhcp6.html#gad4b825f9c69978fbfe2ba59b2e8ca76b", null ],
+    [ "SetElapsedTime", "d3/d53/group__core-dhcp6.html#ga783b16acc167f049751e5b196343783f", null ],
+    [ "SetIaid", "d3/d53/group__core-dhcp6.html#ga3fa40b797a6bfde76c0ef7213e44fb5a", null ],
+    [ "SetLength", "d3/d53/group__core-dhcp6.html#gaeab68037c875d4cc0fdaa38de8900a3b", null ],
+    [ "SetNext", "d3/d53/group__core-dhcp6.html#ga687fe1bb1baf45d088a9d7e2fbd49e01", null ],
+    [ "SetPreferredLifetime", "d3/d53/group__core-dhcp6.html#gaf8cd8422817297088e45a8f99f138e9d", null ],
+    [ "SetPrefix", "d3/d53/group__core-dhcp6.html#gaa232a35b5c8ba9bcc40e76ab13650e53", null ],
+    [ "SetPrefix", "d3/d53/group__core-dhcp6.html#ga6908612517c7e616b2d6c8a3899635d3", null ],
+    [ "SetPrefixAgentRloc", "d3/d53/group__core-dhcp6.html#ga85a79cdde772e318ee89f7268cfbeaa8", null ],
+    [ "SetStatus", "d3/d53/group__core-dhcp6.html#gaa0bb819f7c9e77f10602bed0b4c1f3ff", null ],
+    [ "SetStatusCode", "d3/d53/group__core-dhcp6.html#ga5508228f9a1b86af6523a976b48daebc", null ],
+    [ "SetT1", "d3/d53/group__core-dhcp6.html#ga776c26d3f850155bc49afe7be5a022f7", null ],
+    [ "SetT2", "d3/d53/group__core-dhcp6.html#ga4ff46effe576eaf6b757e29760223a97", null ],
+    [ "SetTransactionId", "d3/d53/group__core-dhcp6.html#ga22794241b1366ad0cc9fb068f4ac0fa2", null ],
+    [ "SetType", "d3/d53/group__core-dhcp6.html#ga674872798821ed127c82ad18d5edef91", null ],
+    [ "SetValidLifetime", "d3/d53/group__core-dhcp6.html#ga147bbbdfb203cc2dcbecaf1733034e86", null ],
+    [ "UpdateAddresses", "d3/d53/group__core-dhcp6.html#ga35facd83ade9d33ef370ad702a9e5231", null ],
+    [ "UpdateService", "d3/d53/group__core-dhcp6.html#ga7008ee635bccdc65980643bbc0921506", null ]
+];

@@ -1,0 +1,24 @@
+[
+   {
+      "name" : "na",
+      "default" : "na",
+      "packages" : [],
+      "files" : [
+         "+../../swi.c -> swi.c",
+         "+../../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../../ccfg.c -> ccfg.c",
+         "+./CC26X2R1_LAUNCHXL_TIRTOS.icf -> swi_CC26X2R1_LAUNCHXL_TIRTOS.icf",
+         "+../../Board.h -> Board.h",
+         "+../../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+../swi.cfg -> swi.cfg",
+         "+../../README.md -> README.md",
+         "+../../README.html -> README.html"
+      ],
+      "compiler" : {
+         "effective" : "na",
+         "specified" : "na",
+         "location" : "na"
+      }
+   }
+]

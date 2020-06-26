@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectSpec>
+    <applicability>
+        <when>
+            <context
+                deviceFamily="ARM"
+                deviceId="Cortex M.CC2652R1F"
+            />
+        </when>
+    </applicability>
+
+    <import spec="${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/third_party/openthread/etc/ti/CC26X2R1_LAUNCHXL/ccs/libopenthread_diag_mtd_CC26X2R1_LAUNCHXL_ccs.projectspec"/>
+    <import spec="${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/third_party/openthread/etc/ti/CC26X2R1_LAUNCHXL/ccs/libopenthread_mtd_CC26X2R1_LAUNCHXL_ccs.projectspec"/>
+    <import spec="${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/third_party/openthread/etc/ti/CC26X2R1_LAUNCHXL/ccs/libopenthread_platform_utils_mtd_CC26X2R1_LAUNCHXL_ccs.projectspec"/>
+    <import spec="${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/third_party/openthread/etc/ti/CC26X2R1_LAUNCHXL/ccs/libmbedcrypto_CC26X2R1_LAUNCHXL_ccs.projectspec"/>
+
+    <project
+        title="Door lock Application using minumum thread device type"
+        name="door_lock_CC26X2R1_LAUNCHXL_tirtos_ccs"
+        toolChain="TI"
+        connection="TIXDS110_Connection.xml"
+        device="Cortex M.CC2652R1F"
+        ignoreDefaultDeviceSettings="true"
+        ignoreDefaultCCSSettings="true"
+        references="libopenthread_diag_mtd_CC26X2R1_LAUNCHXL_ccs,libopenthread_mtd_CC26X2R1_LAUNCHXL_ccs,libopenthread_platform_utils_mtd_CC26X2R1_LAUNCHXL_ccs,libmbedcrypto_CC26X2R1_LAUNCHXL_ccs"
+        products="com.ti.SIMPLELINK_CC26X2_SDK:2_20_00_36"
+        compilerBuildOptions=" -i${WORKSPACE_LOC}/libopenthread_mtd_CC26X2R1_LAUNCHXL_ccs -DOPENTHREAD_CONFIG_FILE=&apos;&quot;openthread-config-cc2652-ccs-mtd.h&quot;&apos; -DOPENTHREAD_PROJECT_CORE_CONFIG_FILE=&apos;&quot;openthread-core-cc2652-config-ide.h&quot;&apos; -DMBEDTLS_CONFIG_FILE=&apos;&quot;mbedtls-config-cc2652-ccs.h&quot;&apos; -I${WORKSPACE_LOC}/libmbedcrypto_CC26X2R1_LAUNCHXL_ccs -I${PROJECT_ROOT} -mv7M3 -O4 --opt_for_speed=0 --abi=eabi -me -g --c99 --gcc --printf_support=nofloat --gen_func_subsections=on --gen_data_subsections=on -DHAVE_CONFIG_H -DSIMPLELINK_OPENTHREAD_SDK_BUILD=1 -DSIMPLELINK_OPENTHREAD_CONFIG_MTD=1 -DSIMPLELINK_OPENTHREAD_CONFIG_CC2652=1 -DBOARD_DISPLAY_USE_LCD=1 -DBoard_EXCLUDE_NVS_EXTERNAL_FLASH -DNDEBUG -i${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/third_party/openthread/examples/platforms -i${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/third_party/openthread/include -i${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/third_party/openthread/src/core -i${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/third_party/openthread/third_party/mbedtls/repo.patched/include -i${PROJECT_ROOT}/../libmbedcrypto_CC26X2R1_LAUNCHXL_ccs -i${PROJECT_ROOT}/platform/crypto -DDeviceFamily_CC26X2 -I${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/ti/posix/ccs --silicon_version=7M4 --code_state=16 --little_endian --display_error_number --diag_warning=255 --diag_wrap=off --float_support=FPv4SPD16 --symdebug:dwarf -I${CG_TOOL_ROOT}/include"
+        linkerBuildOptions=" -i${WORKSPACE_LOC}/libopenthread_diag_mtd_CC26X2R1_LAUNCHXL_ccs/OptimizeSize -llibopenthread_diag_mtd.lib -i${WORKSPACE_LOC}/libopenthread_mtd_CC26X2R1_LAUNCHXL_ccs/OptimizeSize -llibopenthread_mtd.lib -i${WORKSPACE_LOC}/libopenthread_platform_utils_mtd_CC26X2R1_LAUNCHXL_ccs/OptimizeSize -llibopenthread_platform_utils_mtd.lib -i${WORKSPACE_LOC}/libmbedcrypto_CC26X2R1_LAUNCHXL_ccs/OptimizeSize -llibmbedcrypto.lib --unused_section_elimination=on --heap_size=0 -i${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source -lti/display/lib/display.aem4f -lti/grlib/lib/ccs/m4f/grlib.a -lthird_party/spiffs/lib/ccs/m4f/spiffs_cc26xx.a -lti/drivers/rf/lib/rf_multiMode_cc26x2_v1.aem4f -lti/drivers/lib/drivers_cc26x2_v1.aem4f -i${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/kernel/tirtos/packages -lti/dpl/lib/dpl_cc26x2_v1.aem4f -lti/devices/cc13x2_cc26x2_v1/driverlib/bin/ccs/driverlib.lib --warn_sections --display_error_number --diag_wrap=off --rom_model -i${CG_TOOL_ROOT}/lib -llibc.a"
+        description="A simple application with door lock functionality on a Thread network">
+
+        <property name="type" value="rtsc"/>
+        <property name="xdcToolsVersion" value="3.50.07.20.core"/>
+        <property name="target" value="ti.targets.arm.elf.M4F"/>
+        <property name="platform" value="ti.platforms.simplelink:CC2652R1F"/>
+        <property name="buildProfile" value="release"/>
+        <property name="isHybrid" value="true"/>
+        <property name="configuroOptions" value=" --compileOptions &quot;${COMPILER_FLAGS} -std=c99 &quot;"/>
+        <group id="door_lock.OPENTHREAD.CC26X2R1_LAUNCHXL.thread.TI"/>
+        <file path="../../otsupport/otrtosapi.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="otsupport">
+        </file>
+        <file path="../../otsupport/otrtosapi.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="otsupport">
+        </file>
+        <file path="../../otsupport/otinstance.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="otsupport">
+        </file>
+        <file path="../../README.md" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../platform/radio.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../release.cfg" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../doorlock.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../doorlock.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../images.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../images.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../keys_utils.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../keys_utils.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../main.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../otstack.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../otstack.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../task_config.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../platform/alarm.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../platform/alarm_micro.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../platform/debug_uart.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../platform/diag.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../platform/DIAG.md" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../platform/misc.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../platform/platform.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../platform/platform.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../platform/radio.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../platform/random.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../README.html" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../platform/uart.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform">
+        </file>
+        <file path="../../platform/crypto/aes_alt.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform/crypto">
+        </file>
+        <file path="../../platform/crypto/crypto_misc.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform/crypto">
+        </file>
+        <file path="../../platform/crypto/ecjpake_alt.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform/crypto">
+        </file>
+        <file path="../../platform/crypto/sha256_alt.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform/crypto">
+        </file>
+        <file path="../../disp_utils.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../disp_utils.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../platform/nv/crc.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform/nv">
+        </file>
+        <file path="../../platform/nv/crc.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform/nv">
+        </file>
+        <file path="../../platform/nv/nvintf.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform/nv">
+        </file>
+        <file path="../../platform/nv/nvoctp.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform/nv">
+        </file>
+        <file path="../../platform/nv/nvoctp.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform/nv">
+        </file>
+        <file path="../../platform/nv/settings.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="platform/nv">
+        </file>
+        <file path="../../Board.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/ti/boards/CC26X2R1_LAUNCHXL/Board.html" openOnCreation="false" excludeFromBuild="false" action="link">
+        </file>
+        <file path="../../CC26X2R1_LAUNCHXL.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../CC26X2R1_LAUNCHXL.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../CC26X2R1_LAUNCHXL_fxns.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../tirtos/ccs/CC26X2R1_LAUNCHXL_TIRTOS.cmd" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../ccfg.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../tirtos/makefile.defs" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+    </project>
+</projectSpec>
+

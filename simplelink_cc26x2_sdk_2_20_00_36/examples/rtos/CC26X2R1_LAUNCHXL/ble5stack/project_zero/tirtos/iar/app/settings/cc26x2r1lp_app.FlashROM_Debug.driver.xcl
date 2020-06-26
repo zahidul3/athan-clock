@@ -1,0 +1,31 @@
+"--endian=little" 
+
+"--cpu=Cortex-M4" 
+
+"--fpu=VFPv4_SP" 
+
+"-p" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\CONFIG\debugger\TexasInstruments\CC2642R1F.ddf" 
+
+"--semihosting" 
+
+"--device=CC2642R1F" 
+
+"--xds_hib_address=0x10001932,0x10001214" 
+
+"--drv_catch_exceptions=0xff1" 
+
+"--drv_swo_clock_setup=48000000,0,1000000" 
+
+"--drv_communication=USB:#select" 
+
+"--drv_interface=CJTAG" 
+
+"--xds_board_file=C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\config\debugger\TexasInstruments\xds\CC2652_XDS110_CJTAG.dat" 
+
+"--xds_digital_states_config_file=C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\config\debugger\TexasInstruments\cc13x2_cc26x2_digital_states.svd.xml" 
+
+
+
+

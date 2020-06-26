@@ -1,0 +1,56 @@
+.. _sdg-overview:
+
+#######################
+|OT_STACK| User's Guide
+#######################
+
+.. rubric:: Table of contents
+
+.. toctree::
+    :maxdepth: 2
+
+    overview
+    /cc26x2/index-thread
+    ot-sw-dev-env
+    ot-stack-overview
+    running-example-apps-cc26x2
+    /thread-br/index
+    creating-custom-apps
+    custom-hardware
+    packet-sniffer
+    /debugging/thread-index
+    /energy-trace/energy-trace
+    /thread-oad/index
+    migration
+
+
+.. _OpenThread API: ..\/..\/thread-apis.html
+
+.. _chap-references:
+
+References
+==========
+
+* `OpenThread API`_
+
+* `OpenThread Wiki`_
+
+* `Sensor Controller Studio`_
+
+* |ARM_USERS_GUIDE|
+
+
+Terms and Definitions
+=====================
+
+.. include:: /thread/inc_glossary.rst
+.. include:: /cc26x2/inc_glossary.rst
+.. include:: /tirtos/inc_glossary.rst
+.. include:: /sensor-controller/inc_glossary.rst
+.. include:: /oad/inc_glossary.rst
+
+
+Indexes and tables
+##################
+
+* :ref:`genindex`

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_i2_c___transaction__" kind="struct" language="C++" prot="public">
+    <compoundname>I2C_Transaction_</compoundname>
+    <includes refid="_i2_c_8h" local="no">I2C.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_i2_c___transaction___1a5d9c494aca871ebb272899856e1fa6bb" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* I2C_Transaction_::writeBuf</definition>
+        <argsstring></argsstring>
+        <name>writeBuf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to a buffer containing data to be written. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" line="412" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" bodystart="412" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c___transaction___1a3bee82494f85dc33d1229e48a2ec63c8" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t I2C_Transaction_::writeCount</definition>
+        <argsstring></argsstring>
+        <name>writeCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of bytes to write from the <computeroutput>writeBuf</computeroutput>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" line="414" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c___transaction___1aca335a8f98036308396f27fddeb96f7b" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* I2C_Transaction_::readBuf</definition>
+        <argsstring></argsstring>
+        <name>readBuf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to a buffer to store data read. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" line="416" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" bodystart="416" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c___transaction___1a175470cacf5d42b11d505e2196ff6494" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t I2C_Transaction_::readCount</definition>
+        <argsstring></argsstring>
+        <name>readCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of bytes to be read from the slave </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" line="417" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" bodystart="417" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c___transaction___1a09a6dc5d7ab40ed03cb0442feb456889" prot="public" static="no" mutable="no">
+        <type>uint_least8_t</type>
+        <definition>uint_least8_t I2C_Transaction_::slaveAddress</definition>
+        <argsstring></argsstring>
+        <name>slaveAddress</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Address of the I2C slave peripheral. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" line="419" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" bodystart="419" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c___transaction___1a5c74a2359742d69b0e9108bb342ded00" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* I2C_Transaction_::arg</definition>
+        <argsstring></argsstring>
+        <name>arg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Optional application argument. This argument will be passed to the callback function specified by <ref refid="struct_i2_c___params___1acd2b2ca0da16c1f017ac32cc4831b31e" kindref="member">I2C_Params.transferCallbackFxn</ref> when using <ref refid="_i2_c_8h_1aa47ee1c12e45d10f0beb6ed724704dfea129731a7edeb285f43a54b2cf9f5ac72" kindref="member">I2C_MODE_CALLBACK</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" line="421" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" bodystart="421" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c___transaction___1a568092ead614401487c18c850e93540c" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* I2C_Transaction_::nextPtr</definition>
+        <argsstring></argsstring>
+        <name>nextPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This value is used internally by the driver and must never be modified by the application. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" line="425" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" bodystart="425" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This structure defines the I2C slave address, pointers to write and read buffers, and their associated byte counts. If no data needs to be written, the write byte count should be zero. Similarly, if no data needs to be read, the read byte count should be set to zero. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="_i2_c_8h_1ac5d827b67fe77d7d179026941cc069d7" kindref="member">I2C_transfer()</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" line="411" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/I2C.h" bodystart="411" bodyend="428"/>
+    <listofallmembers>
+      <member refid="struct_i2_c___transaction___1a5c74a2359742d69b0e9108bb342ded00" prot="public" virt="non-virtual"><scope>I2C_Transaction_</scope><name>arg</name></member>
+      <member refid="struct_i2_c___transaction___1a568092ead614401487c18c850e93540c" prot="public" virt="non-virtual"><scope>I2C_Transaction_</scope><name>nextPtr</name></member>
+      <member refid="struct_i2_c___transaction___1aca335a8f98036308396f27fddeb96f7b" prot="public" virt="non-virtual"><scope>I2C_Transaction_</scope><name>readBuf</name></member>
+      <member refid="struct_i2_c___transaction___1a175470cacf5d42b11d505e2196ff6494" prot="public" virt="non-virtual"><scope>I2C_Transaction_</scope><name>readCount</name></member>
+      <member refid="struct_i2_c___transaction___1a09a6dc5d7ab40ed03cb0442feb456889" prot="public" virt="non-virtual"><scope>I2C_Transaction_</scope><name>slaveAddress</name></member>
+      <member refid="struct_i2_c___transaction___1a5d9c494aca871ebb272899856e1fa6bb" prot="public" virt="non-virtual"><scope>I2C_Transaction_</scope><name>writeBuf</name></member>
+      <member refid="struct_i2_c___transaction___1a3bee82494f85dc33d1229e48a2ec63c8" prot="public" virt="non-virtual"><scope>I2C_Transaction_</scope><name>writeCount</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

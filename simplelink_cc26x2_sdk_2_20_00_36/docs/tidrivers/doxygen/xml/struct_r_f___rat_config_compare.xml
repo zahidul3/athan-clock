@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_r_f___rat_config_compare" kind="struct" language="C++" prot="public">
+    <compoundname>RF_RatConfigCompare</compoundname>
+    <includes refid="_r_f_8h" local="no">RF.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_r_f___rat_config_compare_1a07cbf5e6902c168024921db4d520d231" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1afbf75555f36dd8e45a3a932de62b2c68" kindref="member">RF_RatCallback</ref></type>
+        <definition>RF_RatCallback RF_RatConfigCompare::callback</definition>
+        <argsstring></argsstring>
+        <name>callback</name>
+        <briefdescription>
+<para>Callback function to be invoked upon a capture event (optional). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1648" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1648" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___rat_config_compare_1ac9d3979d011cb7554280d0a03f5f6929" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a58de86ad0b6cfcb04548a776976c0a7c" kindref="member">RF_RatHandle</ref></type>
+        <definition>RF_RatHandle RF_RatConfigCompare::channel</definition>
+        <argsstring></argsstring>
+        <name>channel</name>
+        <briefdescription>
+<para>RF_RatHandle identifies the channel to be allocated. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1649" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1649" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___rat_config_compare_1a28b5f51f9aa9b8c61e2cf9205ffc97eb" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_RatConfigCompare::timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timout value in RAT ticks to be programmed in the timer as the trigger of compare event. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1650" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1650" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RF_ratCompare parameter structure. </para>    </briefdescription>
+    <detaileddescription>
+<para>RF_RatCompare parameters are used with the <ref refid="_r_f_8h_1af26945dca21f0742e7e978af6e176fea" kindref="member">RF_ratCompare()</ref> call. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="519">
+        <label>RF_RatConfigCompare</label>
+        <link refid="struct_r_f___rat_config_compare"/>
+        <childnode refid="520" relation="usage">
+          <edgelabel>callback</edgelabel>
+        </childnode>
+      </node>
+      <node id="520">
+        <label>RF_Object</label>
+        <link refid="struct_r_f___object"/>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1647" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1647" bodyend="1652"/>
+    <listofallmembers>
+      <member refid="struct_r_f___rat_config_compare_1a07cbf5e6902c168024921db4d520d231" prot="public" virt="non-virtual"><scope>RF_RatConfigCompare</scope><name>callback</name></member>
+      <member refid="struct_r_f___rat_config_compare_1ac9d3979d011cb7554280d0a03f5f6929" prot="public" virt="non-virtual"><scope>RF_RatConfigCompare</scope><name>channel</name></member>
+      <member refid="struct_r_f___rat_config_compare_1a28b5f51f9aa9b8c61e2cf9205ffc97eb" prot="public" virt="non-virtual"><scope>RF_RatConfigCompare</scope><name>timeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

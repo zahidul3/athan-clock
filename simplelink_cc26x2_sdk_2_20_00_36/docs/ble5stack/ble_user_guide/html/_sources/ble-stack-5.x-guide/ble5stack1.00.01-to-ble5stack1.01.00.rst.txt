@@ -1,0 +1,818 @@
+
+BLE5-Stack 1.00.01 to BLE5-Stack 1.01.00
+========================================
+
+This section will describe a way to migrate a project from BLE5-Stack 1.00.01 to
+a BLE5-Stack 1.01.00. This approach will be modifying an existing project's
+configuration to utilize BLE5-Stack 1.01.00 libraries, tools, and code.
+
+Once the project is converted to use the updated libraries, tools, and
+code of BLE5-Stack 1.01.00, the application then must be engineered to
+account for various API changes. This guide will contain API translation
+tables as well as tips to aide in the transition to BLE5-Stack 1.01.00.
+
+For this migration guide, simple\_peripheral from BLE5-Stack 1.00.01 will be ported
+to BLE5-Stack 1.01.00. Utilize the IDE and Tools recommended by |STACK| release notes.
+
+Once project configurations are updated, follow same building procedure
+used prior to the port. It is assumed the latest SDK has already been
+installed, see `SimpleLink SDKs <http://www.ti.com/tool/SIMPLELINK-CC2640R2-SDK>`_.
+
+When applicable, this section will use simple\_peripheral from BLE5-Stack 1.00.01
+as an example when porting to BLE5-Stack 1.01.00.
+
+For API Descriptions see :ref:`ble_api_reference`
+
+Table of Contents:
+
+* :ref:`sec-porting-1-0-1-to-1-1-0-project-config`
+
+    * :ref:`sec-porting-1-0-1-to-1-1-0-project-config-ccs-stack`
+
+    * :ref:`sec-porting-1-0-1-to-1-1-0-project-config-ccs-app`
+
+    * :ref:`sec-porting-1-0-1-to-1-1-0-project-config-iar-config`
+
+    * :ref:`sec-porting-1-0-1-to-1-1-0-project-config-iar-stack`
+
+    * :ref:`sec-porting-1-0-1-to-1-1-0-project-config-iar-app`
+
+* :ref:`sec-porting-1-0-1-to-1-1-0-project-config-app`
+
+    * :ref:`sec-porting-1-0-1-to-1-1-0-project-config-app-buildconfig`
+
+    * :ref:`sec-porting-1-0-1-to-1-1-0-project-config-app-gaprole`
+
+    * :ref:`sec-porting-1-0-1-to-1-1-0-project-config-app-gatt`
+
+    * :ref:`sec-porting-1-0-1-to-1-1-0-project-config-app-gapbondmgr`
+
+* :ref:`sec-porting-1-0-1-to-1-1-0-project-translation-tables`
+
+    * :ref:`tbl_ble5_porting_gaprole_changes`
+
+    * :ref:`tbl_ble5_porting_gapbondmgr_changes`
+
+    * :ref:`tbl_ble5_porting_gapgattserver_changes`
+
+    * :ref:`tbl_ble5_porting_linkdb_changes`
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config:
+
+Project Configuration Changes
+-----------------------------
+Project configuration needs to be updated in order to utilize the latest
+tools, code, and libraries. This section describes the changes necessary
+in order to do so in a IDE specific way.
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config-ccs-stack:
+
+CCS Stack Project
+^^^^^^^^^^^^^^^^^
+#. Updating XDC Tools to Version 3.50.3.33
+
+    Open Project Properties of the stack project for the application being ported
+
+    #. Select General from the Navigation Tree
+
+    #. Select Products Tab
+
+    #. Select XDCtools version 3.50.3.33\_core (Latest)
+
+    #. Save Changes
+
+    .. _fig_updating_xdctools:
+    .. figure:: resources/1.0.1-to-1.1.0-porting-guide-updating-xdctools.png
+        :align: center
+
+        CCS Updating XDC Tools Visual Instructions
+
+    This will update the ``XDC_CG_ROOT`` path variable to utilize the latest
+    version of XDCtools.
+
+#. Select BLE5-Stack 1.01.00
+
+    Open Project Properties of the stack project for the application being ported
+
+    #. Select General from the Navigation Tree
+
+    #. Select Products Tab
+
+    #. Select SimpleLink CC2640R2 SDK version containing BLE5-Stack 1.01.00
+
+    #. Save Changes
+
+    .. _fig_updating_ble_stack:
+    .. figure:: resources/1.0.1-to-1.1.0-porting-guide-updating-ble-stack.png
+        :align: center
+
+        CCS Updating BLE5-Stack Visual Instructions
+
+    This will update the ``COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR`` path
+    variable to utilize the SDK containing BLE5-Stack 1.01.00.
+
+    The path variables ``SRC_BLE_DIR`` and ``TOOLS_BLE_DIR`` will automatically
+    be updated to point to the BLE5-Stack 1.01.00 version of tools and code.
+
+#. Update lib\_search tool to correctly pull in the proper libraries
+
+    Open Project Properties of the stack project for the application being ported
+
+    #. Select Build from the Navigation Tree
+
+    #. Select Steps Tab
+
+    #. Modify the prebuild step from
+
+        .. code-block:: none
+
+            ${TOOLS_BLE_DIR}/lib_search/lib_search         ${PROJECT_LOC}/TOOLS/build_config.opt         ${SRC_BLE_DIR}/blelib         ${PROJECT_LOC}/FlashROM_Library/lib_linker.cmd         cc2640         ${TOOLS_BLE_DIR}/lib_search/lib_search.xml         ${SRC_BLE_DIR}/symbols
+
+        to the following:
+
+        .. code-block:: none
+
+            ${TOOLS_BLE_DIR}/lib_search/lib_search         --opt ${PROJECT_LOC}/TOOLS/build_config.opt         --lib-dir ${SRC_BLE_DIR}/blelib/cc26x0r2         --cmd ${PROJECT_LOC}/FlashROM_Library/lib_linker.cmd         --xml ${TOOLS_BLE_DIR}/lib_search/lib_search.xml         --sym-dir ${SRC_BLE_DIR}/symbols/cc26x0r2
+
+    #. Save Changes
+
+    .. _fig_updating_pre_build:
+    .. figure:: resources/1.0.1-to-1.1.0-porting-guide-changing-prebuild-steps.png
+        :align: center
+
+        CCS Updating Pre-Build Visual Instructions
+
+    This change accounts for updates to the lib\_search tool's argument variables.
+
+#. Update include path for Controller files
+
+    Open Project Properties of the stack project for the application being ported
+
+    #. Select Build -> ARM Compiler -> Include Options in the Navigation Tree
+
+    #. Select ``${SRC_BLE_DIR}/controller/cc26xx_r2/inc`` include path
+
+    #. Modify the path by double clicking or pressing 'Edit'
+
+    #. Change to ``${SRC_BLE_DIR}/controller/cc26xx/inc`` (remove \_r2)
+
+    #. Save Changes
+
+    See :ref:`fig_updating_change_include_path`
+
+    .. note::
+
+        The include path ``${SRC_BLE_DIR}/profiles/roles`` can safely be removed.
+
+    The path to controller files have changed. In order include these files, a
+    include path needs to be updated.
+
+#. Update source references for Controller and GAP
+
+    Due to path changes for several key files, the virtual links within
+    the project need to be updated to properly find files.
+
+    The files which have been moved are located in:
+
+    .. code-block:: none
+
+        C:\ti\simplelink_cc2640r2_sdk_1_50_00_06\source\ti\ble5stack\controller\cc26xx\inc
+
+        C:\ti\simplelink_cc2640r2_sdk_1_50_00_06\source\ti\ble5stack\host
+
+    Namely, controller files and GAP related files.
+
+    Examples are ``ll.h`` located in the ``INCLUDE`` folder, and ``gap.c``,
+    ``gapbondmgr.c``, and ``gapbondmgr.h`` located in the ``PROFILES`` folder.
+
+    Open the properties of a resource file of the stack project.
+
+    #. Select Resource in the Navigation Tree
+
+    #. Click Edit next to the Location field
+
+    #. Modify location to match the resource's actual location
+
+    #. Confirm Changes
+
+    #. Save Changes
+
+    .. _fig_updating_changing_virtual:
+    .. figure:: resources/1.0.1-to-1.1.0-porting-guide-changing-virtual-link.png
+        :align: center
+
+        CCS Updating Pre-Build Visual Instructions
+
+    This change allows the compiler to correctly resolve locations
+    of moved files.
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config-ccs-app:
+
+CCS Application Project
+^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Updating XDC Tools to Version 3.50.3.33 and BLE5-Stack to 1.01.00
+
+    Open Project Properties of the application project for the application being ported
+
+    #. Select General from the Navigation Tree
+
+    #. Select Products Tab
+
+    #. Select XDCtools version 3.50.3.33\_core (Latest)
+
+    #. Select SimpleLink CC2640R2 SDK version containing BLE5-Stack 1.01.00
+
+    #. Save Changes
+
+    .. _fig_checking_updating_app_stack_xdc:
+    .. figure:: resources/1.0.1-to-1.1.0-porting-guide-updating-xdc-and-ble5stack.png
+        :align: center
+
+    This will update the ``XDC_CG_ROOT`` path variable to utilize the latest
+    version of XDCtools.
+
+    This will update the ``COM_TI_SIMPLELINK_CC2640R2_SDK_INSTALL_DIR`` path
+    variable to utilize the SDK containing BLE5-Stack 1.01.00.
+
+#. Update include path for Controller files
+
+    Open Project Properties of the stack project for the application being ported
+
+    #. Select Build -> ARM Compiler -> Include Options in the Navigation Tree
+
+    #. Select ``${SRC_BLE_DIR}/controller/cc26xx_r2/inc`` include path
+
+    #. Modify the path by double clicking or pressing 'Edit'
+
+    #. Change to ``${SRC_BLE_DIR}/controller/cc26xx/inc`` (remove \_r2)
+
+    #. Save Changes
+
+    .. _fig_updating_change_include_path:
+    .. figure:: resources/1.0.1-to-1.1.0-porting-guide-changing-include-path.png
+        :align: center
+
+        CCS Updating Include Path Visual Instructions
+
+    .. note::
+
+        The include path ``${SRC_BLE_DIR}/profiles/roles`` can safely be removed.
+
+    The path to controller files have changed, this change
+    updates the include path.
+
+#. Add ``USE_CORE_SDK`` to Predefined Symbols
+
+    Open Project Properties of the stack project for the application being ported
+
+    #. Select Build -> ARM Compiler -> Predefined Symbols
+
+    #. Click Add to enter another Symbol
+
+    #. Add ``USE_CORE_SDK`` predefined symbol
+
+    #. Confirm
+
+    #. Save Changes
+
+    .. _fig_adding_predefined_symbol:
+    .. figure:: resources/1.0.1-to-1.1.0-porting-guide-adding-preprocessor-define.png
+        :align: center
+
+        CCS Adding Preprocessor Symbols Visual Instructions
+
+    This will allow correct resolution of middle ware drivers by the compiler.
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config-iar-config:
+
+IAR Common Project Configuration Changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since both the application and stack project utilize a common custom
+argument variable file, only this file needs to be configured to
+point to the correct stack and tools.
+
+#. Modifying Custom Argument Variables for BLE5-Stack 1.01.00 and XDCtools 3.50.3.33\_core
+
+    #. Click Tools from the Toolbar
+
+    #. Select Configure Custom Argument Variable item
+
+        .. _fig_iar_selecting_custom_arg_vars:
+        .. figure:: resources/1.0.1-to-1.1.0-porting-guide-selecting-custom-args-menu.png
+            :align: center
+
+    #. Expand the ``SIMPLELINK_CC2640R2_SRC_SDK`` Heading
+
+    #. Modify ``SIMPLELINK_CORE_SDK_INSTALL_DIR`` to path of SDK containing BLE5-Stack 1.01.00
+
+    #. Modify ``XDCROOT`` to path of XDCtools 3.50.3.33\_core
+
+    #. Save Changes
+
+        .. _fig_iar_custom_arg_vars:
+        .. figure:: resources/1.0.1-to-1.1.0-porting-guide-ble5-custom-argument-variables.png
+            :align: center
+
+            IAR Changing Argument Variables
+
+    #. Re-launch IAR Embedded Workbench
+
+        This will refresh all file references to use BLE5-Stack 1.01.00 and
+        XDCtools 3.50.3.33\_core.
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config-iar-stack:
+
+IAR Stack Project
+^^^^^^^^^^^^^^^^^
+
+#. Modifying Include Path and Preprocessor Defines
+
+    Open Project Properties of the stack project for the application being ported
+
+    #. Select C/C++ Compiler from the navigation tree
+
+    #. Select Preprocessor Tab
+
+    #. Modify include paths to point to correct directory
+
+        Change ``$SRC_BLE_DIR$\controller\cc26xx_r2\inc`` to
+        ``$SRC_BLE_DIR$\controller\cc26xx\inc``
+
+    #. Add ``USE_CORE_SDK`` to Defined Symbols
+
+    #. Save changes
+
+        .. _fig_iar_include_paths_defines:
+        .. figure:: resources/1.0.1-to-1.1.0-porting-guide-iar-changing-preprocessor-include-paths.png
+            :align: center
+
+            IAR Changing Include Paths
+
+    .. note::
+        The include path ``$SRC_BLE_DIR$\profiles\roles`` can be safely removed
+
+#. Remove old referenced files
+
+    Remove ``Profiles/gap.c``, ``Profiles/gapbondmgr.h``, ``Profiles/gapbondmgr.c``
+
+    These files have been moved, and these old project links will be using the old location.
+
+#. Add new files from proper locations
+
+    Add ``gap.c`` and ``gapbondmgr.c`` from ``<SDK>\source\ti\ble5stack\host`` to
+    the Profiles folder.
+
+    Add ``gapbondmgr.h`` from ``<SDK>\source\ti\ble5stack\inc`` to the Profiles Folder.
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config-iar-app:
+
+IAR Application Project
+^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Modifying Include Path and Preprocessor Defines
+
+    Open Project Properties of the stack project for the application being ported
+
+    #. Select C/C++ Compiler from the navigation tree
+
+    #. Select Preprocessor Tab
+
+    #. Modify include paths to point to correct directory
+
+        Change ``$SRC_BLE_DIR$\controller\cc26xx_r2\inc`` to
+        ``$SRC_BLE_DIR$\controller\cc26xx\inc``
+
+    #. Add ``USE_CORE_SDK`` to Defined Symbols
+
+    #. Save changes
+
+    See :ref:`fig_iar_include_paths_defines`
+
+    .. note::
+        The include path ``$SRC_BLE_DIR$\profiles\roles`` can be safely removed
+
+#. Remove old referenced files
+
+    Remove ``Profiles/gap.c``, ``Profiles/gapbondmgr.h``, ``Profiles/gapbondmgr.c``
+
+    These files have been moved, and these old project links will be using the old location.
+
+#. Add new files from proper locations
+
+    Add ``gap.c`` and ``gapbondmgr.c`` from ``<SDK>\source\ti\ble5stack\host`` to
+    the Profiles folder.
+
+    Add ``gapbondmgr.h`` from ``<SDK>\source\ti\ble5stack\inc`` to the Profiles Folder.
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config-app:
+
+Project Application Changes
+---------------------------
+
+There are a number of different changes to the API in order to
+improve usability and ensure support with future BLE 5 features.
+
+Among these changes are core fundamental changes of how GAP Roles
+are done in BLE5-Stack. Namely, the removal of source files
+particular to GAP Roles, rather focusing on device behavior.
+
+Functionality has also been relocated to other modules where necessary
+to further facilitate this change. Additionally, Bluetooth 5.0
+features are now always enabled with no option to disable.
+
+For more information regarding the GAP changes and how to
+utilize them, see :ref:`gap`
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config-app-buildconfig:
+
+Stack Build Configuration File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``build_config.opt`` specifies which stack components will
+be utilized, and thus which library files should be used during
+the Stack Project build process. This file is located in the Tools
+folder of the Stack Project.
+
+BLE5-Stack 1.01.00 now comes with BLE 5.0 features always
+enabled. BLE 5.0 features can not be removed from the stack.
+
+Remove any references to BLE 5.0 features in the ``build_config.opt``
+
+For example, if ``-DV50_FEATURES=PHY_LR_CFG`` is in the ``build_config.opt``
+comment out or remove the line altogether.
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config-app-gaprole:
+
+GAP Role Changes
+^^^^^^^^^^^^^^^^
+
+All GAP Roles source files have been removed. These files such as
+``peripheral.c``, ``central.c``, will produce build errors and
+must be removed.
+
+In general functionality of the roles has been broken into distinct
+GAP functions: Scanner, Advertiser, and Initiator.
+
+These functions of GAP can be independently controlled to
+allow the device to function as a desired GAP Role such
+as peripheral or central.
+
+Utilize :ref:`tbl_ble5_porting_gaprole_changes` to port
+application functionality.
+
+Examples may need to be used to assist in re-architecture of
+the application, such as simple\_peripheral or simple\_central.
+For example, initialization of GAP Advertiser can be found
+in simple\_central.
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config-app-gatt:
+
+GATT Profile Changes
+^^^^^^^^^^^^^^^^^^^^
+
+Due to changes in LinkDB defines (``linkdb.h``), custom GATT profiles
+may need to modified in order to account for the new definitions.
+
+For example, when calling GATTServApp_InitCharCfg with an invalid handle
+use the following:
+
+    .. code-block:: c
+
+        // Initialize Client Characteristic Configuration attributes
+        GATTServApp_InitCharCfg( CONNHANDLE_INVALID, simpleProfileChar4Config );
+
+The previous define for invalid handle as defined in ``linkdb.h``
+was ``INVALID_CONNHANDLE``.
+
+See :ref:`tbl_ble5_porting_gapgattserver_changes` and
+:ref:`tbl_ble5_porting_linkdb_changes` for additional changes as required.
+
+.. _sec-porting-1-0-1-to-1-1-0-project-config-app-gapbondmgr:
+
+GAP Bond Manager Changes
+^^^^^^^^^^^^^^^^^^^^^^^^
+During the removal of GAP Roles source files, functionality relating to specific
+roles was moved into GAP Bond Manager. One particular change is the handling of
+passcodes. These are now handled via call back - see simple\_peripheral or
+simple\_central for implementation details (search for passcodeCb).
+
+See :ref:`tbl_ble5_porting_gapbondmgr_changes` for additional changes.
+
+.. _sec-porting-1-0-1-to-1-1-0-project-translation-tables:
+
+Appendix - Translation Tables
+-----------------------------
+
+.. _tbl_ble5_porting_gaprole_changes:
+.. table:: GAP Changes
+
+    +---------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    | Previous Implementation                                 | New/Current implementation                                                                                 |
+    +============+============================================+============================================================================================================+
+    |    Type    |   Name                                     | Description / API / Parameter                                                                              |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP EVENT | GAP_AdvertDataUpdateDone                   | Based on :ble_api:`GAP_scanner_event`:                                                                     |
+    |            |                                            |     :ble_api:`GAP_EVT_ADV_REPORT`                                                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP EVENT | GAP_DeviceDiscovery                        | Based on :ble_api:`GAP_scanner_events`:                                                                    |
+    |            |                                            |     :ble_api:`GAP_EVT_SCAN_DISABLED`                                                                       |
+    |            |                                            |     :ble_api:`GAP_EVT_SCAN_PRD_ENDED`                                                                      |
+    |            |                                            |     :ble_api:`GAP_EVT_SCAN_DUR_ENDED`                                                                      |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP EVENT | GAP_AdvertDataUpdateDone                   | Check Return Status on :ble_api:`GapAdv_loadData`                                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP EVENT | GAP_MakeDiscoverableDone                   | Check Return Status on :ble_api:`GapAdv_enable`                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP EVENT | GAP_EndDiscoverableDone                    | Check Return Status on :ble_api:`GapAdv_disable`                                                           |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP EVENT | GAP_RandomAddrChanged                      | Obsolete - Address Resolution is done controller                                                           |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP EVENT | GAP_LinkParamUpdate                        | Event is same - now supports both LLCP and L2CAP                                                           |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_GEN_DISC_ADV_MIN                      | Configured by durationOrMaxEvents parameter of :ble_api:`GapAdv_enable`                                    |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_LIM_ADV_TIMEOUT                       | Configured by durationOrMaxEvents parameter of :ble_api:`GapAdv_enable`                                    |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_GEN_DISC_SCAN                         | Configured by parameters of :ble_api:`GapScan_enable`                                                      |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_LIM_DISC_SCAN                         | Configured by parameters of :ble_api:`GapScan_enable`                                                      |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_GEN_DISC_SCAN_INT                     | Configured by interval parameter of :ble_api:`GapScan_setPhyParams`                                        |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_GEN_DISC_SCAN_WIND                    | Configured by window parameter of :ble_api:`GapScan_setPhyParams`                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_LIM_DISC_SCAN_INT                     | Configured by interval parameter of :ble_api:`GapScan_setPhyParams`                                        |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_LIM_DISC_SCAN_WIND                    | Configured by window parameter of :ble_api:`GapScan_setPhyParams`                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_EST_ADV_TIMEOUT                  | Configured by durationOrMaxEvents parameter of :ble_api:`GapAdv_enable`                                    |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_PARAM_TIMEOUT                    | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_PARAM_CONN_PARAM_TIMEOUT`                                  |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_LIM_DISC_ADV_INT_MIN                  | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_ADV_PARAM_PRIMARY_INTERVAL_MIN`                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_LIM_DISC_ADV_INT_MAX                  | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_ADV_PARAM_PRIMARY_INTERVAL_MAX`                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_GEN_DISC_ADV_INT_MIN                  | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_ADV_PARAM_PRIMARY_INTERVAL_MIN`                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_GEN_DISC_ADV_INT_MAX                  | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_ADV_PARAM_PRIMARY_INTERVAL_MAX`                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_ADV_INT_MIN                      | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_ADV_PARAM_PRIMARY_INTERVAL_MIN`                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_ADV_INT_MAX                      | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_ADV_PARAM_PRIMARY_INTERVAL_MAX`                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_SCAN_INT                         | Configured by interval parameter of :ble_api:`GapScan_setPhyParams`                                        |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_SCAN_WIND                        | Configured by window parameter of :ble_api:`GapScan_setPhyParams`                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_HIGH_SCAN_INT                    | Configured by interval parameter of :ble_api:`GapScan_setPhyParams`                                        |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_HIGH_SCAN_WIND                   | Configured by window parameter of :ble_api:`GapScan_setPhyParams`                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_GEN_DISC_SCAN_INT                     | Configured by interval parameter of :ble_api:`GapScan_setPhyParams`                                        |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_GEN_DISC_SCAN_WIND                    | Configured by window parameter of :ble_api:`GapScan_setPhyParams`                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_LIM_DISC_SCAN_INT                     | Configured by interval parameter of :ble_api:`GapScan_setPhyParams`                                        |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_LIM_DISC_SCAN_WIND                    | Configured by window parameter of :ble_api:`GapScan_setPhyParams`                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_EST_INT_MIN                      | :ble_api:`GapInit_setPhyParam` with :ble_api:`INIT_PHYPARAM_CONN_INT_MIN`                                  |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_EST_INT_MAX                      | :ble_api:`GapInit_setPhyParam` with :ble_api:`INIT_PHYPARAM_CONN_INT_MAX`                                  |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_EST_SCAN_INT                     | :ble_api:`GapInit_setPhyParam` with :ble_api:`INIT_PHYPARAM_SCAN_INTERVAL`                                 |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_EST_SCAN_WIND                    | :ble_api:`GapInit_setPhyParam` with :ble_api:`INIT_PHYPARAM_SCAN_WINDOW`                                   |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_EST_SUPERV_TIMEOUT               | :ble_api:`GapInit_setPhyParam` with :ble_api:`INIT_PHYPARAM_SUP_TIMEOUT`                                   |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_EST_LATENCY                      | :ble_api:`GapInit_setPhyParam` with :ble_api:`INIT_PHYPARAM_CONN_LATENCY`                                  |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_EST_MIN_CE_LEN                   | Obsolete - Not Used by Controller                                                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_EST_MAX_CE_LEN                   | Obsolete - Not Used by Controller                                                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_PRIVATE_ADDR_INT                      | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_PARAM_PRIVATE_ADDR_INT`                                    |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_PAUSE_CENTRAL                    | Obsolete - Not Used by Controller                                                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_CONN_PAUSE_PERIPHERAL                 | Calling :ble_api:`GAP_UpdateLinkParamReq` as desired                                                       |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_SM_TIMEOUT                            | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_PARAM_SM_TIMEOUT`                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_SM_MIN_KEY_LEN                        | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_PARAM_SM_MIN_KEY_LEN`                                      |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_SM_MAX_KEY_LEN                        | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_PARAM_SM_MAX_KEY_LEN`                                      |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_FILTER_ADV_REPORTS                    | Obsolete - Duplicate Filtering done in Controller                                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_SCAN_RSP_RSSI_MIN                     | :ble_api:`GapScan_setParam` with :ble_api:`SCAN_PARAM_FLT_MIN_RSSI`                                        |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_REJECT_CONN_PARAMS                    | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_PARAM_LINK_UPDATE_DECISION`                                |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_AUTH_TASK_ID                          | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_PARAM_AUTH_TASK_ID`                                        |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_VERIFY_CAR                            | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_PARAM_VERIFY_CAR`                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | TGAP_GGS_PARAMS                            | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_PARAM_GGS_PARAMS`                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_IRK,                               | :ble_api:`GapConfig_SetParameter` with :ble_api:`GAP_CONFIG_PARAM_IRK`                                     |
+    |            | GAPCENTRALROLE_IRK                         |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_SRK,                               | :ble_api:`GapConfig_SetParameter` with :ble_api:`GAP_CONFIG_PARAM_SRK`                                     |
+    |            | GAPCENTRALROLE_SRK                         |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_BD_ADDR,                           | :ble_api:`HCI_ReadBDADDRCmd`                                                                               |
+    |            | GAPCENTRALROLE_BD_ADDR                     |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_ADVERT_ENABLED,                    | :ble_api:`GapAdv_enable` and :ble_api:`GapAdv_disable`                                                     |
+    |            | GAPROLE_ADV_NONCONN_ENABLED                |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_ADVERT_OFF_TIME                    | Configured by durationOrMaxEvents parameter of :ble_api:`GapAdv_enable`                                    |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_ADVERT_DATA                        | Various API:                                                                                               |
+    |            |                                            |    :ble_api:`GapAdv_loadByBuffer`                                                                          |
+    |            |                                            |    :ble_api:`GapAdv_loadHandle`                                                                            |
+    |            |                                            |    :ble_api:`GapAdv_prepareLoadByBuffer`                                                                   |
+    |            |                                            |    :ble_api:`GapAdv_prepareLoadByHandle`                                                                   |
+    |            |                                            |    :ble_api:`GapAdv_getBuffer`                                                                             |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_SCAN_RSP_DATA                      | Various API:                                                                                               |
+    |            |                                            |    :ble_api:`GapAdv_loadByBuffer`                                                                          |
+    |            |                                            |    :ble_api:`GapAdv_loadHandle`                                                                            |
+    |            |                                            |    :ble_api:`GapAdv_prepareLoadByBuffer`                                                                   |
+    |            |                                            |    :ble_api:`GapAdv_prepareLoadByHandle`                                                                   |
+    |            |                                            |    :ble_api:`GapAdv_getBuffer`                                                                             |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_ADV_EVENT_TYPE                     | :ble_api:`GapAdv_setParam` or :ble_api:`GapAdv_getParam` with :ble_api:`GAP_ADV_PARAM_PROPS`               |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_ADV_DIRECT_TYPE                    | :ble_api:`GapAdv_setParam` or :ble_api:`GapAdv_getParam` with :ble_api:`GAP_ADV_PARAM_PEER_ADDRESS_TYPE`   |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_ADV_DIRECT_ADDR                    | :ble_api:`GapAdv_setParam` or :ble_api:`GapAdv_getParam` with :ble_api:`GAP_ADV_PARAM_PEER_ADDRESS`        |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_ADV_CHANNEL_MAP                    | :ble_api:`GapAdv_setParam` or :ble_api:`GapAdv_getParam` with :ble_api:`GAP_ADV_PARAM_PRIMARY_CHANNEL_MAP` |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_ADV_FILTER_POLICY                  | :ble_api:`GapAdv_setParam` or :ble_api:`GapAdv_getParam` with :ble_api:`GAP_ADV_PARAM_FILTER_POLICY`       |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_CONNHANDLE                         | Returned for each GAP event, alternatively :ble_api:`HCI_EXT_GetConnInfoCmd`                               |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_RSSI_READ_RATE                     | RSSI can be received by :ble_api:`HCI_ReadRssiCmd`                                                         |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_PARAM_UPDATE_ENABLE                | :ble_api:`GAP_UpdateLinkParamReq` can be called as desired                                                 |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_MIN_CONN_INTERVAL                  | pParams.connIntervalMin parameter of :ble_api:`GAP_EstablishLinkReq`                                       |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_MAX_CONN_INTERVAL                  | pParams.connIntervalMax parameter of :ble_api:`GAP_EstablishLinkReq`                                       |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_SLAVE_LATENCY                      | pParams.connLatency parameter of :ble_api:`GAP_EstablishLinkReq`                                           |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_TIMEOUT_MULTIPLIER                 | pParams.connTimeout parameter of :ble_api:`GAP_EstablishLinkReq`                                           |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_STATE                              | Obsolete - Architecture removes need for this                                                              |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_CONN_BD_ADDR,                      | Returned in :ble_api:`GAP_LINK_ESTABLISHED_EVENT`,                                                         |
+    |            | GAPROLE_BD_ADDR_TYPE                       | contained in stack message, :ble_api:`gapEstLinkReqEvent_t`                                                |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_CONN_INTERVAL                      | Returned from :ble_api:`linkDB_GetInfo`, as linkDBInfo_t.connInterval                                      |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_CONN_LATENCY                       | Returned from :ble_api:`linkDB_GetInfo`, as linkDBInfo_t.connLatency                                       |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPROLE_CONN_TIMEOUT                       | Returned from :ble_api:`linkDB_GetInfo`, as linkDBInfo_t.connTimeout                                       |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPCENTRALROLE_MAX_SCAN_RES                | Configured by maxNumReport parameter of :ble_api:`GapScan_enable`                                          |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP PARAM | GAPCENTRALROLE_LINK_PARAM_UPDATE_REQ_REPLY | :ble_api:`GAP_SetParamValue` with :ble_api:`GAP_PARAM_LINK_UPDATE_DECISION`                                |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_DeviceInit,                            | Declaration Change -  Use :ble_api:`GAP_DeviceInit` with parameter for roles desired                       |
+    |            | GAPRole_StartDevice,                       |     See :ble_api:`GAP_Profile_Roles`                                                                       |
+    |            | GAPCentralRole_StartDevice                 |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAPRole_RegisterAppCBs                     | Obsolete - Functionality moved to :ble_api:`GAPBondMgr_Register`                                           |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_SetAdvToken                            | Obsolete - Advertisement Sets are Used                                                                     |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_GetAdvToken                            | Obsolete - Advertisement Sets are Used                                                                     |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_RemoveAdvToken                         | Obsolete - Advertisement Sets are Used                                                                     |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_UpdateAdvTokens                        | Obsolete - Advertisement Sets are Used                                                                     |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAPRole_SendUpdateParam,                   | :ble_api:`GAP_UpdateLinkParamReq`                                                                          |
+    |            | GAPCentralRole_UpdateLink                  |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_MakeDiscoverable                       | :ble_api:`GapAdv_enable`                                                                                   |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_UpdateAdvertisingData                  | :ble_api:`GapAdv_loadData`                                                                                 |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_EndDiscoverable                        | :ble_api:`GapAdv_disable`                                                                                  |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_DeviceDiscoveryRequest,                | :ble_api:`GapScan_enable`                                                                                  |
+    |            | GAPCentralRole_StartDiscovery              |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_DeviceDiscoveryCancel,                 | :ble_api:`GapScan_disable`                                                                                 |
+    |            | GAPCentralRole_CancelDiscovery             |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_ResolvePrivateAddr                     | Obsolete - Address Resolution is done controller                                                           |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_EstablishLinkReq,                      | :ble_api:`GapInit_connect`, or :ble_api:`GapInit_connectWl` to use whitelist                               |
+    |            | GAPCentralRole_EstablishLink               |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_TerminateLinkReq,                      | :ble_api:`GapInit_cancelConnect` for connection request, :ble_api:`GAP_TerminateLinkReq` otherwise         |
+    |            | GAPRole_TerminateConnection,               |                                                                                                            |
+    |            | GAPCentralRole_TerminateLink               |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP API   | GAP_ConfigDeviceAddr                       | No Changes; now the only way to set address and address type across modules                                |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP CB    | gapRolesParamUpdateCB_t,                   | These are handled through :ble_api:`GAP_UPDATE_LINK_PARAM_REQ_EVENT`,                                      |
+    |            | paramUpdateAppDecision_t,                  | applies to the L2CAP Parameter Update Procedure as well.                                                   |
+    |            | passThroughToApp_t                         |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+    |  GAP CB    | gapRolesStateNotify_t,                     | Moved into GAP Bond Manager callbacks, gapBondCBs_t->gapEventCB                                            |
+    |            | pfnGapCentralRoleEventCB_t                 |                                                                                                            |
+    +------------+--------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+.. _tbl_ble5_porting_gapbondmgr_changes:
+.. table:: GAP Bond Manager Changes
+
+    +--------------------------------------------------+----------------------------------------------+
+    | Previous Implementation                          | New/Current implementation                   |
+    +================+=================================+==============================================+
+    |    Type        |   Name                          | Description / API / Parameter                |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND PARAM | GAPBOND_DEFAULT_PASSCODE        | Use pfnPasscodeCB_t, shared default passcode |
+    |                |                                 | defined in bcomdef.h (BAPP_DEFAULT_PASSCODE) |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND PARAM | GAPBOND_REMOTE_OOB_SC_ENABLED   | Obsolete                                     |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND PARAM | GAPBOND_REMOTE_OOB_SC_DATA      | Obsolete                                     |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND PARAM | GAPBOND_LOCAL_OOB_SC_ENABLED    | Obsolete                                     |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND PARAM | GAPBOND_LOCAL_OOB_SC_DATA       | Obsolete                                     |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND STATE | GAPBOND_PAIRING_STATE_BONDED    | GAPBOND_PAIRING_STATE_ENCRYPTED              |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND DEF   | GBM_QUEUE_PAIRINGS              | Removed, is now default behavior             |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND DEF   | GBM_GATT_NO_CLIENT              | Configured by GATT_NO_CLIENT                 |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND DEF   | SNP_SECURITY                    | Configured by GAPBONDMGR_NO_SIGNING          |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND API   | GAPBondMgr_LinkEst              | Removed Application Access to API            |
+    |                |                                 | Handled Internally                           |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND API   | GAPBondMgr_LinkTerm             | Removed Application Access to API            |
+    |                |                                 | Handled Internally                           |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND API   | GAPBondMgr_SlaveReqSecurity     | GAPBondMgr_Pair, allowing both masters       |
+    |                |                                 | and slaves to request pairing                |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND API   | GAPBondMgr_UpdateCharCfg        | Removed Application Access to API            |
+    |                |                                 | Handled Internally                           |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND API   | GAPBondMgr_ReadGattChar         | Removed Application Access to API            |
+    |                |                                 | Handled Internally                           |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND API   | GAPBondMgr_SupportsEnhancedPriv | Removed Application Access to API            |
+    |                |                                 | Handled Internally                           |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND API   | GAPBondMgr_CheckNVLen           | Removed Application Access to API            |
+    |                |                                 | Handled Internally                           |
+    +----------------+---------------------------------+----------------------------------------------+
+    |  GAPBOND API   | GAPBondMgr_syncResolvingList    | Removed Application Access to API            |
+    |                |                                 | Handled Internally                           |
+    +----------------+---------------------------------+----------------------------------------------+
+
+.. _tbl_ble5_porting_gapgattserver_changes:
+.. table:: GAP GATT Server Changes
+
+    +-------------------------------------------------+-----------------------------------+
+    | Previous Implementation                         | New/Current implementation        |
+    +============+====================================+===================================+
+    |    Type    |   Name                             | Description / API / Parameter     |
+    +------------+------------------------------------+-----------------------------------+
+    |  GGS PARAM | GGS_PERI_PRIVACY_FLAG_ATT          | Obsolete                          |
+    +------------+------------------------------------+-----------------------------------+
+    |  GGS PARAM | GGS_RECONNCT_ADDR_ATT              | Obsolete                          |
+    +------------+------------------------------------+-----------------------------------+
+    |  GGS PARAM | GGS_PERI_PRIVACY_FLAG_PROPS        | Obsolete                          |
+    +------------+------------------------------------+-----------------------------------+
+    |  GGS PARAM | GGS_W_PERMIT_PRIVACY_FLAG_ATT      | Obsolete                          |
+    +------------+------------------------------------+-----------------------------------+
+    |  GGS PARAM | GGS_TESTMODE_W_PERMIT_PRIVACY_FLAG | Obsolete                          |
+    +------------+------------------------------------+-----------------------------------+
+
+.. _tbl_ble5_porting_linkdb_changes:
+.. table:: Link Database Changes
+
+    +--------------------------------------------+-----------------------------------+
+    | Previous Implementation                    | New/Current implementation        |
+    +============+===============================+===================================+
+    |    Type    |   Name                        | Description / API / Parameter     |
+    +------------+-------------------------------+-----------------------------------+
+    | LinkDB API | linkDB_Remove                 | API now accepts linkDBItem_t* in  |
+    |            |                               | addition to connection handle     |
+    +------------+-------------------------------+-----------------------------------+

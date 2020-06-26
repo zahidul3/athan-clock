@@ -1,0 +1,1405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>L2CAP_SendData &mdash; Vendor Specific Guide 5.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Vendor Specific Guide 5.00.00 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Vendor Specific Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_interface.html">HCI Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="att_api.html">ATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gap_api.html">GAP Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gapbondmgr_api.html">GapBondMgr Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gatt_api.html">GATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_ext_api.html">HCI Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l2cap_api.html">L2CAP Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util_api.html">UTIL Extension Vendor Specific API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Vendor Specific Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>L2CAP_SendData</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="l2cap-senddata">
+<h1>L2CAP_SendData<a class="headerlink" href="#l2cap-senddata" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFCF0</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The L2CAP Data command is used to send an SDU on a Connection Oriented Channel established with the peer device.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CID:</th><td class="field-body"><p class="first">Local Channel ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0040</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0040 - 0x007F</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">SDU:</th><td class="field-body"><p class="first">SDU to be sent on the channel</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">input byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">“”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">to L2CAP_SDU_SIZE octets</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event. When the SDU transmission is done to the peer device, the L2CAP Send SDU Done Event (L2CAP_SendSduDone) will be generated. If the local channel runs out of credits required to send the SDU, the L2CAP Out of Credit Event (L2CAP_OutOfCredit) will be generated.</p>
+</div>
+<div class="section" id="l2cap-registerpsm">
+<h1>L2CAP_RegisterPsm<a class="headerlink" href="#l2cap-registerpsm" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFCF1</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The L2CAP Register PSM command is used to register a Protocol/Service Multiplexer (PSM) with the L2CAP layer.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PSM:</th><td class="field-body"><p class="first">Local Protocol/Service Multiplexer (PSM)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0001</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0001 - 0x00FF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">MTU:</th><td class="field-body"><p class="first">Maximum SDU size that can be received by PSM</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0017</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">initialPeerCredits:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Number of packets that peer device can send to local device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0001</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">peerCreditThreshold:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Low threshold for peer credits</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0000</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">maxNumChannels:</th><td class="field-body"><p class="first">Maximum number of Connection Oriented Channels supported by PSM</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x01</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">enableSecurityVerification:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Indicates whether to enable security verification by the application for any incoming connection request</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x00</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the local device will send the CommandStatus Event. If the application wishes to perform its own security verification (by setting enableSecurityVerification to TRUE) for any incoming connection request then an L2CAP Connection Request (L2CAP_ConnectReq) event will be sent up to the application, which must then send an L2CAP Connection Response (L2CAP_ConnectRsp) command back. When the peer credit count reaches the peer credit threshold (specified by peerCreditThreshold), the L2CAP Peer Credit Threshold Event (L2CAP_PeerCreditThreshold) will be generated.</p>
+</div>
+<div class="section" id="l2cap-deregisterpsm">
+<h1>L2CAP_DeregisterPsm<a class="headerlink" href="#l2cap-deregisterpsm" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFCF2</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The L2CAP Deregister PSM command is sent to deregister a Protocol/Service Multiplexer (PSM) with the L2CAP layer.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PSM:</th><td class="field-body"><p class="first">Local Protocol/Service Multiplexer (PSM) to be deregistered with L2CAP</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0001</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0001 - 0x00FF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this request is received, the local device will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="l2cap-psminfo">
+<h1>L2CAP_PsmInfo<a class="headerlink" href="#l2cap-psminfo" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFCF3</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The L2CAP PSM Info command is used to get the current information about a given PSM registered with the L2CAP layer.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PSM:</th><td class="field-body"><p class="first">Local Protocol/Service Multiplexer (PSM)</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0001</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0001 - 0x00FF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this request is received, the local device will send the CommandStatus Event.</p>
+<p><strong>Additional Command Status Return Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">dataLen:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">MTU:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">MPS:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">initialPeerCredits:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">peerCreditThreshold:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">maxNumChannels:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">numActiveChannels:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="l2cap-psmchannels">
+<h1>L2CAP_PsmChannels<a class="headerlink" href="#l2cap-psmchannels" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFCF4</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The L2CAP PSM Channels command is used to get the list of all the active Connection Oriented Channels for a given PSM registered with the L2CAP layer.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PSM:</th><td class="field-body"><p class="first">Local Protocol/Service Multiplexer (PSM)</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0001</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0001 - 0x00FF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this request is received, the local device will send the CommandStatus Event.</p>
+<p><strong>Additional Command Status Return Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">dataLen:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>An array of size “dataLen/2” will be returned containing the parameters starting here:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CID:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The array of parameters ends here.</p>
+</div>
+<div class="section" id="l2cap-channelinfo">
+<h1>L2CAP_ChannelInfo<a class="headerlink" href="#l2cap-channelinfo" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFCF5</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The L2CAP Channel Info command is used to get the current information about an active Connection Oriented Channel.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CID:</th><td class="field-body"><p class="first">Local Channel ID</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0040</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0040 - 0x007F</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this request is received, the local device will send the CommandStatus Event.</p>
+<p><strong>Additional Command Status Return Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">dataLen:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">state:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( StatStatus==0x00)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x0000</td>
+<td>L2CAP_CLOSED</td>
+</tr>
+<tr class="row-odd"><td>0x0001</td>
+<td>L2CAP_OPEN</td>
+</tr>
+<tr class="row-even"><td>0x0002</td>
+<td>L2CAP_PENDING_CONN_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x0003</td>
+<td>L2CAP_PENDING_DISCONN_RSP</td>
+</tr>
+<tr class="row-even"><td>0x0004</td>
+<td>L2CAP_PENDING_PARAM_UPDATE_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x0005</td>
+<td>L2CAP_PENDING_INFO_RSP</td>
+</tr>
+<tr class="row-even"><td>0x0006</td>
+<td>L2CAP_PENDING_SEC_VERIFY</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">PSM:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">CID:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">MTU:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">MPS:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">credits:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">peerCID:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">peerMTU:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">peerMPS:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">peerCredits:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">peerCreditThreshold:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="l2cap-connectreq">
+<h1>L2CAP_ConnectReq<a class="headerlink" href="#l2cap-connectreq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFC94</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The L2CAP Connection Request command is used to create and configure a Connection Oriented Channel between the local and the peer device.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Connection Handle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Identifies the connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0000</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0000 to 0xFFFD</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">PSM:</th><td class="field-body"><p class="first">Local Protocol/Service Multiplexer (PSM)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0001</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0001 - 0x00FF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">peerPSM:</th><td class="field-body"><p class="first">Peer Protocol/Service Multiplexer (PSM)</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0001</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0001 - 0x00FF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the local device will send the CommandStatus Event with the Status parameter after sending an LE Credit Based Connection Request to the peer device. When a new channel has been established, the L2CAP Channel Established Event (L2CAP_ChannelEstablished) will be generated.</p>
+</div>
+<div class="section" id="l2cap-connectrsp">
+<h1>L2CAP_ConnectRsp<a class="headerlink" href="#l2cap-connectrsp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFC95</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">When a device receives an LE Credit Based Connection Request, it must send an LE Credit Based Connection Response back, which is done automatically by the L2CAP layer. However, if the application wishes to perform its own security verification (configurable at PSM registration), then a Connection Request (L2CAP_ConnectReq) event will be sent up to the application which must then send a Connection Response (L2CAP_ConnectRsp) command back indicating the outcome of the connection request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Connection Handle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Identifies the connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0000</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0000 to 0xFFFD</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">id:</th><td class="field-body"><p class="first">Identifier to match responses with requests</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x01</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x01 - 0xFF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">result:</th><td class="field-body"><p class="first">Indicates outcome of connection request</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">2 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x0000</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x0000</td>
+<td>L2CAP_CONN_SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x0001</td>
+<td>Reserved</td>
+</tr>
+<tr class="row-even"><td>0x0002</td>
+<td>L2CAP_CONN_PSM_NOT_SUPPORTED</td>
+</tr>
+<tr class="row-odd"><td>0x0003</td>
+<td>Reserved</td>
+</tr>
+<tr class="row-even"><td>0x0004</td>
+<td>L2CAP_CONN_NO_RESOURCES</td>
+</tr>
+<tr class="row-odd"><td>0x0005</td>
+<td>L2CAP_CONN_INSUFFICIENT_AUTHEN</td>
+</tr>
+<tr class="row-even"><td>0x0006</td>
+<td>L2CAP_CONN_INSUFFICIENT_AUTHOR</td>
+</tr>
+<tr class="row-odd"><td>0x0007</td>
+<td>L2CAP_CONN_INSUFFICIENT_KEY_SIZE</td>
+</tr>
+<tr class="row-even"><td>0x0008</td>
+<td>L2CAP_CONN_INSUFFICIENT_ENCRYPT</td>
+</tr>
+<tr class="row-odd"><td>0x0009</td>
+<td>L2CAP_CONN_INVALID_SRC_CID</td>
+</tr>
+<tr class="row-even"><td>0x000A</td>
+<td>L2CAP_CONN_SRC_CID_ALREADY_ALLOC</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this request is received, the local device will send the CommandStatus Event with the Status parameter after sending an LE Credit Based Connection Response back to the peer device.</p>
+</div>
+<div class="section" id="l2cap-disconnectreq">
+<h1>L2CAP_DisconnectReq<a class="headerlink" href="#l2cap-disconnectreq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFC86</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The L2CAP Disconnection Request is sent to terminate a Connection Oriented Channel established between the local and the peer device.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CID:</th><td class="field-body"><p class="first">Local Channel ID</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0040</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0040 - 0x007F</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the local device will send the CommandStatus Event with the Status parameter after forwarding the request to the peer device. When the channel is terminated, the L2CAP Channel Terminated Event (L2CAP_ChannelTerminated) will be generated.</p>
+</div>
+<div class="section" id="l2cap-flowctrlcredit">
+<h1>L2CAP_FlowCtrlCredit<a class="headerlink" href="#l2cap-flowctrlcredit" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFC96</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The LE Flow Control Credit commands are sent when the local device is capable of receiving additional LE-frames on an established L2CAP channel.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CID:</th><td class="field-body"><p class="first">Local Channel ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0040</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0040 - 0x007F</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">peerCredits:</th><td class="field-body"><p class="first">Number of LE-frames that can be sent to local device</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0001</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0001 - 0xFFFF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this request is received, the local device will send the CommandStatus Event with the Status parameter after forwarding the request to the peer device. When the peer credit count reaches a specified low threshold (configurable at PSM registration), the L2CAP Peer Credit Threshold Event (L2CAP_PeerCreditThreshold) will be generated.</p>
+</div>
+<div class="section" id="l2cap-inforeq">
+<h1>L2CAP_InfoReq<a class="headerlink" href="#l2cap-inforeq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFC8A</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">L2CAP Info Request</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Connection Handle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Identifies the connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0000</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0000 to 0xFFFD</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">infoType:</th><td class="field-body"><p class="first">The type of implementation specific information being requested</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">2 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x0002</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x0001</td>
+<td>CONNECTIONLESS_MTU</td>
+</tr>
+<tr class="row-odd"><td>0x0002</td>
+<td>EXTENDED_FEATURES</td>
+</tr>
+<tr class="row-even"><td>0x0003</td>
+<td>FIXED_CHANNELS</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this request is received, the local device will send the CommandStatus Event with the Status parameter after forwarding the request to the peer device. After receiving a response from the peer device, the L2CAP_InfoRsp will be generated.</p>
+</div>
+<div class="section" id="l2cap-connparamupdatereq">
+<h1>L2CAP_ConnParamUpdateReq<a class="headerlink" href="#l2cap-connparamupdatereq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFC92</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The Connection Parameter Update Request is sent from the LE slave device to the LE master device. This request allows the LE slave Host to request a set of new connection parameters.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Connection Handle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Identifies the connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x0000</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0000 to 0xFFFD</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">intervalMin:</th><td class="field-body"><p class="first">The minimum value for the connection event interval</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">80</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">6 - 3200</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">intervalMax:</th><td class="field-body"><p class="first">The maximum value for the connection event interval</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">160</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">6 - 3200</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">slaveLatency:</th><td class="field-body"><p class="first">The slave latency parameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0 - 500</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">timeoutMultiplier:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">The connection timeout parameter</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">1000</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">10 - 3200</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this request is received, the LE slave host will send the CommandStatus Event with the Status parameter after forwarding the request to the LE master host. The LE master host will send the Connection Parameter Update Response (L2CAP_ConnParamUpdateRsp) event back. If the LE slave host receives this request, it will respond with a Command Reject (L2CAP_CmdReject) with reason 0x0000 (command not understood).</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

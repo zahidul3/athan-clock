@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction" kind="struct" language="C++" prot="public">
+    <compoundname>CryptoCC26XX_AESECB_Transaction</compoundname>
+    <includes refid="_crypto_c_c26_x_x_8h" local="no">CryptoCC26XX.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a538da4d16f0d7e5fdb2bf3f97bfa81be" prot="public" static="no" mutable="no">
+        <type><ref refid="_crypto_c_c26_x_x_8h_1a28465385e5b45efecc00f2015605f970" kindref="member">CryptoCC26XX_Operation</ref></type>
+        <definition>CryptoCC26XX_Operation CryptoCC26XX_AESECB_Transaction::opType</definition>
+        <argsstring></argsstring>
+        <name>opType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The type of the crypto operation </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="656" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="656" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a9dafb34e220b2dfe0ac118df2afc0ae8" prot="public" static="no" mutable="no">
+        <type><ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cd" kindref="member">CryptoCC26XX_Mode</ref></type>
+        <definition>CryptoCC26XX_Mode CryptoCC26XX_AESECB_Transaction::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The mode of current transaction. Set by transact function. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="657" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="657" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a1e144214803cec502698401343c830a1" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t CryptoCC26XX_AESECB_Transaction::keyIndex</definition>
+        <argsstring></argsstring>
+        <name>keyIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The key store index to be used. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="658" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="658" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1ac63701080bffd789b53c7effcf46cfe9" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* CryptoCC26XX_AESECB_Transaction::msgIn</definition>
+        <argsstring></argsstring>
+        <name>msgIn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A poiner to the octet string input message </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="659" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="659" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1ab5c3bff547308f1a63c771349cbef069" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* CryptoCC26XX_AESECB_Transaction::msgOut</definition>
+        <argsstring></argsstring>
+        <name>msgOut</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to the output message location </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="660" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="660" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>CryptoCC26XX AES-ECB Transaction. </para>    </briefdescription>
+    <detaileddescription>
+<para>This structure defines the nature of the AES-ECB transaction. An object of this structure must be initialized by calling <ref refid="_crypto_c_c26_x_x_8h_1afb3ea8faceda234cdd62c5f53e203946" kindref="member">CryptoCC26XX_Transac_init()</ref>. </para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="655" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="655" bodyend="661"/>
+    <listofallmembers>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a1e144214803cec502698401343c830a1" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESECB_Transaction</scope><name>keyIndex</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a9dafb34e220b2dfe0ac118df2afc0ae8" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESECB_Transaction</scope><name>mode</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1ac63701080bffd789b53c7effcf46cfe9" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESECB_Transaction</scope><name>msgIn</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1ab5c3bff547308f1a63c771349cbef069" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESECB_Transaction</scope><name>msgOut</name></member>
+      <member refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a538da4d16f0d7e5fdb2bf3f97bfa81be" prot="public" virt="non-virtual"><scope>CryptoCC26XX_AESECB_Transaction</scope><name>opType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

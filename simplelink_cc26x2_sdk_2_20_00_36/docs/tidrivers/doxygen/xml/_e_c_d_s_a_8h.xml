@@ -1,0 +1,1043 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="_e_c_d_s_a_8h" kind="file" language="C++">
+    <compoundname>ECDSA.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes refid="_crypto_key_8h" local="no">ti/drivers/cryptoutils/cryptokey/CryptoKey.h</includes>
+    <includes refid="_e_c_c_params_8h" local="no">ti/drivers/cryptoutils/ecc/ECCParams.h</includes>
+    <includedby refid="_e_c_d_s_a_c_c26_x2_8h" local="no">ECDSACC26X2.h</includedby>
+    <incdepgraph>
+      <node id="256">
+        <label>stdbool.h</label>
+      </node>
+      <node id="258">
+        <label>stdint.h</label>
+      </node>
+      <node id="259">
+        <label>ti/drivers/cryptoutils/cryptokey/CryptoKey.h</label>
+        <link refid="_crypto_key_8h"/>
+        <childnode refid="258" relation="include">
+        </childnode>
+        <childnode refid="256" relation="include">
+        </childnode>
+      </node>
+      <node id="260">
+        <label>ti/drivers/cryptoutils/ecc/ECCParams.h</label>
+        <link refid="_e_c_c_params_8h"/>
+        <childnode refid="258" relation="include">
+        </childnode>
+        <childnode refid="256" relation="include">
+        </childnode>
+        <childnode refid="259" relation="include">
+        </childnode>
+      </node>
+      <node id="257">
+        <label>stddef.h</label>
+      </node>
+      <node id="255">
+        <label>ECDSA.h</label>
+        <link refid="_e_c_d_s_a_8h"/>
+        <childnode refid="256" relation="include">
+        </childnode>
+        <childnode refid="257" relation="include">
+        </childnode>
+        <childnode refid="258" relation="include">
+        </childnode>
+        <childnode refid="259" relation="include">
+        </childnode>
+        <childnode refid="260" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="262">
+        <label>ECDSACC26X2.h</label>
+        <link refid="_e_c_d_s_a_c_c26_x2_8h"/>
+      </node>
+      <node id="261">
+        <label>ECDSA.h</label>
+        <link refid="_e_c_d_s_a_8h"/>
+        <childnode refid="262" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_e_c_d_s_a___config__" prot="public">ECDSA_Config_</innerclass>
+    <innerclass refid="struct_e_c_d_s_a___operation_sign__" prot="public">ECDSA_OperationSign_</innerclass>
+    <innerclass refid="struct_e_c_d_s_a___operation_verify__" prot="public">ECDSA_OperationVerify_</innerclass>
+    <innerclass refid="union_e_c_d_s_a___operation__" prot="public">ECDSA_Operation_</innerclass>
+    <innerclass refid="struct_e_c_d_s_a___params__" prot="public">ECDSA_Params_</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___e_c_d_s_a___c_o_n_t_r_o_l_1ga2e48db2d31a4645af502c19a2fe2202f" prot="public" static="no">
+        <name>ECDSA_CMD_RESERVED</name>
+        <initializer>(32)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Common ECDSA_control command code reservation offset. ECDSA driver implementations should offset command codes with ECDSA_CMD_RESERVED growing positively</para><para>Example implementation specific command codes: <programlisting><codeline><highlight class="normal">#define<sp/>ECDSAXYZ_CMD_COMMAND0<sp/><sp/><sp/><sp/><sp/>ECDSA_CMD_RESERVED<sp/>+<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>ECDSAXYZ_CMD_COMMAND1<sp/><sp/><sp/><sp/><sp/>ECDSA_CMD_RESERVED<sp/>+<sp/>1</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="363" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___c_o_n_t_r_o_l_1gaf0557cd1a241899dbe217ff6f36fffd3" prot="public" static="no">
+        <name>ECDSA_STATUS_RESERVED</name>
+        <initializer>(-32)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Common ECDSA_control status code reservation offset. ECDSA driver implementations should offset status codes with ECDSA_STATUS_RESERVED growing negatively.</para><para>Example implementation specific status codes: <programlisting><codeline><highlight class="normal">#define<sp/>ECDSAXYZ_STATUS_ERROR0<sp/><sp/><sp/><sp/>ECDSA_STATUS_RESERVED<sp/>-<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>ECDSAXYZ_STATUS_ERROR1<sp/><sp/><sp/><sp/>ECDSA_STATUS_RESERVED<sp/>-<sp/>1</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>ECDSAXYZ_STATUS_ERROR2<sp/><sp/><sp/><sp/>ECDSA_STATUS_RESERVED<sp/>-<sp/>2</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="377" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="377" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1ga183cb58b608d3ddca2814118bc3e6d58" prot="public" static="no">
+        <name>ECDSA_STATUS_SUCCESS</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+<para>Successful status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECDSA_STATUS_SUCCESS if the function was executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="392" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="392" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1gaf9e7be7d0379e85deb66de69bcc801f2" prot="public" static="no">
+        <name>ECDSA_STATUS_ERROR</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+<para>Generic error status code. </para>        </briefdescription>
+        <detaileddescription>
+<para>Functions return ECDSA_STATUS_ERROR if the function was not executed successfully. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="400" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="400" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1gae9514d8ffe14f830a5e8d629ca2c8413" prot="public" static="no">
+        <name>ECDSA_STATUS_UNDEFINEDCMD</name>
+        <initializer>(-2)</initializer>
+        <briefdescription>
+<para>An error status code returned by <ref refid="_e_c_d_s_a_8h_1a63e02bdcc5d5e60f7c4c0f51dfc8793a" kindref="member">ECDSA_control()</ref> for undefined command codes. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_e_c_d_s_a_8h_1a63e02bdcc5d5e60f7c4c0f51dfc8793a" kindref="member">ECDSA_control()</ref> returns ECDSA_STATUS_UNDEFINEDCMD if the control code is not recognized by the driver implementation. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="409" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="409" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1ga10c2305f3aad581623a9828b116b6418" prot="public" static="no">
+        <name>ECDSA_STATUS_RESOURCE_UNAVAILABLE</name>
+        <initializer>(-3)</initializer>
+        <briefdescription>
+<para>An error status code returned if the hardware or software resource is currently unavailable. </para>        </briefdescription>
+        <detaileddescription>
+<para>ECDSA driver implementations may have hardware or software limitations on how many clients can simultaneously perform operations. This status code is returned if the mutual exclusion mechanism signals that an operation cannot currently be performed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="419" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="419" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1gaf8e62a453a17a2259dc7d90cdffa1027" prot="public" static="no">
+        <name>ECDSA_STATUS_INVALID_PMSN</name>
+        <initializer>(-4)</initializer>
+        <briefdescription>
+<para>The PMSN passed into the the call is invalid. </para>        </briefdescription>
+        <detaileddescription>
+<para>PMSNs must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="427" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="427" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1ga7f28203b6d117f448e07f6ca9a76fb9b" prot="public" static="no">
+        <name>ECDSA_STATUS_R_LARGER_THAN_ORDER</name>
+        <initializer>(-5)</initializer>
+        <briefdescription>
+<para>The r value passed in is larger than the order of the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>Signature components (r and s) must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="435" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="435" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1gaf49a1701c4762053d1c5bd4f5013f1d2" prot="public" static="no">
+        <name>ECDSA_STATUS_S_LARGER_THAN_ORDER</name>
+        <initializer>(-6)</initializer>
+        <briefdescription>
+<para>The r value passed in is larger than the order of the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>Signature components (r and s) must be integers in the interval [1, n - 1], where n is the order of the curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="443" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="443" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1ga0b7af7614f3a3f4d318e29f629968524" prot="public" static="no">
+        <name>ECDSA_STATUS_PUBLIC_KEY_NOT_ON_CURVE</name>
+        <initializer>(-7)</initializer>
+        <briefdescription>
+<para>The public key of the other party does not lie upon the curve. </para>        </briefdescription>
+        <detaileddescription>
+<para>The public key received from the other party does not lie upon the agreed upon curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="451" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="451" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1ga6759d42de4b04816b814b989ca8e42ab" prot="public" static="no">
+        <name>ECDSA_STATUS_PUBLIC_KEY_LARGER_THAN_PRIME</name>
+        <initializer>(-8)</initializer>
+        <briefdescription>
+<para>A coordinate of the public key of the other party is too large. </para>        </briefdescription>
+        <detaileddescription>
+<para>A coordinate of the public key received from the other party is larger than the prime of the curve. This implies that the point was not correctly generated on that curve. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="460" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="460" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___e_c_d_s_a___s_t_a_t_u_s_1gadc0537d9a7af71de05125d7a7abbe578" prot="public" static="no">
+        <name>ECDSA_STATUS_POINT_AT_INFINITY</name>
+        <initializer>(-9)</initializer>
+        <briefdescription>
+<para>The public key to verify against is the point at infinity. </para>        </briefdescription>
+        <detaileddescription>
+<para>The point at infinity is not a valid input. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="467" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="467" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13" prot="public" static="no">
+        <name>ECDSA_ReturnBehavior_</name>
+        <enumvalue id="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13a12caa37a0d66bfabe52862dec969dd6e" prot="public">
+          <name>ECDSA_RETURN_BEHAVIOR_CALLBACK</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The function call will return immediately while the ECDSA operation goes on in the background. The registered callback function is called after the operation completes. The context the callback function is called (task, HWI, SWI) is implementation-dependent. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13a2bb6b8792bfa1d4dca40c458d008d92b" prot="public">
+          <name>ECDSA_RETURN_BEHAVIOR_BLOCKING</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The function call will block while ECDSA operation goes on in the background. ECDSA operation results are available after the function returns. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13aa0384662e30a5de0ab321cdef21f1b4a" prot="public">
+          <name>ECDSA_RETURN_BEHAVIOR_POLLING</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The function call will continuously poll a flag while ECDSA operation goes on in the background. ECDSA operation results are available after the function returns. </para>          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The way in which ECDSA function calls return after performing an encryption + authentication or decryption + verification operation. </para>        </briefdescription>
+        <detaileddescription>
+<para>Not all ECDSA operations exhibit the specified return behavor. Functions that do not require significant computation and cannot offload that computation to a background thread behave like regular functions. Which functions exhibit the specfied return behavior is implementation dependent. Specifically, a software-backed implementation run on the same CPU as the application will emulate the return behavior while not actually offloading the computation to the background thread.</para><para>ECDSA functions exhibiting the specified return behavior have restrictions on the context from which they may be called.</para><para><table rows="4" cols="4"><row>
+<entry thead="yes"><para></para></entry><entry thead="yes"><para>Task </para></entry><entry thead="yes"><para>Hwi </para></entry><entry thead="yes"><para>Swi  </para></entry></row>
+<row>
+<entry thead="no"><para>ECDSA_RETURN_BEHAVIOR_CALLBACK </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+<row>
+<entry thead="no"><para>ECDSA_RETURN_BEHAVIOR_BLOCKING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para></para></entry><entry thead="no"><para></para></entry></row>
+<row>
+<entry thead="no"><para>ECDSA_RETURN_BEHAVIOR_POLLING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+</table>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="512" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="512" bodyend="527"/>
+      </memberdef>
+      <memberdef kind="enum" id="_e_c_d_s_a_8h_1a49f9b071715ab66244759fa9c3f7d3de" prot="public" static="no">
+        <name>ECDSA_OperationType_</name>
+        <enumvalue id="_e_c_d_s_a_8h_1a49f9b071715ab66244759fa9c3f7d3deac1fb160e151a4c8adbf40e6a6cf94ff3" prot="public">
+          <name>ECDSA_OPERATION_TYPE_SIGN</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_e_c_d_s_a_8h_1a49f9b071715ab66244759fa9c3f7d3deabb42383a7909a4aadd941cfe98136341" prot="public">
+          <name>ECDSA_OPERATION_TYPE_VERIFY</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enum for the operation types supported by the driver. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="609" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="609" bodyend="612"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_e_c_d_s_a_8h_1a18b1cdee540c38ca2cb46ec55080f293" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_d_s_a___config__" kindref="compound">ECDSA_Config_</ref> *</type>
+        <definition>typedef struct ECDSA_Config_* ECDSA_Handle</definition>
+        <argsstring></argsstring>
+        <name>ECDSA_Handle</name>
+        <briefdescription>
+<para>A handle that is returned from an <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> call. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="489" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="489" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_s_a_8h_1a9e98ef4b81f12ff6d5d5232475362d4b" prot="public" static="no">
+        <type>enum <ref refid="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13" kindref="member">ECDSA_ReturnBehavior_</ref></type>
+        <definition>typedef enum ECDSA_ReturnBehavior_  ECDSA_ReturnBehavior</definition>
+        <argsstring></argsstring>
+        <name>ECDSA_ReturnBehavior</name>
+        <briefdescription>
+<para>The way in which ECDSA function calls return after performing an encryption + authentication or decryption + verification operation. </para>        </briefdescription>
+        <detaileddescription>
+<para>Not all ECDSA operations exhibit the specified return behavor. Functions that do not require significant computation and cannot offload that computation to a background thread behave like regular functions. Which functions exhibit the specfied return behavior is implementation dependent. Specifically, a software-backed implementation run on the same CPU as the application will emulate the return behavior while not actually offloading the computation to the background thread.</para><para>ECDSA functions exhibiting the specified return behavior have restrictions on the context from which they may be called.</para><para><table rows="4" cols="4"><row>
+<entry thead="yes"><para></para></entry><entry thead="yes"><para>Task </para></entry><entry thead="yes"><para>Hwi </para></entry><entry thead="yes"><para>Swi  </para></entry></row>
+<row>
+<entry thead="no"><para>ECDSA_RETURN_BEHAVIOR_CALLBACK </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+<row>
+<entry thead="no"><para>ECDSA_RETURN_BEHAVIOR_BLOCKING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para></para></entry><entry thead="no"><para></para></entry></row>
+<row>
+<entry thead="no"><para>ECDSA_RETURN_BEHAVIOR_POLLING </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry><entry thead="no"><para>X </para></entry></row>
+</table>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="527" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_s_a_8h_1a640f5365d19f32bb8e0f524eeda48d73" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_d_s_a___config__" kindref="compound">ECDSA_Config_</ref></type>
+        <definition>typedef struct ECDSA_Config_  ECDSA_Config</definition>
+        <argsstring></argsstring>
+        <name>ECDSA_Config</name>
+        <briefdescription>
+<para>ECDSA Global configuration. </para>        </briefdescription>
+        <detaileddescription>
+<para>The ECDSA_Config structure contains a set of pointers used to characterize the ECDSA driver implementation.</para><para>This structure needs to be defined before calling <ref refid="_e_c_d_s_a_8h_1a12529e861cad0fd9932b88c7023a3b77" kindref="member">ECDSA_init()</ref> and it must not be changed thereafter.</para><para><simplesect kind="see"><para><ref refid="_e_c_d_s_a_8h_1a12529e861cad0fd9932b88c7023a3b77" kindref="member">ECDSA_init()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="546" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_s_a_8h_1ae30a7d86208df1c0f2213a0d9e550f05" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_d_s_a___operation_sign__" kindref="compound">ECDSA_OperationSign_</ref></type>
+        <definition>typedef struct ECDSA_OperationSign_  ECDSA_OperationSign</definition>
+        <argsstring></argsstring>
+        <name>ECDSA_OperationSign</name>
+        <briefdescription>
+<para>Struct containing the parameters required for signing a message. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="575" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_s_a_8h_1a50ce0f2b7aa1d3949d8c358bce221d6f" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_d_s_a___operation_verify__" kindref="compound">ECDSA_OperationVerify_</ref></type>
+        <definition>typedef struct ECDSA_OperationVerify_  ECDSA_OperationVerify</definition>
+        <argsstring></argsstring>
+        <name>ECDSA_OperationVerify</name>
+        <briefdescription>
+<para>Struct containing the parameters required for verifying a message. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="596" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_s_a_8h_1a31f7df5ee1fecdff0a4965904dd6a3a7" prot="public" static="no">
+        <type>union <ref refid="union_e_c_d_s_a___operation__" kindref="compound">ECDSA_Operation_</ref></type>
+        <definition>typedef union ECDSA_Operation_  ECDSA_Operation</definition>
+        <argsstring></argsstring>
+        <name>ECDSA_Operation</name>
+        <briefdescription>
+<para>Union containing pointers to all supported operation structs. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="604" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_s_a_8h_1a5936c4302885d462e91e2401220cbb11" prot="public" static="no">
+        <type>enum <ref refid="_e_c_d_s_a_8h_1a49f9b071715ab66244759fa9c3f7d3de" kindref="member">ECDSA_OperationType_</ref></type>
+        <definition>typedef enum ECDSA_OperationType_  ECDSA_OperationType</definition>
+        <argsstring></argsstring>
+        <name>ECDSA_OperationType</name>
+        <briefdescription>
+<para>Enum for the operation types supported by the driver. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="612" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_s_a_8h_1a2969615c2ad61fa703031658001791a1" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* ECDSA_CallbackFxn) (ECDSA_Handle handle, int_fast16_t returnStatus, ECDSA_Operation operation, ECDSA_OperationType operationType)</definition>
+        <argsstring>)(ECDSA_Handle handle, int_fast16_t returnStatus, ECDSA_Operation operation, ECDSA_OperationType operationType)</argsstring>
+        <name>ECDSA_CallbackFxn</name>
+        <briefdescription>
+<para>The definition of a callback function used by the ECDSA driver when used in <ref refid="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13a12caa37a0d66bfabe52862dec969dd6e" kindref="member">ECDSA_RETURN_BEHAVIOR_CALLBACK</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle of the client that started the ECDSA operation.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>returnStatus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The result of the ECDSA operation. May contain an error code if the result is the point at infinity for example.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A union of pointers to operation structs. Only one type of pointer is valid per call to the callback function. Which type is currently valid is determined by /c operationType. The union allows easier access to the struct&apos;s fields without the need to typecase the result.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operationType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This parameter determined which operation the callback refers to and which type to access through /c operation. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="632" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="632" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_e_c_d_s_a_8h_1ae7bdbd2429aa7dbe5a0572830c08de53" prot="public" static="no">
+        <type>struct <ref refid="struct_e_c_d_s_a___params__" kindref="compound">ECDSA_Params_</ref></type>
+        <definition>typedef struct ECDSA_Params_  ECDSA_Params</definition>
+        <argsstring></argsstring>
+        <name>ECDSA_Params</name>
+        <briefdescription>
+<para>ECDSA Parameters. </para>        </briefdescription>
+        <detaileddescription>
+<para>ECDSA Parameters are used to with the <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> call. Default values for these parameters are set using <ref refid="_e_c_d_s_a_8h_1ac8a50e673e908088f643396f7f898f84" kindref="member">ECDSA_Params_init()</ref>.</para><para><simplesect kind="see"><para><ref refid="_e_c_d_s_a_8h_1ac8a50e673e908088f643396f7f898f84" kindref="member">ECDSA_Params_init()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="654" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_e_c_d_s_a_8h_1a12529e861cad0fd9932b88c7023a3b77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECDSA_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>ECDSA_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>This function initializes the ECDSA module. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>The ECDSA_config structure must exist and be persistent before this function can be called. This function must also be called before any other ECDSA driver APIs. This function call does not modify any peripheral registers. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="664" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_s_a_8h_1afb8b4f22218005bddbed06ead6166bb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECDSA_close</definition>
+        <argsstring>(ECDSA_Handle handle)</argsstring>
+        <name>ECDSA_close</name>
+        <param>
+          <type><ref refid="_e_c_d_s_a_8h_1a18b1cdee540c38ca2cb46ec55080f293" kindref="member">ECDSA_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function to close an ECDSA peripheral specified by the ECDSA handle. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para><ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> has to be called first.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECDSA handle returned from <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="675" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_s_a_8h_1a63e02bdcc5d5e60f7c4c0f51dfc8793a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECDSA_control</definition>
+        <argsstring>(ECDSA_Handle handle, uint32_t cmd, void *args)</argsstring>
+        <name>ECDSA_control</name>
+        <param>
+          <type><ref refid="_e_c_d_s_a_8h_1a18b1cdee540c38ca2cb46ec55080f293" kindref="member">ECDSA_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cmd</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Function performs implementation specific features on a given ECDSA_Handle. </para>        </briefdescription>
+        <detaileddescription>
+<para>Commands for ECDSA_control can originate from <ref refid="_e_c_d_s_a_8h" kindref="compound">ECDSA.h</ref> or from implementation specific ECDSA*.h (<emphasis><ref refid="_e_c_d_s_a_c_c26_x2_8h" kindref="compound">ECDSACC26X2.h</ref></emphasis>, <emphasis>ECDSASP432.h</emphasis>, etc.. ) files. While commands from <ref refid="_e_c_d_s_a_8h" kindref="compound">ECDSA.h</ref> are API portable across driver implementations, not all implementations may support all these commands. Conversely, commands from driver implementation specific ECDSA*.h files add unique driver capabilities but are not API portable across all ECDSA driver implementations.</para><para>Commands supported by <ref refid="_e_c_d_s_a_8h" kindref="compound">ECDSA.h</ref> follow an ECDSA_CMD_&lt;cmd&gt; naming convention.<linebreak/>
+ Commands supported by ECDSA*.h follow an ECDSA*_CMD_&lt;cmd&gt; naming convention.<linebreak/>
+ Each control command defines <bold>arg</bold> differently. The types of <bold>arg</bold> are documented with each command.</para><para>See <ref refid="group___e_c_d_s_a___c_m_d" kindref="compound">ECDSA_control command codes</ref> for command codes.</para><para>See <ref refid="group___e_c_d_s_a___s_t_a_t_u_s" kindref="compound">ECDSA_control return status codes</ref> for status codes.</para><para><simplesect kind="pre"><para><ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> has to be called first.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECDSA handle returned from <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cmd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="_e_c_d_s_a_8h" kindref="compound">ECDSA.h</ref> or ECDSA*.h commands.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional R/W (read/write) command argument accompanied with cmd</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Implementation specific return codes. Negative values indicate unsuccessful operations.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="714" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_e_c_d_s_a_8h_1a18b1cdee540c38ca2cb46ec55080f293" kindref="member">ECDSA_Handle</ref></type>
+        <definition>ECDSA_Handle ECDSA_open</definition>
+        <argsstring>(uint_least8_t index, ECDSA_Params *params)</argsstring>
+        <name>ECDSA_open</name>
+        <param>
+          <type>uint_least8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_d_s_a_8h_1ae7bdbd2429aa7dbe5a0572830c08de53" kindref="member">ECDSA_Params</ref> *</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>This function opens a given ECDSA peripheral. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>ECDSA controller has been initialized using <ref refid="_e_c_d_s_a_8h_1a12529e861cad0fd9932b88c7023a3b77" kindref="member">ECDSA_init()</ref></para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Logical peripheral number for the ECDSA indexed into the ECDSA_config table</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an parameter block, if NULL it will use default values.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An ECDSA_Handle on success or a NULL on an error or if it has been opened already.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_e_c_d_s_a_8h_1a12529e861cad0fd9932b88c7023a3b77" kindref="member">ECDSA_init()</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="_e_c_d_s_a_8h_1afb8b4f22218005bddbed06ead6166bb8" kindref="member">ECDSA_close()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="733" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_s_a_8h_1ac8a50e673e908088f643396f7f898f84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECDSA_Params_init</definition>
+        <argsstring>(ECDSA_Params *params)</argsstring>
+        <name>ECDSA_Params_init</name>
+        <param>
+          <type><ref refid="_e_c_d_s_a_8h_1ae7bdbd2429aa7dbe5a0572830c08de53" kindref="member">ECDSA_Params</ref> *</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize the ECDSA_Params struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An pointer to ECDSA_Params structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are: returnBehavior = ECDSA_RETURN_BEHAVIOR_BLOCKING callbackFxn = NULL timeout = SemaphoreP_WAIT_FOREVER custom = NULL </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="747" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_s_a_8h_1a483eed05a93c583df6599b6a07721a70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECDSA_OperationSign_init</definition>
+        <argsstring>(ECDSA_OperationSign *operation)</argsstring>
+        <name>ECDSA_OperationSign_init</name>
+        <param>
+          <type><ref refid="_e_c_d_s_a_8h_1ae30a7d86208df1c0f2213a0d9e550f05" kindref="member">ECDSA_OperationSign</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize an ECDSA_OperationSign struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to ECDSA_OperationSign structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are all zeros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="757" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_s_a_8h_1a398f078544d6c5506027a7dd6608db9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ECDSA_OperationVerify_init</definition>
+        <argsstring>(ECDSA_OperationVerify *operation)</argsstring>
+        <name>ECDSA_OperationVerify_init</name>
+        <param>
+          <type><ref refid="_e_c_d_s_a_8h_1a50ce0f2b7aa1d3949d8c358bce221d6f" kindref="member">ECDSA_OperationVerify</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize an ECDSA_OperationSign struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An pointer to ECDSA_OperationSign structure for initialization</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Defaults values are all zeros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="767" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_s_a_8h_1a3ad7bc590603181380f2f8d4c01e09f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECDSA_sign</definition>
+        <argsstring>(ECDSA_Handle handle, ECDSA_OperationSign *operation)</argsstring>
+        <name>ECDSA_sign</name>
+        <param>
+          <type><ref refid="_e_c_d_s_a_8h_1a18b1cdee540c38ca2cb46ec55080f293" kindref="member">ECDSA_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_d_s_a_8h_1ae30a7d86208df1c0f2213a0d9e550f05" kindref="member">ECDSA_OperationSign</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Signs a hashed message. </para>        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_e_c_d_s_a_8h_1a3ad7bc590603181380f2f8d4c01e09f3" kindref="member">ECDSA_sign()</ref> generates a signature (<computeroutput>r</computeroutput>, <computeroutput>s</computeroutput>) of a <computeroutput>hash</computeroutput> of a message.</para><para><simplesect kind="pre"><para><ref refid="_e_c_d_s_a_8h_1a483eed05a93c583df6599b6a07721a70" kindref="member">ECDSA_OperationSign_init()</ref> must be called on <computeroutput>operation</computeroutput> first. The driver must have been opened by calling <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> first.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECDSA handle returned from <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A struct containing the pointers to the buffers necessary to perform the operation </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="_e_c_d_s_a_8h_1a474b05788ac25fb7ba032490bb418b96" kindref="member">ECDSA_verify()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="784" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_e_c_d_s_a_8h_1a474b05788ac25fb7ba032490bb418b96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECDSA_verify</definition>
+        <argsstring>(ECDSA_Handle handle, ECDSA_OperationVerify *operation)</argsstring>
+        <name>ECDSA_verify</name>
+        <param>
+          <type><ref refid="_e_c_d_s_a_8h_1a18b1cdee540c38ca2cb46ec55080f293" kindref="member">ECDSA_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="_e_c_d_s_a_8h_1a50ce0f2b7aa1d3949d8c358bce221d6f" kindref="member">ECDSA_OperationVerify</ref> *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+<para>Verifies a received signature matches a hash and public key. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para><ref refid="_e_c_d_s_a_8h_1a398f078544d6c5506027a7dd6608db9a" kindref="member">ECDSA_OperationVerify_init()</ref> must be called on <computeroutput>operation</computeroutput> first. The driver must have been opened by calling <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> first.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An ECDSA handle returned from <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A struct containing the pointers to the buffers necessary to perform the operation</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="_e_c_d_s_a_8h_1a3ad7bc590603181380f2f8d4c01e09f3" kindref="member">ECDSA_sign()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="799" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>TI Driver for Elliptic Curve Digital Signature Algorithm. </para>    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">Overview</heading>
+</para><para>The Elliptic Curve Digital Signature Algorithm (ECDSA) is a message authentication scheme between two parties based on operation on elliptic curves over finite fields.</para><para>Signing a message with ECDSA proves to the recipient that the sender of the message is in possession of the private key corresponding to the transmitted public key used during verification. For most practical systems, this ensures message authentication and integrity.</para><para><heading level="1">Steps involved</heading>
+</para><para><itemizedlist>
+<listitem><para>The sender hashes the message they wish to authenticate and truncates it to the length of the curve parameters of the elliptic curve used by both parties.</para></listitem><listitem><para>The sender generates a per-message secret number (PMSN) where 0 &lt; PMSN &lt; N. This number must (!) be unique for each message and be kept secret. If a PMSN is reused to authenticate more than one message, the secret key of the sender can be derived from these two messages and signatures!</para></listitem><listitem><para>The sender generates r and s where 0 &lt; r, s &lt; N. These two integers constitute the actual signature of the message.</para></listitem><listitem><para>The sender transmits the message, r, s, and the public key to the recipient.</para></listitem><listitem><para>The recipient calculates the hash of the message using an agreed upon hash function and truncates it to the length of the curve parameters of the elliptic curve used by both parties</para></listitem><listitem><para>The recipient uses the hash, s, and the sender&apos;s public key to recalculate r.</para></listitem><listitem><para>The recipient accepts the signature if the received and calculated r match. Otherwise, they reject the signature.</para></listitem></itemizedlist>
+</para><para><heading level="1">Usage</heading>
+</para><para><heading level="2">Before starting an ECDSA operation</heading>
+</para><para>Before starting an ECDSA operation, the application must do the following:<itemizedlist>
+<listitem><para>Call <ref refid="_e_c_d_s_a_8h_1a12529e861cad0fd9932b88c7023a3b77" kindref="member">ECDSA_init()</ref> to initialize the driver</para></listitem><listitem><para>Call <ref refid="_e_c_d_s_a_8h_1ac8a50e673e908088f643396f7f898f84" kindref="member">ECDSA_Params_init()</ref> to initialize the ECDSA_Params to default values.</para></listitem><listitem><para>Modify the ECDSA_Params as desired</para></listitem><listitem><para>Call <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> to open an instance of the driver</para></listitem></itemizedlist>
+</para><para><heading level="2">Signing a message</heading>
+</para><para>To sign a message using an agreed upon hash function and elliptic curve, the application must do the following:<itemizedlist>
+<listitem><para>Initialize an ECDSA_OperationSign struct by calling <ref refid="_e_c_d_s_a_8h_1a483eed05a93c583df6599b6a07721a70" kindref="member">ECDSA_OperationSign_init()</ref>.</para></listitem><listitem><para>Generate the keying material for the private key. This keying material must be an integer in the interval [1, n - 1], where n is the order of the curve. It should be stored in an array with the least significant byte of the integer hex representation stored in the lowest address of the array (little-endian). The array should be the same length as the curve parameters of the curve used. The driver can be configured to validate public and private keys against the provided curve.</para></listitem><listitem><para>Initialize the private key CryptoKey. CryptoKeys are opaque datastructures and representations of keying material and its storage. Depending on how the keying material is stored (RAM or flash, key store, key blob), the CryptoKey must be initialized differently. The ECDSA API can handle all types of CryptoKey. However, not all device-specific implementions support all types of CryptoKey. Devices without a key store will not support CryptoKeys with keying material stored in a key store for example. All devices support plaintext CryptoKeys.</para></listitem><listitem><para>Initialize the pmsn CryptoKey. The PMSN itself should be a 0-padded integer of the same length as the curve parameters of the agreed upon curve and where 0 &lt; PMSN &lt; N. The driver will enforce this restriction and reject invalid PMSNs.</para></listitem><listitem><para>Hash the message using a previously agreed upon hash function and truncate the hash to the length of the curve parameters of the agreed upon curve.</para></listitem><listitem><para>Call <ref refid="_e_c_d_s_a_8h_1a3ad7bc590603181380f2f8d4c01e09f3" kindref="member">ECDSA_sign()</ref>. The r and s vectors will be written to the buffers provided in the function call. Ensure the return value is ECDSA_STATUS_SUCCESS.</para></listitem></itemizedlist>
+</para><para><heading level="2">Verifying a message</heading>
+</para><para>After receiving the message, public key, r, and s, the application should do the following to verify the signature:<itemizedlist>
+<listitem><para>Initialize an ECDSA_OperationVerify struct by calling <ref refid="_e_c_d_s_a_8h_1a398f078544d6c5506027a7dd6608db9a" kindref="member">ECDSA_OperationVerify_init()</ref>.</para></listitem><listitem><para>Hash the message using a previously agreed upon hash function and truncate the hash to the length of the curve parameters of the agreed upon curve.</para></listitem><listitem><para>Initialize a CryptoKey as public key with the keying material received from the other party.</para></listitem><listitem><para>Call <ref refid="_e_c_d_s_a_8h_1a474b05788ac25fb7ba032490bb418b96" kindref="member">ECDSA_verify()</ref>. Ensure the return value is ECDSA_STATUS_SUCCESS. The driver will validate the received public key against the provided curve.</para></listitem></itemizedlist>
+</para><para><heading level="2">General usage</heading>
+</para><para>The API expects elliptic curves as defined in <ref refid="_e_c_c_params_8h" kindref="compound">ti/drivers/cryptoutils/ecc/ECCParams.h</ref>. Several commonly used curves are provided. Check the device-specific ECDSA documentation for curve type (short Weierstrass, Montgomery, Edwards) support for your device. ECDSA support for a curve type on a device does not imply curve-type support for other ECC schemes.</para><para>Public keys and shared secrets are points on an elliptic curve. These points can be expressed in several ways. The most common one is in affine coordinates as an X,Y pair. This API uses points expressed in affine coordinates. The point is stored as a concatenated array of X followed by Y in a location described by its CryptoKey.</para><para>This API accepts and returns the keying material of public keys according to the following table:</para><para><table rows="4" cols="3"><row>
+<entry thead="yes"><para>Curve Type </para></entry><entry thead="yes"><para>Keying Material Array </para></entry><entry thead="yes"><para>Array Length  </para></entry></row>
+<row>
+<entry thead="no"><para>Short Weierstrass </para></entry><entry thead="no"><para>[X, Y] </para></entry><entry thead="no"><para>2 * Curve Param Length </para></entry></row>
+<row>
+<entry thead="no"><para>Montgomery </para></entry><entry thead="no"><para>[X, Y] </para></entry><entry thead="no"><para>2 * Curve Param Length </para></entry></row>
+<row>
+<entry thead="no"><para>Edwards </para></entry><entry thead="no"><para>[X, Y] </para></entry><entry thead="no"><para>2 * Curve Param Length </para></entry></row>
+</table>
+<heading level="2">ECDSA Driver Configuration</heading>
+</para><para>In order to use the ECDSA APIs, the application is required to provide device-specific ECDSA configuration in the Board.c file. The ECDSA driver interface defines a configuration data structure:</para><para><programlisting><codeline><highlight class="normal">typedef<sp/>struct<sp/>ECDSA_Config_<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*object;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/><sp/><sp/><sp/>*hwAttrs;</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>ECDSA_Config;</highlight></codeline>
+</programlisting></para><para>The application must declare an array of ECDSA_Config elements, named ECDSA_config[]. Each element of ECDSA_config[] must be populated with pointers to a device specific ECDSA driver implementation&apos;s driver object, hardware attributes. Each element in ECDSA_config[] corresponds to an ECDSA instance, and none of the elements should have NULL pointers. There is no correlation between the index and the peripheral designation (such as ECDSA0 or ECDSA1). For example, it is possible to use ECDSA_config[0] for ECDSA1. Multiple drivers and driver instances may all access the same underlying hardware. This is transparent to the application. Mutual exclusion is performed automatically by the drivers as necessary.</para><para>Because the ECDSA configuration is highly device dependent, you will need to check the doxygen for the device specific ECDSA implementation. There you will find a description of the ECDSA hardware attributes. Please also refer to the Board.c file of any of your examples to see the ECDSA configuration.</para><para><heading level="2">ECDSA Parameters</heading>
+</para><para>The <ref refid="_e_c_d_s_a_8h_1ae7bdbd2429aa7dbe5a0572830c08de53" kindref="member">ECDSA_Params</ref> structure is passed to the <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> call. If NULL is passed for the parameters, <ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open()</ref> uses default parameters. An <ref refid="_e_c_d_s_a_8h_1ae7bdbd2429aa7dbe5a0572830c08de53" kindref="member">ECDSA_Params</ref> structure is initialized with default values by passing it to <ref refid="_e_c_d_s_a_8h_1ac8a50e673e908088f643396f7f898f84" kindref="member">ECDSA_Params_init()</ref>. Some of the ECDSA parameters are described below. To see brief descriptions of all the parameters, see <ref refid="_e_c_d_s_a_8h_1ae7bdbd2429aa7dbe5a0572830c08de53" kindref="member">ECDSA_Params</ref>.</para><para><heading level="1">Examples</heading>
+</para><para><heading level="2">ECDSA sign with plaintext CryotoKeys</heading>
+</para><para><programlisting><codeline><highlight class="normal">#include<sp/>&lt;ti/drivers/cryptoutils/cryptokey/CryptoKeyPlaintext.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;ti/drivers/ECDSA.h&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>This<sp/>vector<sp/>is<sp/>taken<sp/>from<sp/>the<sp/>NIST<sp/>ST<sp/>toolkit<sp/>examples<sp/>from<sp/>ECDSA_Prime.pdf</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>myPrivateKeyingMaterial[32]<sp/>=<sp/>{0x96,<sp/>0xBF,<sp/>0x85,<sp/>0x49,<sp/>0xC3,<sp/>0x79,<sp/>0xE4,<sp/>0x04,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xED,<sp/>0xA1,<sp/>0x08,<sp/>0xA5,<sp/>0x51,<sp/>0xF8,<sp/>0x36,<sp/>0x23,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x12,<sp/>0xD8,<sp/>0xD1,<sp/>0xB2,<sp/>0xA5,<sp/>0xFA,<sp/>0x57,<sp/>0x06,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xE2,<sp/>0xCC,<sp/>0x22,<sp/>0x5C,<sp/>0xF6,<sp/>0xF9,<sp/>0x77,<sp/>0xC4};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>messageHashSHA256[32]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>{0xC4,<sp/>0xA8,<sp/>0xC8,<sp/>0x99,<sp/>0x28,<sp/>0xCF,<sp/>0x80,<sp/>0xB6,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xE4,<sp/>0x42,<sp/>0xD5,<sp/>0xBD,<sp/>0x28,<sp/>0x4D,<sp/>0xE3,<sp/>0xFD,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x3A,<sp/>0x13,<sp/>0xD8,<sp/>0x65,<sp/>0x0C,<sp/>0x41,<sp/>0x1C,<sp/>0x21,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x48,<sp/>0x95,<sp/>0x79,<sp/>0x2A,<sp/>0xA1,<sp/>0x41,<sp/>0x1A,<sp/>0xA4};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>pmsn[32]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>{0xAE,<sp/>0x50,<sp/>0xEE,<sp/>0xFA,<sp/>0x27,<sp/>0xB4,<sp/>0xDB,<sp/>0x14,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x9F,<sp/>0xE1,<sp/>0xFB,<sp/>0x04,<sp/>0xF2,<sp/>0x4B,<sp/>0x50,<sp/>0x58,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x91,<sp/>0xE3,<sp/>0xAC,<sp/>0x4D,<sp/>0x2A,<sp/>0x5D,<sp/>0x43,<sp/>0xAA,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xCA,<sp/>0xC8,<sp/>0x7F,<sp/>0x79,<sp/>0x52,<sp/>0x7E,<sp/>0x1A,<sp/>0x7A};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>r[32]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>s[32]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>myPrivateKey;</highlight></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>pmsnKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECDSA_Handle<sp/>ecdsaHandle;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int_fast16_t<sp/>operationResult;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Since<sp/>we<sp/>are<sp/>using<sp/>default<sp/>ECDSA_Params,<sp/>we<sp/>just<sp/>pass<sp/>in<sp/>NULL<sp/>for<sp/>that<sp/>parameter.</highlight></codeline>
+<codeline><highlight class="normal">ecdsaHandle<sp/>=<sp/>ECDSA_open(0,<sp/>NULL);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(!ecdsaHandle)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Handle<sp/>error</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initialize<sp/>myPrivateKey</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;myPrivateKey,<sp/>myPrivateKeyingMaterial,<sp/>sizeof(myPrivateKeyingMaterial));</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;pmsnKey,<sp/>pmsn,<sp/>sizeof(pmsn));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initialize<sp/>the<sp/>operation</highlight></codeline>
+<codeline><highlight class="normal">ECDSA_OperationSign_init(&amp;operationSign);</highlight></codeline>
+<codeline><highlight class="normal">operationSign.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationSign.myPrivateKey<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;myPrivateKey;</highlight></codeline>
+<codeline><highlight class="normal">operationSign.pmsn<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;pmsnKey;</highlight></codeline>
+<codeline><highlight class="normal">operationSign.hash<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>messageHash;</highlight></codeline>
+<codeline><highlight class="normal">operationSign.r<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>r;</highlight></codeline>
+<codeline><highlight class="normal">operationSign.s<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>s;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>the<sp/>signature</highlight></codeline>
+<codeline><highlight class="normal">operationResult<sp/>=<sp/>ECDSA_sign(ecdsaHandle,<sp/>&amp;operationSign);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(operationResult<sp/>!=<sp/>ECDSA_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Handle<sp/>error</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Send<sp/>out<sp/>signature</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>r<sp/>should<sp/>be<sp/><sp/><sp/>0x4F,<sp/>0x10,<sp/>0x46,<sp/>0xCA,<sp/>0x9A,<sp/>0xB6,<sp/>0x25,<sp/>0x73,</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xF5,<sp/>0x3E,<sp/>0x0B,<sp/>0x1F,<sp/>0x6F,<sp/>0x31,<sp/>0x4C,<sp/>0xE4,</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x81,<sp/>0x0F,<sp/>0x50,<sp/>0xB1,<sp/>0xF3,<sp/>0xD1,<sp/>0x65,<sp/>0xFF,</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x65,<sp/>0x41,<sp/>0x7F,<sp/>0xD0,<sp/>0x76,<sp/>0xF5,<sp/>0x42,<sp/>0x2B</highlight></codeline>
+<codeline><highlight class="normal">//</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>s<sp/>should<sp/>be<sp/><sp/><sp/>0xF1,<sp/>0xFA,<sp/>0x63,<sp/>0x6B,<sp/>0xDB,<sp/>0x9B,<sp/>0x32,<sp/>0x4B,</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x2C,<sp/>0x26,<sp/>0x9D,<sp/>0xE6,<sp/>0x6F,<sp/>0x88,<sp/>0xC1,<sp/>0x98,</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x81,<sp/>0x2A,<sp/>0x50,<sp/>0x89,<sp/>0x3A,<sp/>0x99,<sp/>0x3A,<sp/>0x3E,</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xCD,<sp/>0x92,<sp/>0x63,<sp/>0x2D,<sp/>0x12,<sp/>0xC2,<sp/>0x42,<sp/>0xDC</highlight></codeline>
+</programlisting></para><para><heading level="2">ECDSA verify with plaintext CryotoKeys</heading>
+</para><para><programlisting><codeline><highlight class="normal">#include<sp/>&lt;ti/drivers/cryptoutils/cryptokey/CryptoKeyPlaintext.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;ti/drivers/ECDSA.h&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>This<sp/>vector<sp/>is<sp/>taken<sp/>from<sp/>the<sp/>NIST<sp/>ST<sp/>toolkit<sp/>examples<sp/>from<sp/>ECDSA_Prime.pdf</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>theirPublicKeyingMaterial[64]<sp/>=<sp/><sp/>{0x19,<sp/>0x7A,<sp/>0xBC,<sp/>0x89,<sp/>0x08,<sp/>0xCD,<sp/>0x01,<sp/>0x82,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xA3,<sp/>0xA2,<sp/>0x9E,<sp/>0x1E,<sp/>0xAD,<sp/>0xA0,<sp/>0xB3,<sp/>0x62,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x1C,<sp/>0xBA,<sp/>0x98,<sp/>0x47,<sp/>0x73,<sp/>0x8C,<sp/>0xDC,<sp/>0xF1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xD3,<sp/>0xBA,<sp/>0x94,<sp/>0xFE,<sp/>0xFD,<sp/>0x8A,<sp/>0xE0,<sp/>0xB7,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x09,<sp/>0x5E,<sp/>0xCC,<sp/>0x06,<sp/>0xC6,<sp/>0xBB,<sp/>0x63,<sp/>0xB5,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x61,<sp/>0x9E,<sp/>0x52,<sp/>0x43,<sp/>0xAE,<sp/>0xC7,<sp/>0xAD,<sp/>0x63,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x90,<sp/>0x72,<sp/>0x28,<sp/>0x19,<sp/>0xE4,<sp/>0x26,<sp/>0xB2,<sp/>0x4B,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x7A,<sp/>0xBF,<sp/>0x9D,<sp/>0x95,<sp/>0x47,<sp/>0xF7,<sp/>0x03,<sp/>0x36};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>messageHashSHA256[32]<sp/>=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{0xC4,<sp/>0xA8,<sp/>0xC8,<sp/>0x99,<sp/>0x28,<sp/>0xCF,<sp/>0x80,<sp/>0xB6,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xE4,<sp/>0x42,<sp/>0xD5,<sp/>0xBD,<sp/>0x28,<sp/>0x4D,<sp/>0xE3,<sp/>0xFD,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x3A,<sp/>0x13,<sp/>0xD8,<sp/>0x65,<sp/>0x0C,<sp/>0x41,<sp/>0x1C,<sp/>0x21,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x48,<sp/>0x95,<sp/>0x79,<sp/>0x2A,<sp/>0xA1,<sp/>0x41,<sp/>0x1A,<sp/>0xA4};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>r[32]<sp/>=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{0x4F,<sp/>0x10,<sp/>0x46,<sp/>0xCA,<sp/>0x9A,<sp/>0xB6,<sp/>0x25,<sp/>0x73,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xF5,<sp/>0x3E,<sp/>0x0B,<sp/>0x1F,<sp/>0x6F,<sp/>0x31,<sp/>0x4C,<sp/>0xE4,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x81,<sp/>0x0F,<sp/>0x50,<sp/>0xB1,<sp/>0xF3,<sp/>0xD1,<sp/>0x65,<sp/>0xFF,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x65,<sp/>0x41,<sp/>0x7F,<sp/>0xD0,<sp/>0x76,<sp/>0xF5,<sp/>0x42,<sp/>0x2B};</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>s[32]<sp/>=<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{0xF1,<sp/>0xFA,<sp/>0x63,<sp/>0x6B,<sp/>0xDB,<sp/>0x9B,<sp/>0x32,<sp/>0x4B,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x2C,<sp/>0x26,<sp/>0x9D,<sp/>0xE6,<sp/>0x6F,<sp/>0x88,<sp/>0xC1,<sp/>0x98,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x81,<sp/>0x2A,<sp/>0x50,<sp/>0x89,<sp/>0x3A,<sp/>0x99,<sp/>0x3A,<sp/>0x3E,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xCD,<sp/>0x92,<sp/>0x63,<sp/>0x2D,<sp/>0x12,<sp/>0xC2,<sp/>0x42,<sp/>0xDC};</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CryptoKey<sp/>theirPublicKey;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECDSA_Handle<sp/>ecdsaHandle;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int_fast16_t<sp/>operationResult;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECDSA_OperationVerify<sp/>operationVerify;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Since<sp/>we<sp/>are<sp/>using<sp/>default<sp/>ECDSA_Params,<sp/>we<sp/>just<sp/>pass<sp/>in<sp/>NULL<sp/>for<sp/>that<sp/>parameter.</highlight></codeline>
+<codeline><highlight class="normal">ecdsaHandle<sp/>=<sp/>ECDSA_open(0,<sp/>NULL);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(!ecdsaHandle)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Handle<sp/>error</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initialize<sp/>theirPublicKey</highlight></codeline>
+<codeline><highlight class="normal">CryptoKeyPlaintext_initKey(&amp;theirPublicKey,<sp/>theirPublicKeyingMaterial,<sp/>sizeof(theirPublicKeyingMaterial));</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ECDSA_OperationVerify_init(&amp;operationVerify);</highlight></codeline>
+<codeline><highlight class="normal">operationVerify.curve<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;ECCParams_NISTP256;</highlight></codeline>
+<codeline><highlight class="normal">operationVerify.theirPublicKey<sp/><sp/>=<sp/>&amp;theirPublicKey;</highlight></codeline>
+<codeline><highlight class="normal">operationVerify.hash<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>messageHash;</highlight></codeline>
+<codeline><highlight class="normal">operationVerify.r<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>r;</highlight></codeline>
+<codeline><highlight class="normal">operationVerify.s<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>s;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Generate<sp/>the<sp/>keying<sp/>material<sp/>for<sp/>myPublicKey<sp/>and<sp/>store<sp/>it<sp/>in<sp/>myPublicKeyingMaterial</highlight></codeline>
+<codeline><highlight class="normal">operationResult<sp/>=<sp/>ECDSA_verify(ecdsaHandle,<sp/>&amp;operationVerify);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(operationResult<sp/>!=<sp/>ECDSA_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Handle<sp/>error</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2017-2018,<sp/>Texas<sp/>Instruments<sp/>Incorporated</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>Texas<sp/>Instruments<sp/>Incorporated<sp/>nor<sp/>the<sp/>names<sp/>of</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>its<sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>from<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>OWNER<sp/>OR</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>CONTRIBUTORS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*/</highlight></codeline>
+<codeline lineno="332"><highlight class="preprocessor">#ifndef<sp/>ti_drivers_ECDSA__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ti_drivers_ECDSA__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_crypto_key_8h" kindref="compound">ti/drivers/cryptoutils/cryptokey/CryptoKey.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_e_c_c_params_8h" kindref="compound">ti/drivers/cryptoutils/ecc/ECCParams.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363" refid="group___e_c_d_s_a___c_o_n_t_r_o_l_1ga2e48db2d31a4645af502c19a2fe2202f" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_CMD_RESERVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(32)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight></codeline>
+<codeline lineno="377" refid="group___e_c_d_s_a___c_o_n_t_r_o_l_1gaf0557cd1a241899dbe217ff6f36fffd3" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_RESERVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(-32)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight></codeline>
+<codeline lineno="392" refid="group___e_c_d_s_a___s_t_a_t_u_s_1ga183cb58b608d3ddca2814118bc3e6d58" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_SUCCESS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="393"><highlight class="normal"></highlight></codeline>
+<codeline lineno="400" refid="group___e_c_d_s_a___s_t_a_t_u_s_1gaf9e7be7d0379e85deb66de69bcc801f2" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_ERROR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(-1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="401"><highlight class="normal"></highlight></codeline>
+<codeline lineno="409" refid="group___e_c_d_s_a___s_t_a_t_u_s_1gae9514d8ffe14f830a5e8d629ca2c8413" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_UNDEFINEDCMD<sp/><sp/><sp/><sp/>(-2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="410"><highlight class="normal"></highlight></codeline>
+<codeline lineno="419" refid="group___e_c_d_s_a___s_t_a_t_u_s_1ga10c2305f3aad581623a9828b116b6418" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_RESOURCE_UNAVAILABLE<sp/>(-3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="420"><highlight class="normal"></highlight></codeline>
+<codeline lineno="427" refid="group___e_c_d_s_a___s_t_a_t_u_s_1gaf8e62a453a17a2259dc7d90cdffa1027" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_INVALID_PMSN<sp/>(-4)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="428"><highlight class="normal"></highlight></codeline>
+<codeline lineno="435" refid="group___e_c_d_s_a___s_t_a_t_u_s_1ga7f28203b6d117f448e07f6ca9a76fb9b" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_R_LARGER_THAN_ORDER<sp/>(-5)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="436"><highlight class="normal"></highlight></codeline>
+<codeline lineno="443" refid="group___e_c_d_s_a___s_t_a_t_u_s_1gaf49a1701c4762053d1c5bd4f5013f1d2" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_S_LARGER_THAN_ORDER<sp/>(-6)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="444"><highlight class="normal"></highlight></codeline>
+<codeline lineno="451" refid="group___e_c_d_s_a___s_t_a_t_u_s_1ga0b7af7614f3a3f4d318e29f629968524" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_PUBLIC_KEY_NOT_ON_CURVE<sp/>(-7)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="452"><highlight class="normal"></highlight></codeline>
+<codeline lineno="460" refid="group___e_c_d_s_a___s_t_a_t_u_s_1ga6759d42de4b04816b814b989ca8e42ab" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_PUBLIC_KEY_LARGER_THAN_PRIME<sp/>(-8)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="461"><highlight class="normal"></highlight></codeline>
+<codeline lineno="467" refid="group___e_c_d_s_a___s_t_a_t_u_s_1gadc0537d9a7af71de05125d7a7abbe578" refkind="member"><highlight class="preprocessor">#define<sp/>ECDSA_STATUS_POINT_AT_INFINITY<sp/>(-9)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="468"><highlight class="normal"></highlight></codeline>
+<codeline lineno="469"><highlight class="normal"></highlight></codeline>
+<codeline lineno="480"><highlight class="comment">/*<sp/>Add<sp/>ECDSA_CMD_&lt;commands&gt;<sp/>here<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="481"><highlight class="normal"></highlight></codeline>
+<codeline lineno="489" refid="_e_c_d_s_a_8h_1a18b1cdee540c38ca2cb46ec55080f293" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_d_s_a___config__" kindref="compound">ECDSA_Config_</ref><sp/><sp/><sp/><sp/>*<ref refid="_e_c_d_s_a_8h_1a18b1cdee540c38ca2cb46ec55080f293" kindref="member">ECDSA_Handle</ref>;</highlight></codeline>
+<codeline lineno="490"><highlight class="normal"></highlight></codeline>
+<codeline lineno="512" refid="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13" kindref="member">ECDSA_ReturnBehavior_</ref><sp/>{</highlight></codeline>
+<codeline lineno="513" refid="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13a12caa37a0d66bfabe52862dec969dd6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13a12caa37a0d66bfabe52862dec969dd6e" kindref="member">ECDSA_RETURN_BEHAVIOR_CALLBACK</ref><sp/>=<sp/>1,<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="519" refid="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13a2bb6b8792bfa1d4dca40c458d008d92b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13a2bb6b8792bfa1d4dca40c458d008d92b" kindref="member">ECDSA_RETURN_BEHAVIOR_BLOCKING</ref><sp/>=<sp/>2,<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="523" refid="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13aa0384662e30a5de0ab321cdef21f1b4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_s_a_8h_1a7d482f9335808dbd6378ebae60ee8d13aa0384662e30a5de0ab321cdef21f1b4a" kindref="member">ECDSA_RETURN_BEHAVIOR_POLLING</ref><sp/><sp/>=<sp/>4,<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="527"><highlight class="normal">}<sp/><ref refid="_e_c_d_s_a_8h_1a9e98ef4b81f12ff6d5d5232475362d4b" kindref="member">ECDSA_ReturnBehavior</ref>;</highlight></codeline>
+<codeline lineno="528"><highlight class="normal"></highlight></codeline>
+<codeline lineno="540" refid="struct_e_c_d_s_a___config__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_d_s_a___config__" kindref="compound">ECDSA_Config_</ref><sp/>{</highlight></codeline>
+<codeline lineno="542" refid="struct_e_c_d_s_a___config___1ad4f47ad8b2ca1e05b65ee703c6b0ab2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___config___1ad4f47ad8b2ca1e05b65ee703c6b0ab2a" kindref="member">object</ref>;</highlight></codeline>
+<codeline lineno="543"><highlight class="normal"></highlight></codeline>
+<codeline lineno="545" refid="struct_e_c_d_s_a___config___1a5746abe072832a6087efb5dfdd23deed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="struct_e_c_d_s_a___config___1a5746abe072832a6087efb5dfdd23deed" kindref="member">hwAttrs</ref>;</highlight></codeline>
+<codeline lineno="546"><highlight class="normal">}<sp/><ref refid="_e_c_d_s_a_8h_1a640f5365d19f32bb8e0f524eeda48d73" kindref="member">ECDSA_Config</ref>;</highlight></codeline>
+<codeline lineno="547"><highlight class="normal"></highlight></codeline>
+<codeline lineno="551" refid="struct_e_c_d_s_a___operation_sign__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_d_s_a___operation_sign__" kindref="compound">ECDSA_OperationSign_</ref><sp/>{</highlight></codeline>
+<codeline lineno="552" refid="struct_e_c_d_s_a___operation_sign___1afd18b51562a27c303a77abcc92af9137" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_e_c_c_params___curve_params__" kindref="compound">ECCParams_CurveParams</ref><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_sign___1afd18b51562a27c303a77abcc92af9137" kindref="member">curve</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="553" refid="struct_e_c_d_s_a___operation_sign___1a74af986ca96202848b66aa0252f3fdb9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_sign___1a74af986ca96202848b66aa0252f3fdb9" kindref="member">myPrivateKey</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="556" refid="struct_e_c_d_s_a___operation_sign___1adf9b39deca0e80aa5fdb239bdcabf33f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_sign___1adf9b39deca0e80aa5fdb239bdcabf33f" kindref="member">pmsn</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="562" refid="struct_e_c_d_s_a___operation_sign___1a86fb47caef2a9b46977a99556a4b3210" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_sign___1a86fb47caef2a9b46977a99556a4b3210" kindref="member">hash</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="565" refid="struct_e_c_d_s_a___operation_sign___1a4102ef5e6017f46906e7565cbcab2cd3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_sign___1a4102ef5e6017f46906e7565cbcab2cd3" kindref="member">r</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="570" refid="struct_e_c_d_s_a___operation_sign___1aaa5504b83536e50357ba91e4d33d678a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_sign___1aaa5504b83536e50357ba91e4d33d678a" kindref="member">s</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="575"><highlight class="normal">}<sp/><ref refid="_e_c_d_s_a_8h_1ae30a7d86208df1c0f2213a0d9e550f05" kindref="member">ECDSA_OperationSign</ref>;</highlight></codeline>
+<codeline lineno="576"><highlight class="normal"></highlight></codeline>
+<codeline lineno="580" refid="struct_e_c_d_s_a___operation_verify__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_d_s_a___operation_verify__" kindref="compound">ECDSA_OperationVerify_</ref><sp/>{</highlight></codeline>
+<codeline lineno="581" refid="struct_e_c_d_s_a___operation_verify___1a2651f184f213dcc336fc05bc10782776" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_e_c_c_params___curve_params__" kindref="compound">ECCParams_CurveParams</ref><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_verify___1a2651f184f213dcc336fc05bc10782776" kindref="member">curve</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="582" refid="struct_e_c_d_s_a___operation_verify___1a487e1d28a4f510a210be23a3fab13a7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_crypto_key__" kindref="compound">CryptoKey</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_verify___1a487e1d28a4f510a210be23a3fab13a7c" kindref="member">theirPublicKey</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="585" refid="struct_e_c_d_s_a___operation_verify___1ae23cfb38d6bfb64874c415d97a34e87a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_verify___1ae23cfb38d6bfb64874c415d97a34e87a" kindref="member">hash</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="588" refid="struct_e_c_d_s_a___operation_verify___1a505645176d84421ab70d53f9bda16771" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_verify___1a505645176d84421ab70d53f9bda16771" kindref="member">r</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="592" refid="struct_e_c_d_s_a___operation_verify___1a3a089548a16952629db2d6f31831f0ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___operation_verify___1a3a089548a16952629db2d6f31831f0ec" kindref="member">s</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="596"><highlight class="normal">}<sp/><ref refid="_e_c_d_s_a_8h_1a50ce0f2b7aa1d3949d8c358bce221d6f" kindref="member">ECDSA_OperationVerify</ref>;</highlight></codeline>
+<codeline lineno="597"><highlight class="normal"></highlight></codeline>
+<codeline lineno="601" refid="union_e_c_d_s_a___operation__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">union<sp/></highlight><highlight class="normal"><ref refid="union_e_c_d_s_a___operation__" kindref="compound">ECDSA_Operation_</ref><sp/>{</highlight></codeline>
+<codeline lineno="602" refid="union_e_c_d_s_a___operation___1a3397be8c5842306ecee58a3eea58a0d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_e_c_d_s_a___operation_sign__" kindref="compound">ECDSA_OperationSign</ref><sp/><sp/><sp/><sp/><sp/>*<ref refid="union_e_c_d_s_a___operation___1a3397be8c5842306ecee58a3eea58a0d5" kindref="member">sign</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="603" refid="union_e_c_d_s_a___operation___1a170646cf4d00146bfe07ce316832d12e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_e_c_d_s_a___operation_verify__" kindref="compound">ECDSA_OperationVerify</ref><sp/><sp/><sp/>*<ref refid="union_e_c_d_s_a___operation___1a170646cf4d00146bfe07ce316832d12e" kindref="member">verify</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="604"><highlight class="normal">}<sp/><ref refid="_e_c_d_s_a_8h_1a31f7df5ee1fecdff0a4965904dd6a3a7" kindref="member">ECDSA_Operation</ref>;</highlight></codeline>
+<codeline lineno="605"><highlight class="normal"></highlight></codeline>
+<codeline lineno="609" refid="_e_c_d_s_a_8h_1a49f9b071715ab66244759fa9c3f7d3de" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_s_a_8h_1a49f9b071715ab66244759fa9c3f7d3de" kindref="member">ECDSA_OperationType_</ref><sp/>{</highlight></codeline>
+<codeline lineno="610" refid="_e_c_d_s_a_8h_1a49f9b071715ab66244759fa9c3f7d3deac1fb160e151a4c8adbf40e6a6cf94ff3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_s_a_8h_1a49f9b071715ab66244759fa9c3f7d3deac1fb160e151a4c8adbf40e6a6cf94ff3" kindref="member">ECDSA_OPERATION_TYPE_SIGN</ref><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="611" refid="_e_c_d_s_a_8h_1a49f9b071715ab66244759fa9c3f7d3deabb42383a7909a4aadd941cfe98136341" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_s_a_8h_1a49f9b071715ab66244759fa9c3f7d3deabb42383a7909a4aadd941cfe98136341" kindref="member">ECDSA_OPERATION_TYPE_VERIFY</ref><sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="612"><highlight class="normal">}<sp/><ref refid="_e_c_d_s_a_8h_1a5936c4302885d462e91e2401220cbb11" kindref="member">ECDSA_OperationType</ref>;</highlight></codeline>
+<codeline lineno="613"><highlight class="normal"></highlight></codeline>
+<codeline lineno="632" refid="_e_c_d_s_a_8h_1a2969615c2ad61fa703031658001791a1" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="_e_c_d_s_a_8h_1a2969615c2ad61fa703031658001791a1" kindref="member">ECDSA_CallbackFxn</ref>)<sp/>(ECDSA_Handle<sp/>handle,</highlight></codeline>
+<codeline lineno="633"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int_fast16_t<sp/>returnStatus,</highlight></codeline>
+<codeline lineno="634"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="union_e_c_d_s_a___operation__" kindref="compound">ECDSA_Operation</ref><sp/>operation,</highlight></codeline>
+<codeline lineno="635"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_e_c_d_s_a_8h_1a5936c4302885d462e91e2401220cbb11" kindref="member">ECDSA_OperationType</ref><sp/>operationType);</highlight></codeline>
+<codeline lineno="636"><highlight class="normal"></highlight></codeline>
+<codeline lineno="645" refid="struct_e_c_d_s_a___params__" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_e_c_d_s_a___params__" kindref="compound">ECDSA_Params_</ref><sp/>{</highlight></codeline>
+<codeline lineno="646" refid="struct_e_c_d_s_a___params___1aac6cb7ec2a0c3e0b52603097bf608636" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_s_a_8h_1a9e98ef4b81f12ff6d5d5232475362d4b" kindref="member">ECDSA_ReturnBehavior</ref><sp/><sp/><sp/><sp/><ref refid="struct_e_c_d_s_a___params___1aac6cb7ec2a0c3e0b52603097bf608636" kindref="member">returnBehavior</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="647" refid="struct_e_c_d_s_a___params___1a05d057fbcc9a1e57875762d24eb56590" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_e_c_d_s_a_8h_1a2969615c2ad61fa703031658001791a1" kindref="member">ECDSA_CallbackFxn</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_e_c_d_s_a___params___1a05d057fbcc9a1e57875762d24eb56590" kindref="member">callbackFxn</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="648" refid="struct_e_c_d_s_a___params___1aac9be5fb45f0ca4722cffad139acdef3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_e_c_d_s_a___params___1aac9be5fb45f0ca4722cffad139acdef3" kindref="member">timeout</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="651" refid="struct_e_c_d_s_a___params___1a53cfc2b288bca7e07500ad6bc8b70e0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_e_c_d_s_a___params___1a53cfc2b288bca7e07500ad6bc8b70e0a" kindref="member">custom</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="654"><highlight class="normal">}<sp/><ref refid="_e_c_d_s_a_8h_1ae7bdbd2429aa7dbe5a0572830c08de53" kindref="member">ECDSA_Params</ref>;</highlight></codeline>
+<codeline lineno="655"><highlight class="normal"></highlight></codeline>
+<codeline lineno="664"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_s_a_8h_1a12529e861cad0fd9932b88c7023a3b77" kindref="member">ECDSA_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="665"><highlight class="normal"></highlight></codeline>
+<codeline lineno="675"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_s_a_8h_1afb8b4f22218005bddbed06ead6166bb8" kindref="member">ECDSA_close</ref>(ECDSA_Handle<sp/>handle);</highlight></codeline>
+<codeline lineno="676"><highlight class="normal"></highlight></codeline>
+<codeline lineno="714"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_d_s_a_8h_1a63e02bdcc5d5e60f7c4c0f51dfc8793a" kindref="member">ECDSA_control</ref>(ECDSA_Handle<sp/>handle,<sp/>uint32_t<sp/>cmd,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*args);</highlight></codeline>
+<codeline lineno="715"><highlight class="normal"></highlight></codeline>
+<codeline lineno="733"><highlight class="normal">ECDSA_Handle<sp/><ref refid="_e_c_d_s_a_8h_1af7a157511011586ac3d79800f9ce0aab" kindref="member">ECDSA_open</ref>(uint_least8_t<sp/>index,<sp/><ref refid="struct_e_c_d_s_a___params__" kindref="compound">ECDSA_Params</ref><sp/>*params);</highlight></codeline>
+<codeline lineno="734"><highlight class="normal"></highlight></codeline>
+<codeline lineno="747"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_s_a_8h_1ac8a50e673e908088f643396f7f898f84" kindref="member">ECDSA_Params_init</ref>(<ref refid="struct_e_c_d_s_a___params__" kindref="compound">ECDSA_Params</ref><sp/>*params);</highlight></codeline>
+<codeline lineno="748"><highlight class="normal"></highlight></codeline>
+<codeline lineno="757"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_s_a_8h_1a483eed05a93c583df6599b6a07721a70" kindref="member">ECDSA_OperationSign_init</ref>(<ref refid="struct_e_c_d_s_a___operation_sign__" kindref="compound">ECDSA_OperationSign</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="758"><highlight class="normal"></highlight></codeline>
+<codeline lineno="767"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_e_c_d_s_a_8h_1a398f078544d6c5506027a7dd6608db9a" kindref="member">ECDSA_OperationVerify_init</ref>(<ref refid="struct_e_c_d_s_a___operation_verify__" kindref="compound">ECDSA_OperationVerify</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="768"><highlight class="normal"></highlight></codeline>
+<codeline lineno="784"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_d_s_a_8h_1a3ad7bc590603181380f2f8d4c01e09f3" kindref="member">ECDSA_sign</ref>(ECDSA_Handle<sp/>handle,<sp/><ref refid="struct_e_c_d_s_a___operation_sign__" kindref="compound">ECDSA_OperationSign</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="785"><highlight class="normal"></highlight></codeline>
+<codeline lineno="799"><highlight class="normal">int_fast16_t<sp/><ref refid="_e_c_d_s_a_8h_1a474b05788ac25fb7ba032490bb418b96" kindref="member">ECDSA_verify</ref>(ECDSA_Handle<sp/>handle,<sp/><ref refid="struct_e_c_d_s_a___operation_verify__" kindref="compound">ECDSA_OperationVerify</ref><sp/>*operation);</highlight></codeline>
+<codeline lineno="800"><highlight class="normal"></highlight></codeline>
+<codeline lineno="801"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="802"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="803"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="804"><highlight class="normal"></highlight></codeline>
+<codeline lineno="805"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>ti_drivers_ECDSA__include<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h"/>
+  </compounddef>
+</doxygen>

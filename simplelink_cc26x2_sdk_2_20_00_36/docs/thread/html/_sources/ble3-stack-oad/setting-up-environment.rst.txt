@@ -1,0 +1,171 @@
+.. _sec-ble-oad-setup:
+
+Setting up the BLE OAD Environment
+==================================
+
+This section will cover the steps required to setup a BLE OAD environment.
+
+The BLE OAD topology is described below. Refer to
+:numref:`fig-oad-downloader-and-target` for a review of the devices involved in
+an OAD.
+
+    - OAD Distributor: BTool connected to Host Test on |DEVBOARD|.
+    - OAD Target: BLE sample application (``simple_peripheral``)
+      with OAD functionality enabled.
+
+ .. note::
+    TI provides mobile applications that support OAD, these are outside of
+    the scope of the OAD guide. Refer to the Quick Start Guide for more
+    information.
+
+Prerequisites
+-------------
+
+This section requires the following hardware and software components
+
+ - 2x |DEVBOARD|
+ - |SDK| installed
+ - `UNIFLASH <http://www.ti.com/tool/UNIFLASH>`_ installed
+
+.. _sec-ble-oad-target-setup:
+
+OAD Target Setup
+----------------
+
+In order to perform a BLE OAD, an OAD capable image must be loaded onto the OAD
+target device. This section will cover the steps required to load the |DEVBOARD|
+with an OAD enabled BLE image.
+
+    #. Navigate to the ``simple_peripheral_oad_offchip`` or
+       ``simple_peripheral_oad_onchip`` folder inside the |STACK|.
+
+    #. Import the project into the workspace of your selected IDE.
+
+        - See the Quick Start Guide for instructions on how to work with your
+          selected IDE.
+
+    #. Select the proper build configuration based on security needs:
+
+        - ``FlashROM``: will use security and is the default configuration
+
+        - ``FlashROM_unsecure``: will not use security
+
+        - Be sure that all projects configurations are in sync. If one
+          ``_unsecure`` project is used, all other projects should use the
+          unsecure flavor as well.
+
+        - Based on the project configuration, the proper version of the
+          :ref:`sec-oad-tools` will be used. If security is enabled the
+          signature is automatically added to the image.
+
+    #. (on-chip OAD only) Build and flash the persistent app project
+
+        - **The build steps must be done in order, or errors will occur**
+
+    #. Build and flash the stack project
+
+    #. Build and flash the app project (use uniflash to load the release image,
+       see :ref:`sec-loading-a-release-image`)
+
+    #. Build the flash the BIM project
+
+        - The BIM debug configuration does not do CRC checks on the image,
+          making it possible to flash an image straight from the IDE.
+
+        - If your device does not boot, it is likely that the release version
+          of BIM, see :ref:`sec-loading-a-release-image` for more info.
+
+    #. Verify the device has booted up and is advertising
+
+        - Verification: Open a terminal window with 115200 8N1 to the
+          ``XDS110 Class Application/User UART`` port corresponding to your
+          |DEVBOARD|.
+
+        - The console should display the text below, use it to get the BLE
+          address. Note that this text may be different between on and off-chip
+          OAD, but the concept is the same.
+
+        .. _fig-sbp-oad-boot-screen:
+
+        .. figure:: resources/sbp_oad_boot_screen.png
+            :align: center
+
+    #. Alternatively, you can get the BLE address of the device using UNIFLASH.
+
+        - See the screenshot below for how to do this in UNIFLASH.
+
+        .. _fig-verify-bdaddr-uniflash:
+
+        .. figure:: resources/verify_bdaddr_uniflash.png
+            :align: center
+
+OAD Distributor Setup
+---------------------
+
+As per the :ref:`sec-oad` section, the OAD Distributor is the device
+responsible for fragmenting an OAD enabled image in to chunks of OAD blocks and
+sending each block over the to the OAD Target device as they are requested.
+
+In the case of BLE, the OAD Distributor is a combination of BTool running on
+the PC connected to host_test running on a |DEVBOARD|. host\_test is a BLE
+enabled network processor application. BTool is a PC tool that is capable of
+interfacing to host_test and performing various BLE functions in addition to
+OAD. For more information, refer to the ``host_test`` README file or the BTool
+User's Guide.
+
+
+Flashing the host_test Image
+""""""""""""""""""""""""""""
+
+See below for the steps to setup the host\_test image on a |DEVBOARD|.
+
+    #. Navigate to ``hexfiles`` folder within the |STACK|.
+
+    #. Select the ``host_test_*.hex`` file.
+
+    #. Flash the above hexfile using UNIFLASH. See image below
+
+    .. _fig-distributor-ble-uniflash:
+
+    .. figure:: resources/host_test_uniflash.png
+        :align: center
+
+Connecting BTool to host\_test
+""""""""""""""""""""""""""""""
+
+BTool and host\_test communicate via USB through the XDS110 UART back channel.
+See below for a diagram
+
+    .. ditaa::
+        :--no-separation:
+
+        +--------------+         +--------------+         +--------------+
+        |              |         |              |         |              |
+        |              |   USB   |              |   UART  |  SimpleLink  |
+        |  PC + BTool  |<------->|    XDS110    |<------->|    Device    |
+        |              |         |              |         |              |
+        |     cGRE     |         |     cBLK     |         |     cRED     |
+        +--------------+         +--------------+         +--------------+
+
+    #. Find the port used by the UART backchannel of the |DEVBOARD| running
+       host\_test. This is the one with the name ``XDS110 Class
+       Application/User UART``
+
+    #. Open BTool (see the BTool executable in the tools folder of the |STACK|)
+
+    #. Use the following serial port settings, hit OK
+
+        - Port: <PORT_FROM_ABOVE_STEP>
+
+        - Other settings: 115200 8N1
+
+    #. This should open and initialize the host\_test device.
+
+    #. Pressing the scan button should populate a list of devices in the log
+
+        - A screenshot of a properly initialized BTool session is shown below
+
+        .. _fig-btool-init-success:
+
+        .. figure:: resources/btool_init_success.png
+            :align: center

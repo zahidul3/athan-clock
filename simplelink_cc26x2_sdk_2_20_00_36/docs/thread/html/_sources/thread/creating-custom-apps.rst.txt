@@ -1,0 +1,54 @@
+.. _chap-creating-custom-applications:
+
+Creating Custom Applications
+============================
+
+|OT_STACK|-based system designers must have a firm grasp on the general system
+architecture, application, and |OT_STACK| framework to implement a custom
+application. This section provides indications on where and how to start
+writing a custom application, and to decide which role and purpose the custom
+application should have.
+
+.. _sec-adding-board-file:
+
+Adding a Board File
+-------------------
+
+After selecting the reference application and preprocessor symbol, add a board
+file that matches the custom board layout. The following steps provide guidance
+on adding a custom board file to the project.
+
+#.  Create a custom board file (TI recommends using the Launchpad module board
+    files as a starting reference).
+
+#.  Modify the PIN structure.
+
+#.  Add peripheral driver initialization objects, according to the board
+    design.
+
+#.  Include files from the folder of the start-up application.
+
+#.  Add the custom board file to the application project.
+
+#.  Update the C compiler search path of the IDE to point to the header file
+    of the new board file.
+
+#.  Define an identifier for the new board file.
+
+#.  Rebuild the application project.
+
+.. _sec-configuring-stack-parameters:
+
+Configuring |OT| Parameters
+------------------------------------------
+
+
+.. _sec-creating-additional-tasks:
+
+Creating Additional Tasks
+-------------------------
+
+Many implementations can use the |RTOS| environment to operate in the
+application task framework. However, if the system design requires an
+additional |RTOS| task, see :ref:`sec-rtos-overview-tasks` for guidance
+on adding a task.

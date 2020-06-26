@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_s_h_a2___operation_start_hash__" kind="struct" language="C++" prot="public">
+    <compoundname>SHA2_OperationStartHash_</compoundname>
+    <includes refid="_s_h_a2_8h" local="no">SHA2.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_s_h_a2___operation_start_hash___1af2b231c4a59f7931f9b527a6f91eb592" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1a5f8c101f0e9503615b13044c9a96eedf" kindref="member">SHA2_HashSize</ref></type>
+        <definition>SHA2_HashSize SHA2_OperationStartHash_::hashSize</definition>
+        <argsstring></argsstring>
+        <name>hashSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The hash size to use. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="451" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="451" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_start_hash___1a2b066cb1c674b65ad367446c6d605fa0" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t SHA2_OperationStartHash_::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The length of the message segment to hash, in bytes. This length must be a multiple of the hash block size. The block size for 224 and 256 is 64 bytes and the block size for 384 and 512 is 128 bytes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="452" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="452" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_start_hash___1ad4491f64ef883dd624c879f2e5269449" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* SHA2_OperationStartHash_::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the message segment to hash. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="457" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="457" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_start_hash___1a86346a4d0a9ce8a2dd6d5a7d4c7388bc" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* SHA2_OperationStartHash_::intermediateDigest</definition>
+        <argsstring></argsstring>
+        <name>intermediateDigest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to location the intermediate output digest will be placed. If NULL, the driver will store the intermediate digest itself. This context may be overwritten by other clients performing their own hash operations however. The context may also be lost if going into low power modes in between hash operations.</para><para>User must allocate enough space for hash result (ex. 32 bytes for 256, 28 bytes for 224). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="458" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="458" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Struct containing the parameters required to start hashing a message. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="450" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="450" bodyend="467"/>
+    <listofallmembers>
+      <member refid="struct_s_h_a2___operation_start_hash___1af2b231c4a59f7931f9b527a6f91eb592" prot="public" virt="non-virtual"><scope>SHA2_OperationStartHash_</scope><name>hashSize</name></member>
+      <member refid="struct_s_h_a2___operation_start_hash___1a86346a4d0a9ce8a2dd6d5a7d4c7388bc" prot="public" virt="non-virtual"><scope>SHA2_OperationStartHash_</scope><name>intermediateDigest</name></member>
+      <member refid="struct_s_h_a2___operation_start_hash___1a2b066cb1c674b65ad367446c6d605fa0" prot="public" virt="non-virtual"><scope>SHA2_OperationStartHash_</scope><name>length</name></member>
+      <member refid="struct_s_h_a2___operation_start_hash___1ad4491f64ef883dd624c879f2e5269449" prot="public" virt="non-virtual"><scope>SHA2_OperationStartHash_</scope><name>message</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

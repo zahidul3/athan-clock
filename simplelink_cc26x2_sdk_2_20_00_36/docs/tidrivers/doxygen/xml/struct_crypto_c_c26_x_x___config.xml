@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_crypto_c_c26_x_x___config" kind="struct" language="C++" prot="public">
+    <compoundname>CryptoCC26XX_Config</compoundname>
+    <includes refid="_crypto_c_c26_x_x_8h" local="no">CryptoCC26XX.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___config_1a11efc6993566cb9306ecb09abe42db5e" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* CryptoCC26XX_Config::object</definition>
+        <argsstring></argsstring>
+        <name>object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to a driver specific data object </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="742" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="742" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_crypto_c_c26_x_x___config_1a204edbf9c5427a6c48b6dec37970c4fb" prot="public" static="no" mutable="no">
+        <type>void const  *</type>
+        <definition>void const* CryptoCC26XX_Config::hwAttrs</definition>
+        <argsstring></argsstring>
+        <name>hwAttrs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to a driver specific hardware attributes structure </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="745" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="745" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>CryptoCC26XX Global Configuration. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="740" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="740" bodyend="746"/>
+    <listofallmembers>
+      <member refid="struct_crypto_c_c26_x_x___config_1a204edbf9c5427a6c48b6dec37970c4fb" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Config</scope><name>hwAttrs</name></member>
+      <member refid="struct_crypto_c_c26_x_x___config_1a11efc6993566cb9306ecb09abe42db5e" prot="public" virt="non-virtual"><scope>CryptoCC26XX_Config</scope><name>object</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,286 @@
+/*
+** IAR ARM Linker Configuration File - System Software in ROM, Flash, and RAM
+*/
+
+// Note: Linker defines are located in the IAR IDE project using --config_def
+//       in Options->Linker->Extra Options.
+
+////////////////////////////////////////////////////////////////////////////////
+// Memory Sizes
+//
+// In general, the naming convention is: CC26x1x2Yzzz, where:
+// x1:  0=Transceiver (only subGHz)
+//      1=Proprietary SoC
+//      2=RF4CE/IEEE802.15.4 MAC
+//      3=Zigbee/6LoWPAN SoC
+//      4=BLE SoC
+//      5=Flexible Technology SoC
+//      6=OFDM (only subGHz so far)
+//      7=ANT SoC
+// x2:  0=Chameleon
+//      2=Iguana
+//      5=Komodo
+// Y:   F=Flash
+//      L=OTP
+//      S=SimpleLink WNP
+//      R=ROM Only
+// zzz: Flash Size (kB)
+
+// Chameleon
+if ( (isdefinedsymbol(CC2620)) ||
+     (isdefinedsymbol(CC2630)) ||
+     (isdefinedsymbol(CC2640)) ||
+     (isdefinedsymbol(CC2650)) ||
+     (isdefinedsymbol(CC2660)) ||
+     (isdefinedsymbol(CC2670)) )
+{
+define symbol RAM_SIZE          = 0x00004000;  // 16k
+define symbol FLASH_SIZE        = 0x00020000;  // 128k
+define symbol ROM_SIZE          = 0x00018000;  // 96k
+}
+// Chameleon - Small Flash
+else if ( (isdefinedsymbol(CC2620F64)) ||
+          (isdefinedsymbol(CC2630F64)) ||
+          (isdefinedsymbol(CC2640F64)) ||
+          (isdefinedsymbol(CC2650F64)) ||
+          (isdefinedsymbol(CC2660F64)) ||
+          (isdefinedsymbol(CC2670F64)) )
+{
+define symbol RAM_SIZE          = 0x00004000;  // 16k
+define symbol FLASH_SIZE        = 0x00010000;  // 64k
+define symbol ROM_SIZE          = 0x00018000;  // 96k
+}
+// Chameleon - Low Cost
+else if ( (isdefinedsymbol(CC2620L32)) ||
+          (isdefinedsymbol(CC2630L32)) ||
+          (isdefinedsymbol(CC2640L32)) ||
+          (isdefinedsymbol(CC2650L32)) ||
+          (isdefinedsymbol(CC2660L32)) ||
+          (isdefinedsymbol(CC2670L32)) )
+{
+define symbol RAM_SIZE          = 0x00004000;  // 16k
+define symbol FLASH_SIZE        = 0x00008000;  // 32k (OTP)
+define symbol ROM_SIZE          = 0x00018000;  // 96k
+}
+// Iguana
+else if ( (isdefinedsymbol(CC2622)) ||
+          (isdefinedsymbol(CC2632)) ||
+          (isdefinedsymbol(CC2642)) ||
+          (isdefinedsymbol(CC2652)) ||
+          (isdefinedsymbol(CC2662)) ||
+          (isdefinedsymbol(CC2672)) )
+{
+define symbol RAM_SIZE          = 0x00008000;  // 32k
+define symbol FLASH_SIZE        = 0x00040000;  // 256k
+define symbol ROM_SIZE          = 0x00018000;  // 96k
+}
+// Iguana - Small Flash
+else if ( (isdefinedsymbol(CC2622F128)) ||
+          (isdefinedsymbol(CC2632F128)) ||
+          (isdefinedsymbol(CC2642F128)) ||
+          (isdefinedsymbol(CC2652F128)) ||
+          (isdefinedsymbol(CC2662F128)) ||
+          (isdefinedsymbol(CC2672F128)) )
+{
+define symbol RAM_SIZE          = 0x00008000;  // 32k
+define symbol FLASH_SIZE        = 0x00020000;  // 128k
+define symbol ROM_SIZE          = 0x00018000;  // 96k
+}
+// Komodo
+else if ( (isdefinedsymbol(CC2625)) ||
+          (isdefinedsymbol(CC2635)) ||
+          (isdefinedsymbol(CC2645)) ||
+          (isdefinedsymbol(CC2655)) ||
+          (isdefinedsymbol(CC2665)) ||
+          (isdefinedsymbol(CC2675)) )
+{
+define symbol RAM_SIZE          = 0x00010000;  // 64k
+define symbol FLASH_SIZE        = 0x00080000;  // 512k
+define symbol ROM_SIZE          = 0x00018000;  // 96k
+}
+else // default
+{
+define symbol RAM_SIZE          = 0x00004000;  // 16k
+define symbol FLASH_SIZE        = 0x00020000;  // 128k
+define symbol ROM_SIZE          = 0x00018000;  // 96k
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Memory Definitions
+//
+
+// FW
+define symbol FW_START          = 0x10000000;
+define symbol FW_END            = 0x10007FFF;
+
+// ROM
+define symbol ROM_START         = 0x10010000;
+define symbol ROM_END           = 0x10017FFF;
+
+if ( isdefinedsymbol(FLASH_BUILD) )
+{
+// RAM
+define symbol RAM_START         = 0x20000000;
+define symbol RAM_END           = 0x20003FFF;
+}
+else // !FLASH_BUILD
+{
+// RAM
+// The first 32 bytes of RAM hold the FPB Opcode Table used by the Flash code.
+define symbol RAM_START         = 0x20000020;
+define symbol RAM_END           = 0x20003FFF;
+}
+
+// Flash
+define symbol FLASH_START       = 0x00000000;
+define symbol FLASH_END         = (FLASH_SIZE-1);
+
+////////////////////////////////////////////////////////////////////////////////
+
+// ROM Revision Number
+define symbol ROM_CRC_SIZE      = 2;
+define symbol ROM_REV_SIZE      = 2;
+define symbol ROM_REV_START     = ROM_END - (ROM_CRC_SIZE + 1);
+define symbol ROM_REV_END       = ROM_REV_START + ROM_REV_SIZE - 1;
+
+// Stack IEEE Address Area in Flash
+define symbol STKADR_SIZE       = 0;
+define symbol STKADR_START      = FLASH_END - STKADR_SIZE;
+define symbol STKADR_END        = STKADR_START + STKADR_SIZE;
+
+// Customer Configuration Area in Flash
+define symbol CCA_SIZE          = 10 * 4; // ten entries, in bytes
+define symbol CCA_START         = STKADR_START - CCA_SIZE + 1;
+define symbol CCA_END           = CCA_START    + CCA_SIZE - 1;
+
+if ( isdefinedsymbol(FLASH_BUILD) )
+{
+// Stack (for FW and SW)
+define symbol STACK_SIZE        = 0x200;
+define symbol STACK_START       = RAM_END + 1;
+define symbol STACK_END         = STACK_START - STACK_SIZE;
+}
+
+// Flash Interrupt Vector Table Size
+// Note: Normally 48 interrupts + SP. Four additoinal are temporary.
+define symbol FLASH_INTVEC_SIZE = (49 + 4) * 4; // SP + 52ints, in bytes
+
+// First Available Flash Address
+define symbol FLASH_ADDR_TBL_ADDR  = FLASH_START + FLASH_INTVEC_SIZE;
+define symbol FLASH_ADDR_TBL_SIZE  = 2 * (8 * 4);
+
+// Next Available Flash Address
+define symbol FLASH_JT_ADDR        = FLASH_ADDR_TBL_ADDR + FLASH_ADDR_TBL_SIZE;
+export symbol FLASH_JT_ADDR;
+
+////////////////////////////////////////////////////////////////////////////////
+// Memory Regions
+//
+
+define memory mem with size = 4G;
+//
+define region FW        = mem:[from FW_START      to FW_END];
+define region ROM       = mem:[from ROM_START     to ROM_END];
+define region FLASH     = mem:[from FLASH_START   to FLASH_END];
+define region RAM       = mem:[from RAM_START     to RAM_END];
+define region FLASH_CCA = mem:[from CCA_START     to CCA_END];
+define region ROM_REV   = mem:[from ROM_REV_START to ROM_REV_END];
+
+////////////////////////////////////////////////////////////////////////////////
+// System Stack Memory Placement
+//
+
+if ( isdefinedsymbol(FLASH_BUILD) )
+{
+// Temporary overlay while FW startup code and SW are build together!
+define overlay SYSTEM_STACK with size = STACK_SIZE { section .stack };
+define overlay SYSTEM_STACK with size = STACK_SIZE { section .stack_fw };
+
+// System Stack
+place at address mem:STACK_END { overlay SYSTEM_STACK };
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// System FW Memory Placement
+//
+
+if ( isdefinedsymbol(FLASH_BUILD) )
+{
+// Interrupt Vector Table
+place at address mem:FW_START { readonly section .intvec_fw };
+keep                          { readonly section .intvec_fw };
+
+// Code and Data
+place in FW { section .text object ROM_FW.lib };
+keep        { section .text object ROM_FW.lib };
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// System SW Memory Placement
+//
+
+if ( isdefinedsymbol(FLASH_BUILD) )
+{
+// Interrupt Vector Table
+place at address mem:FLASH_START { readonly section .intvec };
+keep                             { readonly section .intvec };
+
+// FPB Flash Address Table
+place at address mem:FLASH_ADDR_TBL_ADDR { section FPB_FLS_ADDR_TBL object FPB.o };
+keep                                     { section FPB_FLS_ADDR_TBL object FPB.o };
+
+// Flash Jump Table
+place at address mem:FLASH_JT_ADDR { section FLASH_JUMP_TABLE object Stack_Init.o };
+keep                               { section FLASH_JUMP_TABLE object Stack_Init.o };
+
+// Startup Code
+place in FLASH { readonly section .cstartup };
+
+// FPB Opcode Table
+place at start of RAM { section FPB_RAM_OPCODE_TBL };
+
+// Code and Data
+place in FLASH { readonly };
+place in RAM   { readwrite };
+}
+else // !FLASH_BUILD
+{
+place in ROM { readonly };
+place in RAM { readwrite };
+
+place at end of ROM { ro section .checksum };
+keep { section .checksum };
+
+place at start of ROM_REV { ro section .rom_rev };
+keep { section .rom_rev};
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Customer Configuration Area in Flash
+//
+
+// Place the CCA area at the start of FLASH_CCA, located at the end of flash.
+place at start of FLASH_CCA { ro section .flashcca };
+keep { section .flashcca};
+
+////////////////////////////////////////////////////////////////////////////////
+// Initialization
+//
+
+initialize by copy { readwrite };
+
+if ( isdefinedsymbol(FLASH_BUILD) )
+{
+do not initialize
+{
+  section .noinit,
+  section .stack,
+  section .stack_fw
+};
+}
+else // !FLASH_BUILD
+{
+do not initialize { section .noinit };
+}
+
+////////////////////////////////////////////////////////////////////////////////

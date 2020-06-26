@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <!-- add your your options here -->
+    <project
+        name="sensor_oad_cc26x2lp"
+        device="Cortex M.CC2652R1F"
+        configurations="sensor_oad_cc26x2lp"
+        connection="TIXDS110_Connection.xml"
+        toolChain="TI"
+        linkerCommandFile="cc26x2lp_oad_offchip.cmd"
+
+        postBuildStep="${CG_TOOL_HEX} -order MS --memwidth=8 --romwidth=8 --intel -o ${ProjName}.hex ${ProjName}.out;
+        ${CC26X2_TOOLS_DIR}/common/oad/bin/${OsType}/oad_image_tool --verbose ccs ${PROJECT_LOC} 7 -hex1 ${ProjName}/${ProjName}.hex -o ${ProjName}/${ProjName}"
+
+        compilerBuildOptions="
+        --silicon_version=7M4
+        --code_state=16
+        --float_support=FPv4SPD16
+        -O4
+        --opt_for_speed=0
+        --c99
+        --diag_warning=225
+        --diag_wrap=off
+        --gen_func_subsections=on
+        --fp_reassoc=off
+        --unaligned_access=on
+        --embedded_constants=on
+        --wchar_t=16
+        --enum_type=packed
+        --common=on
+        --sat_reassoc=off
+        --plain_char=unsigned
+        --asm_directory=${TEMP_ROOT}
+        --list_directory=${TEMP_ROOT}/obj
+        --temp_directory=${TEMP_ROOT}
+        --pp_directory=${TEMP_ROOT}
+        --obj_directory=${TEMP_ROOT}/obj
+        --preinclude=${MAC_APPS}/sensor/2_4g/features.h
+
+        -DTEMP_SENSOR
+        -DFEATURE_BLE_OAD
+        -DAUTO_START
+        -DFREQ_2_4G
+		-DAUTO_ACK
+		-DAUTO_CSMA
+        -DFEATURE_GREEN_POWER
+        -DxASSERT_LEDS
+        -DNV_RESTORE
+        -DxPOWER_MEAS
+        -DMAX_DEVICE_TABLE_ENTRIES=3
+        -DBOARD_DISPLAY_USE_UART
+        -DxBOARD_DISPLAY_USE_LCD
+        -DONE_PAGE_NV
+        -DONE_PAGE_NV_FULL_HDR
+
+        -DCC26X2
+        -DDEVICE_FAMILY=cc26x0
+        -DDeviceFamily_CC26X2
+        -DCC26X2R1_LAUNCHXL
+		-DTI154STACK
+        -DCCFG_FORCE_VDDR_HH=0
+
+        -DSET_CCFG_BL_CONFIG_BL_LEVEL=0x00
+        -DSET_CCFG_BL_CONFIG_BL_ENABLE=0xFF
+        -DSET_CCFG_BL_CONFIG_BL_PIN_NUMBER=0x0D
+        -DSET_CCFG_BL_CONFIG_BOOTLOADER_ENABLE=0xFF
+
+        -DHEAPMGR_SIZE=0
+        -DUSE_ICALL
+        -DSTACK_LIBRARY
+        -DICALL_LITE
+
+        -DRCN_APP_ASSERT
+        -DHAL_ASSERT_SPIN
+        -DICALL_HOOK_ABORT_FUNC=halAssertHandler
+        -Dxdc_runtime_Log_DISABLE_ALL
+        -Dxdc_runtime_Assert_DISABLE_ALL
+        -DxPREAMBLE_COMPATIBILITY
+
+        -DFEATURE_SYSTEM_STATS
+        -DxSTATIC_MAC_SECURITY_DEFAULTS
+
+        -I${CG_TOOL_ROOT}/include
+        -I${MAC_APPS}/oad/13x2
+        -I${MAC_APPS}/sensor
+        -I${MAC_APPS}/sensor/2_4g
+        -I${MAC_APPS}/sensor_oad
+        -I${MAC_APPS}/common
+        -I${MAC_APPS}/common/boards
+        -I${MAC_APPS}/common/boards/2_4g
+        -I${MAC_APPS}/common/boards/CC26X2R1_LAUNCHXL
+        -I${MAC_APPS}/common/api/inc
+        -I${MAC_APPS}/common/util
+        -I${MAC_APPS}/common/inc
+        -I${MAC_APPS}/stack/src
+        -I${MAC_APPS}/stack/tirtos/inc
+        -I${COM_COMP}/
+        -I${COM_COMP}/../../../source/ti
+        -I${COM_COMP}/heapmgr
+        -I${COM_COMP}/hal/src/inc
+        -I${COM_COMP}/hal/src/target/_common
+        -I${COM_COMP}/hal/src/target/_common/cc13xx
+        -I${COM_COMP}/icall/src/inc
+        -I${COM_COMP}/osal/src/inc
+        -I${COM_COMP}/services/src/aes
+        -I${COM_COMP}/services/src/appasrt
+        -I${COM_COMP}/services/src/nv
+        -I${COM_COMP}/services/src/nv/cc26xx
+        -I${COM_COMP}/services/src/saddr
+        -I${COM_COMP}/services/src/sdata
+        -I${COM_COMP}/stack/src/icall
+        -I${MAC_CORE}/fh
+        -I${MAC_CORE}/high_level
+        -I${MAC_CORE}/inc
+        -I${MAC_CORE}/rom
+        -I${MAC_CORE}/inc/cc13xx
+        -I${MAC_CORE}/low_level/cc13xx
+        -I${MAC_CORE}/low_level/cc13xx/2_4g
+        -I${MAC_CORE}/tracer
+        -I${CCWARE_LOC}
+        -I${CCWARE_LOC}/inc
+        -I${CCWARE_LOC}/driverlib
+        -I${DAL_COM_COMP}/source/common
+        "
+
+       linkerBuildOptions="
+        --library=&quot;libc.a&quot;
+        --library=${CCWARE_LOC}/driverlib/bin/ccs/driverlib.lib
+        --library=${DRIVER_LOC}/ti/display/lib/display.aem4f
+        --library=${DRIVER_LOC}/ti/grlib/lib/ccs/m4f/grlib.a
+        --library=${DRIVER_LOC}/ti/drivers/lib/drivers_cc26x2_v1.aem4f
+        --library=${DRIVER_LOC}/ti/drivers/rf/lib/rf_multiMode_cc26x2_v1.aem4f
+        --library=${KERNEL_LOC}/tirtos/packages/ti/dpl/lib/dpl_cc26x2_v1.aem4f
+        --library=${MAC_LIBS}/tirtos/bin/maclib_secure_cc2652_2_4g.a
+        --diag_wrap=off
+		--define=ONE_PAGE_NV
+        --unused_section_elimination=on
+        --xml_link_info=${ProjName}_linkInfo.xml
+        -x
+        "
+        description=""
+        launchWizard="false">
+
+        <!-- Project properties -->
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.SIMPLELINK_CC26X2_SDK:2_20_00_36;"/>
+        <property name="xdcToolsVersion" value="3.50.07.20"/>
+
+        <property name="target" value="ti.targets.arm.elf.M4F"/>
+        <property name="platform" value="ti.platforms.simplelink:CC2652R1F"/>
+        <property name="buildProfile" value="release"/>
+        <property name="isHybrid" value="true"/>
+        <property name="configuroOptions" value="--compileOptions &quot;${COMPILER_FLAGS} &quot;"/>
+
+        <!-- Env Vars for TIRTOS -->
+        <pathVariable name="KERNEL_LOC" path="${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/kernel" scope="project"/>
+        <pathVariable name="DRIVER_LOC" path="${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source" scope="project"/>
+        <pathVariable name="CCWARE_LOC" path="${DRIVER_LOC}/ti/devices/cc13x2_cc26x2_v1" scope="project"/>
+
+        <!-- Env Vars for TI-15.4 Stack Files -->
+        <pathVariable name="PROJECT_IMPORT_LOC" path="." scope="project"/>
+        <pathVariable name="COM_COMP" path="${PROJECT_IMPORT_LOC}/../../../../../../../source/ti/ti154stack" scope="project"/>
+        <pathVariable name="BLE" path="${PROJECT_IMPORT_LOC}/../../../../ble" scope="project"/>
+        <pathVariable name="MAC_CORE" path="${PROJECT_IMPORT_LOC}/../../../../../../../source/ti/ti154stack" scope="project"/>
+        <pathVariable name="MAC_APPS" path="${PROJECT_IMPORT_LOC}/../../.." scope="project"/>
+        <pathVariable name="MAC_LIBS" path="${PROJECT_IMPORT_LOC}/../../../library" scope="project"/>
+        <pathVariable name="TEMP_ROOT" path="${WorkspaceDirPath}/${ProjName}/${ConfigName}" scope="project"/>
+        <pathVariable name="CC26X2_TOOLS_DIR" path="${PROJECT_IMPORT_LOC}/../../../../../../../tools" scope="project"/>
+
+        <!-- Application Folder -->
+        <file path="MAC_APPS/sensor/2_4g/features.h" openOnCreation="true" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/api/icall/api_mac.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/api/inc/api_mac.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="DRIVER_LOC/ti/boards/CC26X2R1_LAUNCHXL/ccfg.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/jdllc/jdllc.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/inc/jdllc.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/sensor/2_4g/config.h" openOnCreation="true" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/inc/llc.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/boards/2_4g/mac_user_config.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/boards/2_4g/mac_user_config.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+	    <file path="MAC_APPS/common/boards/2_4g/mac_user_config_cc26x2r1_2_4g.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/sensor/main.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/sensor/sensor.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/sensor/sensor.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+		<file path="MAC_APPS/sensor/board.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/inc/smsgs.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/sensor/ssf.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/sensor/ssf.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/timer.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/timer.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/util.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/util.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/uart_printf.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/uart_printf.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application" createVirtualFolders="true"/>
+
+        <!-- Application/ICall Folder -->
+        <file path="COM_COMP/icall/src/icall.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/ICall" createVirtualFolders="true"/>
+        <file path="MAC_APPS/stack/tirtos/inc/icall_addrs.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/ICall" createVirtualFolders="true"/>
+        <file path="COM_COMP/icall/src/icall_cc2650.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/ICall" createVirtualFolders="true"/>
+        <file path="COM_COMP/icall/src/icall_lite_translation.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/ICall" createVirtualFolders="true"/>
+
+        <!-- Application/BLE_OAD folder -->
+        <file path="MAC_APPS/oad/13x2/oad_switch.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/ble_oad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/oad/13x2/oad_switch.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/ble_oad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/oad/13x2/oad_image_header_app.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/ble_oad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/oad/13x2/oad_image_header_app.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/ble_oad" createVirtualFolders="true"/>
+        <file path="COM_COMP/../common/cc26xx/oad/oad_image_header.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/ble_oad" createVirtualFolders="true"/>
+        <!-- Application/LaunchPad Folder -->
+        <file path="MAC_APPS/common/boards/CC26X2R1_LAUNCHXL/CC26X2R1_LAUNCHXL.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/LaunchPad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/launchpad/board_key.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/LaunchPad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/board_key.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/LaunchPad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/launchpad/board_lcd.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/LaunchPad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/board_lcd.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/LaunchPad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/launchpad/board_led.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/LaunchPad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/board_led.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/LaunchPad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/launchpad/board_gpio.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/LaunchPad" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/board_gpio.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/LaunchPad" createVirtualFolders="true"/>
+
+        <!-- Application/extflash Folder -->
+		<file path="MAC_APPS/sensor_oad/extflash/ExtFlash.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/extflash" createVirtualFolders="true"/>
+        <file path="MAC_APPS/sensor_oad/extflash/ExtFlash.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/extflash" createVirtualFolders="true"/>
+
+        <!-- Application/MAC Folder -->
+        <file path="MAC_CORE/inc/mac_api.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC" createVirtualFolders="true"/>
+
+        <!-- Application/MAC/HAL Folder -->
+
+        <!-- Application/MAC/HighLevel Folder -->
+        <file path="MAC_CORE/high_level/mac_cfg.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HighLevel" createVirtualFolders="true"/>
+        <file path="MAC_CORE/high_level/mac_high_level.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HighLevel" createVirtualFolders="true"/>
+        <file path="MAC_CORE/high_level/hmac_global.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HighLevel" createVirtualFolders="true"/>
+        <file path="MAC_CORE/rom/hmac_map_direct.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HighLevel" createVirtualFolders="true"/>
+
+        <!-- Application/MAC/LowLevel Folder -->
+        <file path="MAC_CORE/low_level/cc13xx/mac_assert.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/LowLevel" createVirtualFolders="true"/>
+        <file path="MAC_CORE/low_level/cc13xx/2_4g/mac_settings.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/LowLevel" createVirtualFolders="true"/>
+        <file path="MAC_CORE/low_level/cc13xx/2_4g/mac_settings.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/LowLevel" createVirtualFolders="true"/>
+        <file path="MAC_CORE/low_level/cc13xx/mac_tx.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/LowLevel" createVirtualFolders="true"/>
+        <file path="MAC_CORE/low_level/cc13xx/lmac_global.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/LowLevel" createVirtualFolders="true"/>
+        <file path="MAC_CORE/rom/lmac_map_direct.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/LowLevel" createVirtualFolders="true"/>
+
+        <!-- Application/MAC/OSAL Folder -->
+        <file path="COM_COMP/osal/src/inc/comdef.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/common/osal.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/inc/osal.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/common/osal_bufmgr.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/inc/osal_bufmgr.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/common/osal_clock.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/inc/osal_clock.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/inc/osal_memory.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/common/osal_memory_icall.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/common/osal_pwrmgr.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/inc/osal_pwrmgr.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/common/osal_timers.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+        <file path="COM_COMP/osal/src/inc/osal_timers.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/OSAL" createVirtualFolders="true"/>
+
+        <!-- Application/Services Folder -->
+        <file path="COM_COMP/services/src/nv/nvintf.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/Services" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/nvocop.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/Services" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/util/nvocop.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/Services" createVirtualFolders="true"/>
+        <file path="COM_COMP/services/src/nv/cc26xx/nvoctp.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/Services" createVirtualFolders="true"/>
+        <file path="COM_COMP/services/src/nv/cc26xx/nvoctp.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/Services" createVirtualFolders="true"/>
+        <file path="COM_COMP/services/src/saddr/saddr.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/Services" createVirtualFolders="true"/>
+        <file path="COM_COMP/services/src/saddr/saddr.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/Services" createVirtualFolders="true"/>
+        <file path="COM_COMP/services/src/sdata/sdata.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/Services" createVirtualFolders="true"/>
+
+        <!-- Application/MAC/StartUp Folder -->
+        <file path="MAC_APPS/stack/src/macstack.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/StartUp" createVirtualFolders="true"/>
+        <file path="MAC_APPS/common/rtos/icall_startup.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/StartUp" createVirtualFolders="true"/>
+        <file path="MAC_APPS/stack/tirtos/src/osaltasks.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/StartUp" createVirtualFolders="true"/>
+
+        <!-- Application/MAC/HAL/common Folder -->
+        <file path="COM_COMP/hal/src/common/hal_appasrt.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/common" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/inc/hal_appasrt.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/common" createVirtualFolders="true"/>
+
+        <!-- Application/MAC/HAL/target Folder -->
+        <file path="MAC_CORE/tracer/dbg.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="MAC_CORE/tracer/dbg.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/_common/cc13xx/pwrmon.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/_common/cc13xx/pwrmon.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/cc2650tirtos/hal_aes.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/cc2650tirtos/hal_aes.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/cc2650tirtos/hal_ccm.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/cc2650tirtos/hal_ccm.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/cc2650tirtos/hal_flash_wrapper.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/cc2650tirtos/hal_mcu.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/cc2650tirtos/hal_rtc_wrapper.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/cc2650tirtos/hal_rtc_wrapper.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/cc2650tirtos/hal_trng_wrapper.c" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+        <file path="COM_COMP/hal/src/target/cc2650tirtos/hal_trng_wrapper.h" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Application/MAC/HAL/target" createVirtualFolders="true"/>
+
+        <!-- Tools Folder -->
+        <file path="MAC_APPS/common/boards/CC26X2R1_LAUNCHXL/oad_app.cfg" openOnCreation="" excludeFromBuild="false" action="copy" targetDirectory="Tools" createVirtualFolders="true"/>
+
+    </project>
+</projectSpec>

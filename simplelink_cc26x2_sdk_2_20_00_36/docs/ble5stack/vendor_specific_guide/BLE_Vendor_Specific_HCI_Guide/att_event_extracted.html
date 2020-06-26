@@ -1,0 +1,3628 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ATT_ErrorRsp &mdash; Vendor Specific Guide 5.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Vendor Specific Guide 5.00.00 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Vendor Specific Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_interface.html">HCI Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="att_api.html">ATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gap_api.html">GAP Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gapbondmgr_api.html">GapBondMgr Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gatt_api.html">GATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_ext_api.html">HCI Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l2cap_api.html">L2CAP Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util_api.html">UTIL Extension Vendor Specific API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Vendor Specific Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>ATT_ErrorRsp</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="att-errorrsp">
+<h1>ATT_ErrorRsp<a class="headerlink" href="#att-errorrsp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0501</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Error Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">reqOpcode:</th><td class="field-body"><p class="first">Request that generated this error response</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>ATT_ERROR_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>ATT_EXCHANGE_MTU_REQ</td>
+</tr>
+<tr class="row-even"><td>0x03</td>
+<td>ATT_EXCHANGE_MTU_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x04</td>
+<td>ATT_FIND_INFO_REQ</td>
+</tr>
+<tr class="row-even"><td>0x05</td>
+<td>ATT_FIND_INFO_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x06</td>
+<td>ATT_FIND_BY_TYPE_VALUE_REQ</td>
+</tr>
+<tr class="row-even"><td>0x07</td>
+<td>ATT_FIND_BY_TYPE_VALUE_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x08</td>
+<td>ATT_READ_BY_TYPE_REQ</td>
+</tr>
+<tr class="row-even"><td>0x09</td>
+<td>ATT_READ_BY_TYPE_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x0A</td>
+<td>ATT_READ_REQ</td>
+</tr>
+<tr class="row-even"><td>0x0B</td>
+<td>ATT_READ_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x0C</td>
+<td>ATT_READ_BLOB_REQ</td>
+</tr>
+<tr class="row-even"><td>0x0D</td>
+<td>ATT_READ_BLOB_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x0E</td>
+<td>ATT_READ_MULTI_REQ</td>
+</tr>
+<tr class="row-even"><td>0x0F</td>
+<td>ATT_READ_MULTI_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x10</td>
+<td>ATT_READ_BY_GRP_TYPE_REQ</td>
+</tr>
+<tr class="row-even"><td>0x11</td>
+<td>ATT_READ_BY_GRP_TYPE_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>ATT_WRITE_REQ</td>
+</tr>
+<tr class="row-even"><td>0x13</td>
+<td>ATT_WRITE_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x16</td>
+<td>ATT_PREPARE_WRITE_REQ</td>
+</tr>
+<tr class="row-even"><td>0x17</td>
+<td>ATT_PREPARE_WRITE_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x18</td>
+<td>ATT_EXECUTE_WRITE_REQ</td>
+</tr>
+<tr class="row-even"><td>0x19</td>
+<td>ATT_EXECUTE_WRITE_RSP</td>
+</tr>
+<tr class="row-odd"><td>0x1B</td>
+<td>ATT_HANDLE_VALUE_NOTI</td>
+</tr>
+<tr class="row-even"><td>0x1D</td>
+<td>ATT_HANDLE_VALUE_IND</td>
+</tr>
+<tr class="row-odd"><td>0x1E</td>
+<td>ATT_HANDLE_VALUE_CFM</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">Attribute handle that generated error response</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">errorCode:</th><td class="field-body"><p class="first">Reason why the request has generated error response</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>INVALID_HANDLE</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>READ_NOT_PERMITTED</td>
+</tr>
+<tr class="row-even"><td>0x03</td>
+<td>WRITE_NOT_PERMITTED</td>
+</tr>
+<tr class="row-odd"><td>0x04</td>
+<td>INVALID_PDU</td>
+</tr>
+<tr class="row-even"><td>0x05</td>
+<td>INSUFFICIENT_AUTHEN</td>
+</tr>
+<tr class="row-odd"><td>0x06</td>
+<td>UNSUPPORTED_REQ</td>
+</tr>
+<tr class="row-even"><td>0x07</td>
+<td>INVALID_OFFSET</td>
+</tr>
+<tr class="row-odd"><td>0x08</td>
+<td>INSUFFICIENT_AUTHOR</td>
+</tr>
+<tr class="row-even"><td>0x09</td>
+<td>PREPARE_QUEUE_FULL</td>
+</tr>
+<tr class="row-odd"><td>0x0a</td>
+<td>ATTR_NOT_FOUND</td>
+</tr>
+<tr class="row-even"><td>0x0b</td>
+<td>ATTR_NOT_LONG</td>
+</tr>
+<tr class="row-odd"><td>0x0c</td>
+<td>INSUFFICIENT_KEY_SIZE</td>
+</tr>
+<tr class="row-even"><td>0x0d</td>
+<td>INVALID_VALUE_SIZE</td>
+</tr>
+<tr class="row-odd"><td>0x0e</td>
+<td>UNLIKELY_ERROR</td>
+</tr>
+<tr class="row-even"><td>0x0f</td>
+<td>INSUFFICIENT_ENCRYPTION</td>
+</tr>
+<tr class="row-odd"><td>0x10</td>
+<td>UNSUPPORTED_GRP_TYPE</td>
+</tr>
+<tr class="row-even"><td>0x11</td>
+<td>INSUFFICIENT_RESOURCES</td>
+</tr>
+<tr class="row-odd"><td>0x80</td>
+<td>INVALID_VALUE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-exchangemtureq">
+<h1>ATT_ExchangeMTUReq<a class="headerlink" href="#att-exchangemtureq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0502</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Exchange MTU Request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">clientRxMTU:</th><td class="field-body"><p class="first">Server receive MTU size</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-exchangemtursp">
+<h1>ATT_ExchangeMTURsp<a class="headerlink" href="#att-exchangemtursp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0503</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Exchange MTU Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">serverRxMTU:</th><td class="field-body"><p class="first">Server receive MTU size</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-findinforeq">
+<h1>ATT_FindInfoReq<a class="headerlink" href="#att-findinforeq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0504</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Find Information Request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">startHandle:</th><td class="field-body"><p class="first">First requested handle number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">endHandle:</th><td class="field-body"><p class="first">Last requested handle number</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-findinforsp">
+<h1>ATT_FindInfoRsp<a class="headerlink" href="#att-findinforsp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0505</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Find Information Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">format:</th><td class="field-body"><p class="first">Format of information data</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( bStatus==0x00 || bStatus==0x16)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>HANDLE_BT_UUID_TYPE - handle(s) and 16-bit Bluetooth UUID(s)</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>HANDLE_UUID_TYPE - handle(s) and 128-bit UUID(s)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>An array of size “(pduLen-1)/(format==0x01 ? 4 : 18)” will be returned containing the parameters starting here:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">Attribute handle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">uuid:</th><td class="field-body"><p class="first">Characteristic UUID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16 format==0x01)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">uuid:</th><td class="field-body"><p class="first">Characteristic UUID</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16 format==0x02)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The array of parameters ends here.</p>
+</div>
+<div class="section" id="att-findbytypevaluereq">
+<h1>ATT_FindByTypeValueReq<a class="headerlink" href="#att-findbytypevaluereq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0506</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Find By Type Value Request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">startHandle:</th><td class="field-body"><p class="first">First requested handle number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">endHandle:</th><td class="field-body"><p class="first">Last requested handle number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">2-octet UUID to find</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">value:</th><td class="field-body"><p class="first">Attribute value to find</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( pduLen.gt.6)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen-6 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any (0 to ATT_MTU_SIZE-7) byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-findbytypevaluersp">
+<h1>ATT_FindByTypeValueRsp<a class="headerlink" href="#att-findbytypevaluersp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0507</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Find By Type Value Response</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>An array of size “pduLen/4” will be returned containing the parameters starting here:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">Found Attribute Handle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">grpEndHandle:</th><td class="field-body"><p class="first">Group End Handle</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The array of parameters ends here.</p>
+</div>
+<div class="section" id="att-readbytypereq">
+<h1>ATT_ReadByTypeReq<a class="headerlink" href="#att-readbytypereq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0508</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Read By Type Request</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">startHandle:</th><td class="field-body"><p class="first">First requested handle number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">endHandle:</th><td class="field-body"><p class="first">Last requested handle number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">2-octet UUID to find</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( pduLen.gt.4)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen-4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-readbytypersp">
+<h1>ATT_ReadByTypeRsp<a class="headerlink" href="#att-readbytypersp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0509</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Read By Type Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">length:</th><td class="field-body"><p class="first">The size of each attribute handle-value pair</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>An array of size “(pduLen-1)/length” will be returned containing the parameters starting here:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">Attribute handle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">value:</th><td class="field-body"><p class="first">Attribute value</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16 length.gt.2)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">length-2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The array of parameters ends here.</p>
+</div>
+<div class="section" id="att-readreq">
+<h1>ATT_ReadReq<a class="headerlink" href="#att-readreq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x050A</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Read Request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">The handle of the attribute that was read</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-readrsp">
+<h1>ATT_ReadRsp<a class="headerlink" href="#att-readrsp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x050B</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Read Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">value:</th><td class="field-body"><p class="first">The value of the attribute that was read</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-readblobreq">
+<h1>ATT_ReadBlobReq<a class="headerlink" href="#att-readblobreq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x050C</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Read Blob Request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">The handle of the attribute that was read</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">offset:</th><td class="field-body"><p class="first">The offset of the first byte that was read</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-readblobrsp">
+<h1>ATT_ReadBlobRsp<a class="headerlink" href="#att-readblobrsp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x050D</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Read Blob Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">value:</th><td class="field-body"><p class="first">The value of the attribute that was read</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-readmultireq">
+<h1>ATT_ReadMultiReq<a class="headerlink" href="#att-readmultireq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x050E</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Read Multiple Request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">handles:</th><td class="field-body"><p class="first">A set of two or more attribute handles.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">pduLen byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-readmultirsp">
+<h1>ATT_ReadMultiRsp<a class="headerlink" href="#att-readmultirsp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x050F</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Read Multiple Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">values:</th><td class="field-body"><p class="first">A set of two or more values</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-readbygrptypereq">
+<h1>ATT_ReadByGrpTypeReq<a class="headerlink" href="#att-readbygrptypereq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0510</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Read By Group Type Request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">startHandle:</th><td class="field-body"><p class="first">First requested handle number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">endHandle:</th><td class="field-body"><p class="first">Last requested handle number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">groupType:</th><td class="field-body"><p class="first">UUID of group to read</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( pduLen.gt.4)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen-4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-readbygrptypersp">
+<h1>ATT_ReadByGrpTypeRsp<a class="headerlink" href="#att-readbygrptypersp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0511</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Read By Group Type Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">length:</th><td class="field-body"><p class="first">The size of each attribute handle-value pair</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>An array of size “(pduLen-1)/length” will be returned containing the parameters starting here:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">Attribute Handle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">endGrpHandle:</th><td class="field-body"><p class="first">End Group Handle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">value:</th><td class="field-body"><p class="first">Attribute Value</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16 length.gt.4)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">length-4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The array of parameters ends here.</p>
+</div>
+<div class="section" id="att-writereq">
+<h1>ATT_WriteReq<a class="headerlink" href="#att-writereq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0512</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Write Request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">signature:</th><td class="field-body"><p class="first">Whether to include the authentication signature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( bStatus==0x00)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SIG_NOT_INCLUDED</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>SIG_VALID</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>SIG_INVALID</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">command:</th><td class="field-body"><p class="first">Whether this is a Write Command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( bStatus==0x00)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">handle:</th><td class="field-body"><p class="first">The handle of the attribute to be written.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">value:</th><td class="field-body"><p class="first">The value to be written to the attribute.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 pduLen.gt.4)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen-4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-writersp">
+<h1>ATT_WriteRsp<a class="headerlink" href="#att-writersp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0513</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Write Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-preparewritereq">
+<h1>ATT_PrepareWriteReq<a class="headerlink" href="#att-preparewritereq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0516</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Prepare Write Request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">The handle of the attribute to be written.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">offset:</th><td class="field-body"><p class="first">The offset of the first byte to be written.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">value:</th><td class="field-body"><p class="first">Part of the value of the attribute to be written.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( pduLen.gt.4)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen-4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-preparewritersp">
+<h1>ATT_PrepareWriteRsp<a class="headerlink" href="#att-preparewritersp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0517</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Prepare Write Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">The handle of the attribute to be written.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">offset:</th><td class="field-body"><p class="first">The offset of the first octet to be Written.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">value:</th><td class="field-body"><p class="first">Part of the value of the attribute to be written.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( bStatus==0x00 || bStatus==0x16 pduLen.gt.4)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen-4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-executewritereq">
+<h1>ATT_ExecuteWriteReq<a class="headerlink" href="#att-executewritereq" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0518</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Execute Write Request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">flags:</th><td class="field-body"><p class="first">What to do with pending prepared writes.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>CANCEL_WRITES</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>WRITE_VALUES</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-executewritersp">
+<h1>ATT_ExecuteWriteRsp<a class="headerlink" href="#att-executewritersp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0519</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Execute Write Response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-handlevaluenoti">
+<h1>ATT_HandleValueNoti<a class="headerlink" href="#att-handlevaluenoti" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x051B</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Handle Value Notification.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">The handle of the attribute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">The current value of the attribute.:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( pduLen.gt.2)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen-2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-handlevalueind">
+<h1>ATT_HandleValueInd<a class="headerlink" href="#att-handlevalueind" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x051D</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Handle Value Indication.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">The handle of the attribute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">value:</th><td class="field-body"><p class="first">The current value of the attribute.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( pduLen.gt.2)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">pduLen-2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-handlevaluecfm">
+<h1>ATT_HandleValueCfm<a class="headerlink" href="#att-handlevaluecfm" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x051E</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">ATT Handle Value Confirmation.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-flowctrlviolatedevt-t">
+<h1>ATT_FlowCtrlViolatedEvt_t<a class="headerlink" href="#att-flowctrlviolatedevt-t" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x057E</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Sent when ATT flow control is violated on a connection.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">opcode:</th><td class="field-body"><p class="first">Opcode of message that caused flow control violation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pendingOpcode:</th><td class="field-body"><p class="first">Opcode of pending message</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="att-mtuupdatedevt">
+<h1>ATT_MtuUpdatedEvt<a class="headerlink" href="#att-mtuupdatedevt" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x057F</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Sent when MTU is updated for a connection.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 2 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pduLen:</th><td class="field-body"><p class="first">PDU length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 1 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">MTU:</th><td class="field-body"><p class="first">New MTU size</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

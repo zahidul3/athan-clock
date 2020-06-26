@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BLE5-Stack 1.02.00 to BLE5-Stack 1.02.01 &mdash; SimpleLink™ CC26x2 SDK BLE5-Stack User&#39;s Guide 1.02.01.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 SDK BLE5-Stack User&#39;s Guide 1.02.01.00 documentation" href="../index.html"/>
+        <link rel="up" title="Updating from previous SDKs" href="migration-cc26x2.html"/>
+        <link rel="next" title="CC2640R2 to CC26x2" href="cc2640r2-to-cc26x2.html"/>
+        <link rel="prev" title="Updating from previous SDKs" href="migration-cc26x2.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ble-stack-5.x-guide ble5stack1.02.00-to-ble5stack1.02.01";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 SDK BLE5-Stack User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.01.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="disclaimer.html">Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platform-cc26x2.html">The CC26x2 SDK Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-tirtos/index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-5.x/index-cc26x2.html">Developing a Bluetooth Low Energy Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/ble-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ble-stack-oad/index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration-cc26x2.html">Updating from previous SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-cc26x2.html">Terms and Definitions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index-cc26x2.html">SimpleLink™ CC26x2 SDK BLE5-Stack User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index-cc26x2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="migration-cc26x2.html">Updating from previous SDKs</a> &raquo;</li>
+      
+    <li>BLE5-Stack 1.02.00 to BLE5-Stack 1.02.01</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ble5-stack-1-02-00-to-ble5-stack-1-02-01">
+<h1>BLE5-Stack 1.02.00 to BLE5-Stack 1.02.01<a class="headerlink" href="#ble5-stack-1-02-00-to-ble5-stack-1-02-01" title="Permalink to this headline">¶</a></h1>
+<p>This section will describe a way to migrate a project from BLE5-Stack 1.02.00 to
+a BLE5-Stack 1.02.01 project.</p>
+<p>For this migration guide, simple_peripheral from BLE5-Stack 1.02.00 will be
+ported over to BLE5-Stack 1.02.01. Because the directory structure is nearly
+identical between the two releases, the recommended approach is to start with a
+BLE5-Stack 1.02.01 project that contains the same base functionality as the
+porting target project and merge in any custom functionality.</p>
+<ol class="arabic">
+<li><p class="first">Choose a BLE5-Stack 1.02.01 example project that contains your target project’s base functionality.</p>
+<blockquote>
+<div><p>For reference, see available sample projects that start with simple_</p>
+<p>In this example, we’re going to use simple_peripheral as the starting
+BLE5-Stack 1.02.01 sample project.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Transfer all modified application files from BLE5-Stack 1.02.00 into the BLE5-Stack 1.02.01 example project.</p>
+<blockquote>
+<div><p>In this example, the following files from BLE5-Stack 1.02.00 were moved into
+simple_peripheral BLE5-Stack 1.02.01 example:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">simple_peripheral.c</span></code></li>
+<li><code class="docutils literal"><span class="pre">simple_peripheral.h</span></code></li>
+<li><code class="docutils literal"><span class="pre">simple_gatt_profile.c</span></code></li>
+<li><code class="docutils literal"><span class="pre">simple_gatt_profile.h</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Modify <code class="docutils literal"><span class="pre">main.c</span></code> in the BLE5-Stack 1.02.01 example if additional tasks were
+added in the BLE5-Stack 1.02.00 project.</p>
+</li>
+<li><p class="first">Addition of privacy features to sample applications</p>
+<blockquote>
+<div><p>The sample applications included in the SDK now have Privacy enabled by
+default. The following changes have been introduced in BLE5-Stack 1.02.01 to
+the simple_peripheral project in <code class="docutils literal"><span class="pre">simple_peripheral.c</span></code>.</p>
+<p>The address mode has been modified to always use Resolvable Private Address
+with Public Identity Address shown below.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#define DEFAULT_ADDRESS_MODE                  ADDRMODE_RP_WITH_PUBLIC_ID</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">The following instructions influence multi_role and simple_central or
+projects in which there is a central device.</p>
+</div>
+<p>A few of the other sample applications such as multi_role and
+simple_central have other changes that can influence the behavior of the
+application. For example, in <cite>simple_central.c</cite> there is now a Pair State
+Data struct to handle an additional callback in the GapBondMgr.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="c1">// Container to store paring state info when passing from gapbondmgr callback</span>
+<span class="c1">// to app event. See the pfnPairStateCB_t documentation from the gapbondmgr.h</span>
+<span class="c1">// header file for more information on each parameter.</span>
+<span class="k">typedef</span> <span class="k">struct</span>
+<span class="p">{</span>
+  <span class="kt">uint16_t</span> <span class="n">connHandle</span><span class="p">;</span>
+  <span class="kt">uint8_t</span>  <span class="n">status</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">scPairStateData_t</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Also, when pairing the device now needs to determine if the peer device was
+using a private address and update the connection list with the Public ID address.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">SimpleCentral_processPairState</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">state</span><span class="p">,</span>
+                                   <span class="n">scPairStateData_t</span><span class="o">*</span> <span class="n">pPairData</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">uint8_t</span> <span class="n">status</span> <span class="o">=</span> <span class="n">pPairData</span><span class="o">-&gt;</span><span class="n">status</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="o">==</span> <span class="n">GAPBOND_PAIRING_STATE_STARTED</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Display_printf</span><span class="p">(</span><span class="n">dispHandle</span><span class="p">,</span> <span class="n">SC_ROW_CUR_CONN</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;Pairing started&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="o">==</span> <span class="n">GAPBOND_PAIRING_STATE_COMPLETE</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">==</span> <span class="n">SUCCESS</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">linkDBInfo_t</span> <span class="n">linkInfo</span><span class="p">;</span>
+
+      <span class="n">Display_printf</span><span class="p">(</span><span class="n">dispHandle</span><span class="p">,</span> <span class="n">SC_ROW_CUR_CONN</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;Pairing success&quot;</span><span class="p">);</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="n">linkDB_GetInfo</span><span class="p">(</span><span class="n">pPairData</span><span class="o">-&gt;</span><span class="n">connHandle</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">linkInfo</span><span class="p">)</span> <span class="o">==</span> <span class="n">SUCCESS</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="c1">// If the peer was using private address, update with ID address</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">linkInfo</span><span class="p">.</span><span class="n">addrType</span> <span class="o">==</span> <span class="n">ADDRTYPE_PUBLIC_ID</span> <span class="o">||</span>
+             <span class="n">linkInfo</span><span class="p">.</span><span class="n">addrType</span> <span class="o">==</span> <span class="n">ADDRTYPE_RANDOM_ID</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+             <span class="o">!</span><span class="n">Util_isBufSet</span><span class="p">(</span><span class="n">linkInfo</span><span class="p">.</span><span class="n">addrPriv</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">B_ADDR_LEN</span><span class="p">))</span>
+        <span class="p">{</span>
+          <span class="c1">// Update the address of the peer to the ID address</span>
+          <span class="n">Display_printf</span><span class="p">(</span><span class="n">dispHandle</span><span class="p">,</span> <span class="n">SC_ROW_NON_CONN</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;Addr updated: %s&quot;</span><span class="p">,</span>
+                         <span class="n">Util_convertBdAddr2Str</span><span class="p">(</span><span class="n">linkInfo</span><span class="p">.</span><span class="n">addr</span><span class="p">));</span>
+
+          <span class="c1">// Update the connection list with the ID address</span>
+          <span class="kt">uint8_t</span> <span class="n">i</span> <span class="o">=</span> <span class="n">SimpleCentral_getConnIndex</span><span class="p">(</span><span class="n">pPairData</span><span class="o">-&gt;</span><span class="n">connHandle</span><span class="p">);</span>
+
+          <span class="n">SIMPLECENTRAL_ASSERT</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX_NUM_BLE_CONNS</span><span class="p">);</span>
+          <span class="n">memcpy</span><span class="p">(</span><span class="n">connList</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">addr</span><span class="p">,</span> <span class="n">linkInfo</span><span class="p">.</span><span class="n">addr</span><span class="p">,</span> <span class="n">B_ADDR_LEN</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">If necessary, update the project to use the newer TI-RTOS drivers that are supplied with the SimpleLink CC26x2 SDK.</p>
+<blockquote>
+<div><p>The following drivers have changed from BLE5-Stack 1.02.00. Please see the
+changes to these drivers by comparing the supplied headers between those in
+the SimpleLink CC26x2 SDK v2.10.00.44 and those in the latest SimpleLink CC26x2S SDK.</p>
+<ul class="simple">
+<li>Power: The Power Policy Manager has had minor changes to #defines provided.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Refer to the <a class="reference external" href="../../../../../simplelink_mcu_sdk/release_notes_coresdk_cc13xx_cc26xx_3_30_03_00.html#upgrade-and-compatibility-information">Upgrade and Compatibility Information</a> for additional information and the TI-RTOS examples included with SimpleLink CC26x2 SDK.</p>
+<blockquote>
+<div><p>For additional information on how BLE5-Stack 1.02.01 uses TI-RTOS see
+<a class="reference internal" href="../ble-stack-tirtos/index.html#sec-tirtos-overview"><span class="std std-ref">TI-RTOS (RTOS Kernel) Overview</span></a></p>
+<p>For any utilized TI Drivers, review <a class="reference external" href="../../../../../tirtos/sysbios/docs/Bios_User_Guide.pdf">TI-RTOS Kernel Users Guide</a> and
+<a class="reference external" href="../../../../../tidrivers/tidriversAPIs.html">Driver APIs</a>.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Other porting concerns</p>
+<blockquote>
+<div><p>For other porting concerns, we recommend that the developer do a diff between
+an example that most closely resembles the functionality of your application
+from the latest SimpleLink CC26x2 SDK and the same example from the SimpleLink
+CC26x2 SDK v2.10.00.44 to see all potential changes.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cc2640r2-to-cc26x2.html" class="btn btn-neutral float-right" title="CC2640R2 to CC26x2" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="migration-cc26x2.html" class="btn btn-neutral" title="Updating from previous SDKs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2010-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.01.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

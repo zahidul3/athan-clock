@@ -1,0 +1,24 @@
+[
+   {
+      "compiler" : {
+         "effective" : "na",
+         "specified" : "na",
+         "location" : "na"
+      },
+      "name" : "na",
+      "default" : "na",
+      "packages" : [],
+      "files" : [
+         "+../main_nortos.c -> main_nortos.c",
+         "+../aesccm.c -> aesccm.c",
+         "+../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../ccfg.c -> ccfg.c",
+         "+./CC26X2R1_LAUNCHXL_NoRTOS.icf -> aesccm_CC26X2R1_LAUNCHXL_NoRTOS.icf",
+         "+../Board.h -> Board.h",
+         "+../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+../README.md -> README.md",
+         "+../README.html -> README.html"
+      ]
+   }
+]

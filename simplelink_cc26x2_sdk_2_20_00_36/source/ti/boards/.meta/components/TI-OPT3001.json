@@ -1,0 +1,10 @@
+{
+    "type"        : "I2C_SENSOR",
+    "displayName" : "OPT3001 Light Sensor",
+    "partNum"     : "TI-OPT3001",
+    "signals"     : {
+        "SCL": { "type": "I2C_SCL" },
+        "SDA": { "type": "I2C_SDA" },
+        "INT": { "type": "DIN"     }
+    }
+}

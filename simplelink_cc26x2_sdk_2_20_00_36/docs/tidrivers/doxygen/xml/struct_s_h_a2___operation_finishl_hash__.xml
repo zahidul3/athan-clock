@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_s_h_a2___operation_finishl_hash__" kind="struct" language="C++" prot="public">
+    <compoundname>SHA2_OperationFinishlHash_</compoundname>
+    <includes refid="_s_h_a2_8h" local="no">SHA2.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_s_h_a2___operation_finishl_hash___1a612dfca9feaa5932d5cc2a89819cc96f" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1a5f8c101f0e9503615b13044c9a96eedf" kindref="member">SHA2_HashSize</ref></type>
+        <definition>SHA2_HashSize SHA2_OperationFinishlHash_::hashSize</definition>
+        <argsstring></argsstring>
+        <name>hashSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The hash size to use. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="503" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="503" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_finishl_hash___1a3029ec0bda0da5e982d8928337bded65" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t SHA2_OperationFinishlHash_::segmentLength</definition>
+        <argsstring></argsstring>
+        <name>segmentLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The length of the message segment to hash, in bytes. It is not required to be a multiple of the block size. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="504" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="504" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_finishl_hash___1acacad3b25b5b35d10b3a75587c7e2467" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t SHA2_OperationFinishlHash_::totalLength</definition>
+        <argsstring></argsstring>
+        <name>totalLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The total length of the entire message, in bytes. It is not required to be a multiple of the block size. This is required for finalization of the hash. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="507" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="507" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_finishl_hash___1a3e7dcd7a1f06d7404e955d3323862ee1" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* SHA2_OperationFinishlHash_::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the message segment to hash. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="511" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="511" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_finishl_hash___1acba6a40150fec95ed2e795fa54d3d663" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* SHA2_OperationFinishlHash_::intermediateDigest</definition>
+        <argsstring></argsstring>
+        <name>intermediateDigest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to location the previous intermediate output digest will be loaded from.</para><para>If NULL, the driver will load the previous intermediate digest from within itself. This context may have been overwritten by other clients performing their own hash operations. The context may also have been be lost after going into low power modes in between hash operations.</para><para>User must allocate enough space for hash result (ex. 32 bytes for 256, 28 bytes for 224). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="512" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="512" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2___operation_finishl_hash___1a3bbae7b75c83ee76770a3daac8e44469" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* SHA2_OperationFinishlHash_::finalDigest</definition>
+        <argsstring></argsstring>
+        <name>finalDigest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the location of the result digest buffer. It may point to the same location as <computeroutput>intermediateDigest</computeroutput>. In that case, <computeroutput>intermediateDigest</computeroutput> will be overwritten with the result digest. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="525" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="525" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Struct containing the parameters required to process the last blocks of a message and finalize the hash. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" line="502" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/SHA2.h" bodystart="502" bodyend="530"/>
+    <listofallmembers>
+      <member refid="struct_s_h_a2___operation_finishl_hash___1a3bbae7b75c83ee76770a3daac8e44469" prot="public" virt="non-virtual"><scope>SHA2_OperationFinishlHash_</scope><name>finalDigest</name></member>
+      <member refid="struct_s_h_a2___operation_finishl_hash___1a612dfca9feaa5932d5cc2a89819cc96f" prot="public" virt="non-virtual"><scope>SHA2_OperationFinishlHash_</scope><name>hashSize</name></member>
+      <member refid="struct_s_h_a2___operation_finishl_hash___1acba6a40150fec95ed2e795fa54d3d663" prot="public" virt="non-virtual"><scope>SHA2_OperationFinishlHash_</scope><name>intermediateDigest</name></member>
+      <member refid="struct_s_h_a2___operation_finishl_hash___1a3e7dcd7a1f06d7404e955d3323862ee1" prot="public" virt="non-virtual"><scope>SHA2_OperationFinishlHash_</scope><name>message</name></member>
+      <member refid="struct_s_h_a2___operation_finishl_hash___1a3029ec0bda0da5e982d8928337bded65" prot="public" virt="non-virtual"><scope>SHA2_OperationFinishlHash_</scope><name>segmentLength</name></member>
+      <member refid="struct_s_h_a2___operation_finishl_hash___1acacad3b25b5b35d10b3a75587c7e2467" prot="public" virt="non-virtual"><scope>SHA2_OperationFinishlHash_</scope><name>totalLength</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

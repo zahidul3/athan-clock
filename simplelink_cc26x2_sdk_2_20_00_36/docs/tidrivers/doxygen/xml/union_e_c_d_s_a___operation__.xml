@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="union_e_c_d_s_a___operation__" kind="union" language="C++" prot="public">
+    <compoundname>ECDSA_Operation_</compoundname>
+    <includes refid="_e_c_d_s_a_8h" local="no">ECDSA.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="union_e_c_d_s_a___operation___1a3397be8c5842306ecee58a3eea58a0d5" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_d_s_a_8h_1ae30a7d86208df1c0f2213a0d9e550f05" kindref="member">ECDSA_OperationSign</ref> *</type>
+        <definition>ECDSA_OperationSign* ECDSA_Operation_::sign</definition>
+        <argsstring></argsstring>
+        <name>sign</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to an ECDSA_OperationSign struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="602" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="602" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="union_e_c_d_s_a___operation___1a170646cf4d00146bfe07ce316832d12e" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_d_s_a_8h_1a50ce0f2b7aa1d3949d8c358bce221d6f" kindref="member">ECDSA_OperationVerify</ref> *</type>
+        <definition>ECDSA_OperationVerify* ECDSA_Operation_::verify</definition>
+        <argsstring></argsstring>
+        <name>verify</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A pointer to an ECDSA_OperationVerify struct </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="603" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="603" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Union containing pointers to all supported operation structs. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="232">
+        <label>CryptoKey_KeyStore_</label>
+        <link refid="struct_crypto_key___key_store__"/>
+      </node>
+      <node id="227">
+        <label>ECDSA_Operation_</label>
+        <link refid="union_e_c_d_s_a___operation__"/>
+        <childnode refid="228" relation="usage">
+          <edgelabel>sign</edgelabel>
+        </childnode>
+        <childnode refid="234" relation="usage">
+          <edgelabel>verify</edgelabel>
+        </childnode>
+      </node>
+      <node id="229">
+        <label>CryptoKey_</label>
+        <link refid="struct_crypto_key__"/>
+        <childnode refid="230" relation="usage">
+          <edgelabel>keyBlob</edgelabel>
+        </childnode>
+        <childnode refid="231" relation="usage">
+          <edgelabel>plaintext</edgelabel>
+        </childnode>
+        <childnode refid="232" relation="usage">
+          <edgelabel>keyStore</edgelabel>
+        </childnode>
+      </node>
+      <node id="233">
+        <label>ECCParams_CurveParams_</label>
+        <link refid="struct_e_c_c_params___curve_params__"/>
+      </node>
+      <node id="234">
+        <label>ECDSA_OperationVerify_</label>
+        <link refid="struct_e_c_d_s_a___operation_verify__"/>
+        <childnode refid="229" relation="usage">
+          <edgelabel>theirPublicKey</edgelabel>
+        </childnode>
+        <childnode refid="233" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="230">
+        <label>CryptoKey_KeyBlob_</label>
+        <link refid="struct_crypto_key___key_blob__"/>
+      </node>
+      <node id="231">
+        <label>CryptoKey_Plaintext_</label>
+        <link refid="struct_crypto_key___plaintext__"/>
+      </node>
+      <node id="228">
+        <label>ECDSA_OperationSign_</label>
+        <link refid="struct_e_c_d_s_a___operation_sign__"/>
+        <childnode refid="229" relation="usage">
+          <edgelabel>pmsn</edgelabel>
+          <edgelabel>myPrivateKey</edgelabel>
+        </childnode>
+        <childnode refid="233" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" line="601" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ECDSA.h" bodystart="601" bodyend="604"/>
+    <listofallmembers>
+      <member refid="union_e_c_d_s_a___operation___1a3397be8c5842306ecee58a3eea58a0d5" prot="public" virt="non-virtual"><scope>ECDSA_Operation_</scope><name>sign</name></member>
+      <member refid="union_e_c_d_s_a___operation___1a170646cf4d00146bfe07ce316832d12e" prot="public" virt="non-virtual"><scope>ECDSA_Operation_</scope><name>verify</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

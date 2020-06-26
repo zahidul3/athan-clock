@@ -1,0 +1,70 @@
+.. include:: <isonum.txt>
+
+***********
+Description
+***********
+
+.. Copied from product page (http://www.ti.com/tool/launchxl-cc26x2r1)
+
+The |DEVICE| devices are part of the SimpleLink |trade| microcontroller (MCU)
+platform which consists of Wi-F\ |reg|, Bluetooth\ |reg| low energy, Sub-1 GHz,
+Thread, zigbee, 802.15.4 and host MCUs, which all share a common, easy-to-use
+development environment with a single core software development kit (SDK) and
+rich tool set. A one-time integration of the SimpleLink platform enables you to
+add any combination of the portfolio's devices into your design, allowing 100
+percent code reuse when your design requirements change. For more information,
+visit www.ti.com/simplelink. This LaunchPad kit supports programming and
+debugging from Code Composer Studio\ |trade| and IAR Embedded Workbench\ |reg|
+integrated development environments (IDEs).
+
+EnergyTrace\ |trade| technology for the |DEVICE| is an energy-based code
+analysis tool that measures and displays the application's energy profile and
+helps to optimize it for ultra-low-power consumption.
+
+Thread
+======
+
+With the |DEVICE| SDK you can kick start your development of Thread-based
+application for the |DEVICE| wireless MCU. The SimpleLink |DEVICE| SDK includes
+tools, application examples, documentation and source code of the Thread 1.1
+networking protocol based on openthread (github.com/openthread/openthread), an
+open-source implementation of the Thread networking stack. Example applications
+such as a door lock, window shades, thermostat and temperature sensor
+applications, based on Constrained Application Protocol (CoAP) running atop of
+the Thread networking stack are released to kick-start the SW design of end
+equipment sets. Additionally, the SimpleLink |DEVICE| SDK includes a Command-Line
+Interface (CLI) application and a Network Co-Processor (NCP) implementation,
+which can be used in combination with a host Thread border-router agent
+software as a whole Thread border router reference solution
+(https://github.com/openthread/borderrouter).
+
+Zigbee
+======
+
+The SimpleLink |DEVICE| SDK supports a Zigbee solution, delivered as plugin,
+which runs on the SimpleLink MCU framework (TI-RTOS, CCS / CCS Cloud). The
+Zigbee plugin contains everything needed for a Zigbee compliant solution,
+including tools, application examples, documentation, and source code. It also
+includes a Zigbee Pro compliant Zigbee stack, as well as Green Power (GP)
+device and sink support. Example applications include door lock, light, switch,
+temperature sensor and thermostat. Sample applications are zigbee
+certification-ready.
+
+The Zigbee plugin also includes support for Zigbee Network Processor
+configuration, which can be used in two chip architectures where the host
+implements the Cluster Library and the Zigbee applications.
+
+TI 15.4-Stack
+=============
+
+TI 15.4-Stack is part of the |SDK|. TI 15.4-Stack is a software stack from
+Texas Instruments that implements the standard IEEE 802.15.4e and 802.15.4g
+specification. The |SDK| also provides the required tools, real-time operating
+system (:term:`RTOS`), and example applications for TI 15.4-Stack to help
+developers quickly get started developing their own star-topology based
+wireless network products. The purpose of this document is to give an overview
+of TI 15.4-Stack to help developers run the out-of- box example applications
+and enable creation of custom TI 15.4-Stack based wireless star-topology
+networking solutions. This document introduces the essential need-to-know
+technology details for developing a wireless network based on the IEEE 802.15.4
+specification supported by TI 15.4-Stack.

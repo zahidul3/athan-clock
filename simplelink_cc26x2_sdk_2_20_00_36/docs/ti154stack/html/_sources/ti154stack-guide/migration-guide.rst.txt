@@ -1,0 +1,155 @@
+.. _chap-ti154stack-migration-guide:
+
+Migration Guide
+===============
+
+Scope of the Document
+---------------------
+
+   This document explains developers how to port existing applications for
+   |DEVICE| platform based on TI 15.4-Stack to the new |TIMAC| release.
+
+.. _sec-port-ti154stack:
+
+Migrating TI 15.4-Stack Application
+-----------------------------------
+
+   This section describes how migrate existing TI-15.4-Stack based projects to
+   the new TI-15.4-Stack release included within the |SDK|. Please refer to the
+   TI 15.4-Stack Release notes to get a comprehensive list of all the changes in
+   this release.
+
+Steps for Porting TI 15.4-Stack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This section describes porting an application, that was originally written for
+an old of the stack, to the newer stack.
+
+Follow the steps described below to port your TI 15.4-Stack star network end
+node application and PAN Coordinator (Embedded and Linux based) to the new TI
+15.4-Stack release. Also refer to the wiki link TI
+
+   -  Download the latest |SDK|
+
+      .. figure:: resources/image1.png
+         :name: fig-sensor-migrate
+         :align: right
+         :scale: 50%
+
+   -  **Porting your embedded end node application**, it is expected that the
+      developers would have started with the out of box sensor example
+      application as a starting point for end node applications based on TI
+      15.4-Stack. And primarily would add their application specific
+      functionality to the files jdllc.c/h, sensor.c/h, and ssf.c/h in addition
+      to their application specific implementation additions to the out of box
+      example application. Also, customers would do their board specific
+      changes. To port your applications to the new release import the out of
+      box sensor example application into your CCS workspace from the new
+      |SDK| (Please find the supported CCS version in the TI
+      15.4-Stack release notes at /docs/ti154stack/ and refer to TI 15.4-Stack
+      Users guide at /docs/ti154stack/ on how to import the TI 15.4-Stack
+      example projects in CCS). :numref:`fig-sensor-migrate` highlights the key
+      project files into which the developers can either bring their
+      application specific changes into (preferred) or replace with their
+      implementation. List below provides more details on how to port the end
+      node application to the latest TI 15.4-Stack release.
+
+      #. “config.h”: Port your application configuration settings into the new
+         file. The new file has changes that allow to better use the
+         application and 15.4-Stack features and it is recommended to use this
+         latest file.
+
+      #. “Jdllc.c/h”, “sensor.c/h”: Port/bring in changes specific to your
+         application into these files; there are various optimizations to
+         improve flash usage and also bug fixes. It is preferred to use the
+         latest file and port your application specific changes into the new
+         release.
+
+      #. “ssf.c/h”: Port/bring in changes specific to your application into
+         this file;
+
+      #. Perform the board specific changes as done on the TI 15.4-Stack. The
+         board files are included with in the folder Launchpad in the
+         application workspace.
+
+      #. If you need more details on the sensor example application which can
+         help to port your application to the new release please refers to the
+         TI 15.4-Stack Developers guide at /docs/ti154stack/.
+
+      .. figure:: resources/image2.png
+         :name: fig-collector-migrate
+         :align: right
+         :scale: 50%
+
+   -  **Porting your Embedded PAN-Coordinator application**, it is expected
+      that the developers would start with the out of box collector example
+      application as a starting point, and primarily add their application
+      specific functionality to the files cllc.c/h, collector.c/h, and csf.c/h
+      in addition to the their application specific implementations additions
+      to the out of box example application. Also, customers would do their
+      board specific changes. To port your applications to the new release
+      import the collector example application into your CCS workspace from the
+      new |SDK| (Please find the supported CCS version in the
+      TI 15.4-Stack release notes at /docs/ti154stack/ and refer to TI
+      15.4-Stack Developers guide at /docs/ti154stack/ on how to import the TI
+      15.4-Stack example projects in CCS). :numref:`fig-collector-migrate`
+      highlights the key project files that the developers can either bring
+      their application specific changes into (preferred) or replace with their
+      implementation. List below provides more details on how to port the PAN
+      Coordinator application to the latest TI 15.4-Stack release.
+
+      #. “config.h”: Port your application configuration settings into the new
+         file. The new file has changes that allow to better use the
+         application and 15.4-Stack features and it is recommended to use the
+         latest file.
+
+      #. “cllc.c/h”, “collector.c/h”: Port/bring in changes specific to your
+         application into these files; there are various optimizations to
+         improve flash usage and also bug fixes. It is preferred to use the
+         latest file and port your application specific changes into the new
+         release
+
+      #. “csf.c/h”: Port/bring in changes specific to your application into
+         this file;
+
+      #. Perform the board specific changes as done on the TI 15.4-Stack. The
+         board files are included with in the folder Launchpad in the
+         application workspace.
+
+      #. If you need more details on the collector example application which
+         can help to port your application to the new release please refers to
+         the TI 15.4-Stack Developers guide at /docs/ti154stack/.
+
+   -  **Porting Linux host + MAC CoP based PAN Coordinator application:** when
+      using the Linux host + MAC CoP as PAN Coordinator developers can just
+      upgrade the MAC CoProcessor application to the new TI 15.4-Stack MAC
+      CoProcessor application without any application changes. The MAC CoP
+      interface has not changed between the two releases.
+
+.. attention::
+
+   Preamble Change Previous versions of the stack used an RF preamble value
+   that was not compatible with the IEEE 802.15.4g standard. In order to be
+   compatible to this standard, v2.1.0+ of the stack uses the correct preamble
+   as it is defined by IEEE. This means that devices running applications that
+   were built with earlier versions of the stack will not be able to
+   communicate with devices running applications that were built with the
+   current stack version using the default configuration. In order to maintain
+   compatibility with previously built applications, the user can force using
+   the older preamble value by defining ``PREAMBLE_COMPATIBILITY``. Note that
+   by doing so, the application will no longer be fully compliant to the
+   802.15.4g standard.
+
+Additional Information
+----------------------
+
+   Please refer to the following web-links for more information:
+
+   -  TI 15.4-Stack Software Stack (http://www.ti.com/tool/ti-15.4-stack)
+
+   -  TI 15.4-Stack Wiki (http://www.ti.com/ti154stack-wiki)
+
+   -  Support (http://e2e.ti.com/support/wireless_connectivity/proprietary_sub_1_ghz_simpliciti/)
+
+.. _www.ti.com/tool/ti-15.4-stack: http://www.ti.com/tool/ti-15.4-stack
+

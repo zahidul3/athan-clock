@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<projectSpec>
+  <!-- add your your options here -->
+    <applicability>
+        <when>
+            <context
+                deviceFamily="ARM"
+                deviceId="Cortex M.CC2652R1F"
+            />
+        </when>
+    </applicability>
+  <project
+      name="libopenthread_platform_utils_mtd_CC26X2R1_LAUNCHXL_gcc"
+      device="Cortex M.CC2652R1F"
+      configurations="OptimizeSize"
+      toolChain="GNU"
+      outputType="staticLibrary"
+      references=""
+      description="this is the openthread platform utils library"
+      launchWizard ="false"
+      artifactName="openthread_platform_utils_mtd"
+      products="com.ti.SIMPLELINK_CC26X2_SDK"
+      ignoreDefaultDeviceSettings="true"
+      >
+
+    <configuration name="OptimizeSize"
+		   compilerBuildOptions="-I${OPENTHREAD_ROOT_DIR}/examples/platforms -DSIMPLELINK_OPENTHREAD_SDK_BUILD=1 -DSIMPLELINK_OPENTHREAD_CONFIG_MTD=1 -DSIMPLELINK_OPENTHREAD_CONFIG_CC2652=1 -DOPENTHREAD_CONFIG_FILE=&apos;&quot;openthread-config-cc2652-gcc-mtd.h&quot;&apos; -DOPENTHREAD_PROJECT_CORE_CONFIG_FILE=&apos;&quot;openthread-core-cc2652-config-ide.h&quot;&apos; -DMBEDTLS_CONFIG_FILE=&apos;&quot;mbedtls-config-cc2652-gcc.h&quot;&apos; -I${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source -I${WorkspaceDirPath}/libmbedcrypto_CC26X2R1_LAUNCHXL_gcc -I${WorkspaceDirPath}/libopenthread_mtd_CC26X2R1_LAUNCHXL_gcc -I${OPENTHREAD_ROOT_DIR}/third_party/mbedtls -I${OPENTHREAD_ROOT_DIR}/third_party/mbedtls/repo.patched/include -I${OPENTHREAD_ROOT_DIR}/src/core -I${OPENTHREAD_ROOT_DIR}/src -I${OPENTHREAD_ROOT_DIR}/include -I${OPENTHREAD_ROOT_DIR}/etc/ti/CC26X2R1_LAUNCHXL/gcc -DHAVE_CONFIG_H -D_BSD_SOURCE=1 -D_DEFAULT_SOURCE=1 -DOPENTHREAD_MTD=1 -march=armv7e-m -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -fdata-sections -ffunction-sections -Wall -Wextra -Wshadow -Werror"
+		   compilerBuildOptions_c="-g -Os -std=c99"
+		   compilerBuildOptions_cpp="-g -Os -fno-exceptions -fno-rtti -std=gnu++98 -Wno-c++14-compat"
+		   ></configuration>
+
+
+    <property name="target" value="ti.targets.arm.elf.M4"/>
+    <property name="platform" value="ti.platforms.simplelink:CC2652R1F"/>
+    <property name="buildProfile" value="Release"/>
+
+
+        <pathVariable name="LIBPLATFORM_UTILS_PROJECTSPEC_DIR" path="." scope="project"/>
+        <pathVariable name="OPENTHREAD_ROOT_DIR" path="${LIBPLATFORM_UTILS_PROJECTSPEC_DIR}/../../../.." scope="project"/>
+
+        <file path="OPENTHREAD_ROOT_DIR/examples/platforms/utils" openOnCreation="" excludeFromBuild="false" action="link" targetDirectory="examples/platforms" createVirtualFolders="true"/>
+
+  </project>
+</projectSpec>

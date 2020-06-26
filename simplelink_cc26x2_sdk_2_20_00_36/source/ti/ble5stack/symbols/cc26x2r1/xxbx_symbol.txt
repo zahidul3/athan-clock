@@ -1,0 +1,126 @@
+show *
+hide __aeabi*
+hide __iar*
+hide .iar*
+hide dbgPrintf*
+hide Region*
+hide RT_Init
+hide PAGE_SIZE
+hide R2F_FlashJT
+hide R2R_FlashJT
+hide R2F_FLASH_JT_ADDR
+hide R2R_FLASH_JT_ADDR
+hide ICall_dispatcher
+hide ICall_enterCriticalSection
+hide ICall_leaveCriticalSection
+hide abort
+hide rfObject
+
+hide llValidateConnParams
+hide LL_DirectTestTxTest
+hide LL_DirectTestRxTest
+hide LL_AddDeviceToResolvingList
+hide LL_ClearResolvingList
+hide llRfSetup
+hide llRfInit
+hide llInitFeatureSet
+hide llOctets2Time
+hide LL_PRIV_IsNRPA
+hide LL_PRIV_IsIDA
+hide LL_PRIV_TeardownPrivacy
+hide LL_PRIV_UpdateExtWLEntry
+hide LL_PRIV_FindExtWLEntry
+hide WL_ClearEntry
+hide HCI_LE_TransmitterTestCmd
+hide HCI_LE_ReceiverTestCmd
+hide hciInitEventMasks
+hide smAuthReqToUint8
+hide smUint8ToAuthReq
+hide smTimedOut
+hide smSavePairInfo
+hide LL_ReadLocalSupportedFeatures
+hide LL_EXT_SetLocalSupportedFeatures
+hide LL_ReadRssi
+hide llRatChanCBack_A
+hide LL_GetNumActiveConns
+hide LL_PRIV_IsResolvable
+hide LL_PRIV_FindPeerInRL
+hide LL_PRIV_UpdateRL
+hide LL_PRIV_NumberPeerRLEntries
+hide LL_EXT_SetTxPower
+hide LL_EXT_SetMaxDtmTxPower
+hide llSetTxPower
+hide llGetTxPower
+hide LL_EXT_ModemHopTestTx
+hide supportedCmdsTable
+hide llTime2Octets
+hide llAddTxDataEntry
+hide rfMode
+hide rfSetup
+hide linkCmd
+hide resolvingList
+hide LL_RemoveDeviceFromResolvingList
+hide LL_ReadResolvingListSize
+hide LL_ReadPeerResolvableAddress
+hide LL_ReadLocalResolvableAddress
+hide LL_SetAddressResolutionEnable
+hide LL_SetResolvablePrivateAddressTimeout
+hide LL_PRIV_Init
+hide trxTestCmd
+hide deviceFeatureSet
+hide llCheckWhiteListUsage
+hide scanInfo
+hide dtmInfo
+hide LL_DirectTestEnd
+hide LL_PRIV_SetupPrivacy
+hide HCI_LE_SetEventMaskCmd
+hide HCI_LE_EncryptCmd
+hide HCI_EXT_DecryptCmd
+hide HCI_HardwareErrorEvent
+hide gapProcessOSALMsg
+hide GAP_SetParamValue
+hide GAP_GetParamValue
+hide gap_ParamsInit
+hide GAP_ConfigDeviceAddr
+hide gapIsScanning
+hide gapIsAdvertising
+hide gapFindADType
+hide GAP_ProcessEvent
+hide gapProcessBLEEvents
+hide gapProcessHCICmdCompleteEvt
+hide gapParameters
+hide HCI_ReadLocalVersionInfoCmd
+hide gapSendDeviceInitDoneEvent
+hide gapHost2CtrlOwnAddrType
+hide gapGetDevAddress
+hide gapReadBufSizeCmdStatus
+hide gap_PrivacyInit
+hide smProcessEncryptChange
+hide LL_ENC_Init
+hide LL_ENC_AES128_Encrypt
+hide LL_ENC_AES128_Decrypt
+hide llSetupAdvDataEntryQueue
+hide LL_SetAdvParam
+hide LL_SetAdvControl
+hide llSetupAdv
+hide HCI_EXT_AdvEventNoticeCmd
+hide llAdv_TaskEnd
+hide advDataEntry
+//
+rename ECC_keyGen                 as eccRom_genKeys
+rename ECDH_commonKey             as eccRom_genSharedSecret
+rename win                        as eccRom_windowSize
+rename workzone                   as eccRom_workzone
+rename data_p                     as eccRom_param_p
+rename data_r                     as eccRom_param_r
+rename data_a                     as eccRom_param_a
+rename data_b                     as eccRom_param_b
+rename data_Gx                    as eccRom_param_Gx
+rename data_Gy                    as eccRom_param_Gy
+rename NIST256_p                  as NIST_Curve_P256_p
+rename NIST256_r                  as NIST_Curve_P256_r
+rename NIST256_a                  as NIST_Curve_P256_a
+rename NIST256_b                  as NIST_Curve_P256_b
+rename NIST256_Gx                 as NIST_Curve_P256_Gx
+rename NIST256_Gy                 as NIST_Curve_P256_Gy
+// Leave this line here.

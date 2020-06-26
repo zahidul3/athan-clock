@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_r_f___params" kind="struct" language="C++" prot="public">
+    <compoundname>RF_Params</compoundname>
+    <includes refid="_r_f_8h" local="no">RF.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_r_f___params_1a01d3752799ea4318bbf9d1384cb49b97" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_Params::nInactivityTimeout</definition>
+        <argsstring></argsstring>
+        <name>nInactivityTimeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inactivity timeout in microseconds. The default value is 0xFFFFFFFF (infinite). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1469" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1469" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___params_1a58dc682aa09acabe6411ea186dd3aebf" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RF_Params::nPowerUpDuration</definition>
+        <argsstring></argsstring>
+        <name>nPowerUpDuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A custom power-up duration in microseconds. If 0, the RF driver will start with a conservative value and measure the actual time during the first power-up. The default value is 0. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1472" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1472" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___params_1ae683ebc129d40a11fb9ec7e371f1e11b" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a4d2ce6dc70b0f329dc5e249ec10c574a" kindref="member">RF_Callback</ref></type>
+        <definition>RF_Callback RF_Params::pPowerCb</definition>
+        <argsstring></argsstring>
+        <name>pPowerCb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000003"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Power up callback, will be removed future versions, see RF_Params::pClienteventCb instead. The default value is NULL. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1476" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1476" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___params_1ab7be231b23fab2503b8c54b474fba74d" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a4d2ce6dc70b0f329dc5e249ec10c574a" kindref="member">RF_Callback</ref></type>
+        <definition>RF_Callback RF_Params::pErrCb</definition>
+        <argsstring></argsstring>
+        <name>pErrCb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="deprecated_1_deprecated000004"><xreftitle>Deprecated</xreftitle><xrefdescription><para>Callback function for driver error events. </para></xrefdescription></xrefsect></para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1479" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1479" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___params_1a848ebeabce42f87f6a1d4f51f908dbe4" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t RF_Params::nPowerUpDurationMargin</definition>
+        <argsstring></argsstring>
+        <name>nPowerUpDurationMargin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An additional safety margin to be added to <ref refid="struct_r_f___params_1a58dc682aa09acabe6411ea186dd3aebf" kindref="member">RF_Params::nPowerUpDuration</ref>. This is necessary because of other hardware and software interrupts preempting the RF driver interrupt handlers and state machine. The default value is platform-dependent. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1481" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1481" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___params_1a23e520f0583d79783f8bf54a491fc26e" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1ab6bf8da299cd0c975c61fe2e450c0734" kindref="member">RF_ClientCallback</ref></type>
+        <definition>RF_ClientCallback RF_Params::pClientEventCb</definition>
+        <argsstring></argsstring>
+        <name>pClientEventCb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback function for client-related events. The default value is NULL. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1486" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1486" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___params_1ac63730611b6c615fe40a17b4dc5eb021" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a25948ff7cdce9e54404c1301e82a3568" kindref="member">RF_ClientEventMask</ref></type>
+        <definition>RF_ClientEventMask RF_Params::nClientEventMask</definition>
+        <argsstring></argsstring>
+        <name>nClientEventMask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Event mask used to subscribe certain client events. The purpose is to keep the number of callback executions small. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1489" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1489" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RF driver configuration parameters. </para>    </briefdescription>
+    <detaileddescription>
+<para>RF_Params is used for initial RF driver configuration. It is initialized by <ref refid="_r_f_8h_1ab956de3745437cb7a69c4edfb006434e" kindref="member">RF_Params_init()</ref> and used by <ref refid="_r_f_8h_1a13a7c6f5a2b797e0aac18fecfaba6f64" kindref="member">RF_open()</ref>. Each client has its own set of parameters. They are reconfigured on a client switch. Some of the parameters can be changed during run-time using <ref refid="_r_f_8h_1aa31772d56afb197fd812d24aa6f07f1b" kindref="member">RF_control()</ref>. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="511">
+        <label>RF_Params</label>
+        <link refid="struct_r_f___params"/>
+        <childnode refid="512" relation="usage">
+          <edgelabel>pErrCb</edgelabel>
+          <edgelabel>pPowerCb</edgelabel>
+          <edgelabel>pClientEventCb</edgelabel>
+        </childnode>
+      </node>
+      <node id="512">
+        <label>RF_Object</label>
+        <link refid="struct_r_f___object"/>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1468" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1468" bodyend="1491"/>
+    <listofallmembers>
+      <member refid="struct_r_f___params_1ac63730611b6c615fe40a17b4dc5eb021" prot="public" virt="non-virtual"><scope>RF_Params</scope><name>nClientEventMask</name></member>
+      <member refid="struct_r_f___params_1a01d3752799ea4318bbf9d1384cb49b97" prot="public" virt="non-virtual"><scope>RF_Params</scope><name>nInactivityTimeout</name></member>
+      <member refid="struct_r_f___params_1a58dc682aa09acabe6411ea186dd3aebf" prot="public" virt="non-virtual"><scope>RF_Params</scope><name>nPowerUpDuration</name></member>
+      <member refid="struct_r_f___params_1a848ebeabce42f87f6a1d4f51f908dbe4" prot="public" virt="non-virtual"><scope>RF_Params</scope><name>nPowerUpDurationMargin</name></member>
+      <member refid="struct_r_f___params_1a23e520f0583d79783f8bf54a491fc26e" prot="public" virt="non-virtual"><scope>RF_Params</scope><name>pClientEventCb</name></member>
+      <member refid="struct_r_f___params_1ab7be231b23fab2503b8c54b474fba74d" prot="public" virt="non-virtual"><scope>RF_Params</scope><name>pErrCb</name></member>
+      <member refid="struct_r_f___params_1ae683ebc129d40a11fb9ec7e371f1e11b" prot="public" virt="non-virtual"><scope>RF_Params</scope><name>pPowerCb</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

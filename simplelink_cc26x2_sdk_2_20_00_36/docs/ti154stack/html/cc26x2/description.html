@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Description &mdash; SimpleLink™ CC26x2 TI 15.4-Stack User&#39;s Guide 2.06.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI 15.4-Stack User&#39;s Guide 2.06.00.00 documentation" href="../index.html"/>
+        <link rel="up" title="CC26x2 Overview" href="index-ti154stack.html"/>
+        <link rel="next" title="Hardware Architecture" href="hardware_architecture.html"/>
+        <link rel="prev" title="CC26x2 Overview" href="index-ti154stack.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug cc26x2 description";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../ti154stack-guide/index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI 15.4-Stack User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.06.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack/introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index-ti154stack.html">CC26x2 Overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#thread">Thread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zigbee">Zigbee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ti-15-4-stack">TI 15.4-Stack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_architecture.html">Hardware Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensor-controller/sensor-controller.html">Sensor Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index-ti154stack.html#further-information">Further information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tirtos/index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack/index-cc26x2.html">TI 15.4-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/ti154stack-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oad/index-ti154stack.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack-guide/migration-guide.html">Migration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack/api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack-guide/references-cc26x2.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#terms-and-acronyms">Terms and Acronyms</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../ti154stack-guide/index-cc26x2.html">SimpleLink™ CC26x2 TI 15.4-Stack User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../ti154stack-guide/index-cc26x2.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index-ti154stack.html">CC26x2 Overview</a> &raquo;</li>
+      
+    <li>Description</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="description">
+<h1>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h1>
+<p>The CC26x2 devices are part of the SimpleLink ™ microcontroller (MCU)
+platform which consists of Wi-F®, Bluetooth® low energy, Sub-1 GHz,
+Thread, zigbee, 802.15.4 and host MCUs, which all share a common, easy-to-use
+development environment with a single core software development kit (SDK) and
+rich tool set. A one-time integration of the SimpleLink platform enables you to
+add any combination of the portfolio’s devices into your design, allowing 100
+percent code reuse when your design requirements change. For more information,
+visit www.ti.com/simplelink. This LaunchPad kit supports programming and
+debugging from Code Composer Studio™ and IAR Embedded Workbench®
+integrated development environments (IDEs).</p>
+<p>EnergyTrace™ technology for the CC26x2 is an energy-based code
+analysis tool that measures and displays the application’s energy profile and
+helps to optimize it for ultra-low-power consumption.</p>
+<div class="section" id="thread">
+<h2>Thread<a class="headerlink" href="#thread" title="Permalink to this headline">¶</a></h2>
+<p>With the CC26x2 SDK you can kick start your development of Thread-based
+application for the CC26x2 wireless MCU. The SimpleLink CC26x2 SDK includes
+tools, application examples, documentation and source code of the Thread 1.1
+networking protocol based on openthread (github.com/openthread/openthread), an
+open-source implementation of the Thread networking stack. Example applications
+such as a door lock, window shades, thermostat and temperature sensor
+applications, based on Constrained Application Protocol (CoAP) running atop of
+the Thread networking stack are released to kick-start the SW design of end
+equipment sets. Additionally, the SimpleLink CC26x2 SDK includes a Command-Line
+Interface (CLI) application and a Network Co-Processor (NCP) implementation,
+which can be used in combination with a host Thread border-router agent
+software as a whole Thread border router reference solution
+(<a class="reference external" href="https://github.com/openthread/borderrouter">https://github.com/openthread/borderrouter</a>).</p>
+</div>
+<div class="section" id="zigbee">
+<h2>Zigbee<a class="headerlink" href="#zigbee" title="Permalink to this headline">¶</a></h2>
+<p>The SimpleLink CC26x2 SDK supports a Zigbee solution, delivered as plugin,
+which runs on the SimpleLink MCU framework (TI-RTOS, CCS / CCS Cloud). The
+Zigbee plugin contains everything needed for a Zigbee compliant solution,
+including tools, application examples, documentation, and source code. It also
+includes a Zigbee Pro compliant Zigbee stack, as well as Green Power (GP)
+device and sink support. Example applications include door lock, light, switch,
+temperature sensor and thermostat. Sample applications are zigbee
+certification-ready.</p>
+<p>The Zigbee plugin also includes support for Zigbee Network Processor
+configuration, which can be used in two chip architectures where the host
+implements the Cluster Library and the Zigbee applications.</p>
+</div>
+<div class="section" id="ti-15-4-stack">
+<h2>TI 15.4-Stack<a class="headerlink" href="#ti-15-4-stack" title="Permalink to this headline">¶</a></h2>
+<p>TI 15.4-Stack is part of the SimpleLink CC26x2 SDK. TI 15.4-Stack is a software stack from
+Texas Instruments that implements the standard IEEE 802.15.4e and 802.15.4g
+specification. The SimpleLink CC26x2 SDK also provides the required tools, real-time operating
+system (<a class="reference internal" href="../ti154stack-guide/references-cc26x2.html#term-rtos"><span class="xref std std-term">RTOS</span></a>), and example applications for TI 15.4-Stack to help
+developers quickly get started developing their own star-topology based
+wireless network products. The purpose of this document is to give an overview
+of TI 15.4-Stack to help developers run the out-of- box example applications
+and enable creation of custom TI 15.4-Stack based wireless star-topology
+networking solutions. This document introduces the essential need-to-know
+technology details for developing a wireless network based on the IEEE 802.15.4
+specification supported by TI 15.4-Stack.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hardware_architecture.html" class="btn btn-neutral float-right" title="Hardware Architecture" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index-ti154stack.html" class="btn btn-neutral" title="CC26x2 Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.06.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

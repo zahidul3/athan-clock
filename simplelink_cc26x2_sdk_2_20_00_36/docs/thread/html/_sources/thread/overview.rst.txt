@@ -1,0 +1,65 @@
+.. _chap-overview:
+
+Overview
+========
+
+The |OT_STACK| is part of the |SDK|, which contains the supported software for
+the |DEVICE|. The |OT_STACK| is based on the |OT| stack by Nest with the added
+benefit of running on top of TI-RTOS. Please refer to the
+:ref:`sec-software-architecture` section for more information about the
+|OT_STACK| implementation.
+
+.. note::
+
+    Do not use this document as a substitute for the complete protocol
+    specification.  For more details, see the |OT_WIKI| and the Thread
+    specification
+
+.. _sec-overview-introduction:
+
+
+Introduction
+^^^^^^^^^^^^
+
+.. image:: resources/img-thread-certified-component.svg
+    :align: right
+    :target: https://www.threadgroup.org/technology/ourtechnology#certifiedproducts
+
+The |SDK| is part of TI's SimpleLink MCU platform which offers a single
+development environment that delivers flexible hardware, software and tool
+options for customers developing wired and wireless applications. For more
+information about the SimpleLink MCU platform, visit
+(http://www.ti.com/simplelink).
+
+Thread is an IP-Based mesh networking protocol that runs on :term:`IEEE`
+802.15.4 radios. Thread was designed with one goal in mind: "To create the best
+way to connect and control products in the home".
+
+|OT| is an open source implementation of the Thread specification, which
+includes all Thread networking layers and device roles, as well as Border
+Router support.
+
+Besides supporting all the |OT| features the |OT_STACK| has the added benefit
+of running on top of TI-RTOS which inherently adds support for all the
+LaunchPad ecosystem and peripheral drivers.
+
+
+Disclaimer
+^^^^^^^^^^
+
+-   SimpleLink, TI-RTOS, Code Composer Studio, Sensor Controller Studio,
+    SmartRF, BoosterPack are trademarks of Texas Instruments.
+
+-   ARM, Cortex are registered trademarks of ARM Ltd.
+
+-   Wireshark is a trademark of CACE Technologies, LLC.
+
+-   IEEE is a trademark of International Electrical and Electronics Engineers.
+
+-   Node.js is a registered trademark of Joyent, Inc.
+
+-   Linux is a registered trademark of Linus Torvalds.
+
+-   Windows is a registered trademark of Microsoft Corporation.
+
+-   All other trademarks are the property of their respective owners.

@@ -1,0 +1,41 @@
+.. _chap-custom-hardware:
+
+Custom Hardware
+===============
+
+This section will explain how to adapt a Thread example application from the
+|SDK| to run on custom hardware. In general, the steps required to migrate a
+Thread example application from a development kit to a custom board are minimal
+and involve changing the pin configuration as well as selecting the correct RF
+configuration.  These steps, including a bring up guide, are detailed in the
+subsections below.
+
+.. _board-file:
+
+TI Provided Board Files
+-----------------------
+
+The Thread example applications for the |SDK| import a copy of the Board
+specific configuration files within the workspace. These files will have a name
+based on the board name for the example. TI recommends that you use these as a
+baseline, or to use one of the other Board files from
+``<SDK_INSTALL_DIR>/source/ti/boards/`` as a base.
+
+A board specific header will also be imported into the workspace. This file
+will have the name ``Board.h``. This heder defines board specific functions and
+pin mappings in the ``Board_*`` namespace. TI-RTOS drivers and |SDK| example
+applications use these board definitions to allow remapping onto new boards.
+
+Creating a Custom Board File
+----------------------------
+
+TI recommends to start with the existing set of board files when porting
+a BLE application to custom development boards. When modifying or porting these
+board files, the user should consult with
+`TI Driver APIs <..\/..\/..\/tidrivers\/tidriversAPIs.html>`__.
+
+.. tip::
+    Board files provided by TI include TI-RTOS driver configuration data
+    structures for various drivers. If the application does not use the
+    associated TI-RTOS drivers, the linker will simply omit them from the
+    application image.

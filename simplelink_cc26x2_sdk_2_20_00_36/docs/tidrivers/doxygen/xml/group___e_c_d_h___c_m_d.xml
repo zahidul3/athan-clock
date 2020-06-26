@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="group___e_c_d_h___c_m_d" kind="group">
+    <compoundname>ECDH_CMD</compoundname>
+    <title>Command Codes</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>ECDH_CMD_* macros are general command codes for <ref refid="_e_c_d_h_8h_1a1a5e651310388708c3c0fec76f3d58ca" kindref="member">ECDH_control()</ref>. Not all ECC driver implementations support these command codes. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

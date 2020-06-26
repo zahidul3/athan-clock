@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_e_c_d_h_c_c26_x2___object__" kind="struct" language="C++" prot="public">
+    <compoundname>ECDHCC26X2_Object_</compoundname>
+    <includes refid="_e_c_d_h_c_c26_x2_8h" local="no">ECDHCC26X2.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_e_c_d_h_c_c26_x2___object___1a99499a6cb4f52adaec47fe1340efcc4b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ECDHCC26X2_Object_::isOpen</definition>
+        <argsstring></argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="199" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h_c_c26_x2___object___1a538e476d44c450bd4d7dc7bd68f3b0c6" prot="public" static="no" mutable="no">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t ECDHCC26X2_Object_::returnValue</definition>
+        <argsstring></argsstring>
+        <name>returnValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="200" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h_c_c26_x2___object___1af256b0d235dbc8a8cd88f76817504825" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_d_h_8h_1a978c9e16d670371e7c0c50793fc4ec04" kindref="member">ECDH_CallbackFxn</ref></type>
+        <definition>ECDH_CallbackFxn ECDHCC26X2_Object_::callbackFxn</definition>
+        <argsstring></argsstring>
+        <name>callbackFxn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="201" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h_c_c26_x2___object___1a239a79ab7f320b60ccbcdee853c49841" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_d_h_8h_1a3ae70d3a1b95499c07b36a0f9e6d9db7" kindref="member">ECDH_ReturnBehavior</ref></type>
+        <definition>ECDH_ReturnBehavior ECDHCC26X2_Object_::returnBehavior</definition>
+        <argsstring></argsstring>
+        <name>returnBehavior</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="202" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h_c_c26_x2___object___1a95bba7724dffa06dc95ae13f6b11ae6a" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_d_h_8h_1addfcd5e533ffe35867e6ff11281bae1f" kindref="member">ECDH_Operation</ref></type>
+        <definition>ECDH_Operation ECDHCC26X2_Object_::operation</definition>
+        <argsstring></argsstring>
+        <name>operation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="203" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h_c_c26_x2___object___1ae8e979fd8e81b70bfef2caee6489e1a3" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_d_h_8h_1ade105285f97cb2204b52179f0978c888" kindref="member">ECDH_OperationType</ref></type>
+        <definition>ECDH_OperationType ECDHCC26X2_Object_::operationType</definition>
+        <argsstring></argsstring>
+        <name>operationType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="204" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h_c_c26_x2___object___1ae74ae5808b83b87c974f626fc9cf7af2" prot="public" static="no" mutable="no">
+        <type><ref refid="_e_c_d_h_c_c26_x2_8h_1ab4c8a11650795e3dc6167cc14bd3e13d" kindref="member">ECDHCC26X2_FsmState</ref></type>
+        <definition>ECDHCC26X2_FsmState ECDHCC26X2_Object_::fsmState</definition>
+        <argsstring></argsstring>
+        <name>fsmState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="205" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h_c_c26_x2___object___1a55728d97f4de513456f189c3afe8da3e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ECDHCC26X2_Object_::semaphoreTimeout</definition>
+        <argsstring></argsstring>
+        <name>semaphoreTimeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="206" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h_c_c26_x2___object___1a4c22fb2a2c54b6891a560817f29f3606" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ECDHCC26X2_Object_::resultAddress</definition>
+        <argsstring></argsstring>
+        <name>resultAddress</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="207" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_c_d_h_c_c26_x2___object___1abf3eb446a9d9bdb4df41ed9c1ac00a73" prot="public" static="no" mutable="no">
+        <type>SwiP_Struct</type>
+        <definition>SwiP_Struct ECDHCC26X2_Object_::callbackSwi</definition>
+        <argsstring></argsstring>
+        <name>callbackSwi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="208" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ECDHCC26X2 Object. </para>    </briefdescription>
+    <detaileddescription>
+<para>The application must not access any member variables of this structure! </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="221">
+        <label>CryptoKey_KeyStore_</label>
+        <link refid="struct_crypto_key___key_store__"/>
+      </node>
+      <node id="217">
+        <label>ECDH_OperationGeneratePublicKey_</label>
+        <link refid="struct_e_c_d_h___operation_generate_public_key__"/>
+        <childnode refid="218" relation="usage">
+          <edgelabel>myPrivateKey</edgelabel>
+          <edgelabel>myPublicKey</edgelabel>
+        </childnode>
+        <childnode refid="222" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="216">
+        <label>ECDH_Operation_</label>
+        <link refid="union_e_c_d_h___operation__"/>
+        <childnode refid="217" relation="usage">
+          <edgelabel>generatePublicKey</edgelabel>
+        </childnode>
+        <childnode refid="223" relation="usage">
+          <edgelabel>computeSharedSecret</edgelabel>
+        </childnode>
+      </node>
+      <node id="215">
+        <label>ECDH_Config_</label>
+        <link refid="struct_e_c_d_h___config__"/>
+      </node>
+      <node id="218">
+        <label>CryptoKey_</label>
+        <link refid="struct_crypto_key__"/>
+        <childnode refid="219" relation="usage">
+          <edgelabel>keyBlob</edgelabel>
+        </childnode>
+        <childnode refid="220" relation="usage">
+          <edgelabel>plaintext</edgelabel>
+        </childnode>
+        <childnode refid="221" relation="usage">
+          <edgelabel>keyStore</edgelabel>
+        </childnode>
+      </node>
+      <node id="222">
+        <label>ECCParams_CurveParams_</label>
+        <link refid="struct_e_c_c_params___curve_params__"/>
+      </node>
+      <node id="223">
+        <label>ECDH_OperationComputeSharedSecret_</label>
+        <link refid="struct_e_c_d_h___operation_compute_shared_secret__"/>
+        <childnode refid="218" relation="usage">
+          <edgelabel>theirPublicKey</edgelabel>
+          <edgelabel>myPrivateKey</edgelabel>
+          <edgelabel>sharedSecret</edgelabel>
+        </childnode>
+        <childnode refid="222" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+      </node>
+      <node id="214">
+        <label>ECDHCC26X2_Object_</label>
+        <link refid="struct_e_c_d_h_c_c26_x2___object__"/>
+        <childnode refid="215" relation="usage">
+          <edgelabel>callbackFxn</edgelabel>
+        </childnode>
+        <childnode refid="216" relation="usage">
+          <edgelabel>operation</edgelabel>
+        </childnode>
+      </node>
+      <node id="219">
+        <label>CryptoKey_KeyBlob_</label>
+        <link refid="struct_crypto_key___key_blob__"/>
+      </node>
+      <node id="220">
+        <label>CryptoKey_Plaintext_</label>
+        <link refid="struct_crypto_key___plaintext__"/>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" line="198" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/ecdh/ECDHCC26X2.h" bodystart="198" bodyend="209"/>
+    <listofallmembers>
+      <member refid="struct_e_c_d_h_c_c26_x2___object___1af256b0d235dbc8a8cd88f76817504825" prot="public" virt="non-virtual"><scope>ECDHCC26X2_Object_</scope><name>callbackFxn</name></member>
+      <member refid="struct_e_c_d_h_c_c26_x2___object___1abf3eb446a9d9bdb4df41ed9c1ac00a73" prot="public" virt="non-virtual"><scope>ECDHCC26X2_Object_</scope><name>callbackSwi</name></member>
+      <member refid="struct_e_c_d_h_c_c26_x2___object___1ae74ae5808b83b87c974f626fc9cf7af2" prot="public" virt="non-virtual"><scope>ECDHCC26X2_Object_</scope><name>fsmState</name></member>
+      <member refid="struct_e_c_d_h_c_c26_x2___object___1a99499a6cb4f52adaec47fe1340efcc4b" prot="public" virt="non-virtual"><scope>ECDHCC26X2_Object_</scope><name>isOpen</name></member>
+      <member refid="struct_e_c_d_h_c_c26_x2___object___1a95bba7724dffa06dc95ae13f6b11ae6a" prot="public" virt="non-virtual"><scope>ECDHCC26X2_Object_</scope><name>operation</name></member>
+      <member refid="struct_e_c_d_h_c_c26_x2___object___1ae8e979fd8e81b70bfef2caee6489e1a3" prot="public" virt="non-virtual"><scope>ECDHCC26X2_Object_</scope><name>operationType</name></member>
+      <member refid="struct_e_c_d_h_c_c26_x2___object___1a4c22fb2a2c54b6891a560817f29f3606" prot="public" virt="non-virtual"><scope>ECDHCC26X2_Object_</scope><name>resultAddress</name></member>
+      <member refid="struct_e_c_d_h_c_c26_x2___object___1a239a79ab7f320b60ccbcdee853c49841" prot="public" virt="non-virtual"><scope>ECDHCC26X2_Object_</scope><name>returnBehavior</name></member>
+      <member refid="struct_e_c_d_h_c_c26_x2___object___1a538e476d44c450bd4d7dc7bd68f3b0c6" prot="public" virt="non-virtual"><scope>ECDHCC26X2_Object_</scope><name>returnValue</name></member>
+      <member refid="struct_e_c_d_h_c_c26_x2___object___1a55728d97f4de513456f189c3afe8da3e" prot="public" virt="non-virtual"><scope>ECDHCC26X2_Object_</scope><name>semaphoreTimeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

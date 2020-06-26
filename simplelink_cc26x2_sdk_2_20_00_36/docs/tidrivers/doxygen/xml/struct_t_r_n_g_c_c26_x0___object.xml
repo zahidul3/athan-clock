@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_t_r_n_g_c_c26_x0___object" kind="struct" language="C++" prot="public">
+    <compoundname>TRNGCC26X0_Object</compoundname>
+    <includes refid="_t_r_n_g_c_c26_x0_8h" local="no">TRNGCC26X0.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_t_r_n_g_c_c26_x0___object_1adfd53fe1f7aef99cb53f669e123f80b1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool TRNGCC26X0_Object::isOpen</definition>
+        <argsstring></argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="107" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_t_r_n_g_c_c26_x0___object_1a7386ebeb319a41a2c7187e069f0f0147" prot="public" static="no" mutable="no">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t TRNGCC26X0_Object::returnStatus</definition>
+        <argsstring></argsstring>
+        <name>returnStatus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="108" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_t_r_n_g_c_c26_x0___object_1af9b342ca1ae4cefeb70ad74dfc24419d" prot="public" static="no" mutable="no">
+        <type><ref refid="_t_r_n_g_8h_1acc01a389d7aaeb2b7a727e847aaa280f" kindref="member">TRNG_ReturnBehavior</ref></type>
+        <definition>TRNG_ReturnBehavior TRNGCC26X0_Object::returnBehavior</definition>
+        <argsstring></argsstring>
+        <name>returnBehavior</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="109" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_t_r_n_g_c_c26_x0___object_1a0db61b942d9dcfc0fb0786feda677b81" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t TRNGCC26X0_Object::entropyGenerated</definition>
+        <argsstring></argsstring>
+        <name>entropyGenerated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="110" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_t_r_n_g_c_c26_x0___object_1a646231b43dbf2e52b3acd281dec79570" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t TRNGCC26X0_Object::entropyRequested</definition>
+        <argsstring></argsstring>
+        <name>entropyRequested</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="111" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_t_r_n_g_c_c26_x0___object_1a8b12c8d7eb7c83770745f4141fc62370" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t TRNGCC26X0_Object::semaphoreTimeout</definition>
+        <argsstring></argsstring>
+        <name>semaphoreTimeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="112" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_t_r_n_g_c_c26_x0___object_1ab0313babeb997423e9a6311656046bd1" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* TRNGCC26X0_Object::entropyBuffer</definition>
+        <argsstring></argsstring>
+        <name>entropyBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="113" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_t_r_n_g_c_c26_x0___object_1a1f564ef1d9b135f644d3c5d11641b9da" prot="public" static="no" mutable="no">
+        <type><ref refid="_crypto_key_8h_1a6f7dd04b6cb67a2b6c40aeb4483be246" kindref="member">CryptoKey</ref> *</type>
+        <definition>CryptoKey* TRNGCC26X0_Object::entropyKey</definition>
+        <argsstring></argsstring>
+        <name>entropyKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="114" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_t_r_n_g_c_c26_x0___object_1aa9216e6a7f07fd8c287f3d2ab81379d6" prot="public" static="no" mutable="no">
+        <type><ref refid="_t_r_n_g_8h_1aa8a1cce751bd3736d54a843fb48d2413" kindref="member">TRNG_CallbackFxn</ref></type>
+        <definition>TRNG_CallbackFxn TRNGCC26X0_Object::callbackFxn</definition>
+        <argsstring></argsstring>
+        <name>callbackFxn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="115" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_t_r_n_g_c_c26_x0___object_1acebdb4b7fc6c0c21f283e7b00e0ff250" prot="public" static="no" mutable="no">
+        <type>SwiP_Struct</type>
+        <definition>SwiP_Struct TRNGCC26X0_Object::callbackSwi</definition>
+        <argsstring></argsstring>
+        <name>callbackSwi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="116" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>TRNGCC26XX Object. </para>    </briefdescription>
+    <detaileddescription>
+<para>The application must not access any member variables of this structure! </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="648">
+        <label>CryptoKey_KeyStore_</label>
+        <link refid="struct_crypto_key___key_store__"/>
+      </node>
+      <node id="644">
+        <label>TRNGCC26X0_Object</label>
+        <link refid="struct_t_r_n_g_c_c26_x0___object"/>
+        <childnode refid="645" relation="usage">
+          <edgelabel>entropyKey</edgelabel>
+        </childnode>
+        <childnode refid="649" relation="usage">
+          <edgelabel>callbackFxn</edgelabel>
+        </childnode>
+      </node>
+      <node id="645">
+        <label>CryptoKey_</label>
+        <link refid="struct_crypto_key__"/>
+        <childnode refid="646" relation="usage">
+          <edgelabel>keyBlob</edgelabel>
+        </childnode>
+        <childnode refid="647" relation="usage">
+          <edgelabel>plaintext</edgelabel>
+        </childnode>
+        <childnode refid="648" relation="usage">
+          <edgelabel>keyStore</edgelabel>
+        </childnode>
+      </node>
+      <node id="649">
+        <label>TRNG_Config_</label>
+        <link refid="struct_t_r_n_g___config__"/>
+      </node>
+      <node id="646">
+        <label>CryptoKey_KeyBlob_</label>
+        <link refid="struct_crypto_key___key_blob__"/>
+      </node>
+      <node id="647">
+        <label>CryptoKey_Plaintext_</label>
+        <link refid="struct_crypto_key___plaintext__"/>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" line="106" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/trng/TRNGCC26X0.h" bodystart="106" bodyend="117"/>
+    <listofallmembers>
+      <member refid="struct_t_r_n_g_c_c26_x0___object_1aa9216e6a7f07fd8c287f3d2ab81379d6" prot="public" virt="non-virtual"><scope>TRNGCC26X0_Object</scope><name>callbackFxn</name></member>
+      <member refid="struct_t_r_n_g_c_c26_x0___object_1acebdb4b7fc6c0c21f283e7b00e0ff250" prot="public" virt="non-virtual"><scope>TRNGCC26X0_Object</scope><name>callbackSwi</name></member>
+      <member refid="struct_t_r_n_g_c_c26_x0___object_1ab0313babeb997423e9a6311656046bd1" prot="public" virt="non-virtual"><scope>TRNGCC26X0_Object</scope><name>entropyBuffer</name></member>
+      <member refid="struct_t_r_n_g_c_c26_x0___object_1a0db61b942d9dcfc0fb0786feda677b81" prot="public" virt="non-virtual"><scope>TRNGCC26X0_Object</scope><name>entropyGenerated</name></member>
+      <member refid="struct_t_r_n_g_c_c26_x0___object_1a1f564ef1d9b135f644d3c5d11641b9da" prot="public" virt="non-virtual"><scope>TRNGCC26X0_Object</scope><name>entropyKey</name></member>
+      <member refid="struct_t_r_n_g_c_c26_x0___object_1a646231b43dbf2e52b3acd281dec79570" prot="public" virt="non-virtual"><scope>TRNGCC26X0_Object</scope><name>entropyRequested</name></member>
+      <member refid="struct_t_r_n_g_c_c26_x0___object_1adfd53fe1f7aef99cb53f669e123f80b1" prot="public" virt="non-virtual"><scope>TRNGCC26X0_Object</scope><name>isOpen</name></member>
+      <member refid="struct_t_r_n_g_c_c26_x0___object_1af9b342ca1ae4cefeb70ad74dfc24419d" prot="public" virt="non-virtual"><scope>TRNGCC26X0_Object</scope><name>returnBehavior</name></member>
+      <member refid="struct_t_r_n_g_c_c26_x0___object_1a7386ebeb319a41a2c7187e069f0f0147" prot="public" virt="non-virtual"><scope>TRNGCC26X0_Object</scope><name>returnStatus</name></member>
+      <member refid="struct_t_r_n_g_c_c26_x0___object_1a8b12c8d7eb7c83770745f4141fc62370" prot="public" virt="non-virtual"><scope>TRNGCC26X0_Object</scope><name>semaphoreTimeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

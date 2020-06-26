@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="group___a_e_s_c_c_m___c_m_d" kind="group">
+    <compoundname>AESCCM_CMD</compoundname>
+    <title>Command Codes</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>AESCCM_CMD_* macros are general command codes for <ref refid="_a_e_s_c_c_m_8h_1ab43f29586baa2c11634bdd05b81f14fb" kindref="member">AESCCM_control()</ref>. Not all AESCCM driver implementations support these command codes. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

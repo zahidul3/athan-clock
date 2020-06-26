@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectSpec>
+    <applicability>
+        <when>
+            <context
+                deviceFamily="ARM"
+                deviceId="Cortex M.CC2642R1F"
+            />
+        </when>
+    </applicability>
+
+
+    <project
+        title="Error Example"
+        name="error_CC26X2R1_LAUNCHXL_tirtos_ccs"
+        toolChain="TI"
+        connection="TIXDS110_Connection.xml"
+        device="Cortex M.CC2642R1F"
+        ignoreDefaultDeviceSettings="true"
+        ignoreDefaultCCSSettings="true"
+        products="com.ti.SIMPLELINK_CC26X2_SDK"
+        compilerBuildOptions=" -I${PROJECT_ROOT} -DDeviceFamily_CC26X2 -I${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/ti/posix/ccs --silicon_version=7M4 --code_state=16 --little_endian --display_error_number --diag_warning=255 --diag_wrap=off --gen_func_subsections=on --float_support=FPv4SPD16 --symdebug:dwarf -I${CG_TOOL_ROOT}/include"
+        linkerBuildOptions=" -i${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source -lti/display/lib/display.aem4f -lti/grlib/lib/ccs/m4f/grlib.a -lthird_party/spiffs/lib/ccs/m4f/spiffs_cc26xx.a -lti/drivers/rf/lib/rf_multiMode_cc26x2_v1.aem4f -lti/drivers/lib/drivers_cc26x2_v1.aem4f -lti/drivers/pdm/lib/pdm_cc26x2_v1.aem4f -i${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/kernel/tirtos/packages -lti/dpl/lib/dpl_cc26x2_v1.aem4f -lti/devices/cc13x2_cc26x2_v1/driverlib/bin/ccs/driverlib.lib --warn_sections --display_error_number --diag_wrap=off --rom_model -i${CG_TOOL_ROOT}/lib -llibc.a"
+        description="This example shows how to use Error_Blocks to catch runtime errors. An Error_Block is passed to Task_create() and then checked for create failure. When no Error_Block is passed, the application will terminate when an error occurs. The error.cfg file shows how to plug an error hook.">
+
+        <property name="type" value="rtsc"/>
+        <property name="xdcToolsVersion" value="3_50_07_20_core"/>
+        <property name="target" value="ti.targets.arm.elf.M4F"/>
+        <property name="platform" value="ti.platforms.simplelink:CC2642R1F"/>
+        <property name="buildProfile" value="release"/>
+        <property name="isHybrid" value="true"/>
+        <property name="configuroOptions" value=" --compileOptions &quot;${COMPILER_FLAGS} -std=c99 &quot;"/>
+        <group id="error.SIMPLELINK_CC26X2_SDK.CC26X2R1_LAUNCHXL.sysbios.TI"/>
+        <file path="../../overview.rov.json" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../tirtos/error.cfg" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../README.md" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../error.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../README.html" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../Board.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../CC26X2R1_LAUNCHXL.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../CC26X2R1_LAUNCHXL.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../tirtos/ccs/CC26X2R1_LAUNCHXL_TIRTOS.cmd" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../CC26X2R1_LAUNCHXL_fxns.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../../ccfg.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="${COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR}/source/ti/boards/CC26X2R1_LAUNCHXL/Board.html" openOnCreation="false" excludeFromBuild="false" action="link">
+        </file>
+        <file path="../../tirtos/makefile.defs" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+    </project>
+</projectSpec>
+

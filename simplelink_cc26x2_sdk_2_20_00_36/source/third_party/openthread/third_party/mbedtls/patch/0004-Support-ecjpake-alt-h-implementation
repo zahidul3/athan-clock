@@ -1,0 +1,24 @@
+diff --git a/third_party/mbedtls/repo.patched/include/mbedtls/ecjpake.h b/third_party/mbedtls/repo.patched/include/mbedtls/ecjpake.h
+index 161a5b21..5c72a26c 100644
+--- a/third_party/mbedtls/repo.patched/include/mbedtls/ecjpake.h
++++ b/third_party/mbedtls/repo.patched/include/mbedtls/ecjpake.h
+@@ -43,6 +43,10 @@
+ #include "ecp.h"
+ #include "md.h"
+ 
++#if !defined(MBEDTLS_ECJPAKE_ALT)
++// Regular implementation
++//
++
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
+@@ -235,4 +239,8 @@ int mbedtls_ecjpake_self_test( int verbose );
+ }
+ #endif
+ 
++#else  /* MBEDTLS_ECJPAKE_ALT */
++#include "ecjpake_alt.h"
++#endif /* MBEDTLS_ECJPAKE_ALT */
++
+ #endif /* ecjpake.h */

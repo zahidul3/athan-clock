@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Migration Guide &mdash; SimpleLink™ CC26x2 TI 15.4-Stack User&#39;s Guide 2.06.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI 15.4-Stack User&#39;s Guide 2.06.00.00 documentation" href="../index.html"/>
+        <link rel="next" title="API References" href="../ti154stack/api-reference.html"/>
+        <link rel="prev" title="EnergyTrace User Guide" href="../energy-trace/energy-trace.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug ti154stack-guide migration-guide";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI 15.4-Stack User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.06.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-ti154stack.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tirtos/index.html">TI-RTOS (RTOS Kernel) Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack/index-cc26x2.html">TI 15.4-Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/ti154stack-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oad/index-ti154stack.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Migration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scope-of-the-document">Scope of the Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#migrating-ti-15-4-stack-application">Migrating TI 15.4-Stack Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#steps-for-porting-ti-15-4-stack">Steps for Porting TI 15.4-Stack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-information">Additional Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ti154stack/api-reference.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references-cc26x2.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references-cc26x2.html#terms-and-acronyms">Terms and Acronyms</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index-cc26x2.html">SimpleLink™ CC26x2 TI 15.4-Stack User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index-cc26x2.html">Docs</a> &raquo;</li>
+      
+    <li>Migration Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="migration-guide">
+<span id="chap-ti154stack-migration-guide"></span><h1>Migration Guide<a class="headerlink" href="#migration-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="scope-of-the-document">
+<h2>Scope of the Document<a class="headerlink" href="#scope-of-the-document" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>This document explains developers how to port existing applications for
+CC26x2 platform based on TI 15.4-Stack to the new TI 15.4-Stack release.</div></blockquote>
+</div>
+<div class="section" id="migrating-ti-15-4-stack-application">
+<span id="sec-port-ti154stack"></span><h2>Migrating TI 15.4-Stack Application<a class="headerlink" href="#migrating-ti-15-4-stack-application" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>This section describes how migrate existing TI-15.4-Stack based projects to
+the new TI-15.4-Stack release included within the SimpleLink CC26x2 SDK. Please refer to the
+TI 15.4-Stack Release notes to get a comprehensive list of all the changes in
+this release.</div></blockquote>
+<div class="section" id="steps-for-porting-ti-15-4-stack">
+<h3>Steps for Porting TI 15.4-Stack<a class="headerlink" href="#steps-for-porting-ti-15-4-stack" title="Permalink to this headline">¶</a></h3>
+<p>This section describes porting an application, that was originally written for
+an old of the stack, to the newer stack.</p>
+<p>Follow the steps described below to port your TI 15.4-Stack star network end
+node application and PAN Coordinator (Embedded and Linux based) to the new TI
+15.4-Stack release. Also refer to the wiki link TI</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Download the latest SimpleLink CC26x2 SDK</p>
+<div class="figure align-right" id="fig-sensor-migrate">
+<a class="reference internal image-reference" href="../_images/image1.png"><img alt="../_images/image1.png" src="../_images/image1.png" style="width: 146.0px; height: 491.5px;" /></a>
+</div>
+</li>
+<li><p class="first"><strong>Porting your embedded end node application</strong>, it is expected that the
+developers would have started with the out of box sensor example
+application as a starting point for end node applications based on TI
+15.4-Stack. And primarily would add their application specific
+functionality to the files jdllc.c/h, sensor.c/h, and ssf.c/h in addition
+to their application specific implementation additions to the out of box
+example application. Also, customers would do their board specific
+changes. To port your applications to the new release import the out of
+box sensor example application into your CCS workspace from the new
+SimpleLink CC26x2 SDK (Please find the supported CCS version in the TI
+15.4-Stack release notes at /docs/ti154stack/ and refer to TI 15.4-Stack
+Users guide at /docs/ti154stack/ on how to import the TI 15.4-Stack
+example projects in CCS). <a class="reference internal" href="#fig-sensor-migrate"><span class="std std-numref">Figure 77.</span></a> highlights the key
+project files into which the developers can either bring their
+application specific changes into (preferred) or replace with their
+implementation. List below provides more details on how to port the end
+node application to the latest TI 15.4-Stack release.</p>
+<ol class="arabic simple">
+<li>“config.h”: Port your application configuration settings into the new
+file. The new file has changes that allow to better use the
+application and 15.4-Stack features and it is recommended to use this
+latest file.</li>
+<li>“Jdllc.c/h”, “sensor.c/h”: Port/bring in changes specific to your
+application into these files; there are various optimizations to
+improve flash usage and also bug fixes. It is preferred to use the
+latest file and port your application specific changes into the new
+release.</li>
+<li>“ssf.c/h”: Port/bring in changes specific to your application into
+this file;</li>
+<li>Perform the board specific changes as done on the TI 15.4-Stack. The
+board files are included with in the folder Launchpad in the
+application workspace.</li>
+<li>If you need more details on the sensor example application which can
+help to port your application to the new release please refers to the
+TI 15.4-Stack Developers guide at /docs/ti154stack/.</li>
+</ol>
+<div class="figure align-right" id="fig-collector-migrate">
+<a class="reference internal image-reference" href="../_images/image2.png"><img alt="../_images/image2.png" src="../_images/image2.png" style="width: 153.5px; height: 487.5px;" /></a>
+</div>
+</li>
+<li><p class="first"><strong>Porting your Embedded PAN-Coordinator application</strong>, it is expected
+that the developers would start with the out of box collector example
+application as a starting point, and primarily add their application
+specific functionality to the files cllc.c/h, collector.c/h, and csf.c/h
+in addition to the their application specific implementations additions
+to the out of box example application. Also, customers would do their
+board specific changes. To port your applications to the new release
+import the collector example application into your CCS workspace from the
+new SimpleLink CC26x2 SDK (Please find the supported CCS version in the
+TI 15.4-Stack release notes at /docs/ti154stack/ and refer to TI
+15.4-Stack Developers guide at /docs/ti154stack/ on how to import the TI
+15.4-Stack example projects in CCS). <a class="reference internal" href="#fig-collector-migrate"><span class="std std-numref">Figure 78.</span></a>
+highlights the key project files that the developers can either bring
+their application specific changes into (preferred) or replace with their
+implementation. List below provides more details on how to port the PAN
+Coordinator application to the latest TI 15.4-Stack release.</p>
+<ol class="arabic simple">
+<li>“config.h”: Port your application configuration settings into the new
+file. The new file has changes that allow to better use the
+application and 15.4-Stack features and it is recommended to use the
+latest file.</li>
+<li>“cllc.c/h”, “collector.c/h”: Port/bring in changes specific to your
+application into these files; there are various optimizations to
+improve flash usage and also bug fixes. It is preferred to use the
+latest file and port your application specific changes into the new
+release</li>
+<li>“csf.c/h”: Port/bring in changes specific to your application into
+this file;</li>
+<li>Perform the board specific changes as done on the TI 15.4-Stack. The
+board files are included with in the folder Launchpad in the
+application workspace.</li>
+<li>If you need more details on the collector example application which
+can help to port your application to the new release please refers to
+the TI 15.4-Stack Developers guide at /docs/ti154stack/.</li>
+</ol>
+</li>
+<li><p class="first"><strong>Porting Linux host + MAC CoP based PAN Coordinator application:</strong> when
+using the Linux host + MAC CoP as PAN Coordinator developers can just
+upgrade the MAC CoProcessor application to the new TI 15.4-Stack MAC
+CoProcessor application without any application changes. The MAC CoP
+interface has not changed between the two releases.</p>
+</li>
+</ul>
+</div></blockquote>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Preamble Change Previous versions of the stack used an RF preamble value
+that was not compatible with the IEEE 802.15.4g standard. In order to be
+compatible to this standard, v2.1.0+ of the stack uses the correct preamble
+as it is defined by IEEE. This means that devices running applications that
+were built with earlier versions of the stack will not be able to
+communicate with devices running applications that were built with the
+current stack version using the default configuration. In order to maintain
+compatibility with previously built applications, the user can force using
+the older preamble value by defining <code class="docutils literal"><span class="pre">PREAMBLE_COMPATIBILITY</span></code>. Note that
+by doing so, the application will no longer be fully compliant to the
+802.15.4g standard.</p>
+</div>
+</div>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Please refer to the following web-links for more information:</p>
+<ul class="simple">
+<li>TI 15.4-Stack Software Stack (<a class="reference external" href="http://www.ti.com/tool/ti-15.4-stack">http://www.ti.com/tool/ti-15.4-stack</a>)</li>
+<li>TI 15.4-Stack Wiki (<a class="reference external" href="http://www.ti.com/ti154stack-wiki">http://www.ti.com/ti154stack-wiki</a>)</li>
+<li>Support (<a class="reference external" href="http://e2e.ti.com/support/wireless_connectivity/proprietary_sub_1_ghz_simpliciti/">http://e2e.ti.com/support/wireless_connectivity/proprietary_sub_1_ghz_simpliciti/</a>)</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ti154stack/api-reference.html" class="btn btn-neutral float-right" title="API References" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../energy-trace/energy-trace.html" class="btn btn-neutral" title="EnergyTrace User Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.06.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

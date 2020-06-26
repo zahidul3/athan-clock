@@ -1,0 +1,18 @@
+{
+    "name"        : "SDCARD",
+    "displayName" : "SD Card",
+    "headerType"  : "Standard 40 pin",
+    "components"  : [
+        {
+            "name": "SP_CARD",
+            "displayName": "Network Processor SPI",
+            "definition": "/ti/boards/components/sdhost.json",
+            "connections": {
+                /* signal name : header pin # */
+                "CLK":  15,
+                "CMD":  18,
+                "DATA": 14
+            }
+        }
+    ]
+}

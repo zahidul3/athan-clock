@@ -1,0 +1,30 @@
+[
+   {
+      "default" : "na",
+      "name" : "na",
+      "files" : [
+         "+../../Board.h -> Board.h",
+         "+../../CC26X2R1_LAUNCHXL.c -> CC26X2R1_LAUNCHXL.c",
+         "+../../CC26X2R1_LAUNCHXL.h -> CC26X2R1_LAUNCHXL.h",
+         "+CC26X2R1_LAUNCHXL_TIRTOS.lds -> CC26X2R1_LAUNCHXL_TIRTOS.lds",
+         "+../../CC26X2R1_LAUNCHXL_fxns.c -> CC26X2R1_LAUNCHXL_fxns.c",
+         "+../../README.html -> README.html",
+         "+../../../../../../../kernel/tirtos/builds/CC26X2R1_LAUNCHXL/release/README.html -> README.html",
+         "+../../README.md -> README.md",
+         "+../../../../../../../kernel/tirtos/builds/CC26X2R1_LAUNCHXL/release/README.md -> README.md",
+         "+../../adcBufContinuousSampling.c -> adcBufContinuousSampling.c",
+         "+../../ccfg.c -> ccfg.c",
+         "+../main_tirtos.c -> main_tirtos.c",
+         "+../../../../../../../kernel/tirtos/builds/CC26X2R1_LAUNCHXL/release/gcc/makefile.defs -> makefile.defs",
+         "+../../overview.rov.json -> overview.rov.json",
+         "+../../../../../../../kernel/tirtos/builds/CC26X2R1_LAUNCHXL/release/release.cfg -> release.cfg",
+         "+../../../../../../../source/ti/boards/CC26X2R1_LAUNCHXL/Board.html -> Board.html"
+      ],
+      "packages" : [],
+      "compiler" : {
+         "specified" : "na",
+         "effective" : "na",
+         "location" : "na"
+      }
+   }
+]

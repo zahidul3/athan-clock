@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_i2_c_c_c26_x_x___h_w_attrs_v1" kind="struct" language="C++" prot="public">
+    <compoundname>I2CCC26XX_HWAttrsV1</compoundname>
+    <includes refid="_i2_c_c_c26_x_x_8h" local="no">I2CCC26XX.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1a1dcaf2c98df0688a137d6d36fcf5b813" prot="public" static="no" mutable="no">
+        <type><ref refid="_i2_c_c_c26_x_x_8h_1a6e087d828c4463de0061d8205b2245d8" kindref="member">I2CBaseAddrType</ref></type>
+        <definition>I2CBaseAddrType I2CCC26XX_HWAttrsV1::baseAddr</definition>
+        <argsstring></argsstring>
+        <name>baseAddr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2C peripheral&apos;s base address </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" line="430" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" bodystart="430" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1ae4f13a6d9682c89ebaa095ac65550284" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long I2CCC26XX_HWAttrsV1::powerMngrId</definition>
+        <argsstring></argsstring>
+        <name>powerMngrId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2C peripheral&apos;s Power driver ID </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" line="432" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" bodystart="432" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1a47978d1b0177205345aea6760bdd44ff" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int I2CCC26XX_HWAttrsV1::intNum</definition>
+        <argsstring></argsstring>
+        <name>intNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2C peripheral&apos;s interrupt number </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" line="434" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" bodystart="434" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1af2ce41811fa52e3b70cb2388b1a9a5e4" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t I2CCC26XX_HWAttrsV1::intPriority</definition>
+        <argsstring></argsstring>
+        <name>intPriority</name>
+        <briefdescription>
+<para>I2C Peripheral&apos;s interrupt priority. </para>        </briefdescription>
+        <detaileddescription>
+<para>The CC26xx uses three of the priority bits, meaning ~0 has the same effect as (7 &lt;&lt; 5).</para><para>(7 &lt;&lt; 5) will apply the lowest priority.</para><para>(1 &lt;&lt; 5) will apply the highest priority.</para><para>Setting the priority to 0 is not supported by this driver.</para><para>Hwi&apos;s with priority 0 ignore the Hwi dispatcher to support zero-latency interrupts, thus invalidating the critical sections in this driver. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" line="448" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" bodystart="448" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1af6dcf5a19b94fa39e89a1435c78f0d61" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t I2CCC26XX_HWAttrsV1::swiPriority</definition>
+        <argsstring></argsstring>
+        <name>swiPriority</name>
+        <briefdescription>
+<para>I2C Swi priority. The higher the number, the higher the priority. The minimum is 0 and the maximum is 15 by default. The maximum can be reduced to save RAM by adding or modifying Swi.numPriorities in the kernel configuration file. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" line="454" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" bodystart="454" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1a3387c3315d2b4f62fedf70563fd55931" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t I2CCC26XX_HWAttrsV1::sdaPin</definition>
+        <argsstring></argsstring>
+        <name>sdaPin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2C SDA pin mapping </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" line="456" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" bodystart="456" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1a0c0d7cba4b01ece784f35192fdc91b0a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t I2CCC26XX_HWAttrsV1::sclPin</definition>
+        <argsstring></argsstring>
+        <name>sclPin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2C SCL pin mapping </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" line="458" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" bodystart="458" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>I2CCC26XX Hardware attributes. </para>    </briefdescription>
+    <detaileddescription>
+<para>The baseAddr and intNum fields define the base address and the interrupt number of the I2C peripheral. These values are passed to driverlib APIs and therefore must be populated by driverlib macro definitions. These macros are found in the header files:<itemizedlist>
+<listitem><para>inc/hw_memmap.h</para></listitem><listitem><para>inc/hw_ints.h</para></listitem></itemizedlist>
+</para><para>The powerMngrId is the Power driver resource ID for the I2C peripheral. These macros are defined in <ref refid="_power_c_c26_x_x_8h" kindref="compound">PowerCC26XX.h</ref></para><para>intPriority is the I2C peripheral&apos;s interrupt priority, as defined by the TI-RTOS kernel. This value is passed unmodified to Hwi_create().</para><para>swiPriority is the priority of a TI-RTOS kernel Swi that the I2C driver creates to finalize I2C transfers. See the documentation for the ti.sysbios.knl.Swi module for a description of Swi priorities.</para><para>sdaPin and sclPin define the SDA and SCL pin mapping, respectively. These are typically defined with a macro in a header file, which maps to an IOID. For example, CC1350_LAUNCHXL.h defines BOARD_I2C0_SDA0 to be IOID_5.</para><para>A sample structure is shown below: <programlisting><codeline><highlight class="normal">const<sp/>I2CCC26XX_HWAttrsV1<sp/>i2cCC26xxHWAttrs[CC1350_LAUNCHXL_I2CCOUNT]<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.baseAddr<sp/>=<sp/>I2C0_BASE,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.powerMngrId<sp/>=<sp/>PowerCC26XX_PERIPH_I2C0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.intNum<sp/>=<sp/>INT_I2C_IRQ,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.intPriority<sp/>=<sp/>~0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.swiPriority<sp/>=<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.sdaPin<sp/>=<sp/>Board_I2C0_SDA0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.sclPin<sp/>=<sp/>Board_I2C0_SCL0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" line="428" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/i2c/I2CCC26XX.h" bodystart="428" bodyend="459"/>
+    <listofallmembers>
+      <member refid="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1a1dcaf2c98df0688a137d6d36fcf5b813" prot="public" virt="non-virtual"><scope>I2CCC26XX_HWAttrsV1</scope><name>baseAddr</name></member>
+      <member refid="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1a47978d1b0177205345aea6760bdd44ff" prot="public" virt="non-virtual"><scope>I2CCC26XX_HWAttrsV1</scope><name>intNum</name></member>
+      <member refid="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1af2ce41811fa52e3b70cb2388b1a9a5e4" prot="public" virt="non-virtual"><scope>I2CCC26XX_HWAttrsV1</scope><name>intPriority</name></member>
+      <member refid="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1ae4f13a6d9682c89ebaa095ac65550284" prot="public" virt="non-virtual"><scope>I2CCC26XX_HWAttrsV1</scope><name>powerMngrId</name></member>
+      <member refid="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1a0c0d7cba4b01ece784f35192fdc91b0a" prot="public" virt="non-virtual"><scope>I2CCC26XX_HWAttrsV1</scope><name>sclPin</name></member>
+      <member refid="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1a3387c3315d2b4f62fedf70563fd55931" prot="public" virt="non-virtual"><scope>I2CCC26XX_HWAttrsV1</scope><name>sdaPin</name></member>
+      <member refid="struct_i2_c_c_c26_x_x___h_w_attrs_v1_1af6dcf5a19b94fa39e89a1435c78f0d61" prot="public" virt="non-virtual"><scope>I2CCC26XX_HWAttrsV1</scope><name>swiPriority</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

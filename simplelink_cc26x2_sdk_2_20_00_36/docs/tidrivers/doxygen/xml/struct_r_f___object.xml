@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_r_f___object" kind="struct" language="C++" prot="public">
+    <compoundname>RF_Object</compoundname>
+    <includes refid="_r_f_8h" local="no">RF.h</includes>
+    <briefdescription>
+<para>Stores the client&apos;s internal confguration and states. </para>    </briefdescription>
+    <detaileddescription>
+<para>Before <ref refid="_r_f_8h_1a13a7c6f5a2b797e0aac18fecfaba6f64" kindref="member">RF_open()</ref> can be called, an instance of <ref refid="struct_r_f___object" kindref="compound">RF_Object</ref> must be created where the RF driver can store its internal configuration and states. This object must remain persistent throughout application run-time and must not be modified by the application.</para><para>The size of <ref refid="struct_r_f___object" kindref="compound">RF_Object</ref> can be optimized for single-mode applications by providing a <computeroutput>RF_SINGLEMODE</computeroutput> symbol at compilation time. The prebuilt single-mode archive was generated with this symbol defined, hence any project using this archive must also define <computeroutput>RF_SINGLEMODE</computeroutput> on project level.</para><para><simplesect kind="note"><para>Except configuration fields before call to <ref refid="_r_f_8h_1a13a7c6f5a2b797e0aac18fecfaba6f64" kindref="member">RF_open()</ref>, modification of any field in RF_Object is forbidden. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1232" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

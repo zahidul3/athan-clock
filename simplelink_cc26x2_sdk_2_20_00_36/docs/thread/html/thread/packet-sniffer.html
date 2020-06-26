@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Packet Sniffer &mdash; SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="SimpleLink™ CC26x2 TI Thread User&#39;s Guide 1.02.00.00 documentation" href="../index.html"/>
+        <link rel="next" title="Debugging" href="../debugging/thread-index.html"/>
+        <link rel="prev" title="Custom Hardware" href="custom-hardware.html"/> 
+    <script language="JavaScript">
+        var tiPageName;
+        tiPageName = "sug thread packet-sniffer";
+
+        if (location.protocol == "file:"){
+            var ci_analytics_poc_load = true;
+        }
+    </script> 
+
+    <script src="http://www.ti.com/assets/js/headerfooter/analytics.js" type="text/javascript" charset="utf-8">     
+
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index-cc26x2.html" class="icon icon-home"> SimpleLink™ CC26x2 TI Thread User's Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.02.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc26x2/index-thread.html">CC26x2 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ot-sw-dev-env.html">TI-OpenThread Stack Software Development Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ot-stack-overview.html">TI-OpenThread Stack Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-example-apps-cc26x2.html">Example Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-br/index.html">Linux Border Router Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating-custom-apps.html">Creating Custom Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-hardware.html">Custom Hardware</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Packet Sniffer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-ubiqua-protocol-analyzer">Setting Up Ubiqua Protocol analyzer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-required-software">Install the Required Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#required-hardware">Required Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-setup">Hardware Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-packet-sniffer">Running the Packet Sniffer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-wireshark">Setting Up Wireshark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/thread-index.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../energy-trace/energy-trace.html">EnergyTrace User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thread-oad/index.html">Over-the-Air Download (OAD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index-cc26x2.html">SimpleLink™ CC26x2 TI Thread User's Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index-cc26x2.html">Docs</a> &raquo;</li>
+      
+    <li>Packet Sniffer</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="packet-sniffer">
+<h1>Packet Sniffer<a class="headerlink" href="#packet-sniffer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setting-up-ubiqua-protocol-analyzer">
+<h2>Setting Up Ubiqua Protocol analyzer<a class="headerlink" href="#setting-up-ubiqua-protocol-analyzer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-the-required-software">
+<h3>Install the Required Software<a class="headerlink" href="#install-the-required-software" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Download the Ubilogix Ubiqua packet sniffer software from:
+<a class="reference external" href="https://www.ubilogix.com/ubiqua/">https://www.ubilogix.com/ubiqua/</a></li>
+<li>To get the drivers for the CC2531 dongle install the TI Packet sniffer from:
+<a class="reference external" href="http://www.ti.com/tool/packet-sniffer">http://www.ti.com/tool/packet-sniffer</a></li>
+<li>To program the CC2531 install TI Flash Programmer from:
+<a class="reference external" href="http://www.ti.com/tool/flash-programmer">http://www.ti.com/tool/flash-programmer</a></li>
+</ul>
+</div>
+<div class="section" id="required-hardware">
+<h3>Required Hardware<a class="headerlink" href="#required-hardware" title="Permalink to this headline">¶</a></h3>
+<p>The following board should be used with the Ubiqua Protocol Analyzer:</p>
+<ul class="simple">
+<li>TI CC2531 USB Dongle: <a class="reference external" href="http://www.ti.com/tool/CC2531USB-RD">http://www.ti.com/tool/CC2531USB-RD</a></li>
+<li>(optional) CC-debugger <a class="reference external" href="http://www.ti.com/tool/cc-debugger">http://www.ti.com/tool/cc-debugger</a></li>
+</ul>
+<p>The CC2531 dongle is pre-programmed with the packet sniffer firmware. It is not
+necessary to reprogram the CC2531 dongle.</p>
+</div>
+<div class="section" id="hardware-setup">
+<h3>Hardware Setup<a class="headerlink" href="#hardware-setup" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Connect the CC2531 to the computer with Ubiqua installed.</li>
+<li>If necessary, use SmartRF Flash Programmer with the cc-debugger to flash the
+CC2531 dongle. Use the hex image <code class="docutils literal"><span class="pre">sniffer_fw_cc2531.hex</span></code> at <code class="docutils literal"><span class="pre">C:\Program</span>
+<span class="pre">Files</span> <span class="pre">(x86)\Texas</span> <span class="pre">Instruments\SmartRF</span> <span class="pre">Tools\Packet</span>
+<span class="pre">Sniffer\bin\general\firmware</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="running-the-packet-sniffer">
+<h3>Running the Packet Sniffer<a class="headerlink" href="#running-the-packet-sniffer" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Connect the CC2531.</li>
+<li>Start Ubiqua.</li>
+<li>Select <code class="docutils literal"><span class="pre">Menu</span></code> → <code class="docutils literal"><span class="pre">Device</span></code> → <code class="docutils literal"><span class="pre">Add</span> <span class="pre">Device</span></code>, and choose the
+CC2531.</li>
+</ol>
+<div class="figure" id="id2">
+<img alt="ubiqua add device" src="../_images/fig-ubiqua-add-device.png" />
+<p class="caption"><span class="caption-number">Figure 20. </span><span class="caption-text">ubiqua add device</span></p>
+</div>
+<ol class="arabic simple" start="4">
+<li>Set the Default Protocol to Thread select <code class="docutils literal"><span class="pre">Menu</span></code> → <code class="docutils literal"><span class="pre">Tools</span></code> →
+<code class="docutils literal"><span class="pre">Options</span></code> then select <code class="docutils literal"><span class="pre">General</span></code> → <code class="docutils literal"><span class="pre">Default</span> <span class="pre">Protocol</span> <span class="pre">Stack</span></code> and
+set it to Thread.</li>
+</ol>
+<div class="figure" id="id3">
+<img alt="ubiqua options" src="../_images/fig-ubiqua-options.png" />
+<p class="caption"><span class="caption-number">Figure 21. </span><span class="caption-text">ubiqua options</span></p>
+</div>
+<div class="figure" id="id4">
+<img alt="ubiqua select thread protocol option" src="../_images/fig-ubiqua-select-protocol.png" />
+<p class="caption"><span class="caption-number">Figure 22. </span><span class="caption-text">ubiqua select thread protocol option</span></p>
+</div>
+<ol class="arabic simple" start="5">
+<li>Enter the default Thread Encryption keys.</li>
+</ol>
+<div class="figure" id="id5">
+<img alt="ubiqua add device" src="../_images/fig-ubiqua-add-device.png" />
+<p class="caption"><span class="caption-number">Figure 23. </span><span class="caption-text">ubiqua add device</span></p>
+</div>
+<ol class="arabic simple" start="6">
+<li>From the <code class="docutils literal"><span class="pre">Options</span></code> → <code class="docutils literal"><span class="pre">Security</span> <span class="pre">Tab</span></code> → <code class="docutils literal"><span class="pre">KeyChain</span></code>, choose
+Add, then select Thread Master Key By default, the <a class="reference external" href="https://github.com/openthread/openthread">OpenThread</a> Thread Master Key
+is: <code class="docutils literal"><span class="pre">00112233445566778899aabbccddeeff</span></code> Click OK.</li>
+</ol>
+<div class="figure" id="id6">
+<img alt="ubiqua add key option" src="../_images/fig-ubiqua-add-key-option.png" />
+<p class="caption"><span class="caption-number">Figure 24. </span><span class="caption-text">ubiqua add key option</span></p>
+</div>
+<ol class="arabic simple" start="7">
+<li>Choose the Channel.</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CLI device:</th><td class="field-body">to choose the channel via the <code class="docutils literal"><span class="pre">channel</span></code> command.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">NCP device:</th><td class="field-body">is told via wpantund what channel to use via various configuration
+steps. (See the TI OpenThread Linux Quick Start Guide for details)</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" id="id7">
+<img alt="config channel" src="../_images/fig-ubiqua-config-channel.png" />
+<p class="caption"><span class="caption-number">Figure 25. </span><span class="caption-text">config channel</span></p>
+</div>
+<p>From Ubiqua, select <code class="docutils literal"><span class="pre">Menu</span></code> → <code class="docutils literal"><span class="pre">Device</span> <span class="pre">Channel</span></code>, and choose the matching
+channel.</p>
+<div class="figure" id="id8">
+<img alt="ubiqua select channel" src="../_images/fig-ubiqua-select-channel.png" />
+<p class="caption"><span class="caption-number">Figure 26. </span><span class="caption-text">ubiqua select channel</span></p>
+</div>
+<ol class="arabic simple" start="8">
+<li>Start Capture.</li>
+</ol>
+<p>From Ubiqua, Select <code class="docutils literal"><span class="pre">Menu</span></code> → <code class="docutils literal"><span class="pre">Device</span></code> → <code class="docutils literal"><span class="pre">Start</span> <span class="pre">Device</span></code>.</p>
+<div class="figure" id="id9">
+<img alt="ubiqua start" src="../_images/fig-ubiqua-start-sniff.png" />
+<p class="caption"><span class="caption-number">Figure 27. </span><span class="caption-text">ubiqua start</span></p>
+</div>
+<ol class="arabic simple" start="9">
+<li>If required, Select: <code class="docutils literal"><span class="pre">Menu</span></code> → <code class="docutils literal"><span class="pre">View</span></code> → <code class="docutils literal"><span class="pre">Traffic</span> <span class="pre">View</span></code> (or
+other selections) to view activity.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="setting-up-wireshark">
+<h2>Setting Up Wireshark<a class="headerlink" href="#setting-up-wireshark" title="Permalink to this headline">¶</a></h2>
+<p>To use a CC26x2 LaunchPad or other Texas Instruments device with Wireshark,
+download the <a class="reference external" href="http://www.ti.com/tool/packet-sniffer">SmartRF Protocol Packet Sniffer 2</a> and follow the User’s Guide to setup the
+Sniffer Agent.</p>
+<ol class="arabic simple">
+<li>Open the SmartRF Protocol Packet Sniffer 2 and Wireshark as seen in <a class="reference internal" href="#fig-wireshark-open"><span class="std std-numref">Figure 28.</span></a></li>
+</ol>
+<div class="figure" id="id10">
+<span id="fig-wireshark-open"></span><img alt="Open Wireshark and Sniffer Agent" src="../_images/fig-wireshark-open.png" />
+<p class="caption"><span class="caption-number">Figure 28. </span><span class="caption-text">Open Wireshark and Sniffer Agent</span></p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Edit the Wireshark preferences by going to <code class="docutils literal"><span class="pre">Edit</span></code> → <code class="docutils literal"><span class="pre">Preferences</span></code>
+as seen in <a class="reference internal" href="#fig-wireshark-edit-preferences"><span class="std std-numref">Figure 29.</span></a></li>
+</ol>
+<div class="figure" id="id11">
+<span id="fig-wireshark-edit-preferences"></span><img alt="Edit Wireshark Preferences" src="../_images/fig-wireshark-edit-preferences.png" />
+<p class="caption"><span class="caption-number">Figure 29. </span><span class="caption-text">Edit Wireshark Preferences</span></p>
+</div>
+<ol class="arabic simple" start="3">
+<li>Select the Thread Protocol dissector configuration by selecting on the right
+<code class="docutils literal"><span class="pre">Protocol</span></code> → <code class="docutils literal"><span class="pre">Thread</span></code>. Then set the <code class="docutils literal"><span class="pre">Decode</span> <span class="pre">CoAP</span> <span class="pre">for</span> <span class="pre">Thread</span></code>
+option as seen in <a class="reference internal" href="#fig-wireshark-edit-preferences-thread"><span class="std std-numref">Figure 30.</span></a></li>
+</ol>
+<div class="figure" id="id12">
+<span id="fig-wireshark-edit-preferences-thread"></span><img alt="Edit Wireshark Thread Preferences" src="../_images/fig-wireshark-edit-preferences-thread.png" />
+<p class="caption"><span class="caption-number">Figure 30. </span><span class="caption-text">Edit Wireshark Thread Preferences</span></p>
+</div>
+<ol class="arabic simple" start="4">
+<li>Select the CoAP Protocol dissector configuration by selecting on the right
+<code class="docutils literal"><span class="pre">Protocol</span></code> → <code class="docutils literal"><span class="pre">CoAP</span></code> and make sure that the port matches that seen in
+<a class="reference internal" href="#fig-wireshark-edit-preferences-coap"><span class="std std-numref">Figure 31.</span></a></li>
+</ol>
+<div class="figure" id="id13">
+<span id="fig-wireshark-edit-preferences-coap"></span><img alt="Edit Wireshark CoAP Preferences" src="../_images/fig-wireshark-edit-preferences-coap.png" />
+<p class="caption"><span class="caption-number">Figure 31. </span><span class="caption-text">Edit Wireshark CoAP Preferences</span></p>
+</div>
+<ol class="arabic simple" start="5">
+<li>Select the IEEE 802.15.4 Protocol dissector configuration by selecting on
+the right <code class="docutils literal"><span class="pre">Protocol</span></code> → <code class="docutils literal"><span class="pre">IEEE</span> <span class="pre">802.15.4</span></code> and make sure that the
+configuration matches that seen in
+<a class="reference internal" href="#fig-wireshark-edit-preferences-ieee"><span class="std std-numref">Figure 32.</span></a></li>
+</ol>
+<div class="figure" id="id14">
+<span id="fig-wireshark-edit-preferences-ieee"></span><img alt="Edit Wireshark IEEE 802.15.4 Preferences" src="../_images/fig-wireshark-edit-preferences-ieee.png" />
+<p class="caption"><span class="caption-number">Figure 32. </span><span class="caption-text">Edit Wireshark IEEE 802.15.4 Preferences</span></p>
+</div>
+<ol class="arabic simple" start="6">
+<li>In the IEEE 802.15.4 Protocol dissector configuration, add a Thread Master
+key by selecting the <code class="docutils literal"><span class="pre">Edit...</span></code> button next to <code class="docutils literal"><span class="pre">Decryption</span> <span class="pre">Keys</span></code> and
+clicking the <code class="docutils literal"><span class="pre">+</span></code> button as seen in
+<a class="reference internal" href="#fig-wireshark-edit-preferences-ieee-key"><span class="std std-numref">Figure 33.</span></a></li>
+</ol>
+<div class="figure" id="id15">
+<span id="fig-wireshark-edit-preferences-ieee-key"></span><img alt="Add IEEE 802.15.4 Decryption Key" src="../_images/fig-wireshark-edit-preferences-ieee-key.png" />
+<p class="caption"><span class="caption-number">Figure 33. </span><span class="caption-text">Add IEEE 802.15.4 Decryption Key</span></p>
+</div>
+<ol class="arabic" start="7">
+<li><p class="first">Set a key entry with:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="46%" />
+<col width="54%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Decryption Key</td>
+<td><code class="docutils literal"><span class="pre">00112233445566778899aabbccddeeff</span></code></td>
+</tr>
+<tr class="row-even"><td>Decryption Key Index</td>
+<td><code class="docutils literal"><span class="pre">1</span></code></td>
+</tr>
+<tr class="row-odd"><td>Key hash</td>
+<td><code class="docutils literal"><span class="pre">Thread</span> <span class="pre">hash</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>As seen in <a class="reference internal" href="#fig-wireshark-edit-preferences-ieee-key-enter"><span class="std std-numref">Figure 34.</span></a></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Decryption Key is the default value for OpenThread. This should be set
+to a random value in production. You may have to determine the actual
+Thread Master Key for a given network. The Thread Test Harness does change
+these keys in the course of its tests.</p>
+</div>
+<div class="figure" id="id16">
+<span id="fig-wireshark-edit-preferences-ieee-key-enter"></span><img alt="Add IEEE 802.15.4 Decryption Key" src="../_images/fig-wireshark-edit-preferences-ieee-key-enter.png" />
+<p class="caption"><span class="caption-number">Figure 34. </span><span class="caption-text">Add IEEE 802.15.4 Decryption Key</span></p>
+</div>
+<ol class="arabic simple" start="8">
+<li>The packets in Wireshark should now be decrypted and dissected correctly as
+in <a class="reference internal" href="#fig-wireshark-working"><span class="std std-numref">Figure 35.</span></a></li>
+</ol>
+<div class="figure" id="id17">
+<span id="fig-wireshark-working"></span><img alt="Thread Traffic" src="../_images/fig-wireshark-working.png" />
+<p class="caption"><span class="caption-number">Figure 35. </span><span class="caption-text">Thread Traffic</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../debugging/thread-index.html" class="btn btn-neutral float-right" title="Debugging" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="custom-hardware.html" class="btn btn-neutral" title="Custom Hardware" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">2016-2018, Texas Instruments</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.02.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+
+</body>
+</html>

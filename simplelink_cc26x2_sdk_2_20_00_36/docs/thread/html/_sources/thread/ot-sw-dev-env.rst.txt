@@ -1,0 +1,634 @@
+.. include:: <isonum.txt>
+
+.. _chap-ti154stack-software-development-platform:
+
+|OT_STACK| Software Development Environment
+===========================================
+
+TI's royalty-free |SDK| is a complete software platform for developing
+applications that require low-power, security, reliability, and mesh
+networking. This kit is based on the SimpleLink |DEVICE| ultra-low power
+wireless microcontroller unit (MCU). The |DEVICE| device combines a 2.4 GHz RF
+transceiver with 352KB of in-system programmable memory, 80KB of SRAM, and a
+full range of peripherals. The |DEVICE| device is centered on an ARM\ |reg|
+Cortex\ |reg|-M4F series processor, that executes the user application and
+stack code, and an autonomous radio core centered on an ARM Cortex-M0
+processor, which handles all the low-level radio control. The sensor controller
+block provides additional flexibility by allowing autonomous data acquisition
+and control independent of the Cortex-M4F processor core, which further extends
+the low-power capabilities of the |DEVICE| device.
+
+
+.. _sec-protocol-stack-description:
+
+|OT_STACK| Description
+----------------------
+
+.. _sec-protocol-stack-application-configuration:
+
+Protocol Stack and Application Configurations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The below diagram shows the two different system architectures enabled by
+|OT_STACK|.
+
+- A single device is shown in the diagram below (left). The application and
+  protocol stack are both implemented on the |DEVICE| as a true single-chip
+  solution. This configuration is the simplest and most common when using the
+  |DEVICE| for network devices. This configuration is the most cost-effective
+  technique and provides the lowest-power performance.
+
+- A network co-processor (NCP) is shown in the diagram below (right). The
+  protocol stack runs on the |DEVICE| while the application is executed on an
+  external host processor. The application processor interfaces with the
+  |DEVICE| using the Spinel protocol over a serial universal asynchronous
+  receiver/transmitter (UART) connection. The description of the Spinel
+  interface is provided in the `Spinel Protocol Specification
+  <https://tools.ietf.org/html/draft-rquattle-spinel-unified-00>`_. This
+  configuration is useful for applications that must add wireless connectivity
+  or peripheral applications, which execute on a host processor without the
+  requirement to implement the complexities associated with a wireless
+  networking protocol. In these cases, the application can be developed
+  externally on a host processor while running |OT_STACK| on the |DEVICE|,
+  which provides ease of development and quickly adds Thread support and
+  wireless connectivity to existing products.
+
+.. ditaa::
+    :--no-shadows:
+    :--no-separation:
+    :align: center
+    :width: 65%
+
+    Single Device SoC         :    Two Chip Network
+    Configuration             :    Co-Processor
+    +--------------------+    :    +--------------------+
+    | SimpleLink         |    :    | External MCU       |
+    | Wireless MCU  cFFF |    :    |               cFFF |
+    | +------------------+    :    | +------------------+
+    | | User Application |    :    | | User Application |
+    | |                  |    :    | |             cC00 |
+    | |                  |    :    +-+------------------+
+    | |             cC00 |    :     ^ | Serial
+    | +------------------+    :     | V Transfer (UART)
+    | | OpenThread Stack |    :    +--------------------+
+    | |                  |    :    | SimpleLink         |
+    | |             c0BC |    :    | Wireless MCU  cFFF |
+    | +------------------+    :    | +------------------+
+    | | RTOS Kernel      |    :    | | OpenThread NCP   |
+    | | and Drivers      |    :    | | Application c0BC |
+    | |                  |    :    | +------------------+
+    | |                  |    :    | | RTOS Kernel      |
+    | |             cAAA |    :    | | and Drivers cAAA |
+    +-+------------------+    :    +-+------------------+
+
+
+.. _sec-solution-platform:
+
+Solution Platform
+^^^^^^^^^^^^^^^^^
+
+This section describes the various components that are installed with the
+|SDK|, the directory structure of the protocol stack, and any tools required
+for development. The diagram below shows the |OT_STACK| development system.
+
+.. ditaa::
+    :--no-shadows:
+    :--round-corners:
+    :align: center
+    :width: 65%
+
+    +-----------+ : +---------------------+
+    | IDE       | : | User Application    |
+    | o CCS     | : |                cC00 |
+    |      c000 | : +---------------------+
+    | +---------+ : | TI OpenThread Stack |
+    | |Toolchain| : |                c0BC |
+    | | o ccs   | : +-------------+-------+
+    | | o gcc   | : | TI Drivers  | POSIX |
+    | |    c156 | : |       cFFF  |  c189 |
+    | +---------+ : +---------+---+-------+
+    | |Emulators| : |driverlib|  kernel   |
+    | | o XDS110| : |    cAAA |      c156 |
+    | |         | : +---------+-----------+
+    | |    c189 | : | Device          c000|
+    +-+---------+ : +---------------------+
+
+
+The following components are included in the solution platform:
+
+- Real-time operating system (|RTOS|) with the TI-RTOS |trade| SYS/BIOS kernel,
+  optimized power management support, and peripheral drivers.
+
+- The driverLib provides a register abstraction layer that is used by software
+  and drivers to control the |DEVICE| MCU.
+
+- Example applications make the beginning stages of development easier. Example
+  applications are provided for the |DEVICE| platform.
+
+.. _sec-directory-structure:
+
+Directory Structure
+-------------------
+
+The |SDK| directory structure is broken down into a few major directories at
+the root to allow easy differentiation between documentation, examples, kernel
+source, and other source code. From the root directory, the sub-directories
+are:
+
+:docs: Contains HTML and PDF documentation for the |SDK|.
+:examples: Contains the example projects and example source for this |SDK|.
+:kernel: Contains the source and build tools for the kernels supported by this
+         |SDK|.
+:source: Contains the source code for the larger components of the |SDK|. A
+         more detailed description of this directory follows.
+:tools: Scripts and definition files used by the |SDK|. Contains scripts
+        referenced by the |SDK| documentation.
+
+The source directory is split into major categories based on where the source
+code came from. All of the source code within the ``third_party`` directory
+comes from vendors other than Texas Instruments. All of the source code within
+the ``ti`` directory comes from Texas Instruments.
+
+:third_party\\openthread: Contains the |OT_STACK| stack repository.
+:ti\\devices: Contains the board support source code.
+:ti\\display: Contains the source code for the display libraries.
+:ti\\drivers: Contains the source code for the TI-RTOS drivers.
+:ti\\grlib: Contains the source code for the graphics libraries.
+:ti\\mw: Contains the source code for the middleware drivers.
+
+
+.. _sec-projects:
+
+Projects
+--------
+
+The |OT_STACK| component within the |SDK| includes several projects.
+
+CLI
+^^^
+
+The CLI projects can be used to interact with and explore the different aspects
+of the Thread protocol. The CLI interface |OT| presents is also used for
+certification with the |THREAD_GROUP| test harness.
+
+Four variants of the Command Line Interface examples exist for |DEVICE| in the
+examples directory. Two for each device type [|FTD|, |MTD|], with one example
+for each toolchain [|CCS|, |GCC|]. These examples use the |RTOS| Posix APIs for
+execution of the application and stack tasks.
+
+The CLI examples are a great place to start learning about Thread.
+
+Consult the ``README.html`` in the imported example for usage directions.
+
+NCP
+^^^
+
+The NCP projects are used to connect the |OT_STACK| to a host processor.  The
+Spinel interface |OT| presents can be used with the |OT_WPANTUND| to create a
+bridge from a Linux host processor to the |DEVICE|.
+
+Four variants of the Network CoProcessor example exist for |DEVICE| in the
+examples directory. Two for each device type [|FTD|, |MTD|], with one example
+for each toolchain [|CCS|, |GCC|]. These examples use the |RTOS| Posix APIs for
+execution of the application and stack tasks.
+
+Consult the ``README.html`` in the imported example for usage directions.
+
+Door Lock
+^^^^^^^^^
+
+The door lock project presents a simple CoAP server representing a door lock.
+The door lock example is best used with a |430BOOST_SHARP96|, but also can be
+used with only the basic UART log.
+
+Two variants of the door lock example exist for |DEVICE| in the examples
+directory. One |MTD| example exists for each toolchain [|CCS|, |GCC|]. These
+examples use the |RTOS| Posix APIs for execution of the application and stack
+tasks. An image of a lock is displayed on the |430BOOST_SHARP96| for each
+state, locked or unlocked. Transitions are animated on the screen and logged
+over the UART connection.
+
+Consult the ``README.html`` in the imported example for usage directions.
+
+Shade
+^^^^^
+
+The shade project presents a simple CoAP server representing window blinds.
+The shade example is best used with a |430BOOST_SHARP96|, but also can be used
+with only the basic UART log.
+
+Two variants of the shade example exist for |DEVICE| in the examples
+directory. One |MTD| example exists for each toolchain [|CCS|, |GCC|]. These
+examples use the |RTOS| Posix APIs for execution of the application and stack
+tasks. An image of window blinds is displayed on the |430BOOST_SHARP96| for
+each state, open or drawn or closed. Transitions are animated on the screen and
+logged over the UART connection.
+
+Consult the ``README.html`` in the imported example for usage directions.
+
+Thermostat
+^^^^^^^^^^
+
+The thermostat project presents a simple CoAP server representing a
+thermostat. The thermostat example is best used with a |430BOOST_SHARP96|, but
+also can be used with only the basic UART log.
+
+Two variants of the thermostat example exist for |DEVICE| in the examples
+directory. One |FTD| example exists for each toolchain [|CCS|, |GCC|]. These
+examples use the |RTOS| Posix APIs for execution of the application and stack
+tasks. The current temperature reported to the thermostat and set-point are
+displayed on the |430BOOST_SHARP96|. Transitions are animated on the screen
+and logged over the UART connection.
+
+For full functionality, this example should be used with a border router and
+temperature sensor example.
+
+Consult the ``README.html`` in the imported example for usage directions.
+
+Temperature Sensor
+^^^^^^^^^^^^^^^^^^
+
+The Temperature Sensor project presents a simple CoAP server and client
+representing an embedded temperature sensor.
+
+Two variants of the temp sensor example exist for |DEVICE| in the examples
+directory. One |MTD| example exists for each toolchain [|CCS|, |GCC|]. These
+examples use the |RTOS| Posix APIs for execution of the application and stack
+tasks. The current temperature read from the internal temp sensor is reported
+over the UART, presented by a CoAP server, and reported to a statically
+compile-time assigned address.
+
+For full functionality, this example should be used with a border router and
+thermostat example.
+
+Consult the ``README.html`` in the imported example for usage directions.
+
+Border Router
+^^^^^^^^^^^^^
+
+The border router example is a basic implementation of a Thread Border Router.
+A Thread Border Router is a node on the Thread network that can bridge traffic
+from an IPv4 or IPv6 network to the Thread network and vice-versa. A Thread
+Border Router also enables off network commissioning of new devices into the
+Thread network.
+
+.. note::
+
+    Specific documentation for the Border Router application can be
+    found in the ``${border_router}/doc`` folder
+
+
+.. _sec-fcc-testing-functionality:
+
+FCC Testing Functionality
+-------------------------
+
+:term:`FCC` and other similar RF regulatory bodies often require certain
+certifications to be fullfilled before a product is brought to market, even
+though the Thread protocol makes no such requirements. Therefore, it is
+desirable to have :term:`FCC` testing functionality available in a Thread
+example project.
+
+The *diag* (diagnostic) module in OpenThread provides a set of commands to
+manipulate the radio from within the OpenThread environment. The *diag* module
+is accesible from the OpenThread CLI application.
+
+Mainly two :term:`FCC` testing functionalities are supported: :term:`PER` test
+functionality with `SmartRF Studio`_ compatibility, and test of continuous
+tone. The result of a :term:`PER` test is calculated in the same fashion as
+`SmartRF Studio`_, shown in Equation :eq:`smartrf_studio_per`.
+
+.. math::
+    :label: smartrf_studio_per
+
+    \text{Error Count} &= \text{CRC Error Count} + \text{Lost Packet Count}
+
+    \text{Packet Error Rate}[\%] &= \frac{\text{Error Count}}{\text{Packet Count} + \text{Error Count}} \times 100
+
+
+.. _subsec-fcc-continuous-transmission:
+
+Test of Continuous Transmission
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The API for starting and stopping a continuous transmission is on the
+following format::
+
+    diag transmit start <packet size> <interframe space> <transmit count>
+    diag transmit stop
+
+*Packet size* specifies the payload of the packet in bytes, the *interframe
+space* specifies time beween each packet in milliseconds, and *transmit count*
+specifies the number of packets to send.
+
+.. note::
+
+    If you want to receive and observe the transmitted packets, you can use an
+    IEEE 802.15.4-capable LaunchPad with `SmartRF Studio`_, configuring the
+    device to the same channel in Packet RX mode expecting infinite packets.
+    This is optional.
+
+To start a test of continuous transmission with your Thread device, do the
+following:
+
+1. Build and flash the *cli_ftd* example application.
+2. Input the following commands in the UART CLI. ::
+
+    diag start
+    diag channel 12
+    diag power 5
+    diag transmit start 100 30 500
+
+3. (Optional) Observe the packets in `SmartRF Studio`_.
+4. Stop the transmission with the commands in the UART CLI. ::
+
+    diag transmit stop
+    diag stop
+
+After stopping the transmission, a test report is displayed with statistics
+over how many packets were transmitted.
+
+
+.. _subsec-fcc-continuous-reception:
+
+Test of Continuous Reception
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The API for starting and stopping a continuous transmission is one the
+following format::
+
+    diag receive start
+    diag receive stop
+
+No additional parameters are required. Stopping the continuous reception will
+present a :term:`PER` report of packets received.
+
+.. note::
+
+    It is required to have a device sending out a continuous transmission on
+    the same channel, while the continuous reception test is running to have
+    any meaningful results. Either setup `SmartRF Studio`_ with an IEEE
+    802.15.4-capable LaunchPad in Packet TX mode on the same channel sending
+    infinite packets, or see :ref:`subsec-fcc-continuous-transmission`.
+
+To start a test of continuous reception with your Thread device, do the
+following:
+
+1. Build and flash the *cli_ftd* example application.
+2. Input the following cmmands in the UART CLI. ::
+
+    diag start
+    diag channel 12
+    diag receive start
+
+3. Start packet transmissions from your other device.
+4. When satisfied, stop packet transmissions.
+5. Stop the transmission with the commands in the UART CLI, observing the report. ::
+
+    diag receive stop
+    diag stop
+
+After stopping the reception, a test report is displayed with statistics over
+received packets, including :term:`PER`.
+
+
+.. _subsec-fcc-continuous-ton:
+
+Test of Continuous Tone
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The API for starting and stopping a continuous tone is one the following
+format::
+
+    diag tone start
+    diag tone stop
+
+No additional parameters are required. To observe the continuous tone, setup a
+Spectrum Analyzer near the DUT; or, setup `SmartRF Studio`_ in Continuous RX
+mode on the same channel.
+
+To start a test of continuous tone with your Thread device, do the following:
+
+1. Build and flash the *cli_ftd* example application.
+2. Input the following cmmands in the UART CLI. ::
+
+    diag start
+    diag channel 12
+    diag power 5
+    diag tone start
+
+3. Observe the transmission over the air with the Spectrum Analizer or `SmartRF Studio`_.
+4. Stop the transmission with the commands in the UART CLI, observing the report. ::
+
+    diag tone stop
+    diag stop
+
+No test report is displayed after stopping the tone.
+
+
+.. _sec-useful-ccs-settings:
+
+Useful CCS IDE Settings
+-----------------------
+
+The CCS provides a large number of configurable settings that can be used to
+customize the IDE and individual projects. The following examples do not alter
+the generated program code, but they can improve the developer's experience
+when working with CCS projects. The CCS can reduce project compilation time by
+taking advantage of multiple processor cores on the development computer.
+
+To use this feature, open the properties dialog by selecting ``Project`` |rarr|
+``Properties`` then selecting ``Build`` |rarr| ``Behavior`` and select Enable
+parallel build, as shown in :numref:`fig-properties-cli`.
+
+.. _fig-properties-cli:
+.. figure:: resources/fig-properties-cli.jpeg
+    :align: center
+
+    Properties for cli example
+
+CCS users can control the amount of information that is displayed in the
+Console portion of the screen during project compilation and linking, ranging
+from Verbose to Super quiet. To change this setting, open the preferences
+dialog by selecting ``Window`` |rarr| ``Preferences`` and navigating to ``Code
+Composer Studio`` |rarr| ``Build`` and select an entry from the Console
+verbosity level drop-down, as shown in :numref:`fig-ccs-console-verbosity`
+
+.. _fig-ccs-console-verbosity:
+.. figure:: resources/fig-ccs-console-verbosity.jpeg
+    :align: center
+
+    Console Verbosity Level Preferences
+
+.. _sec-accessing-preprocessor-symbols:
+
+
+Accessing Preprocessor Symbols
+------------------------------
+
+Throughout this document and in the source code, various C preprocessor symbols
+may need to be defined or modified at the project level. Preprocessor symbols
+(also known as Predefined Symbols) are used to enable and disable features and
+set operational values to be considered when the program is compiled. The
+preprocessor symbols are split between project specific preprocessor symbols
+and configuration header preprocessor symbols.
+
+
+Project Specific Preprocessor Symbols
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Configurations for a given example project are stored in CCS's predefined
+symbols setting for that project.
+
+In CCS, preprocessor symbols are accessed by opening the appropriate Project
+Properties by right clicking on the project in the Project Explorer and
+selecting ``Properties`` then navigating to ``CCS Build`` |rarr| ``ARM
+Compiler`` |rarr| ``Predefined Symbols``. To add, delete, or edit a
+preprocessor symbol, use one of the icons shown in the red box in
+:numref:`fig-ccs-predefined-symbols`.
+
+.. _fig-ccs-predefined-symbols:
+.. figure:: resources/fig-ccs-predefined-symbols.jpeg
+    :align: center
+
+    Predefined Symbols Pane
+
+.. _sec-configuration-preprocessor-symbols:
+
+Configuration Header Preprocessor Symbols
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Configuration for the OpenThread libraries is stored in the configuration
+header within the libopenthread project. These defines control certain features
+of the OpenThread stack itself.
+
+In :numref:`fig-header-predefined-symbols` you can see the OpenThread header
+for the cc2652 chip, ccs toolchain, and ftd device type. This configuration
+file is linked with the highlighted ``cli_ftd_CC26X2_LAUNCHXL_tirtos_ccs``
+example project. These configuration headers are common across all projects
+within the workspace that link to the library projects. These configuration
+headers were generated from the |OT| configuration step and modified to work
+with the example applications.
+
+.. note::
+    The configuration header associated with your project may be different. The
+    name of the library project depends on the board, toolchain, and device
+    type.
+
+.. _fig-header-predefined-symbols:
+.. figure:: resources/fig-header-predefined-symbols.jpeg
+    :align: center
+
+    OpenThread configuration header
+
+
+.. _sec-software-architecture:
+
+Software Architecture
+---------------------
+
+The Application Architecture is split into two major sections, the |OT| stack
+and the application logic. The |OT| stack logic is executed within its own
+|RTOS| task. The application logic is executed in a separate |RTOS| task and
+controls the |OT| stack execution.
+
+
+|OT| Stack Task Architecture
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The |OT| stack task handles instantiation of the OpenThread instance object and
+basic setup of the stack primatives. The task then spins in an infinite loop to
+processing OpenThread tasklets and the process functions of the OpenThread
+drivers.
+
+The OpenThread stack manages a queue of tasks to be run called tasklets. These
+tasklets are processed by the OpenThread stack task by the call to the
+``otTaskletsProcess()``, this function processes the queued tasklets. Tasklets
+are segments of code written in a non-blocking fashion.
+
+The OpenThread stack task also processes the OpenThread platform drivers. These
+are an adaptation layer betweeen OpenThread and the |RTOS| drivers. The process
+functions for the OpenThread platform layer are handled by
+``PlatformProcessDrivers()``.
+
+
+Application Task Architecture
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The application task handles setup and execution of the application and
+execution and some management of the OpenThread stack. In contrast to the
+OpenThread Stack, the application task is written in a blocking manor. The
+application task is meant to execute for a short period of time, then block on
+an |RTOS| event or timer to allow the OpenThread stack time to execute.
+
+The NCP and CLI applications are special example applications. The bulk of
+their code resides in a library within the OpenThread package. Those examples
+execute from OpenThread tasklets. The files built inside the example
+application project are only what is necessary to start those examples. The
+application task in these examples starts the respective tasklets and timers in
+OpenThread, then blocks in a timer loop to toggle the Red LED on |DEVICE|
+Launchpad.
+
+The CoAP examples setup the display and any necessary peripherals, then enter
+an infinite loop blocking on an |RTOS| events structure. The stack task or
+|RTOS| timers unblock the processing loop by posting the events to that
+structure. In this fashion the application task updates the display and
+internal data structures.
+
+Application Stack Interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For simplicity and ease of testing the |OT| developers have chosen a single
+threaded design for their stack. This means that the OpenThread stack assumes
+singular access to its data structures. This poses a challenge in the
+Multi-Threaded |RTOS|. To remedy these access issues, a simple framework has
+been put in place for the |DEVICE| examples. The usage of a recursive |RTOS|
+mutex is employed to ensure coherent access to the OpenThread APIs.
+
+The API mutex is locked and unlocked through the ``OtRtosApi`` module within
+the example project. The OpenThread Stack task locks the mutex before
+processing the stack functionality, and un-locks the mutex immediately after.
+An application should be expected to lock and un-lock the API mutex in much the
+same fashion when calling an OpenThread API.
+
+.. code-block:: c
+    :name: `OpenThread Stack task API lock`
+    :caption: `The OpenThread Stack locking and un-locking the API mutex`
+
+    /* Process the OpenThread tasklets and driver functions. */
+    OtRtosApi_lock();
+    otTaskletsProcess(OtStack_instance);
+    PlatformProcessDrivers(OtStack_instance);
+    OtRtosApi_unlock();
+
+.. code-block:: c
+    :name: `Application task API lock`
+    :caption: `The Application locking and un-locking the API mutex`
+
+    OtRtosApi_lock();
+    otCliUartInit(instance);
+    OtRtosApi_unlock();
+
+Here is a high level overview of the Application Stack interface.
+
+.. ditaa::
+    :--no-shadows:
+
+    +-------------+ lock mutex before +------------+
+    |             | using OpenThread  |            |
+    | User        +-+---------------->| OpenThread |
+    | Application | |                 | Stack      |
+    |             | |      lock mutex |            |
+    |             | |  before running |            |
+    |             | |  +--------+-----+            |
+    |             | |  |        +---->|            |
+    |             | V  V              |            |
+    |             +-------------------+            |
+    |             | OtRtosApi         |            |
+    |        cC00 | mutex        cAAA |       c0BC |
+    +-------------+-------------------+------------+
+    | RTOS APIs                                    |
+    |                                         c000 |
+    +----------------------------------------------+
+
+.. include:: inc_memory_map.rst

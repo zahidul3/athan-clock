@@ -1,0 +1,41 @@
+Over-the-Air Download (OAD)
+###########################
+
+The following sections aim to describe the lower layers of OAD software that are
+common across all protocol stack implementations. This includes the OAD image
+header, the flash layout, Boot Image Manager, and the oad\_image\_tool.
+
+.. toctree::
+    /oad/intro
+    /oad/bim
+    /oad/bim-offchip
+    /oad/image-header
+    /oad/ext-flash-image-header
+    /oad/flash-layout-off-chip
+    /oad/tools
+
+The following sections aim to describe the |STACK| specific application and
+profile layer of the OAD solution. The OAD application section will describe
+the BLE OAD process from a high level in terms of events and states, and the
+profile section will cover the actual structures that are sent over the air.
+
+See :ref:`oad_reference` for more information about the various OAD APIs and
+structures.
+
+.. note::
+    The current |STACK| does not support on-chip OAD. Any reference to on-chip
+    the following sections can be ignored
+
+.. toctree::
+    oad-application
+    oad-profile
+
+The following sections cover the out of the box demo for OAD using the |STACK|.
+Additionally, the steps are included on how to add OAD to an existing project.
+
+.. toctree::
+    setting-up-environment
+    performing-an-oad
+    creating-a-production-image
+    revert-to-factory
+    add-ble-oad-to-proj

@@ -1,0 +1,10 @@
+{
+    "type"        : ["LED", "DOUT", "PWM"], /* dimmable LED */
+    "displayName" : "LED",
+    "partNum"     : "LED Part Number",
+    "signals"     : {
+        "output": {
+            "type": ["DOUT", "PWM"]
+        }
+    }
+}

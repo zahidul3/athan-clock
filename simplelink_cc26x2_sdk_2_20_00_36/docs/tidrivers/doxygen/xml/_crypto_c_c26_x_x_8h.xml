@@ -1,0 +1,1487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="_crypto_c_c26_x_x_8h" kind="file" language="C++">
+    <compoundname>CryptoCC26XX.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="_power_8h" local="no">ti/drivers/Power.h</includes>
+    <includes local="no">ti/devices/DeviceFamily.h</includes>
+    <includes local="no">DeviceFamily_constructPath(driverlib/crypto.h)</includes>
+    <includes local="no">ti/drivers/dpl/HwiP.h</includes>
+    <includes local="no">ti/drivers/dpl/SemaphoreP.h</includes>
+    <incdepgraph>
+      <node id="129">
+        <label>stdbool.h</label>
+      </node>
+      <node id="134">
+        <label>DeviceFamily_constructPath(driverlib/crypto.h)</label>
+      </node>
+      <node id="128">
+        <label>stdint.h</label>
+      </node>
+      <node id="131">
+        <label>ti/drivers/utils/List.h</label>
+        <link refid="_list_8h"/>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="136">
+        <label>ti/drivers/dpl/SemaphoreP.h</label>
+      </node>
+      <node id="132">
+        <label>stddef.h</label>
+      </node>
+      <node id="133">
+        <label>ti/devices/DeviceFamily.h</label>
+      </node>
+      <node id="135">
+        <label>ti/drivers/dpl/HwiP.h</label>
+      </node>
+      <node id="127">
+        <label>CryptoCC26XX.h</label>
+        <link refid="_crypto_c_c26_x_x_8h"/>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+      </node>
+      <node id="130">
+        <label>ti/drivers/Power.h</label>
+        <link refid="_power_8h"/>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_crypto_c_c26_x_x___params" prot="public">CryptoCC26XX_Params</innerclass>
+    <innerclass refid="struct_crypto_c_c26_x_x___transaction" prot="public">CryptoCC26XX_Transaction</innerclass>
+    <innerclass refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction" prot="public">CryptoCC26XX_AESCCM_Transaction</innerclass>
+    <innerclass refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction" prot="public">CryptoCC26XX_AESCBC_Transaction</innerclass>
+    <innerclass refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction" prot="public">CryptoCC26XX_AESECB_Transaction</innerclass>
+    <innerclass refid="struct_crypto_c_c26_x_x___h_w_attrs" prot="public">CryptoCC26XX_HWAttrs</innerclass>
+    <innerclass refid="struct_crypto_c_c26_x_x___object" prot="public">CryptoCC26XX_Object</innerclass>
+    <innerclass refid="struct_crypto_c_c26_x_x___config" prot="public">CryptoCC26XX_Config</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a8a94999f3768d815e26ac50a0debeeb0" prot="public" static="no">
+        <name>CRYPTOCC26XX_TIMEOUT</name>
+        <initializer>20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timeout Return Code </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="415" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="415" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1aaebc21d7bb5269638a64ff57f2b758aa" prot="public" static="no">
+        <name>CRYPTOCC26XX_STATUS_SUCCESS</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Success Return Code </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="417" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="417" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a077508dd42d5999244911edc61f63194" prot="public" static="no">
+        <name>CRYPTOCC26XX_STATUS_ERROR</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Error Return Code </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="418" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="418" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a32adca418e15c3d66ec8a1b3dfa9f4d8" prot="public" static="no">
+        <name>CRYPTOCC26XX_STATUS_UNDEFINEDCMD</name>
+        <initializer>-2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Command Undefined Return Code </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="419" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="419" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a00bd9c4c4f823576ed52a99cc1c49df4" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_CCM_ENCRYPT</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>AES-CCM encryption of both AAD and plain text </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="421" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="421" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1adbc0e20b32a3e1b968ea9cb05cd2bde4" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_CCM_ENCRYPT_AAD_ONLY</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>AES-CCM authentication of ADD only </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="422" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="422" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1af57bb0e27a57946d9fa6ac747d534f26" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_CCM_DECRYPT</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>AES-CCM decryption of both AAD and plain text and verification of both </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="423" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="423" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a2e9761d83b7e451861e3d1891213d069" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_CCM_DECRYPT_AAD_ONLY</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>AES-CCM verification of ADD only </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="424" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1af72980622fb0dc9555587ef90083b3ef" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_ECB_ENCRYPT</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>AES-ECB encryption </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="425" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="425" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a74881034cf440f28a91c5263fc728097" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_ECB_DECRYPT</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>AES-ECB decryption </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="426" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="426" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1aab1035e549d6de54b25a9f9a6ae2f3ba" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_CBC_ENCRYPT</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>AES-CBC encryption </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="427" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="427" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a6a2cf7f9abef28bcc0d503d3b7e9a8d3" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_CBC_DECRYPT</name>
+        <initializer>7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>AES-CBC decryption </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="428" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="428" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a6ab0b59b64c06856c431f91a7e43b34d" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_CCM</name>
+        <initializer><ref refid="_crypto_c_c26_x_x_8h_1a00bd9c4c4f823576ed52a99cc1c49df4" kindref="member">CRYPTOCC26XX_OP_AES_CCM_ENCRYPT</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="431" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="431" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1acc1c159d62112b90da86ecd846994f98" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_CCM_NOCRYPT</name>
+        <initializer><ref refid="_crypto_c_c26_x_x_8h_1adbc0e20b32a3e1b968ea9cb05cd2bde4" kindref="member">CRYPTOCC26XX_OP_AES_CCM_ENCRYPT_AAD_ONLY</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="432" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="432" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a38c8bce4f77947e99d2d877e8d3dee7e" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_CCMINV</name>
+        <initializer><ref refid="_crypto_c_c26_x_x_8h_1af57bb0e27a57946d9fa6ac747d534f26" kindref="member">CRYPTOCC26XX_OP_AES_CCM_DECRYPT</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="433" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="433" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a445002cd50ecda94d48f437bc213a499" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_CCMINV_NOCRYPT</name>
+        <initializer><ref refid="_crypto_c_c26_x_x_8h_1a2e9761d83b7e451861e3d1891213d069" kindref="member">CRYPTOCC26XX_OP_AES_CCM_DECRYPT_AAD_ONLY</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="434" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="434" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1a9e96510f981e65f0c46c19684daaff07" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_ECB</name>
+        <initializer><ref refid="_crypto_c_c26_x_x_8h_1af72980622fb0dc9555587ef90083b3ef" kindref="member">CRYPTOCC26XX_OP_AES_ECB_ENCRYPT</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="435" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="435" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_crypto_c_c26_x_x_8h_1aea29a252e094057f90d0fccd938b8a0d" prot="public" static="no">
+        <name>CRYPTOCC26XX_OP_AES_ECB_NOCRYPT</name>
+        <initializer><ref refid="_crypto_c_c26_x_x_8h_1a74881034cf440f28a91c5263fc728097" kindref="member">CRYPTOCC26XX_OP_AES_ECB_DECRYPT</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="436" column="9" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="436" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cd" prot="public" static="no">
+        <name>CryptoCC26XX_Mode</name>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cdaf0a9faf35a12d014c5f3a475906a3373" prot="public">
+          <name>CRYPTOCC26XX_MODE_BLOCKING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Uses a semaphore to block while data is being sent. Context of the call must be a Task. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cda015c9e0e35350eb92ede6ad4109fa50b" prot="public">
+          <name>CRYPTOCC26XX_MODE_POLLING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Will return when the operation has finished. Call can be made from hwi and swi context. </para>          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CryptoCC26XX Mode Settings. </para>        </briefdescription>
+        <detaileddescription>
+<para>This enum defines the read and write modes for the configured CryptoCC26XX. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="453" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="453" bodyend="465"/>
+      </memberdef>
+      <memberdef kind="enum" id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706" prot="public" static="no">
+        <name>CryptoCC26XX_KeyLocation</name>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a49e17e3899e3f3b3fde9a99ab99a4f62" prot="public">
+          <name>CRYPTOCC26XX_KEY_0</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a6180ef53c43ac78dfd2879e47f0ae2fe" prot="public">
+          <name>CRYPTOCC26XX_KEY_1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a8fbf1d57797616552fec31ea75968ad4" prot="public">
+          <name>CRYPTOCC26XX_KEY_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a4d90bb601a0a135054f4a92f02acf101" prot="public">
+          <name>CRYPTOCC26XX_KEY_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a9ebecf9a462870312120060f28f0cd39" prot="public">
+          <name>CRYPTOCC26XX_KEY_4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706aa7bf50a9fdbb8eb3eb9d723532c4fe4c" prot="public">
+          <name>CRYPTOCC26XX_KEY_5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a86392e0370e91b9b7c21505fb067abbb" prot="public">
+          <name>CRYPTOCC26XX_KEY_6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a0494750a494f691ad204a3efc6be2ff1" prot="public">
+          <name>CRYPTOCC26XX_KEY_7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706aa4d6d2c76958ac16f7c4d0d80b34db7e" prot="public">
+          <name>CRYPTOCC26XX_KEY_COUNT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a335a9c94549f0e882296bd43ccb4f953" prot="public">
+          <name>CRYPTOCC26XX_KEY_ANY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>CryptoCC26XX Key Store Location. </para>        </briefdescription>
+        <detaileddescription>
+<para>This enumeration defines the possible key locations in CryptoCC26XX. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="489" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="489" bodyend="500"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" prot="public" static="no">
+        <type>struct <ref refid="struct_crypto_c_c26_x_x___config" kindref="compound">CryptoCC26XX_Config</ref> *</type>
+        <definition>typedef struct CryptoCC26XX_Config* CryptoCC26XX_Handle</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_Handle</name>
+        <briefdescription>
+<para>A handle that is returned from a <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref> call. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="445" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="445" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a2a7a223869fb2c7f4b577f3552563d16" prot="public" static="no">
+        <type>enum <ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cd" kindref="member">CryptoCC26XX_Mode</ref></type>
+        <definition>typedef enum CryptoCC26XX_Mode  CryptoCC26XX_Mode</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_Mode</name>
+        <briefdescription>
+<para>CryptoCC26XX Mode Settings. </para>        </briefdescription>
+        <detaileddescription>
+<para>This enum defines the read and write modes for the configured CryptoCC26XX. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="465" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a28465385e5b45efecc00f2015605f970" prot="public" static="no">
+        <type>uint8_t</type>
+        <definition>typedef uint8_t CryptoCC26XX_Operation</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_Operation</name>
+        <briefdescription>
+<para>CryptoCC26XX Operation Type. </para>        </briefdescription>
+        <detaileddescription>
+<para>This type holds the CryptoCC26XX operation.</para><para>Currently supported types are</para><para><table rows="5" cols="2"><row>
+<entry thead="yes"><para>Encryption </para></entry><entry thead="yes"><para>Decryption  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a00bd9c4c4f823576ed52a99cc1c49df4" kindref="member">CRYPTOCC26XX_OP_AES_CCM_ENCRYPT</ref> </para></entry><entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1af57bb0e27a57946d9fa6ac747d534f26" kindref="member">CRYPTOCC26XX_OP_AES_CCM_DECRYPT</ref> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1adbc0e20b32a3e1b968ea9cb05cd2bde4" kindref="member">CRYPTOCC26XX_OP_AES_CCM_ENCRYPT_AAD_ONLY</ref> </para></entry><entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a2e9761d83b7e451861e3d1891213d069" kindref="member">CRYPTOCC26XX_OP_AES_CCM_DECRYPT_AAD_ONLY</ref> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1af72980622fb0dc9555587ef90083b3ef" kindref="member">CRYPTOCC26XX_OP_AES_ECB_ENCRYPT</ref> </para></entry><entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a74881034cf440f28a91c5263fc728097" kindref="member">CRYPTOCC26XX_OP_AES_ECB_DECRYPT</ref> </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1aab1035e549d6de54b25a9f9a6ae2f3ba" kindref="member">CRYPTOCC26XX_OP_AES_CBC_ENCRYPT</ref> </para></entry><entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a6a2cf7f9abef28bcc0d503d3b7e9a8d3" kindref="member">CRYPTOCC26XX_OP_AES_CBC_DECRYPT</ref> </para></entry></row>
+</table>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="481" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="481" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a4e214e5283d16ac67e593c7c8a5bc058" prot="public" static="no">
+        <type>enum <ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706" kindref="member">CryptoCC26XX_KeyLocation</ref></type>
+        <definition>typedef enum CryptoCC26XX_KeyLocation  CryptoCC26XX_KeyLocation</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_KeyLocation</name>
+        <briefdescription>
+<para>CryptoCC26XX Key Store Location. </para>        </briefdescription>
+        <detaileddescription>
+<para>This enumeration defines the possible key locations in CryptoCC26XX. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="500" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1afd8b8a794d92fe38d4806238c3b6fef7" prot="public" static="no">
+        <type>struct <ref refid="struct_crypto_c_c26_x_x___params" kindref="compound">CryptoCC26XX_Params</ref></type>
+        <definition>typedef struct CryptoCC26XX_Params  CryptoCC26XX_Params</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_Params</name>
+        <briefdescription>
+<para>CryptoCC26XX Parameters. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="507" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a30e647b6ad6b608b60990929200686e0" prot="public" static="no">
+        <type>uint8_t</type>
+        <definition>typedef uint8_t CryptoCC26XX_KeyStore</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_KeyStore</name>
+        <briefdescription>
+<para>CryptoCC26XX Key. </para>        </briefdescription>
+        <detaileddescription>
+<para>This holds allocation information for the keys in the key store. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="514" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" bodystart="514" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a7d5a6e41436163786d2e01c0122a3de7" prot="public" static="no">
+        <type>struct <ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref></type>
+        <definition>typedef struct CryptoCC26XX_Transaction  CryptoCC26XX_Transaction</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_Transaction</name>
+        <briefdescription>
+<para>CryptoCC26XX Transaction. </para>        </briefdescription>
+        <detaileddescription>
+<para>This structure defines the nature of a general crypto transaction. An operation specific object, e.g. <ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction" kindref="compound">CryptoCC26XX_AESCCM_Transaction</ref>, must be used by the clients. All transaction must be typecasted to this common type when calling the transact functions. The first data of all transactions must hold a type field indicating which type of transaction to be performed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="529" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a9cf6019bce243720cebc70eb8310682e" prot="public" static="no">
+        <type>struct <ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction" kindref="compound">CryptoCC26XX_AESCCM_Transaction</ref></type>
+        <definition>typedef struct CryptoCC26XX_AESCCM_Transaction  CryptoCC26XX_AESCCM_Transaction</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_AESCCM_Transaction</name>
+        <briefdescription>
+<para>CryptoCC26XX AES-CCM Transaction. </para>        </briefdescription>
+        <detaileddescription>
+<para>The Counter with CBC-MAC (CCM) mode of operation is a generic authenticated encryption block cipher mode. It can be used with any 128-bit block cipher. AES-CCM combines CBC-MAC with an AES block cipher.</para><para>AES-CCM encryption has the following inputs and outputs:</para><para><table rows="8" cols="2"><caption>AES-CCM input and output parameters</caption>
+<row>
+<entry thead="yes"><para>Encryption</para></entry><entry thead="yes"><para>Decryption </para></entry></row>
+<row>
+<entry thead="yes"><para>Input </para></entry></row>
+<row>
+<entry thead="no"><para>Shared AES key</para></entry><entry thead="no"><para>Shared AES key </para></entry></row>
+<row>
+<entry thead="no"><para>Nonce</para></entry><entry thead="no"><para>Nonce </para></entry></row>
+<row>
+<entry thead="no"><para>Cleartext</para></entry><entry thead="no"><para>Ciphertext (encrypted cleartext + MAC) </para></entry></row>
+<row>
+<entry thead="no"><para>AAD (optional)</para></entry><entry thead="no"><para>AAD (optional) </para></entry></row>
+<row>
+<entry thead="yes"><para>Output </para></entry></row>
+<row>
+<entry thead="no"><para>Ciphertext (encrypted cleartext + MAC)</para></entry><entry thead="no"><para>Cleartext </para></entry></row>
+</table>
+</para><para>The AES key is a shared secret between the two parties and has a length of 128 Bit. The key is stored in the dedicated RAM of the AES hardware unit before the crypto operation.</para><para>The nonce is generated by the party performing the authenticated encryption operation. Within the scope of any authenticated encryption key, the nonce value must be unique. That is, the set of nonce values used with any given key must not contain any duplicate values. Using the same nonce for two different messages encrypted with the same key destroys the security properties.</para><para>The optional AAD is authenticated, but not encrypted. Thus, the AAD is not included in the AES-CCM output. It can be used to authenticate packet headers for transport layer security.</para><para>After the encryption operation, the ciphertext contains the encrypted data and the message authentication code (MAC). The MAC can be seen as an encrypted fingerprint of the message header and content.</para><para>AES-CCM works in both ways: encryption and decryption. When a message is decrypted, then ciphertext, AAD and nonce are used as inputs while the output comprises the cleartext only. The decryption operation is successful, when the received ciphertext, the nonce and the AAD can reproduce the containing MAC.</para><para>The <ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction" kindref="compound">CryptoCC26XX_AESCCM_Transaction</ref> structure defines all necessary parameters for a AES-CCM transaction. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="631" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1ac88ef72b5742d84ef0d51ee6b0fd2fc7" prot="public" static="no">
+        <type>struct <ref refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction" kindref="compound">CryptoCC26XX_AESCBC_Transaction</ref></type>
+        <definition>typedef struct CryptoCC26XX_AESCBC_Transaction  CryptoCC26XX_AESCBC_Transaction</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_AESCBC_Transaction</name>
+        <briefdescription>
+<para>CryptoCC26XX AES-CBC Transaction. </para>        </briefdescription>
+        <detaileddescription>
+<para>This structure defines the nature of the AES-CBC transaction. An object of this structure must be initialized by calling <ref refid="_crypto_c_c26_x_x_8h_1afb3ea8faceda234cdd62c5f53e203946" kindref="member">CryptoCC26XX_Transac_init()</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="647" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a49f5f56e3a3f2f1aa354067e4261533f" prot="public" static="no">
+        <type>struct <ref refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction" kindref="compound">CryptoCC26XX_AESECB_Transaction</ref></type>
+        <definition>typedef struct CryptoCC26XX_AESECB_Transaction  CryptoCC26XX_AESECB_Transaction</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_AESECB_Transaction</name>
+        <briefdescription>
+<para>CryptoCC26XX AES-ECB Transaction. </para>        </briefdescription>
+        <detaileddescription>
+<para>This structure defines the nature of the AES-ECB transaction. An object of this structure must be initialized by calling <ref refid="_crypto_c_c26_x_x_8h_1afb3ea8faceda234cdd62c5f53e203946" kindref="member">CryptoCC26XX_Transac_init()</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="661" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a43b8004f918cfc847b65ebe981970da7" prot="public" static="no">
+        <type>struct <ref refid="struct_crypto_c_c26_x_x___h_w_attrs" kindref="compound">CryptoCC26XX_HWAttrs</ref></type>
+        <definition>typedef struct CryptoCC26XX_HWAttrs  CryptoCC26XX_HWAttrs</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_HWAttrs</name>
+        <briefdescription>
+<para>CryptoCC26XX Hardware Attributes. </para>        </briefdescription>
+        <detaileddescription>
+<para>These fields, with the exception of intPriority, are used by driverlib APIs and therefore must be populated by driverlib macro definitions. For CC26XXWare these definitions are found in:<itemizedlist>
+<listitem><para>inc/hw_memmap.h</para></listitem><listitem><para>inc/hw_ints.h</para></listitem></itemizedlist>
+</para><para>intPriority is the Crypto peripheral&apos;s interrupt priority, as defined by the underlying OS. It is passed unmodified to the underlying OS&apos;s interrupt handler creation code, so you need to refer to the OS documentation for usage. If the driver uses the ti.dpl interface instead of making OS calls directly, then the HwiP port handles the interrupt priority in an OS specific way. In the case of the SYS/BIOS port, intPriority is passed unmodified to Hwi_create().</para><para>A sample structure is shown below: <programlisting><codeline><highlight class="normal">const<sp/>CryptoCC26XX_HWAttrs<sp/>cryptoCC26XXHWAttrs[]<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.baseAddr<sp/>=<sp/>CRYPTO_BASE,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.powerMngrId<sp/>=<sp/>PERIPH_CRYPTO,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.intNum<sp/>=<sp/>INT_CRYPTO,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.intPriority<sp/>=<sp/>(~0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="712" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a1d3ce506f41ca09dbb4fc02615c54d4e" prot="public" static="no">
+        <type>struct <ref refid="struct_crypto_c_c26_x_x___object" kindref="compound">CryptoCC26XX_Object</ref></type>
+        <definition>typedef struct CryptoCC26XX_Object  CryptoCC26XX_Object</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_Object</name>
+        <briefdescription>
+<para>CryptoCC26XX Object. </para>        </briefdescription>
+        <detaileddescription>
+<para>The application must not access any member variables of this structure! </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="737" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_crypto_c_c26_x_x_8h_1a7ff3fbcb90bc60cea7c5a281d5c7add2" prot="public" static="no">
+        <type>struct <ref refid="struct_crypto_c_c26_x_x___config" kindref="compound">CryptoCC26XX_Config</ref></type>
+        <definition>typedef struct CryptoCC26XX_Config  CryptoCC26XX_Config</definition>
+        <argsstring></argsstring>
+        <name>CryptoCC26XX_Config</name>
+        <briefdescription>
+<para>CryptoCC26XX Global Configuration. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="746" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1aa2ece822f0fd8f6dbd3f50500b03bea4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CryptoCC26XX_close</definition>
+        <argsstring>(CryptoCC26XX_Handle handle)</argsstring>
+        <name>CryptoCC26XX_close</name>
+        <param>
+          <type><ref refid="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" kindref="member">CryptoCC26XX_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Function to closes a given CryptoCC26XX peripheral specified by the CryptoCC26XX handle. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para><ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref> had to be called first. Calling context: Task</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A CryptoCC26XX_Handle returned from <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns CRYPTOCC26XX_STATUS_SUCCESS if successful, otherwise will return CRYPTOCC26XX_STATUS_ERROR.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="762" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1a512b301a6ebf10a41c86d9ff725f7749" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CryptoCC26XX_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>CryptoCC26XX_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function to initialize CryptoCC26XX driver. Users of this module must call init(). Multiple users/libraries may call init(), though subsequent calls may be benign. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>This function must be called before any other CryptoCC26XX driver APIs. Calling context: Task and Main. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="773" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" kindref="member">CryptoCC26XX_Handle</ref></type>
+        <definition>CryptoCC26XX_Handle CryptoCC26XX_open</definition>
+        <argsstring>(unsigned int index, bool exclusiveAccess, CryptoCC26XX_Params *params)</argsstring>
+        <name>CryptoCC26XX_open</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>exclusiveAccess</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_crypto_c_c26_x_x___params" kindref="compound">CryptoCC26XX_Params</ref> *</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize a given CryptoCC26XX peripheral specified by the particular index value. The parameter specifies which mode the CryptoCC26XX will operate. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>The <ref refid="struct_crypto_c_c26_x_x___config" kindref="compound">CryptoCC26XX_Config</ref> structure must exist and be persistent before this function can be called. CryptoCC26XX has been initialized with <ref refid="_crypto_c_c26_x_x_8h_1a512b301a6ebf10a41c86d9ff725f7749" kindref="member">CryptoCC26XX_init()</ref>. Calling context: Task.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Logical peripheral number indexed into the HWAttrs table. This is usually provided in the Board support file.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exclusiveAccess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean flag to get exclusive access, if true all subsequent calls to <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref> will fail.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an parameter block, if NULL it will use default values.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A CryptoCC26XX_Handle on success or a NULL on an error or if it has been already opened with exclusiveAccess set.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_crypto_c_c26_x_x_8h_1aa2ece822f0fd8f6dbd3f50500b03bea4" kindref="member">CryptoCC26XX_close()</ref>, <ref refid="_crypto_c_c26_x_x_8h_1a512b301a6ebf10a41c86d9ff725f7749" kindref="member">CryptoCC26XX_init()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="799" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1a057c8155f3a7eb9560a51e2d8d4d98e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CryptoCC26XX_Params_init</definition>
+        <argsstring>(CryptoCC26XX_Params *params)</argsstring>
+        <name>CryptoCC26XX_Params_init</name>
+        <param>
+          <type><ref refid="struct_crypto_c_c26_x_x___params" kindref="compound">CryptoCC26XX_Params</ref> *</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize the <ref refid="struct_crypto_c_c26_x_x___params" kindref="compound">CryptoCC26XX_Params</ref> struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>Calling context: Hwi, Swi and Task.</para></simplesect>
+Defaults values are: timeout = BIOS_WAIT_FOREVER;</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameter structure to initialize. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="811" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1afb3ea8faceda234cdd62c5f53e203946" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CryptoCC26XX_Transac_init</definition>
+        <argsstring>(CryptoCC26XX_Transaction *trans, CryptoCC26XX_Operation opType)</argsstring>
+        <name>CryptoCC26XX_Transac_init</name>
+        <param>
+          <type><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref> *</type>
+          <declname>trans</declname>
+        </param>
+        <param>
+          <type><ref refid="_crypto_c_c26_x_x_8h_1a28465385e5b45efecc00f2015605f970" kindref="member">CryptoCC26XX_Operation</ref></type>
+          <declname>opType</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize the <ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref> struct to its defaults. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="pre"><para>Calling context: Hwi, Swi and Task.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>trans</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transaction structure to initialize.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>opType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cryto Operation type to perform in the transaction. See <ref refid="_crypto_c_c26_x_x_8h_1a28465385e5b45efecc00f2015605f970" kindref="member">CryptoCC26XX_Operation</ref> for currently supported types. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="823" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CryptoCC26XX_allocateKey</definition>
+        <argsstring>(CryptoCC26XX_Handle handle, CryptoCC26XX_KeyLocation keyLocation, const uint32_t *keySrc)</argsstring>
+        <name>CryptoCC26XX_allocateKey</name>
+        <param>
+          <type><ref refid="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" kindref="member">CryptoCC26XX_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706" kindref="member">CryptoCC26XX_KeyLocation</ref></type>
+          <declname>keyLocation</declname>
+        </param>
+        <param>
+          <type>const uint32_t *</type>
+          <declname>keySrc</declname>
+        </param>
+        <briefdescription>
+<para>Function that allocates key, writes key into key store RAM and returns a handle to CryptoCC26XX Key. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function tries to allocate the wanted key location, initiates an operation to write a key into one of the keystore RAM entries and returns a key index integer to the calling client. The allocated key index shall be used when building a transaction data object, e.g. <ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1af0eb856eb89478eef0d83a61e52ad435" kindref="member">CryptoCC26XX_AESCCM_Transaction.keyIndex</ref>. The function blocks the task calling it until the crypto hardware is available.</para><para><simplesect kind="pre"><para><ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref> has to be called first. Calling context: Hwi, Swi and Task.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A CryptoCC26XX_Handle returned by <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>keyLocation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key location in key store to allocate. If set to CRYPTOCC26XX_KEY_ANY, the first available key, starting from highest index, will be allocated.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>keySrc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to buffer containing key to be written. If this pointer is NULL, the key store will be reserved for the handle, but no key will be written to the key store.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An integer representing the index allocated in key store or a CRYPTOCC26XX_STATUS_ERROR on an error.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_crypto_c_c26_x_x_8h_1aa995ee20d8a7fcce66aeae86fee83555" kindref="member">CryptoCC26XX_releaseKey()</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="_crypto_c_c26_x_x_8h_1a2faba7afcf3ade13881e4f0ece378c63" kindref="member">CryptoCC26XX_loadKey()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="853" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1a2faba7afcf3ade13881e4f0ece378c63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CryptoCC26XX_loadKey</definition>
+        <argsstring>(CryptoCC26XX_Handle handle, int keyIndex, const uint32_t *keySrc)</argsstring>
+        <name>CryptoCC26XX_loadKey</name>
+        <param>
+          <type><ref refid="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" kindref="member">CryptoCC26XX_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>keyIndex</declname>
+        </param>
+        <param>
+          <type>const uint32_t *</type>
+          <declname>keySrc</declname>
+        </param>
+        <briefdescription>
+<para>Function that writes a given key into a key store. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function loads a key into a keystore without needing to release the key store and re-allocate it using <ref refid="_crypto_c_c26_x_x_8h_1aa995ee20d8a7fcce66aeae86fee83555" kindref="member">CryptoCC26XX_releaseKey()</ref> and <ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey()</ref>. If called in task context, the function blocks for as long as specified in the timeout. If called in Swi or Hwi context, the function returns an error immediately if it cannot acquire the semaphore.</para><para><simplesect kind="pre"><para><ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref> and <ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey()</ref> have to be called first. Calling context: Hwi, Swi and Task.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A CryptoCC26XX_Handle returned by <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>keyIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A key index returned by a previous call to <ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey()</ref>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>keySrc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to buffer containing a key.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An integer representing success (<ref refid="_crypto_c_c26_x_x_8h_1aaebc21d7bb5269638a64ff57f2b758aa" kindref="member">CRYPTOCC26XX_STATUS_SUCCESS</ref>) or an error (<ref refid="_crypto_c_c26_x_x_8h_1a077508dd42d5999244911edc61f63194" kindref="member">CRYPTOCC26XX_STATUS_ERROR</ref>).</para></simplesect>
+<simplesect kind="see"><para><ref refid="_crypto_c_c26_x_x_8h_1aa995ee20d8a7fcce66aeae86fee83555" kindref="member">CryptoCC26XX_releaseKey()</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="_crypto_c_c26_x_x_8h_1a2faba7afcf3ade13881e4f0ece378c63" kindref="member">CryptoCC26XX_loadKey()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="879" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1aa995ee20d8a7fcce66aeae86fee83555" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CryptoCC26XX_releaseKey</definition>
+        <argsstring>(CryptoCC26XX_Handle handle, int *keyIndex)</argsstring>
+        <name>CryptoCC26XX_releaseKey</name>
+        <param>
+          <type><ref refid="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" kindref="member">CryptoCC26XX_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>keyIndex</declname>
+        </param>
+        <briefdescription>
+<para>Function that releases the specified CryptoCC26XX Key. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function releases the crypto key, so it can be used by other clients.</para><para><simplesect kind="pre"><para>Driver must have been opened and the key must have been allocated first. Calling context: Hwi, Swi and Task.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A CryptoCC26XX_Handle returned by <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>keyIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the keyIndex to be released.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns CRYPTOCC26XX_STATUS_SUCCESS if successful, otherwise will return CRYPTOCC26XX_STATUS_ERROR.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="898" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1a6864191d34a9a3cfbcd36cc34570b3b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CryptoCC26XX_transact</definition>
+        <argsstring>(CryptoCC26XX_Handle handle, CryptoCC26XX_Transaction *transaction)</argsstring>
+        <name>CryptoCC26XX_transact</name>
+        <param>
+          <type><ref refid="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" kindref="member">CryptoCC26XX_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref> *</type>
+          <declname>transaction</declname>
+        </param>
+        <briefdescription>
+<para>Function to do a Crypto operation (encryption or decryption) in blocking mode. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function initiates a blocking crypto operation.</para><para><ref refid="_crypto_c_c26_x_x_8h_1a6864191d34a9a3cfbcd36cc34570b3b8" kindref="member">CryptoCC26XX_transact()</ref> will block task execution until all the data has been encrypted or decrypted, a task switch could be done when pending on a semaphore.</para><para><simplesect kind="pre"><para>Driver must have been opened and a key must have been allocated first. Calling context: Task.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A CryptoCC26XX_Handle returned by <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>transaction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a transaction descriptor.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns CRYPTOCC26XX_STATUS_SUCCESS if successful, error code if not.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>, <ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey()</ref>, <ref refid="_crypto_c_c26_x_x_8h_1a2efbef5e059c752e1f5797a4ef3713a3" kindref="member">CryptoCC26XX_transactPolling()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="920" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1a2efbef5e059c752e1f5797a4ef3713a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CryptoCC26XX_transactPolling</definition>
+        <argsstring>(CryptoCC26XX_Handle handle, CryptoCC26XX_Transaction *transaction)</argsstring>
+        <name>CryptoCC26XX_transactPolling</name>
+        <param>
+          <type><ref refid="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" kindref="member">CryptoCC26XX_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref> *</type>
+          <declname>transaction</declname>
+        </param>
+        <briefdescription>
+<para>Function to do a Crypto transaction operation (encryption or decryption) in polling mode. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function initiates a polling crypto operation.</para><para><ref refid="_crypto_c_c26_x_x_8h_1a2efbef5e059c752e1f5797a4ef3713a3" kindref="member">CryptoCC26XX_transactPolling()</ref> blocks task execution and does not pend on a semaphore, consequently no task switch will be done as a result of pending.</para><para><simplesect kind="pre"><para>Driver must have been opened and a key must have been allocated first. Calling context: Hwi, Swi and Task.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An CryptoCC26XX_Handle returned by <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>transaction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a transaction descriptor.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns CRYPTOCC26XX_STATUS_SUCCESS if successful, error code if not.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>, <ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey()</ref>, <ref refid="_crypto_c_c26_x_x_8h_1a6864191d34a9a3cfbcd36cc34570b3b8" kindref="member">CryptoCC26XX_transact()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="941" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_crypto_c_c26_x_x_8h_1a99eb096ad8f78acf23d4e4b75616dc95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CryptoCC26XX_transactCallback</definition>
+        <argsstring>(CryptoCC26XX_Handle handle, CryptoCC26XX_Transaction *transaction)</argsstring>
+        <name>CryptoCC26XX_transactCallback</name>
+        <param>
+          <type><ref refid="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" kindref="member">CryptoCC26XX_Handle</ref></type>
+          <declname>handle</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref> *</type>
+          <declname>transaction</declname>
+        </param>
+        <briefdescription>
+<para>Function to do a Crypto transaction operation (encryption or decryption) in callback mode. Currently not supported. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function initiates a callback crypto operation.</para><para><ref refid="_crypto_c_c26_x_x_8h_1a99eb096ad8f78acf23d4e4b75616dc95" kindref="member">CryptoCC26XX_transactCallback()</ref> will continue task execution (i.e. does not pend on a semaphore). A callback function must be defined, and will be called when the crypto operation has finished.</para><para><simplesect kind="pre"><para>Driver must have been opened and a key must have been allocated first. Calling context: Hwi, Swi and Task.</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An CryptoCC26XX_Handle returned by <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>transaction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a transaction descriptor.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns CRYPTOCC26XX_STATUS_SUCCESS if successful, error code if not.</para></simplesect>
+<simplesect kind="note"><para>Currently not supported. Will replace CryptoCC26XX_transactPolling in the future.</para></simplesect>
+<simplesect kind="see"><para><ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>, <ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey()</ref>, <ref refid="_crypto_c_c26_x_x_8h_1a6864191d34a9a3cfbcd36cc34570b3b8" kindref="member">CryptoCC26XX_transact()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h" line="966" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Crypto driver implementation for a CC26XX Crypto controller. </para>    </briefdescription>
+    <detaileddescription>
+<para>============================================================================</para><para><heading level="1">Driver Include</heading>
+</para><para>The Crypto header file should be included in an application as follows: <programlisting><codeline><highlight class="normal">#include<sp/>&lt;ti/drivers/crypto/CryptoCC26XX.h&gt;</highlight></codeline>
+</programlisting></para><para><heading level="1">Overview</heading>
+</para><para>The CryptoCC26XX driver simplifies reading and writing to the CryptoCC26XX peripheral on the board with multiple modes of operation and performance. These include blocking and polling. A timeout can be configured in blocking mode. The driver supports encryption and decryption for both AES-ECB and AES-CCM.</para><para><heading level="2">General Behavior</heading>
+</para><para>For code examples, see <ref refid="_crypto_c_c26_x_x_8h_1CRYPTO_USE_CASES" kindref="member">Use Cases</ref> below.</para><para><simplesect kind="warning"><para>The application should not attempt to encrypt a value stored in flash or use a key stored in flash if the application might switch to the XOSC_HF, the high frequency external oscillator, during the operation.</para></simplesect>
+<heading level="3">Opening the driver</heading>
+</para><para><itemizedlist>
+<listitem><para>The application initializes the CryptoCC26XX driver by calling <ref refid="_crypto_c_c26_x_x_8h_1a512b301a6ebf10a41c86d9ff725f7749" kindref="member">CryptoCC26XX_init()</ref> and is then ready to open a CryptoCC26XX by calling <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref>.</para></listitem><listitem><para>If one client (the first) calls the <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref> with the exclusiveAccess flag set, all subsequent calls to open will fail (i.e. return a NULL pointer). The first client can use the Crypto module exclusively.</para></listitem><listitem><para>Only one client can call <ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref> at the same time, a second client will pend until the first client&apos;s call will release a semaphore.</para></listitem><listitem><para>The number of clients are counted with openCnt in <ref refid="struct_crypto_c_c26_x_x___object" kindref="compound">CryptoCC26XX_Object</ref>.</para></listitem></itemizedlist>
+<programlisting><codeline><highlight class="normal">//<sp/>Declaration<sp/>(typically<sp/>done<sp/>in<sp/>a<sp/>task)</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_Handle<sp/><sp/><sp/><sp/><sp/><sp/>handle;</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_Params<sp/><sp/><sp/><sp/><sp/><sp/>params;</highlight></codeline>
+<codeline><highlight class="normal">bool<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exclusiveAccess<sp/>=<sp/>false;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initialize<sp/>Crypto<sp/>driver</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_init();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Configure<sp/>CryptoCC26XX<sp/>parameters.</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_Params_init(&amp;params);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Attempt<sp/>to<sp/>open<sp/>CryptoCC26XX.</highlight></codeline>
+<codeline><highlight class="normal">handle<sp/>=<sp/>CryptoCC26XX_open(Board_CRYPTO0,<sp/>exclusiveAccess,<sp/>&amp;params);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(!handle)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>System_printf(&quot;CryptoCC26XX<sp/>did<sp/>not<sp/>open&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para><para><heading level="3">Before starting a crypto operation</heading>
+</para><para><itemizedlist>
+<listitem><para>Before any encryption/decryption operation starts, the key store must have at least one key loaded.</para></listitem><listitem><para>To get access to a location in the key store, the caller must allocated it by calling <ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey()</ref>.</para></listitem><listitem><para>If the requested key location is available, the client will get a key index (uint8_t) returned.</para></listitem><listitem><para>If the requested key location is already occupied, the <ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey()</ref> will fail and return <ref refid="_crypto_c_c26_x_x_8h_1a077508dd42d5999244911edc61f63194" kindref="member">CRYPTOCC26XX_STATUS_ERROR</ref>.</para></listitem><listitem><para>The key locations available are defined in <ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706" kindref="member">CryptoCC26XX_KeyLocation</ref>.</para></listitem><listitem><para>To select any available key location, call the allocate function with key location set to <ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a335a9c94549f0e882296bd43ccb4f953" kindref="member">CRYPTOCC26XX_KEY_ANY</ref>.</para></listitem></itemizedlist>
+<heading level="3">Performing a crypto operation</heading>
+</para><para><itemizedlist>
+<listitem><para>The supported crypto operations are defined in <ref refid="_crypto_c_c26_x_x_8h_1a28465385e5b45efecc00f2015605f970" kindref="member">CryptoCC26XX_Operation</ref>.</para></listitem><listitem><para>The operation is initiated by calling a transaction function.</para></listitem><listitem><para>The type of operation is decided by the transaction pointer passed to the transaction function.</para></listitem><listitem><para>The mode of the transaction (i.e. blocking/polling) is decided by selecting the corresponding transact function (see Supported transaction modes below).</para></listitem><listitem><para>The key index is passed to the encryption/decryption transaction functions as part of the transaction object.</para></listitem><listitem><para>When a transaction starts, a semaphore is used to ensure that only one transaction is performed at a given time. The polling transaction is using 0 wait time, and will return immediately with <ref refid="_crypto_c_c26_x_x_8h_1a077508dd42d5999244911edc61f63194" kindref="member">CRYPTOCC26XX_STATUS_ERROR</ref> if the semaphore is not granted.</para></listitem><listitem><para>In blocking mode a constraint is set to ensure that the device only enters idle mode if the CPU becomes inactive.</para></listitem><listitem><para>When the transaction ends, the device might enter standby.</para></listitem><listitem><para>A key location can be deallocated by calling <ref refid="_crypto_c_c26_x_x_8h_1aa995ee20d8a7fcce66aeae86fee83555" kindref="member">CryptoCC26XX_releaseKey()</ref>.</para></listitem></itemizedlist>
+<heading level="3">Supported transaction modes</heading>
+</para><para><itemizedlist>
+<listitem><para><ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cdaf0a9faf35a12d014c5f3a475906a3373" kindref="member">CRYPTOCC26XX_MODE_BLOCKING</ref>, typically used from task context. Selected by calling the <ref refid="_crypto_c_c26_x_x_8h_1a6864191d34a9a3cfbcd36cc34570b3b8" kindref="member">CryptoCC26XX_transact()</ref> function.</para></listitem><listitem><para><ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cda015c9e0e35350eb92ede6ad4109fa50b" kindref="member">CRYPTOCC26XX_MODE_POLLING</ref>, typically used from hwi/swi context. Selected by calling the <ref refid="_crypto_c_c26_x_x_8h_1a2efbef5e059c752e1f5797a4ef3713a3" kindref="member">CryptoCC26XX_transactPolling()</ref> function. This mode should be replaced by a callback mode in a future release.</para></listitem></itemizedlist>
+<heading level="3">Closing the driver</heading>
+</para><para>The crypto driver is closed by calling <ref refid="_crypto_c_c26_x_x_8h_1aa2ece822f0fd8f6dbd3f50500b03bea4" kindref="member">CryptoCC26XX_close()</ref> function. When the openCnt is decremented to zero, the crypto related bios modules are destructed. <programlisting><codeline><highlight class="normal">CryptoCC26XX_close(handle);</highlight></codeline>
+</programlisting></para><para><heading level="2">Error handling</heading>
+</para><para>If an error occur during encryption/decryption, the operation will return the error code and the device might enter standby.</para><para><heading level="2">Power Management</heading>
+</para><para>During a transaction in blocking mode, the Power_DISALLOW_STANDBY constraint is set to block the system from entering standby mode. During this period the system will enter idle mode if no tasks are running.</para><para>A system dependency on crypto will be active as long as there are clients with an open handle to the crypto.</para><para><simplesect kind="note"><para>When coming out of standby the key store RAM has lost it&apos;s content, so the keyStore in <ref refid="struct_crypto_c_c26_x_x___object" kindref="compound">CryptoCC26XX_Object</ref> will be cleared and the clients will have to allocate the key over again.</para></simplesect>
+<heading level="2">Supported Functions</heading>
+</para><para><table rows="10" cols="2"><row>
+<entry thead="yes"><para>API function </para></entry><entry thead="yes"><para>Description  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a512b301a6ebf10a41c86d9ff725f7749" kindref="member">CryptoCC26XX_init()</ref> </para></entry><entry thead="no"><para>Function to initializes bios modules needed by CryptoCC26XX module </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open()</ref> </para></entry><entry thead="no"><para>Initialize Crypto and get crypto handle </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1aa2ece822f0fd8f6dbd3f50500b03bea4" kindref="member">CryptoCC26XX_close()</ref> </para></entry><entry thead="no"><para>Disable Crypto HW and destruct bios modules used by transactions </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a057c8155f3a7eb9560a51e2d8d4d98e3" kindref="member">CryptoCC26XX_Params_init()</ref> </para></entry><entry thead="no"><para>Initialize Crypto parameters </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1afb3ea8faceda234cdd62c5f53e203946" kindref="member">CryptoCC26XX_Transac_init()</ref> </para></entry><entry thead="no"><para>Initialize Crypto transaction </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey()</ref> </para></entry><entry thead="no"><para>Allocate a key for current client and write key into one of the Crypto RAM locations </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1aa995ee20d8a7fcce66aeae86fee83555" kindref="member">CryptoCC26XX_releaseKey()</ref> </para></entry><entry thead="no"><para>Release/deallocate a key for current client </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a6864191d34a9a3cfbcd36cc34570b3b8" kindref="member">CryptoCC26XX_transact()</ref> </para></entry><entry thead="no"><para>Start a crypto operation in blocking mode </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a2efbef5e059c752e1f5797a4ef3713a3" kindref="member">CryptoCC26XX_transactPolling()</ref> </para></entry><entry thead="no"><para>Start a crypto operation in polling mode </para></entry></row>
+</table>
+<heading level="2">Unsupported functionality:</heading>
+</para><para>Functionality that currently not supported:<itemizedlist>
+<listitem><para>Callback mode</para></listitem><listitem><para>Queued transactions for use in callback mode</para></listitem></itemizedlist>
+</para><para><heading level="2">Supported Operations</heading>
+</para><para><table rows="9" cols="2"><row>
+<entry thead="yes"><para>Operation Type </para></entry><entry thead="yes"><para>Description  </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a00bd9c4c4f823576ed52a99cc1c49df4" kindref="member">CRYPTOCC26XX_OP_AES_CCM_ENCRYPT</ref> </para></entry><entry thead="no"><para>AES-CCM encryption of plaintext and authentication of AAD and plaintext </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1adbc0e20b32a3e1b968ea9cb05cd2bde4" kindref="member">CRYPTOCC26XX_OP_AES_CCM_ENCRYPT_AAD_ONLY</ref> </para></entry><entry thead="no"><para>AES-CCM authentication of AAD only. No payload. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1af57bb0e27a57946d9fa6ac747d534f26" kindref="member">CRYPTOCC26XX_OP_AES_CCM_DECRYPT</ref> </para></entry><entry thead="no"><para>AES-CCM decryption of plaintext and verification of AAD and plaintext </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a2e9761d83b7e451861e3d1891213d069" kindref="member">CRYPTOCC26XX_OP_AES_CCM_DECRYPT_AAD_ONLY</ref> </para></entry><entry thead="no"><para>AES-CCM verification of AAD only. No payload. </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1af72980622fb0dc9555587ef90083b3ef" kindref="member">CRYPTOCC26XX_OP_AES_ECB_ENCRYPT</ref> </para></entry><entry thead="no"><para>AES-ECB encryption </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a74881034cf440f28a91c5263fc728097" kindref="member">CRYPTOCC26XX_OP_AES_ECB_DECRYPT</ref> </para></entry><entry thead="no"><para>AES-ECB decryption </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1aab1035e549d6de54b25a9f9a6ae2f3ba" kindref="member">CRYPTOCC26XX_OP_AES_CBC_ENCRYPT</ref> </para></entry><entry thead="no"><para>AES-CBC encryption </para></entry></row>
+<row>
+<entry thead="no"><para><ref refid="_crypto_c_c26_x_x_8h_1a6a2cf7f9abef28bcc0d503d3b7e9a8d3" kindref="member">CRYPTOCC26XX_OP_AES_CBC_DECRYPT</ref> </para></entry><entry thead="no"><para>AES-CBC decryption </para></entry></row>
+</table>
+<heading level="2">Use Cases<anchor id="_crypto_c_c26_x_x_8h_1CRYPTO_USE_CASES"/></heading>
+</para><para><heading level="3">AES ECB operation</heading>
+</para><para>Perform a crypto operation with AES-ECB in <ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cdaf0a9faf35a12d014c5f3a475906a3373" kindref="member">CRYPTOCC26XX_MODE_BLOCKING</ref>.</para><para><programlisting><codeline><highlight class="normal">//<sp/>AES-ECB<sp/>example<sp/>struct</highlight></codeline>
+<codeline><highlight class="normal">typedef<sp/>struct</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>uint8_t<sp/>key[16];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Stores<sp/>the<sp/>Aes<sp/>Key</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CryptoCC26XX_KeyLocation<sp/>keyLocation;<sp/>//<sp/>Location<sp/>in<sp/>Key<sp/>RAM</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>uint8_t<sp/>clearText[AES_ECB_LENGTH];<sp/><sp/><sp/><sp/>//<sp/>Input<sp/>message<sp/>-<sp/>cleartext</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>uint8_t<sp/>msgOut[AES_ECB_LENGTH];<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Output<sp/>message</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>AESECBExample;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>AES<sp/>ECB<sp/>example<sp/>data</highlight></codeline>
+<codeline><highlight class="normal">AESECBExample<sp/>ecbExample<sp/>=</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{<sp/>0x2B,<sp/>0x7E,<sp/>0x15,<sp/>0x16,<sp/>0x28,<sp/>0xAE,<sp/>0xD2,<sp/>0xA6,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>0xAB,<sp/>0xF7,<sp/>0x15,<sp/>0x88,<sp/>0x09,<sp/>0xCF,<sp/>0x4F,<sp/>0x3C<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CRYPTOCC26XX_KEY_0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{&apos;t&apos;,&apos;h&apos;,&apos;i&apos;,&apos;s&apos;,&apos;i&apos;,&apos;s&apos;,&apos;a&apos;,&apos;p&apos;,&apos;l&apos;,&apos;a&apos;,&apos;i&apos;,&apos;n&apos;,&apos;t&apos;,&apos;e&apos;,&apos;x&apos;,&apos;t&apos;},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0,<sp/>0x0<sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Declaration<sp/>(typically<sp/>done<sp/>in<sp/>a<sp/>task)</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_Handle<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>handle;</highlight></codeline>
+<codeline><highlight class="normal">int32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyIndex;</highlight></codeline>
+<codeline><highlight class="normal">int32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status;</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_AESECB_Transaction<sp/>trans;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initialize<sp/>Crypto<sp/>driver</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_init();</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Attempt<sp/>to<sp/>open<sp/>CryptoCC26XX.</highlight></codeline>
+<codeline><highlight class="normal">handle<sp/>=<sp/>CryptoCC26XX_open(Board_CRYPTO0,<sp/>false,<sp/>NULL);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(!handle)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>System_abort(&quot;Crypto<sp/>module<sp/>could<sp/>not<sp/>be<sp/>opened.&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">keyIndex<sp/>=<sp/>CryptoCC26XX_allocateKey(handle,<sp/>ecbExample.keyLocation,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(const<sp/>uint32_t<sp/>*)<sp/>ecbExample.key);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(keyIndex<sp/>==<sp/>CRYPTOCC26XX_STATUS_ERROR)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>System_abort(&quot;Key<sp/>Location<sp/>was<sp/>not<sp/>allocated.&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initialize<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_Transac_init((CryptoCC26XX_Transaction<sp/>*)<sp/>&amp;trans,<sp/>CRYPTOCC26XX_OP_AES_ECB_ENCRYPT);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Setup<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal">trans.keyIndex<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>keyIndex;</highlight></codeline>
+<codeline><highlight class="normal">trans.msgIn<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(uint32_t<sp/>*)<sp/>ecbExample.clearText;</highlight></codeline>
+<codeline><highlight class="normal">trans.msgOut<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(uint32_t<sp/>*)<sp/>ecbExample.msgOut;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Encrypt<sp/>the<sp/>plaintext<sp/>with<sp/>AES<sp/>ECB</highlight></codeline>
+<codeline><highlight class="normal">status<sp/>=<sp/>CryptoCC26XX_transact(handle,<sp/>(CryptoCC26XX_Transaction<sp/>*)<sp/>&amp;trans);</highlight></codeline>
+<codeline><highlight class="normal">if(status<sp/>!=<sp/>CRYPTOCC26XX_STATUS_SUCCESS){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>System_abort(&quot;Encryption<sp/>failed.&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initialize<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_Transac_init((CryptoCC26XX_Transaction<sp/>*)<sp/>&amp;trans,<sp/>CRYPTOCC26XX_OP_AES_ECB_DECRYPT);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Setup<sp/>transaction</highlight></codeline>
+<codeline><highlight class="normal">trans.keyIndex<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>keyIndex;</highlight></codeline>
+<codeline><highlight class="normal">trans.msgIn<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(uint32_t<sp/>*)<sp/>ecbExample.msgOut;</highlight></codeline>
+<codeline><highlight class="normal">trans.msgOut<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(uint32_t<sp/>*)<sp/>ecbExample.clearText;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Zero<sp/>original<sp/>clear<sp/>text<sp/>before<sp/>decrypting<sp/>the<sp/>cypher<sp/>text<sp/>into<sp/>the<sp/>ecbExample.clearText<sp/>array</highlight></codeline>
+<codeline><highlight class="normal">memset(ecbExample.clearText,<sp/>0x0,<sp/>AES_ECB_LENGTH);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Decrypt<sp/>the<sp/>plaintext<sp/>with<sp/>AES<sp/>ECB</highlight></codeline>
+<codeline><highlight class="normal">status<sp/>=<sp/>CryptoCC26XX_transact(handle,<sp/>(CryptoCC26XX_Transaction<sp/>*)<sp/>&amp;trans);</highlight></codeline>
+<codeline><highlight class="normal">if(status<sp/>!=<sp/>CRYPTOCC26XX_STATUS_SUCCESS){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>System_abort(&quot;Encryption<sp/>failed.&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_releaseKey(handle,<sp/>&amp;keyIndex);</highlight></codeline>
+</programlisting></para><para><heading level="3">AES CCM operation</heading>
+</para><para>Perform a crypto and authentication operation with AES-CCM in <ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cdaf0a9faf35a12d014c5f3a475906a3373" kindref="member">CRYPTOCC26XX_MODE_BLOCKING</ref>.</para><para><programlisting><codeline><highlight class="normal">#define<sp/>macLength<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(4)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>clearTextLength<sp/><sp/><sp/><sp/><sp/>(16)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>cipherTextLength<sp/><sp/><sp/><sp/>(macLength<sp/>+<sp/>clearTextLength)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>nonceLength<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(12)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>aadLength<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(14)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Holds<sp/>the<sp/>AES-CCM<sp/>setup<sp/>for<sp/>this<sp/>example</highlight></codeline>
+<codeline><highlight class="normal">typedef<sp/>struct</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>key[16];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>A<sp/>128<sp/>Bit<sp/>AES<sp/>key</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CryptoCC26XX_KeyLocation<sp/>keyLocation;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>One<sp/>of<sp/>8<sp/>key<sp/>locations<sp/>in<sp/>the<sp/>hardware</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>clearAndCipherText[cipherTextLength];<sp/><sp/><sp/>//<sp/>Holds<sp/>the<sp/>cleartext<sp/>before,<sp/>and<sp/>the<sp/>ciphertext</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>after<sp/>the<sp/>encryption<sp/>operation.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Ciphertext<sp/>=<sp/>encrypted<sp/>text<sp/>+<sp/>message<sp/>authentication<sp/>code<sp/>(MAC).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>nonce[nonceLength];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>A<sp/>value<sp/>that<sp/>is<sp/>used<sp/>only<sp/>once<sp/>(cryptographic<sp/>term<sp/>&apos;nonce&apos;)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>header[aadLength];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>A<sp/>header<sp/>that<sp/>is<sp/>not<sp/>encrypted<sp/>but<sp/>is<sp/>authenticated<sp/>in<sp/>the<sp/>operation<sp/>(AAD).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>verificationMAC[macLength];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Location<sp/>that<sp/>the<sp/>recalculated<sp/>and<sp/>encrypted<sp/>MAC<sp/>is<sp/>stored<sp/>during<sp/>decryption.</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>AesCcmExample;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">AesCcmExample<sp/>ccmSetup<sp/>=</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.key<sp/>=<sp/>{<sp/>0x2B,<sp/>0x7E,<sp/>0x15,<sp/>0x16,<sp/>0x28,<sp/>0xAE,<sp/>0xD2,<sp/>0xA6,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0xAB,<sp/>0xF7,<sp/>0x15,<sp/>0x88,<sp/>0x09,<sp/>0xCF,<sp/>0x4F,<sp/>0x3C<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.keyLocation<sp/>=<sp/>CRYPTOCC26XX_KEY_0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.clearAndCipherText<sp/>=<sp/>{<sp/>&apos;t&apos;,&apos;h&apos;,&apos;i&apos;,&apos;s&apos;,&apos;i&apos;,&apos;s&apos;,&apos;a&apos;,&apos;p&apos;,&apos;l&apos;,&apos;a&apos;,&apos;i&apos;,&apos;n&apos;,&apos;t&apos;,&apos;e&apos;,&apos;x&apos;,&apos;t&apos;,&apos;0&apos;,&apos;0&apos;,&apos;0&apos;,&apos;0&apos;<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.nonce<sp/><sp/>=<sp/>{<sp/>&apos;t&apos;,&apos;h&apos;,&apos;i&apos;,&apos;s&apos;,&apos;i&apos;,&apos;s&apos;,&apos;a&apos;,&apos;n&apos;,&apos;o&apos;,&apos;n&apos;,&apos;c&apos;,&apos;e&apos;<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.header<sp/>=<sp/>{<sp/>&apos;t&apos;,&apos;h&apos;,&apos;i&apos;,&apos;s&apos;,&apos;i&apos;,&apos;s&apos;,&apos;a&apos;,&apos;h&apos;,&apos;e&apos;,&apos;a&apos;,&apos;d&apos;,&apos;e&apos;,&apos;r&apos;,&apos;1&apos;<sp/>}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_Handle<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>handle;</highlight></codeline>
+<codeline><highlight class="normal">int32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyIndex;</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_AESCCM_Transaction<sp/>trans;</highlight></codeline>
+<codeline><highlight class="normal">int32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>status;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Initialize<sp/>Crypto<sp/>driver<sp/>structures</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_init();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Open<sp/>the<sp/>crypto<sp/>hardware<sp/>with<sp/>non-exclusive<sp/>access<sp/>and<sp/>default<sp/>parameters.</highlight></codeline>
+<codeline><highlight class="normal">handle<sp/>=<sp/>CryptoCC26XX_open(Board_CRYPTO0,<sp/>false,<sp/>NULL);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(handle<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>System_abort(&quot;CryptoCC26XX<sp/>did<sp/>not<sp/>open&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Allocate<sp/>a<sp/>key<sp/>storage<sp/>location<sp/>in<sp/>the<sp/>hardware</highlight></codeline>
+<codeline><highlight class="normal">keyIndex<sp/>=<sp/>CryptoCC26XX_allocateKey(handle,<sp/>ccmSetup.keyLocation,<sp/>(const<sp/>uint32_t<sp/>*)<sp/>ccmSetup.key);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(keyIndex<sp/>==<sp/>CRYPTOCC26XX_STATUS_ERROR)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>System_abort(&quot;Key<sp/>Location<sp/>was<sp/>not<sp/>allocated.&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Encrypt<sp/>and<sp/>authenticate<sp/>the<sp/>message</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_Transac_init((CryptoCC26XX_Transaction<sp/>*)<sp/>&amp;trans,<sp/>CRYPTOCC26XX_OP_AES_CCM);</highlight></codeline>
+<codeline><highlight class="normal">trans.keyIndex<sp/><sp/><sp/>=<sp/>keyIndex;</highlight></codeline>
+<codeline><highlight class="normal">trans.authLength<sp/>=<sp/>macLength;</highlight></codeline>
+<codeline><highlight class="normal">trans.nonce<sp/><sp/>=<sp/>(char<sp/>*)<sp/>ccmSetup.nonce;</highlight></codeline>
+<codeline><highlight class="normal">trans.header<sp/>=<sp/>(char<sp/>*)<sp/>ccmSetup.header;</highlight></codeline>
+<codeline><highlight class="normal">trans.fieldLength<sp/><sp/>=<sp/>3;</highlight></codeline>
+<codeline><highlight class="normal">trans.msgInLength<sp/><sp/>=<sp/>clearTextLength;</highlight></codeline>
+<codeline><highlight class="normal">trans.headerLength<sp/>=<sp/>aadLength;</highlight></codeline>
+<codeline><highlight class="normal">trans.msgIn<sp/><sp/>=<sp/>(char<sp/>*)<sp/>&amp;(ccmSetup.clearAndCipherText[0]);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Message<sp/>is<sp/>encrypted<sp/>in<sp/>place</highlight></codeline>
+<codeline><highlight class="normal">trans.msgOut<sp/>=<sp/>(char<sp/>*)<sp/>&amp;(ccmSetup.clearAndCipherText[clearTextLength]);<sp/><sp/>//<sp/>MAC<sp/>will<sp/>be<sp/>written<sp/>to<sp/>this<sp/>position</highlight></codeline>
+<codeline><highlight class="normal">status<sp/>=<sp/>CryptoCC26XX_transact(handle,<sp/>(CryptoCC26XX_Transaction<sp/>*)<sp/>&amp;trans);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(status<sp/>!=<sp/>CRYPTOCC26XX_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>System_abort(&quot;Encryption<sp/>and<sp/>signing<sp/>failed.&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Decrypt<sp/>and<sp/>authenticate<sp/>message</highlight></codeline>
+<codeline><highlight class="normal">CryptoCC26XX_Transac_init((CryptoCC26XX_Transaction<sp/>*)<sp/>&amp;trans,<sp/>CRYPTOCC26XX_OP_AES_CCMINV);</highlight></codeline>
+<codeline><highlight class="normal">trans.keyIndex<sp/><sp/><sp/>=<sp/>keyIndex;</highlight></codeline>
+<codeline><highlight class="normal">trans.authLength<sp/>=<sp/>macLength;</highlight></codeline>
+<codeline><highlight class="normal">trans.nonce<sp/><sp/>=<sp/>(char<sp/>*)<sp/>ccmSetup.nonce;</highlight></codeline>
+<codeline><highlight class="normal">trans.header<sp/>=<sp/>(char<sp/>*)<sp/>ccmSetup.header;</highlight></codeline>
+<codeline><highlight class="normal">trans.fieldLength<sp/><sp/>=<sp/>3;</highlight></codeline>
+<codeline><highlight class="normal">trans.msgInLength<sp/><sp/>=<sp/>cipherTextLength;</highlight></codeline>
+<codeline><highlight class="normal">trans.headerLength<sp/>=<sp/>aadLength;</highlight></codeline>
+<codeline><highlight class="normal">trans.msgIn<sp/><sp/>=<sp/>(char<sp/>*)<sp/>&amp;(ccmSetup.clearAndCipherText[0]);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Message<sp/>is<sp/>decrypted<sp/>in<sp/>place</highlight></codeline>
+<codeline><highlight class="normal">trans.msgOut<sp/>=<sp/>(char<sp/>*)<sp/>ccmSetup.verificationMAC;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Do<sp/>AES-CCM<sp/>decryption<sp/>and<sp/>authentication</highlight></codeline>
+<codeline><highlight class="normal">status<sp/>=<sp/>CryptoCC26XX_transact(handle,<sp/>(CryptoCC26XX_Transaction<sp/>*)<sp/>&amp;trans);</highlight></codeline>
+<codeline><highlight class="normal">if(status<sp/>!=<sp/>CRYPTOCC26XX_STATUS_SUCCESS){</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>System_abort(&quot;Decryption<sp/>and<sp/>authentication<sp/>failed.&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Release<sp/>the<sp/>key<sp/>location</highlight></codeline>
+<codeline><highlight class="normal">status<sp/>=<sp/>CryptoCC26XX_releaseKey(handle,<sp/>&amp;keyIndex);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(status<sp/>!=<sp/>CRYPTOCC26XX_STATUS_SUCCESS)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>System_abort(&quot;Key<sp/>release<sp/>was<sp/>not<sp/>successful.&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para><para><heading level="1">Instrumentation</heading>
+</para><para>The CryptoCC26XX driver interface produces log statements if instrumentation is enabled.</para><para><table rows="3" cols="2"><row>
+<entry thead="yes"><para>Diagnostics Mask </para></entry><entry thead="yes"><para>Log details  </para></entry></row>
+<row>
+<entry thead="no"><para>Diags_USER1 </para></entry><entry thead="no"><para>Basic CryptoCC26XX operations performed </para></entry></row>
+<row>
+<entry thead="no"><para>Diags_USER2 </para></entry><entry thead="no"><para>Detailed CryptoCC26XX operations performed </para></entry></row>
+</table>
+<hruler/>
+ </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2015-2018,<sp/>Texas<sp/>Instruments<sp/>Incorporated</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>*<sp/><sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>Texas<sp/>Instruments<sp/>Incorporated<sp/>nor<sp/>the<sp/>names<sp/>of</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>its<sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>from<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>THE<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>PURPOSE<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>OWNER<sp/>OR</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>CONTRIBUTORS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*/</highlight></codeline>
+<codeline lineno="367"><highlight class="preprocessor">#ifndef<sp/>ti_drivers_crypto_CryptoCC26XX__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ti_drivers_crypto_CryptoCC26XX__include</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="_power_8h" kindref="compound">ti/drivers/Power.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ti/devices/DeviceFamily.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>DeviceFamily_constructPath(driverlib/crypto.h)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="381"><highlight class="normal"></highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>DeviceFamily_PARENT<sp/>==<sp/>DeviceFamily_PARENT_CC13X2_CC26X2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="383"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#warning<sp/>&quot;This<sp/>driver<sp/>is<sp/>deprecated<sp/>for<sp/>the<sp/>CC26x2<sp/>and<sp/>CC13x2<sp/>families.\</highlight></codeline>
+<codeline lineno="384"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>It<sp/>is<sp/>superceded<sp/>by<sp/>AESECB<sp/>and<sp/>AESCCM.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="385"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="386"><highlight class="normal"></highlight></codeline>
+<codeline lineno="397"><highlight class="comment">/*<sp/>Add<sp/>CryptoCC26XX_STATUS_*<sp/>macros<sp/>here<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="398"><highlight class="normal"></highlight></codeline>
+<codeline lineno="411"><highlight class="comment">/*<sp/>Add<sp/>CryptoCC26XX_CMD_*<sp/>macros<sp/>here<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="412"><highlight class="normal"></highlight></codeline>
+<codeline lineno="415" refid="_crypto_c_c26_x_x_8h_1a8a94999f3768d815e26ac50a0debeeb0" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_TIMEOUT<sp/>20<sp/></highlight></codeline>
+<codeline lineno="417" refid="_crypto_c_c26_x_x_8h_1aaebc21d7bb5269638a64ff57f2b758aa" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_STATUS_SUCCESS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/></highlight></codeline>
+<codeline lineno="418" refid="_crypto_c_c26_x_x_8h_1a077508dd42d5999244911edc61f63194" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_STATUS_ERROR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-1<sp/><sp/></highlight></codeline>
+<codeline lineno="419" refid="_crypto_c_c26_x_x_8h_1a32adca418e15c3d66ec8a1b3dfa9f4d8" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_STATUS_UNDEFINEDCMD<sp/><sp/>-2<sp/><sp/></highlight></codeline>
+<codeline lineno="421" refid="_crypto_c_c26_x_x_8h_1a00bd9c4c4f823576ed52a99cc1c49df4" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_CCM_ENCRYPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="422" refid="_crypto_c_c26_x_x_8h_1adbc0e20b32a3e1b968ea9cb05cd2bde4" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_CCM_ENCRYPT_AAD_ONLY<sp/><sp/><sp/><sp/>1<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="423" refid="_crypto_c_c26_x_x_8h_1af57bb0e27a57946d9fa6ac747d534f26" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_CCM_DECRYPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="424" refid="_crypto_c_c26_x_x_8h_1a2e9761d83b7e451861e3d1891213d069" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_CCM_DECRYPT_AAD_ONLY<sp/><sp/><sp/><sp/>3<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="425" refid="_crypto_c_c26_x_x_8h_1af72980622fb0dc9555587ef90083b3ef" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_ECB_ENCRYPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="426" refid="_crypto_c_c26_x_x_8h_1a74881034cf440f28a91c5263fc728097" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_ECB_DECRYPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="427" refid="_crypto_c_c26_x_x_8h_1aab1035e549d6de54b25a9f9a6ae2f3ba" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_CBC_ENCRYPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>6<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="428" refid="_crypto_c_c26_x_x_8h_1a6a2cf7f9abef28bcc0d503d3b7e9a8d3" refkind="member"><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_CBC_DECRYPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>7<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="430"><highlight class="preprocessor"></highlight><highlight class="comment">/*<sp/>Deprecated<sp/>operation<sp/>mode<sp/>names<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="431" refid="_crypto_c_c26_x_x_8h_1a6ab0b59b64c06856c431f91a7e43b34d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_CCM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CRYPTOCC26XX_OP_AES_CCM_ENCRYPT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="432" refid="_crypto_c_c26_x_x_8h_1acc1c159d62112b90da86ecd846994f98" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_CCM_NOCRYPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CRYPTOCC26XX_OP_AES_CCM_ENCRYPT_AAD_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="433" refid="_crypto_c_c26_x_x_8h_1a38c8bce4f77947e99d2d877e8d3dee7e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_CCMINV<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CRYPTOCC26XX_OP_AES_CCM_DECRYPT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="434" refid="_crypto_c_c26_x_x_8h_1a445002cd50ecda94d48f437bc213a499" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_CCMINV_NOCRYPT<sp/><sp/><sp/><sp/><sp/><sp/>CRYPTOCC26XX_OP_AES_CCM_DECRYPT_AAD_ONLY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="435" refid="_crypto_c_c26_x_x_8h_1a9e96510f981e65f0c46c19684daaff07" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_ECB<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CRYPTOCC26XX_OP_AES_ECB_ENCRYPT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="436" refid="_crypto_c_c26_x_x_8h_1aea29a252e094057f90d0fccd938b8a0d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CRYPTOCC26XX_OP_AES_ECB_NOCRYPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CRYPTOCC26XX_OP_AES_ECB_DECRYPT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="437"><highlight class="normal"></highlight></codeline>
+<codeline lineno="438"><highlight class="normal"></highlight></codeline>
+<codeline lineno="439"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ti/drivers/dpl/HwiP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="440"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ti/drivers/dpl/SemaphoreP.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="441"><highlight class="normal"></highlight></codeline>
+<codeline lineno="445" refid="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_crypto_c_c26_x_x___config" kindref="compound">CryptoCC26XX_Config</ref><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="_crypto_c_c26_x_x_8h_1a8737c63107a1cb5548ba06f7a48259b5" kindref="member">CryptoCC26XX_Handle</ref>;</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"></highlight></codeline>
+<codeline lineno="453" refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cd" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cd" kindref="member">CryptoCC26XX_Mode</ref><sp/>{</highlight></codeline>
+<codeline lineno="458" refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cdaf0a9faf35a12d014c5f3a475906a3373" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cdaf0a9faf35a12d014c5f3a475906a3373" kindref="member">CRYPTOCC26XX_MODE_BLOCKING</ref>,</highlight></codeline>
+<codeline lineno="459"><highlight class="normal"></highlight></codeline>
+<codeline lineno="464" refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cda015c9e0e35350eb92ede6ad4109fa50b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cda015c9e0e35350eb92ede6ad4109fa50b" kindref="member">CRYPTOCC26XX_MODE_POLLING</ref></highlight></codeline>
+<codeline lineno="465"><highlight class="normal">}<sp/><ref refid="_crypto_c_c26_x_x_8h_1abf86c8ac428559f00fed3299d439e2cd" kindref="member">CryptoCC26XX_Mode</ref>;</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"></highlight></codeline>
+<codeline lineno="481" refid="_crypto_c_c26_x_x_8h_1a28465385e5b45efecc00f2015605f970" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="_crypto_c_c26_x_x_8h_1a28465385e5b45efecc00f2015605f970" kindref="member">CryptoCC26XX_Operation</ref>;</highlight></codeline>
+<codeline lineno="482"><highlight class="normal"></highlight></codeline>
+<codeline lineno="489" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706" kindref="member">CryptoCC26XX_KeyLocation</ref><sp/>{</highlight></codeline>
+<codeline lineno="490" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a49e17e3899e3f3b3fde9a99ab99a4f62" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a49e17e3899e3f3b3fde9a99ab99a4f62" kindref="member">CRYPTOCC26XX_KEY_0</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="491" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a6180ef53c43ac78dfd2879e47f0ae2fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a6180ef53c43ac78dfd2879e47f0ae2fe" kindref="member">CRYPTOCC26XX_KEY_1</ref>,</highlight></codeline>
+<codeline lineno="492" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a8fbf1d57797616552fec31ea75968ad4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a8fbf1d57797616552fec31ea75968ad4" kindref="member">CRYPTOCC26XX_KEY_2</ref>,</highlight></codeline>
+<codeline lineno="493" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a4d90bb601a0a135054f4a92f02acf101" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a4d90bb601a0a135054f4a92f02acf101" kindref="member">CRYPTOCC26XX_KEY_3</ref>,</highlight></codeline>
+<codeline lineno="494" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a9ebecf9a462870312120060f28f0cd39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a9ebecf9a462870312120060f28f0cd39" kindref="member">CRYPTOCC26XX_KEY_4</ref>,</highlight></codeline>
+<codeline lineno="495" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706aa7bf50a9fdbb8eb3eb9d723532c4fe4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706aa7bf50a9fdbb8eb3eb9d723532c4fe4c" kindref="member">CRYPTOCC26XX_KEY_5</ref>,</highlight></codeline>
+<codeline lineno="496" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a86392e0370e91b9b7c21505fb067abbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a86392e0370e91b9b7c21505fb067abbb" kindref="member">CRYPTOCC26XX_KEY_6</ref>,</highlight></codeline>
+<codeline lineno="497" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a0494750a494f691ad204a3efc6be2ff1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a0494750a494f691ad204a3efc6be2ff1" kindref="member">CRYPTOCC26XX_KEY_7</ref>,</highlight></codeline>
+<codeline lineno="498" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706aa4d6d2c76958ac16f7c4d0d80b34db7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706aa4d6d2c76958ac16f7c4d0d80b34db7e" kindref="member">CRYPTOCC26XX_KEY_COUNT</ref>,</highlight></codeline>
+<codeline lineno="499" refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a335a9c94549f0e882296bd43ccb4f953" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706a335a9c94549f0e882296bd43ccb4f953" kindref="member">CRYPTOCC26XX_KEY_ANY</ref>,</highlight></codeline>
+<codeline lineno="500"><highlight class="normal">}<sp/><ref refid="_crypto_c_c26_x_x_8h_1a5266637af2c4ac36ed58d4e0f158b706" kindref="member">CryptoCC26XX_KeyLocation</ref>;</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"></highlight></codeline>
+<codeline lineno="505" refid="struct_crypto_c_c26_x_x___params" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_crypto_c_c26_x_x___params" kindref="compound">CryptoCC26XX_Params</ref><sp/>{</highlight></codeline>
+<codeline lineno="506" refid="struct_crypto_c_c26_x_x___params_1a0a0722be7543d9ff4de0c1107357758c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___params_1a0a0722be7543d9ff4de0c1107357758c" kindref="member">timeout</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="507"><highlight class="normal">}<sp/><ref refid="_crypto_c_c26_x_x_8h_1afd8b8a794d92fe38d4806238c3b6fef7" kindref="member">CryptoCC26XX_Params</ref>;</highlight></codeline>
+<codeline lineno="508"><highlight class="normal"></highlight></codeline>
+<codeline lineno="514" refid="_crypto_c_c26_x_x_8h_1a30e647b6ad6b608b60990929200686e0" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="_crypto_c_c26_x_x_8h_1a30e647b6ad6b608b60990929200686e0" kindref="member">CryptoCC26XX_KeyStore</ref>;</highlight></codeline>
+<codeline lineno="515"><highlight class="normal"></highlight></codeline>
+<codeline lineno="525" refid="struct_crypto_c_c26_x_x___transaction" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref><sp/>{</highlight></codeline>
+<codeline lineno="526" refid="struct_crypto_c_c26_x_x___transaction_1a40fe1424c6534f76622ff56ed4f2ab42" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CryptoCC26XX_Operation<sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___transaction_1a40fe1424c6534f76622ff56ed4f2ab42" kindref="member">opType</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="527" refid="struct_crypto_c_c26_x_x___transaction_1afe088678af719e3dc46c3196334b9398" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CryptoCC26XX_Mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___transaction_1afe088678af719e3dc46c3196334b9398" kindref="member">mode</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="528" refid="struct_crypto_c_c26_x_x___transaction_1a3eb99656cb17d1c68fc28d42b5b392dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data[];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="529"><highlight class="normal">}<sp/><ref refid="_crypto_c_c26_x_x_8h_1a7d5a6e41436163786d2e01c0122a3de7" kindref="member">CryptoCC26XX_Transaction</ref>;</highlight></codeline>
+<codeline lineno="530"><highlight class="normal"></highlight></codeline>
+<codeline lineno="581" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction" kindref="compound">CryptoCC26XX_AESCCM_Transaction</ref><sp/>{</highlight></codeline>
+<codeline lineno="582" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a290d9a7869443690836e17e2540fc369" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CryptoCC26XX_Operation<sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a290d9a7869443690836e17e2540fc369" kindref="member">opType</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="583" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a47c6078be481486d0dda9a9ab2685d0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CryptoCC26XX_Mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a47c6078be481486d0dda9a9ab2685d0c" kindref="member">mode</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="584" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1af0eb856eb89478eef0d83a61e52ad435" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1af0eb856eb89478eef0d83a61e52ad435" kindref="member">keyIndex</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="585" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1ae543053e1c5906db60e8566764e74b22" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1ae543053e1c5906db60e8566764e74b22" kindref="member">authLength</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="587" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1afad21bc3309b0689f288a8ee27e7a166" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1afad21bc3309b0689f288a8ee27e7a166" kindref="member">nonce</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="604" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1af14be4d0036174b871b733437fd38361" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1af14be4d0036174b871b733437fd38361" kindref="member">msgIn</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="610" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1ab0fd5775305de978e833c66bc7e29c23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1ab0fd5775305de978e833c66bc7e29c23" kindref="member">header</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="611" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a75508e70a56c297c0bc4351cd586bfdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a75508e70a56c297c0bc4351cd586bfdc" kindref="member">msgOut</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="617" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a8d848bfae83f3b16e8d3a7e83a1c5694" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a8d848bfae83f3b16e8d3a7e83a1c5694" kindref="member">fieldLength</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="628" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1aa29e2771fcf7967303c7a761e23630fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1aa29e2771fcf7967303c7a761e23630fc" kindref="member">msgInLength</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="630" refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a28e4d04c356e342908588e19011a0e5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_c_m___transaction_1a28e4d04c356e342908588e19011a0e5d" kindref="member">headerLength</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="631"><highlight class="normal">}<sp/><ref refid="_crypto_c_c26_x_x_8h_1a9cf6019bce243720cebc70eb8310682e" kindref="member">CryptoCC26XX_AESCCM_Transaction</ref>;</highlight></codeline>
+<codeline lineno="632"><highlight class="normal"></highlight></codeline>
+<codeline lineno="639" refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction" kindref="compound">CryptoCC26XX_AESCBC_Transaction</ref><sp/>{</highlight></codeline>
+<codeline lineno="640" refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1a8ce1bb7d63d53cfdb808dc618261aa3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CryptoCC26XX_Operation<sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1a8ce1bb7d63d53cfdb808dc618261aa3c" kindref="member">opType</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="641" refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1a631a21077687d9d59f6ebf898352ca10" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CryptoCC26XX_Mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1a631a21077687d9d59f6ebf898352ca10" kindref="member">mode</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="642" refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1aa1f3d996c876bf337c30691b489c3846" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1aa1f3d996c876bf337c30691b489c3846" kindref="member">keyIndex</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="643" refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1aff49cae78d6aeda8c9b8ebda71b14c2c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1aff49cae78d6aeda8c9b8ebda71b14c2c" kindref="member">nonce</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="644" refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1aa0a4fe432e28db115802ec35b727cf29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1aa0a4fe432e28db115802ec35b727cf29" kindref="member">msgIn</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="645" refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1a5d5bf062f401cc3d1ee0c1e590896184" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1a5d5bf062f401cc3d1ee0c1e590896184" kindref="member">msgOut</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="646" refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1adb2b7d2558d9c979b8983c4c4c0c60d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_c_b_c___transaction_1adb2b7d2558d9c979b8983c4c4c0c60d3" kindref="member">msgInLength</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="647"><highlight class="normal">}<sp/><ref refid="_crypto_c_c26_x_x_8h_1ac88ef72b5742d84ef0d51ee6b0fd2fc7" kindref="member">CryptoCC26XX_AESCBC_Transaction</ref>;</highlight></codeline>
+<codeline lineno="648"><highlight class="normal"></highlight></codeline>
+<codeline lineno="655" refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction" kindref="compound">CryptoCC26XX_AESECB_Transaction</ref><sp/>{</highlight></codeline>
+<codeline lineno="656" refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a538da4d16f0d7e5fdb2bf3f97bfa81be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CryptoCC26XX_Operation<sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a538da4d16f0d7e5fdb2bf3f97bfa81be" kindref="member">opType</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="657" refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a9dafb34e220b2dfe0ac118df2afc0ae8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CryptoCC26XX_Mode<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a9dafb34e220b2dfe0ac118df2afc0ae8" kindref="member">mode</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="658" refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a1e144214803cec502698401343c830a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1a1e144214803cec502698401343c830a1" kindref="member">keyIndex</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="659" refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1ac63701080bffd789b53c7effcf46cfe9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1ac63701080bffd789b53c7effcf46cfe9" kindref="member">msgIn</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="660" refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1ab5c3bff547308f1a63c771349cbef069" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___a_e_s_e_c_b___transaction_1ab5c3bff547308f1a63c771349cbef069" kindref="member">msgOut</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="661"><highlight class="normal">}<sp/><ref refid="_crypto_c_c26_x_x_8h_1a49f5f56e3a3f2f1aa354067e4261533f" kindref="member">CryptoCC26XX_AESECB_Transaction</ref>;</highlight></codeline>
+<codeline lineno="662"><highlight class="normal"></highlight></codeline>
+<codeline lineno="692" refid="struct_crypto_c_c26_x_x___h_w_attrs" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_crypto_c_c26_x_x___h_w_attrs" kindref="compound">CryptoCC26XX_HWAttrs</ref><sp/>{</highlight></codeline>
+<codeline lineno="694" refid="struct_crypto_c_c26_x_x___h_w_attrs_1a8a6e2dbc65c24f641941ebe3c854e961" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___h_w_attrs_1a8a6e2dbc65c24f641941ebe3c854e961" kindref="member">baseAddr</ref>;</highlight></codeline>
+<codeline lineno="696" refid="struct_crypto_c_c26_x_x___h_w_attrs_1ac5c27633092355d3606d6d0b240b2091" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___h_w_attrs_1ac5c27633092355d3606d6d0b240b2091" kindref="member">powerMngrId</ref>;</highlight></codeline>
+<codeline lineno="698" refid="struct_crypto_c_c26_x_x___h_w_attrs_1a63cdd84637d1e9acca0315cd96d9891b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___h_w_attrs_1a63cdd84637d1e9acca0315cd96d9891b" kindref="member">intNum</ref>;</highlight></codeline>
+<codeline lineno="711" refid="struct_crypto_c_c26_x_x___h_w_attrs_1af5d64e44258b27d68b380085544ab71f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___h_w_attrs_1af5d64e44258b27d68b380085544ab71f" kindref="member">intPriority</ref>;</highlight></codeline>
+<codeline lineno="712"><highlight class="normal">}<sp/><ref refid="_crypto_c_c26_x_x_8h_1a43b8004f918cfc847b65ebe981970da7" kindref="member">CryptoCC26XX_HWAttrs</ref>;</highlight></codeline>
+<codeline lineno="713"><highlight class="normal"></highlight></codeline>
+<codeline lineno="719" refid="struct_crypto_c_c26_x_x___object" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_crypto_c_c26_x_x___object" kindref="compound">CryptoCC26XX_Object</ref><sp/>{</highlight></codeline>
+<codeline lineno="720"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>CryptoCC26XX<sp/>control<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="721" refid="struct_crypto_c_c26_x_x___object_1aed6ed8c1a1fb38542f0a66bac8b207d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___object_1aed6ed8c1a1fb38542f0a66bac8b207d1" kindref="member">openCnt</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="722" refid="struct_crypto_c_c26_x_x___object_1a7bf2c514e22988c397d2b49e5a7be53b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___object_1a7bf2c514e22988c397d2b49e5a7be53b" kindref="member">timeout</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="723" refid="struct_crypto_c_c26_x_x___object_1a73d676dd4ff0815b55058c15c6315bb9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>CryptoCC26XX_KeyStore<sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___object_1a73d676dd4ff0815b55058c15c6315bb9" kindref="member">keyStore</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="724" refid="struct_crypto_c_c26_x_x___object_1a6ebc5fa5ae8455db12e9a01b34a75dbf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref><sp/>*<ref refid="struct_crypto_c_c26_x_x___object_1a6ebc5fa5ae8455db12e9a01b34a75dbf" kindref="member">currentTransact</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="726"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Crypto<sp/>transaction<sp/>pointers<sp/>for<sp/>CryptoCC26XX_MODE_CALLBACK<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="727" refid="struct_crypto_c_c26_x_x___object_1a6723e9a4eb86f36e8860c5ef541466fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref><sp/>*<ref refid="struct_crypto_c_c26_x_x___object_1a6723e9a4eb86f36e8860c5ef541466fc" kindref="member">headPtr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="728" refid="struct_crypto_c_c26_x_x___object_1a7474f4d229f4f9274dbfa2b0766b52ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref><sp/>*<ref refid="struct_crypto_c_c26_x_x___object_1a7474f4d229f4f9274dbfa2b0766b52ce" kindref="member">tailPtr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="731" refid="struct_crypto_c_c26_x_x___object_1ac6f020255e0552838fa662df76bfdb8e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_power___notify_obj__" kindref="compound">Power_NotifyObj</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___object_1ac6f020255e0552838fa662df76bfdb8e" kindref="member">cryptoNotiObj</ref>;</highlight></codeline>
+<codeline lineno="732"><highlight class="normal"></highlight></codeline>
+<codeline lineno="733"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>CryptoCC26XX<sp/>SYS/BIOS<sp/>objects<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="734" refid="struct_crypto_c_c26_x_x___object_1a141b9a34345818955a399560366f7d6b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>HwiP_Struct<sp/><ref refid="struct_crypto_c_c26_x_x___object_1a141b9a34345818955a399560366f7d6b" kindref="member">hwi</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="735" refid="struct_crypto_c_c26_x_x___object_1ab5d81cd802d52ca33244e6bc34fdc564" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>SemaphoreP_Struct<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___object_1ab5d81cd802d52ca33244e6bc34fdc564" kindref="member">transSem</ref>;<sp/></highlight></codeline>
+<codeline lineno="736" refid="struct_crypto_c_c26_x_x___object_1a85396b71216ed1c573a6919e4879ab0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>SemaphoreP_Struct<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_crypto_c_c26_x_x___object_1a85396b71216ed1c573a6919e4879ab0f" kindref="member">waitSem</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="737"><highlight class="normal">}<sp/><ref refid="_crypto_c_c26_x_x_8h_1a1d3ce506f41ca09dbb4fc02615c54d4e" kindref="member">CryptoCC26XX_Object</ref>;</highlight></codeline>
+<codeline lineno="738"><highlight class="normal"></highlight></codeline>
+<codeline lineno="740" refid="struct_crypto_c_c26_x_x___config" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_crypto_c_c26_x_x___config" kindref="compound">CryptoCC26XX_Config</ref><sp/>{</highlight></codeline>
+<codeline lineno="742" refid="struct_crypto_c_c26_x_x___config_1a11efc6993566cb9306ecb09abe42db5e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___config_1a11efc6993566cb9306ecb09abe42db5e" kindref="member">object</ref>;</highlight></codeline>
+<codeline lineno="743"><highlight class="normal"></highlight></codeline>
+<codeline lineno="745" refid="struct_crypto_c_c26_x_x___config_1a204edbf9c5427a6c48b6dec37970c4fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="struct_crypto_c_c26_x_x___config_1a204edbf9c5427a6c48b6dec37970c4fb" kindref="member">hwAttrs</ref>;</highlight></codeline>
+<codeline lineno="746"><highlight class="normal">}<sp/><ref refid="_crypto_c_c26_x_x_8h_1a7ff3fbcb90bc60cea7c5a281d5c7add2" kindref="member">CryptoCC26XX_Config</ref>;</highlight></codeline>
+<codeline lineno="747"><highlight class="normal"></highlight></codeline>
+<codeline lineno="762"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1aa2ece822f0fd8f6dbd3f50500b03bea4" kindref="member">CryptoCC26XX_close</ref>(CryptoCC26XX_Handle<sp/>handle);</highlight></codeline>
+<codeline lineno="763"><highlight class="normal"></highlight></codeline>
+<codeline lineno="773"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1a512b301a6ebf10a41c86d9ff725f7749" kindref="member">CryptoCC26XX_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="774"><highlight class="normal"></highlight></codeline>
+<codeline lineno="799"><highlight class="normal">CryptoCC26XX_Handle<sp/><ref refid="_crypto_c_c26_x_x_8h_1a21aa1458d0b063ee3637a40487e8ee12" kindref="member">CryptoCC26XX_open</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>exclusiveAccess,<sp/><ref refid="struct_crypto_c_c26_x_x___params" kindref="compound">CryptoCC26XX_Params</ref><sp/>*params);</highlight></codeline>
+<codeline lineno="800"><highlight class="normal"></highlight></codeline>
+<codeline lineno="811"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1a057c8155f3a7eb9560a51e2d8d4d98e3" kindref="member">CryptoCC26XX_Params_init</ref>(<ref refid="struct_crypto_c_c26_x_x___params" kindref="compound">CryptoCC26XX_Params</ref><sp/>*params);</highlight></codeline>
+<codeline lineno="812"><highlight class="normal"></highlight></codeline>
+<codeline lineno="823"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1afb3ea8faceda234cdd62c5f53e203946" kindref="member">CryptoCC26XX_Transac_init</ref>(<ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref><sp/>*trans,<sp/>CryptoCC26XX_Operation<sp/>opType);</highlight></codeline>
+<codeline lineno="824"><highlight class="normal"></highlight></codeline>
+<codeline lineno="853"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1a50d5828043e87fd37398d2aabe9b9e92" kindref="member">CryptoCC26XX_allocateKey</ref>(CryptoCC26XX_Handle<sp/>handle,<sp/>CryptoCC26XX_KeyLocation<sp/>keyLocation,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*keySrc);</highlight></codeline>
+<codeline lineno="854"><highlight class="normal"></highlight></codeline>
+<codeline lineno="855"><highlight class="normal"></highlight></codeline>
+<codeline lineno="879"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1a2faba7afcf3ade13881e4f0ece378c63" kindref="member">CryptoCC26XX_loadKey</ref>(CryptoCC26XX_Handle<sp/>handle,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>keyIndex,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*keySrc);</highlight></codeline>
+<codeline lineno="880"><highlight class="normal"></highlight></codeline>
+<codeline lineno="898"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1aa995ee20d8a7fcce66aeae86fee83555" kindref="member">CryptoCC26XX_releaseKey</ref>(CryptoCC26XX_Handle<sp/>handle,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*keyIndex);</highlight></codeline>
+<codeline lineno="899"><highlight class="normal"></highlight></codeline>
+<codeline lineno="920"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1a6864191d34a9a3cfbcd36cc34570b3b8" kindref="member">CryptoCC26XX_transact</ref>(CryptoCC26XX_Handle<sp/>handle,<sp/><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref><sp/>*transaction);</highlight></codeline>
+<codeline lineno="921"><highlight class="normal"></highlight></codeline>
+<codeline lineno="941"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1a2efbef5e059c752e1f5797a4ef3713a3" kindref="member">CryptoCC26XX_transactPolling</ref>(CryptoCC26XX_Handle<sp/>handle,<sp/><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref><sp/>*transaction);</highlight></codeline>
+<codeline lineno="942"><highlight class="normal"></highlight></codeline>
+<codeline lineno="966"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_crypto_c_c26_x_x_8h_1a99eb096ad8f78acf23d4e4b75616dc95" kindref="member">CryptoCC26XX_transactCallback</ref>(CryptoCC26XX_Handle<sp/>handle,<sp/><ref refid="struct_crypto_c_c26_x_x___transaction" kindref="compound">CryptoCC26XX_Transaction</ref><sp/>*transaction);</highlight></codeline>
+<codeline lineno="967"><highlight class="normal"></highlight></codeline>
+<codeline lineno="968"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="969"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="970"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="971"><highlight class="normal"></highlight></codeline>
+<codeline lineno="972"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>ti_drivers_crypto_CryptoCC26XX__include<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/crypto/CryptoCC26XX.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,4006 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GAP_DeviceInitDone &mdash; Vendor Specific Guide 5.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Vendor Specific Guide 5.00.00 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Vendor Specific Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_interface.html">HCI Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="att_api.html">ATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gap_api.html">GAP Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gapbondmgr_api.html">GapBondMgr Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gatt_api.html">GATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_ext_api.html">HCI Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l2cap_api.html">L2CAP Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util_api.html">UTIL Extension Vendor Specific API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Vendor Specific Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>GAP_DeviceInitDone</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gap-deviceinitdone">
+<h1>GAP_DeviceInitDone<a class="headerlink" href="#gap-deviceinitdone" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0600</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to indicate that the device is done initializing.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">devAddr:</th><td class="field-body"><p class="first">The devices address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">dataPktLen:</th><td class="field-body"><p class="first">HC_LE_Data_Packet_Length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">numDataPkts:</th><td class="field-body"><p class="first">HC_Total_Num_LE_Data_Packets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">IRK:</th><td class="field-body"><p class="first">16 byte Identity Resolving Key (IRK). This is either a randomly generated key or the original key passed in the GAP_DeviceInit command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">CSRK:</th><td class="field-body"><p class="first">16 byte Connection Signature Resolving Key (CSRK). This is either a randomly generated key or the original key passed in the GAP_DeviceInit command.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-linkestablished">
+<h1>GAP_LinkEstablished<a class="headerlink" href="#gap-linkestablished" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0605</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This message is sent when a connection is established with another device. On a Central device, this message is a result for a GAP Establish Link Request. On a Peripheral device, this message is received when a central device initiated a connection.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Device Address Type:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Address type of the connected device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>ADDRTYPE_PUBLIC</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>ADDRTYPE_RANDOM</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>ADDRTYPE_PUBLIC_ID</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>ADDRTYPE_RANDOM_ID</td>
+</tr>
+<tr class="row-even"><td>0xFE</td>
+<td>ADDRTYPE_RANDOM_NR</td>
+</tr>
+<tr class="row-odd"><td>0xFF</td>
+<td>ADDRTYPE_NONE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Device Address:</th><td class="field-body"><p class="first">Address of the connected device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 6-byte address</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Handle of the connection. This will be used to reference the connection in other “connection based” commands.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">connRole:</th><td class="field-body"><p class="first">GAP role of the local device for this connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>GAP_PROFILE_BROADCASTER</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>GAP_PROFILE_OBSERVER</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>GAP_PROFILE_PERIPHERAL</td>
+</tr>
+<tr class="row-odd"><td>0x08</td>
+<td>GAP_PROFILE_CENTRAL</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">connInterval:</th><td class="field-body"><p class="first">Connection interval used on this connection (* 1.25 ms)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">connLatency:</th><td class="field-body"><p class="first">Connection latency used on this connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">connTimeout:</th><td class="field-body"><p class="first">Connection supervision timeout (* 10 ms)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">clockAccuracy:</th><td class="field-body"><p class="first">Clock accuracy (in ppm) of the connected device.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-linkterminated">
+<h1>GAP_LinkTerminated<a class="headerlink" href="#gap-linkterminated" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0606</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This message is sent whenever a link is terminated.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection Handle of terminated link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">reason:</th><td class="field-body"><p class="first">Reason the link was terminated</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-linkparamupdate">
+<h1>GAP_LinkParamUpdate<a class="headerlink" href="#gap-linkparamupdate" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0607</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This message is sent whenever connection parameter update is completed</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">See Status Table</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection Handle of link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">connInterval:</th><td class="field-body"><p class="first">New connection interval in use after the update (* 1.25 ms).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">connLatency:</th><td class="field-body"><p class="first">New connection latency in use after the update</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">connTimeout:</th><td class="field-body"><p class="first">New connection supervision timeout in use after the update (* 10 ms)</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-signatureupdated">
+<h1>GAP_SignatureUpdated<a class="headerlink" href="#gap-signatureupdated" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0609</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This message is sent whenever sign counter is updated (incremented). This message will be generated when a new sign counter is received from a connected device or when this device increments its own sign counter.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">addrType:</th><td class="field-body"><p class="first">Address type of the update</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>ADDRTYPE_PUBLIC</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>ADDRTYPE_RANDOM</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>ADDRTYPE_PUBLIC_ID</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>ADDRTYPE_RANDOM_ID</td>
+</tr>
+<tr class="row-even"><td>0xFE</td>
+<td>ADDRTYPE_RANDOM_NR</td>
+</tr>
+<tr class="row-odd"><td>0xFF</td>
+<td>ADDRTYPE_NONE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">devAddr:</th><td class="field-body"><p class="first">The device address of the sign counter that changed. It may be the local device or a connected device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">signCounter:</th><td class="field-body"><p class="first">The new sign counter value for the referenced device.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-passkeyneeded">
+<h1>GAP_PasskeyNeeded<a class="headerlink" href="#gap-passkeyneeded" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x060B</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is generated during the pairing process if a passkey is needed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">deviceAddr:</th><td class="field-body"><p class="first">Address of the pairing device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection Handle of link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">uiInputs:</th><td class="field-body"><p class="first">Whether to ask for a passcode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">uiOutputs:</th><td class="field-body"><p class="first">Whether to display a passcode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">numComparison:</th><td class="field-body"><p class="first">Numeric Comparison value if nonzero.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-authenticationcomplete">
+<h1>GAP_AuthenticationComplete<a class="headerlink" href="#gap-authenticationcomplete" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x060A</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is generated whenever the pairing process is completed (pass or fail).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>SMP_PAIRING_FAILED_PASSKEY_ENTRY_FAILED</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>SMP_PAIRING_FAILED_OOB_NOT_AVAIL</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>SMP_PAIRING_FAILED_AUTH_REQ</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>SMP_PAIRING_FAILED_CONFIRM_VALUE</td>
+</tr>
+<tr class="row-odd"><td>0x05</td>
+<td>SMP_PAIRING_FAILED_NOT_SUPPORTED</td>
+</tr>
+<tr class="row-even"><td>0x06</td>
+<td>SMP_PAIRING_FAILED_ENC_KEY_SIZE</td>
+</tr>
+<tr class="row-odd"><td>0x07</td>
+<td>SMP_PAIRING_FAILED_CMD_NOT_SUPPORTED</td>
+</tr>
+<tr class="row-even"><td>0x08</td>
+<td>SMP_PAIRING_FAILED_UNSPECIFIED</td>
+</tr>
+<tr class="row-odd"><td>0x09</td>
+<td>SMP_PAIRING_FAILED_REPEATED_ATTEMPTS</td>
+</tr>
+<tr class="row-even"><td>0x0A</td>
+<td>SMP_PAIRING_FAILED_INVALID_PARAMETERS</td>
+</tr>
+<tr class="row-odd"><td>0x0B</td>
+<td>SMP_PAIRING_FAILED_DHKEY_CHECK_FAILED</td>
+</tr>
+<tr class="row-even"><td>0x0C</td>
+<td>SMP_PAIRING_FAILED_NUM_COMPARISON_FAILED</td>
+</tr>
+<tr class="row-odd"><td>0x0D</td>
+<td>SMP_PAIRING_FAILED_BREDR_PAIR_IN_PROGRESS</td>
+</tr>
+<tr class="row-even"><td>0x0E</td>
+<td>SMP_PAIRING_FAILED_CT_KEYDER_NOT_ALLOWED</td>
+</tr>
+<tr class="row-odd"><td>0x0F</td>
+<td>Command Disallowed</td>
+</tr>
+<tr class="row-even"><td>0x11</td>
+<td>Unsupported Feature Or Parameter Value</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>Invalid HCI Command Parameters</td>
+</tr>
+<tr class="row-even"><td>0x17</td>
+<td>bleTimeout</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection Handle of link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">authState:</th><td class="field-body"><p class="first">Pairing / bonding state of the link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>Bonding</td>
+</tr>
+<tr class="row-odd"><td>0x04</td>
+<td>MITM</td>
+</tr>
+<tr class="row-even"><td>0x08</td>
+<td>SC</td>
+</tr>
+<tr class="row-odd"><td>0x10</td>
+<td>KP</td>
+</tr>
+<tr class="row-even"><td>0x20</td>
+<td>CT2</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">securityInfo:</th><td class="field-body"><p class="first">Whether or not the securityInfo parameters are enabled in this event</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Disable</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Enable</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">securityInfo.LTKsize:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Encryption key size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">securityInfo.LTK:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Long Term Key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">securityInfo.DIV:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">DIV for this LTK</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">securityInfo.rand:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Random number for this LTK</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">8 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">devSecInfo:</th><td class="field-body"><p class="first">Whether or not the devSecInfo parameters are enabled in this event.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Disable</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Enable</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">devSecInfo.LTKsize:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Encryption key size</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">devSecInfo.LTK:</th><td class="field-body"><p class="first">Long term key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">devSecInfo.DIV:</th><td class="field-body"><p class="first">Div for this LTK</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">devSecInfo.rand:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Random number for this LTK</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">8 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">identityInfo:</th><td class="field-body"><p class="first">Whether the identityInfo parameters are enabled in this event.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Disable</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Enable</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">identityInfo.IRK:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Identity Resolving Key used to resolve private resolvable addresses.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">identityInfo.BD_ADDR:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">The connected devices Public Address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">identityInfo.addrType:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">The connected device’s address type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>ADDRTYPE_PUBLIC</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>ADDRTYPE_RANDOM</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>ADDRTYPE_PUBLIC_ID</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>ADDRTYPE_RANDOM_ID</td>
+</tr>
+<tr class="row-even"><td>0xFE</td>
+<td>ADDRTYPE_RANDOM_NR</td>
+</tr>
+<tr class="row-odd"><td>0xFF</td>
+<td>ADDRTYPE_NONE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">signingInfo:</th><td class="field-body"><p class="first">Whether the signingInfo parameters are enabled in this event.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Disable</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Enable</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">signingInfo.CSRK:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connected Signature Resolving Key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">signingInfo.signCounter:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">The connected devices current sign counter</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-slaverequestedsecurity">
+<h1>GAP_SlaveRequestedSecurity<a class="headerlink" href="#gap-slaverequestedsecurity" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x060C</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This message is generated when the master device receives an SM Slave Request from the connected slave device.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection Handle of link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">deviceAddr:</th><td class="field-body"><p class="first">The connected devices address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">authReq:</th><td class="field-body"><p class="first">Requested pairing / bonding properties from the slave.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>Bonding</td>
+</tr>
+<tr class="row-odd"><td>0x04</td>
+<td>MITM</td>
+</tr>
+<tr class="row-even"><td>0x08</td>
+<td>SC</td>
+</tr>
+<tr class="row-odd"><td>0x10</td>
+<td>KP</td>
+</tr>
+<tr class="row-even"><td>0x20</td>
+<td>CT2</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-bondcomplete">
+<h1>GAP_BondComplete<a class="headerlink" href="#gap-bondcomplete" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x060E</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This message is sent when a bond is complete and the connection is encrypted.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x06</td>
+<td>KEY_REQ_REJECTED</td>
+</tr>
+<tr class="row-even"><td>0x1A</td>
+<td>KEY_REQ_UNSUPPORTED</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection Handle of link</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-pairingrequested">
+<h1>GAP_PairingRequested<a class="headerlink" href="#gap-pairingrequested" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x060F</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This message is sent when a pairing request is received from a master..</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection Handle of link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ioCap:</th><td class="field-body"><p class="first">I/O Capabilities of the connected device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>DisplayOnly</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>DisplayYesNo</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>KeyboardOnly</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>NoInputNoOutput</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>KeyboardDisplay</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">oobDataFlag:</th><td class="field-body"><p class="first">Wheter OOB data is enabled or not.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Disable</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Enable</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">authReq:</th><td class="field-body"><p class="first">Type of pairing / bonding that is requested</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>Bonding</td>
+</tr>
+<tr class="row-odd"><td>0x04</td>
+<td>MITM</td>
+</tr>
+<tr class="row-even"><td>0x08</td>
+<td>SC</td>
+</tr>
+<tr class="row-odd"><td>0x10</td>
+<td>KP</td>
+</tr>
+<tr class="row-even"><td>0x20</td>
+<td>CT2</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">maxEncKeySize:</th><td class="field-body"><p class="first">Maximum encryption key size to supported</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">keyDist:</th><td class="field-body"><p class="first">Desired key distribution</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>GAPBOND_KEYDIST_SENCKEY</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>GAPBOND_KEYDIST_SIDKEY</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>GAPBOND_KEYDIST_SSIGN</td>
+</tr>
+<tr class="row-odd"><td>0x08</td>
+<td>GAPBOND_KEYDIST_SLINK</td>
+</tr>
+<tr class="row-even"><td>0x10</td>
+<td>GAPBOND_KEYDIST_MENCKEY</td>
+</tr>
+<tr class="row-odd"><td>0x20</td>
+<td>GAPBOND_KEYDIST_MIDKEY</td>
+</tr>
+<tr class="row-even"><td>0x40</td>
+<td>GAPBOND_KEYDIST_MSIGN</td>
+</tr>
+<tr class="row-odd"><td>0x80</td>
+<td>GAPBOND_KEYDIST_MLINK</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-connectingcancelled">
+<h1>GAP_ConnectingCancelled<a class="headerlink" href="#gap-connectingcancelled" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0615</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent when a connection has been canceled.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-connectioneventnotice">
+<h1>GAP_ConnectionEventNotice<a class="headerlink" href="#gap-connectioneventnotice" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0616</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This event is sent to when a connection handle has been registered for connection event notices after each connection event.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><p class="first">Status of Connection Event</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>GAP_CONN_EVT_STAT_SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>GAP_CONN_EVT_STAT_CRC_ERROR</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>GAP_CONN_EVT_STAT_MISSED</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">handle:</th><td class="field-body"><p class="first">Connection handle of connection event</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">0-0xFFFD</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">channel:</th><td class="field-body"><p class="first">BLE RF channel index of connection event</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">0-39</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">phy:</th><td class="field-body"><p class="first">PHY of connection event</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>GAP_CONN_EVT_PHY_1MBPS</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>GAP_CONN_EVT_PHY_2MBPS</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>GAP_CONN_EVT_PHY_CODED</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lastRssi:</th><td class="field-body"><p class="first">RSSI of last packet received</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">-128 - 127</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">packets:</th><td class="field-body"><p class="first">Number of packets received for this connection event</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">0-0xFFFF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">errors:</th><td class="field-body"><p class="first">Total number of CRC errors for the entire connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">0-0xFFFF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">nextTaskType:</th><td class="field-body"><p class="first">Type of next BLE task</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>GAP_CONN_EVT_TASK_TYPE_ADV</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>GAP_CONN_EVT_TASK_TYPE_SCAN</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>GAP_CONN_EVT_TASK_TYPE_INIT</td>
+</tr>
+<tr class="row-odd"><td>0x40</td>
+<td>GAP_CONN_EVT_TASK_TYPE_SLAVE</td>
+</tr>
+<tr class="row-even"><td>0x80</td>
+<td>GAP_CONN_EVT_TASK_TYPE_MASTER</td>
+</tr>
+<tr class="row-odd"><td>0xFF</td>
+<td>GAP_CONN_EVT_TASK_TYPE_NONE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">nextTaskTime:</th><td class="field-body"><p class="first">Time to next BLE task (in us). Note that the actual time will be shorter due to latency from sending this event over the transport layer. If 0xFFFFFFFF, there is no next RF command scheduled.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">0-0xFFFFFFFF</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sm-getecckeys">
+<h1>SM_GetEccKeys<a class="headerlink" href="#sm-getecckeys" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0610</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This message is sent when ECC Keys have been generated by the BLE Stack.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">privateKey:</th><td class="field-body"><p class="first">Private key to use</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">32 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">publicKeyX:</th><td class="field-body"><p class="first">Public Key X-coordinate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">32 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">publicKeyY:</th><td class="field-body"><p class="first">Public Key Y-coordinate.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">32 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sm-getdhkey">
+<h1>SM_GetDHKey<a class="headerlink" href="#sm-getdhkey" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0611</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This message is sent when Diffie-Hellman Key have been generated by the BLE Stack.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">DHKey:</th><td class="field-body"><p class="first">Diffie-Hellman Key</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">32 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-linkparamupdaterequest">
+<h1>GAP_LinkParamUpdateRequest<a class="headerlink" href="#gap-linkparamupdaterequest" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0612</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This message is sent whenever connection parameter update is completed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection Handle of link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">minConnInterval:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Minimum desired connection interval (n * 1.25 ms)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">maxConnInterval:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Maximum desired connection interval (n * 1.25 ms)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">connLatency:</th><td class="field-body"><p class="first">Desired connection latency</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">connTimeout:</th><td class="field-body"><p class="first">Desired connection timeout (n * 10 ms)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">signalIdentifier:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">L2CAP signal identifier. 0 for LL Connection Parameter Request</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gap-advertiser-scanner-event">
+<h1>GAP_Advertiser/Scanner_Event<a class="headerlink" href="#gap-advertiser-scanner-event" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0x0613</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Event Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Gap Advertising / Scanning Event.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>bleIncorrectMode</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>INVALIDPARAMETER</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">event:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">4 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00000001</td>
+<td>GAP_EVT_ADV_START_AFTER_ENABLE</td>
+</tr>
+<tr class="row-odd"><td>0x00000002</td>
+<td>GAP_EVT_ADV_END_AFTER_DISABLE</td>
+</tr>
+<tr class="row-even"><td>0x00000004</td>
+<td>GAP_EVT_ADV_START</td>
+</tr>
+<tr class="row-odd"><td>0x00000008</td>
+<td>GAP_EVT_ADV_END</td>
+</tr>
+<tr class="row-even"><td>0x00000010</td>
+<td>GAP_EVT_ADV_SET_TERMINATED</td>
+</tr>
+<tr class="row-odd"><td>0x00000020</td>
+<td>GAP_EVT_SCAN_REQ_RECEIVED</td>
+</tr>
+<tr class="row-even"><td>0x00000040</td>
+<td>GAP_EVT_ADV_DATA_TRUNCATED</td>
+</tr>
+<tr class="row-odd"><td>0x00010000</td>
+<td>GAP_EVT_SCAN_ENABLED</td>
+</tr>
+<tr class="row-even"><td>0x00020000</td>
+<td>GAP_EVT_SCAN_DISABLED</td>
+</tr>
+<tr class="row-odd"><td>0x00040000</td>
+<td>GAP_EVT_SCAN_PRD_ENDED</td>
+</tr>
+<tr class="row-even"><td>0x00080000</td>
+<td>GAP_EVT_SCAN_DUR_ENDED</td>
+</tr>
+<tr class="row-odd"><td>0x00100000</td>
+<td>GAP_EVT_SCAN_INT_ENDED</td>
+</tr>
+<tr class="row-even"><td>0x00200000</td>
+<td>GAP_EVT_SCAN_WND_ENDED</td>
+</tr>
+<tr class="row-odd"><td>0x00400000</td>
+<td>GAP_EVT_ADV_REPORT</td>
+</tr>
+<tr class="row-even"><td>0x00800000</td>
+<td>GAP_EVT_ADV_REPORT_FULL</td>
+</tr>
+<tr class="row-odd"><td>0x01000000</td>
+<td>GAP_EVT_PRD_ADV_SYNC_ESTABLISHED</td>
+</tr>
+<tr class="row-even"><td>0x02000000</td>
+<td>GAP_EVT_PRD_ADV_REPORT</td>
+</tr>
+<tr class="row-odd"><td>0x04000000</td>
+<td>GAP_EVT_PRD_ADV_SYNC_LOST</td>
+</tr>
+<tr class="row-even"><td>0x80000000</td>
+<td>GAP_EVT_INSUFFICIENT_MEMORY</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">advertising handle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID&lt;0x00010000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">data length:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID&lt;0x00010000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">connection handle:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00000010)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">num of completed adv events:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00000010)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">scanner address type:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( eventID==0x00000020)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>ADDRTYPE_PUBLIC</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>ADDRTYPE_RANDOM</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>ADDRTYPE_PUBLIC_ID</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>ADDRTYPE_RANDOM_ID</td>
+</tr>
+<tr class="row-even"><td>0xFE</td>
+<td>ADDRTYPE_RANDOM_NR</td>
+</tr>
+<tr class="row-odd"><td>0xFF</td>
+<td>ADDRTYPE_NONE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">scanner address:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00000020)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">channel:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00000020)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RSSI:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( eventID==0x00000020)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>127</td>
+<td>Invalid RSSI</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">truncated adv data size:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00000040)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">attempted adv data size:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00000040)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">reason:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( eventID==0x00020000)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SCAN_END_REASON_USR_REQ</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>SCAN_END_REASON_DUR_EXP</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">number of reports:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00020000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">evtType:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( eventID==0x00400000)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x0000</td>
+<td>AE Undir NC/NS | Data Complete</td>
+</tr>
+<tr class="row-odd"><td>0x0001</td>
+<td>AE Undir Conn | Data Complete</td>
+</tr>
+<tr class="row-even"><td>0x0002</td>
+<td>AE Undir Scan | Data Complete</td>
+</tr>
+<tr class="row-odd"><td>0x0003</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0004</td>
+<td>AE Dir NC/NS | Data Complete</td>
+</tr>
+<tr class="row-odd"><td>0x0005</td>
+<td>AE Dir Conn | Data Complete</td>
+</tr>
+<tr class="row-even"><td>0x0006</td>
+<td>AE Dir Scan | Data Complete</td>
+</tr>
+<tr class="row-odd"><td>0x0007</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0008</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0009</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x000A</td>
+<td>AE Scan Rsp to AE Undir Scan | Data Complete</td>
+</tr>
+<tr class="row-odd"><td>0x000B</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x000C</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x000D</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x000E</td>
+<td>AE Scan Rsp to AE Dir Scan | Data Complete</td>
+</tr>
+<tr class="row-odd"><td>0x000F</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0010</td>
+<td>Legacy ADV_NONCONN | Data Complete</td>
+</tr>
+<tr class="row-odd"><td>0x0011</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0012</td>
+<td>Legacy ADV_SCAN | Data Complete</td>
+</tr>
+<tr class="row-odd"><td>0x0013</td>
+<td>Legacy ADV_IND | Data Complete</td>
+</tr>
+<tr class="row-even"><td>0x0014</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0015</td>
+<td>Legacy ADV_DIR | Data Complete</td>
+</tr>
+<tr class="row-even"><td>0x0016</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0017</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0018</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0019</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x001A</td>
+<td>Legacy SCAN_RSP to ADV_SCAN | Data Complete</td>
+</tr>
+<tr class="row-odd"><td>0x001B</td>
+<td>Legacy SCAN_RSP to ADV_IND | Data Complete</td>
+</tr>
+<tr class="row-even"><td>0x001C</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x001D</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x001E</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x001F</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0020</td>
+<td>AE Undir NC/NS | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-odd"><td>0x0021</td>
+<td>AE Undir Conn | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-even"><td>0x0022</td>
+<td>AE Undir Scan | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-odd"><td>0x0023</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0024</td>
+<td>AE Dir NC/NS | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-odd"><td>0x0025</td>
+<td>AE Dir Conn | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-even"><td>0x0026</td>
+<td>AE Dir Scan | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-odd"><td>0x0027</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0028</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0029</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x002A</td>
+<td>AE Scan Rsp to AE Undir Scan | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-odd"><td>0x002B</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x002C</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x002D</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x002E</td>
+<td>AE Scan Rsp to AE Dir Scan | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-odd"><td>0x002F</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0030</td>
+<td>Legacy ADV_NONCONN | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-odd"><td>0x0031</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0032</td>
+<td>Legacy ADV_SCAN | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-odd"><td>0x0033</td>
+<td>Legacy ADV_IND | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-even"><td>0x0034</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0035</td>
+<td>Legacy ADV_DIR | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-even"><td>0x0036</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0037</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0038</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0039</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x003A</td>
+<td>Legacy SCAN_RSP to ADV_SCAN | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-odd"><td>0x003B</td>
+<td>Legacy SCAN_RSP to ADV_IND | Data Incomplete, More to Come</td>
+</tr>
+<tr class="row-even"><td>0x003C</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x003D</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x003E</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x003F</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0040</td>
+<td>AE Undir NC/NS | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-odd"><td>0x0041</td>
+<td>AE Undir Conn | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-even"><td>0x0042</td>
+<td>AE Undir Scan | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-odd"><td>0x0043</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0044</td>
+<td>AE Dir NC/NS | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-odd"><td>0x0045</td>
+<td>AE Dir Conn | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-even"><td>0x0046</td>
+<td>AE Dir Scan | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-odd"><td>0x0047</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0048</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0049</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x004A</td>
+<td>AE Scan Rsp to AE Undir Scan | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-odd"><td>0x004B</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x004C</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x004D</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x004E</td>
+<td>AE Scan Rsp to AE Dir Scan | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-odd"><td>0x004F</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0050</td>
+<td>Legacy ADV_NONCONN | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-odd"><td>0x0051</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0052</td>
+<td>Legacy ADV_SCAN | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-odd"><td>0x0053</td>
+<td>Legacy ADV_IND | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-even"><td>0x0054</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0055</td>
+<td>Legacy ADV_DIR | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-even"><td>0x0056</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0057</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0058</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0059</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x005A</td>
+<td>Legacy SCAN_RSP to ADV_SCAN | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-odd"><td>0x005B</td>
+<td>Legacy SCAN_RSP to ADV_IND | Data Incomplete, Truncated</td>
+</tr>
+<tr class="row-even"><td>0x005C</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x005D</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x005E</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x005F</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0060</td>
+<td>AE Undir NC/NS | Reserved!</td>
+</tr>
+<tr class="row-odd"><td>0x0061</td>
+<td>AE Undir Conn | Reserved!</td>
+</tr>
+<tr class="row-even"><td>0x0062</td>
+<td>AE Undir Scan | Reserved!</td>
+</tr>
+<tr class="row-odd"><td>0x0063</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0064</td>
+<td>AE Dir NC/NS | Reserved!</td>
+</tr>
+<tr class="row-odd"><td>0x0065</td>
+<td>AE Dir Conn | Reserved!</td>
+</tr>
+<tr class="row-even"><td>0x0066</td>
+<td>AE Dir Scan | Reserved!</td>
+</tr>
+<tr class="row-odd"><td>0x0067</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0068</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0069</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x006A</td>
+<td>AE Scan Rsp to AE Undir Scan | Reserved!</td>
+</tr>
+<tr class="row-odd"><td>0x006B</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x006C</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x006D</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x006E</td>
+<td>AE Scan Rsp to AE Dir Scan | Reserved!</td>
+</tr>
+<tr class="row-odd"><td>0x006F</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0070</td>
+<td>Legacy ADV_NONCONN | Reserved!</td>
+</tr>
+<tr class="row-odd"><td>0x0071</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0072</td>
+<td>Legacy ADV_SCAN | Reserved!</td>
+</tr>
+<tr class="row-odd"><td>0x0073</td>
+<td>Legacy ADV_IND | Reserved!</td>
+</tr>
+<tr class="row-even"><td>0x0074</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0075</td>
+<td>Legacy ADV_DIR | Reserved!</td>
+</tr>
+<tr class="row-even"><td>0x0076</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0077</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0078</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0079</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x007A</td>
+<td>Legacy SCAN_RSP to ADV_SCAN | Reserved!</td>
+</tr>
+<tr class="row-odd"><td>0x007B</td>
+<td>Legacy SCAN_RSP to ADV_IND | Reserved!</td>
+</tr>
+<tr class="row-even"><td>0x007C</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x007D</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x007E</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x007F</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0080</td>
+<td>AE Undir NC/NS | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x0081</td>
+<td>AE Undir Conn | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-even"><td>0x0082</td>
+<td>AE Undir Scan | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x0083</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0084</td>
+<td>AE Dir NC/NS | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x0085</td>
+<td>AE Dir Conn | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-even"><td>0x0086</td>
+<td>AE Dir Scan | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x0087</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0088</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0089</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x008A</td>
+<td>AE Scan Rsp to AE Undir Scan | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x008B</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x008C</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x008D</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x008E</td>
+<td>AE Scan Rsp to AE Dir Scan | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x008F</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0090</td>
+<td>Legacy ADV_NONCONN | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x0091</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0092</td>
+<td>Legacy ADV_SCAN | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x0093</td>
+<td>Legacy ADV_IND | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-even"><td>0x0094</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0095</td>
+<td>Legacy ADV_DIR | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-even"><td>0x0096</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0097</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x0098</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x0099</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x009A</td>
+<td>Legacy SCAN_RSP to ADV_SCAN | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x009B</td>
+<td>Legacy SCAN_RSP to ADV_IND | Data Complete (Previous Truncated)</td>
+</tr>
+<tr class="row-even"><td>0x009C</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x009D</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x009E</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x009F</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00A0</td>
+<td>AE Undir NC/NS | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x00A1</td>
+<td>AE Undir Conn | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-even"><td>0x00A2</td>
+<td>AE Undir Scan | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x00A3</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00A4</td>
+<td>AE Dir NC/NS | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x00A5</td>
+<td>AE Dir Conn | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-even"><td>0x00A6</td>
+<td>AE Dir Scan | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x00A7</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00A8</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00A9</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00AA</td>
+<td>AE Scan Rsp to AE Undir Scan | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x00AB</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00AC</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00AD</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00AE</td>
+<td>AE Scan Rsp to AE Dir Scan | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x00AF</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00B0</td>
+<td>Legacy ADV_NONCONN | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x00B1</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00B2</td>
+<td>Legacy ADV_SCAN | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x00B3</td>
+<td>Legacy ADV_IND | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-even"><td>0x00B4</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00B5</td>
+<td>Legacy ADV_DIR | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-even"><td>0x00B6</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00B7</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00B8</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00B9</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00BA</td>
+<td>Legacy SCAN_RSP to ADV_SCAN | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-odd"><td>0x00BB</td>
+<td>Legacy SCAN_RSP to ADV_IND | Data Incomplete, More to Come (Previous Truncated)</td>
+</tr>
+<tr class="row-even"><td>0x00BC</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00BD</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00BE</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00BF</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00C0</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00C1</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-even"><td>0x00C2</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00C3</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00C4</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00C5</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-even"><td>0x00C6</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00C7</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00C8</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00C9</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00CA</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00CB</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00CC</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00CD</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00CE</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00CF</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00D0</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00D1</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00D2</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00D3</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-even"><td>0x00D4</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00D5</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-even"><td>0x00D6</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00D7</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00D8</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00D9</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00DA</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00DB</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-even"><td>0x00DC</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00DD</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00DE</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00DF</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00E0</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00E1</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-even"><td>0x00E2</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00E3</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00E4</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00E5</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-even"><td>0x00E6</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00E7</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00E8</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00E9</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00EA</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00EB</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00EC</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00ED</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00EE</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00EF</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00F0</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00F1</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00F2</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00F3</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-even"><td>0x00F4</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00F5</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-even"><td>0x00F6</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00F7</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00F8</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00F9</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00FA</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-odd"><td>0x00FB</td>
+<td>Invalid Data Status!</td>
+</tr>
+<tr class="row-even"><td>0x00FC</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00FD</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-even"><td>0x00FE</td>
+<td>Invalid Event Type!</td>
+</tr>
+<tr class="row-odd"><td>0x00FF</td>
+<td>Invalid Event Type!</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">addrType:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( eventID==0x00400000)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>ADDRTYPE_PUBLIC</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>ADDRTYPE_RANDOM</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>ADDRTYPE_PUBLIC_ID</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>ADDRTYPE_RANDOM_ID</td>
+</tr>
+<tr class="row-even"><td>0xFE</td>
+<td>ADDRTYPE_RANDOM_NR</td>
+</tr>
+<tr class="row-odd"><td>0xFF</td>
+<td>ADDRTYPE_NONE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">address:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00400000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">primPhy:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( eventID==0x00400000)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SCANNED_PHY_NONE</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>SCANNED_PHY_1M</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>SCANNED_PHY_2M</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>SCANNED_PHY_CODED</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">secPhy:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( eventID==0x00400000)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SCANNED_PHY_NONE</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>SCANNED_PHY_1M</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>SCANNED_PHY_2M</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>SCANNED_PHY_CODED</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">advSid:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00400000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">txPower:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00400000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">rssi:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00400000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">directAddrType:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( eventID==0x00400000)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>ADDRTYPE_PUBLIC</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>ADDRTYPE_RANDOM</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>ADDRTYPE_PUBLIC_ID</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>ADDRTYPE_RANDOM_ID</td>
+</tr>
+<tr class="row-even"><td>0xFE</td>
+<td>ADDRTYPE_RANDOM_NR</td>
+</tr>
+<tr class="row-odd"><td>0xFF</td>
+<td>ADDRTYPE_NONE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">directAddr:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00400000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">periodicAdvInt:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00400000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">dataLen:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00400000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">data:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( eventID==0x00400000)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">DataLength byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

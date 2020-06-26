@@ -1,0 +1,21 @@
+"--endian=little" 
+
+"--cpu=Cortex-M4" 
+
+"--fpu=None" 
+
+"-p" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\CONFIG\debugger\TexasInstruments\CC2642R1F.ddf" 
+
+"--semihosting=none" 
+
+"--device=CC2642R1F" 
+
+"--xds_hib_address=0x10001932,0x10001214" 
+
+"--multicore_nr_of_cores=1" 
+
+
+
+

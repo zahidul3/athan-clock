@@ -1,0 +1,2733 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GAPBondMgr_SetParameter &mdash; Vendor Specific Guide 5.00.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Vendor Specific Guide 5.00.00 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  <header id="tiHeader">
+    <div class="top">
+      <ul>
+        <li id="top_logo">
+          <a href="http://www.ti.com">
+            <img src="../_static/img/ti_logo.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav"></div>
+  </header>
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Vendor Specific Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_interface.html">HCI Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="att_api.html">ATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gap_api.html">GAP Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gapbondmgr_api.html">GapBondMgr Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gatt_api.html">GATT Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hci_ext_api.html">HCI Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="l2cap_api.html">L2CAP Extension Vendor Specific API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util_api.html">UTIL Extension Vendor Specific API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Vendor Specific Guide</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>GAPBondMgr_SetParameter</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gapbondmgr-setparameter">
+<h1>GAPBondMgr_SetParameter<a class="headerlink" href="#gapbondmgr-setparameter" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE36</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Set a bond manager parameter</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">paramID:</th><td class="field-body"><p class="first">Parameter to Set</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">2 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x400</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x400</td>
+<td>GAPBOND_PAIRING_MODE</td>
+</tr>
+<tr class="row-odd"><td>0x402</td>
+<td>GAPBOND_MITM_PROTECTION</td>
+</tr>
+<tr class="row-even"><td>0x403</td>
+<td>GAPBOND_IO_CAPABILITIES</td>
+</tr>
+<tr class="row-odd"><td>0x404</td>
+<td>GAPBOND_OOB_ENABLED</td>
+</tr>
+<tr class="row-even"><td>0x405</td>
+<td>GAPBOND_OOB_DATA</td>
+</tr>
+<tr class="row-odd"><td>0x406</td>
+<td>GAPBOND_BONDING_ENABLED</td>
+</tr>
+<tr class="row-even"><td>0x407</td>
+<td>GAPBOND_KEY_DIST_LIST</td>
+</tr>
+<tr class="row-odd"><td>0x408</td>
+<td>GAPBOND_DEFAULT_PASSCODE</td>
+</tr>
+<tr class="row-even"><td>0x409</td>
+<td>GAPBOND_ERASE_ALLBONDS</td>
+</tr>
+<tr class="row-odd"><td>0x40A</td>
+<td>GAPBOND_AUTO_FAIL_PAIRING</td>
+</tr>
+<tr class="row-even"><td>0x40B</td>
+<td>GAPBOND_AUTO_FAIL_REASON</td>
+</tr>
+<tr class="row-odd"><td>0x40C</td>
+<td>GAPBOND_KEYSIZE</td>
+</tr>
+<tr class="row-even"><td>0x40D</td>
+<td>GAPBOND_AUTO_SYNC_WL</td>
+</tr>
+<tr class="row-odd"><td>0x40F</td>
+<td>GAPBOND_BOND_FAIL_ACTION</td>
+</tr>
+<tr class="row-even"><td>0x410</td>
+<td>GAPBOND_ERASE_SINGLEBOND</td>
+</tr>
+<tr class="row-odd"><td>0x411</td>
+<td>GAPBOND_SECURE_CONNECTION</td>
+</tr>
+<tr class="row-even"><td>0x412</td>
+<td>GAPBOND_ECCKEY_REGEN_POLICY</td>
+</tr>
+<tr class="row-odd"><td>0x413</td>
+<td>GAPBOND_GAPBOND_ECC_KEYS</td>
+</tr>
+<tr class="row-even"><td>0x418</td>
+<td>GAPBOND_LRU_BOND_REPLACEMENT</td>
+</tr>
+<tr class="row-odd"><td>0x41A</td>
+<td>GAPBOND_ERASE_LOCAL_INFO</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x400)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_PAIRING_MODE:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Whether to allow pairing, and if so, whether to initiate pairing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x400)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x00</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>GAPBOND_PAIRING_MODE_NO_PAIRING</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>GAPBOND_PAIRING_MODE_WAIT_FOR_REQ</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>GAPBOND_PAIRING_MODE_INITIATE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x402)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_MITM_PROTECTION:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Whether to use authenticated pairing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x402)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x01</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x403)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_IO_CAPABILITIES:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">The I/O capabilities of the local device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x403)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x00</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>GAPBOND_IO_CAP_DISPLAY_ONLY</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>GAPBOND_IO_CAP_DISPLAY_YES_NO</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>GAPBOND_IO_CAP_KEYBOARD_ONLY</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>GAPBOND_IO_CAP_NO_INPUT_NO_OUTPUT</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>GAPBOND_IO_CAP_KEYBOARD_DISPLAY</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x404)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_OOB_ENABLED:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Whether to use OOB for pairing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x404)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x00</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x405)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">16</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_OOB_DATA:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">OOB data to use for pairing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x405)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">“00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00”</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 16 byte value.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x406)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_BONDING_ENABLED:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Whether to bond after pairing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x406)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x00</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x407)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_KEY_DIST_LIST:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Key distribution list for pairing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x407)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x63</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>GAPBOND_KEYDIST_SENCKEY</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>GAPBOND_KEYDIST_SIDKEY</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>GAPBOND_KEYDIST_SSIGN</td>
+</tr>
+<tr class="row-odd"><td>0x08</td>
+<td>GAPBOND_KEYDIST_SLINK</td>
+</tr>
+<tr class="row-even"><td>0x10</td>
+<td>GAPBOND_KEYDIST_MENCKEY</td>
+</tr>
+<tr class="row-odd"><td>0x20</td>
+<td>GAPBOND_KEYDIST_MIDKEY</td>
+</tr>
+<tr class="row-even"><td>0x40</td>
+<td>GAPBOND_KEYDIST_MSIGN</td>
+</tr>
+<tr class="row-odd"><td>0x80</td>
+<td>GAPBOND_KEYDIST_MLINK</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x408)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">4</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_DEFAULT_PASSCODE:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Default passcode to use for authenticated pairing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x408)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">0x00000000</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 6 digit string</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x409)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">0</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_ERASE_ALLBONDS:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Erase all bonds from SNV and remove all bonded devices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x409)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">0 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">N/A</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">N/A</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x40A)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_AUTO_FAIL_PAIRING:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">For test mode only</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x40A)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">For test mode only</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x40B)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_AUTO_FAIL_REASON:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">For test mode only</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x40B)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">For test mode only</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">For test mode only</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x40C)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_KEYSIZE:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Key Size used in pairing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x40C)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">8</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">7-16</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x40D)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_AUTO_SYNC_WL:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x40D)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x00</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x40F)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_BOND_FAIL_ACTION:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">The action that the device takes after an unsuccessful bonding attempt</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x40F)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x02</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>GAPBOND_FAIL_NO_ACTION</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>GAPBOND_FAIL_INITIATE_PAIRING</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>GAPBOND_FAIL_TERMINATE_LINK</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>GAPBOND_FAIL_TERMINATE_ERASE_BONDS</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x410)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">7</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_ERASE_SINGLEBOND:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x410)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">7 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">“00:00:00:00:00:00:00”</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">A 7-byte array where the first byte is the address type and the next 6 are the device address.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x411)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_SECURE_CONNECTION:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Define Secure Connections Usage during Pairing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x411)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x01</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>GAPBOND_SECURE_CONNECTION_NONE</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>GAPBOND_SECURE_CONNECTION_ALLOW</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>GAPBOND_SECURE_CONNECTION_ONLY</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x412)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_ECCKEY_REGEN_POLICY:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x412)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">2</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">0 - 256</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x413)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">96</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_ECC_KEYS:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">The private and public keys to use for Secure Connections pairing. Only applicable for Secure Connections. Allows the application to specify the private and public keys to use pairing. When this is set, the keys are used indefinitely even if a regeneration policy was set with GAPBOND_ECCKEY_REGEN_POLICY. To make the Bond Manager stop using these keys, pass a 1 byte value of 0x00. These keys are stored in RAM and are not retained in non-volatile memory. These keys can be defined by the application, or the application can request them using the SM_GetEccKeys command. By default, the keys are generated using GAPBOND_ECCKEY_REGEN_POLICY</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x413)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">96 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">“BD:1A:3C:CD:A6:B8:99:58:99:B7:40:EB:7B:60:FF:4A:50:3F:10:D2:E3:B3:C9:74:38:5F:C5:A3:D4:F6:49:3F:E6:9D:35:0E:48:01:03:CC:DB:FD:F4:AC:11:91:F4:EF:B9:A5:F9:E9:A7:83:2C:5E:2C:BE:97:F2:D2:03:B0:20:8B:D2:89:15:D0:8E:1C:74:24:30:ED:8F:C2:45:63:76:5C:15:52:5A:BF:9A:32:63:6D:EB:2A:65:49:9C:80:DC”</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">Any 96 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x418)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_LRU_BOND_REPLACEMENT:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Enable / Disable LRU Bond Replacement Scheme. Whether to enable the least recently used bond scheme so that, when a newly bonded device is added and all the entries are full, the least recently used devices bond is deleted to make room.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramID == 0x418)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x00</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramDataLen:</th><td class="field-body"><p class="first">Size of parameter value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x41A)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Value:</th><td class="field-body">0</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_ERASE_LOCAL_INFO:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Erase all local information</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramID == 0x41A)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">0 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body">N/A</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body">N/A</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="gapbondmgr-getparameter">
+<h1>GAPBondMgr_GetParameter<a class="headerlink" href="#gapbondmgr-getparameter" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE37</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Send this command to read a GAP Bond parameter.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">paramID:</th><td class="field-body"><p class="first">Parameter to get</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">2 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x400</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x400</td>
+<td>GAPBOND_PAIRING_MODE</td>
+</tr>
+<tr class="row-odd"><td>0x402</td>
+<td>GAPBOND_MITM_PROTECTION</td>
+</tr>
+<tr class="row-even"><td>0x403</td>
+<td>GAPBOND_IO_CAPABILITIES</td>
+</tr>
+<tr class="row-odd"><td>0x404</td>
+<td>GAPBOND_OOB_ENABLED</td>
+</tr>
+<tr class="row-even"><td>0x405</td>
+<td>GAPBOND_OOB_DATA</td>
+</tr>
+<tr class="row-odd"><td>0x406</td>
+<td>GAPBOND_BONDING_ENABLED</td>
+</tr>
+<tr class="row-even"><td>0x407</td>
+<td>GAPBOND_KEY_DIST_LIST</td>
+</tr>
+<tr class="row-odd"><td>0x408</td>
+<td>GAPBOND_DEFAULT_PASSCODE</td>
+</tr>
+<tr class="row-even"><td>0x40A</td>
+<td>GAPBOND_AUTO_FAIL_PAIRING</td>
+</tr>
+<tr class="row-odd"><td>0x40B</td>
+<td>GAPBOND_AUTO_FAIL_REASON</td>
+</tr>
+<tr class="row-even"><td>0x40C</td>
+<td>GAPBOND_KEYSIZE</td>
+</tr>
+<tr class="row-odd"><td>0x40D</td>
+<td>GAPBOND_AUTO_SYNC_WL</td>
+</tr>
+<tr class="row-even"><td>0x40E</td>
+<td>GAPBOND_BOND_COUNT</td>
+</tr>
+<tr class="row-odd"><td>0x40F</td>
+<td>GAPBOND_BOND_FAIL_ACTION</td>
+</tr>
+<tr class="row-even"><td>0x411</td>
+<td>GAPBOND_SECURE_CONNECTION</td>
+</tr>
+<tr class="row-odd"><td>0x413</td>
+<td>GAPBOND_GAPBOND_ECC_KEYS</td>
+</tr>
+<tr class="row-even"><td>0x418</td>
+<td>GAPBOND_LRU_BOND_REPLACEMENT</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+<p><strong>Additional Command Status Return Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">length:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">paramId:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">2 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x400</td>
+<td>GAPBOND_PAIRING_MODE</td>
+</tr>
+<tr class="row-odd"><td>0x402</td>
+<td>GAPBOND_MITM_PROTECTION</td>
+</tr>
+<tr class="row-even"><td>0x403</td>
+<td>GAPBOND_IO_CAPABILITIES</td>
+</tr>
+<tr class="row-odd"><td>0x404</td>
+<td>GAPBOND_OOB_ENABLED</td>
+</tr>
+<tr class="row-even"><td>0x405</td>
+<td>GAPBOND_OOB_DATA</td>
+</tr>
+<tr class="row-odd"><td>0x406</td>
+<td>GAPBOND_BONDING_ENABLED</td>
+</tr>
+<tr class="row-even"><td>0x407</td>
+<td>GAPBOND_KEY_DIST_LIST</td>
+</tr>
+<tr class="row-odd"><td>0x408</td>
+<td>GAPBOND_DEFAULT_PASSCODE</td>
+</tr>
+<tr class="row-even"><td>0x40A</td>
+<td>GAPBOND_AUTO_FAIL_PAIRING</td>
+</tr>
+<tr class="row-odd"><td>0x40B</td>
+<td>GAPBOND_AUTO_FAIL_REASON</td>
+</tr>
+<tr class="row-even"><td>0x40C</td>
+<td>GAPBOND_KEYSIZE</td>
+</tr>
+<tr class="row-odd"><td>0x40D</td>
+<td>GAPBOND_AUTO_SYNC_WL</td>
+</tr>
+<tr class="row-even"><td>0x40E</td>
+<td>GAPBOND_BOND_COUNT</td>
+</tr>
+<tr class="row-odd"><td>0x40F</td>
+<td>GAPBOND_BOND_FAIL_ACTION</td>
+</tr>
+<tr class="row-even"><td>0x411</td>
+<td>GAPBOND_SECURE_CONNECTION</td>
+</tr>
+<tr class="row-odd"><td>0x413</td>
+<td>GAPBOND_GAPBOND_ECC_KEYS</td>
+</tr>
+<tr class="row-even"><td>0x418</td>
+<td>GAPBOND_LRU_BOND_REPLACEMENT</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">GAPBOND_PAIRING_MODE:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x400)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>GAPBOND_PAIRING_MODE_NO_PAIRING</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>GAPBOND_PAIRING_MODE_WAIT_FOR_REQ</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>GAPBOND_PAIRING_MODE_INITIATE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_MITM_PROTECTION:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x402)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_IO_CAPABILITIES:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x403)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>GAPBOND_IO_CAP_DISPLAY_ONLY</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>GAPBOND_IO_CAP_DISPLAY_YES_NO</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>GAPBOND_IO_CAP_KEYBOARD_ONLY</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>GAPBOND_IO_CAP_NO_INPUT_NO_OUTPUT</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>GAPBOND_IO_CAP_KEYBOARD_DISPLAY</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_OOB_ENABLED:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x404)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_OOB_DATA:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramId==0x405)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_BONDING_ENABLED:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x406)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_KEY_DIST_LIST:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x407)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x01</td>
+<td>GAPBOND_KEYDIST_SENCKEY</td>
+</tr>
+<tr class="row-odd"><td>0x02</td>
+<td>GAPBOND_KEYDIST_SIDKEY</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>GAPBOND_KEYDIST_SSIGN</td>
+</tr>
+<tr class="row-odd"><td>0x08</td>
+<td>GAPBOND_KEYDIST_SLINK</td>
+</tr>
+<tr class="row-even"><td>0x10</td>
+<td>GAPBOND_KEYDIST_MENCKEY</td>
+</tr>
+<tr class="row-odd"><td>0x20</td>
+<td>GAPBOND_KEYDIST_MIDKEY</td>
+</tr>
+<tr class="row-even"><td>0x40</td>
+<td>GAPBOND_KEYDIST_MSIGN</td>
+</tr>
+<tr class="row-odd"><td>0x80</td>
+<td>GAPBOND_KEYDIST_MLINK</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_DEFAULT_PASSCODE:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramId==0x408)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_AUTO_FAIL_PAIRING:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x40A)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_AUTO_FAIL_REASON:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramId==0x40B)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_KEYSIZE:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramId==0x40C)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_AUTO_SYNC_WL:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x40D)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_BOND_COUNT:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramId==0x40E)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_BOND_FAIL_ACTION:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x40F)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>GAPBOND_FAIL_NO_ACTION</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>GAPBOND_FAIL_INITIATE_PAIRING</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>GAPBOND_FAIL_TERMINATE_LINK</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>GAPBOND_FAIL_TERMINATE_ERASE_BONDS</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_SECURE_CONNECTION:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x411)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>GAPBOND_SECURE_CONNECTION_NONE</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>GAPBOND_SECURE_CONNECTION_ALLOW</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>GAPBOND_SECURE_CONNECTION_ONLY</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_ECCKEY_REGEN_POLICY:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramId==0x412)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_GAPBOND_ECC_KEYS:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( paramId==0x413)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">96 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GAPBOND_LRU_BOND_REPLACEMENT:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( paramId==0x418)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>False</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>True</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gapbondmgr-servicechangeind">
+<h1>GAPBondMgr_ServiceChangeInd<a class="headerlink" href="#gapbondmgr-servicechangeind" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE38</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Set/clear the service change indication in a bond record.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Used to Identify the Connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0 - 0xFFFD or 0xFFFF for all bonded devices in the database</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">setParam:</th><td class="field-body"><p class="first">“Yes” to set the Service Change indication in the bond record, “No” to clear the indication.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="gapbondmgr-pair">
+<h1>GAPBondMgr_Pair<a class="headerlink" href="#gapbondmgr-pair" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE48</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">This API can be used to initiate pairing in cases where it is not started automatically by the gapbondmgr or to re-pair after the initial pairing has occurred if, for example, the pairing requirements have changed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of existing link to start pairing.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0000 to 0xFFFD</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="gapbondmgr-findaddr">
+<h1>GAPBondMgr_FindAddr<a class="headerlink" href="#gapbondmgr-findaddr" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE49</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Search for an address in the bonding table. If the address is a random private resolvable address, attempt to resolve the random address against all IRK’s in bonding table.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">address:</th><td class="field-body"><p class="first">The address to search for</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">“AA:AA:AA:AA:AA:AA”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 6-byte address</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">addrType:</th><td class="field-body"><p class="first">The device’s identity address type (Public or Random ID).</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x00</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>PEER_ADDRTYPE_PUBLIC_OR_PUBLIC_ID</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>PEER_ADDRTYPE_RANDOM_OR_RANDOM_ID</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+<p><strong>Additional Command Status Return Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">length:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">bondIdx:</th><td class="field-body"><p class="first">Index used to identity bond in bond table.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">1 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">identityAddressType:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Resolved address type if found and successfully resolved.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body"><p class="first">( StatStatus==0x00)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>ADDRTYPE_PUBLIC</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>ADDRTYPE_RANDOM</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>ADDRTYPE_PUBLIC_ID</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>ADDRTYPE_RANDOM_ID</td>
+</tr>
+<tr class="row-even"><td>0xFE</td>
+<td>ADDRTYPE_RANDOM_NR</td>
+</tr>
+<tr class="row-odd"><td>0xFF</td>
+<td>ADDRTYPE_NONE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">identityAddress:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Resolved address if found and successfully resolved.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Condition:</th><td class="field-body">( StatStatus==0x00)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gapbondmgr-passcodersp">
+<h1>GAPBondMgr_PasscodeRsp<a class="headerlink" href="#gapbondmgr-passcodersp" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE4A</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Respond to a passcode request.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">connectionHandle:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">Connection handle of existing link to start pairing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">2 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">0x0000 to 0xFFFD</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">status:</th><td class="field-body"><p class="first">Pairing Failed Message reason field.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>SUCCESS</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>SMP_PAIRING_FAILED_PASSKEY_ENTRY_FAILED</td>
+</tr>
+<tr class="row-even"><td>0x02</td>
+<td>SMP_PAIRING_FAILED_OOB_NOT_AVAIL</td>
+</tr>
+<tr class="row-odd"><td>0x03</td>
+<td>SMP_PAIRING_FAILED_AUTH_REQ</td>
+</tr>
+<tr class="row-even"><td>0x04</td>
+<td>SMP_PAIRING_FAILED_CONFIRM_VALUE</td>
+</tr>
+<tr class="row-odd"><td>0x05</td>
+<td>SMP_PAIRING_FAILED_NOT_SUPPORTED</td>
+</tr>
+<tr class="row-even"><td>0x06</td>
+<td>SMP_PAIRING_FAILED_ENC_KEY_SIZE</td>
+</tr>
+<tr class="row-odd"><td>0x07</td>
+<td>SMP_PAIRING_FAILED_CMD_NOT_SUPPORTED</td>
+</tr>
+<tr class="row-even"><td>0x08</td>
+<td>SMP_PAIRING_FAILED_UNSPECIFIED</td>
+</tr>
+<tr class="row-odd"><td>0x09</td>
+<td>SMP_PAIRING_FAILED_REPEATED_ATTEMPTS</td>
+</tr>
+<tr class="row-even"><td>0x0A</td>
+<td>SMP_PAIRING_FAILED_INVALID_PARAMETERS</td>
+</tr>
+<tr class="row-odd"><td>0x0B</td>
+<td>SMP_PAIRING_FAILED_DHKEY_CHECK_FAILED</td>
+</tr>
+<tr class="row-even"><td>0x0C</td>
+<td>SMP_PAIRING_FAILED_NUM_COMPARISON_FAILED</td>
+</tr>
+<tr class="row-odd"><td>0x0D</td>
+<td>SMP_PAIRING_FAILED_BREDR_PAIR_IN_PROGRESS</td>
+</tr>
+<tr class="row-even"><td>0x0E</td>
+<td>SMP_PAIRING_FAILED_CT_KEYDER_NOT_ALLOWED</td>
+</tr>
+<tr class="row-odd"><td>0x0F</td>
+<td>Command Disallowed</td>
+</tr>
+<tr class="row-even"><td>0x11</td>
+<td>Unsupported Feature Or Parameter Value</td>
+</tr>
+<tr class="row-odd"><td>0x12</td>
+<td>Invalid HCI Command Parameters</td>
+</tr>
+<tr class="row-even"><td>0x17</td>
+<td>bleTimeout</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Passcode:</th><td class="field-body"><p class="first">Passcode to use for pairing</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">4 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">0x123456</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">A 6-digit passcode.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="sm-registertask">
+<h1>SM_RegisterTask<a class="headerlink" href="#sm-registertask" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE39</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Register Application task with the SM.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="sm-getecckeys">
+<h1>SM_GetEccKeys<a class="headerlink" href="#sm-getecckeys" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE3A</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Request ECC keys to be generated by BLE Stack. SM_RegisterTask must be called prior to using this command.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="sm-getdhkey">
+<h1>SM_GetDHKey<a class="headerlink" href="#sm-getdhkey" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE3B</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Request a Diffie-Hellman Key is generated by the BLE Stack. SM_RegisterTask must be called prior to using this command.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PrivateKey:</th><td class="field-body"><p class="first">ECC Private Key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">32 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">“00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 32 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">PublicKey1:</th><td class="field-body"><p class="first">Local device’s public key X-coordinate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">32 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">“00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 32 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">PublicKey2:</th><td class="field-body"><p class="first">Remote device’s public key X-coordinate.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">32 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">“00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 32 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="sm-getscconfirmoob">
+<h1>SM_GetScConfirmOob<a class="headerlink" href="#sm-getscconfirmoob" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE3C</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Request a SC Confrim value for the OOB Pairing protocol is generated by the BLE Stack. SM_RegisterTask must be called prior to using this command.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PublicKey:</th><td class="field-body"><p class="first">Local device’s public key X-coordinate</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">32 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">“00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 32 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">oob:</th><td class="field-body"><p class="first">Local out of bands to send to a remote device</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">16 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">“00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 16 byte value</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>When this command is received, the host will send the CommandStatus Event.</p>
+</div>
+<div class="section" id="gap-setprivacymode">
+<h1>GAP_SetPrivacyMode<a class="headerlink" href="#gap-setprivacymode" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Opcode:</th><td class="field-body">0xFE3D</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Command Description:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Set the privacy mode for a remote device</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Command Parameters</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">addrType:</th><td class="field-body"><p class="first">Configure the device’s identity address type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x00</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>PEER_ADDRTYPE_PUBLIC_OR_PUBLIC_ID</td>
+</tr>
+<tr class="row-odd"><td>0x01</td>
+<td>PEER_ADDRTYPE_RANDOM_OR_RANDOM_ID</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Addr:</th><td class="field-body"><p class="first">Address of remote device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body">6 byte(s)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body">“00:00:00:00:00:00”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body">Any 6 byte value.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">mode:</th><td class="field-body"><p class="first">Privacy mode to use with the remote device.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Size:</th><td class="field-body"><p class="first">1 byte(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><p class="first">0x00</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Range:</th><td class="field-body"><table border="1" class="first last docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Network Privacy Mode</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Device Privacy Mode</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Events Generated</strong></p>
+<p>The host will send the CommandStatus Event to indicate the privacy mode has been set.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+      <a href="http://www.ti.com/corp/docs/legal/copyright.shtml">&copy; Copyright 1995-2018</a>, Texas Instruments Incorporated. All rights reserved. <br>
+      <a href="http://www.ti.com/corp/docs/legal/trademark/trademrk.htm">Trademarks</a> | <a href="http://www.ti.com/corp/docs/legal/privacy.shtml">Privacy policy</a> | <a href="http://www.ti.com/corp/docs/legal/termsofuse.shtml">Terms of use</a> | <a href="http://www.ti.com/lsds/ti/legal/termsofsale.page">Terms of sale</a>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.00.00',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+        });
+
+      var menuHeight = window.innerHeight;
+
+      var contentOffset = $(".wy-nav-content-wrap").offset();
+      var contentHeight = $(".wy-nav-content-wrap").height();
+      var contentBottom = contentOffset.top + contentHeight;
+
+      function setNavbarTop() {
+          var scrollTop = $(window).scrollTop();
+          var maxTop = scrollTop + menuHeight;
+
+          // If past the header
+          if (scrollTop > contentOffset.top && maxTop < contentBottom) {
+            stickyTop = scrollTop - contentOffset.top;
+          } else if (maxTop > contentBottom) {
+            stickyTop = scrollTop - contentOffset.top - (maxTop - contentBottom);
+          } else {
+            stickyTop = 0;
+          }
+
+          $(".wy-nav-side").css("top", stickyTop);
+      }
+
+      $(document).ready(function() {
+        setNavbarTop();
+        $(window).scroll(function () {
+          setNavbarTop();
+        });
+
+        $('body').on("mousewheel", function () {
+            // Remove default behavior
+            event.preventDefault();
+            // Scroll without smoothing
+            var wheelDelta = event.wheelDelta;
+            var currentScrollPosition = window.pageYOffset;
+            window.scrollTo(0, currentScrollPosition - wheelDelta);
+        });
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+diff --git a/third_party/mbedtls/repo.patched/library/ecjpake.c b/third_party/mbedtls/repo.patched/library/ecjpake.c
+index 1fa1c2d8..b5e2df2f 100644
+--- a/third_party/mbedtls/repo.patched/library/ecjpake.c
++++ b/third_party/mbedtls/repo.patched/library/ecjpake.c
+@@ -36,6 +36,8 @@
+ 
+ #include <string.h>
+ 
++#if !defined(MBEDTLS_ECJPAKE_ALT)
++
+ /*
+  * Convert a mbedtls_ecjpake_role to identifier string
+  */
+@@ -1100,4 +1102,6 @@ cleanup:
+ 
+ #endif /* MBEDTLS_SELF_TEST */
+ 
++#endif /* MBEDTLS_ECJPAKE_ALT */
++
+ #endif /* MBEDTLS_ECJPAKE_C */

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="dir_fcacebd0c2f8df31fa9b8240865606f7" kind="dir">
+    <compoundname>pdm</compoundname>
+    <innerfile refid="_codec1_8h">Codec1.h</innerfile>
+    <innerfile refid="_p_d_m_c_c26_x_x_8h">PDMCC26XX.h</innerfile>
+    <innerfile refid="_p_d_m_c_c26_x_x__util_8h">PDMCC26XX_util.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/pdm/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,189 @@
+/*
+ * I2C addresses for TMP006 and OPT3001 are documented by the schematics
+ * in http://www.ti.com/lit/ug/slau599a/slau599a.pdf
+ */
+{
+    "name"       : "BOOSTXL_EDUMKII",           /* must be C identifier */
+    "displayName": "EDUMKII Demonstration BoosterPack",
+    "headerType" : "Standard 40 pin",
+    "components" : {
+        "RGBMulticolorLED" :
+        {
+            "name"         : "RGBMulticolorLED",
+            "displayName"  : "RGB Multicolor LED",
+            "definition"   : "/ti/boards/components/CREE-CLV1A-FKB.json",
+            "subComponents":
+            {
+                "blueChannel":
+                {
+                    "connections": { "digitalOutput" : 37 }
+                },
+                "greenChannel":
+                {
+                    "connections": { "digitalOutput" : 38 }
+                },
+                "redChannel":
+                {
+                    "connections": { "digitalOutput" : 39 }
+                }
+            }
+        },
+
+        "joystick":
+        {
+            "name"         : "joystick",
+            "displayName"  : "2-axis Joystick with Pushbutton",
+            "definition"   : "/ti/boards/components/ITEAD-IM130330001.json",
+            "subComponents":
+            {
+                "horizontal":
+                {
+                    "connections": { "analogInput" : 2 }
+                },
+                "vertical":
+                {
+                    "connections": { "analogInput" : 26 }
+                },
+                "select":
+                {
+                    "connections": { "digitalInput" : 5 }
+                }
+            }
+         },
+
+        "accelerometer" :
+        {
+            "name"         : "accelerometer",
+            "displayName"  : "3-Axis Accelerometer",
+            "definition"   : "/ti/boards/components/KIONIX-KXTC9-2050.json",
+            "subComponents":
+            {
+                "axisX":
+                {
+                    "connections": { "analogInput" : 23 }
+                },
+                "axisY":
+                {
+                    "connections": { "analogInput" : 24 }
+                },
+                "axisZ":
+                {
+                    "connections": { "analogInput" : 25 }
+                }
+            }
+        },
+
+        "buttonBottom": {
+            "displayName" : "Bottom Button",
+            "definition"  : "/ti/boards/components/button.json",
+            "connections" : { "input": 32 }
+        },
+
+        "buttonTop": {
+            "displayName" : "Top Button",
+            "definition"  : "/ti/boards/components/button.json",
+            "connections" : { "input": 33 }
+        },
+
+        "Buzzer": {
+            "type"        : "PWM",
+            "displayName" : "Buzzer",
+            "signals"     : { "output": { "type": "PWM" } },
+            "connections" : { "output": 40 }
+        },
+
+        "Microphone": {
+            "type"        : "AIN",
+            "displayName" : "Microphone",
+            "signals"     : { "input": { "type": "AIN" } },
+            "connections" : { "input": 6 }
+        },
+
+
+        "SENSORS_I2C": {
+            "isBus"      : true,
+            "type"       : "I2C",
+            "displayName": "Sensors I2C",
+
+            "signals": {
+                /* BP standard: I2C_SDA (MSP P6.4) */
+                "SDA": {"type": "I2C_SDA", "connection": 10},
+
+                /* BP standard: I2C_SCL (MSP P6.5) */
+                "SCL": {"type": "I2C_SCL", "connection":  9}
+            }
+        },
+
+        "OPT3001":
+        {
+            "type"       : "OPT3001",
+            "displayName": "Optical Sensor",
+            "partNum"    : "TI-OPT3001",
+            "settings"   :
+            {
+                "address": 68 /* 0x47 = 64 + 4 */
+            },
+            "subComponents":
+            {
+                "I2C":
+                {
+                    "link": "SENSORS_I2C"
+                },
+                "OPT_INT":
+                {
+                    "type"       : "SENSOR_INT",
+                    "displayName": "Optical Interrupt",
+                    "signals"    :
+                    {
+                        "OPT_INT":
+                        {
+                            "type"    : "DIN",
+                            "settings":
+                            {
+                                "interrupt": "Rising Edge",
+                                "callback" : "NULL"
+                            },
+                            "connection": 11
+                        }
+                    }
+                }
+            }
+        },
+
+        "TMP006":
+        {
+            "type"       : "TMP006",
+            "displayName": "Temperature Sensor",
+            "partNum"    : "TI-TMP006",
+            "settings"   :
+            {
+                "address": 64 /* 0x40 = 64 + 0 */
+            },
+            "subComponents":
+            {
+                "I2C":
+                {
+                    "link": "SENSORS_I2C"
+                },
+                "TMP_INT":
+                {
+                    "type"       : "SENSOR_INT",
+                    "displayName": "Temperature Interrupt",
+                    "signals"    :
+                    {
+                        "TMP_INT":
+                        {
+                            "type"    : "DIN",
+                            "settings":
+                            {
+                                "interrupt": "Rising Edge",
+                                "callback" : "NULL"
+                            },
+                            "connection": 8
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

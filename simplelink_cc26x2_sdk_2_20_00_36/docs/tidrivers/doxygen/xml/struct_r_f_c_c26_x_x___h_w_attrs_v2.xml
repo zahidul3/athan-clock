@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_r_f_c_c26_x_x___h_w_attrs_v2" kind="struct" language="C++" prot="public">
+    <compoundname>RFCC26XX_HWAttrsV2</compoundname>
+    <includes refid="_r_f_8h" local="no">RF.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_r_f_c_c26_x_x___h_w_attrs_v2_1a552a6992c1d1e8ff3e5f0876d80b734f" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t RFCC26XX_HWAttrsV2::hwiPriority</definition>
+        <argsstring></argsstring>
+        <name>hwiPriority</name>
+        <briefdescription>
+<para>Priority for HWIs belong to the RF driver. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1499" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1499" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f_c_c26_x_x___h_w_attrs_v2_1adcb29352c7c6db61035bb34242175d9b" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t RFCC26XX_HWAttrsV2::swiPriority</definition>
+        <argsstring></argsstring>
+        <name>swiPriority</name>
+        <briefdescription>
+<para>Priority for SWIs belong to the RF driver. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1500" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1500" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f_c_c26_x_x___h_w_attrs_v2_1a0332f985284e8397667e477605bb1bab" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RFCC26XX_HWAttrsV2::xoscHfAlwaysNeeded</definition>
+        <argsstring></argsstring>
+        <name>xoscHfAlwaysNeeded</name>
+        <briefdescription>
+<para>Indicate that the XOSC HF should be turned on by the power driver. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1501" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1501" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f_c_c26_x_x___h_w_attrs_v2_1a7b47cefffa594a19d5f45d676fa09491" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a72192434157b0de3de648456bc221f07" kindref="member">RF_GlobalCallback</ref></type>
+        <definition>RF_GlobalCallback RFCC26XX_HWAttrsV2::globalCallback</definition>
+        <argsstring></argsstring>
+        <name>globalCallback</name>
+        <briefdescription>
+<para>Pointer to a callback function serving client independent events listed in <ref refid="_r_f_8h_1ad40e352daa020429c2aa1cd49283c5e8" kindref="member">RF_GlobalEvent</ref>. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1502" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1502" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f_c_c26_x_x___h_w_attrs_v2_1a43e0d7e59ef95cfad107009deef20c30" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a4894c55ea8160f852fc224f9073cf38e" kindref="member">RF_GlobalEventMask</ref></type>
+        <definition>RF_GlobalEventMask RFCC26XX_HWAttrsV2::globalEventMask</definition>
+        <argsstring></argsstring>
+        <name>globalEventMask</name>
+        <briefdescription>
+<para>Event mask which the globalCallback is invoked upon. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1503" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1503" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RF Hardware attributes. </para>    </briefdescription>
+    <detaileddescription>
+<para>This data structure contains platform-specific driver configuration. It is usually defined globally in a board support file. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="539">
+        <label>RF_Object</label>
+        <link refid="struct_r_f___object"/>
+      </node>
+      <node id="538">
+        <label>RFCC26XX_HWAttrsV2</label>
+        <link refid="struct_r_f_c_c26_x_x___h_w_attrs_v2"/>
+        <childnode refid="539" relation="usage">
+          <edgelabel>globalCallback</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1498" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1498" bodyend="1504"/>
+    <listofallmembers>
+      <member refid="struct_r_f_c_c26_x_x___h_w_attrs_v2_1a7b47cefffa594a19d5f45d676fa09491" prot="public" virt="non-virtual"><scope>RFCC26XX_HWAttrsV2</scope><name>globalCallback</name></member>
+      <member refid="struct_r_f_c_c26_x_x___h_w_attrs_v2_1a43e0d7e59ef95cfad107009deef20c30" prot="public" virt="non-virtual"><scope>RFCC26XX_HWAttrsV2</scope><name>globalEventMask</name></member>
+      <member refid="struct_r_f_c_c26_x_x___h_w_attrs_v2_1a552a6992c1d1e8ff3e5f0876d80b734f" prot="public" virt="non-virtual"><scope>RFCC26XX_HWAttrsV2</scope><name>hwiPriority</name></member>
+      <member refid="struct_r_f_c_c26_x_x___h_w_attrs_v2_1adcb29352c7c6db61035bb34242175d9b" prot="public" virt="non-virtual"><scope>RFCC26XX_HWAttrsV2</scope><name>swiPriority</name></member>
+      <member refid="struct_r_f_c_c26_x_x___h_w_attrs_v2_1a0332f985284e8397667e477605bb1bab" prot="public" virt="non-virtual"><scope>RFCC26XX_HWAttrsV2</scope><name>xoscHfAlwaysNeeded</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

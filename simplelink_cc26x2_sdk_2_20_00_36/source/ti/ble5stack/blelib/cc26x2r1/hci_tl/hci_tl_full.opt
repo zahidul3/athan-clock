@@ -1,0 +1,21 @@
+/******************************************************************************
+
+ @file  hci_tl_full.opt
+
+ @brief This file contains the Bluetooth Low Energy (BLE) build config options.
+
+ Group: WCS, BTS
+ $Target Device: DEVICES $
+
+ ******************************************************************************
+ $License: TISD 2011 $
+ ******************************************************************************
+ $Release Name: PACKAGE NAME $
+ $Release Date: PACKAGE RELEASE DATE $
+ *****************************************************************************/
+
+-DBLE_VS_FEATURES=SCAN_REQ_RPT_CFG
+-DHCI_TL_FULL
+-DCTRL_CONFIG=ADV_NCONN_CFG+ADV_CONN_CFG+SCAN_CFG+INIT_CFG
+-DFLASH_ONLY_BUILD
+-DBUILD_REVISION=0xa6df636

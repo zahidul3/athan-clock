@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_s_h_a2_c_c26_x2___object__" kind="struct" language="C++" prot="public">
+    <compoundname>SHA2CC26X2_Object_</compoundname>
+    <includes refid="_s_h_a2_c_c26_x2_8h" local="no">SHA2CC26X2.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_s_h_a2_c_c26_x2___object___1af01fffcf33a99fc6466bbbe826b36695" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SHA2CC26X2_Object_::isOpen</definition>
+        <argsstring></argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" line="111" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2_c_c26_x2___object___1a8e98a76942b28ff878e9fc5209f8ebf0" prot="public" static="no" mutable="no">
+        <type>int_fast16_t</type>
+        <definition>int_fast16_t SHA2CC26X2_Object_::returnStatus</definition>
+        <argsstring></argsstring>
+        <name>returnStatus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" line="112" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2_c_c26_x2___object___1ab69cafb43d3ffe76a9923ed7e5e6de6f" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1a78e2c9c58857784c1c7aabcd8a3a507a" kindref="member">SHA2_ReturnBehavior</ref></type>
+        <definition>SHA2_ReturnBehavior SHA2CC26X2_Object_::returnBehavior</definition>
+        <argsstring></argsstring>
+        <name>returnBehavior</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" line="113" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2_c_c26_x2___object___1ae42a9483f2ff9bb67a50d9391a2e899c" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t SHA2CC26X2_Object_::semaphoreTimeout</definition>
+        <argsstring></argsstring>
+        <name>semaphoreTimeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" line="114" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2_c_c26_x2___object___1a4d0daa5e71c928d634f6579720430a2a" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1a3169b8087b7079a234504a42e0be1bb7" kindref="member">SHA2_CallbackFxn</ref></type>
+        <definition>SHA2_CallbackFxn SHA2CC26X2_Object_::callbackFxn</definition>
+        <argsstring></argsstring>
+        <name>callbackFxn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" line="115" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2_c_c26_x2___object___1a12108a2710edf1b0a1e6c8ffc6de661e" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1a75d455b16416a465d86c764fa951df8a" kindref="member">SHA2_Operation</ref></type>
+        <definition>SHA2_Operation SHA2CC26X2_Object_::operation</definition>
+        <argsstring></argsstring>
+        <name>operation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" line="116" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2_c_c26_x2___object___1a015e0a6e9705727c8e64ef6d50991161" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_h_a2_8h_1a7abe969c29852d55367a8b551d6740fb" kindref="member">SHA2_OperationType</ref></type>
+        <definition>SHA2_OperationType SHA2CC26X2_Object_::operationType</definition>
+        <argsstring></argsstring>
+        <name>operationType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" line="117" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s_h_a2_c_c26_x2___object___1ad67c5869132387dd429211454244c722" prot="public" static="no" mutable="no">
+        <type>SwiP_Struct</type>
+        <definition>SwiP_Struct SHA2CC26X2_Object_::callbackSwi</definition>
+        <argsstring></argsstring>
+        <name>callbackSwi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" line="118" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>SHA2CC26XX Object. </para>    </briefdescription>
+    <detaileddescription>
+<para>The application must not access any member variables of this structure! </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="591">
+        <label>SHA2_OperationProcessHash_</label>
+        <link refid="struct_s_h_a2___operation_process_hash__"/>
+      </node>
+      <node id="590">
+        <label>SHA2_OperationFinishlHash_</label>
+        <link refid="struct_s_h_a2___operation_finishl_hash__"/>
+      </node>
+      <node id="587">
+        <label>SHA2_Config_</label>
+        <link refid="struct_s_h_a2___config__"/>
+      </node>
+      <node id="588">
+        <label>SHA2_Operation_</label>
+        <link refid="union_s_h_a2___operation__"/>
+        <childnode refid="589" relation="usage">
+          <edgelabel>oneStepHash</edgelabel>
+        </childnode>
+        <childnode refid="590" relation="usage">
+          <edgelabel>finishHash</edgelabel>
+        </childnode>
+        <childnode refid="591" relation="usage">
+          <edgelabel>processHash</edgelabel>
+        </childnode>
+        <childnode refid="592" relation="usage">
+          <edgelabel>startHash</edgelabel>
+        </childnode>
+      </node>
+      <node id="592">
+        <label>SHA2_OperationStartHash_</label>
+        <link refid="struct_s_h_a2___operation_start_hash__"/>
+      </node>
+      <node id="589">
+        <label>SHA2_OperationOneStep_</label>
+        <link refid="struct_s_h_a2___operation_one_step__"/>
+      </node>
+      <node id="586">
+        <label>SHA2CC26X2_Object_</label>
+        <link refid="struct_s_h_a2_c_c26_x2___object__"/>
+        <childnode refid="587" relation="usage">
+          <edgelabel>callbackFxn</edgelabel>
+        </childnode>
+        <childnode refid="588" relation="usage">
+          <edgelabel>operation</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" line="110" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/sha2/SHA2CC26X2.h" bodystart="110" bodyend="119"/>
+    <listofallmembers>
+      <member refid="struct_s_h_a2_c_c26_x2___object___1a4d0daa5e71c928d634f6579720430a2a" prot="public" virt="non-virtual"><scope>SHA2CC26X2_Object_</scope><name>callbackFxn</name></member>
+      <member refid="struct_s_h_a2_c_c26_x2___object___1ad67c5869132387dd429211454244c722" prot="public" virt="non-virtual"><scope>SHA2CC26X2_Object_</scope><name>callbackSwi</name></member>
+      <member refid="struct_s_h_a2_c_c26_x2___object___1af01fffcf33a99fc6466bbbe826b36695" prot="public" virt="non-virtual"><scope>SHA2CC26X2_Object_</scope><name>isOpen</name></member>
+      <member refid="struct_s_h_a2_c_c26_x2___object___1a12108a2710edf1b0a1e6c8ffc6de661e" prot="public" virt="non-virtual"><scope>SHA2CC26X2_Object_</scope><name>operation</name></member>
+      <member refid="struct_s_h_a2_c_c26_x2___object___1a015e0a6e9705727c8e64ef6d50991161" prot="public" virt="non-virtual"><scope>SHA2CC26X2_Object_</scope><name>operationType</name></member>
+      <member refid="struct_s_h_a2_c_c26_x2___object___1ab69cafb43d3ffe76a9923ed7e5e6de6f" prot="public" virt="non-virtual"><scope>SHA2CC26X2_Object_</scope><name>returnBehavior</name></member>
+      <member refid="struct_s_h_a2_c_c26_x2___object___1a8e98a76942b28ff878e9fc5209f8ebf0" prot="public" virt="non-virtual"><scope>SHA2CC26X2_Object_</scope><name>returnStatus</name></member>
+      <member refid="struct_s_h_a2_c_c26_x2___object___1ae42a9483f2ff9bb67a50d9391a2e899c" prot="public" virt="non-virtual"><scope>SHA2CC26X2_Object_</scope><name>semaphoreTimeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

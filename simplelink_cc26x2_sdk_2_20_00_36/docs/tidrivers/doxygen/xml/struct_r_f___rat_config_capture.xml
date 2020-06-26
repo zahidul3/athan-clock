@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="struct_r_f___rat_config_capture" kind="struct" language="C++" prot="public">
+    <compoundname>RF_RatConfigCapture</compoundname>
+    <includes refid="_r_f_8h" local="no">RF.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_r_f___rat_config_capture_1a3570c9f346bd87a6f81b59b70e8de0e8" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1afbf75555f36dd8e45a3a932de62b2c68" kindref="member">RF_RatCallback</ref></type>
+        <definition>RF_RatCallback RF_RatConfigCapture::callback</definition>
+        <argsstring></argsstring>
+        <name>callback</name>
+        <briefdescription>
+<para>Callback function to be invoked upon a capture event (optional). </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1636" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1636" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___rat_config_capture_1a7a46abf1a585b215f7e62087cdb9c901" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a58de86ad0b6cfcb04548a776976c0a7c" kindref="member">RF_RatHandle</ref></type>
+        <definition>RF_RatHandle RF_RatConfigCapture::channel</definition>
+        <argsstring></argsstring>
+        <name>channel</name>
+        <briefdescription>
+<para>RF_RatHandle identifies the channel to be allocated. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1637" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1637" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___rat_config_capture_1a97d47066ca0bac9c5aab53a7c0424e87" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a2df66c68b4216d2835915c9a240152b9" kindref="member">RF_RatCaptureSource</ref></type>
+        <definition>RF_RatCaptureSource RF_RatConfigCapture::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <briefdescription>
+<para>Configuration of the event source to cause a capture event. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1638" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1638" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___rat_config_capture_1adff5ee83e863f7a23f288b3c229b12eb" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1a696a994a1c4cc105cdf7d775b5b8f49e" kindref="member">RF_RatCaptureMode</ref></type>
+        <definition>RF_RatCaptureMode RF_RatConfigCapture::captureMode</definition>
+        <argsstring></argsstring>
+        <name>captureMode</name>
+        <briefdescription>
+<para>Configuration of the mode of event to cause a capture event. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1639" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1639" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_r_f___rat_config_capture_1ac655323156a5d790d30dd4d2879a0d5e" prot="public" static="no" mutable="no">
+        <type><ref refid="_r_f_8h_1ab26f46757c3fe1533a0ad1e299a6972d" kindref="member">RF_RatCaptureRepetition</ref></type>
+        <definition>RF_RatCaptureRepetition RF_RatConfigCapture::repeat</definition>
+        <argsstring></argsstring>
+        <name>repeat</name>
+        <briefdescription>
+<para>Configuration of the channel to be used in single or repeate mode. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1640" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1640" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RF_ratCapture parameter structure. </para>    </briefdescription>
+    <detaileddescription>
+<para>RF_RatCapture parameters are used with the <ref refid="_r_f_8h_1a513fd2cb2616e901d9f7a638ae9b7772" kindref="member">RF_ratCapture()</ref> call. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="516">
+        <label>RF_RatConfigCapture</label>
+        <link refid="struct_r_f___rat_config_capture"/>
+        <childnode refid="517" relation="usage">
+          <edgelabel>callback</edgelabel>
+        </childnode>
+      </node>
+      <node id="517">
+        <label>RF_Object</label>
+        <link refid="struct_r_f___object"/>
+      </node>
+    </collaborationgraph>
+    <location file="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" line="1635" column="1" bodyfile="exports/tidrivers_cc13xx_cc26xx_3_60_01_00/source/ti/drivers/rf/RF.h" bodystart="1635" bodyend="1641"/>
+    <listofallmembers>
+      <member refid="struct_r_f___rat_config_capture_1a3570c9f346bd87a6f81b59b70e8de0e8" prot="public" virt="non-virtual"><scope>RF_RatConfigCapture</scope><name>callback</name></member>
+      <member refid="struct_r_f___rat_config_capture_1adff5ee83e863f7a23f288b3c229b12eb" prot="public" virt="non-virtual"><scope>RF_RatConfigCapture</scope><name>captureMode</name></member>
+      <member refid="struct_r_f___rat_config_capture_1a7a46abf1a585b215f7e62087cdb9c901" prot="public" virt="non-virtual"><scope>RF_RatConfigCapture</scope><name>channel</name></member>
+      <member refid="struct_r_f___rat_config_capture_1ac655323156a5d790d30dd4d2879a0d5e" prot="public" virt="non-virtual"><scope>RF_RatConfigCapture</scope><name>repeat</name></member>
+      <member refid="struct_r_f___rat_config_capture_1a97d47066ca0bac9c5aab53a7c0424e87" prot="public" virt="non-virtual"><scope>RF_RatConfigCapture</scope><name>source</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,20 @@
+/******************************************************************************
+
+ @file  host_pcxx_coc.opt
+
+ @brief This file contains the Bluetooth Low Energy (BLE) build config options.
+
+ Group: WCS, BTS
+ $Target Device: DEVICES $
+
+ ******************************************************************************
+ $License: TISD 2011 $
+ ******************************************************************************
+ $Release Name: PACKAGE NAME $
+ $Release Date: PACKAGE RELEASE DATE $
+ *****************************************************************************/
+
+-DBLE_V41_FEATURES=L2CAP_COC_CFG
+-DHOST_CONFIG=PERIPHERAL_CFG+CENTRAL_CFG
+-DFLASH_ONLY_BUILD
+-DBUILD_REVISION=0xa6df636

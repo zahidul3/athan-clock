@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="deprecated" kind="page">
+    <compoundname>deprecated</compoundname>
+    <title>Deprecated List</title>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term><anchor id="deprecated_1_deprecated000001"/>Module <ref refid="_p_i_n_c_c26_x_x_8h_1amgrp121d71c3ee6f8843829e20de17505c6c" kindref="member">Device-specific pin mux values for CC26xx family</ref>  </term></varlistentry>
+<listitem><para>Use IOC_PORT_* defines from driverlib/ioc.h directly instead</para><para>CC26XX-specific mux vakues used in conjunction with <ref refid="_p_i_n_c_c26_x_x_8h_1ac8cbb649db80dd03d8e8a487aef43294" kindref="member">PINCC26XX_setMux()</ref> to map hardware peripheral ports, GPIO or observation signals to pins.  </para></listitem>
+<varlistentry><term><anchor id="deprecated_1_deprecated000002"/>Global <ref refid="_r_f_8h_1a0e6d5e7d3760a65ba37d8f26823e9a0a" kindref="member">RF_EventPowerUp</ref>  </term></varlistentry>
+<listitem><para>This event is deprecated. Use <ref refid="_r_f_8h_1acfa72a48f45abb7ea8e1595ce6606b7aa931a28d9524188efd2f45aa1e09dca0a" kindref="member">RF_ClientEventPowerUpFinished</ref> instead.  </para></listitem>
+<varlistentry><term><anchor id="deprecated_1_deprecated000004"/>Global <ref refid="struct_r_f___params_1ab7be231b23fab2503b8c54b474fba74d" kindref="member">RF_Params::pErrCb</ref>  </term></varlistentry>
+<listitem><para>Callback function for driver error events.  </para></listitem>
+<varlistentry><term><anchor id="deprecated_1_deprecated000003"/>Global <ref refid="struct_r_f___params_1ae683ebc129d40a11fb9ec7e371f1e11b" kindref="member">RF_Params::pPowerCb</ref>  </term></varlistentry>
+<listitem><para>Power up callback, will be removed future versions, see RF_Params::pClienteventCb instead. The default value is NULL. </para></listitem>
+</variablelist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>
