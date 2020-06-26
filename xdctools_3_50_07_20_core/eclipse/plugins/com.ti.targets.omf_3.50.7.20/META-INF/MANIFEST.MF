@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Export-Package: ti.targets.omf.cof,ti.targets.omf.elf
+Require-Bundle: org.eclipse.rtsc.xdctools.rta
+Bundle-Vendor: Texas Instruments
+Eclipse-LazyStart: true
+Bundle-ClassPath: ti/targets/omf/cof/java/package.jar,ti/targets/omf/e
+ lf/java/package.jar
+Bundle-Version: 3.50.7.20
+Bundle-Name: Object file readers
+Bundle-ManifestVersion: 2
+Created-By: 1.7.0_60 (Oracle Corporation)
+Bundle-SymbolicName: com.ti.targets.omf;singleton:=true
+
+Name: ti/targets/omf/elf/java/package.jar
+SHA-256-Digest: KkuVI09TKMYrus6EDO03paP6lLA9OMnpNg6wciQj5TQ=
+
+Name: ti/targets/omf/cof/java/package.jar
+SHA-256-Digest: jlxdgFGkKssVaxnFj7BQi1FWvTuE5ljGauycvi2uBQ0=
+
