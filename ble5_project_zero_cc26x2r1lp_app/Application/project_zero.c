@@ -2716,17 +2716,17 @@ void ProjectZero_DataService_ValueChangeHandler(
                   (uintptr_t)"String",
                   (uintptr_t)received_string);
 
-        if(received_string[0] == 'R') //82
+        if(received_string[0] == 'R') //0x52(82)
         {
             Log_info0("Recording...");
             SetRecordAzanEvent();
         }
-        else if(received_string[0] == 'P') //80
+        else if(received_string[0] == 'P') //0x50(80)
         {
             Log_info0("Playback...");
             SetPlaybackAzanEvent();
         }
-        else if(received_string[0] == 'T') //84
+        else if(received_string[0] == 'T') //0x54(84)
         {
             Log_info3("Set Time to...%02d:%02d:%02d", received_string[1], received_string[2], received_string[3]);
             //currentDateTime.Hour = received_string[1];

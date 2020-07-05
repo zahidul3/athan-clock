@@ -151,7 +151,7 @@ int main()
      * Note: NULL as Params gives 115200,8,N,1 and Blocking mode */
     UART_Params uartParams;
     UART_Params_init(&uartParams);
-    uartParams.baudRate = 921600;
+    uartParams.baudRate = 115200;
     UART_init();
     UartLog_init(UART_open(Board_UART0, &uartParams));
 

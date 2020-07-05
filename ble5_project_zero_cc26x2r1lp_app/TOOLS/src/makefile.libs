@@ -1,6 +1,6 @@
 #
 # This file was generated based on the configuration script:
-#     C:\workspace_v8\ble5_project_zero_cc26x2r1lp_app\TOOLS\ble_debug.cfg
+#     /Users/zahidhaq/athan-clock/ble5_project_zero_cc26x2r1lp_app/TOOLS/ble_debug.cfg
 #
 # This makefile may be included in other makefiles that need to build
 # the libraries containing the compiled source files generated as
@@ -14,7 +14,7 @@
 #
 # The absolute path to the generated source directory (at the time the
 # sources were generated) is:
-#    C:\workspace_v8\ble5_project_zero_cc26x2r1lp_app\TOOLS\src
+#    /Users/zahidhaq/athan-clock/ble5_project_zero_cc26x2r1lp_app/TOOLS/src
 #
 GEN_SRC_DIR ?= ../TOOLS/src
 

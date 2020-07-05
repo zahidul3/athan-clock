@@ -214,10 +214,10 @@ void EUSCIA2_IRQHandler(void)
             CurrentAMPM = rxBuffer[3];
 
             memset(buffer, 0, DEBUG_BUFFER_SIZE);
-            ltoa(CurrentHour,buffer);
+            ltoa(CurrentHour, buffer, 10);
             uint8_t strLen = strlen(buffer);
             buffer[strLen] = ':';
-            ltoa(CurrentMinute,(buffer+strLen+1));
+            ltoa(CurrentMinute, (buffer+strLen+1), 10);
             printDebugString("Received current time: ");
             printDebugString(buffer);
             printDebugString("\n\r");
@@ -232,10 +232,10 @@ void EUSCIA2_IRQHandler(void)
         {
             memcpy(&currentDateTime.Second, &rxBuffer[1], sizeof(TsDateTime));
             memset(buffer, 0, DEBUG_BUFFER_SIZE);
-            ltoa(currentDateTime.Month,buffer);
+            ltoa(currentDateTime.Month, buffer, 10);
             uint8_t strLen = strlen(buffer);
             buffer[strLen] = '/';
-            ltoa(currentDateTime.Day,(buffer+strLen+1));
+            ltoa(currentDateTime.Day, (buffer+strLen+1), 10);
             printDebugString("Received current date: ");
             printDebugString(buffer);
             printDebugString("\n\r");
@@ -420,10 +420,10 @@ void main(void)
         if(xSum > 1024)
         {
             memset(bufferTouch, 0, DEBUG_BUFFER_SIZE);
-            ltoa(xSum, bufferTouch);
+            ltoa(xSum, bufferTouch, 10);
             uint8_t strLenX = strlen(bufferTouch);
             bufferTouch[strLenX] = ',';
-            ltoa(ySum,(&bufferTouch[strLenX+1]));
+            ltoa(ySum,(&bufferTouch[strLenX+1]), 10);
             uint8_t strLen = strlen(bufferTouch);
             bufferTouch[strLen] = '\n';
             bufferTouch[strLen+1] = '\r';

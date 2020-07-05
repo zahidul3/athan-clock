@@ -28,16 +28,17 @@ static TsCircularBuffer tx0Buffer;
 
 //![Simple UART Config]
 /* UART Configuration Parameter. These are the configuration parameters to
- * make the eUSCI A UART module to operate with a 921600 baud rate. These
+ * make the eUSCI A UART module to operate with a 115200 baud rate. These
  * values were calculated using the online calculator that TI provides
  * at:
  *http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSP430BaudRateConverter/index.html
+ Note the processor clock runs at 48000000 Hz
  */
 const eUSCI_UART_Config uartConfigDebug =
 {
         EUSCI_A_UART_CLOCKSOURCE_SMCLK,          // SMCLK Clock Source
-        3,                                     // BRDIV = 78
-        4,                                       // UCxBRF = 2
+        26,                                     // BRDIV = 78
+        1,                                       // UCxBRF = 2
         0,                                       // UCxBRS = 0
         EUSCI_A_UART_NO_PARITY,                  // No Parity
         EUSCI_A_UART_LSB_FIRST,                  // LSB First
@@ -77,7 +78,7 @@ char bufferDebug[DEBUG_BUFFER_SIZE];
 void printDebugInt(uint32_t debugInt)
 {
     memset(bufferDebug, 0, DEBUG_BUFFER_SIZE);
-    ltoa(debugInt, bufferDebug);
+    ltoa(debugInt, bufferDebug, 10);
     uint8_t strLen = strlen(bufferDebug);
     bufferDebug[strLen] = '.';
     bufferDebug[strLen+1] = '\n';

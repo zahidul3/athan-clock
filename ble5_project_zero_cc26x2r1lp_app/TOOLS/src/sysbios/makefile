@@ -6,25 +6,25 @@
 #  template: ti.sysbios/makefile.xdt
 #  target: ti.targets.arm.elf.M4F
 
-vpath % C:/TI/simplelink_cc26x2_sdk_2_20_00_36/kernel/tirtos/packages/ti/sysbios/
-vpath %.c C:/TI/xdctools_3_50_07_20_core/packages/
+vpath % /Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/kernel/tirtos/packages/ti/sysbios/
+vpath %.c /Users/zahidhaq/ti/xdctools_3_50_07_20_core/packages/
 
-XOPTS = -I"C:/TI/xdctools_3_50_07_20_core/packages/" -Dxdc_target_types__=C:/TI/simplelink_cc26x2_sdk_2_20_00_36/kernel/tirtos/packages/ti/targets/arm/elf/std.h -Dxdc_target_name__=M4F
+XOPTS = -I"/Users/zahidhaq/ti/xdctools_3_50_07_20_core/packages/" -Dxdc_target_types__=/Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/kernel/tirtos/packages/ti/targets/arm/elf/std.h -Dxdc_target_name__=M4F
 
 BIOS_DEFS =  -Dti_sysbios_BIOS_swiEnabled__D=TRUE -Dti_sysbios_BIOS_taskEnabled__D=TRUE -Dti_sysbios_BIOS_clockEnabled__D=TRUE -Dti_sysbios_BIOS_runtimeCreatesEnabled__D=TRUE -Dti_sysbios_knl_Task_moduleStateCheckFlag__D=FALSE -Dti_sysbios_knl_Task_objectCheckFlag__D=FALSE -Dti_sysbios_hal_Hwi_DISABLE_ALL_HOOKS -Dti_sysbios_knl_Swi_DISABLE_ALL_HOOKS -Dti_sysbios_BIOS_smpEnabled__D=FALSE -Dti_sysbios_Build_useHwiMacros -Dti_sysbios_Build_useIndirectReferences=FALSE -Dti_sysbios_knl_Swi_numPriorities__D=6 -Dti_sysbios_knl_Task_deleteTerminatedTasks__D=FALSE -Dti_sysbios_knl_Task_numPriorities__D=6 -Dti_sysbios_knl_Task_checkStackFlag__D=TRUE -Dti_sysbios_knl_Task_initStackFlag__D=TRUE -Dti_sysbios_knl_Task_DISABLE_ALL_HOOKS -Dti_sysbios_knl_Clock_TICK_SOURCE=ti_sysbios_knl_Clock_TickSource_TIMER -Dti_sysbios_knl_Clock_TICK_MODE=ti_sysbios_knl_Clock_TickMode_DYNAMIC -Dti_sysbios_hal_Core_delegate_getId=ti_sysbios_hal_CoreNull_getId__E -Dti_sysbios_hal_Core_delegate_interruptCore=ti_sysbios_hal_CoreNull_interruptCore__E -Dti_sysbios_hal_Core_delegate_lock=ti_sysbios_hal_CoreNull_lock__E -Dti_sysbios_hal_Core_delegate_unlock=ti_sysbios_hal_CoreNull_unlock__E -Dti_sysbios_hal_Core_numCores__D=1 -Dti_sysbios_hal_CoreNull_numCores__D=1 -Dti_sysbios_utils_Load_taskEnabled__D=TRUE -Dti_sysbios_utils_Load_swiEnabled__D=FALSE -Dti_sysbios_utils_Load_hwiEnabled__D=FALSE -Dti_sysbios_family_arm_m3_Hwi_dispatcherSwiSupport__D=TRUE -Dti_sysbios_family_arm_m3_Hwi_dispatcherTaskSupport__D=TRUE -Dti_sysbios_family_arm_m3_Hwi_dispatcherAutoNestingSupport__D=TRUE -Dti_sysbios_family_arm_m3_Hwi_dispatcherIrpTrackingSupport__D=TRUE -Dti_sysbios_knl_Semaphore_supportsEvents__D=FALSE -Dti_sysbios_knl_Semaphore_supportsPriority__D=TRUE -Dxdc_runtime_Assert_DISABLE_ALL -Dxdc_runtime_Log_DISABLE_ALL --define=DeviceFamily_CC26X2 --define=uartlog_FILE="""" 
 
 CCOPTS = --endian=little -mv7M4 --abi=eabi --float_support=fpv4spd16 -q -ms --opt_for_speed=0  --program_level_compile -o3 -g  -Dti_sysbios_knl_Task_minimizeLatency__D=FALSE -Dti_sysbios_family_arm_cc26xx_Boot_driverlibVersion=2 -Dti_sysbios_knl_Clock_stopCheckNext__D=TRUE -Dti_sysbios_family_arm_m3_Hwi_enableException__D=TRUE -Dti_sysbios_family_arm_m3_Hwi_disablePriority__D=32U -Dti_sysbios_family_arm_m3_Hwi_numSparseInterrupts__D=0U
 
-BIOS_INC = -I"C:/TI/simplelink_cc26x2_sdk_2_20_00_36/kernel/tirtos/packages/"
+BIOS_INC = -I"/Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/kernel/tirtos/packages/"
 ANNEX_INCS = 
-INCS = $(BIOS_INC) $(ANNEX_INCS) -I"C:/TI/simplelink_cc26x2_sdk_2_20_00_36/source/" -I"C:/TI/simplelink_cc26x2_sdk_2_20_00_36/kernel/tirtos/packages/" -I"C:/TI/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/" -I"C:/TI/xdctools_3_50_07_20_core/packages/" -I"../" -I"/packages//"  -IC:/TI/ccsv8/tools/compiler/ti-cgt-arm_18.1.5.LTS/include 
+INCS = $(BIOS_INC) $(ANNEX_INCS) -I"/Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/" -I"/Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/kernel/tirtos/packages/" -I"/Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/" -I"/Users/zahidhaq/ti/xdctools_3_50_07_20_core/packages/" -I"../" -I"/packages//"  -I/Applications/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include 
 
-CC = C:/TI/ccsv8/tools/compiler/ti-cgt-arm_18.1.5.LTS/bin/armcl -c $(CCOPTS)
-ASM = C:/TI/ccsv8/tools/compiler/ti-cgt-arm_18.1.5.LTS/bin/armcl -c $(CCOPTS)
-AR = C:/TI/ccsv8/tools/compiler/ti-cgt-arm_18.1.5.LTS/bin/armar rq
+CC = /Applications/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/bin/armcl -c $(CCOPTS)
+ASM = /Applications/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/bin/armcl -c $(CCOPTS)
+AR = /Applications/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/bin/armar rq
 
-DEL = C:/TI/xdctools_3_50_07_20_core/packages/../bin/rm -f
-CP = C:/TI/xdctools_3_50_07_20_core/packages/../bin/cp -f
+DEL = rm -f
+CP = cp -f
 
 define RM
 	$(if $(wildcard $1),$(DEL) $1,:)
@@ -66,5 +66,5 @@ sysbios.aem4f: BIOS.obj m3_Hwi_asm.obj m3_Hwi_asm_switch.obj m3_IntrinsicsSuppor
 
 
 clean:
-	@$(DEL) ..\makefile.libs
+	@$(DEL) ../makefile.libs
 	@-$(call RM, *)

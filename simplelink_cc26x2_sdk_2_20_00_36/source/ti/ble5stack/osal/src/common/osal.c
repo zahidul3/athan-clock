@@ -410,7 +410,7 @@ uint32 osal_build_uint32( uint8 *swapped, uint8 len )
 unsigned char * _ltoa(unsigned long l, unsigned char *buf, unsigned char radix)
 {
 #if defined (__TI_COMPILER_VERSION) || defined (__TI_COMPILER_VERSION__)
-  return ( (unsigned char*)ltoa( l, (char *)buf ) );
+  return ( (unsigned char*)ltoa( l, (char *)buf, radix));
 #elif defined( __GNUC__ )
   return ( (char*)ltoa( l, buf, radix ) );
 #else

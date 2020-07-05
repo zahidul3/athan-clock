@@ -195,7 +195,7 @@
 		<link>
 			<name>Startup/UartLog.c</name>
 			<type>1</type>
-			<locationURI>copy_PARENT/common/cc26xx/uartlog/UartLog.c</locationURI>
+			<location>/Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/common/cc26xx/uartlog/UartLog.c</location>
 		</link>
 		<link>
 			<name>TOOLS/cc26x2_app_oad_agama.cmd</name>

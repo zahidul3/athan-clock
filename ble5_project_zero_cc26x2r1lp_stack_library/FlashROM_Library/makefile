@@ -2,9 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-SHELL = cmd.exe
-
-CG_TOOL_ROOT := C:/TI/ccsv8/tools/compiler/ti-cgt-arm_18.1.5.LTS
+CG_TOOL_ROOT := /Applications/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -40,8 +38,8 @@ ORDERED_OBJS += \
 
 -include ../makefile.init
 
-RM := DEL /F
-RMDIR := RMDIR /S/Q
+RM := rm -rf
+RMDIR := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
@@ -180,7 +178,7 @@ ble5_project_zero_cc26x2r1lp_stack_library.lib: $(OBJS)
 ifneq ($(strip $(ORDERED_OBJS)),)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: ARM Archiver'
-	"C:/TI/ccsv8/tools/compiler/ti-cgt-arm_18.1.5.LTS/bin/armar" r "ble5_project_zero_cc26x2r1lp_stack_library.lib" $(ORDERED_OBJS)
+	"/Applications/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/bin/armar" r "ble5_project_zero_cc26x2r1lp_stack_library.lib" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 endif
@@ -188,13 +186,13 @@ endif
 # Other Targets
 clean:
 	-$(RM) $(LIB_OUTPUTS__QUOTED)
-	-$(RM) "HAL\Common\hal_assert.obj" "HAL\Target\CC2650\Drivers\hal_flash_wrapper.obj" "HAL\Target\CC2650\Drivers\hal_rtc_wrapper.obj" "HAL\Target\CC2650\Drivers\hal_trng_wrapper.obj" "HAL\Target\CC2650\_common\mb_patch.obj" "Host\gap.obj" "Host\gapbondmgr.obj" "Host\gatt_uuid.obj" "Host\gattservapp_util.obj" "Host\sm_ecc.obj" "ICallBLE\ble_dispatch_JT.obj" "ICallBLE\ble_dispatch_lite.obj" "ICallBLE\icall_lite_translation.obj" "NPI\npi.obj" "OSAL\osal.obj" "OSAL\osal_bufmgr.obj" "OSAL\osal_cbtimer.obj" "OSAL\osal_clock.obj" "OSAL\osal_list.obj" "OSAL\osal_memory_icall.obj" "OSAL\osal_pwrmgr.obj" "OSAL\osal_snv_wrapper.obj" "OSAL\osal_timers.obj" "Startup\ble_user_config.obj" "Startup\icall_startup.obj" "Startup\osal_icall_ble.obj" "TOOLS\onboard.obj" 
-	-$(RM) "HAL\Common\hal_assert.d" "HAL\Target\CC2650\Drivers\hal_flash_wrapper.d" "HAL\Target\CC2650\Drivers\hal_rtc_wrapper.d" "HAL\Target\CC2650\Drivers\hal_trng_wrapper.d" "HAL\Target\CC2650\_common\mb_patch.d" "Host\gap.d" "Host\gapbondmgr.d" "Host\gatt_uuid.d" "Host\gattservapp_util.d" "Host\sm_ecc.d" "ICallBLE\ble_dispatch_JT.d" "ICallBLE\ble_dispatch_lite.d" "ICallBLE\icall_lite_translation.d" "NPI\npi.d" "OSAL\osal.d" "OSAL\osal_bufmgr.d" "OSAL\osal_cbtimer.d" "OSAL\osal_clock.d" "OSAL\osal_list.d" "OSAL\osal_memory_icall.d" "OSAL\osal_pwrmgr.d" "OSAL\osal_snv_wrapper.d" "OSAL\osal_timers.d" "Startup\ble_user_config.d" "Startup\icall_startup.d" "Startup\osal_icall_ble.d" "TOOLS\onboard.d" 
+	-$(RM) "HAL/Common/hal_assert.obj" "HAL/Target/CC2650/Drivers/hal_flash_wrapper.obj" "HAL/Target/CC2650/Drivers/hal_rtc_wrapper.obj" "HAL/Target/CC2650/Drivers/hal_trng_wrapper.obj" "HAL/Target/CC2650/_common/mb_patch.obj" "Host/gap.obj" "Host/gapbondmgr.obj" "Host/gatt_uuid.obj" "Host/gattservapp_util.obj" "Host/sm_ecc.obj" "ICallBLE/ble_dispatch_JT.obj" "ICallBLE/ble_dispatch_lite.obj" "ICallBLE/icall_lite_translation.obj" "NPI/npi.obj" "OSAL/osal.obj" "OSAL/osal_bufmgr.obj" "OSAL/osal_cbtimer.obj" "OSAL/osal_clock.obj" "OSAL/osal_list.obj" "OSAL/osal_memory_icall.obj" "OSAL/osal_pwrmgr.obj" "OSAL/osal_snv_wrapper.obj" "OSAL/osal_timers.obj" "Startup/ble_user_config.obj" "Startup/icall_startup.obj" "Startup/osal_icall_ble.obj" "TOOLS/onboard.obj" 
+	-$(RM) "HAL/Common/hal_assert.d" "HAL/Target/CC2650/Drivers/hal_flash_wrapper.d" "HAL/Target/CC2650/Drivers/hal_rtc_wrapper.d" "HAL/Target/CC2650/Drivers/hal_trng_wrapper.d" "HAL/Target/CC2650/_common/mb_patch.d" "Host/gap.d" "Host/gapbondmgr.d" "Host/gatt_uuid.d" "Host/gattservapp_util.d" "Host/sm_ecc.d" "ICallBLE/ble_dispatch_JT.d" "ICallBLE/ble_dispatch_lite.d" "ICallBLE/icall_lite_translation.d" "NPI/npi.d" "OSAL/osal.d" "OSAL/osal_bufmgr.d" "OSAL/osal_cbtimer.d" "OSAL/osal_clock.d" "OSAL/osal_list.d" "OSAL/osal_memory_icall.d" "OSAL/osal_pwrmgr.d" "OSAL/osal_snv_wrapper.d" "OSAL/osal_timers.d" "Startup/ble_user_config.d" "Startup/icall_startup.d" "Startup/osal_icall_ble.d" "TOOLS/onboard.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
 pre-build:
-	-C:/TI/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/../../../tools/ble5stack/lib_search/lib_search         --opt C:/workspace_v8/ble5_project_zero_cc26x2r1lp_stack_library/TOOLS/build_config.opt         --lib-dir C:/TI/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/blelib/cc26x2r1         --cmd C:/workspace_v8/ble5_project_zero_cc26x2r1lp_stack_library/FlashROM_Library/lib_linker.cmd         --xml C:/TI/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/../../../tools/ble5stack/lib_search/lib_search.xml         --sym-dir C:/TI/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/symbols/cc26x2r1
+	-/Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/../../../tools/ble5stack/lib_search/lib_search         --opt /Users/zahidhaq/athan-clock/ble5_project_zero_cc26x2r1lp_stack_library/TOOLS/build_config.opt         --lib-dir /Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/blelib/cc26x2r1         --cmd /Users/zahidhaq/athan-clock/ble5_project_zero_cc26x2r1lp_stack_library/FlashROM_Library/lib_linker.cmd         --xml /Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/../../../tools/ble5stack/lib_search/lib_search.xml         --sym-dir /Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/symbols/cc26x2r1
 	-@echo ' '
 
 .PHONY: all clean dependents
