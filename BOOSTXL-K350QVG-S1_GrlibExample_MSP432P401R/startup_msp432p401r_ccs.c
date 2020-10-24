@@ -55,11 +55,13 @@ extern void SystemInit(void);
 extern unsigned long __STACK_END;
 
 
-extern void SysTick_Handler  (void) __attribute__((weak,alias("Default_Handler")));
+extern void SysTick_Handler     (void) __attribute__((weak,alias("Default_Handler")));
 extern void EUSCIA2_IRQHandler  (void) __attribute__((weak,alias("Default_Handler")));
 extern void EUSCIB0_IRQHandler  (void) __attribute__((weak,alias("Default_Handler")));
 extern void EUSCIA0_IRQHandler  (void) __attribute__((weak,alias("Default_Handler")));
-extern void T32_INT1_IRQHandler  (void) __attribute__((weak,alias("Default_Handler")));
+extern void T32_INT1_IRQHandler (void) __attribute__((weak,alias("Default_Handler")));
+extern void TA1_0_IRQHandler    (void) __attribute__((weak,alias("Default_Handler")));
+
 /* External declarations for the interrupt handlers used by the application. */
 /* To be added by user */
 
@@ -98,7 +100,7 @@ void (* const interruptVectors[])(void) =
     defaultISR,                             /* COMP1 ISR                 */
     defaultISR,                             /* TA0_0 ISR                 */
     defaultISR,                             /* TA0_N ISR                 */
-    defaultISR,                             /* TA1_0 ISR                 */
+    TA1_0_IRQHandler,                       /* TA1_0 ISR                 */
     defaultISR,                             /* TA1_N ISR                 */
     defaultISR,                             /* TA2_0 ISR                 */
     defaultISR,                             /* TA2_N ISR                 */

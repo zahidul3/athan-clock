@@ -60,6 +60,8 @@
 #include "IoDef.h"
 #include "Common.h"
 
+#include "TimerA.h"
+
 //Touch screen context
 touch_context g_sTouchContext;
 Graphics_ImageButton primitiveButton;
@@ -312,7 +314,7 @@ void buttonIntHandler(void)
 void SysTick_Handler(void)
 {
     sysTickCount++;
-    GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
+    //GPIO_toggleOutputOnPin(HEARTBEAT_PORT, HEARTBEAT_PIN);
 }
 
 //Crude polling method
@@ -348,7 +350,7 @@ void main(void)
     boardInit();
     clockInit();
     initializeDemoButtons();
-
+    TimerAInit();
     polling_delay_ms(64);
     //
     // Configure the pins that connect to the LCD as GPIO outputs.

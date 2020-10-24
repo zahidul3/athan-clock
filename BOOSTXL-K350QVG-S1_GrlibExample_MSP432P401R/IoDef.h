@@ -7,6 +7,7 @@
 
 /* TODO:
  * Fix Daylight Savings
+ * add stop during alarm
  *
  */
 

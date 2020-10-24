@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-CG_TOOL_ROOT := /Applications/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS
+CG_TOOL_ROOT := /Applications/ti/ccs1010/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -178,7 +178,7 @@ ble5_project_zero_cc26x2r1lp_stack_library.lib: $(OBJS)
 ifneq ($(strip $(ORDERED_OBJS)),)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: ARM Archiver'
-	"/Applications/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/bin/armar" r "ble5_project_zero_cc26x2r1lp_stack_library.lib" $(ORDERED_OBJS)
+	"/Applications/ti/ccs1010/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/bin/armar" r "ble5_project_zero_cc26x2r1lp_stack_library.lib" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 endif
@@ -192,7 +192,7 @@ clean:
 	-@echo ' '
 
 pre-build:
-	-/Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/../../../tools/ble5stack/lib_search/lib_search         --opt /Users/zahidhaq/athan-clock/ble5_project_zero_cc26x2r1lp_stack_library/TOOLS/build_config.opt         --lib-dir /Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/blelib/cc26x2r1         --cmd /Users/zahidhaq/athan-clock/ble5_project_zero_cc26x2r1lp_stack_library/FlashROM_Library/lib_linker.cmd         --xml /Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/../../../tools/ble5stack/lib_search/lib_search.xml         --sym-dir /Users/zahidhaq/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/symbols/cc26x2r1
+	-/Users/zahidhaq/git/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/../../../tools/ble5stack/lib_search/lib_search         --opt /Users/zahidhaq/git/athan-clock/ble5_project_zero_cc26x2r1lp_stack_library/TOOLS/build_config.opt         --lib-dir /Users/zahidhaq/git/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/blelib/cc26x2r1         --cmd /Users/zahidhaq/git/athan-clock/ble5_project_zero_cc26x2r1lp_stack_library/FlashROM_Library/lib_linker.cmd         --xml /Users/zahidhaq/git/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/../../../tools/ble5stack/lib_search/lib_search.xml         --sym-dir /Users/zahidhaq/git/athan-clock/simplelink_cc26x2_sdk_2_20_00_36/source/ti/ble5stack/symbols/cc26x2r1
 	-@echo ' '
 
 .PHONY: all clean dependents

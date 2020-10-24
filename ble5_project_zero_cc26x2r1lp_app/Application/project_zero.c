@@ -996,7 +996,7 @@ static void LCDUART_readCallBack(UART_Handle handle, void *ptr, size_t size)
     {
         ModifyDateTime(athanCMD);
     }
-    else if(athanCMD == RESET_CMD)
+    else if (athanCMD == RESET_CMD)
     {
         SendUART1CurrentDateTime();
         sendAthanTimes();
@@ -1807,7 +1807,7 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
         // Remove the connection from the list and disable RSSI if needed
         ProjectZero_removeConn(pPkt->connectionHandle);
 
-        //sendAthanTimes();
+        sendAthanTimes();
         sendCurrentDateToLCD();
         // Cancel the OAD if one is going on
         // A disconnect forces the peer to re-identify

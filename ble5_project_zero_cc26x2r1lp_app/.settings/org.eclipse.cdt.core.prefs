@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Default.1461211152/COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR/delimiter=\:
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Default.1461211152/COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR/operation=append
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Default.1461211152/COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR/value=/Users/zahidhaq/git/athan-clock//Users/zahidhaq/git/athan-clock/simplelink_cc26x2_sdk_2_20_00_36
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Default.1461211152/append=true
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Default.1461211152/appendContributed=true
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Default.1633984/COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR/delimiter=\:
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Default.1633984/COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR/operation=append
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Default.1633984/COM_TI_SIMPLELINK_CC26X2_SDK_INSTALL_DIR/value=/Users/zahidhaq/git/athan-clock//Users/zahidhaq/git/athan-clock/simplelink_cc26x2_sdk_2_20_00_36
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Default.1633984/append=true
+environment/project/com.ti.ccstudio.buildDefinitions.TMS470.Default.1633984/appendContributed=true

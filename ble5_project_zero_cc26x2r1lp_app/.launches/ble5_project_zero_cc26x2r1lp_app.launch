@@ -8,7 +8,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.CC2642R1F.ccxml.Texas Instruments XDS110 USB Debug Probe/Cortex_M4_0" value="ble5_project_zero_cc26x2r1lp_app"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:ble5_project_zero_cc26x2r1lp_app}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.C:\workspace_v8\ble5_project_zero_cc26x2r1lp_app\targetConfigs\CC2642R1F.ccxml.Texas Instruments XDS110 USB Debug Probe/Cortex_M4_0" value="C:/workspace_v8\ble5_project_zero_cc26x2r1lp_app\FlashROM_Debug\ble5_project_zero_cc26x2r1lp_app_FlashROM_Debug.out"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.CC2642R1F.ccxml.Texas Instruments XDS110 USB Debug Probe/Cortex_M4_0" value="/Users/zahidhaq/athan-clock/ble5_project_zero_cc26x2r1lp_app/FlashROM_Debug/ble5_project_zero_cc26x2r1lp_app_FlashROM_Debug.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.CC2642R1F.ccxml.Texas Instruments XDS110 USB Debug Probe/Cortex_M4_0" value="/Users/zahidhaq/git/athan-clock/ble5_project_zero_cc26x2r1lp_app/FlashROM_Debug/ble5_project_zero_cc26x2r1lp_app_FlashROM_Debug.out"/>
 <mapAttribute key="com.ti.ccstudio.debug.ui.displayFormats">
 <mapEntry key="Texas Instruments XDS110 USB Debug Probe/Cortex_M4_0@##separator##@0" value="32-Bit Hex - TI Style"/>
 </mapAttribute>
