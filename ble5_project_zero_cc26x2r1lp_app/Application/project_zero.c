@@ -857,8 +857,11 @@ void IncDateTime(uint8 updateStats)
       sendAthanTimes();
     }
 
-    if(isAthanTime(DATE_TIME)) //check every min
+    if(isAthanTime(DATE_TIME)) //check every min if athan should play
+    {
         SetPlaybackAzanEvent();
+        sendAthanMatchToLCD();
+    }
     SendUART1CurrentTime();
     Event_post(syncEvent, PZ_SAVE_TIME_FLASH_EVT);
   }
@@ -1038,7 +1041,7 @@ static void LCDUART_writeCallBack(UART_Handle handle, void *ptr, size_t size)
     ICall_leaveCriticalSection(key);
 }
 
-//LCD UART
+// UART to LCD
 void initUART1(void)
 {
     UART_Params uartParamsLCD;
@@ -2633,6 +2636,22 @@ void ProjectZero_ButtonService_CfgChangeHandler(
     }
 }
 
+void sendAthanMatchToLCD(void)
+{
+    if(uart1Handle)
+    {
+        TsCurrentDate athanMatch;
+        uint32_t key = HwiP_disable();
+        Power_setConstraint(PowerCC26XX_SB_DISALLOW);
+        Log_info0("Writing athan match");
+        UartLcdState = UART_SENDING_CURRENT_DATE;
+        athanMatch.athanType = ATHAN_MATCH;
+        memcpy(&athanMatch.dateTime.Second, &currentDateTime.Second, sizeof(TsDateTime));
+        UART_write(uart1Handle, &athanMatch.athanType, sizeof(TsCurrentDate));
+        HwiP_restore(key);
+    }
+}
+
 void sendCurrentDateToLCD(void)
 {
     if(uart1Handle)
@@ -2757,9 +2776,7 @@ void ProjectZero_DataService_ValueChangeHandler(
                 Log_info1("Transferring UART Athan data size: %d...", sizeof(currentAthanTimesDay));
                 sendAthanToLCD();
             }
-
         }
-
         break;
 
     case DS_STREAM_ID:

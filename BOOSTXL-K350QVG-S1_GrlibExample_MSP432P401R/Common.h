@@ -45,6 +45,7 @@ typedef enum {
   MAGHRIB,
   ISHA,
   NUMBER_OF_ATHAN,
+  ATHAN_MATCH,
   CURRENT_DATE = 0xFE,
   CURRENT_TIME = 0xFF
 } athan_type;
