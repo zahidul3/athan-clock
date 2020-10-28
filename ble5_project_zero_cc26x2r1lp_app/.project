@@ -53,6 +53,11 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>Application/athanTransport.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/BOOSTXL-K350QVG-S1_GrlibExample_MSP432P401R/athanTransport.h</locationURI>
+		</link>
+		<link>
 			<name>Application/util.c</name>
 			<type>1</type>
 			<locationURI>SRC_BLE_DIR/common/cc26xx/util.c</locationURI>

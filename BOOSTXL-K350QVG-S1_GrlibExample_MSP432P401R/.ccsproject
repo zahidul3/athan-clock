@@ -13,4 +13,6 @@
 	<templateProperties value="id=BOOSTXL-K350QVG-S1_GrlibExample_MSP432P401R.projectspec.BOOSTXL-K350QVG-S1_GrlibExample_MSP432P401R"/>
 	<origin value="C:/workspace_v8_msp/BOOSTXL-K350QVG-S1_GrlibExample_MSP432P401R"/>
 	<filesToOpen value="main.c"/>
+	<connection value="common/targetdb/connections/TIXDS110_Connection.xml"/>
+	<isTargetManual value="false"/>
 </projectOptions>

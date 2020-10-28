@@ -152,5 +152,5 @@ void initUART0Debug(void)
     MAP_UART_enableInterrupt(EUSCI_A0_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT | EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG);
     MAP_Interrupt_enableInterrupt(INT_EUSCIA0);
 
-    InitCircBuf(&tx0Buffer, 800);
+    InitCircBuf(&tx0Buffer, 1024);
 }

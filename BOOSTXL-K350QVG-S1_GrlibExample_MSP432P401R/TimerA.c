@@ -9,6 +9,8 @@
 #include <msp432p401r.h>
 #include "TimerA.h"
 
+uint32_t RunningTime = 0;
+
 void TimerAInit(void)
 {
     TIMER_A1->CCTL[0] = TIMER_A_CCTLN_CCIE; // TACCR0 interrupt enabled
@@ -25,4 +27,11 @@ void TA1_0_IRQHandler(void)
 {
     TIMER_A1->CCTL[0] &= ~TIMER_A_CCTLN_CCIFG;
     P1->OUT ^= BIT0;
+    RunningTime++;
 }
+
+uint32_t GetRunningTime()
+{
+    return RunningTime;
+}
+

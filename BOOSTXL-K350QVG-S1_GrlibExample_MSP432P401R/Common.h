@@ -34,20 +34,17 @@ typedef struct
     uint8_t   Month;
     uint8_t   Year;
     uint8_t   DayOfWeek;  // 0-6, where 0 = Sunday
-    int8_t   TimeZone;   //
+    int8_t    TimeZone;   //
 } TsDateTime;
 
 typedef enum {
   FAJR = 0,
-  SUNRISE,
-  ZUHR,
-  ASR,
-  MAGHRIB,
-  ISHA,
-  NUMBER_OF_ATHAN,
-  ATHAN_MATCH,
-  CURRENT_DATE = 0xFE,
-  CURRENT_TIME = 0xFF
+  SUNRISE,  //1
+  ZUHR,     //2
+  ASR,      //3
+  MAGHRIB,  //4
+  ISHA,     //5
+  NUMBER_OF_ATHAN, // = 6
 } athan_type;
 
 typedef struct

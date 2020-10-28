@@ -61,6 +61,7 @@
 #include "Common.h"
 
 #include "TimerA.h"
+#include "athanTransport.h"
 
 //Touch screen context
 touch_context g_sTouchContext;
@@ -120,7 +121,8 @@ typedef enum UARTLCDSTATE{
     UART_FINISH_ATHAN_TIME,
     UART_RECEIVING_ATHAN_TIME,
     UART_RECEIVING_CURRENT_TIME,
-    UART_RECEIVING_CURRENT_DATE
+    UART_RECEIVING_CURRENT_DATE,
+    UART_RECEIVING_ATHAN_PACKET
 } UARTLCDSTATE;
 
 /*********************************************************************
@@ -140,7 +142,7 @@ TsDateTime currentDateTime =
 
 TsAthanTimesDay currentAthanTimesDay = {0};
 
-uint8_t rxBuffer[20] = {0};
+uint8_t rxBuffer[255] = {0};
 
 uint8_t index = 0;
 
@@ -160,6 +162,8 @@ AMPM CurrentAMPM = PM;
 
 uint16_t athanThreshold[6]= {4000, 5200, 6700, 8200, 9700, 17000};
 const char* const arr[] = { "Fajr", "Sunrise", "Dhuhr", "Asr", "Maghrib", "Isha", 0 }; // all const
+const char* const athan_strings[NUMBER_OF_ATHAN] = {"FAJR", "SUNRISE", "ZUHR", "ASR", "MAGHRIB", "ISHA"};
+
 uint8_t alarmState = 0b00111101; //inverted bit field of alarm state
 
 int32_t athanDescColor[6] = {GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GRAY, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GREEN};
@@ -171,19 +175,82 @@ bool TxDone = false;
 static uint32_t sysTickCount = 0;
 static uint16_t xSum, ySum;
 
-void setCurrentTime12Hr(TsDateTime dateTime)
+void setCurrentDateTime(TsDateTime* dateTime)
 {
+    memcpy(&currentDateTime.Second, &dateTime->Second, sizeof(TsDateTime));
     //convert to 12 hr format
-    if(dateTime.Hour>12)
+    if(dateTime->Hour>12)
     {
-        dateTime.Hour -= 12;
+        dateTime->Hour -= 12;
+        CurrentAMPM = PM;
     }
-    else if(dateTime.Hour==0)
+    else if(dateTime->Hour==0)
     {
-        dateTime.Hour = 12;
+        dateTime->Hour = 12;
+        CurrentAMPM = AM;
     }
-    CurrentHour = dateTime.Hour;
-    CurrentMinute = dateTime.Minute;
+    else
+    {
+        CurrentAMPM = AM;
+    }
+
+    CurrentHour = dateTime->Hour;
+    CurrentMinute = dateTime->Minute;
+}
+
+void printDateTime(TsDateTime* dateTime)
+{
+    memset(buffer, 0, DEBUG_BUFFER_SIZE);
+    ltoa(currentDateTime.Month, buffer, 10);
+    uint8_t strLen = strlen(buffer);
+    buffer[strLen] = '/';
+    ltoa(currentDateTime.Day, (buffer+strLen+1), 10);
+    printDebugString("Received current date: ");
+    printDebugString(buffer);
+    printDebugString("\n\r");
+
+    memset(buffer, 0, DEBUG_BUFFER_SIZE);
+    ltoa(CurrentHour, buffer, 10);
+    strLen = strlen(buffer);
+    buffer[strLen] = ':';
+    ltoa(CurrentMinute, (buffer+strLen+1), 10);
+    printDebugString("Received current time: ");
+    printDebugString(buffer);
+    printDebugString("\n\r");
+}
+
+TsCurrentTime athanAlert;
+
+void handleRxMessage(TsAthanPacket* athanPacket)
+{
+    switch(athanPacket->dataType){
+    case MSG_CURRENT_TIME:
+        printDebugString("MSG_CURRENT_TIME rx!\n\r");
+        printDateTime((TsDateTime*)&athanPacket->data);
+        setCurrentDateTime((TsDateTime*)&athanPacket->data);
+        drawMainMenu();
+        break;
+    case MSG_ATHAN_TIMES:
+        printDebugString("MSG_ATHAN_TIMES rx!\n\r");
+        memcpy(&currentAthanTimesDay.athanTimes[0].athanType, (TsAthanTimesDay*)&athanPacket->data, sizeof(TsAthanTimesDay));
+        drawMainMenu();
+        break;
+    case MSG_ATHAN_ALERT:
+        memcpy(&athanAlert, (TsCurrentTime*)&athanPacket->data, sizeof(TsCurrentTime));
+        printDebugString(athan_strings[athanAlert.athanType]);
+        printDebugString(" MSG_ATHAN_ALERT rx!!!\n\r");
+        break;
+    default:
+        break;
+    }
+}
+
+volatile uint8_t dataLenRx = 0;
+
+void resetUartStateRx(void)
+{
+    index = 0; // reset index
+    UartLcdState = UART_LCD_IDLE;
 }
 
 /* EUSCI A0 UART ISR - Receives one byte at a time */
@@ -193,69 +260,31 @@ void EUSCIA2_IRQHandler(void)
 
     MAP_UART_clearInterruptFlag(EUSCI_A2_BASE, status);
 
+    // rx data
     if(status & EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
     {
-        if((UartLcdState <= UART_FINISH_ATHAN_TIME) && index > 9)
+        if(UartLcdState != UART_RECEIVING_ATHAN_PACKET)
             index = 0;
 
         rxBuffer[index] = MAP_UART_receiveData(EUSCI_A2_BASE);
 
-        if((rxBuffer[index] == CURRENT_TIME) && (UartLcdState <= UART_FINISH_ATHAN_TIME) && (index == 0))
-            UartLcdState = UART_RECEIVING_CURRENT_TIME;
-        else if((rxBuffer[index] == CURRENT_DATE) && (UartLcdState <= UART_FINISH_ATHAN_TIME) && (index == 0))
-            UartLcdState = UART_RECEIVING_CURRENT_DATE;
-        else if((rxBuffer[index] == FAJR) && (index == 0))
-            UartLcdState = UART_RECEIVING_ATHAN_TIME;
+        if(rxBuffer[index] == ATHAN_PACKET_VERSION && (index == 0))
+            UartLcdState = UART_RECEIVING_ATHAN_PACKET;
 
         index++;
 
-        if((index >= sizeof(TsCurrentTime)) && (UartLcdState == UART_RECEIVING_CURRENT_TIME))
+        if(UartLcdState == UART_RECEIVING_ATHAN_PACKET)
         {
-            CurrentHour = rxBuffer[1];
-            CurrentMinute = rxBuffer[2];
-            CurrentAMPM = rxBuffer[3];
-
-            memset(buffer, 0, DEBUG_BUFFER_SIZE);
-            ltoa(CurrentHour, buffer, 10);
-            uint8_t strLen = strlen(buffer);
-            buffer[strLen] = ':';
-            ltoa(CurrentMinute, (buffer+strLen+1), 10);
-            printDebugString("Received current time: ");
-            printDebugString(buffer);
-            printDebugString("\n\r");
-
-            drawMainMenu();
-            UartLcdState = UART_FINISH_CURRENT_TIME;
-            index = 0;
-            //memcpy(&currentAthanTimesDay.athanTimes[0].athanType, rxBuffer, sizeof(currentAthanTimesDay));
-        }
-
-        if((index >= sizeof(TsCurrentDate)) && (UartLcdState == UART_RECEIVING_CURRENT_DATE))
-        {
-            memcpy(&currentDateTime.Second, &rxBuffer[1], sizeof(TsDateTime));
-            memset(buffer, 0, DEBUG_BUFFER_SIZE);
-            ltoa(currentDateTime.Month, buffer, 10);
-            uint8_t strLen = strlen(buffer);
-            buffer[strLen] = '/';
-            ltoa(currentDateTime.Day, (buffer+strLen+1), 10);
-            printDebugString("Received current date: ");
-            printDebugString(buffer);
-            printDebugString("\n\r");
-
-            setCurrentTime12Hr(currentDateTime);
-            drawDateTimeMenu();
-            UartLcdState = UART_FINISH_CURRENT_DATE;
-            index = 0;
-        }
-
-        if((index >= sizeof(currentAthanTimesDay)) && (UartLcdState == UART_RECEIVING_ATHAN_TIME)) //18
-        {
-            memcpy(&currentAthanTimesDay.athanTimes[0].athanType, rxBuffer, sizeof(currentAthanTimesDay));
-            g_ranDemo = true;
-            printDebugString("Received athan time\n\r");
-            drawMainMenu();
-            UartLcdState = UART_FINISH_ATHAN_TIME;
-            index = 0;
+            if(index == 3)
+            {
+                dataLenRx = rxBuffer[index-1];
+                //if(dataLenRx == 0) resetUartStateRx();
+            }
+            else if(index >= (ATHAN_PACKET_HEADER_LEN + dataLenRx))
+            {
+                handleRxMessage(rxBuffer);
+                resetUartStateRx();
+            }
         }
     }
 
@@ -288,24 +317,32 @@ uint8_t GetUARTData()
 //Sends data to CC device
 void SendUARTCmd(uint8_t* data, uint8_t len)
 {
+    uint8_t dataByte;
     TxDone = false;
     GPIO_setOutputHighOnPin(CC_INT_PORT, CC_INT_PIN);
     polling_delay_ms(7); //wait for CC to wake and stabilize UART
     TxDataLen = len;
-    uint8_t dataByte = GetUARTData();
+    dataByte = GetUARTData();
     //printDebugInt(dataByte);
     MAP_UART_transmitData(EUSCI_A2_BASE, dataByte);
 }
 
+uint32_t timeStampSec = 0;
+
 void buttonIntHandler(void)
 {
-    GPIO_disableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
-    printDebugString("Button Pressed!\n\r");
     GPIO_clearInterruptFlag(BUTTON1_PORT, BUTTON1_PIN);
 
-    txData.command = 0x00;
-    txData.data = 0x01;
-    SendUARTCmd(&txData, sizeof(txData));
+    if((GetRunningTime() - timeStampSec) > 2) // 2s debounce
+    {
+        timeStampSec = GetRunningTime();
+        GPIO_disableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
+        printDebugString("Button Pressed!\n\r");
+
+        txData.command = 0x00;
+        txData.data = 0x01;
+        SendUARTCmd(&txData, sizeof(txData));
+    }
 }
 
 /*

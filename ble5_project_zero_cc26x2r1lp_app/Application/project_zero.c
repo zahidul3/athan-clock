@@ -98,6 +98,7 @@
 #include <util.h>
 #include "athanCalendar.h"
 #include "Common.h"
+#include "athanTransport.h"
 #include <project_zero.h>
 
 
@@ -316,8 +317,8 @@ TsAthanTimesDay currentAthanTimesDay =     {FAJR, 5, 7,       \
                                             ISHA, 8, 49,      \
                                            };
 
-#pragma DATA_ALIGN(currentAthanAlarm, 8)
-TsAthanAlarm currentAthanAlarm = {true, false, true, true, true, true};
+#pragma DATA_ALIGN(currentAthanAlarmEnable, 8)
+TsAthanAlarm currentAthanAlarmEnable = {true, false, true, true, true, true};
 
 AMPM currentAMPM = PM;
 AMPM athanAMPM = AM;
@@ -327,6 +328,7 @@ uint8 currentMinStandard = 0;
 
 UART_Handle uart1Handle = NULL;
 char uart1ReadBuf[16] = {0};
+TsCurrentTime athanTimeMatch;
 /*********************************************************************
  * LOCAL VARIABLES
  */
@@ -635,12 +637,12 @@ void setAthanAlarm(uint8_t alarmBits)
     int index = 0;
     for(index = 0; index < NUMBER_OF_ATHAN; index++)
     {
-        currentAthanAlarm.athanAlarm[index] = alarmBits & 0x01;
+        currentAthanAlarmEnable.athanAlarm[index] = alarmBits & 0x01;
         alarmBits = alarmBits >> 1;
     }
 }
 
-bool isAthanTime(TsDateTime dateTime)
+bool isAthanTime(TsDateTime dateTime, TsCurrentTime* athanTimeMatch)
 {
     uint8 athanHour;
     uint8 athanMin;
@@ -699,9 +701,13 @@ bool isAthanTime(TsDateTime dateTime)
         }
 
         if((currentHourStandard == athanHour) && (currentMinStandard == athanMin) && (currentAMPM == athanAMPM) && \
-                currentAthanAlarm.athanAlarm[x] == true)
+                currentAthanAlarmEnable.athanAlarm[x] == true)
         {
             Log_info0("Athan time happened!!!");
+            athanTimeMatch->athanType = x;
+            athanTimeMatch->Minute = currentMinStandard;
+            athanTimeMatch->Hour = currentHourStandard;
+            athanTimeMatch->currentAMPM = athanAMPM;
             return true;
         }
     }
@@ -857,10 +863,10 @@ void IncDateTime(uint8 updateStats)
       sendAthanTimes();
     }
 
-    if(isAthanTime(DATE_TIME)) //check every min if athan should play
+    if(isAthanTime(DATE_TIME, &athanTimeMatch)) //check every min if athan should play
     {
         SetPlaybackAzanEvent();
-        sendAthanMatchToLCD();
+        sendAthanMatchToLCD(&athanTimeMatch);
     }
     SendUART1CurrentTime();
     Event_post(syncEvent, PZ_SAVE_TIME_FLASH_EVT);
@@ -970,7 +976,9 @@ typedef enum UARTLCDstate{
     UART_SENDING_ATHAN_TIME,
     UART_FINISH_ATHAN_TIME,
     UART_SENDING_CURRENT_TIME,
-    UART_SENDING_CURRENT_DATE
+    UART_SENDING_CURRENT_DATE,
+    UART_SENDING_TEST_DATETIME,
+
 } UARTLCDSTATE;
 
 UARTLCDSTATE UartLcdState = UART_IDLE;
@@ -1002,7 +1010,7 @@ static void LCDUART_readCallBack(UART_Handle handle, void *ptr, size_t size)
     else if (athanCMD == RESET_CMD)
     {
         SendUART1CurrentDateTime();
-        sendAthanTimes();
+        //sendAthanTimes();
     }
 
     Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);
@@ -1017,11 +1025,8 @@ static void LCDUART_writeCallBack(UART_Handle handle, void *ptr, size_t size)
     ICall_CSState key;
     key = ICall_enterCriticalSection();
 
-    if(UartLcdState == UART_SENDING_CURRENT_TIME)
-    {
-        UartLcdState = UART_IDLE;
-    }
-    else if(UartLcdState == UART_SENDING_ATHAN_TIME)
+/*
+    if(UartLcdState == UART_SENDING_ATHAN_TIME)
     {
         if(size == sizeof(TsAthanTime)) //3 bytes
             athanTimesIndex++;
@@ -1036,6 +1041,7 @@ static void LCDUART_writeCallBack(UART_Handle handle, void *ptr, size_t size)
             UartLcdState = UART_FINISH_ATHAN_TIME;
         }
     }
+    */
     EnableSleepAfterSec = DATE_TIME.Second + 2; // Enable sleep after 2 seconds
     Log_info1("Wrote %d bytes to LCD", size);
     ICall_leaveCriticalSection(key);
@@ -1285,8 +1291,11 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
 
     readCurrentTimeFromFlash();
     sendAthanTimes();
-    if(isAthanTime(DATE_TIME)) //check every min
+    if(isAthanTime(DATE_TIME, &athanTimeMatch)) //check every min
+    {
         SetPlaybackAzanEvent();
+        sendAthanMatchToLCD(&athanTimeMatch);
+    }
     sendCurrentTimeToLCD();
     sendCurrentDateToLCD();
 
@@ -1320,7 +1329,8 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
 
             if (events & PZ_UART1_CURR_DATETIME_EVT)
             {
-                sendCurrentDateToLCD();
+                //sendCurrentDateToLCD();
+                sendTestDateTimeToLCD();
             }
 
             if (events & PZ_SAVE_TIME_FLASH_EVT)
@@ -2636,18 +2646,41 @@ void ProjectZero_ButtonService_CfgChangeHandler(
     }
 }
 
-void sendAthanMatchToLCD(void)
+void sendAthanMatchToLCD(TsCurrentTime* athanMatch)
 {
     if(uart1Handle)
     {
-        TsCurrentDate athanMatch;
         uint32_t key = HwiP_disable();
         Power_setConstraint(PowerCC26XX_SB_DISALLOW);
         Log_info0("Writing athan match");
         UartLcdState = UART_SENDING_CURRENT_DATE;
-        athanMatch.athanType = ATHAN_MATCH;
-        memcpy(&athanMatch.dateTime.Second, &currentDateTime.Second, sizeof(TsDateTime));
-        UART_write(uart1Handle, &athanMatch.athanType, sizeof(TsCurrentDate));
+        SendAthanPacketToLCD(MSG_ATHAN_ALERT, athanMatch, sizeof(TsCurrentTime));
+        HwiP_restore(key);
+    }
+}
+
+void sendTestDateTimeToLCD(void)
+{
+    if(uart1Handle)
+    {
+        TsDateTime testDateTime;
+        uint8_t x = 0;
+        uint32_t key = HwiP_disable();
+        Power_setConstraint(PowerCC26XX_SB_DISALLOW);
+        Log_info0("Writing test date time");
+        UartLcdState = UART_SENDING_TEST_DATETIME;
+        testDateTime.Second = x++;
+        testDateTime.Minute = x++;
+        testDateTime.Hour = x++;
+        testDateTime.Day = x++;
+        testDateTime.Month = x++;
+        testDateTime.Year = x++;
+        testDateTime.DayOfWeek = x++;
+        testDateTime.TimeZone = x++;
+        memcpy(&testDateTime.Second, &currentDateTime.Second, sizeof(TsDateTime));
+        SendAthanPacketToLCD(MSG_CURRENT_TIME, &testDateTime.Second, sizeof(TsDateTime));
+
+        //UART_write(uart1Handle, &dateNow.athanType, sizeof(TsCurrentDate));
         HwiP_restore(key);
     }
 }
@@ -2656,14 +2689,11 @@ void sendCurrentDateToLCD(void)
 {
     if(uart1Handle)
     {
-        TsCurrentDate dateNow;
         uint32_t key = HwiP_disable();
         Power_setConstraint(PowerCC26XX_SB_DISALLOW);
         Log_info0("Writing current date");
         UartLcdState = UART_SENDING_CURRENT_DATE;
-        dateNow.athanType = CURRENT_DATE;
-        memcpy(&dateNow.dateTime.Second, &currentDateTime.Second, sizeof(TsDateTime));
-        UART_write(uart1Handle, &dateNow.athanType, sizeof(TsCurrentDate));
+        SendAthanPacketToLCD(MSG_CURRENT_TIME, &currentDateTime.Second, sizeof(TsDateTime));
         HwiP_restore(key);
     }
 }
@@ -2672,16 +2702,11 @@ void sendCurrentTimeToLCD(void)
 {
     if(uart1Handle)
     {
-        TsCurrentTime timeNow;
         uint32_t key = HwiP_disable();
         Power_setConstraint(PowerCC26XX_SB_DISALLOW);
         Log_info0("Writing current time");
-        UartLcdState = UART_SENDING_CURRENT_TIME;
-        timeNow.athanType = CURRENT_TIME;
-        timeNow.Hour = currentHourStandard;
-        timeNow.Minute = currentMinStandard;
-        timeNow.currentAMPM = currentAMPM;
-        UART_write(uart1Handle, &timeNow.athanType, sizeof(TsCurrentTime));
+        UartLcdState = UART_SENDING_CURRENT_DATE;
+        SendAthanPacketToLCD(MSG_CURRENT_TIME, &currentDateTime.Second, sizeof(TsDateTime));
         HwiP_restore(key);
     }
 }
@@ -2692,9 +2717,9 @@ void sendAthanToLCD(void)
     {
         uint32_t key = HwiP_disable();
         Power_setConstraint(PowerCC26XX_SB_DISALLOW);
-        Log_info1("Writing athan type %d", athanTimesIndex);
+        Log_info0("Writing athan times");
         UartLcdState = UART_SENDING_ATHAN_TIME;
-        UART_write(uart1Handle, &currentAthanTimesDay.athanTimes[athanTimesIndex].athanType, sizeof(TsAthanTime));
+        SendAthanPacketToLCD(MSG_ATHAN_TIMES, &currentAthanTimesDay.athanTimes[0].athanType, sizeof(TsAthanTimesDay));
         HwiP_restore(key);
     }
 }
