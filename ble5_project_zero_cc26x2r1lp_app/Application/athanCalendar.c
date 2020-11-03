@@ -8,11 +8,6 @@
 #include "athanCalendar.h"
 
 //------------------------------------------------------------------------------
-const volatile TsDaysMonthsConfig constDaysMonthsConfig = \
-{
-"Sun","Mon","Tue","Wed","Thu","Fri","Sat",
-"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"
-};
 
 #pragma DATA_ALIGN(ATHAN_SCHEDULE, 8)
 const volatile TuAthanTimesYear ATHAN_SCHEDULE = { \

@@ -57,9 +57,7 @@
 #include <ti/sysbios/BIOS.h>
 #include <ti/drivers/UART.h>
 
-// Comment this in to use xdc.runtime.Log, but also remove UartLog_init below.
-//#include <xdc/runtime/Log.h>
-#include <ti/common/cc26xx/uartlog/UartLog.h> // Comment out to use xdc Log.
+#include <ti/common/cc26xx/uartlog/UartLog.h>
 
 #include <common/cc26xx/flash_interface/flash_interface.h>
 #include "find_stack_entry.h"
@@ -163,7 +161,7 @@ int main()
 
     ProjectZero_createTask();
 
-    ProjectAzan_createTask();
+    ProjectAzan_Audio_createTask();
 
     /* enable interrupts and start SYS/BIOS */
     BIOS_start();

@@ -24,4 +24,11 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>athanTransport.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/ble5_project_zero_cc26x2r1lp_app/Application/athanTransport.c</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

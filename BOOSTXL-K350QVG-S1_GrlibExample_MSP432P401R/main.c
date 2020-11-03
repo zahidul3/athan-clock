@@ -108,22 +108,6 @@ typedef enum LCD_SCREEN
     DATE_SCREEN
 }LCD_SCREEN;
 
-typedef struct
-{
-  UART_CMD  command;
-  uint8_t   data;
-} __attribute__((__packed__)) TxData;
-
-typedef enum UARTLCDSTATE{
-    UART_LCD_IDLE,
-    UART_FINISH_CURRENT_TIME,
-    UART_FINISH_CURRENT_DATE,
-    UART_FINISH_ATHAN_TIME,
-    UART_RECEIVING_ATHAN_TIME,
-    UART_RECEIVING_CURRENT_TIME,
-    UART_RECEIVING_CURRENT_DATE,
-    UART_RECEIVING_ATHAN_PACKET
-} UARTLCDSTATE;
 
 /*********************************************************************
  * GLOBAL VARIABLES
@@ -142,16 +126,7 @@ TsDateTime currentDateTime =
 
 TsAthanTimesDay currentAthanTimesDay = {0};
 
-uint8_t rxBuffer[255] = {0};
-
-uint8_t index = 0;
-
 LCD_SCREEN LcdScreen = MAIN_SCREEN;
-
-TxData txData = {0};
-uint8_t TxDataLen = 0;
-
-UARTLCDSTATE UartLcdState = UART_LCD_IDLE;
 
 /*********************************************************************
  * LOCAL VARIABLES
@@ -170,7 +145,6 @@ int32_t athanDescColor[6] = {GRAPHICS_COLOR_GREEN, GRAPHICS_COLOR_GRAY, GRAPHICS
 
 char buffer[DEBUG_BUFFER_SIZE];
 char bufferTouch[DEBUG_BUFFER_SIZE];
-bool TxDone = false;
 
 static uint32_t sysTickCount = 0;
 static uint16_t xSum, ySum;
@@ -245,89 +219,7 @@ void handleRxMessage(TsAthanPacket* athanPacket)
     }
 }
 
-volatile uint8_t dataLenRx = 0;
-
-void resetUartStateRx(void)
-{
-    index = 0; // reset index
-    UartLcdState = UART_LCD_IDLE;
-}
-
-/* EUSCI A0 UART ISR - Receives one byte at a time */
-void EUSCIA2_IRQHandler(void)
-{
-    uint32_t status = MAP_UART_getEnabledInterruptStatus(EUSCI_A2_BASE);
-
-    MAP_UART_clearInterruptFlag(EUSCI_A2_BASE, status);
-
-    // rx data
-    if(status & EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
-    {
-        if(UartLcdState != UART_RECEIVING_ATHAN_PACKET)
-            index = 0;
-
-        rxBuffer[index] = MAP_UART_receiveData(EUSCI_A2_BASE);
-
-        if(rxBuffer[index] == ATHAN_PACKET_VERSION && (index == 0))
-            UartLcdState = UART_RECEIVING_ATHAN_PACKET;
-
-        index++;
-
-        if(UartLcdState == UART_RECEIVING_ATHAN_PACKET)
-        {
-            if(index == 3)
-            {
-                dataLenRx = rxBuffer[index-1];
-                //if(dataLenRx == 0) resetUartStateRx();
-            }
-            else if(index >= (ATHAN_PACKET_HEADER_LEN + dataLenRx))
-            {
-                handleRxMessage(rxBuffer);
-                resetUartStateRx();
-            }
-        }
-    }
-
-    if(status & EUSCI_A_UART_TRANSMIT_INTERRUPT)
-    {
-        if(TxDone != true)
-        {
-            TxDataLen--;
-            uint8_t dataByte = GetUARTData();
-            MAP_UART_transmitData(EUSCI_A2_BASE, dataByte);
-            TxDone = true;
-        }
-        else
-        {
-            //polling_delay_ms(7); //wait for CC to wake and stabilize UART
-            GPIO_setOutputLowOnPin(CC_INT_PORT, CC_INT_PIN);
-            GPIO_enableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
-        }
-    }
-}
-
-uint8_t GetUARTData()
-{
-    if(TxDataLen == sizeof(txData))
-        return txData.command;
-    else
-        return txData.data;
-}
-
-//Sends data to CC device
-void SendUARTCmd(uint8_t* data, uint8_t len)
-{
-    uint8_t dataByte;
-    TxDone = false;
-    GPIO_setOutputHighOnPin(CC_INT_PORT, CC_INT_PIN);
-    polling_delay_ms(7); //wait for CC to wake and stabilize UART
-    TxDataLen = len;
-    dataByte = GetUARTData();
-    //printDebugInt(dataByte);
-    MAP_UART_transmitData(EUSCI_A2_BASE, dataByte);
-}
-
-uint32_t timeStampSec = 0;
+static uint32_t timeStampSec = 0;
 
 void buttonIntHandler(void)
 {
@@ -336,12 +228,13 @@ void buttonIntHandler(void)
     if((GetRunningTime() - timeStampSec) > 2) // 2s debounce
     {
         timeStampSec = GetRunningTime();
-        GPIO_disableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
+        //GPIO_disableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
         printDebugString("Button Pressed!\n\r");
 
-        txData.command = 0x00;
-        txData.data = 0x01;
-        SendUARTCmd(&txData, sizeof(txData));
+        TsButtonPress buttonAction;
+        buttonAction.button = LEFT_KEY;
+        buttonAction.pressed = 0x01;
+        SendAthanPacket(MSG_BUTTON_PRESS, &buttonAction, sizeof(TsButtonPress));
     }
 }
 
@@ -372,10 +265,10 @@ void polling_delay_ms(uint16_t millis)
 void SendResetCmd(void)
 {
     printDebugString("Sending reset cmd\n\r");
-    txData.command = RESET_CMD;
-    txData.data = 0;
-    SendUARTCmd(&txData, sizeof(txData));
+    SendAthanPacket(MSG_DEVICE_RESET, 0, 0);
 }
+
+TsLCDTouchCmd txData;
 
 void main(void)
 {
@@ -476,14 +369,14 @@ void main(void)
                 printDebugString("Touched Min!");
                 txData.command = TIME_MIN_CMD;
                 txData.data = 0x00;
-                SendUARTCmd(&txData, sizeof(txData));
+                SendAthanPacket(MSG_LCD_CMD, &txData, sizeof(TsLCDTouchCmd));
             }
             else if(ySum < 7600)
             {
                 printDebugString("Touched Hour!");
                 txData.command = TIME_HOUR_CMD;
                 txData.data = 0x00;
-                SendUARTCmd(&txData, sizeof(txData));
+                SendAthanPacket(MSG_LCD_CMD, &txData, sizeof(TsLCDTouchCmd));
             }
             else if((ySum < 14000) && (xSum > 12000))
             {
@@ -504,7 +397,7 @@ void main(void)
                             alarmState = (alarmState & ~(1<<ulIdx)); //clear bit
                             txData.command = ALARM_CMD;
                             txData.data = alarmState;
-                            SendUARTCmd(&txData, sizeof(txData));
+                            SendAthanPacket(MSG_LCD_CMD, &txData, sizeof(TsLCDTouchCmd));
                         }
                         else
                         {
@@ -512,7 +405,7 @@ void main(void)
                             alarmState = (alarmState | (1<<ulIdx)); //set bit
                             txData.command = ALARM_CMD;
                             txData.data = alarmState;
-                            SendUARTCmd(&txData, sizeof(txData));
+                            SendAthanPacket(MSG_LCD_CMD, &txData, sizeof(TsLCDTouchCmd));
                         }
 
                         drawMainMenu();

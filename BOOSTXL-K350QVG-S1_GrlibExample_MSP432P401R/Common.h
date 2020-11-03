@@ -8,21 +8,52 @@
 #ifndef COMMON_H_
 #define COMMON_H_
 
-typedef enum ampm{
+#include <stdint.h>
+#include <stdbool.h>
+
+typedef enum ampm
+{
     AM,
     PM
 } AMPM;
 
+typedef enum
+{
+    FAJR = 0,
+    SUNRISE,  //1
+    ZUHR,     //2
+    ASR,      //3
+    MAGHRIB,  //4
+    ISHA,     //5
+    NUMBER_OF_ATHAN, // = 6
+} athan_type;
+
+typedef enum
+{
+    NO_KEY,
+    RIGHT_KEY,
+    LEFT_KEY,
+    ALL_KEYS
+} BUTTON_KEYS;
+
+typedef enum
+{
+    RESET_CMD,
+    ALARM_CMD,
+    TIME_HOUR_CMD,
+    TIME_MIN_CMD
+} LCD_TOUCH_CMD;
+
 //-----------------------------------------------------------------------------
 typedef struct
 {
-  char str[4];  // keep even
+    char str[4];  // keep even
 } TsStr3;
 
 typedef struct
 {
-  TsStr3   days[7];
-  TsStr3   months[12];
+    TsStr3   days[7];
+    TsStr3   months[12];
 } TsDaysMonthsConfig;
 
 typedef struct
@@ -36,16 +67,6 @@ typedef struct
     uint8_t   DayOfWeek;  // 0-6, where 0 = Sunday
     int8_t    TimeZone;   //
 } TsDateTime;
-
-typedef enum {
-  FAJR = 0,
-  SUNRISE,  //1
-  ZUHR,     //2
-  ASR,      //3
-  MAGHRIB,  //4
-  ISHA,     //5
-  NUMBER_OF_ATHAN, // = 6
-} athan_type;
 
 typedef struct
 {
@@ -78,12 +99,16 @@ typedef struct
     TsAthanTime athanTimes[NUMBER_OF_ATHAN];
 } TsAthanTimesDay;
 
-typedef enum UART_CMD
+typedef struct
 {
-    RESET_CMD,
-    ALARM_CMD,
-    TIME_HOUR_CMD,
-    TIME_MIN_CMD
-} UART_CMD;
+    BUTTON_KEYS button;
+    uint8_t pressed;
+} TsButtonPress;
+
+typedef struct
+{
+  LCD_TOUCH_CMD command;
+  uint8_t data;
+} TsLCDTouchCmd;
 
 #endif /* COMMON_H_ */

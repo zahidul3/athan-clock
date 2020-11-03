@@ -63,7 +63,7 @@ uint16_t CircBufUsedSpace(TsCircularBuffer * b)
 //-----------------------------------------------------------------------------
 void InitCircBuf(TsCircularBuffer * b, uint16_t BufferSize)
 {
-  b->Buf = malloc(BufferSize);
+  b->Buf = calloc(BufferSize, 1);
   b->BufferSize = BufferSize;
   b->Count = 0;
   b->InIndex = 0;

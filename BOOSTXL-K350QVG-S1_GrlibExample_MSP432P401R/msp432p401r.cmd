@@ -72,6 +72,8 @@ MEMORY
 /* --stack_size=512                                                          */
 /* --library=rtsv7M4_T_le_eabi.lib                                           */
 
+--heap_size=4096
+
 /* Section allocation in memory */
 
 SECTIONS

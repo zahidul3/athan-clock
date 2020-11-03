@@ -24,7 +24,7 @@ uint8_t DebugStringLen;
 uint8_t DebugStringIndex;
 bool printDebugInProgress = false;
 
-static TsCircularBuffer tx0Buffer;
+TsCircularBuffer tx0Buffer;
 
 //![Simple UART Config]
 /* UART Configuration Parameter. These are the configuration parameters to
@@ -60,7 +60,8 @@ void EUSCIA0_IRQHandler(void)
         //echo back chars to PC terminal
         MAP_UART_transmitData(EUSCI_A0_BASE, MAP_UART_receiveData(EUSCI_A0_BASE));
     }
-    else if(status & EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG)
+
+    if(status & EUSCI_A_UART_TRANSMIT_INTERRUPT_FLAG)
     {
         uint16_t nextChar = GetCharCircBuf(&tx0Buffer);
         if(nextChar != 0)
@@ -110,12 +111,12 @@ void printDebugChar(const char ch)
     MAP_UART_transmitData(EUSCI_A0_BASE, ch & 0xff);
 }
 
-//print a string to the debug terminal
+// Print a string to the debug terminal
 void printDebugString(const char * debugString)
 {
     //if(printDebugInProgress == false)
     {
-        int index;
+        uint8_t index;
         DebugStringIndex = 0;
         //printDebugInProgress = true;
         DebugStringLen = strlen(debugString);

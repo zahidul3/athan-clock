@@ -49,7 +49,7 @@
 #define PA_TASK_PRIORITY                     3
 
 #ifndef PA_TASK_STACK_SIZE
-#define PA_TASK_STACK_SIZE                   2048
+#define PA_TASK_STACK_SIZE                   1024
 #endif
 
 
@@ -639,7 +639,7 @@ void initSD(void)
  *
  * @brief   Task creation function for the Project Zero.
  */
-void ProjectAzan_createTask(void)
+void ProjectAzan_Audio_createTask(void)
 {
     Task_Params taskParams;
 

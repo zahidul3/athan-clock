@@ -90,6 +90,7 @@ extern PIN_Handle spiPinHandle;
 /*********************************************************************
  * TYPEDEFS
  */
+#define DATE_TIME     currentDateTime
 
 /*********************************************************************
  * FUNCTIONS
@@ -98,8 +99,12 @@ extern PIN_Handle spiPinHandle;
 /*
  * Task creation function for the Project Zero.
  */
-extern void ProjectZero_createTask(void);
-
+void ProjectZero_createTask(void);
+void SaveCurrentTimeToFlash(void);
+void DISABLE_SLEEP(void);
+void ENABLE_SLEEP(void);
+void CRITICAL_ENTER(uint32_t* key);
+void CRITICAL_EXIT(uint32_t* key);
 /*********************************************************************
 *********************************************************************/
 

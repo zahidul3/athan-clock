@@ -63,12 +63,11 @@
 #include <ti/drivers/Power.h>
 #include <ti/drivers/power/PowerCC26XX.h>
 
-#include <ti/drivers/I2C.h>
-
-//#include <xdc/runtime/Log.h> // Comment this in to use xdc.runtime.Log
 #include <ti/common/cc26xx/uartlog/UartLog.h>  // Comment out if using xdc Log
 #include <ti/drivers/UART.h>
 #include <ti/drivers/uart/UARTCC26XX.h>
+
+#include <ti/drivers/I2C.h>
 
 #include <ti/display/AnsiColor.h>
 
@@ -99,8 +98,9 @@
 #include "athanCalendar.h"
 #include "Common.h"
 #include "athanTransport.h"
-#include <project_zero.h>
-
+#include "audiotest.h"
+#include "athan_app.h"
+#include "project_zero.h"
 
 /*********************************************************************
  * MACROS
@@ -292,43 +292,6 @@ Task_Struct pzTask;
 #endif
 uint8_t appTaskStack[PZ_TASK_STACK_SIZE];
 
-#define SEC_CALIBRATION_THRESHOLD 16384 //20000
-int32_t secCalibrationCnt = 0;
-
-#pragma DATA_ALIGN(currentDateTime, 8)
-TsDateTime currentDateTime =
-        {
-         13, //sec
-         20, //min
-         12, //hour
-         25,  //day
-         12,  //month
-         19, //year
-         3,  //dayOfWeek 0-6, where 0 = Sunday
-         0b01011000   //zone
-        };
-
-#pragma DATA_ALIGN(currentAthanTimesDay, 8)
-TsAthanTimesDay currentAthanTimesDay =     {FAJR, 5, 7,       \
-                                            SUNRISE, 6, 18,   \
-                                            ZUHR, 12, 48,     \
-                                            ASR, 5, 27,       \
-                                            MAGHRIB, 7, 19,   \
-                                            ISHA, 8, 49,      \
-                                           };
-
-#pragma DATA_ALIGN(currentAthanAlarmEnable, 8)
-TsAthanAlarm currentAthanAlarmEnable = {true, false, true, true, true, true};
-
-AMPM currentAMPM = PM;
-AMPM athanAMPM = AM;
-
-uint8 currentHourStandard = 0;
-uint8 currentMinStandard = 0;
-
-UART_Handle uart1Handle = NULL;
-char uart1ReadBuf[16] = {0};
-TsCurrentTime athanTimeMatch;
 /*********************************************************************
  * LOCAL VARIABLES
  */
@@ -392,39 +355,12 @@ static List_List setPhyCommStatList;
 // List to store connection handles for queued param updates
 static List_List paramUpdateList;
 
-/* Pin driver handles */
-PIN_Handle intPinHandle;
-PIN_Handle ledPinHandle;
-
-/* Global memory storage for a PIN_Config table */
-static PIN_State ledPinState;
-static PIN_State intPinState;
-
 PIN_Handle spiPinHandle;
 static PIN_State spiPinState;
 
 PIN_Config spiPinTable[] = {
     PA_DAC_SYNC_PIN | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     PA_DAC_AMP_PIN | PIN_GPIO_OUTPUT_EN | PIN_GPIO_HIGH | PIN_PUSHPULL | PIN_DRVSTR_MAX,
-    PIN_TERMINATE
-};
-
-/*
- * Initial LED pin configuration table
- *   - LEDs Board_PIN_LED0 & Board_PIN_LED1 are off.
- */
-PIN_Config ledPinTable[] = {
-    PZ_RLED_PIN | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
-    Board_PIN_GLED | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
-    PIN_TERMINATE
-};
-
-/*
- * Initial LED pin configuration table
- *   - LEDs Board_PIN_LED0 & Board_PIN_LED1 are off.
- */
-PIN_Config intPinTable[] = {
-    LCD_INT_PIN | PIN_INPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MAX,
     PIN_TERMINATE
 };
 
@@ -447,10 +383,7 @@ static bool oadWaitReboot = false;
 // indications needs to be sent out
 static uint32_t sendSvcChngdOnNextBoot = TRUE;
 
-bool gUpdateAthanTime = FALSE;
-uint8_t gSecondDelay = 0;
-uint8_t athanTimesIndex = 0;
-uint8_t EnableSleepAfterSec = 0;
+
 /*********************************************************************
  * LOCAL FUNCTIONS
  */
@@ -546,12 +479,17 @@ static void ProjectZero_checkSvcChgndFlag(uint32_t flag);
 //                                         uint8_t revertIo,
 //                                         uint8_t eraseIo);
 void sendUART1data(void);
+void IncDateTime(uint8 updateStats);
+void readCurrentTimeFromFlash(void);
+void saveCurrentTimeToFlash(void);
 /*********************************************************************
  * EXTERN FUNCTIONS
  */
 extern void AssertHandler(uint8_t assertCause,
                           uint8_t assertSubcause);
 extern const volatile TsDaysMonthsConfig constDaysMonthsConfig;
+extern TsDateTime currentDateTime;
+extern UART_Handle uart1Handle;
 /*********************************************************************
  * PROFILE CALLBACKS
  */
@@ -614,6 +552,25 @@ static void project_zero_spin(void)
   }
 }
 
+void DISABLE_SLEEP(void)
+{
+    Power_setConstraint(PowerCC26XX_SB_DISALLOW);
+}
+
+void ENABLE_SLEEP(void)
+{
+    Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);
+}
+
+void CRITICAL_ENTER(uint32_t* key)
+{
+    *key = HwiP_disable();
+}
+
+void CRITICAL_EXIT(uint32_t* key)
+{
+    HwiP_restore(*key);
+}
 /*********************************************************************
  * @fn      ProjectZero_createTask
  *
@@ -632,251 +589,11 @@ void ProjectZero_createTask(void)
     Task_construct(&pzTask, ProjectZero_taskFxn, &taskParams, NULL);
 }
 
-void setAthanAlarm(uint8_t alarmBits)
+uint32_t RunningTimeInSec = 0;
+
+uint32_t GetRunningTime(void)
 {
-    int index = 0;
-    for(index = 0; index < NUMBER_OF_ATHAN; index++)
-    {
-        currentAthanAlarmEnable.athanAlarm[index] = alarmBits & 0x01;
-        alarmBits = alarmBits >> 1;
-    }
-}
-
-bool isAthanTime(TsDateTime dateTime, TsCurrentTime* athanTimeMatch)
-{
-    uint8 athanHour;
-    uint8 athanMin;
-
-    //convert to 12 hr format
-    if(dateTime.Hour>12)
-    {
-        dateTime.Hour -= 12;
-        currentAMPM = PM;
-    }
-    else if(dateTime.Hour==0)
-    {
-        dateTime.Hour = 12;
-        currentAMPM = AM;
-    }
-    else if(dateTime.Hour==12)
-    {
-        currentAMPM = PM;
-    }
-    else
-    {
-        currentAMPM = AM;
-    }
-
-    currentHourStandard = dateTime.Hour;
-    currentMinStandard = dateTime.Minute;
-
-    for(int x=0; x<NUMBER_OF_ATHAN; x++)
-    {
-        athanHour = currentAthanTimesDay.athanTimes[x].Hour;
-        athanMin = currentAthanTimesDay.athanTimes[x].Minute;
-
-        switch(x)
-        {
-        case FAJR:
-            athanAMPM = AM;
-            break;
-        case SUNRISE:
-            athanAMPM = AM;
-            continue;
-        case ZUHR:
-            if(athanHour < 12)
-                athanAMPM = AM;
-            else
-                athanAMPM = PM;
-            break;
-        case ASR:
-            athanAMPM = PM;
-            break;
-        case MAGHRIB:
-            athanAMPM = PM;
-            break;
-        case ISHA:
-            athanAMPM = PM;
-            break;
-        }
-
-        if((currentHourStandard == athanHour) && (currentMinStandard == athanMin) && (currentAMPM == athanAMPM) && \
-                currentAthanAlarmEnable.athanAlarm[x] == true)
-        {
-            Log_info0("Athan time happened!!!");
-            athanTimeMatch->athanType = x;
-            athanTimeMatch->Minute = currentMinStandard;
-            athanTimeMatch->Hour = currentHourStandard;
-            athanTimeMatch->currentAMPM = athanAMPM;
-            return true;
-        }
-    }
-    return false;
-}
-
-#define DATE_TIME     currentDateTime
-
-//                        jan feb mar apr may jun jul aug sep oct nov dec
-const uint8 dates[] = {0, 31, 28, 31, 30, 31, 30, 31, 31 ,30, 31, 30, 31 };
-uint8 DaysInMonth(uint8 month, uint8 year)
-{
-  if(month>12) return 0;
-  else if((month==2) && ((year & 0x03)==0)) return 29;
-  else return dates[month];
-}
-
-void ModifyDateTime(uint8 param)
-{
-    if(param == TIME_HOUR_CMD)
-    {
-        DATE_TIME.Hour++;
-        DATE_TIME.Minute--;
-    }
-    //else if(param == TIME_MIN_CMD)
-    //    DATE_TIME.Minute++;
-
-    IncDateTime(1);
-    //sendCurrentTimeToLCD();
-    //SendUART1CurrentTime();
-}
-
-/*
-timeZone   Bits: assz zzzz
-
-a:  0 = winter time (no offset)
-    1 = summer time (+1 offset)
-
-z:  2s compliment 5 bit time zone offset
-
-s:  Adjust Scheme. As above
-    00 = Use config adjustment data
-    01 = No adjustment
-    10 = USA dates
-    11 = not defined
-*/
-
-#define DAYLIGHT_SAVINGS_ON       0x80
-#define ZONE_SCHEME               0x03
-
-// ----------------------------------------------------------------------------
-static int8 GetTimeZone(TsDateTime * time)
-{
-  int8 zone;
-
-  zone = time->TimeZone & 0x1F;
-  if(zone & 0x10) zone |= 0xE0;  // sign extended  -12 to +12
-#ifndef MS1
-  zone = 0;
-#endif
-  return zone;
-}
-// ----------------------------------------------------------------------------
-static void SetTimeZone(TsDateTime * time, int8 dzone)
-{
-  int8 zone;
-
-  zone = dzone & 0x1F;
-  time->TimeZone = (time->TimeZone & 0xE0) | zone;
-}
-
-//1Hz
-void IncDateTime(uint8 updateStats)
-{
-    //add extra seconds to calibrate for delay
-    secCalibrationCnt++;
-    if(secCalibrationCnt > SEC_CALIBRATION_THRESHOLD)
-    {
-        secCalibrationCnt = 0;
-        DATE_TIME.Second++;
-    }
-    DATE_TIME.Second++;
-
-    if(EnableSleepAfterSec && (EnableSleepAfterSec == DATE_TIME.Second))
-    {
-        Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);
-        EnableSleepAfterSec = 0;
-    }
-    //Heartbeat GREEN LED @ 1Hz
-    if(PIN_getOutputValue(PZ_GLED_PIN))
-        PIN_setOutputValue(ledPinHandle, PZ_GLED_PIN, 0);
-    else
-        PIN_setOutputValue(ledPinHandle, PZ_GLED_PIN, 1);
-
-    //update athan time with delay
-    if(gUpdateAthanTime && uart1Handle && (DATE_TIME.Second==gSecondDelay))
-    {
-        sendUART1data();
-        gUpdateAthanTime = false;
-    }
-
-  if(DATE_TIME.Second>=60 || updateStats)
-  {
-    DATE_TIME.Second = 0;
-    DATE_TIME.Minute++;
-    if(DATE_TIME.Minute>=60)
-    {
-      DATE_TIME.Minute = 0;
-      DATE_TIME.Hour++;
-      if(DATE_TIME.Hour>=24)
-      {
-        DATE_TIME.Hour = 0;
-        DATE_TIME.DayOfWeek++;
-        if(DATE_TIME.DayOfWeek>=7) DATE_TIME.DayOfWeek = 0;
-        DATE_TIME.Day++;
-        if(DATE_TIME.Day>DaysInMonth(DATE_TIME.Month, DATE_TIME.Year))
-        {
-          DATE_TIME.Day = 1;
-          DATE_TIME.Month++;
-          if(DATE_TIME.Month>12)
-          {
-            DATE_TIME.Month = 1;
-            DATE_TIME.Year++;
-          }
-        }
-
-        sendCurrentDateToLCD(); //update date on daily basis
-      }
-
-      uint8 tz;
-
-      tz = (DATE_TIME.TimeZone >> 5) & ZONE_SCHEME;
-      if(tz==1); // USA no daylight savings
-      if(tz==2) // USA normal daylight savings
-      {
-        if((DATE_TIME.Hour==2) && (DATE_TIME.DayOfWeek==0))                                // sunday 2am
-        {
-          if((DATE_TIME.Month==3) && ((DATE_TIME.Day>=8) && (DATE_TIME.Day<=15))  && ((DATE_TIME.TimeZone & DAYLIGHT_SAVINGS_ON)==0))                // 2nd sunday in march and not adjusted
-          {
-            DATE_TIME.Hour=3;                               // advance 1 hour
-            SetTimeZone(&DATE_TIME, GetTimeZone(&DATE_TIME) + 1);
-            DATE_TIME.TimeZone |= DAYLIGHT_SAVINGS_ON;      // set DAYLIGHT_SAVINGS_ON
-          }
-          else if((DATE_TIME.Month==11) && ((DATE_TIME.Day>=1) && (DATE_TIME.Day<=7))  && (DATE_TIME.TimeZone & DAYLIGHT_SAVINGS_ON)) // 1st sunday in november and adjusted
-          {
-            DATE_TIME.Hour=1;                               // back 1 hour
-            SetTimeZone(&DATE_TIME, GetTimeZone(&DATE_TIME) - 1);
-            DATE_TIME.TimeZone &= ~DAYLIGHT_SAVINGS_ON;     // clear DAYLIGHT_SAVINGS_ON
-          }
-        }
-      }
-
-      sendAthanTimes();
-    }
-
-    if(isAthanTime(DATE_TIME, &athanTimeMatch)) //check every min if athan should play
-    {
-        SetPlaybackAzanEvent();
-        sendAthanMatchToLCD(&athanTimeMatch);
-    }
-    SendUART1CurrentTime();
-    Event_post(syncEvent, PZ_SAVE_TIME_FLASH_EVT);
-  }
-}
-
-void printCurrentTime(void)
-{
-    Log_info6("currentDateTime: %s %02d %02d:%02d:%02d %s", (void *)&constDaysMonthsConfig.months[currentDateTime.Month-1], currentDateTime.Day,\
-              currentHourStandard, currentMinStandard, currentDateTime.Second, (currentAMPM ? "PM" : "AM"));
+    return RunningTimeInSec;
 }
 /*********************************************************************
  * @fn      SimplePeripheral_clockHandler
@@ -889,62 +606,23 @@ void printCurrentTime(void)
  */
 static void AthanClock_clockHandler(UArg arg)
 {
-  spClockEventData_t *pData = (spClockEventData_t *)arg;
+    spClockEventData_t *pData = (spClockEventData_t *)arg;
 
- if (pData->event == SP_PERIODIC_EVT)
- {
-   // Start the next period
-   Util_startClock(&clkPeriodic);
-   IncDateTime(0);
-   printCurrentTime();
-   // Post event to wake up the application
-   //SimplePeripheral_enqueueMsg(SP_PERIODIC_EVT, NULL);
- }
+    if (pData->event == SP_PERIODIC_EVT)
+    {
+        RunningTimeInSec++;
+        // Start the next period
+        Util_startClock(&clkPeriodic);
+        IncDateTime(0);
+        PrintCurrentTime();
+        // Post event to wake up the application
+        //SimplePeripheral_enqueueMsg(SP_PERIODIC_EVT, NULL);
+    }
 }
 
-void sendAthanTimes(void)
+void SaveCurrentTimeToFlash(void)
 {
-    switch(currentDateTime.Month)
-    {
-        case JANUARY:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesJan[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case FEBRUARY:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesFeb[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case MARCH:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesMar[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case APRIL:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesApr[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case MAY:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesMay[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case JUNE:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesJun[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case JULY:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesJul[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case AUGUST:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesAug[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case SEPTEMBER:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesSep[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case OCTOBER:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesOct[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case NOVEMBER:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesNov[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-        case DECEMBER:
-            memcpy(&currentAthanTimesDay.athanTimes[0], &ATHAN_SCHEDULE.athanMonths.athanTimesDec[currentDateTime.Day-1].athanTimes[0], sizeof(TsAthanTimesDay));
-            break;
-    }
-    gUpdateAthanTime = true;
-    gSecondDelay = (currentDateTime.Second + 7) % 60;
+    Event_post(syncEvent, PZ_SAVE_TIME_FLASH_EVT);
 }
 
 void SendUART1CurrentTime(void)
@@ -962,142 +640,6 @@ void sendUART1data(void)
     Event_post(syncEvent, PZ_UART1_EVT);
 }
 
-// -----------------------------------------------------------------------------
-//! \brief      This callback is invoked on Write completion
-//!
-//! \param[in]  handle - handle to the UART port
-//! \param[in]  ptr    - pointer to data to be transmitted
-//! \param[in]  size   - size of the data
-//!
-//! \return     void
-// -----------------------------------------------------------------------------
-typedef enum UARTLCDstate{
-    UART_LCD_IDLE,
-    UART_SENDING_ATHAN_TIME,
-    UART_FINISH_ATHAN_TIME,
-    UART_SENDING_CURRENT_TIME,
-    UART_SENDING_CURRENT_DATE,
-    UART_SENDING_TEST_DATETIME,
-
-} UARTLCDSTATE;
-
-UARTLCDSTATE UartLcdState = UART_IDLE;
-
-uint8_t ReadByte = 0;
-uint8_t athanCMD = 0;
-uint8_t athanAlarm = 0;
-
-static void LCDUART_readCallBack(UART_Handle handle, void *ptr, size_t size)
-{
-    ICall_CSState key;
-    athanCMD = *((uint8_t*)ptr);
-
-    if(size > 1)
-        athanAlarm = *(((uint8_t*)ptr)+1);
-
-    key = ICall_enterCriticalSection();
-
-    Log_info3("Read %d bytes from LCD: 0x%02x 0x%02x", size, athanCMD, athanAlarm);
-
-    if(athanCMD == ALARM_CMD)
-    {
-        setAthanAlarm(athanAlarm);
-    }
-    else if((athanCMD == TIME_HOUR_CMD) || (athanCMD == TIME_MIN_CMD))
-    {
-        ModifyDateTime(athanCMD);
-    }
-    else if (athanCMD == RESET_CMD)
-    {
-        SendUART1CurrentDateTime();
-        //sendAthanTimes();
-    }
-
-    Power_releaseConstraint(PowerCC26XX_SB_DISALLOW);
-
-    PIN_setConfig(intPinHandle, PIN_BM_IRQ, LCD_INT_PIN | PIN_IRQ_POSEDGE);
-
-    ICall_leaveCriticalSection(key);
-}
-
-static void LCDUART_writeCallBack(UART_Handle handle, void *ptr, size_t size)
-{
-    ICall_CSState key;
-    key = ICall_enterCriticalSection();
-
-/*
-    if(UartLcdState == UART_SENDING_ATHAN_TIME)
-    {
-        if(size == sizeof(TsAthanTime)) //3 bytes
-            athanTimesIndex++;
-
-        if(athanTimesIndex < NUMBER_OF_ATHAN)
-        {
-            sendUART1data();
-        }
-        else
-        {
-            athanTimesIndex = 0;
-            UartLcdState = UART_FINISH_ATHAN_TIME;
-        }
-    }
-    */
-    EnableSleepAfterSec = DATE_TIME.Second + 2; // Enable sleep after 2 seconds
-    Log_info1("Wrote %d bytes to LCD", size);
-    ICall_leaveCriticalSection(key);
-}
-
-// UART to LCD
-void initUART1(void)
-{
-    UART_Params uartParamsLCD;
-    UART_Params_init(&uartParamsLCD);
-
-    uartParamsLCD.baudRate = 9600;
-    uartParamsLCD.readDataMode = UART_DATA_BINARY;
-    uartParamsLCD.writeDataMode = UART_DATA_BINARY;
-    uartParamsLCD.dataLength = UART_LEN_8;
-    uartParamsLCD.stopBits = UART_STOP_ONE;
-    uartParamsLCD.readMode = UART_MODE_CALLBACK;
-    uartParamsLCD.writeMode = UART_MODE_CALLBACK;
-    uartParamsLCD.readEcho = UART_ECHO_OFF;
-
-    uartParamsLCD.writeCallback = LCDUART_writeCallBack;
-    uartParamsLCD.readCallback = LCDUART_readCallBack;
-
-    uart1Handle = UART_open(Board_UART1, &uartParamsLCD);
-
-    if(uart1Handle != NULL)
-        Log_info0("UART 1 Initialized");
-    else
-        Log_error0("UART 1 NOT Initialized");
-
-    //Enable Partial Reads on all subsequent UART_read()
-    UART_control(uart1Handle, UARTCC26XX_RETURN_PARTIAL_DISABLE,  NULL);
-
-    //UART_read(uart1Handle, uart1ReadBuf, 1);
-}
-
-/*********************************************************************
- * @fn     intCallbackFxn
- *
- * @brief  Callback from PIN driver on interrupt
- *
- *         Sets in motion the debouncing.
- *
- * @param  handle    The PIN_Handle instance this is about
- * @param  pinId     The pin that generated the interrupt
- */
-static void intCallbackFxn(PIN_Handle handle, PIN_Id pinId)
-{
-    // Disable interrupt on that pin for now. Re-enabled after debounce.
-    PIN_setConfig(handle, PIN_BM_IRQ, pinId | PIN_IRQ_DIS);
-    Power_setConstraint(PowerCC26XX_SB_DISALLOW);
-    ReadByte = 0;
-    Log_info0("In Button interrupt");
-    UART_control(uart1Handle, UARTCC26XX_CMD_RX_FIFO_FLUSH,  NULL);
-    UART_read(uart1Handle, uart1ReadBuf, 2);
-}
 /*********************************************************************
  * @fn      ProjectZero_init
  *
@@ -1130,39 +672,15 @@ static void ProjectZero_init(void)
 
     //initI2C();
 
-    intPinHandle = PIN_open(&intPinState, intPinTable);
-    if(!intPinHandle)
-    {
-        Log_error0("Error initializing intPinHandle pins");
-        //Task_exit();
-    }
-
-    PIN_setConfig(intPinHandle, PIN_BM_IRQ, LCD_INT_PIN | PIN_IRQ_POSEDGE);
-
-    // Setup callback for button pins
-    if(PIN_registerIntCb(intPinHandle, &intCallbackFxn) != 0)
-    {
-        Log_error0("Error registering int callback function");
-        //Task_exit();
-    }
     // ******************************************************************
     // Hardware initialization
     // ******************************************************************
-
-    // Open LED pins
-    ledPinHandle = PIN_open(&ledPinState, ledPinTable);
-    if(!ledPinHandle)
-    {
-        Log_error0("Error initializing board LED pins");
-        //Task_exit();
-    }
 
     // Open SPI pins
     spiPinHandle = PIN_open(&spiPinState, spiPinTable);
     if(!spiPinHandle)
     {
         Log_error0("Error initializing SPI pins");
-        //Task_exit();
     }
 
     // Set the Device Name characteristic in the GAP GATT Service
@@ -1269,7 +787,7 @@ static void ProjectZero_init(void)
     // Initialize Connection List
     ProjectZero_clearConnListEntry(LINKDB_CONNHANDLE_ALL);
 
-    //Initialize GAP layer for Peripheral role and register to receive GAP events
+    // Initialize GAP layer for Peripheral role and register to receive GAP events
     GAP_DeviceInit(GAP_PROFILE_PERIPHERAL, selfEntity, ADDRMODE_PUBLIC, NULL);
 
     // Process the Service changed flag
@@ -1287,17 +805,7 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
 {
     // Initialize application
     ProjectZero_init();
-    initUART1();
-
-    readCurrentTimeFromFlash();
-    sendAthanTimes();
-    if(isAthanTime(DATE_TIME, &athanTimeMatch)) //check every min
-    {
-        SetPlaybackAzanEvent();
-        sendAthanMatchToLCD(&athanTimeMatch);
-    }
-    sendCurrentTimeToLCD();
-    sendCurrentDateToLCD();
+    AthanApp_init();
 
     // Application main loop
     for(;; )
@@ -1307,8 +815,7 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
         // Waits for an event to be posted associated with the calling thread.
         // Note that an event associated with a thread is posted when a
         // message is queued to the message receive queue of the thread
-        events = Event_pend(syncEvent, Event_Id_NONE, PZ_ALL_EVENTS,
-                            ICALL_TIMEOUT_FOREVER);
+        events = Event_pend(syncEvent, Event_Id_NONE, PZ_ALL_EVENTS, ICALL_TIMEOUT_FOREVER);
 
         if(events)
         {
@@ -1319,17 +826,17 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
             // If RTOS queue is not empty, process app message.
             if(events & PZ_UART1_EVT)
             {
-                sendAthanToLCD();
+                SendAthanTimesToLCD();
             }
 
             if (events & PZ_UART1_CURR_TIME_EVT)
             {
-                sendCurrentTimeToLCD();
+                SendCurrentDateTimeToLCD();
             }
 
             if (events & PZ_UART1_CURR_DATETIME_EVT)
             {
-                //sendCurrentDateToLCD();
+                //sendCurrentDateTimeToLCD();
                 sendTestDateTimeToLCD();
             }
 
@@ -1413,7 +920,7 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
 
 void readCurrentTimeFromFlash(void)
 {
-    uint8_t status = osal_snv_read(BLE_NVID_CUST_END, sizeof(currentDateTime), (uint8 *)&currentDateTime);
+    uint8_t status = osal_snv_read(BLE_NVID_CUST_END, sizeof(TsDateTime), (uint8 *)&currentDateTime);
     if(status != SUCCESS)
     {
         Log_error0("ERROR: readCurrentTimeFromFlash");
@@ -1422,7 +929,7 @@ void readCurrentTimeFromFlash(void)
 
 void saveCurrentTimeToFlash(void)
 {
-    uint8_t status = osal_snv_write(BLE_NVID_CUST_END, sizeof(currentDateTime), (uint8 *)&currentDateTime);
+    uint8_t status = osal_snv_write(BLE_NVID_CUST_END, sizeof(TsDateTime), (uint8 *)&currentDateTime);
     if(status != SUCCESS)
     {
         Log_error1("saveCurrentTimeToFlash FAIL: %d", status);
@@ -1820,8 +1327,8 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
         // Remove the connection from the list and disable RSSI if needed
         ProjectZero_removeConn(pPkt->connectionHandle);
 
-        sendAthanTimes();
-        sendCurrentDateToLCD();
+        SendAthanTimes();
+        SendCurrentDateTimeToLCD();
         // Cancel the OAD if one is going on
         // A disconnect forces the peer to re-identify
         //OAD_cancel();
@@ -2646,84 +2153,6 @@ void ProjectZero_ButtonService_CfgChangeHandler(
     }
 }
 
-void sendAthanMatchToLCD(TsCurrentTime* athanMatch)
-{
-    if(uart1Handle)
-    {
-        uint32_t key = HwiP_disable();
-        Power_setConstraint(PowerCC26XX_SB_DISALLOW);
-        Log_info0("Writing athan match");
-        UartLcdState = UART_SENDING_CURRENT_DATE;
-        SendAthanPacketToLCD(MSG_ATHAN_ALERT, athanMatch, sizeof(TsCurrentTime));
-        HwiP_restore(key);
-    }
-}
-
-void sendTestDateTimeToLCD(void)
-{
-    if(uart1Handle)
-    {
-        TsDateTime testDateTime;
-        uint8_t x = 0;
-        uint32_t key = HwiP_disable();
-        Power_setConstraint(PowerCC26XX_SB_DISALLOW);
-        Log_info0("Writing test date time");
-        UartLcdState = UART_SENDING_TEST_DATETIME;
-        testDateTime.Second = x++;
-        testDateTime.Minute = x++;
-        testDateTime.Hour = x++;
-        testDateTime.Day = x++;
-        testDateTime.Month = x++;
-        testDateTime.Year = x++;
-        testDateTime.DayOfWeek = x++;
-        testDateTime.TimeZone = x++;
-        memcpy(&testDateTime.Second, &currentDateTime.Second, sizeof(TsDateTime));
-        SendAthanPacketToLCD(MSG_CURRENT_TIME, &testDateTime.Second, sizeof(TsDateTime));
-
-        //UART_write(uart1Handle, &dateNow.athanType, sizeof(TsCurrentDate));
-        HwiP_restore(key);
-    }
-}
-
-void sendCurrentDateToLCD(void)
-{
-    if(uart1Handle)
-    {
-        uint32_t key = HwiP_disable();
-        Power_setConstraint(PowerCC26XX_SB_DISALLOW);
-        Log_info0("Writing current date");
-        UartLcdState = UART_SENDING_CURRENT_DATE;
-        SendAthanPacketToLCD(MSG_CURRENT_TIME, &currentDateTime.Second, sizeof(TsDateTime));
-        HwiP_restore(key);
-    }
-}
-
-void sendCurrentTimeToLCD(void)
-{
-    if(uart1Handle)
-    {
-        uint32_t key = HwiP_disable();
-        Power_setConstraint(PowerCC26XX_SB_DISALLOW);
-        Log_info0("Writing current time");
-        UartLcdState = UART_SENDING_CURRENT_DATE;
-        SendAthanPacketToLCD(MSG_CURRENT_TIME, &currentDateTime.Second, sizeof(TsDateTime));
-        HwiP_restore(key);
-    }
-}
-
-void sendAthanToLCD(void)
-{
-    if(uart1Handle)
-    {
-        uint32_t key = HwiP_disable();
-        Power_setConstraint(PowerCC26XX_SB_DISALLOW);
-        Log_info0("Writing athan times");
-        UartLcdState = UART_SENDING_ATHAN_TIME;
-        SendAthanPacketToLCD(MSG_ATHAN_TIMES, &currentAthanTimesDay.athanTimes[0].athanType, sizeof(TsAthanTimesDay));
-        HwiP_restore(key);
-    }
-}
-
 /*
  * @brief   Handle a write request sent from a peer device.
  *
@@ -2777,14 +2206,14 @@ void ProjectZero_DataService_ValueChangeHandler(
             //currentDateTime.Minute = received_string[2];
             //currentDateTime.Second = received_string[3];
             memcpy(&currentDateTime.Second, &received_string[1], pCharData->dataLen - 1);
-            //sendCurrentTimeToLCD();
-            sendAthanTimes();
+            //sendCurrentDateTimeToLCD();
+            SendAthanTimes();
         }
         else if(received_string[0] == 'U') //85
         {
             //Log_info0("Transferring i2c data...");
             //sendI2Cdata(received_string[1]);
-            sendAthanTimes();
+            SendAthanTimes();
         }
         else if(received_string[0] == 'V') //86
         {
@@ -2798,8 +2227,8 @@ void ProjectZero_DataService_ValueChangeHandler(
         {
             if(uart1Handle)
             {
-                Log_info1("Transferring UART Athan data size: %d...", sizeof(currentAthanTimesDay));
-                sendAthanToLCD();
+                Log_info1("Transferring UART Athan data size: %d...", sizeof(TsAthanTimesDay));
+                SendAthanTimesToLCD();
             }
         }
         break;

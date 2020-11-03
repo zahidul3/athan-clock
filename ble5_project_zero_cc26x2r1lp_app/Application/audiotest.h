@@ -24,9 +24,9 @@
 /*
  * Task creation function for the Project Zero.
  */
-extern void ProjectAzan_createTask(void);
-extern void SetPlaybackAzanEvent(void);
-extern void SetRecordAzanEvent(void);
+void ProjectAzan_Audio_createTask(void);
+void SetPlaybackAzanEvent(void);
+void SetRecordAzanEvent(void);
 
 /** @brief Synchronization object data type */
 typedef void *SyncHandle;
