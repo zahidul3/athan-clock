@@ -36,14 +36,6 @@ typedef enum
     ALL_KEYS
 } BUTTON_KEYS;
 
-typedef enum
-{
-    RESET_CMD,
-    ALARM_CMD,
-    TIME_HOUR_CMD,
-    TIME_MIN_CMD
-} LCD_TOUCH_CMD;
-
 //-----------------------------------------------------------------------------
 typedef struct
 {
@@ -105,10 +97,5 @@ typedef struct
     uint8_t pressed;
 } TsButtonPress;
 
-typedef struct
-{
-  LCD_TOUCH_CMD command;
-  uint8_t data;
-} TsLCDTouchCmd;
 
 #endif /* COMMON_H_ */

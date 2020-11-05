@@ -19,6 +19,22 @@ typedef enum UARTLCDSTATE{
     UART_COMPLETE_ATHAN_PACKET
 } UARTLCDSTATE;
 
+typedef enum
+{
+    RESET_CMD,
+    ALARM_CMD,
+    TIME_HOUR_CMD,
+    TIME_MIN_CMD,
+    TURN_OFF_ALARM,
+
+} LCD_TOUCH_CMD;
+
+typedef struct
+{
+  LCD_TOUCH_CMD command;
+  uint8_t data;
+} TsLCDTouchCmd;
+
 typedef enum {
   MSG_CURRENT_TIME, // TsDateTime
   MSG_ATHAN_TIMES,   // TsAthanTimesDay

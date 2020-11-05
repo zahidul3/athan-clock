@@ -194,6 +194,7 @@ void printDateTime(TsDateTime* dateTime)
 }
 
 TsCurrentTime athanAlert;
+bool bAthanAlert = false;
 
 void handleRxMessage(TsAthanPacket* athanPacket)
 {
@@ -213,6 +214,7 @@ void handleRxMessage(TsAthanPacket* athanPacket)
         memcpy(&athanAlert, (TsCurrentTime*)&athanPacket->data, sizeof(TsCurrentTime));
         printDebugString(athan_strings[athanAlert.athanType]);
         printDebugString(" MSG_ATHAN_ALERT rx!!!\n\r");
+        bAthanAlert = true;
         break;
     default:
         break;
@@ -348,6 +350,15 @@ void main(void)
 
         if(LcdScreen == DATE_SCREEN)
             drawMainMenu();
+
+        if(bAthanAlert == true)
+        {
+            printDebugString("Touched during ALARM!");
+            txData.command = TURN_OFF_ALARM;
+            txData.data = 0x00;
+            SendAthanPacket(MSG_LCD_CMD, &txData, sizeof(TsLCDTouchCmd));
+            bAthanAlert = false;
+        }
 
         if(xSum > 1024)
         {
