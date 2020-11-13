@@ -124,13 +124,13 @@ static void LCDUART_writeCallBack(UART_Handle handle, void *ptr, size_t size)
     CRITICAL_EXIT(&key);
 }
 
-// UART to LCD
-void initUART1_LCD(void)
+// UART to LCD @9600baud for low power
+void initUART_LCD(void)
 {
     UART_Params uartParamsLCD;
     UART_Params_init(&uartParamsLCD);
 
-    uartParamsLCD.baudRate = 9600;
+    uartParamsLCD.baudRate = 9600; //
     uartParamsLCD.readDataMode = UART_DATA_BINARY;
     uartParamsLCD.writeDataMode = UART_DATA_BINARY;
     uartParamsLCD.dataLength = UART_LEN_8;

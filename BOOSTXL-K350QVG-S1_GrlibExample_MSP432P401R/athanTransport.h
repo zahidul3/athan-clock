@@ -21,11 +21,11 @@ typedef enum UARTLCDSTATE{
 
 typedef enum
 {
-    RESET_CMD,
-    ALARM_CMD,
-    TIME_HOUR_CMD,
-    TIME_MIN_CMD,
-    TURN_OFF_ALARM,
+    RESET_CMD, //0
+    ALARM_CMD, //1
+    TIME_HOUR_CMD, //2
+    TIME_MIN_CMD, //3
+    TURN_OFF_ALARM, //4
 
 } LCD_TOUCH_CMD;
 

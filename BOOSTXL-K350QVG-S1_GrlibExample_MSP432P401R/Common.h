@@ -62,6 +62,19 @@ typedef struct
 
 typedef struct
 {
+    uint16_t  Year;
+    uint8_t   Month;
+    uint8_t   Day;
+    uint8_t   Hour;
+    uint8_t   Minute;
+    uint8_t   Second;
+    uint8_t   DayOfWeek;  // 0-6, where 0 = Sunday
+    uint8_t   Fraction256;
+    uint8_t   unknown3;   //
+} TsIOSDateTime;
+
+typedef struct
+{
     bool athanAlarm[NUMBER_OF_ATHAN];
 }TsAthanAlarm;
 

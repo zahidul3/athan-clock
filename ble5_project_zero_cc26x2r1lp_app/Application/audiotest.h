@@ -27,7 +27,7 @@
 void ProjectAzan_Audio_createTask(void);
 void SetPlaybackAzanEvent(void);
 void SetRecordAzanEvent(void);
-
+void TurnOffAthanAlarm(void);
 /** @brief Synchronization object data type */
 typedef void *SyncHandle;
 

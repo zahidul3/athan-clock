@@ -20,4 +20,3 @@ void SendAthanPacketPHY(TsAthanPacket* athanPacketPHY, uint8_t athanPacketLen)
         UART_write(uart1Handle, athanPacketPHY, athanPacketLen);
     }
 }
-

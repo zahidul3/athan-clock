@@ -353,14 +353,13 @@ void main(void)
 
         if(bAthanAlert == true)
         {
-            printDebugString("Touched during ALARM!");
+            printDebugString("Touched during ALARM!\n\r");
             txData.command = TURN_OFF_ALARM;
             txData.data = 0x00;
             SendAthanPacket(MSG_LCD_CMD, &txData, sizeof(TsLCDTouchCmd));
             bAthanAlert = false;
         }
-
-        if(xSum > 1024)
+        else if(xSum > 1024)
         {
             memset(bufferTouch, 0, DEBUG_BUFFER_SIZE);
             ltoa(xSum, bufferTouch, 10);

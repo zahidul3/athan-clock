@@ -9,7 +9,8 @@
  * Fix Daylight Savings
  * add stop during alarm
  * digitally controlled volume
- * separate the app code from example
+ * Optimize audio recording/playback
+ *
  */
 
 /* (X,Y) coordinates of LCD Alarm Clock
@@ -39,4 +40,3 @@
 #define BUTTON1_PIN         GPIO_PIN1
 
 #endif /* IODEF_H_ */
-

@@ -15,6 +15,8 @@
 static PIN_State ledPinState;
 static PIN_State intPinState;
 
+static void intCallbackFxn(PIN_Handle handle, PIN_Id pinId);
+
 PIN_Handle intPinHandle;
 PIN_Handle ledPinHandle;
 
@@ -93,7 +95,7 @@ void initLCDPinInt(void)
         Log_error0("Error initializing intPinHandle pins");
     }
 
-    PIN_setConfig(intPinHandle, PIN_BM_IRQ, LCD_INT_PIN | PIN_IRQ_POSEDGE);
+    EnableLCDEdgeInt();
 
     // Setup callback for button pins
     if(PIN_registerIntCb(intPinHandle, &intCallbackFxn) != 0)

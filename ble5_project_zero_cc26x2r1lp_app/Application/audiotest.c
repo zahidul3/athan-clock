@@ -377,6 +377,11 @@ int_fast8_t writetoSDCard(void)
     return result;
 }
 
+void TurnOffAthanAlarm(void)
+{
+    OutputDAC = 0;
+}
+
 void timerCallback(GPTimerCC26XX_Handle handle, GPTimerCC26XX_IntMask interruptMask) {
     // interrupt callback code goes here. Minimize processing in interrupt.
     //GPIO_toggle(CC26X2R1_LAUNCHXL_GPIO_LED_RED);

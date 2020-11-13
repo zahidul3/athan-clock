@@ -16,6 +16,7 @@
 #include "athanTransportPHY.h"
 #include "uart_lcd.h"
 #include "project_zero.h"
+#include "audiotest.h"
 #include "athan_app.h"
 
 /*********************************************************************
@@ -36,7 +37,7 @@ TsDateTime currentDateTime =
          12, //hour
          25,  //day
          12,  //month
-         19, //year
+         19, //year (last 2 digits)
          3,  //dayOfWeek 0-6, where 0 = Sunday
          0b01011000   //zone
         };
@@ -66,8 +67,8 @@ TsAthanAlarm currentAthanAlarmEnable = {true, false, true, true, true, true};
 AMPM currentAMPM = PM;
 AMPM athanAMPM = AM;
 
-uint8 currentHourStandard = 0;
-uint8 currentMinStandard = 0;
+uint8_t currentHourStandard = 0;
+uint8_t currentMinStandard = 0;
 
 /*********************************************************************
  * LOCAL VARIABLES
@@ -76,7 +77,6 @@ uint8 currentMinStandard = 0;
 /*********************************************************************
  * EXTERNS
  */
-extern TsDateTime currentDateTime;
 extern UARTLCDSTATE UartLcdState;
 
 const volatile TsDaysMonthsConfig constDaysMonthsConfig = \
@@ -85,12 +85,23 @@ const volatile TsDaysMonthsConfig constDaysMonthsConfig = \
 "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"
 };
 
-void PrintCurrentTime(void)
+void PrintCurrentDateTime(void)
 {
     Log_info6("currentDateTime: %s %02d %02d:%02d:%02d %s", (void *)&constDaysMonthsConfig.months[currentDateTime.Month-1], currentDateTime.Day,\
               currentHourStandard, currentMinStandard, currentDateTime.Second, (currentAMPM ? "PM" : "AM"));
 }
 
+// Get real current time from connecting to iOS device via BLE
+void UpdateCurrentTimeFromIOS(TsIOSDateTime* pDateTimeIOS)
+{
+    currentDateTime.Year = (uint8_t)(pDateTimeIOS->Year - 2000);
+    currentDateTime.Month = pDateTimeIOS->Month;
+    currentDateTime.Day = pDateTimeIOS->Day;
+    currentDateTime.Hour = pDateTimeIOS->Hour;
+    currentDateTime.Minute = pDateTimeIOS->Minute;
+    currentDateTime.Second = pDateTimeIOS->Second;
+    currentDateTime.DayOfWeek = pDateTimeIOS->DayOfWeek;
+}
 
 void setAthanAlarm(uint8_t alarmBits)
 {
@@ -149,23 +160,32 @@ void SendAthanTimes(void)
 
 void SendCurrentDateTimeToLCD(void)
 {
+    uint32_t key;
+    //CRITICAL_ENTER(&key);
     DISABLE_SLEEP();
     Log_info0("Writing current date/time");
     SendAthanPacket(MSG_CURRENT_TIME, &currentDateTime.Second, sizeof(TsDateTime));
+    //CRITICAL_EXIT(&key);
 }
 
 void SendAthanTimesToLCD(void)
 {
+    uint32_t key;
+    //CRITICAL_ENTER(&key);
     DISABLE_SLEEP();
     Log_info0("Writing athan times");
     SendAthanPacket(MSG_ATHAN_TIMES, &currentAthanTimesDay.athanTimes[0].athanType, sizeof(TsAthanTimesDay));
+    //CRITICAL_EXIT(&key);
 }
 
-void sendAthanMatchToLCD(TsCurrentTime* athanMatch)
+void sendAthanMatchToLCD(void)
 {
+    uint32_t key;
+    //CRITICAL_ENTER(&key);
     DISABLE_SLEEP();
     Log_info0("Writing athan match");
-    SendAthanPacket(MSG_ATHAN_ALERT, athanMatch, sizeof(TsCurrentTime));
+    SendAthanPacket(MSG_ATHAN_ALERT, &athanTimeMatch, sizeof(TsCurrentTime));
+    //CRITICAL_EXIT(&key);
 }
 
 void sendTestDateTimeToLCD(void)
@@ -173,7 +193,7 @@ void sendTestDateTimeToLCD(void)
     TsDateTime testDateTime;
     uint8_t x = 0;
     uint32_t key;
-    CRITICAL_ENTER(&key);
+    //CRITICAL_ENTER(&key);
     DISABLE_SLEEP();
     Log_info0("Writing test date time");
     testDateTime.Second = x++;
@@ -187,7 +207,7 @@ void sendTestDateTimeToLCD(void)
     memcpy(&testDateTime.Second, &currentDateTime.Second, sizeof(TsDateTime));
     SendAthanPacket(MSG_CURRENT_TIME, &testDateTime.Second, sizeof(TsDateTime));
 
-    CRITICAL_EXIT(&key);
+    //CRITICAL_EXIT(&key);
 }
 
 //                        jan feb mar apr may jun jul aug sep oct nov dec
@@ -330,7 +350,7 @@ void EnableSleepAfterDelay(uint8_t delayInSeconds)
     EnableSleepAfterSec = DATE_TIME.Second + delayInSeconds; // Enable sleep after 2 seconds
 }
 
-//1Hz
+// 1Hz Main Current Time calculation loop
 void IncDateTime(uint8 updateStats)
 {
     //add extra seconds to calibrate for delay
@@ -414,7 +434,7 @@ void IncDateTime(uint8 updateStats)
     if(isAthanTime(DATE_TIME, &athanTimeMatch)) //check every min if athan should play
     {
         SetPlaybackAzanEvent();
-        sendAthanMatchToLCD(&athanTimeMatch);
+        PostUARTLCDAthanAlert();
     }
     SendUART1CurrentTime();
     SaveCurrentTimeToFlash();
@@ -425,13 +445,31 @@ void HandleRxMessage(TsAthanPacket* athanPacket)
 {
     switch(athanPacket->dataType){
     case MSG_LCD_CMD:
-        Log_info0("MSG_LCD_CMD rx!\n\r");
+        //Log_info0("MSG_LCD_CMD rx!\n\r");
+        TsLCDTouchCmd* lcdCmd = (TsLCDTouchCmd*)&athanPacket->data;
+        Log_info1("MSG_LCD_CMD rx! lcd_cmd: %d\n\r", lcdCmd->command);
+        switch(lcdCmd->command)
+        {
+        case TURN_OFF_ALARM:
+            Log_info0("TURN_OFF_ALARM rx!\n\r");
+            TurnOffAthanAlarm();
+            break;
+        case ALARM_CMD:
+            Log_info1("ALARM_CMD rx: 0x%02x!\n\r", lcdCmd->data);
+            setAthanAlarm(lcdCmd->data);
+            break;
+        default:
+            break;
+        }
+        //memcpy(lcdCmd, )
         break;
     case MSG_BUTTON_PRESS:
         Log_info0("MSG_BUTTON_PRESS rx!\n\r");
         break;
     case MSG_DEVICE_RESET:
         Log_info0("MSG_DEVICE_RESET rx!\n\r");
+        SendCurrentDateTimeToLCD();
+        SendAthanTimes();
         break;
     case MSG_CURRENT_TIME:
         Log_info0("MSG_CURRENT_TIME rx!\n\r");
@@ -440,7 +478,7 @@ void HandleRxMessage(TsAthanPacket* athanPacket)
         Log_info0("MSG_ATHAN_TIMES rx!\n\r");
         break;
     case MSG_ATHAN_ALERT:
-        Log_info0(" MSG_ATHAN_ALERT rx!!!\n\r");
+        Log_info0("MSG_ATHAN_ALERT rx!!!\n\r");
         break;
     default:
         break;
@@ -449,7 +487,7 @@ void HandleRxMessage(TsAthanPacket* athanPacket)
 
 void AthanApp_init(void)
 {
-    initUART1_LCD();
+    initUART_LCD();
     initLCDPinInt();
     // resurrect the time last saved from flash
     readCurrentTimeFromFlash();
@@ -457,7 +495,7 @@ void AthanApp_init(void)
     if(isAthanTime(DATE_TIME, &athanTimeMatch)) //check every min
     {
         SetPlaybackAzanEvent();
-        sendAthanMatchToLCD(&athanTimeMatch);
+        PostUARTLCDAthanAlert();
     }
     SendCurrentDateTimeToLCD();
 }

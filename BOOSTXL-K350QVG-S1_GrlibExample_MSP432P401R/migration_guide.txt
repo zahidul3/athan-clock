@@ -6,8 +6,6 @@ Code Composer Studio
 OS: Mac OS X, v.10.15.7, x86_64 / cocoa
 Java version: 1.8.0_112
 
-WARNING: Using macbook pro causes CPU overheat, recommend iMac
-
 Using compiler TI 20.2.1.LTS
 
 Import steps:

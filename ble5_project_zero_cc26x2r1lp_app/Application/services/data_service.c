@@ -261,7 +261,7 @@ static gattAttribute_t Data_ServiceAttrTbl[] =
     // Time Sec Characteristic Value
     {
         { ATT_UUID_SIZE, ds_TimeSecUUID },
-        GATT_PERMIT_READ | GATT_PERMIT_WRITE,
+        GATT_PERMIT_AUTHEN_READ | GATT_PERMIT_WRITE,
         0,
         &ds_TimeSec
     },

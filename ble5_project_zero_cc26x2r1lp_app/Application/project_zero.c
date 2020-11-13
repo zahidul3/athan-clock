@@ -132,14 +132,14 @@
 #define PZ_UART1_EVT                         Event_Id_29
 #define PZ_UART1_CURR_TIME_EVT               Event_Id_28
 #define PZ_SAVE_TIME_FLASH_EVT               Event_Id_27
-#define PZ_UART1_CURR_DATETIME_EVT           Event_Id_26
+#define PZ_UART_LCD_ATHAN_ALERT_EVT          Event_Id_26
 
 // Bitwise OR of all RTOS events to pend on
-#define PZ_ALL_EVENTS                        (PZ_ICALL_EVT              | \
-                                              PZ_UART1_EVT              | \
-                                              PZ_UART1_CURR_TIME_EVT    | \
-                                              PZ_SAVE_TIME_FLASH_EVT    | \
-                                              PZ_UART1_CURR_DATETIME_EVT| \
+#define PZ_ALL_EVENTS                        (PZ_ICALL_EVT               | \
+                                              PZ_UART1_EVT               | \
+                                              PZ_UART1_CURR_TIME_EVT     | \
+                                              PZ_SAVE_TIME_FLASH_EVT     | \
+                                              PZ_UART_LCD_ATHAN_ALERT_EVT| \
                                               PZ_APP_MSG_EVT)
                                               //PZ_OAD_QUEUE_EVT | \
                                               //PZ_OAD_COMPLETE_EVT
@@ -460,8 +460,6 @@ static void ProjectZero_paramUpdClockHandler(UArg arg);
 static void ProjectZero_processConnEvt(Gap_ConnEventRpt_t *pReport);
 static void ProjectZero_connEvtCB(Gap_ConnEventRpt_t *pReport);
 
-static void intCallbackFxn(PIN_Handle handle, PIN_Id pinId);
-
 /* Utility functions */
 static status_t ProjectZero_enqueueMsg(uint8_t event,
                                    void *pData);
@@ -534,6 +532,7 @@ static oadTargetCBs_t ProjectZero_oadCBs =
     .pfnOadWrite = ProjectZero_processOadWriteCB // Write Callback.
 };
 
+static uint16_t currConnectionHandle = 0;
 /*********************************************************************
  * PUBLIC FUNCTIONS
  */
@@ -614,7 +613,7 @@ static void AthanClock_clockHandler(UArg arg)
         // Start the next period
         Util_startClock(&clkPeriodic);
         IncDateTime(0);
-        PrintCurrentTime();
+        PrintCurrentDateTime();
         // Post event to wake up the application
         //SimplePeripheral_enqueueMsg(SP_PERIODIC_EVT, NULL);
     }
@@ -630,9 +629,9 @@ void SendUART1CurrentTime(void)
     Event_post(syncEvent, PZ_UART1_CURR_TIME_EVT);
 }
 
-void SendUART1CurrentDateTime(void)
+void PostUARTLCDAthanAlert(void)
 {
-    Event_post(syncEvent, PZ_UART1_CURR_DATETIME_EVT);
+    Event_post(syncEvent, PZ_UART_LCD_ATHAN_ALERT_EVT);
 }
 
 void sendUART1data(void)
@@ -667,22 +666,16 @@ static void ProjectZero_init(void)
     appMsgQueueHandle = Queue_handle(&appMsgQueue);
 
     // Create one-shot clock for internal periodic events.
-    Util_constructClock(&clkPeriodic, AthanClock_clockHandler,
-                        PA_PERIODIC_EVT_PERIOD, 0, true, (UArg)&argPeriodic);
-
-    //initI2C();
-
+    Util_constructClock(&clkPeriodic, AthanClock_clockHandler, PA_PERIODIC_EVT_PERIOD, 0, true, (UArg)&argPeriodic);
     // ******************************************************************
     // Hardware initialization
     // ******************************************************************
-
     // Open SPI pins
     spiPinHandle = PIN_open(&spiPinState, spiPinTable);
     if(!spiPinHandle)
     {
         Log_error0("Error initializing SPI pins");
     }
-
     // Set the Device Name characteristic in the GAP GATT Service
     // For more information, see the section in the User's Guide:
     // http://software-dl.ti.com/lprf/ble5stack-latest/
@@ -713,13 +706,10 @@ static void ProjectZero_init(void)
         // connections without repairing)
         uint8_t bonding = TRUE;
 
-        GAPBondMgr_SetParameter(GAPBOND_PAIRING_MODE, sizeof(uint8_t),
-                                &pairMode);
+        GAPBondMgr_SetParameter(GAPBOND_PAIRING_MODE, sizeof(uint8_t), &pairMode);
         GAPBondMgr_SetParameter(GAPBOND_MITM_PROTECTION, sizeof(uint8_t), &mitm);
-        GAPBondMgr_SetParameter(GAPBOND_IO_CAPABILITIES, sizeof(uint8_t),
-                                &ioCap);
-        GAPBondMgr_SetParameter(GAPBOND_BONDING_ENABLED, sizeof(uint8_t),
-                                &bonding);
+        GAPBondMgr_SetParameter(GAPBOND_IO_CAPABILITIES, sizeof(uint8_t), &ioCap);
+        GAPBondMgr_SetParameter(GAPBOND_BONDING_ENABLED, sizeof(uint8_t), &bonding);
     }
 
     // ******************************************************************
@@ -784,8 +774,12 @@ static void ProjectZero_init(void)
     // Initialize GATT Client, used by GAPBondMgr to look for RPAO characteristic for network privacy
     GATT_InitClient();
 
+    // Register to receive incoming ATT Indications/Notifications
+    GATT_RegisterForInd(selfEntity);
+
     // Initialize Connection List
     ProjectZero_clearConnListEntry(LINKDB_CONNHANDLE_ALL);
+
 
     // Initialize GAP layer for Peripheral role and register to receive GAP events
     GAP_DeviceInit(GAP_PROFILE_PERIPHERAL, selfEntity, ADDRMODE_PUBLIC, NULL);
@@ -834,10 +828,9 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
                 SendCurrentDateTimeToLCD();
             }
 
-            if (events & PZ_UART1_CURR_DATETIME_EVT)
+            if (events & PZ_UART_LCD_ATHAN_ALERT_EVT)
             {
-                //sendCurrentDateTimeToLCD();
-                sendTestDateTimeToLCD();
+                sendAthanMatchToLCD();
             }
 
             if (events & PZ_SAVE_TIME_FLASH_EVT)
@@ -872,9 +865,7 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
 
                         case GATT_MSG_EVENT:
                             // Process GATT message
-                            safeToDealloc =
-                                ProjectZero_processGATTMsg(
-                                    (gattMsgEvent_t *)pMsg);
+                            safeToDealloc = ProjectZero_processGATTMsg((gattMsgEvent_t *)pMsg);
                             break;
 
                         case HCI_GAP_EVENT_EVENT:
@@ -883,8 +874,7 @@ static void ProjectZero_taskFxn(UArg a0, UArg a1)
 
                         case L2CAP_SIGNAL_EVENT:
                             // Process L2CAP free buffer notification
-                            ProjectZero_processL2CAPMsg(
-                                (l2capSignalEvent_t *)pMsg);
+                            ProjectZero_processL2CAPMsg((l2capSignalEvent_t *)pMsg);
                             break;
 
                         default:
@@ -965,13 +955,10 @@ static void ProjectZero_processL2CAPMsg(l2capSignalEvent_t *pMsg)
               firstRun = false;
 
               // We only want to set the numPendingMsgs once
-              numPendingMsgs = MAX_NUM_PDU -
-                               pMsg->cmd.numCtrlDataPktEvt.numDataPkt;
+              numPendingMsgs = MAX_NUM_PDU - pMsg->cmd.numCtrlDataPktEvt.numDataPkt;
 
               // Wait until all PDU have been sent on cxn events
-              Gap_RegisterConnEventCb(ProjectZero_connEvtCB,
-                                        GAP_CB_REGISTER,
-                                        OAD_getactiveCxnHandle());
+              Gap_RegisterConnEventCb(ProjectZero_connEvtCB, GAP_CB_REGISTER, OAD_getactiveCxnHandle());
 
               /* Set the flag so that the connection event callback will
                * be processed in the context of a pending OAD reboot
@@ -1033,7 +1020,49 @@ static void ProjectZero_processStackEvent(uint32_t stack_event)
 {
     // Intentionally blank
 }
+// Discovery states
+typedef enum {
+  BLE_DISC_STATE_IDLE,                // Idle
+  BLE_DISC_STATE_MTU,                 // Exchange ATT MTU size
+  BLE_DISC_STATE_SVC,                 // Service discovery
+  BLE_DISC_STATE_CHAR                 // Characteristic discovery
+} discState_t;
 
+uint8_t discState = BLE_DISC_STATE_IDLE;            // Per connection discovery state
+
+// Simple Profile Service UUID
+#define TIME_SERVICE_UUID               0x1805
+
+uint8_t TimeServiceUUID[ATT_BT_UUID_SIZE] = { LO_UINT16(TIME_SERVICE_UUID), HI_UINT16(TIME_SERVICE_UUID) };
+// Discovered service start and end handle
+static uint16_t svcStartHdl = 0;
+static uint16_t svcEndHdl = 0;
+static uint16_t charCCCDHdl = 0;
+static uint16_t charDataHdl = 0;
+static uint16_t enableNotif = 0x0001;
+static uint8_t status;
+
+void enableNotification()
+{
+    attWriteReq_t req;
+
+    req.pValue = GATT_bm_alloc(currConnectionHandle, ATT_WRITE_REQ, 2, NULL);
+
+    req.cmd = 0;
+    req.handle = charCCCDHdl;
+    req.len = 2;
+    req.pValue[0] = (uint8_t)(enableNotif & 0xff);
+    req.sig = 0;
+    //GATT_WriteCharValue(connHandle, pReq, taskID)
+    status = GATT_WriteCharValue(currConnectionHandle, &req, selfEntity);
+    if ( status != SUCCESS )
+    {
+        GATT_bm_free((gattMsg_t *)&req, ATT_WRITE_REQ);
+        Log_info0("GATT_WriteCharValue Fail!!!...");
+    }
+}
+
+TsIOSDateTime dateTimeIOS;
 /*********************************************************************
  * @fn      ProjectZero_processGATTMsg
  *
@@ -1045,7 +1074,48 @@ static void ProjectZero_processStackEvent(uint32_t stack_event)
  */
 static uint8_t ProjectZero_processGATTMsg(gattMsgEvent_t *pMsg)
 {
-    if(pMsg->method == ATT_FLOW_CTRL_VIOLATED_EVENT)
+    if (pMsg->method == ATT_HANDLE_VALUE_NOTI)
+    {
+        Log_info2("Notif handle: %d len: %d", pMsg->msg.handleValueNoti.handle, pMsg->msg.handleValueNoti.len);
+    }
+    else if ((pMsg->method == ATT_READ_RSP)   ||
+            ((pMsg->method == ATT_ERROR_RSP) &&
+                    (pMsg->msg.errorRsp.reqOpcode == ATT_READ_REQ)))
+    {
+      if (pMsg->method == ATT_ERROR_RSP)
+      {
+          Log_error1("Read Error %d", pMsg->msg.errorRsp.errCode);
+      }
+      else
+      {
+        // After a successful read, display the read value
+          Log_info2("Read rsp: %d len: %d", pMsg->msg.readRsp.pValue[0], pMsg->msg.readRsp.len);
+          if(pMsg->msg.readRsp.len == 10)
+          {
+              Log_info5("%d: %d: %d: %d: %d:", pMsg->msg.readRsp.pValue[0],pMsg->msg.readRsp.pValue[1],pMsg->msg.readRsp.pValue[2],pMsg->msg.readRsp.pValue[3],pMsg->msg.readRsp.pValue[4]);
+              Log_info5("%d: %d: %d: %d: %d:", pMsg->msg.readRsp.pValue[5],pMsg->msg.readRsp.pValue[6],pMsg->msg.readRsp.pValue[7],pMsg->msg.readRsp.pValue[8],pMsg->msg.readRsp.pValue[9]);
+              memcpy(&dateTimeIOS, pMsg->msg.readRsp.pValue, 10);
+              UpdateCurrentTimeFromIOS(&dateTimeIOS);
+          }
+      }
+    }
+    else if ((pMsg->method == ATT_WRITE_RSP)  ||
+             ((pMsg->method == ATT_ERROR_RSP) &&
+              (pMsg->msg.errorRsp.reqOpcode == ATT_WRITE_REQ)))
+    {
+
+      if (pMsg->method == ATT_ERROR_RSP)
+      {
+          Log_info1("Write Error %d", pMsg->msg.errorRsp.errCode);
+      }
+      else
+      {
+        // After a succesful write, display the value that was written and
+        // increment value
+          Log_info0("Write sent");
+      }
+    }
+    else if(pMsg->method == ATT_FLOW_CTRL_VIOLATED_EVENT)
     {
         // ATT request-response or indication-confirmation flow control is
         // violated. All subsequent ATT requests or indications will be dropped.
@@ -1059,6 +1129,75 @@ static uint8_t ProjectZero_processGATTMsg(gattMsgEvent_t *pMsg)
         // MTU size updated
         OAD_setBlockSize(pMsg->msg.mtuEvt.MTU);
         Log_info1("MTU Size: %d", pMsg->msg.mtuEvt.MTU);
+
+        discState = BLE_DISC_STATE_SVC;
+
+        // Discovery simple service
+        VOID GATT_DiscPrimaryServiceByUUID(pMsg->connHandle, TimeServiceUUID, ATT_BT_UUID_SIZE, selfEntity);
+        Log_info0("Discovering Primary Service...\n\r");
+    }
+    else if (discState == BLE_DISC_STATE_SVC)
+    {
+      // Service found, store handles
+      if (pMsg->method == ATT_FIND_BY_TYPE_VALUE_RSP &&
+          pMsg->msg.findByTypeValueRsp.numInfo > 0)
+      {
+        svcStartHdl = ATT_ATTR_HANDLE(pMsg->msg.findByTypeValueRsp.pHandlesInfo, 0);
+        svcEndHdl = ATT_GRP_END_HANDLE(pMsg->msg.findByTypeValueRsp.pHandlesInfo, 0);
+        Log_info2("Start handle: %d End handle: %d", svcStartHdl, svcEndHdl);
+      }
+
+      // If procedure complete
+      if (((pMsg->method == ATT_FIND_BY_TYPE_VALUE_RSP) &&
+           (pMsg->hdr.status == bleProcedureComplete))  ||
+          (pMsg->method == ATT_ERROR_RSP))
+      {
+        if (svcStartHdl != 0)
+        {
+            Log_info0("Service Discovery Procedure Complete...\n\r");
+            discState = BLE_DISC_STATE_CHAR;
+            //GATT_DiscAllCharDescs(connHandle, startHandle, endHandle,  taskID)
+            GATT_DiscAllCharDescs(pMsg->connHandle, svcStartHdl, svcEndHdl, selfEntity);
+        }
+      }
+    }
+    else if (discState == BLE_DISC_STATE_CHAR)
+    {
+        if((pMsg->method == ATT_FIND_INFO_RSP &&  pMsg->msg.findInfoRsp.numInfo > 0)){
+
+            Log_info0("char info exists!");
+
+            uint8_t index;
+
+            // For each handle/uuid pair
+            for (index = 0; index < pMsg->msg.findInfoRsp.numInfo; index++)
+            {
+                if(pMsg->msg.findInfoRsp.format == ATT_HANDLE_BT_UUID_TYPE)
+                {
+                    // Look for CCCD
+                    if (ATT_BT_PAIR_UUID(pMsg->msg.findInfoRsp.pInfo, index) ==  GATT_CLIENT_CHAR_CFG_UUID)
+                    {
+                        attReadReq_t req;
+
+                        // CCCD found
+                        Log_info0("CCCD for Data Char Found...");
+
+                        charCCCDHdl = ATT_BT_PAIR_HANDLE(pMsg->msg.findInfoRsp.pInfo, index);
+                        charDataHdl = charCCCDHdl - 1;
+                        Log_info2("charCCCDHdl: %d charDataHdl: %d", charCCCDHdl, charDataHdl);
+                        if(charCCCDHdl)
+                        {
+                            req.handle = charDataHdl;
+                            status = GATT_ReadCharValue(currConnectionHandle, &req, selfEntity);
+                            if ( status != SUCCESS )
+                            {
+                              Log_error0("GATT_ReadCharValue Fail!!!...");
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     // Free message payload. Needed only for ATT Protocol messages
@@ -1243,15 +1382,11 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
                                                       sizeof(advertData)));
 
             // Load advertising data for set #1 that is statically allocated by the app
-            status = GapAdv_loadByHandle(advHandleLegacy, GAP_ADV_DATA_TYPE_ADV,
-                                         sizeof(advertData), advertData);
+            status = GapAdv_loadByHandle(advHandleLegacy, GAP_ADV_DATA_TYPE_ADV, sizeof(advertData), advertData);
             APP_ASSERT(status == SUCCESS);
 
             // Load scan response data for set #1 that is statically allocated by the app
-            status =
-                GapAdv_loadByHandle(advHandleLegacy, GAP_ADV_DATA_TYPE_SCAN_RSP,
-                                    sizeof(scanRspData),
-                                    scanRspData);
+            status = GapAdv_loadByHandle(advHandleLegacy, GAP_ADV_DATA_TYPE_SCAN_RSP, sizeof(scanRspData), scanRspData);
             APP_ASSERT(status == SUCCESS);
 
             // Set event mask for set #1
@@ -1261,9 +1396,7 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
                                          GAP_ADV_EVT_MASK_SET_TERMINATED);
 
             // Enable legacy advertising for set #1
-            status =
-                GapAdv_enable(advHandleLegacy, GAP_ADV_ENABLE_OPTIONS_USE_MAX,
-                              0);
+            status = GapAdv_enable(advHandleLegacy, GAP_ADV_ENABLE_OPTIONS_USE_MAX, 0);
             APP_ASSERT(status == SUCCESS);
             //SetLCDwriteEvent();
         }
@@ -1284,15 +1417,11 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
         {
             // Add connection to list
             ProjectZero_addConn(pPkt->connectionHandle);
-
+            currConnectionHandle = pPkt->connectionHandle;
             // Display the address of this connection
             static uint8_t addrStr[3 * B_ADDR_LEN + 1];
-            util_arrtohex(pPkt->devAddr, B_ADDR_LEN, addrStr, sizeof addrStr,
-                          UTIL_ARRTOHEX_REVERSE);
-            Log_info1("Connected. Peer address: " \
-                        ANSI_COLOR(FG_GREEN)"%s"ANSI_COLOR(ATTR_RESET),
-                      (uintptr_t)addrStr);
-
+            util_arrtohex(pPkt->devAddr, B_ADDR_LEN, addrStr, sizeof addrStr, UTIL_ARRTOHEX_REVERSE);
+            Log_info1("Connected. Peer address: " ANSI_COLOR(FG_GREEN)"%s"ANSI_COLOR(ATTR_RESET), (uintptr_t)addrStr);
             Log_info2("conn interval: %d, conn timeout: %d", pPkt->connInterval, pPkt->connTimeout);
 
             // If we are just connecting after an OAD send SVC changed
@@ -1308,11 +1437,6 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
             }
         }
 
-        if(linkDB_NumActive() < MAX_NUM_BLE_CONNS)
-        {
-            // Start advertising since there is room for more connections
-            GapAdv_enable(advHandleLegacy, GAP_ADV_ENABLE_OPTIONS_USE_MAX, 0);
-        }
     }
     break;
 
@@ -1329,9 +1453,9 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
 
         SendAthanTimes();
         SendCurrentDateTimeToLCD();
-        // Cancel the OAD if one is going on
-        // A disconnect forces the peer to re-identify
-        //OAD_cancel();
+
+        // Start advertising since there is room for more connections
+        GapAdv_enable(advHandleLegacy, GAP_ADV_ENABLE_OPTIONS_USE_MAX, 0);
     }
     break;
 
