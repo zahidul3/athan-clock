@@ -21,6 +21,8 @@
  * 10-DIO5-SDA          30-DIO1         31-DIO17            11-DIO15
  */
 
+ /* Starting sector to write/read to */
+#define STARTINGSECTOR 0
 /*
  * Task creation function for the Project Zero.
  */

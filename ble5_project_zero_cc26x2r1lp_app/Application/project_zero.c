@@ -63,7 +63,6 @@
 #include <ti/drivers/Power.h>
 #include <ti/drivers/power/PowerCC26XX.h>
 
-#include <ti/common/cc26xx/uartlog/UartLog.h>  // Comment out if using xdc Log
 #include <ti/drivers/UART.h>
 #include <ti/drivers/uart/UARTCC26XX.h>
 
@@ -613,7 +612,7 @@ static void AthanClock_clockHandler(UArg arg)
         // Start the next period
         Util_startClock(&clkPeriodic);
         IncDateTime(0);
-        PrintCurrentDateTime();
+        //PrintCurrentDateTime();
         // Post event to wake up the application
         //SimplePeripheral_enqueueMsg(SP_PERIODIC_EVT, NULL);
     }
@@ -1092,8 +1091,8 @@ static uint8_t ProjectZero_processGATTMsg(gattMsgEvent_t *pMsg)
           Log_info2("Read rsp: %d len: %d", pMsg->msg.readRsp.pValue[0], pMsg->msg.readRsp.len);
           if(pMsg->msg.readRsp.len == 10)
           {
-              Log_info5("%d: %d: %d: %d: %d:", pMsg->msg.readRsp.pValue[0],pMsg->msg.readRsp.pValue[1],pMsg->msg.readRsp.pValue[2],pMsg->msg.readRsp.pValue[3],pMsg->msg.readRsp.pValue[4]);
-              Log_info5("%d: %d: %d: %d: %d:", pMsg->msg.readRsp.pValue[5],pMsg->msg.readRsp.pValue[6],pMsg->msg.readRsp.pValue[7],pMsg->msg.readRsp.pValue[8],pMsg->msg.readRsp.pValue[9]);
+              //Log_info5("%d: %d: %d: %d: %d:", pMsg->msg.readRsp.pValue[0],pMsg->msg.readRsp.pValue[1],pMsg->msg.readRsp.pValue[2],pMsg->msg.readRsp.pValue[3],pMsg->msg.readRsp.pValue[4]);
+              //Log_info5("%d: %d: %d: %d: %d:", pMsg->msg.readRsp.pValue[5],pMsg->msg.readRsp.pValue[6],pMsg->msg.readRsp.pValue[7],pMsg->msg.readRsp.pValue[8],pMsg->msg.readRsp.pValue[9]);
               memcpy(&dateTimeIOS, pMsg->msg.readRsp.pValue, 10);
               UpdateCurrentTimeFromIOS(&dateTimeIOS);
           }
@@ -1134,7 +1133,7 @@ static uint8_t ProjectZero_processGATTMsg(gattMsgEvent_t *pMsg)
 
         // Discovery simple service
         VOID GATT_DiscPrimaryServiceByUUID(pMsg->connHandle, TimeServiceUUID, ATT_BT_UUID_SIZE, selfEntity);
-        Log_info0("Discovering Primary Service...\n\r");
+        //Log_info0("Discovering Primary Service...\n\r");
     }
     else if (discState == BLE_DISC_STATE_SVC)
     {
@@ -1144,7 +1143,7 @@ static uint8_t ProjectZero_processGATTMsg(gattMsgEvent_t *pMsg)
       {
         svcStartHdl = ATT_ATTR_HANDLE(pMsg->msg.findByTypeValueRsp.pHandlesInfo, 0);
         svcEndHdl = ATT_GRP_END_HANDLE(pMsg->msg.findByTypeValueRsp.pHandlesInfo, 0);
-        Log_info2("Start handle: %d End handle: %d", svcStartHdl, svcEndHdl);
+        //Log_info2("Start handle: %d End handle: %d", svcStartHdl, svcEndHdl);
       }
 
       // If procedure complete
@@ -1180,11 +1179,12 @@ static uint8_t ProjectZero_processGATTMsg(gattMsgEvent_t *pMsg)
                         attReadReq_t req;
 
                         // CCCD found
-                        Log_info0("CCCD for Data Char Found...");
+                        //Log_info0("CCCD for Data Char Found...");
 
                         charCCCDHdl = ATT_BT_PAIR_HANDLE(pMsg->msg.findInfoRsp.pInfo, index);
-                        charDataHdl = charCCCDHdl - 1;
-                        Log_info2("charCCCDHdl: %d charDataHdl: %d", charCCCDHdl, charDataHdl);
+                        charDataHdl = charCCCDHdl - 1; // Hardcoded CCCD is usually after the data handle
+
+                        //Log_info2("charCCCDHdl: %d charDataHdl: %d", charCCCDHdl, charDataHdl);
                         if(charCCCDHdl)
                         {
                             req.handle = charDataHdl;
@@ -2333,21 +2333,17 @@ void ProjectZero_DataService_ValueChangeHandler(
             //sendCurrentDateTimeToLCD();
             SendAthanTimes();
         }
-        else if(received_string[0] == 'U') //85
+        else if(received_string[0] == 'U') //0x55(85)
         {
             //Log_info0("Transferring i2c data...");
             //sendI2Cdata(received_string[1]);
             SendAthanTimes();
         }
-        else if(received_string[0] == 'V') //86
+        else if(received_string[0] == 'V') //0x56(86)
         {
-            if(uart1Handle)
-            {
-                Log_info0("Transferring UART data...");
-                UART_write(uart1Handle, "Hello", 5);
-            }
+            Log_info0("Testing SUCCESS!!!...");
         }
-        else if(received_string[0] == 'W') //87
+        else if(received_string[0] == 'W') //0x57(87)
         {
             if(uart1Handle)
             {

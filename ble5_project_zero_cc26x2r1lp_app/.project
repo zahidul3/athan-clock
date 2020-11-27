@@ -68,6 +68,26 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>Drivers/SD.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/simplelink_cc26x2_sdk_2_20_00_36/source/ti/drivers/SD.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SD.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/simplelink_cc26x2_sdk_2_20_00_36/source/ti/drivers/SD.h</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SDFatFS.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/simplelink_cc26x2_sdk_2_20_00_36/source/ti/drivers/SDFatFS.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SDFatFS.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/simplelink_cc26x2_sdk_2_20_00_36/source/ti/drivers/SDFatFS.h</locationURI>
+		</link>
+		<link>
 			<name>Drivers/TRNG</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
@@ -76,6 +96,11 @@
 			<name>Drivers/nv</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Drivers/sd</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/simplelink_cc26x2_sdk_2_20_00_36/source/ti/drivers/sd</locationURI>
 		</link>
 		<link>
 			<name>ICall/icall.c</name>

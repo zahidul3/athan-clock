@@ -68,6 +68,8 @@ extern "C" {
 #include <ti/sysbios/knl/Queue.h>
 #include <ti/sysbios/knl/Event.h>
 
+#include <ti/common/cc26xx/uartlog/UartLog.h>
+#include <ti/display/AnsiColor.h>
 /*********************************************************************
 *  EXTERNAL VARIABLES
 */

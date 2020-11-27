@@ -6,7 +6,7 @@
  */
 
 #include <ti/drivers/UART.h>
-#include <ti/common/cc26xx/uartlog/UartLog.h>  // Comment out if using xdc Log
+#include <ti/common/cc26xx/uartlog/UartLog.h>
 #include "athanTransportPHY.h"
 
 extern UART_Handle uart1Handle;
