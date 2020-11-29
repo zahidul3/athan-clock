@@ -71,23 +71,6 @@ static void LCDUART_readCallBack(UART_Handle handle, void *ptr, size_t size)
             rxHeader.dataType = byteRead;
         }
 
-        //        Log_info3("Read %d bytes from LCD: 0x%02x 0x%02x", size, athanCMD, athanAlarm);
-        //
-        //        if(athanCMD == ALARM_CMD)
-        //        {
-        //            setAthanAlarm(athanAlarm);
-        //        }
-        //        else if((athanCMD == TIME_HOUR_CMD) || (athanCMD == TIME_MIN_CMD))
-        //        {
-        //            ModifyDateTime(athanCMD);
-        //        }
-        //        else if (athanCMD == RESET_CMD)
-        //        {
-        //            SendUART1CurrentDateTime();
-        //            //sendAthanTimes();
-        //        }
-        //    }
-
         rxByteIndex++;
 
         if(rxByteIndex >= ATHAN_PACKET_HEADER_LEN + rxHeader.dataLen)

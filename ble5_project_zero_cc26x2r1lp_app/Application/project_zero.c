@@ -472,9 +472,7 @@ static void ProjectZero_processOadWriteCB(uint8_t event,
                                           uint16_t arg);
 static void ProjectZero_processL2CAPMsg(l2capSignalEvent_t *pMsg);
 static void ProjectZero_checkSvcChgndFlag(uint32_t flag);
-//static void ProjectZero_bootManagerCheck(PIN_Handle buttonPinHandle,
-//                                         uint8_t revertIo,
-//                                         uint8_t eraseIo);
+
 void sendUART1data(void);
 void IncDateTime(uint8 updateStats);
 void readCurrentTimeFromFlash(void);
@@ -1164,7 +1162,7 @@ static uint8_t ProjectZero_processGATTMsg(gattMsgEvent_t *pMsg)
     {
         if((pMsg->method == ATT_FIND_INFO_RSP &&  pMsg->msg.findInfoRsp.numInfo > 0)){
 
-            Log_info0("char info exists!");
+            //Log_info0("char info exists!");
 
             uint8_t index;
 
@@ -1398,7 +1396,6 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
             // Enable legacy advertising for set #1
             status = GapAdv_enable(advHandleLegacy, GAP_ADV_ENABLE_OPTIONS_USE_MAX, 0);
             APP_ASSERT(status == SUCCESS);
-            //SetLCDwriteEvent();
         }
 
         break;
@@ -1409,9 +1406,7 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
         gapEstLinkReqEvent_t *pPkt = (gapEstLinkReqEvent_t *)pMsg;
 
         // Display the amount of current connections
-        Log_info2("Link establish event, status 0x%02x. Num Conns: %d",
-                  pPkt->hdr.status,
-                  linkDB_NumActive());
+        Log_info2("Link establish event, status 0x%02x. Num Conns: %d", pPkt->hdr.status, linkDB_NumActive());
 
         if(pPkt->hdr.status == SUCCESS)
         {
@@ -1424,17 +1419,6 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
             Log_info1("Connected. Peer address: " ANSI_COLOR(FG_GREEN)"%s"ANSI_COLOR(ATTR_RESET), (uintptr_t)addrStr);
             Log_info2("conn interval: %d, conn timeout: %d", pPkt->connInterval, pPkt->connTimeout);
 
-            // If we are just connecting after an OAD send SVC changed
-            if(sendSvcChngdOnNextBoot == TRUE)
-            {
-                /* Warning: This requires -DV41_FEATURES=L2CAP_COC_CFG to be
-                 * defined in the build_config.opt of the stack project
-                 * If L2CAP CoC is not desired comment the following code out
-                 */
-                GAPBondMgr_ServiceChangeInd(pPkt->connectionHandle, TRUE);
-
-                sendSvcChngdOnNextBoot = FALSE;
-            }
         }
 
     }
@@ -1460,8 +1444,7 @@ static void ProjectZero_processGapMessage(gapEventHdr_t *pMsg)
     break;
 
     case GAP_UPDATE_LINK_PARAM_REQ_EVENT:
-        ProjectZero_handleUpdateLinkParamReq(
-            (gapUpdateLinkParamReqEvent_t *)pMsg);
+        ProjectZero_handleUpdateLinkParamReq((gapUpdateLinkParamReqEvent_t *)pMsg);
         break;
 
     case GAP_LINK_PARAM_UPDATE_EVENT:

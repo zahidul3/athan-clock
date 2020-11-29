@@ -67,7 +67,6 @@
 #include "bcomdef.h"
 #include "project_zero.h"
 #include "audiotest.h"
-#include "lcd_main.h"
 
 #ifndef USE_DEFAULT_USER_CFG
 #include "ble_user_config.h"
@@ -130,7 +129,7 @@ int main()
   Board_initGeneral();
 
   // Delay for power to stabilize
-  delay_ms(5000);
+  //delay_ms(5000);
 
 #if !defined( POWER_SAVING )
   /* Set constraints for Standby, powerdown and idle mode */

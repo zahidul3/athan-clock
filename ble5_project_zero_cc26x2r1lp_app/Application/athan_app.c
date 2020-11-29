@@ -444,7 +444,7 @@ void IncDateTime(uint8 updateStats)
 void HandleRxMessage(TsAthanPacket* athanPacket)
 {
     switch(athanPacket->dataType){
-    case MSG_LCD_CMD:
+        case MSG_LCD_CMD:
         //Log_info0("MSG_LCD_CMD rx!\n\r");
         TsLCDTouchCmd* lcdCmd = (TsLCDTouchCmd*)&athanPacket->data;
         Log_info1("MSG_LCD_CMD rx! lcd_cmd: %d\n\r", lcdCmd->command);
@@ -461,27 +461,39 @@ void HandleRxMessage(TsAthanPacket* athanPacket)
         default:
             break;
         }
-        //memcpy(lcdCmd, )
         break;
-    case MSG_BUTTON_PRESS:
-        Log_info0("MSG_BUTTON_PRESS rx!\n\r");
-        break;
-    case MSG_DEVICE_RESET:
-        Log_info0("MSG_DEVICE_RESET rx!\n\r");
-        SendCurrentDateTimeToLCD();
-        SendAthanTimes();
-        break;
-    case MSG_CURRENT_TIME:
-        Log_info0("MSG_CURRENT_TIME rx!\n\r");
-        break;
-    case MSG_ATHAN_TIMES:
-        Log_info0("MSG_ATHAN_TIMES rx!\n\r");
-        break;
-    case MSG_ATHAN_ALERT:
-        Log_info0("MSG_ATHAN_ALERT rx!!!\n\r");
-        break;
-    default:
-        break;
+        case MSG_BUTTON_PRESS:
+            TsButtonPress* buttonPressCmd = (TsButtonPress*)&athanPacket->data;
+            switch(buttonPressCmd->button){
+            case RIGHT_KEY:
+                Log_info0("MSG_BUTTON_PRESS rx: RIGHT_KEY!\n\r");
+                SetPlaybackAzanEvent();
+                break;
+            case LEFT_KEY:
+                Log_info0("MSG_BUTTON_PRESS rx: LEFT_KEY!\n\r");
+                SetRecordAzanEvent();
+                break;
+            default:
+                Log_info0("MSG_BUTTON_PRESS rx: UNKNOWN_KEY!\n\r");
+                break;
+            }
+            break;
+            case MSG_DEVICE_RESET:
+                Log_info0("MSG_DEVICE_RESET rx!\n\r");
+                SendCurrentDateTimeToLCD();
+                SendAthanTimes();
+                break;
+            case MSG_CURRENT_TIME:
+                Log_info0("MSG_CURRENT_TIME rx!\n\r");
+                break;
+            case MSG_ATHAN_TIMES:
+                Log_info0("MSG_ATHAN_TIMES rx!\n\r");
+                break;
+            case MSG_ATHAN_ALERT:
+                Log_info0("MSG_ATHAN_ALERT rx!!!\n\r");
+                break;
+            default:
+                break;
     }
 }
 

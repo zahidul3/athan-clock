@@ -49,7 +49,6 @@
 #define PA_TASK_STACK_SIZE                   1024
 #endif
 
-
 #define enqueue(x) Log_info0(x)
 
 // Internal Events for RTOS application
@@ -130,7 +129,6 @@ PWM_Handle pwm1 = NULL;
 PWM_Handle pwm2 = NULL;
 PWM_Params params;
 
-
 GPTimerCC26XX_Handle hTimer;
 
 ADC_Handle   adc;
@@ -141,7 +139,6 @@ uint16_t sampleBufferOne[ADCBUFFERSIZE] = {0};
 uint16_t sampleBuffer2[ADCBUFFERSIZE] = {0};
 
 uint16_t sampleBufferTwo[10] = {0};
-//uint32_t microVoltBuffer[ADCBUFFERSIZE];
 uint32_t buffersCompletedCounter = 0;
 char uartTxBuffer[UARTBUFFERSIZE];
 
@@ -185,14 +182,10 @@ SD_HEADER sdHeader;
 
 extern SDFatFS_Handle sdfatfsHandle;
 
-// State of the buttons
-//static uint8_t button0State = 0;
-//static uint8_t button1State = 0;
-
 PIN_Config savedButtonPinConfig;
 
-static void ProjectAzan_taskFxn(UArg a0,
-                                UArg a1);
+static void ProjectAzan_taskFxn(UArg a0, UArg a1);
+
 void closeReadingFromSD(void)
 {
     readFromSD = 0;
@@ -211,12 +204,6 @@ void readFromFatSDCard(void)
         return;
     }
 
-    if(sdStartReadSector == 0)
-    {
-        Log_error0("sdStartReadSector is 0");
-        return;
-    }
-
     if(bufActive == 1)
     {
         /* Calculate number of sectors taken up by the array by rounding up */
@@ -228,26 +215,17 @@ void readFromFatSDCard(void)
             memset(sampleBufferOne, 0, sizeof(sampleBufferOne));
             result = FatSD_Read(sampleBufferOne, sizeof(sampleBufferOne), sdStartReadSector);
             HwiP_restore(keyReadSD);
-            if (result != SD_STATUS_SUCCESS && sampleBufferOne[0] == 0)
+            if(result != SD_STATUS_SUCCESS)
             {
                 Log_error1("Error reading from the SD card: %d", result);
                 closeReadingFromSD();
-                //while (1);
             }
             else
             {
                 Log_info2("Read array sector:%d size: %d", sdStartReadSector, sectors);
                 sdStartReadSector += sectors;
                 DACoutCnt = 0;
-                if((sdStartReadSector < sdHeader.size))
-                {
-                    readFromSD = 1;
-                }
-                else
-                {
-                    Log_info0("Done reading from SD!");
-                    closeReadingFromSD();
-                }
+                readFromSD = 1;
             }
         }
     }
@@ -266,108 +244,13 @@ void readFromFatSDCard(void)
             {
                 Log_error1("Error reading from the SD card: %d", result);
                 closeReadingFromSD();
-                //while (1);
             }
             else
             {
                 Log_info2("Read array sector:%d size: %d", sdStartReadSector, sectors);
                 sdStartReadSector += sectors;
                 DACoutCnt = 0;
-                if((sdStartReadSector < sdHeader.size))
-                {
-                    readFromSD = 2;
-                }
-                else
-                {
-                    Log_info0("Done reading from SD!\n");
-                    closeReadingFromSD();
-                }
-            }
-        }
-    }
-}
-
-void readFromSDCard(void)
-{
-    uint32_t keyReadSD;
-
-    if(sdHandle == NULL)
-    {
-        Log_error0("sdHandle is 0");
-        return;
-    }
-
-    if(sdStartReadSector == 0)
-    {
-        Log_error0("sdStartReadSector is 0");
-        return;
-    }
-
-    if(bufActive == 1)
-    {
-        /* Calculate number of sectors taken up by the array by rounding up */
-        sectors = (sizeof(sampleBufferOne) + sectorSize - 1) / sectorSize;
-
-        if(sectors > 0)
-        {
-            keyReadSD = HwiP_disable();
-            memset(sampleBufferOne, 0, sizeof(sampleBufferOne));
-            result = SD_read(sdHandle, sampleBufferOne, sdStartReadSector, sectors);
-            HwiP_restore(keyReadSD);
-            if (result > SD_STATUS_SUCCESS && sampleBufferOne[0] == 0)
-            {
-                Log_error1("Error reading from the SD card: %d", result);
-                closeReadingFromSD();
-                //while (1);
-            }
-            else
-            {
-                Log_info2("Read array sector:%d size: %d", sdStartReadSector, sectors);
-                sdStartReadSector += sectors;
-                DACoutCnt = 0;
-                if((sdStartReadSector < sdHeader.size))
-                {
-                    readFromSD = 1;
-                }
-                else
-                {
-                    Log_info0("Done reading from SD!");
-                    closeReadingFromSD();
-                }
-            }
-        }
-    }
-    else if(bufActive == 2)
-    {
-        /* Calculate number of sectors taken up by the array by rounding up */
-        sectors = (sizeof(sampleBuffer2) + sectorSize - 1) / sectorSize;
-
-        if(sectors > 0) //&& sampleBuffer2[0]==0)
-        {
-            keyReadSD = HwiP_disable();
-            memset(sampleBuffer2, 0, sizeof(sampleBuffer2));
-            result = SD_read(sdHandle, sampleBuffer2, sdStartReadSector, sectors);
-            HwiP_restore(keyReadSD);
-            if (result > SD_STATUS_SUCCESS && sampleBuffer2[0] == 0)
-            {
-                Log_error1("Error reading from the SD card: %d", result);
-                closeReadingFromSD();
-                //while (1);
-            }
-            else
-            {
-                Log_info2("Read array sector:%d size: %d", sdStartReadSector, sectors);
-                sdStartReadSector += sectors;
-                DACoutCnt = 0;
-                if((sdStartReadSector < sdHeader.size))
-                {
-                    readFromSD = 2;
-                }
-                else
-                {
-                    Log_info0("Done reading from SD!\n");
-                    closeReadingFromSD();
-                }
+                readFromSD = 2;
             }
         }
     }
@@ -392,8 +275,6 @@ int_fast8_t writetoFatSDCard(void)
     /* Calculate number of sectors taken up by the array by rounding up */
     sectors = (sizeof(sampleBufferOne) + sectorSize - 1) / sectorSize;
 
-#if (WRITEENABLE)
-
     if(bufActiveWrite == 1)
         result = FatSD_Write(sampleBuffer2, sizeof(sampleBuffer2), sdStartWriteSector);
     else if(bufActiveWrite == 2)
@@ -403,7 +284,6 @@ int_fast8_t writetoFatSDCard(void)
     {
         Log_error0("Error writing to the SD card");
         writeToSDDone();
-        //while (1);
     }
     else
     {
@@ -414,8 +294,8 @@ int_fast8_t writetoFatSDCard(void)
         {
             ADCinProgress = 0;
             GPTimerCC26XX_stop(hTimer);
-
-            //FatSD_Close();
+            Log_info0("Stop Recording...closing file");
+            FatSD_Close();
             writeToSDDone();
             PIN_setOutputValue(ledPinHandle, Board_PIN_GLED, 0);
         }
@@ -427,80 +307,6 @@ int_fast8_t writetoFatSDCard(void)
         }
         readFromSD = 0;
     }
-#endif
-
-    return result;
-}
-
-int_fast8_t writetoSDCard(void)
-{
-    if(sdHandle==NULL)
-    {
-        Log_error0("sdHandle is 0");
-        return;
-    }
-    /* Calculate number of sectors taken up by the array by rounding up */
-    sectors = (sizeof(sampleBufferOne) + sectorSize - 1) / sectorSize;
-
-#if (WRITEENABLE)
-
-    if(sdStartWriteSector == 0)
-    {
-        Log_error0("sdStartWriteSector is 0");
-        return;
-    }
-
-    if(bufActiveWrite == 1)
-        result = SD_write(sdHandle, sampleBuffer2, sdStartWriteSector, sectors);
-    else if(bufActiveWrite == 2)
-        result = SD_write(sdHandle, sampleBufferOne, sdStartWriteSector, sectors);
-
-    if (result != SD_STATUS_SUCCESS)
-    {
-        Log_error0("Error writing to the SD card");
-        writeToSDDone();
-        //while (1);
-    }
-    else
-    {
-        Log_info2("Wrote array sector:%d size: %d", sdStartWriteSector, sectors);
-        sdStartWriteSector += sectors;
-
-        if(stopRecording==1 && writeDone==0)
-        {
-            ADCinProgress = 0;
-            GPTimerCC26XX_stop(hTimer);
-
-            sdHeader.structureVersion = STRUCTURE_VERSION;
-            sdHeader.type = SD_DATA_TYPE_AZAN;
-            sdHeader.startingSector = 0x01;
-            sdHeader.size = sdStartWriteSector - sdHeader.startingSector;
-
-            memset(sampleBufferHeader, 0, sizeof(sampleBufferHeader));
-            memcpy(sampleBufferHeader, &sdHeader.structureVersion, sizeof(sdHeader));
-            result = SD_write(sdHandle, sampleBufferHeader, STARTINGSECTOR, 1);
-            if (result == SD_STATUS_SUCCESS)
-            {
-                Log_info2("Azan type wrote:%d size:%d", sdHeader.startingSector, sdHeader.size);
-            }
-            else
-            {
-                Log_error0("Error writing to the SD card");
-                writeToSDDone();
-            }
-
-            PIN_setOutputValue(ledPinHandle, Board_PIN_GLED, 0);
-        }
-
-        if(stopRecording==0)
-        {
-            enqueue("write done!");
-            writeDone = 1;
-        }
-        readFromSD = 0;
-    }
-#endif
-
     return result;
 }
 
@@ -509,6 +315,7 @@ void TurnOffAthanAlarm(void)
     OutputDAC = 0;
 }
 
+// 8 KHz timer for audio recording/playback
 void timerCallback(GPTimerCC26XX_Handle handle, GPTimerCC26XX_IntMask interruptMask) {
     // interrupt callback code goes here. Minimize processing in interrupt.
     //GPIO_toggle(CC26X2R1_LAUNCHXL_GPIO_LED_RED);
@@ -620,7 +427,6 @@ void initTimer(void)
     if(hTimer == NULL) {
         Log_error0("Failed to open GPTimer");
         return;
-        //Task_exit();
     }
 
     Types_FreqHz  freq;
@@ -667,7 +473,6 @@ void initADC(void)
     if (adc == NULL) {
         Log_error0("Error initializing ADC channel 1");
         return;
-        //Task_exit();
     }else
     {
         enqueue("ADC 1 initialized");
@@ -693,7 +498,6 @@ void initDACSPI(void)
     if (masterSpi == NULL) {
         Log_error0("SPI not initialized");
         return;
-        //Task_exit();
     }
     else
     {
@@ -724,71 +528,6 @@ void initFatSD(void)
     if(sdStartReadSector != STARTINGSECTOR)
         Log_error0("sdStartReadSector not zero");
 
-    /*
-    result = FatSD_Read(sampleBufferHeader, sizeof(sampleBufferHeader), sdStartReadSector);
-    if (result != SD_STATUS_SUCCESS) {
-        Log_error0("Error reading from header in SD card");
-        return;
-    }
-    else
-    {
-        Log_info2("Read header array sector:%d size: %d", sdStartReadSector, sectors);
-        memcpy(&sdHeader.structureVersion, sampleBufferHeader, sizeof(sdHeader));
-        sdStartReadSector += sectors;
-        sdStartWriteSector += sectors;
-        if(sdHeader.type == SD_DATA_TYPE_AZAN && sdHeader.structureVersion == STRUCTURE_VERSION && sdHeader.startingSector > 0)
-            Log_info2("Azan type found start:%d size:%d", sdHeader.startingSector, sdHeader.size);
-        else
-            Log_error0("Invalid reading from header in SD card");
-    }
-    */
-}
-
-void initSD(void)
-{
-    SD_init();
-
-    /* Mount and register the SD Card */
-    sdHandle = SD_open(Board_SD0, NULL);
-    if (sdHandle == NULL) {
-        Log_error0("Error starting the SD card");
-        return;
-    }
-
-    result = SD_initialize(sdHandle);
-    if (result != SD_STATUS_SUCCESS) {
-        Log_error0("Error initializing the SD card");
-        return;
-    }
-
-    Log_info0("SD initialized!");
-
-    totalSectors = SD_getNumSectors(sdHandle);
-    sectorSize = SD_getSectorSize(sdHandle);
-    cardCapacity = (totalSectors / BYTESPERKILOBYTE) * sectorSize;
-
-    /* Calculate number of sectors taken up by the array by rounding up */
-    sectors = (sizeof(sampleBufferHeader) + sectorSize - 1) / sectorSize;
-
-    if(sdStartReadSector != 0)
-        Log_error0("sdStartReadSector not zero");
-
-    result = SD_read(sdHandle, sampleBufferHeader, sdStartReadSector, sectors);
-    if (result != SD_STATUS_SUCCESS) {
-        Log_error0("Error reading from header in SD card");
-        return;
-    }
-    else
-    {
-        Log_info2("Read header array sector:%d size: %d", sdStartReadSector, sectors);
-        memcpy(&sdHeader.structureVersion, sampleBufferHeader, sizeof(sdHeader));
-        sdStartReadSector += sectors;
-        sdStartWriteSector += sectors;
-        if(sdHeader.type == SD_DATA_TYPE_AZAN && sdHeader.structureVersion == STRUCTURE_VERSION && sdHeader.startingSector > 0)
-            Log_info2("Azan type found start:%d size:%d", sdHeader.startingSector, sdHeader.size);
-        else
-            Log_error0("Invalid reading from header in SD card");
-    }
 }
 
 /*********************************************************************
@@ -833,11 +572,9 @@ static void ProjectAzan_taskFxn(UArg a0, UArg a1)
     initADC();
     initDACSPI();
     initTimer();
-    //initSD();
+    //FatSD_Test();
     FatSD_Init();
     initFatSD();
-
-    //initTimerADC();
 
     /* Loop forever echoing */
     while (1) {

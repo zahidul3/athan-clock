@@ -13,4 +13,7 @@
 
 void FatSD_Init(void);
 void FatSD_Close(void);
+int FatSD_Read(unsigned short* audioData, unsigned short lenBytes, int sectorIndex);
+int FatSD_Write(unsigned short* audioData, unsigned short lenBytes, int sectorIndex);
+
 #endif /* APPLICATION_FATSD_TEST_H_ */

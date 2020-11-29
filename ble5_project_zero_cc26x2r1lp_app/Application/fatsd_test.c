@@ -29,7 +29,7 @@
 
 /* Buffer size used for the file copy process */
 #ifndef CPY_BUFF_SIZE
-#define CPY_BUFF_SIZE       2048
+#define CPY_BUFF_SIZE       5
 #endif
 
 /* String conversion macro */
@@ -39,8 +39,8 @@
 /* Drive number used for FatFs */
 #define DRIVE_NUM           0
 
-const char inputfile[] = "fat:"STR(DRIVE_NUM)":input.txt";
-const char outputfile[] = "fat:"STR(DRIVE_NUM)":output.txt";
+const char inputfileBin[] = "inputBin.bin";
+const char outputfileBin[] = "outputBin.bin";
 
 const char textarray_fatfs[] = \
 "***********************************************************************\n"
@@ -51,6 +51,9 @@ const char textarray_fatfs[] = \
 "If an inputfile already exists, or if the file was already once\n"
 "generated, then the inputfile will NOT be modified.\n"
 "***********************************************************************\n";
+
+const uint8_t binarray_fatfs[5] = {0x01, 0x02, 0x03, 0x04, 0x05};
+const uint8_t binarray2_fatfs[5] = {0x06, 0x07, 0x08, 0x09, 0x0A};
 
 #define CONFIG_SD_COUNT 1
 #define CONFIG_SD_FATFS_COUNT 1
@@ -66,9 +69,6 @@ const SDFatFS_Config SDFatFS_config[CONFIG_SD_FATFS_COUNT] = {
 
 SDFatFS_Handle sdfatfsHandle;
 
-/* Variables for the CIO functions */
-FILE *src = NULL, *dst = NULL;
-
 /* Variables to keep track of the file copy progress */
 unsigned int bytesRead = 0;
 unsigned int bytesWritten = 0;
@@ -80,27 +80,34 @@ int result;
 
 const uint_least8_t SDFatFS_count = CONFIG_SD_FATFS_COUNT;
 
-/* File name prefix for this filesystem for use with TI C RTS */
-char fatfsPrefix[] = "fat";
+uint8_t cpy_buff[CPY_BUFF_SIZE];
 
-unsigned char cpy_buff[CPY_BUFF_SIZE];
+const char athanBinFile[] = "athanBin.bin";
+const char PreFajrBinFile[] = "PreFajr.bin";
 
-const char athanBinFile[] = "fat:"STR(DRIVE_NUM)":athanBin.bin";
-//const char outputBinFile[] = "fat:"STR(DRIVE_NUM)":outputBin.txt";
+// FatFs Static Variables
+FIL fil, fil2, filAthan;        /* File object */
+char filename[31] = "input.bin";
+char filename2[31] = "output.bin";
+FRESULT rc;
+unsigned int filesize;
+unsigned int fileOpen = false;
 
 int FatSD_Read(unsigned short* audioData, unsigned short lenBytes, int sectorIndex)
 {
     result = SD_STATUS_SUCCESS;
 
     /* Try to open the source file */
-    if(!src)
+    if(filAthan.obj.fs == NULL)
     {
-    src = fopen(athanBinFile, "rb"); //open for reading (The file must exist)
-    if (!src) {
-        Log_error1("Error opening a file \"%s\"...", athanBinFile);
+    Log_error0("Opening file...\n");
+    rc = f_open(&filAthan, athanBinFile, FA_READ); //open for reading (The file must exist)
+    if (rc != FR_OK)
+    {
+        Log_error2("Error opening a file \"%s\" error: %d...", athanBinFile, rc);
 
         //src = fopen(athanBinFile, "rb+"); //open for reading and writing (The file must exist)
-        if (!src) {
+        if (fileOpen == false) {
             Log_error1("Error: \"%s\" could not be created.\n", athanBinFile);
             return SD_STATUS_ERROR;
         }
@@ -109,21 +116,27 @@ int FatSD_Read(unsigned short* audioData, unsigned short lenBytes, int sectorInd
     }
     else
     {
-        Log_info1("Using existing copy of \"%s\"\n", inputfile);
+        Log_info1("Using existing copy of \"%s\"\n", athanBinFile);
     }
     }
 
     if(sectorIndex == STARTINGSECTOR)
     {
         /* Reset the internal file pointer */
-        rewind(src);
+        f_lseek(&filAthan, 0);
     }
 
     /*  Read from source file */
-    bytesRead = fread(audioData, 1, lenBytes, src);
-    if (bytesRead == 0) {
-        return SD_STATUS_ERROR; /* Error or EOF */
+    rc = f_read(&filAthan, audioData, lenBytes, &bytesRead);
+    if(rc != FR_OK || bytesRead == 0)
+    {
+        result = SD_STATUS_ERROR; /* Error or EOF */
     }
+
+    if(bytesRead == 0)
+        Log_warning1("Read %d bytes of data", bytesRead);
+    else
+        Log_info1("Read %d bytes of data", bytesRead);
 
     return result;
 }
@@ -133,14 +146,15 @@ int FatSD_Write(unsigned short* audioData, unsigned short lenBytes, int sectorIn
     result = SD_STATUS_SUCCESS;
 
     /* Try to open the source file */
-    if(!src)
+    if(filAthan.obj.fs == NULL)
     {
-    src = fopen(athanBinFile, "w+"); //open for appending (creates file if it doesn't exist)
-    if (!src) {
-        Log_error1("Error opening a file \"%s\"...", athanBinFile);
+    Log_error0("Opening file...\n");
+    rc = f_open(&filAthan, athanBinFile, FA_READ | FA_WRITE | FA_CREATE_ALWAYS); //open for appending (creates file if it doesn't exist)
+    if (rc != FR_OK) {
+        Log_error2("Error opening a file \"%s\" error: %d...", athanBinFile, rc);
 
-        if (!src) {
-            Log_error1("Error: \"%s\" could not be created.\n", inputfile);
+        if (fileOpen == false) {
+            Log_error1("Error: \"%s\" could not be created.\n", athanBinFile);
             Log_error0("Aborting...\n");
             while (1);
         }
@@ -150,18 +164,23 @@ int FatSD_Write(unsigned short* audioData, unsigned short lenBytes, int sectorIn
     }
     else
     {
-        Log_info1("Using existing copy of \"%s\"\n", inputfile);
+        Log_info1("Using existing copy of \"%s\"\n", athanBinFile);
     }
     }
 
     if(sectorIndex == STARTINGSECTOR)
     {
         /* Reset the internal file pointer */
-        rewind(src);
+        f_lseek(&filAthan, 0);
     }
 
-    bytesWritten = fwrite(audioData, 1, lenBytes, src);
-    fflush(src);
+    rc = f_write(&filAthan, audioData, lenBytes, &bytesWritten);
+    if (rc != FR_OK) {
+        Log_error1("Error: \"%s\" could not be written.\n", filename);
+        Log_error0("Aborting...\n");
+        while (1);
+    }
+    f_sync(&filAthan);
 
     Log_info1("Wrote %d bytes of data", bytesWritten);
 
@@ -171,21 +190,20 @@ int FatSD_Write(unsigned short* audioData, unsigned short lenBytes, int sectorIn
 void FatSD_Close(void)
 {
     /* Close the file */
-    fclose(src);
+    f_close(&filAthan);
+    Log_info1("Closed \"%s\" file", athanBinFile);
+
+    fileOpen = false;
 
     /* Stopping the SDCard */
-    SDFatFS_close(sdfatfsHandle);
-    Log_info1("Drive %u unmounted\n", DRIVE_NUM);
+    //SDFatFS_close(sdfatfsHandle);
+    //Log_info1("Drive %u unmounted\n", DRIVE_NUM);
 }
 
 void FatSD_Init(void)
 {
     /* Call driver init functions */
     SDFatFS_init();
-
-    /* add_device() should be called once and is used for all media types */
-    add_device(fatfsPrefix, _MSA, ffcio_open, ffcio_close, ffcio_read,
-        ffcio_write, ffcio_lseek, ffcio_unlink, ffcio_rename);
 
     Log_info0("Starting the fatsd example\n");
     Log_info0("This example requires a FAT filesystem on the SD card.\n");
@@ -202,12 +220,17 @@ void FatSD_Init(void)
     }
 
     Log_error0("Opening file...\n");
-    src = fopen(athanBinFile, "w+"); //open for appending (creates file if it doesn't exist)
-    if (!src) {
-        Log_error1("Error opening a file \"%s\"...", athanBinFile);
+    uint32_t key;
+    rc = f_open(&filAthan, athanBinFile, FA_READ | FA_WRITE | FA_OPEN_APPEND);
 
-        if (!src) {
-            Log_error1("Error: \"%s\" could not be created.\n", inputfile);
+    filesize = f_size(&filAthan);
+    Log_info1("File size:  %u\n", filesize);
+    if ((rc != FR_OK))// || (filesize==0))
+    {
+        Log_error2("Error opening a file \"%s\" %d...", athanBinFile, rc);
+
+        if (rc != FR_OK) {
+            Log_error1("Error: \"%s\" could not be created.\n", athanBinFile);
             Log_error0("Aborting...\n");
             while (1);
         }
@@ -216,16 +239,15 @@ void FatSD_Init(void)
     }
     else
     {
-        Log_error0("Opening file SUCCESS!!!...\n");
+        fileOpen = true;
+        Log_info0("Opening file SUCCESS!!!...\n");
     }
+
 }
 
 void FatSD_Test(void)
 {
     SDFatFS_Handle sdfatfsHandle;
-
-    /* Variables for the CIO functions */
-    FILE *src, *dst;
 
     /* Variables to keep track of the file copy progress */
     unsigned int bytesRead = 0;
@@ -238,10 +260,6 @@ void FatSD_Test(void)
 
     /* Call driver init functions */
     SDFatFS_init();
-
-    /* add_device() should be called once and is used for all media types */
-    add_device(fatfsPrefix, _MSA, ffcio_open, ffcio_close, ffcio_read,
-        ffcio_write, ffcio_lseek, ffcio_unlink, ffcio_rename);
 
     Log_info0("Starting the fatsd example\n");
     Log_info0("This example requires a FAT filesystem on the SD card.\n");
@@ -258,34 +276,41 @@ void FatSD_Test(void)
     }
 
     /* Try to open the source file */
-    src = fopen(inputfile, "r");
-    if (!src) {
-        Log_info1("Creating a new file \"%s\"...", inputfile);
+    rc = f_open(&fil, filename, FA_READ);
+
+    if ((rc == FR_NO_FILE) || (f_size(&fil)==0))
+    {
+        Log_info1("Creating a new file \"%s\"...", filename);
 
         /* Open file for both reading and writing */
-        src = fopen(inputfile, "w+");
-        if (!src) {
-            Log_error1("Error: \"%s\" could not be created.\n", inputfile);
+        rc = f_open(&fil, filename, FA_READ | FA_WRITE| FA_CREATE_NEW);
+        if (rc != FR_OK) {
+            Log_error1("Error: \"%s\" could not be created.\n", filename);
             Log_error0("Aborting...\n");
             while (1);
         }
 
-        fwrite(textarray_fatfs, 1, strlen(textarray_fatfs), src);
-        fflush(src);
+        rc = f_write(&fil, binarray_fatfs, sizeof(binarray_fatfs), &bytesWritten);
+        if (rc != FR_OK) {
+            Log_error1("Error: \"%s\" could not be written.\n", filename);
+            Log_error0("Aborting...\n");
+            while (1);
+        }
+        f_sync(&fil);
 
         /* Reset the internal file pointer */
-        rewind(src);
+        f_lseek(&fil, 0);
 
         Log_info0("done\n");
     }
     else {
-        Log_info1("Using existing copy of \"%s\"\n", inputfile);
+        Log_info1("Using existing copy of \"%s\"\n", inputfileBin);
     }
 
     /* Create a new file object for the file copy */
-    dst = fopen(outputfile, "w");
-    if (!dst) {
-        Log_error1("Error opening \"%s\"\n", outputfile);
+    rc = f_open(&fil2, filename2, FA_READ | FA_WRITE | FA_OPEN_APPEND);
+    if (rc != FR_OK) {
+        Log_error1("Error opening \"%s\"\n", filename2);
         Log_error0("Aborting...\n");
         while (1);
     }
@@ -293,26 +318,23 @@ void FatSD_Test(void)
         Log_info0("Starting file copy\n");
     }
 
-    /*
-     * Optional call to disable internal buffering. This allows FatFs to use
-     * multi-block writes to increase throughput if applicable. Note that this
-     * may come with a performance penalty for smaller writes.
-     */
-    result = setvbuf(dst, NULL, _IONBF, 0);
-    if (result != 0) {
-        Log_error0("Call to setvbuf failed!");
-    }
-
     /*  Copy the contents from the src to the dst */
     while (true) {
         /*  Read from source file */
-        bytesRead = fread(cpy_buff, 1, CPY_BUFF_SIZE, src);
+        rc = f_read(&fil, cpy_buff, CPY_BUFF_SIZE, &bytesRead);
         if (bytesRead == 0) {
             break; /* Error or EOF */
         }
 
         /*  Write to dst file */
-        bytesWritten = fwrite(cpy_buff, 1, bytesRead, dst);
+        rc = f_write(&fil2, cpy_buff, sizeof(cpy_buff), &bytesWritten);
+        if (bytesWritten < bytesRead) {
+            Log_error0("Disk Full\n");
+            break; /* Error or Disk Full */
+        }
+
+        /*  Write to dst file */
+        rc = f_write(&fil2, binarray2_fatfs, sizeof(binarray2_fatfs), &bytesWritten);
         if (bytesWritten < bytesRead) {
             Log_error0("Disk Full\n");
             break; /* Error or Disk Full */
@@ -322,23 +344,25 @@ void FatSD_Test(void)
         totalBytesCopied += bytesWritten;
     }
 
-    fflush(dst);
+    f_sync(&fil);
 
     /* Get the filesize of the source file */
-    fseek(src, 0, SEEK_END);
-    filesize = ftell(src);
-    rewind(src);
+    filesize = f_size(&fil);
+    f_lseek(&fil, 0);
 
     /* Close both inputfile[] and outputfile[] */
-    fclose(src);
-    fclose(dst);
+    f_close(&fil);
+    f_close(&fil2);
 
-    Log_info4("File \"%s\" (%u B) copied to \"%s\" (Wrote %u B)\n", inputfile, filesize, outputfile, totalBytesCopied);
+    Log_info4("File \"%s\" (%u B) copied to \"%s\" (Wrote %u B)\n", filename, filesize, filename2, totalBytesCopied);
 
     /* Now output the outputfile[] contents onto the console */
-    dst = fopen(outputfile, "r");
-    if (!dst) {
-        Log_error1("Error opening \"%s\"\n", outputfile);
+    //dst = fopen(outputfileBin, "rb");
+    rc = f_open(&fil2, filename2, FA_READ);
+
+    if (rc != FR_OK)
+    {
+        Log_error1("Error opening \"%s\"\n", filename2);
         Log_error0("Aborting...\n");
         while (1);
     }
@@ -346,17 +370,21 @@ void FatSD_Test(void)
     /* Print file contents */
     while (true) {
         /* Read from output file */
-        bytesRead = fread(cpy_buff, 1, CPY_BUFF_SIZE, dst);
+        rc = f_read(&fil2, cpy_buff, CPY_BUFF_SIZE, &bytesRead);
+
         if (bytesRead == 0) {
             break; /* Error or EOF */
         }
-        cpy_buff[bytesRead] = '\0';
+
+        Log_info1("Read %d bytes:", bytesRead);
+
         /* Write output */
-        Log_info1("%s", cpy_buff);
+        for(int x = 0; x < bytesRead; x++)
+            Log_info1("%d", cpy_buff[x]);
     }
 
     /* Close the file */
-    fclose(dst);
+    f_close(&fil2);
 
     /* Stopping the SDCard */
     SDFatFS_close(sdfatfsHandle);

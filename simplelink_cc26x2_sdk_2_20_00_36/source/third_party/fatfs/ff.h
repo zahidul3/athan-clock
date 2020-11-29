@@ -327,13 +327,13 @@ int ff_del_syncobj (FF_SYNC_t sobj);	/* Delete a sync object */
 
 
 /* File access mode and open method flags (3rd argument of f_open) */
-#define	FA_READ				0x01
-#define	FA_WRITE			0x02
-#define	FA_OPEN_EXISTING	0x00
-#define	FA_CREATE_NEW		0x04
-#define	FA_CREATE_ALWAYS	0x08
-#define	FA_OPEN_ALWAYS		0x10
-#define	FA_OPEN_APPEND		0x30
+#define	FA_READ				0x01 //Specifies read access to the object. Data can be read from the file.
+#define	FA_WRITE			0x02 //Specifies write access to the object. Data can be written to the file. Combine with FA_READ for read-write access.
+#define	FA_OPEN_EXISTING	0x00 //Opens the file. The function fails if the file is not existing. (Default)
+#define	FA_CREATE_NEW		0x04 //Creates a new file. The function fails with FR_EXIST if the file is existing.
+#define	FA_CREATE_ALWAYS	0x08 //Creates a new file. If the file is existing, it will be truncated and overwritten.
+#define	FA_OPEN_ALWAYS		0x10 //Opens the file if it is existing. If not, a new file will be created.
+#define	FA_OPEN_APPEND		0x30 //Same as FA_OPEN_ALWAYS except the read/write pointer is set end of the file.
 
 /* Fast seek controls (2nd argument of f_lseek) */
 #define CREATE_LINKMAP	((FSIZE_t)0 - 1)

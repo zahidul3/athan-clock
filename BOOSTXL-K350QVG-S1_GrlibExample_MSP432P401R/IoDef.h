@@ -39,4 +39,6 @@
 #define BUTTON1_PORT        GPIO_PORT_P1
 #define BUTTON1_PIN         GPIO_PIN1
 
+#define BUTTON2_PORT        GPIO_PORT_P1
+#define BUTTON2_PIN         GPIO_PIN4
 #endif /* IODEF_H_ */

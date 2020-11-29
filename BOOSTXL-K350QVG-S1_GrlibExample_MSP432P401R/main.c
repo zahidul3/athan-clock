@@ -222,21 +222,39 @@ void handleRxMessage(TsAthanPacket* athanPacket)
 }
 
 static uint32_t timeStampSec = 0;
-
+uint_fast16_t pendInts;
 void buttonIntHandler(void)
 {
-    GPIO_clearInterruptFlag(BUTTON1_PORT, BUTTON1_PIN);
+    pendInts = GPIO_getEnabledInterruptStatus(BUTTON1_PORT);
 
-    if((GetRunningTime() - timeStampSec) > 2) // 2s debounce
+    if(pendInts & BUTTON1_PIN)
     {
-        timeStampSec = GetRunningTime();
-        //GPIO_disableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
-        printDebugString("Button Pressed!\n\r");
+        GPIO_clearInterruptFlag(BUTTON1_PORT, BUTTON1_PIN);
 
-        TsButtonPress buttonAction;
-        buttonAction.button = LEFT_KEY;
-        buttonAction.pressed = 0x01;
-        SendAthanPacket(MSG_BUTTON_PRESS, &buttonAction, sizeof(TsButtonPress));
+        if((GetRunningTime() - timeStampSec) > 2) // 2s debounce
+        {
+            timeStampSec = GetRunningTime();
+            printDebugString("Left Button Pressed!\n\r");
+            TsButtonPress buttonAction;
+            buttonAction.button = LEFT_KEY;
+            buttonAction.pressed = 0x01;
+            SendAthanPacket(MSG_BUTTON_PRESS, &buttonAction, sizeof(TsButtonPress));
+        }
+    }
+
+    if(pendInts & BUTTON2_PIN)
+    {
+        GPIO_clearInterruptFlag(BUTTON2_PORT, BUTTON2_PIN);
+
+        if((GetRunningTime() - timeStampSec) > 2) // 2s debounce
+        {
+            timeStampSec = GetRunningTime();
+            printDebugString("Right Button Pressed!\n\r");
+            TsButtonPress buttonAction;
+            buttonAction.button = RIGHT_KEY;
+            buttonAction.pressed = 0x01;
+            SendAthanPacket(MSG_BUTTON_PRESS, &buttonAction, sizeof(TsButtonPress));
+        }
     }
 }
 
@@ -297,10 +315,17 @@ void main(void)
 
     //setup S1 Left Button GPIO
     GPIO_setAsInputPinWithPullUpResistor(BUTTON1_PORT, BUTTON1_PIN);
-    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P1, GPIO_PIN1);
+    MAP_GPIO_clearInterruptFlag(BUTTON1_PORT, BUTTON1_PIN);
     GPIO_interruptEdgeSelect(BUTTON1_PORT, BUTTON1_PIN, GPIO_HIGH_TO_LOW_TRANSITION);
     GPIO_registerInterrupt(BUTTON1_PORT, buttonIntHandler);
     GPIO_enableInterrupt(BUTTON1_PORT, BUTTON1_PIN);
+
+    //setup S2 Right Button GPIO
+    GPIO_setAsInputPinWithPullUpResistor(BUTTON2_PORT, BUTTON2_PIN);
+    MAP_GPIO_clearInterruptFlag(BUTTON2_PORT, BUTTON2_PIN);
+    GPIO_interruptEdgeSelect(BUTTON2_PORT, BUTTON2_PIN, GPIO_HIGH_TO_LOW_TRANSITION);
+    GPIO_registerInterrupt(BUTTON2_PORT, buttonIntHandler);
+    GPIO_enableInterrupt(BUTTON2_PORT, BUTTON2_PIN);
 
     MAP_SysTick_setPeriod(12000000);
     MAP_SysTick_enableModule();
