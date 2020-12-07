@@ -14,8 +14,6 @@
 #include <string.h>
 #include <time.h>
 
-#include <third_party/fatfs/ffcio.h>
-
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/SDFatFS.h>
 
