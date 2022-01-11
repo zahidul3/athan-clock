@@ -55,8 +55,7 @@ void touch_initInterface(void)
 {
     /* Initialize the ADC12_A Module. */
 
-    MAP_ADC14_initModule(ADC_CLOCKSOURCE_ADCOSC, ADC_PREDIVIDER_1,
-                         ADC_DIVIDER_1, 0);
+    MAP_ADC14_initModule(ADC_CLOCKSOURCE_ADCOSC, ADC_PREDIVIDER_1, ADC_DIVIDER_1, 0);
     MAP_ADC14_setResolution(ADC_14BIT);
 
     MAP_ADC14_enableSampleTimer(ADC_MANUAL_ITERATION);

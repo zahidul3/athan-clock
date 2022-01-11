@@ -331,8 +331,7 @@ bool isAthanTime(TsDateTime dateTime, TsCurrentTime* athanTimeMatch)
             break;
         }
 
-        if((currentHourStandard == athanHour) && (currentMinStandard == athanMin) && (currentAMPM == athanAMPM) && \
-                currentAthanAlarmEnable.athanAlarm[x] == true)
+        if((currentHourStandard == athanHour) && (currentMinStandard == athanMin) && (currentAMPM == athanAMPM) && (currentAthanAlarmEnable.athanAlarm[x] == true))
         {
             Log_info0("Athan time happened!!!");
             athanTimeMatch->athanType = x;
@@ -431,13 +430,15 @@ void IncDateTime(uint8 updateStats)
       SendAthanTimes();
     }
 
+    // Send current time to LCD
+    SendUART1CurrentTime();
+    SaveCurrentTimeToFlash();
+
     if(isAthanTime(DATE_TIME, &athanTimeMatch)) //check every min if athan should play
     {
         SetPlaybackAzanEvent();
         PostUARTLCDAthanAlert();
     }
-    SendUART1CurrentTime();
-    SaveCurrentTimeToFlash();
   }
 }
 

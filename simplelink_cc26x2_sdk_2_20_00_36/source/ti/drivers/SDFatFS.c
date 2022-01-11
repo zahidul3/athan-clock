@@ -317,7 +317,6 @@ SDFatFS_Handle SDFatFS_open(uint_least8_t idx, uint_least8_t drive)
                 handle = NULL;
             }
             else {
-
                 /* Register FATFS Functions */
                 dresult = disk_register(obj->driveNum,
                     SDFatFS_diskInitialize,

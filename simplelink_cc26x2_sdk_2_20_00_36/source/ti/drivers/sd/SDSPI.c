@@ -130,8 +130,7 @@ void SDSPI_close(SD_Handle handle)
 /*
  *  ======== SDSPI_control ========
  */
-int_fast16_t SDSPI_control(SD_Handle handle, uint_fast16_t cmd,
-    void *arg)
+int_fast16_t SDSPI_control(SD_Handle handle, uint_fast16_t cmd, void *arg)
 {
     return (SD_STATUS_UNDEFINEDCMD);
 }
@@ -581,8 +580,7 @@ static bool recvDataBlock(SPI_Handle handle, void *buf, uint32_t count)
     do {
         status = spiTransfer(handle, &rxBuf, &txBuf, 1);
         currentTime = ClockP_getSystemTicks();
-    } while ((status == SD_STATUS_SUCCESS) && (rxBuf[0] == 0xFF) &&
-        (currentTime - startTime) < timeout);
+    } while ((status == SD_STATUS_SUCCESS) && (rxBuf[0] == 0xFF) && (currentTime - startTime) < timeout);
 
     if (rxBuf[0] != START_BLOCK_TOKEN) {
         /* Return error if valid data token was not received */

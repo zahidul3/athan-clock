@@ -42,9 +42,6 @@
 
 static diskio_fxns drive_fxn_table[FF_VOLUMES] = {
     {NULL, NULL, NULL, NULL, NULL},
-    {NULL, NULL, NULL, NULL, NULL},
-    {NULL, NULL, NULL, NULL, NULL},
-    {NULL, NULL, NULL, NULL, NULL}
 };
 
 extern int32_t fatfs_getFatTime(void);
